@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.deepinspire.gmatclub.feedback.FeedbackActivity"
+    tools:showIn="@layout/activity_feedback"
+    android:padding="20dp"
+    android:orientation="vertical"
+    android:background="@color/mainBackgroundFeedback"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    >
+    <TextView
+        android:id="@+id/btnProfileTitle"
+        style="@style/alert_subTitle"
+        android:text="App Feedback"
+        android:textAllCaps="true"
+        android:fontFamily="@font/opensans_bold"
+        />
+
+    <EditText
+        android:inputType="textMultiLine"
+        android:background="@drawable/alert_dialog_background_shape"
+        android:hint="Write something..."
+        android:lines="8"
+        android:minLines="6"
+        android:maxLines="10"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:scrollbars="vertical"
+        android:gravity="left"
+        android:padding="10dp"
+        android:layout_marginBottom="20dp"
+        />
+
+    <LinearLayout
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:gravity="right"
+        >
+        <Button
+            android:id="@+id/btnSendEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:shadowColor="@color/mainOrange"
+            android:textColor="@color/white"
+            android:text="Send"
+            android:textAllCaps="true"
+            android:fontFamily="@font/opensans_semibold"
+            android:textSize="16sp"
+            android:backgroundTint="@color/mainOrange"
+            android:background="@color/mainOrange"
+            />
+    </LinearLayout>
+
+</LinearLayout>

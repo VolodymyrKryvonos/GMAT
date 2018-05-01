@@ -1,0 +1,229 @@
+# Referenced at /home/dmytro/projects/gmatclub/android/app/src/main/res/layout/content_facebook.xml:2
+-keep class android.support.constraint.ConstraintLayout { <init>(...); }
+
+# Referenced at /root/.gradle/caches/transforms-1/files-1.1/design-27.0.2.aar/2d8b403f0544cadd4078e782e5fbc42f/res/layout/design_bottom_navigation_item.xml:26
+-keep class android.support.design.internal.BaselineLayout { <init>(...); }
+
+# Referenced at /root/.gradle/caches/transforms-1/files-1.1/design-27.0.2.aar/2d8b403f0544cadd4078e782e5fbc42f/res/layout/design_navigation_item.xml:17
+-keep class android.support.design.internal.NavigationMenuItemView { <init>(...); }
+
+# Referenced at /root/.gradle/caches/transforms-1/files-1.1/design-27.0.2.aar/2d8b403f0544cadd4078e782e5fbc42f/res/layout/design_navigation_menu.xml:17
+-keep class android.support.design.internal.NavigationMenuView { <init>(...); }
+
+# Referenced at /root/.gradle/caches/transforms-1/files-1.1/design-27.0.2.aar/2d8b403f0544cadd4078e782e5fbc42f/res/layout/design_layout_snackbar_include.xml:18
+-keep class android.support.design.internal.SnackbarContentLayout { <init>(...); }
+
+# Referenced at /home/dmytro/projects/gmatclub/android/app/src/main/res/layout/activity_facebook.xml:9
+# Referenced at /home/dmytro/projects/gmatclub/android/app/src/main/res/layout/toolbar.xml:3
+-keep class android.support.design.widget.AppBarLayout { <init>(...); }
+
+# Referenced at /root/.gradle/caches/transforms-1/files-1.1/design-27.0.2.aar/2d8b403f0544cadd4078e782e5fbc42f/res/layout/design_text_input_password_icon.xml:18
+-keep class android.support.design.widget.CheckableImageButton { <init>(...); }
+
+# Referenced at /home/dmytro/projects/gmatclub/android/app/src/main/res/layout/activity_auth.xml:2
+# Referenced at /home/dmytro/projects/gmatclub/android/app/src/main/res/layout/activity_facebook.xml:2
+# Referenced at /home/dmytro/projects/gmatclub/android/app/src/main/res/layout/activity_feedback.xml:20
+# Referenced at /home/dmytro/projects/gmatclub/android/app/src/main/res/layout/activity_splash.xml:2
+# Referenced at /home/dmytro/projects/gmatclub/android/app/src/main/res/layout/activity_web.xml:27
+# Referenced at /home/dmytro/projects/gmatclub/android/app/src/main/res/layout/content_web.xml:2
+# Referenced at /root/.gradle/caches/transforms-1/files-1.1/design-27.0.2.aar/2d8b403f0544cadd4078e782e5fbc42f/res/layout/design_bottom_sheet_dialog.xml:26
+-keep class android.support.design.widget.CoordinatorLayout { <init>(...); }
+
+# Referenced at /home/dmytro/projects/gmatclub/android/app/src/main/res/layout/activity_feedback.xml:28
+-keep class android.support.design.widget.FloatingActionButton { <init>(...); }
+
+# Referenced at /home/dmytro/projects/gmatclub/android/app/src/main/res/layout/navigation_view.xml:2
+-keep class android.support.design.widget.NavigationView { <init>(...); }
+
+# Referenced at /root/.gradle/caches/transforms-1/files-1.1/design-27.0.2.aar/2d8b403f0544cadd4078e782e5fbc42f/res/layout-sw600dp-v13/design_layout_snackbar.xml:18
+# Referenced at /root/.gradle/caches/transforms-1/files-1.1/design-27.0.2.aar/2d8b403f0544cadd4078e782e5fbc42f/res/layout/design_layout_snackbar.xml:18
+-keep class android.support.design.widget.Snackbar$SnackbarLayout { <init>(...); }
+
+# Referenced at /home/dmytro/projects/gmatclub/android/app/src/main/res/layout/activity_feedback.xml:3
+# Referenced at /home/dmytro/projects/gmatclub/android/app/src/main/res/layout/activity_web.xml:15
+-keep class android.support.v4.widget.DrawerLayout { <init>(...); }
+
+# Referenced at /root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.2.aar/5e2d1cf2ce96489c0b3900810072c6f4/res/layout/abc_alert_dialog_material.xml:41
+-keep class android.support.v4.widget.NestedScrollView { <init>(...); }
+
+# Referenced at /root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.2.aar/5e2d1cf2ce96489c0b3900810072c6f4/res/layout/abc_alert_dialog_button_bar_material.xml:43
+# Referenced at /root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.2.aar/5e2d1cf2ce96489c0b3900810072c6f4/res/layout/abc_alert_dialog_material.xml:52
+# Referenced at /root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.2.aar/5e2d1cf2ce96489c0b3900810072c6f4/res/layout/abc_alert_dialog_material.xml:66
+# Referenced at /root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.2.aar/5e2d1cf2ce96489c0b3900810072c6f4/res/layout/abc_alert_dialog_title_material.xml:56
+-keep class android.support.v4.widget.Space { <init>(...); }
+
+# Referenced at /home/dmytro/projects/gmatclub/android/app/src/main/res/layout/content_web.xml:74
+-keep class android.support.v4.widget.SwipeRefreshLayout { <init>(...); }
+
+# Referenced at /root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.2.aar/5e2d1cf2ce96489c0b3900810072c6f4/res/layout/abc_select_dialog_material.xml:23
+-keep class android.support.v7.app.AlertController$RecycleListView { <init>(...); }
+
+# Referenced at /root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.2.aar/5e2d1cf2ce96489c0b3900810072c6f4/res/layout/abc_action_menu_item_layout.xml:17
+-keep class android.support.v7.view.menu.ActionMenuItemView { <init>(...); }
+
+# Referenced at /root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.2.aar/5e2d1cf2ce96489c0b3900810072c6f4/res/layout/abc_expanded_menu_layout.xml:17
+-keep class android.support.v7.view.menu.ExpandedMenuView { <init>(...); }
+
+# Referenced at /root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.2.aar/5e2d1cf2ce96489c0b3900810072c6f4/res/layout/abc_list_menu_item_layout.xml:17
+# Referenced at /root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.2.aar/5e2d1cf2ce96489c0b3900810072c6f4/res/layout/abc_popup_menu_item_layout.xml:17
+-keep class android.support.v7.view.menu.ListMenuItemView { <init>(...); }
+
+# Referenced at /root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.2.aar/5e2d1cf2ce96489c0b3900810072c6f4/res/layout-v26/abc_screen_toolbar.xml:27
+# Referenced at /root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.2.aar/5e2d1cf2ce96489c0b3900810072c6f4/res/layout/abc_screen_toolbar.xml:27
+-keep class android.support.v7.widget.ActionBarContainer { <init>(...); }
+
+# Referenced at /root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.2.aar/5e2d1cf2ce96489c0b3900810072c6f4/res/layout-v26/abc_screen_toolbar.xml:44
+# Referenced at /root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.2.aar/5e2d1cf2ce96489c0b3900810072c6f4/res/layout/abc_action_mode_bar.xml:19
+# Referenced at /root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.2.aar/5e2d1cf2ce96489c0b3900810072c6f4/res/layout/abc_screen_toolbar.xml:43
+-keep class android.support.v7.widget.ActionBarContextView { <init>(...); }
+
+# Referenced at /root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.2.aar/5e2d1cf2ce96489c0b3900810072c6f4/res/layout-v26/abc_screen_toolbar.xml:17
+# Referenced at /root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.2.aar/5e2d1cf2ce96489c0b3900810072c6f4/res/layout/abc_screen_toolbar.xml:17
+-keep class android.support.v7.widget.ActionBarOverlayLayout { <init>(...); }
+
+# Referenced at /root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.2.aar/5e2d1cf2ce96489c0b3900810072c6f4/res/layout/abc_action_menu_layout.xml:17
+-keep class android.support.v7.widget.ActionMenuView { <init>(...); }
+
+# Referenced at /root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.2.aar/5e2d1cf2ce96489c0b3900810072c6f4/res/layout/abc_activity_chooser_view.xml:19
+-keep class android.support.v7.widget.ActivityChooserView$InnerLayout { <init>(...); }
+
+# Referenced at /root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.2.aar/5e2d1cf2ce96489c0b3900810072c6f4/res/layout/abc_alert_dialog_material.xml:18
+-keep class android.support.v7.widget.AlertDialogLayout { <init>(...); }
+
+# Referenced at /root/.gradle/caches/transforms-1/files-1.1/facebook-common-4.32.0.aar/2bdf31f5ce862063f7f8df6053b23c6b/res/layout/com_facebook_device_auth_dialog_fragment.xml:45
+# Referenced at /root/.gradle/caches/transforms-1/files-1.1/facebook-common-4.32.0.aar/2bdf31f5ce862063f7f8df6053b23c6b/res/layout/com_facebook_smart_device_dialog_fragment.xml:47
+-keep class android.support.v7.widget.AppCompatImageView { <init>(...); }
+
+# Referenced at /root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.2.aar/5e2d1cf2ce96489c0b3900810072c6f4/res/layout/abc_alert_dialog_button_bar_material.xml:26
+-keep class android.support.v7.widget.ButtonBarLayout { <init>(...); }
+
+# Referenced at /root/.gradle/caches/transforms-1/files-1.1/facebook-common-4.32.0.aar/2bdf31f5ce862063f7f8df6053b23c6b/res/layout/com_facebook_device_auth_dialog_fragment.xml:22
+# Referenced at /root/.gradle/caches/transforms-1/files-1.1/facebook-common-4.32.0.aar/2bdf31f5ce862063f7f8df6053b23c6b/res/layout/com_facebook_smart_device_dialog_fragment.xml:22
+-keep class android.support.v7.widget.CardView { <init>(...); }
+
+# Referenced at /root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.2.aar/5e2d1cf2ce96489c0b3900810072c6f4/res/layout/abc_screen_content_include.xml:19
+-keep class android.support.v7.widget.ContentFrameLayout { <init>(...); }
+
+# Referenced at /root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.2.aar/5e2d1cf2ce96489c0b3900810072c6f4/res/layout/abc_alert_dialog_title_material.xml:45
+-keep class android.support.v7.widget.DialogTitle { <init>(...); }
+
+# Referenced at /root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.2.aar/5e2d1cf2ce96489c0b3900810072c6f4/res/layout/abc_screen_simple_overlay_action_mode.xml:23
+-keep class android.support.v7.widget.FitWindowsFrameLayout { <init>(...); }
+
+# Referenced at /root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.2.aar/5e2d1cf2ce96489c0b3900810072c6f4/res/layout/abc_dialog_title_material.xml:22
+# Referenced at /root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.2.aar/5e2d1cf2ce96489c0b3900810072c6f4/res/layout/abc_screen_simple.xml:17
+-keep class android.support.v7.widget.FitWindowsLinearLayout { <init>(...); }
+
+# Referenced at /home/dmytro/projects/gmatclub/android/app/src/main/res/layout/toolbar.xml:72
+-keep class android.support.v7.widget.SearchView { <init>(...); }
+
+# Referenced at /root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.2.aar/5e2d1cf2ce96489c0b3900810072c6f4/res/layout/abc_search_view.xml:75
+-keep class android.support.v7.widget.SearchView$SearchAutoComplete { <init>(...); }
+
+# Referenced at /home/dmytro/projects/gmatclub/android/app/src/main/res/layout/activity_facebook.xml:14
+# Referenced at /home/dmytro/projects/gmatclub/android/app/src/main/res/layout/toolbar.xml:13
+# Referenced at /root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.2.aar/5e2d1cf2ce96489c0b3900810072c6f4/res/layout-v26/abc_screen_toolbar.xml:37
+# Referenced at /root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.2.aar/5e2d1cf2ce96489c0b3900810072c6f4/res/layout/abc_screen_toolbar.xml:36
+-keep class android.support.v7.widget.Toolbar { <init>(...); }
+
+# Referenced at /root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.2.aar/5e2d1cf2ce96489c0b3900810072c6f4/res/layout/abc_screen_simple.xml:25
+# Referenced at /root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.2.aar/5e2d1cf2ce96489c0b3900810072c6f4/res/layout/abc_screen_simple_overlay_action_mode.xml:32
+-keep class android.support.v7.widget.ViewStubCompat { <init>(...); }
+
+# Referenced at /home/dmytro/projects/gmatclub/android/app/build/intermediates/manifests/full/gmatclub/release/AndroidManifest.xml:27
+-keep class com.deepinspire.gmatclub.Application { <init>(...); }
+
+# Referenced at /home/dmytro/projects/gmatclub/android/app/build/intermediates/manifests/full/gmatclub/release/AndroidManifest.xml:88
+-keep class com.deepinspire.gmatclub.auth.AuthActivity { <init>(...); }
+
+# Referenced at /home/dmytro/projects/gmatclub/android/app/build/intermediates/manifests/full/gmatclub/release/AndroidManifest.xml:94
+-keep class com.deepinspire.gmatclub.auth.FacebookActivity { <init>(...); }
+
+# Referenced at /home/dmytro/projects/gmatclub/android/app/build/intermediates/manifests/full/gmatclub/release/AndroidManifest.xml:108
+-keep class com.deepinspire.gmatclub.notifications.GCFirebaseInstanceIDService { <init>(...); }
+
+# Referenced at /home/dmytro/projects/gmatclub/android/app/build/intermediates/manifests/full/gmatclub/release/AndroidManifest.xml:100
+-keep class com.deepinspire.gmatclub.notifications.GCFirebaseMessagingService { <init>(...); }
+
+# Referenced at /home/dmytro/projects/gmatclub/android/app/build/intermediates/manifests/full/gmatclub/release/AndroidManifest.xml:65
+-keep class com.deepinspire.gmatclub.splash.SplashActivity { <init>(...); }
+
+# Referenced at /home/dmytro/projects/gmatclub/android/app/src/main/res/layout/content_web.xml:80
+-keep class com.deepinspire.gmatclub.utils.GCWebView { <init>(...); }
+
+# Referenced at /home/dmytro/projects/gmatclub/android/app/build/intermediates/manifests/full/gmatclub/release/AndroidManifest.xml:77
+-keep class com.deepinspire.gmatclub.web.WebActivity { <init>(...); }
+
+# Referenced at /home/dmytro/projects/gmatclub/android/app/build/intermediates/manifests/full/gmatclub/release/AndroidManifest.xml:53
+-keep class com.facebook.CustomTabActivity { <init>(...); }
+
+# Referenced at /home/dmytro/projects/gmatclub/android/app/build/intermediates/manifests/full/gmatclub/release/AndroidManifest.xml:142
+-keep class com.facebook.CustomTabMainActivity { <init>(...); }
+
+# Referenced at /home/dmytro/projects/gmatclub/android/app/build/intermediates/manifests/full/gmatclub/release/AndroidManifest.xml:48
+-keep class com.facebook.FacebookActivity { <init>(...); }
+
+# Referenced at /home/dmytro/projects/gmatclub/android/app/build/intermediates/manifests/full/gmatclub/release/AndroidManifest.xml:226
+-keep class com.facebook.internal.FacebookInitProvider { <init>(...); }
+
+# Referenced at /home/dmytro/projects/gmatclub/android/app/src/main/res/layout/content_facebook.xml:12
+-keep class com.facebook.login.widget.LoginButton { <init>(...); }
+
+# Referenced at /home/dmytro/projects/gmatclub/android/app/build/intermediates/manifests/full/gmatclub/release/AndroidManifest.xml:147
+-keep class com.firebase.jobdispatcher.GooglePlayReceiver { <init>(...); }
+
+# Referenced at /home/dmytro/projects/gmatclub/android/app/src/main/res/layout/activity_web.xml:65
+# Referenced at /home/dmytro/projects/gmatclub/android/app/src/main/res/layout/activity_web.xml:78
+# Referenced at /home/dmytro/projects/gmatclub/android/app/src/main/res/layout/activity_web.xml:90
+# Referenced at /home/dmytro/projects/gmatclub/android/app/src/main/res/layout/activity_web.xml:102
+-keep class com.github.clans.fab.FloatingActionButton { <init>(...); }
+
+# Referenced at /home/dmytro/projects/gmatclub/android/app/src/main/res/layout/activity_web.xml:46
+-keep class com.github.clans.fab.FloatingActionMenu { <init>(...); }
+
+# Referenced at /home/dmytro/projects/gmatclub/android/app/build/intermediates/manifests/full/gmatclub/release/AndroidManifest.xml:126
+-keep class com.google.android.gms.auth.api.signin.RevocationBoundService { <init>(...); }
+
+# Referenced at /home/dmytro/projects/gmatclub/android/app/build/intermediates/manifests/full/gmatclub/release/AndroidManifest.xml:117
+-keep class com.google.android.gms.auth.api.signin.internal.SignInHubActivity { <init>(...); }
+
+# Referenced at /home/dmytro/projects/gmatclub/android/app/build/intermediates/manifests/full/gmatclub/release/AndroidManifest.xml:156
+-keep class com.google.android.gms.common.api.GoogleApiActivity { <init>(...); }
+
+# Referenced at /home/dmytro/projects/gmatclub/android/app/build/intermediates/manifests/full/gmatclub/release/AndroidManifest.xml:166
+-keep class com.google.android.gms.measurement.AppMeasurementInstallReferrerReceiver { <init>(...); }
+
+# Referenced at /home/dmytro/projects/gmatclub/android/app/build/intermediates/manifests/full/gmatclub/release/AndroidManifest.xml:180
+-keep class com.google.android.gms.measurement.AppMeasurementJobService { <init>(...); }
+
+# Referenced at /home/dmytro/projects/gmatclub/android/app/build/intermediates/manifests/full/gmatclub/release/AndroidManifest.xml:161
+-keep class com.google.android.gms.measurement.AppMeasurementReceiver { <init>(...); }
+
+# Referenced at /home/dmytro/projects/gmatclub/android/app/build/intermediates/manifests/full/gmatclub/release/AndroidManifest.xml:176
+-keep class com.google.android.gms.measurement.AppMeasurementService { <init>(...); }
+
+# Referenced at /home/dmytro/projects/gmatclub/android/app/build/intermediates/manifests/full/gmatclub/release/AndroidManifest.xml:186
+-keep class com.google.firebase.iid.FirebaseInstanceIdReceiver { <init>(...); }
+
+# Referenced at /home/dmytro/projects/gmatclub/android/app/build/intermediates/manifests/full/gmatclub/release/AndroidManifest.xml:200
+-keep class com.google.firebase.iid.FirebaseInstanceIdService { <init>(...); }
+
+# Referenced at /home/dmytro/projects/gmatclub/android/app/build/intermediates/manifests/full/gmatclub/release/AndroidManifest.xml:134
+-keep class com.google.firebase.messaging.FirebaseMessagingService { <init>(...); }
+
+# Referenced at /home/dmytro/projects/gmatclub/android/app/build/intermediates/manifests/full/gmatclub/release/AndroidManifest.xml:208
+-keep class com.google.firebase.provider.FirebaseInitProvider { <init>(...); }
+
+# Referenced at /home/dmytro/projects/gmatclub/android/app/src/main/res/layout/navigation_view.xml:25
+# Referenced at /home/dmytro/projects/gmatclub/android/app/src/main/res/layout/navigation_view.xml:34
+# Referenced at /home/dmytro/projects/gmatclub/android/app/src/main/res/layout/navigation_view.xml:70
+# Referenced at /home/dmytro/projects/gmatclub/android/app/src/main/res/layout/navigation_view.xml:107
+# Referenced at /home/dmytro/projects/gmatclub/android/app/src/main/res/layout/navigation_view.xml:114
+# Referenced at /home/dmytro/projects/gmatclub/android/app/src/main/res/layout/navigation_view.xml:121
+# Referenced at /home/dmytro/projects/gmatclub/android/app/src/main/res/layout/navigation_view.xml:128
+# Referenced at /home/dmytro/projects/gmatclub/android/app/src/main/res/layout/navigation_view.xml:135
+# Referenced at /home/dmytro/projects/gmatclub/android/app/src/main/res/layout/navigation_view.xml:142
+# Referenced at /home/dmytro/projects/gmatclub/android/app/src/main/res/layout/navigation_view.xml:149
+# Referenced at /home/dmytro/projects/gmatclub/android/app/src/main/res/layout/navigation_view.xml:156
+-keepclassmembers class * { *** goByMenu(...); }
+

@@ -1,0 +1,15 @@
+#Internal package file, do not edit.
+#Tue May 01 09:44:36 EEST 2018
+1.base=/home/dmytro/projects/gmatclub/mobile/android/gmatclub/app/build/intermediates/transforms/dexMerger/gmatclub/debug/3
+2.path=opensans_semibold.ttf
+0.baseType=DIRECTORY
+2.base=/home/dmytro/projects/gmatclub/mobile/android/gmatclub/app/build/intermediates/assets/gmatclub/debug
+2.set=ASSET
+1.baseType=DIRECTORY
+count=3
+1.set=DEX
+0.path=classes2.dex
+0.set=DEX
+0.base=/home/dmytro/projects/gmatclub/mobile/android/gmatclub/app/build/intermediates/transforms/dexMerger/gmatclub/debug/3
+2.baseType=DIRECTORY
+1.path=classes.dex

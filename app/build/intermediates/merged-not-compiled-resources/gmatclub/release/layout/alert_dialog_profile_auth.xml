@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="25dp"
+    android:background="@drawable/alert_dialog_background_shape">
+
+   <ScrollView
+       android:layout_width="match_parent"
+       android:layout_height="0dp"
+       android:layout_weight="1">
+
+       <RelativeLayout
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:gravity="left">
+
+           <TextView
+               android:id="@+id/btnProfileTitle"
+               style="@style/alert_subTitle"
+               android:layout_width="wrap_content"
+               android:fontFamily="@font/opensans_bold"
+               android:text="Profile"
+               android:textAllCaps="true" />
+
+           <LinearLayout
+               android:layout_width="match_parent"
+               android:layout_height="match_parent"
+               android:layout_below="@+id/btnProfileTitle"
+               android:layout_marginLeft="5dp"
+               android:layout_marginTop="25dp"
+               android:orientation="vertical">
+
+               <TextView
+                   android:id="@+id/btnProfile"
+                   style="@style/alert_subTitle"
+                   android:textColor="#666666"
+                   android:fontFamily="@font/opensans_regular"
+                   android:fontStyle="normal"
+                   android:text="My Profile" />
+
+               <TextView
+                   android:id="@+id/btnMyPosts"
+                   style="@style/alert_subTitle"
+                   android:layout_marginTop="25dp"
+                   android:textColor="#666666"
+                   android:text="My posts" />
+
+               <TextView
+                   android:id="@+id/btnMyBookmarks"
+                   style="@style/alert_subTitle"
+                   android:layout_marginTop="25dp"
+                   android:textColor="#666666"
+                   android:text="My bookmarks" />
+
+               <View
+                   android:id="@+id/splitLine"
+                   android:layout_width="match_parent"
+                   android:layout_height="1dp"
+                   android:layout_marginTop="25dp"
+                   android:textColor="#666666"
+                   android:background="@color/mainBorder" />
+
+               <LinearLayout
+                   android:id="@+id/btnSettingsLayout"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:layout_marginTop="25dp"
+                   android:gravity="center">
+
+                   <ImageView
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:src="@drawable/ic_settings"
+                       android:tint="@color/mainOrange" />
+
+                   <TextView
+                       style="@style/alert_subTitle"
+                       android:layout_marginBottom="0dp"
+                       android:layout_marginLeft="10dp"
+                       android:textColor="#666666"
+                       android:text="Settings" />
+               </LinearLayout>
+
+               <LinearLayout
+                   android:id="@+id/btnLogoutLayout"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:layout_marginTop="25dp"
+                   android:gravity="center">
+
+                   <ImageView
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:src="@drawable/ic_logout"
+                       android:tint="@color/mainOrange" />
+
+                   <TextView
+                       style="@style/alert_subTitle"
+                       android:layout_marginBottom="0dp"
+                       android:layout_marginLeft="10dp"
+                       android:textColor="#666666"
+                       android:text="Logout" />
+               </LinearLayout>
+
+           </LinearLayout>
+
+       </RelativeLayout>
+
+   </ScrollView>
+</LinearLayout>

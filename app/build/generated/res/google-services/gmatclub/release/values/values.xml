@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="default_web_client_id" translatable="false">789008364480-jr2io8r51h0eegmdvuu0bv1abt6bpppt.apps.googleusercontent.com</string>
+    <string name="firebase_database_url" translatable="false">https://gmatclub-forum.firebaseio.com</string>
+    <string name="gcm_defaultSenderId" translatable="false">789008364480</string>
+    <string name="google_api_key" translatable="false">AIzaSyAhzNeSWIAL3nbfkFW0nQHnZKTAbA1yxnc</string>
+    <string name="google_app_id" translatable="false">1:789008364480:android:fcc5df074a7eed18</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyAhzNeSWIAL3nbfkFW0nQHnZKTAbA1yxnc</string>
+    <string name="google_storage_bucket" translatable="false">gmatclub-forum.appspot.com</string>
+    <string name="project_id" translatable="false">gmatclub-forum</string>
+</resources>

@@ -1,0 +1,11 @@
+#Internal package file, do not edit.
+#Tue May 01 11:51:18 EEST 2018
+1.base=/home/dmytro/projects/gmatclub/android/app/build/intermediates/assets/gmatclub/release
+0.baseType=DIRECTORY
+1.baseType=DIRECTORY
+count=2
+1.set=ASSET
+0.path=classes.dex
+0.set=DEX
+0.base=/home/dmytro/projects/gmatclub/android/app/build/intermediates/transforms/dex/gmatclub/release/0
+1.path=opensans_semibold.ttf
