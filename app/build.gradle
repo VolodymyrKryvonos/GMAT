@@ -1,0 +1,139 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
+
+    packagingOptions {}
+
+    aaptOptions {
+        cruncherEnabled = false
+    }
+
+    signingConfigs {
+        debug {
+            storeFile file('/home/dmytro/projects/gmatclub/mobile/android/gmatclub/keystore/key.jks')
+            storePassword '%YAz4qxfuLra-e^U=Z6$'
+            keyAlias 'gmatclub'
+            keyPassword '@RycS=x84qMACs5Xe$Eb'
+        }
+        beta {
+            storeFile file('/home/dmytro/projects/gmatclub/mobile/android/gmatclub/keystore/key.jks')
+            storePassword '%YAz4qxfuLra-e^U=Z6$'
+            keyAlias 'gmatclub'
+            keyPassword '@RycS=x84qMACs5Xe$Eb'
+        }
+        demo {
+            storeFile file('/home/dmytro/projects/gmatclub/mobile/android/gmatclub/keystore/key.jks')
+            storePassword '%YAz4qxfuLra-e^U=Z6$'
+            keyAlias 'gmatclub'
+            keyPassword '@RycS=x84qMACs5Xe$Eb'
+        }
+        release {
+            storeFile file('/home/dmytro/projects/gmatclub/mobile/android/gmatclub/keystore/key.jks')
+            storePassword '%YAz4qxfuLra-e^U=Z6$'
+            keyAlias 'gmatclub'
+            keyPassword '@RycS=x84qMACs5Xe$Eb'
+        }
+    }
+
+    defaultConfig {
+        applicationId "com.deepinspire.gmatclub"
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode rootProject.ext.versionCode
+        versionName rootProject.ext.versionName
+        multiDexEnabled true
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        signingConfig signingConfigs.debug
+    }
+
+    buildTypes {
+        debug {
+            signingConfig signingConfigs.debug
+            versionNameSuffix "-debug"
+        }
+        beta {
+            signingConfig signingConfigs.release
+        }
+        demo {
+            signingConfig signingConfigs.demo
+            versionNameSuffix "-demo"
+        }
+        release {
+            signingConfig signingConfigs.release
+            minifyEnabled true
+            useProguard true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    flavorDimensions "mode"
+
+    productFlavors {
+        gmatclub {
+            dimension "mode"
+        }
+    }
+
+    variantFilter { variant ->
+        def names = variant.flavors*.name
+        if (names.contains("minApi21") && names.contains("demo")) {
+            setIgnore(true)
+        }
+    }
+
+    sourceSets {
+        debug {
+            res {
+                srcDir 'src/debug/res'
+            }
+            java {
+                srcDir 'src/debug/java'
+            }
+        }
+
+        beta {
+            res.srcDir 'src/beta/res'
+            java.srcDir 'src/beta/java'
+        }
+
+        demo {
+            res.srcDir 'src/demo/res'
+            java.srcDir 'src/demo/java'
+        }
+
+        release {
+            res {
+                srcDir 'src/release/res'
+            }
+            java {
+                srcDir 'src/release/java'
+            }
+        }
+    }
+
+    buildToolsVersion rootProject.ext.buildToolsVersion
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'com.android.support:appcompat-v7:' + rootProject.ext.buildToolsVersion
+    implementation 'com.android.support.constraint:constraint-layout:1.1.0'
+    implementation 'com.android.support:design:' + rootProject.ext.buildToolsVersion
+    compile 'com.squareup.okhttp3:okhttp:3.10.0'
+    compile 'com.squareup.retrofit2:retrofit:2.3.0'
+    compile 'com.squareup.retrofit2:converter-gson:2.0.2'
+    implementation 'com.facebook.android:facebook-android-sdk:[4,5)'
+    compile 'com.google.android.gms:play-services-auth:15.0.0'
+    compile 'com.sun.mail:android-mail:1.6.0'
+    compile 'com.sun.mail:android-activation:1.6.0'
+    compile 'com.github.clans:fab:1.6.4'
+    compile 'com.android.support:multidex:1.0.3'
+    compile 'com.google.firebase:firebase-messaging:15.0.0'
+    compile 'com.google.firebase:firebase-core:15.0.0'
+    implementation 'com.firebase:firebase-jobdispatcher:0.8.5'
+}
+
+apply plugin: 'com.google.gms.google-services'
