@@ -34,6 +34,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewTreeObserver;
 import android.webkit.CookieManager;
 import android.webkit.HttpAuthHandler;
 import android.webkit.JavascriptInterface;
@@ -129,6 +130,8 @@ public class WebActivity extends AppCompatActivity implements
 
     private CallbackManager callbackManager;
 
+    private ViewTreeObserver.OnScrollChangedListener mOnScrollChangedListener;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -151,6 +154,20 @@ public class WebActivity extends AppCompatActivity implements
 
         swipe = (SwipeRefreshLayout) findViewById(R.id.swipe);
         swipe.setOnRefreshListener(this);
+
+        swipe
+            .getViewTreeObserver()
+            .addOnScrollChangedListener(mOnScrollChangedListener =
+            new ViewTreeObserver.OnScrollChangedListener() {
+                @Override
+                public void onScrollChanged() {
+                    if (webView.getScrollY() == 0)
+                        swipe.setEnabled(true);
+                    else
+                        swipe.setEnabled(false);
+
+                }
+            });
 
         progressBar = (ProgressBar) findViewById(R.id.loading);
 
@@ -251,6 +268,12 @@ public class WebActivity extends AppCompatActivity implements
         if(intent != null) {
             onNewIntent(intent);
         }
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        swipe.getViewTreeObserver().removeOnScrollChangedListener(mOnScrollChangedListener);
     }
 
     private void highlightMenuItemOnClick(int id) {
