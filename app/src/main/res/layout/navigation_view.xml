@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.NavigationView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_view"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:layout_gravity="start"
+    app:itemTextColor="@color/main"
+    android:fitsSystemWindows="true"
+    android:background="@color/mainBackgroundNavigationView"
+    >
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:fillViewport="true"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:weightSum="1"
+            >
+            <TextView
+                android:layout_marginTop="13dp"
+                android:id="@+id/menu_forum"
+                android:text="forum"
+                android:gravity="left"
+                android:onClick="goByMenu"
+                style="@style/menuButtons"
+                />
+            
+            <RelativeLayout
+                android:id="@+id/menu_pms"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:onClick="goByMenu">
+
+                <TextView
+                    android:id="@+id/menu_pms_text"
+                    style="@style/menuButtons"
+                    android:layout_width="wrap_content"
+                    android:layout_margin="0dp"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentLeft="true"
+                    android:text="PMs" />
+
+                <TextView
+                    android:id="@+id/menu_pms_count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:paddingBottom="2dp"
+                    android:paddingEnd="8dp"
+                    android:paddingStart="8dp"
+                    android:paddingTop="2dp"
+                    android:text=""
+                    android:textColor="@color/mainOrange"
+                    android:textSize="15sp"
+                    android:fontFamily="@font/opensans_bold"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:visibility="gone"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/menu_notifications"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:onClick="goByMenu">
+
+                <TextView
+                    android:id="@+id/menu_notifications_text"
+                    style="@style/menuButtons"
+                    android:layout_width="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_margin="0dp"
+                    android:text="NOTIFICATIONS" />
+
+                <TextView
+                    android:id="@+id/menu_notifications_count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:paddingBottom="2dp"
+                    android:paddingEnd="8dp"
+                    android:paddingStart="8dp"
+                    android:paddingTop="2dp"
+                    android:text=""
+                    android:gravity="center"
+                    android:textColor="@color/mainOrange"
+                    android:textSize="15sp"
+                    android:fontFamily="@font/opensans_bold"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:visibility="gone"/>
+
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/menu_practice"
+                style="@style/menuButtons"
+                android:onClick="goByMenu"
+                android:gravity="left"
+                android:text="PRACTICE" />
+
+            <TextView
+                android:id="@+id/menu_chat"
+                style="@style/menuButtons"
+                android:onClick="goByMenu"
+                android:gravity="left"
+                android:text="CHAT" />
+
+            <TextView
+                android:id="@+id/menu_reviews"
+                style="@style/menuButtons"
+                android:onClick="goByMenu"
+                android:gravity="left"
+                android:text="REVIEWS" />
+
+            <TextView
+                android:id="@+id/menu_deals_discounts"
+                style="@style/menuButtons"
+                android:onClick="goByMenu"
+                android:gravity="left"
+                android:text="DEALS AND DISCOUNTS" />
+
+            <TextView
+                android:id="@+id/menu_advanced_search"
+                style="@style/menuButtons"
+                android:onClick="goByMenu"
+                android:gravity="left"
+                android:text="ADVANCED SEARCH" />
+
+            <TextView
+                android:id="@+id/menu_new_posts"
+                style="@style/menuButtons"
+                android:onClick="goByMenu"
+                android:gravity="left"
+                android:text="NEW POSTS" />
+
+            <TextView
+                android:id="@+id/menu_feedback"
+                style="@style/menuButtons"
+                android:onClick="goByMenu"
+                android:gravity="left"
+                android:text="APP FEEDBACK" />
+
+            <TextView
+                android:id="@+id/menu_unanswered"
+                style="@style/menuButtons"
+                android:onClick="goByMenu"
+                android:gravity="left"
+                android:text="UNANSWERED" />
+        </LinearLayout>
+
+    </ScrollView>
+
+</android.support.design.widget.NavigationView>

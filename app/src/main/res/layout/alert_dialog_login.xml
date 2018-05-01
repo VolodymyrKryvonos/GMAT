@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="30dp"
+    android:background="@drawable/alert_dialog_background_shape">
+
+    <ProgressBar
+        android:id="@+id/loading"
+        android:layout_gravity="center"
+        style="@style/progressBar_style"
+        android:visibility="gone"
+        />
+
+    <ScrollView
+        android:id="@+id/signInLayout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            >
+
+            <TextView
+                android:id="@+id/btnProfileTitle"
+                style="@style/alert_subTitle"
+                android:text="Login"
+                android:textAllCaps="true"
+                android:fontFamily="@font/opensans_bold"
+                android:textStyle="bold"
+                />
+
+            <TextView
+                android:id="@+id/errorMessage"
+                android:text="Incorrect Login or Password"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#e53a3a"
+                android:textSize="11sp"
+                android:fontFamily="@font/opensans_bold"
+                android:layout_marginTop="13dp"
+                android:layout_below="@+id/btnProfileTitle"
+                android:textStyle="bold"
+                android:visibility="gone"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_below="@+id/errorMessage"
+                android:layout_marginTop="16dp"
+                >
+                <EditText
+                    android:id="@+id/signInInputUsername"
+                    style="@style/loginEditText"
+                    android:hint="Login"
+                    android:inputType="textEmailAddress"
+                    android:gravity="center_vertical"
+                    android:paddingTop="5dp"
+                    android:fontFamily="@font/opensans_regular"
+                    android:textStyle="normal"
+                    android:paddingBottom="5dp"
+                    />
+
+                <FrameLayout
+                    android:id="@+id/frame_sign_in_input_layout_password"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:textColor="@color/black_35"
+                    android:layout_marginTop="16dp"
+                    android:layout_below="@+id/errorEmailMessage">
+
+                    <EditText
+                        android:id="@+id/signInInputPassword"
+                        android:hint="Password"
+                        android:gravity="center_vertical"
+                        android:inputType="textPassword"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp"
+                        android:fontFamily="@font/opensans_regular"
+                        style="@style/loginEditText" />
+
+                    <TextView
+                        android:id="@+id/signInInputPasswordForgot"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center|end"
+                        android:gravity="center"
+                        android:layout_marginEnd="9dp"
+                        android:textSize="11sp"
+                        android:textColor="#6d6d6d"
+                        android:fontFamily="@font/opensans_semibold"
+                        android:text="Forgot?" />
+
+                </FrameLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="right"
+                    android:layout_marginTop="16dp"
+                    >
+
+                    <TextView
+                        android:id="@+id/signInButton"
+                        style="@style/alert_subTitle"
+                        android:text="Login"
+                        android:textAllCaps="true"
+                        android:fontFamily="@font/opensans_bold"
+                        android:layout_marginBottom="0dp"
+                        android:textColor="@color/mainOrange"
+                        android:textStyle="bold"
+                        android:textSize="13sp"
+                        />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </ScrollView>
+</LinearLayout>

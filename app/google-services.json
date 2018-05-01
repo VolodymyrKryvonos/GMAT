@@ -1,0 +1,93 @@
+{
+  "project_info": {
+    "project_number": "789008364480",
+    "firebase_url": "https://gmatclub-forum.firebaseio.com",
+    "project_id": "gmatclub-forum",
+    "storage_bucket": "gmatclub-forum.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:789008364480:android:fcc5df074a7eed18",
+        "android_client_info": {
+          "package_name": "com.deepinspire.gmatclub"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "789008364480-jr2io8r51h0eegmdvuu0bv1abt6bpppt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAhzNeSWIAL3nbfkFW0nQHnZKTAbA1yxnc"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:789008364480:android:a1c7a53f192333f4",
+        "android_client_info": {
+          "package_name": "com.nkoventuresllc.gmatclub"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "789008364480-ao8m95svlnf7f5lt1j466dceejme6lr5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.nkoventuresllc.gmatclub",
+            "certificate_hash": "6105138af6e75294a8ed699ad032ab7eca94a5e9"
+          }
+        },
+        {
+          "client_id": "789008364480-jr2io8r51h0eegmdvuu0bv1abt6bpppt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAhzNeSWIAL3nbfkFW0nQHnZKTAbA1yxnc"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "789008364480-6rg10c3j50lct00dm9u1g0rne3up4f11.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.nkoventuresllc.gmatclubforum"
+              }
+            },
+            {
+              "client_id": "789008364480-jr2io8r51h0eegmdvuu0bv1abt6bpppt.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

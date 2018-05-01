@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="25dp"
+    android:background="@drawable/alert_dialog_background_shape">
+
+    <TextView
+        android:id="@+id/message"
+        android:text="Error sign in"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#e53a3a"
+        android:textSize="16sp"
+        android:fontFamily="@font/opensans_semibold"
+        android:layout_marginBottom="10dp"
+        android:layout_below="@+id/btnProfileTitle"
+        android:visibility="gone"
+        />
+
+    <ProgressBar
+        android:id="@+id/loading"
+        android:layout_gravity="center"
+        style="@style/progressBar_style"
+        android:visibility="gone"
+        />
+
+   <ScrollView
+       android:id="@+id/signInLayout"
+       android:layout_width="match_parent"
+       android:layout_height="0dp"
+       android:layout_weight="1">
+
+       <RelativeLayout
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:gravity="left"
+           >
+           <TextView
+               android:id="@+id/btnProfileTitle"
+               style="@style/alert_subTitle"
+               android:text="Profile"
+               android:textAllCaps="true"
+               android:fontFamily="@font/opensans_bold"
+               android:layout_marginBottom="15dp"
+               />
+
+           <LinearLayout
+               android:layout_width="match_parent"
+               android:layout_height="match_parent"
+               android:orientation="vertical"
+               android:layout_below="@+id/btnProfileTitle"
+               android:layout_marginLeft="5dp"
+               >
+
+               <TextView
+                   android:id="@+id/btnRegister"
+                   style="@style/alert_subTitle"
+                   android:text="Register"
+                   android:textColor="#666666"
+                   />
+
+               <TextView
+                   android:id="@+id/btnSignIn"
+                   style="@style/alert_subTitle"
+                   android:layout_marginTop="25dp"
+                   android:textColor="#666666"
+                   android:text="Log in" />
+
+               <View
+                   android:id="@+id/splitLine"
+                   android:layout_width="match_parent"
+                   android:layout_height= "1dp"
+                   android:background="@color/mainBorder"
+                   android:layout_marginTop="25dp"
+                   />
+
+               <LinearLayout
+                   android:id="@+id/btnSignInGoogleLayout"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:gravity="center"
+                   android:layout_marginTop="25dp"
+                   >
+                   <ImageView
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:src="@drawable/ic_google"
+                       android:tint="@color/mainOrange"
+                       android:layout_gravity="center"
+                       android:layout_margin="0dp"
+                       />
+                   <TextView
+                       style="@style/alert_subTitle"
+                       android:text="Sign in with Google"
+                       android:layout_marginLeft="10dp"
+                       android:layout_marginBottom="0dp"
+                       android:textColor="#666666"
+                       android:gravity="center"
+                       />
+               </LinearLayout>
+
+
+               <LinearLayout
+                   android:id="@+id/btnSignInGoogleFacebookLayout"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:layout_marginLeft="3dp"
+                   android:layout_marginTop="25dp"
+                   android:gravity="center">
+                   <ImageView
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:src="@drawable/ic_facebook"
+                       android:tint="@color/mainOrange"
+                       />
+                   <TextView
+                       style="@style/alert_subTitle"
+                       android:layout_marginLeft="13dp"
+                       android:layout_marginBottom="0dp"
+                       android:textColor="#666666"
+                       android:text="Sign in with Facebook" />
+               </LinearLayout>
+
+           </LinearLayout>
+
+       </RelativeLayout>
+
+   </ScrollView>
+</LinearLayout>
