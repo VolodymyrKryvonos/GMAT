@@ -35,6 +35,7 @@ import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewTreeObserver;
+import android.view.inputmethod.InputMethodManager;
 import android.webkit.CookieManager;
 import android.webkit.HttpAuthHandler;
 import android.webkit.JavascriptInterface;
@@ -188,10 +189,17 @@ public class WebActivity extends AppCompatActivity implements
             }
         });
 
-        ((FloatingActionButton) findViewById(R.id.btnAddTopic)).setOnClickListener(this);
-        ((FloatingActionButton) findViewById(R.id.btnAddPm)).setOnClickListener(this);
-        ((FloatingActionButton) findViewById(R.id.btnAddChat)).setOnClickListener(this);
-        ((FloatingActionButton) findViewById(R.id.btnAddSchool)).setOnClickListener(this);
+        btnAddTopic = (FloatingActionButton) findViewById(R.id.btnAddTopic);
+        btnAddTopic.setOnClickListener(this);
+
+        btnAddPm = (FloatingActionButton) findViewById(R.id.btnAddPm);
+        btnAddPm.setOnClickListener(this);
+
+        btnAddChat = (FloatingActionButton) findViewById(R.id.btnAddChat);
+        btnAddChat.setOnClickListener(this);
+
+        btnAddSchool = (FloatingActionButton) findViewById(R.id.btnAddSchool);
+        btnAddSchool.setOnClickListener(this);
 
         toolbarTitleLayout = (LinearLayout) findViewById(R.id.toolbarTitleLayout);
 
@@ -366,7 +374,7 @@ public class WebActivity extends AppCompatActivity implements
                 break;
             case R.id.btnAddPm:
                 toogleAddMenu(false);
-                openPage(Api.PM_URL);
+                openPage(Api.PM_NEW_URL);
                 break;
             case R.id.btnAddChat:
                 toogleAddMenu(false);
@@ -815,19 +823,33 @@ public class WebActivity extends AppCompatActivity implements
             feedbackLayout.setVisibility(View.GONE);
             swipe.setVisibility(View.GONE);
         } else {
-            toogleAddMenu(false);
+            hideKeyboard();
+
+            if(logged()) {
+                /*showBtnAddAllItems();*/
+
+                String url  = webView.getUrl();
+
+                if(url.contains(Api.FORUM_NEW_POSTS)) {
+                    showBtnAddTopic(false);
+                } else if(url.contains(Api.PM_NEW_URL)) {
+                    showBtnAddPm(false);
+                } else if(url.contains(Api.CHAT_URL)) {
+                    showBtnAddChat(false);
+                } else if(url.contains(Api.FORUM_ADD_NEW_SCHOOL)) {
+                    showBtnAddSchool(false);
+                }
+
+                showBtnAdd(true);
+
+                toogleAddMenu(false);
+            } else {
+                showBtnAdd(false);
+            }
 
             progressBar.setVisibility(View.GONE);
             feedbackLayout.setVisibility(View.GONE);
             swipe.setVisibility(View.VISIBLE);
-
-            if(logged()) {
-                btnAddLayout.setVisibility(View.VISIBLE);
-                btnAdd.setVisibility(View.VISIBLE);
-            } else {
-                btnAddLayout.setVisibility(View.GONE);
-                btnAdd.setVisibility(View.GONE);
-            }
         }
     }
 
@@ -1355,5 +1377,59 @@ public class WebActivity extends AppCompatActivity implements
         }
         if (suffix != null) resultBuffer.append(suffix);
         return resultBuffer.toString();
+    }
+
+    private void hideKeyboard() {
+        ((InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE)).
+                hideSoftInputFromWindow((getWindow().getDecorView().getApplicationWindowToken()), 0);
+    }
+
+    private void showBtnAdd(boolean show) {
+        if(show) {
+            btnAddLayout.setVisibility(View.VISIBLE);
+            btnAdd.setVisibility(View.VISIBLE);
+        } else {
+            btnAddLayout.setVisibility(View.GONE);
+            btnAdd.setVisibility(View.GONE);
+        }
+    }
+
+    private void showBtnAddTopic(boolean show) {
+        if(show) {
+            btnAddTopic.show(true);
+        } else {
+            btnAddTopic.hide(true);
+        }
+    }
+
+    private void showBtnAddPm(boolean show) {
+        if(show) {
+            btnAddPm.show(true);
+        } else {
+            btnAddPm.hide(true);
+        }
+    }
+
+    private void showBtnAddChat(boolean show) {
+        if(show) {
+            btnAddChat.show(true);
+        } else {
+            btnAddChat.hide(true);
+        }
+    }
+
+    private void showBtnAddSchool(boolean show) {
+        if(show) {
+            btnAddSchool.show(true);
+        } else {
+            btnAddSchool.hide(true);
+        }
+    }
+
+    private void showBtnAddAllItems () {
+        showBtnAddTopic(true);
+        showBtnAddPm(true);
+        showBtnAddChat(true);
+        showBtnAddSchool(true);
     }
 }

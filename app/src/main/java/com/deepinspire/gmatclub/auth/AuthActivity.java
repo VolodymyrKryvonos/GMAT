@@ -17,6 +17,7 @@ import com.deepinspire.gmatclub.GCConfig;
 import com.deepinspire.gmatclub.R;
 import com.deepinspire.gmatclub.api.Api;
 import com.deepinspire.gmatclub.api.AuthException;
+import com.deepinspire.gmatclub.splash.SplashActivity;
 import com.deepinspire.gmatclub.utils.ViewHelper;
 import com.deepinspire.gmatclub.web.WebActivity;
 import com.facebook.AccessToken;
@@ -31,12 +32,16 @@ import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.auth.api.signin.GoogleSignInResult;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.tasks.Task;
 
+import java.sql.Time;
 import java.util.Arrays;
+import java.util.Date;
+import java.util.concurrent.TimeUnit;
 
 public class AuthActivity extends AppCompatActivity implements IAuthContract.View, View.OnClickListener, GoogleApiClient.OnConnectionFailedListener {
     private IAuthContract.Presenter presenter;
@@ -63,27 +68,21 @@ public class AuthActivity extends AppCompatActivity implements IAuthContract.Vie
         ((LinearLayout) findViewById(R.id.layoutSignIn)).setOnClickListener(this);
         ((LinearLayout) findViewById(R.id.layoutViewAsGuest)).setOnClickListener(this);
         ((LinearLayout) findViewById(R.id.layoutRegister)).setOnClickListener(this);
-
-        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                .requestIdToken("241911688286-hdgjh2o7dg42155d31ts4m9vitq8nf0h.apps.googleusercontent.com")
-                //.requestIdToken(getString(R.string.default_web_client_id))
-                .requestEmail()
-                //.requestProfile()
-                .build();
-
-        /*mGoogleApiClient = new GoogleApiClient.Builder(this)
-                .enableAutoManage(this, this)
-                .addApi(Auth.GOOGLE_SIGN_IN_API, gso)
-                .build();*/
-
-        mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
     }
 
     @Override
     protected void onStart() {
         super.onStart();
 
-        GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(this);
+        if(presenter.logged()) {
+            Intent intent = new Intent(this, WebActivity.class);
+
+            intent.setData(Uri.parse(Api.FORUM_URL));
+
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+
+            startActivity(intent);
+        }
     }
 
     @Override
@@ -93,6 +92,21 @@ public class AuthActivity extends AppCompatActivity implements IAuthContract.Vie
         switch(view.getId()) {
             case R.id.layoutSignInGoogle:
                // mGoogleApiClient.connect();
+                GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                        .requestIdToken(getString(R.string.default_web_client_id))
+                        //.requestIdToken("241911688286-hdgjh2o7dg42155d31ts4m9vitq8nf0h.apps.googleusercontent.com")
+                        //.requestIdToken(getString(R.string.default_web_client_id))
+                        .requestEmail()
+                        //.requestProfile()
+                        .build();
+
+                /*mGoogleApiClient = new GoogleApiClient.Builder(this)
+                        .enableAutoManage(this, this)
+                        .addApi(Auth.GOOGLE_SIGN_IN_API, gso)
+                        .build();*/
+
+                mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
+
                 Intent signInIntent = mGoogleSignInClient.getSignInIntent();
                 startActivityForResult(signInIntent, GCConfig.GOOGLE_SIGN_IN);
                 break;
@@ -151,16 +165,8 @@ public class AuthActivity extends AppCompatActivity implements IAuthContract.Vie
 
     @Override
     public boolean dispatchTouchEvent(MotionEvent ev) {
-        View view = getCurrentFocus();
+        ((InputMethodManager)this.getSystemService(Context.INPUT_METHOD_SERVICE)).hideSoftInputFromWindow((this.getWindow().getDecorView().getApplicationWindowToken()), 0);
 
-        if (view != null && (ev.getAction() == MotionEvent.ACTION_UP || ev.getAction() == MotionEvent.ACTION_MOVE) && view instanceof EditText && !view.getClass().getName().startsWith("android.webkit.")) {
-            int scrcoords[] = new int[2];
-            view.getLocationOnScreen(scrcoords);
-            float x = ev.getRawX() + view.getLeft() - scrcoords[0];
-            float y = ev.getRawY() + view.getTop() - scrcoords[1];
-            if (x < view.getLeft() || x > view.getRight() || y < view.getTop() || y > view.getBottom())
-                ((InputMethodManager)this.getSystemService(Context.INPUT_METHOD_SERVICE)).hideSoftInputFromWindow((this.getWindow().getDecorView().getApplicationWindowToken()), 0);
-        }
         return super.dispatchTouchEvent(ev);
     }
 
@@ -209,6 +215,9 @@ public class AuthActivity extends AppCompatActivity implements IAuthContract.Vie
 
                     Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
                     handleSignInResult(task);
+                    //GoogleSignInResult result = Auth.GoogleSignInApi.getSignInResultFromIntent(data);
+                    //GoogleSignInResult result1 = Auth.GoogleSignInApi.getSignInResultFromIntent(data);
+                    //handleSignInResult(result);
                     break;
             }
         }
@@ -219,9 +228,15 @@ public class AuthActivity extends AppCompatActivity implements IAuthContract.Vie
             GoogleSignInAccount account = completedTask.getResult(ApiException.class);
 
             if(account != null) {
-                String email = account.getEmail();
+                //String id  = account.getId();
+                //String email = account.getEmail();
+
                 String idToken = account.getIdToken();
-                String id  = account.getId();
+                Long expiresIn  = (new Date()).getTime() + account.getExpirationTimeSecs();
+
+                Toast.makeText(getApplicationContext(), idToken, Toast.LENGTH_LONG).show();
+
+                presenter.signIn("google", idToken, idToken, String.valueOf(expiresIn));
             }
         } catch (ApiException e) {
             String message = e.getMessage();
@@ -231,6 +246,5 @@ public class AuthActivity extends AppCompatActivity implements IAuthContract.Vie
 
     @Override
     public void onConnectionFailed(ConnectionResult connectionResult) {
-
     }
 }

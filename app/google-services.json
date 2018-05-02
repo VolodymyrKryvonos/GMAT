@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "789008364480-fiq9jg9shghqhru7bckiptf3idfhvlhe.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.deepinspire.gmatclub",
+            "certificate_hash": "40c894b7be4692ef3e75a08b0a6ebba59cd22c82"
+          }
+        },
+        {
           "client_id": "789008364480-jr2io8r51h0eegmdvuu0bv1abt6bpppt.apps.googleusercontent.com",
           "client_type": 3
         }
@@ -29,8 +37,20 @@
           "status": 1
         },
         "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "789008364480-6rg10c3j50lct00dm9u1g0rne3up4f11.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.nkoventuresllc.gmatclubforum"
+              }
+            },
+            {
+              "client_id": "789008364480-jr2io8r51h0eegmdvuu0bv1abt6bpppt.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         },
         "ads_service": {
           "status": 2

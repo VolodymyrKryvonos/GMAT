@@ -274,9 +274,11 @@ public class Repository implements IStorage {
 
                     String formattedDate = sdf.format(date);
 
+
                     params.put("provider", provider);
                     params.put("token_type", provider);
                     params.put("access_token", accessToken);
+                    params.put("id_token", accessToken);
                     params.put("expires_in", formattedDate);
                     /*params.put("mode", "login");*/
 

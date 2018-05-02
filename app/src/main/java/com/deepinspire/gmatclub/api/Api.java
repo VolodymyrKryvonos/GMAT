@@ -42,6 +42,8 @@ public class Api {
     public static final String UCP_MY_SETTINGS_URL = UCP_URL + "?i=301";
 
     public static String PM_URL = UCP_URL + "?i=pm&amp;folder=inbox";
+    public static String PM_NEW_URL = UCP_URL + "?i=pm&mode=compose";
+
     public static final String FORUM_SEARCH = HOME_URL + "/forum/advanced-search/";
 
     public static final String FORUM_SEARCH_MY_POSTS = FORUM_URL + "/search.php?search_id=egosearch";

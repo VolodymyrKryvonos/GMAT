@@ -64,6 +64,7 @@
         <activity
             android:name=".web.WebActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+            android:windowSoftInputMode="adjustResize|stateHidden"
             android:label="@string/title_activity_web"
             android:theme="@style/AppTheme.NoActionBar" >
             <intent-filter>
@@ -77,7 +78,7 @@
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
             android:label="@string/title_activity_auth"
             android:theme="@style/AppTheme.NoActionBar"
-            android:windowSoftInputMode="adjustResize|stateHidden" />
+            android:windowSoftInputMode="stateAlwaysHidden" />
 
         <activity
             android:name=".auth.FacebookActivity"
@@ -105,5 +106,4 @@
             </intent-filter>
         </service>
     </application>
-
 </manifest>

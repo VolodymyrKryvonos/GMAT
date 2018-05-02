@@ -21,6 +21,11 @@ public class SplashActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_splash);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
 
         Repository repository = Injection.getRepository(getApplicationContext());
 

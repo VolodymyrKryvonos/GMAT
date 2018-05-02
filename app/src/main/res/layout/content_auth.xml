@@ -26,12 +26,40 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/layoutParentSignIn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="62dp"
+        android:gravity="center"
+        android:layout_below="@id/logo"
+        >
+        <LinearLayout
+            android:id="@+id/layoutSignIn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="35dp"
+            android:paddingRight="30dp"
+            >
+            <TextView
+                android:id="@+id/signIn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Login"
+                android:textAllCaps="true"
+                android:textColor="@color/mainOrange"
+                android:fontFamily="@font/opensans_semibold"
+                android:textSize="24sp"
+                />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
         android:id="@+id/layoutParentSignInGoogle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:layout_below="@id/logo"
-        android:layout_marginTop="62dp"
+        android:layout_below="@id/layoutParentSignIn"
+        android:layout_marginTop="35dp"
         >
         <LinearLayout
             android:id="@+id/layoutSignInGoogle"
@@ -102,34 +130,6 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/layoutParentSignIn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="35dp"
-        android:gravity="center"
-        android:layout_below="@id/layoutParentSignInFacebook"
-        >
-        <LinearLayout
-            android:id="@+id/layoutSignIn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingLeft="35dp"
-            android:paddingRight="30dp"
-            >
-            <TextView
-                android:id="@+id/signIn"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Login"
-                android:textAllCaps="true"
-                android:textColor="@color/mainOrange"
-                android:fontFamily="@font/opensans_semibold"
-                android:textSize="18sp"
-                />
-        </LinearLayout>
-    </LinearLayout>
-
-    <LinearLayout
         android:id="@+id/layoutParentViewAsGuest"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -137,7 +137,7 @@
         android:gravity="center"
         android:paddingLeft="35dp"
         android:paddingRight="30dp"
-        android:layout_below="@id/layoutParentSignIn"
+        android:layout_below="@id/layoutParentSignInFacebook"
         >
         <LinearLayout
             android:id="@+id/layoutViewAsGuest"
