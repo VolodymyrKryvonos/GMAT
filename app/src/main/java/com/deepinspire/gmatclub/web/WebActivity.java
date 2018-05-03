@@ -35,7 +35,9 @@ import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewTreeObserver;
+import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
+import android.webkit.ConsoleMessage;
 import android.webkit.CookieManager;
 import android.webkit.HttpAuthHandler;
 import android.webkit.JavascriptInterface;
@@ -133,9 +135,16 @@ public class WebActivity extends AppCompatActivity implements
 
     private ViewTreeObserver.OnScrollChangedListener mOnScrollChangedListener;
 
+    private String notificationsHTML = "<html><body>You scored <b>192</b> points.</body></html>";
+
+    private String notificationsJSON = null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        /*getWindow().setFlags(
+                WindowManager.LayoutParams.FLAG_HARDWARE_ACCELERATED,
+                WindowManager.LayoutParams.FLAG_HARDWARE_ACCELERATED);*/
 
         setPresenter(new WebPresenter(this.getApplicationContext(),this));
 
@@ -635,7 +644,12 @@ public class WebActivity extends AppCompatActivity implements
                 break;
             case R.id.menu_notifications:
                 highlightMenuItemOnClick(R.id.menu_notifications);
-                this.presenter.updateNotify();
+                swipe.setEnabled(false);
+                swipe.setRefreshing(false);
+                webView.loadUrl("file:///android_asset/notifications.html");
+                //webView.loadDataWithBaseURL("file:///android_asset/", htmlParsing, "text/html", "utf-8", null);
+                //webView.loadData(notificationsHTML, "text/html", null);
+                //this.presenter.updateNotify();
                 break;
             case R.id.menu_practice:
                 highlightMenuItemOnClick(R.id.menu_practice);
@@ -714,9 +728,28 @@ public class WebActivity extends AppCompatActivity implements
         //webView.setInitialScale(1);
         //webView.setWebContentsDebuggingEnabled(true);
 
+        settings.setRenderPriority(WebSettings.RenderPriority.HIGH);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            // chromium, enable hardware acceleration
+            webView.setLayerType(View.LAYER_TYPE_HARDWARE, null);
+        } else {
+            // older android version, disable hardware acceleration
+            webView.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
+        }
+
         webView.addJavascriptInterface(new GCJavascriptInterface(this), "GCAndroid");
+        webView.addJavascriptInterface(new GCTest(this), "GCTest");
 
         webView.setWebChromeClient(new WebChromeClient() {
+            @Override
+            public boolean onConsoleMessage(ConsoleMessage consoleMessage) {
+                Log.d("MyApplication", consoleMessage.message() + " -- From line "
+                        + consoleMessage.lineNumber() + " of "
+                        + consoleMessage.sourceId());
+                return super.onConsoleMessage(consoleMessage);
+            }
+
             @Override
             public void onProgressChanged(WebView view, int progress) {
                 if (progress == 100) {
@@ -727,7 +760,6 @@ public class WebActivity extends AppCompatActivity implements
                 }
             }
         });
-
 
         webView.setWebViewClient(new WebViewClient() {
             @Override
@@ -751,6 +783,8 @@ public class WebActivity extends AppCompatActivity implements
             }
 
             public void onPageFinished(WebView view, String url) {
+                swipe.setRefreshing(false);
+                setLoadingIndicator(false);
                 if(activeUrl != null && url.contains(activeUrl)) {
                      activeUrl = null;
 
@@ -771,7 +805,22 @@ public class WebActivity extends AppCompatActivity implements
 
                     swipe.setRefreshing(false);
                     setLoadingIndicator(false);
-                 }
+                 } else {
+                    webView.evaluateJavascript(
+                            "(function(){if(window.mobileRender){window.mobileRender("+notificationsJSON+");}})()",
+                            new ValueCallback<String>() {
+                                @Override
+                                public void onReceiveValue(String value) {
+                                    swipe.setRefreshing(false);
+                                    setLoadingIndicator(false);
+                                }
+                            }
+                    );
+
+
+                    swipe.setRefreshing(false);
+                    setLoadingIndicator(false);
+                }
             }
 
             @Override
@@ -1120,6 +1169,8 @@ public class WebActivity extends AppCompatActivity implements
                     final JSONObject mNotify = new JSONObject(message);
 
                     if(!mNotify.isNull("group_general")) {
+                        notificationsJSON = message;
+
                         final JSONArray notifications = mNotify.getJSONArray("group_general");
 
                         for(int i = 0; i < notifications.length(); i++) {
@@ -1148,6 +1199,47 @@ public class WebActivity extends AppCompatActivity implements
                             updateCountMessages();
                         }
                     });
+                } catch (JSONException e) {
+                    Log.e(mContext.getClass().getName(), e.getMessage());
+                }
+            }
+        }
+    }
+
+
+    public class GCTest {
+        Context mContext;
+
+        GCTest(Context ctx) {
+            this.mContext = ctx;
+        }
+
+        @JavascriptInterface
+        public void sendMessage(final String message) {
+            if(message != null) {
+                try {
+                    final JSONObject mNotify = new JSONObject(message);
+
+                    if(!mNotify.isNull("start")) {
+                        final String val = mNotify.getString("start");
+
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                webView.evaluateJavascript(
+                                        "(function(){if(window.mobileRender){window.mobileRender("+notificationsJSON+");}})()",
+                                        new ValueCallback<String>() {
+                                            @Override
+                                            public void onReceiveValue(String value) {
+                                                swipe.setRefreshing(false);
+                                                setLoadingIndicator(false);
+                                            }
+                                        }
+                                );
+                            }
+                        });
+                    }
+
                 } catch (JSONException e) {
                     Log.e(mContext.getClass().getName(), e.getMessage());
                 }
