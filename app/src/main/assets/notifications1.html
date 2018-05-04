@@ -1,0 +1,77 @@
+﻿<head>
+    <meta charset="UTF-8">
+    <title>Notification View</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800&amp;subset=latin" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://gmatclub.com/forum/styles/art_mobile/theme/style.css" type="text/css">
+    <link rel="stylesheet" href="https://gmatclub.com/forum/styles/gmatclub_light/theme/forumlist/iconsSvg.css" type="text/css">
+    <link rel="stylesheet" type="text/css" href="/forum/styles/art_mobile//theme/notifications.css" media="all">
+    <script type="text/javascript" src="https://gmatclub.com/forum/styles/art_mobile/theme/jquery-2.2.2.min.js"></script>
+    <script src="https://gmatclub.com/static/js/mobile_header.js"></script>
+    <script src="https://gmatclub.com/notify/RealTimeNotifications.js"></script>
+    <script src="https://gmatclub.com/static/js/notify.js"></script>
+</head>
+<body>
+
+    <div id="mobileNotify" class="profileMenu" data-show="1">
+        <div class="notification_group_content" id="group_general">
+            <div class="groupHeader notification_group" data-group="group_general" data-for="#group_general" style="text-align: center;">
+                <h3>Notifications
+                    <div class="countBox">
+                        (<span class="notification_group_count" style="display: inline;">1</span>)
+                    </div>
+                </h3>
+            </div>
+            <div class="scroll-pane"></div>
+            <div class="groupFooter">
+                <a href="#" class="readMark">Mark All Read</a>
+            </div>
+        </div>
+        <span class="mobileNotifyRecalculateWidth"></span>
+    </div>
+
+<script type="text/javascript">
+
+
+    window.addEventListener("load", function () {
+            get_user_info();
+    });
+
+
+    /* return notifications count */
+
+    function getNotificationsCount() {
+
+        var cb = (Math.random() + 1).toString(36).slice(2, 10);
+
+        $.ajax({
+            dataType: "json",
+            url: '/forum/notify.php?action=notifications_count&cb=' + cb,
+            success: function (data) {
+                console.log(data);
+            }
+        });
+    }
+
+
+    function get_user_info() {
+
+        var cb = (Math.random() + 1).toString(36).slice(2, 10);
+
+        $.ajax({
+            dataType: "json",
+            url: '/forum/get_user_info.php?cb=' + cb,
+            success: function (data) {
+               if(data.user_id && data.is_auth){
+                     initMobileNotify(data);
+                 } else {
+                     window.location.href="/";
+                 }
+            }
+        });
+    }
+
+</script>
+
+
+</body>

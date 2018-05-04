@@ -83,6 +83,8 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 public class WebActivity extends AppCompatActivity implements
         IWebContract.View, SwipeRefreshLayout.OnRefreshListener, View.OnClickListener, View.OnTouchListener {
@@ -138,6 +140,8 @@ public class WebActivity extends AppCompatActivity implements
     private String notificationsHTML = "<html><body>You scored <b>192</b> points.</body></html>";
 
     private String notificationsJSON = null;
+
+    private final ExecutorService executor = Executors.newFixedThreadPool(4);
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -644,12 +648,10 @@ public class WebActivity extends AppCompatActivity implements
                 break;
             case R.id.menu_notifications:
                 highlightMenuItemOnClick(R.id.menu_notifications);
-                swipe.setEnabled(false);
-                swipe.setRefreshing(false);
                 webView.loadUrl("file:///android_asset/notifications.html");
+                //webView.loadDataWithBaseURL();
                 //webView.loadDataWithBaseURL("file:///android_asset/", htmlParsing, "text/html", "utf-8", null);
                 //webView.loadData(notificationsHTML, "text/html", null);
-                //this.presenter.updateNotify();
                 break;
             case R.id.menu_practice:
                 highlightMenuItemOnClick(R.id.menu_practice);
@@ -717,6 +719,9 @@ public class WebActivity extends AppCompatActivity implements
         settings.setAppCacheEnabled(false);
         settings.setCacheMode(WebSettings.LOAD_NO_CACHE);
 
+        settings.setAllowFileAccessFromFileURLs(true); //Maybe you don't need this rule
+        settings.setAllowUniversalAccessFromFileURLs(true);
+
         //settings.setDomStorageEnabled(true);
         //settings.setUserAgentString("Android GMAT Club Forum/1.0.0");
         //settings.setSupportZoom(true);
@@ -739,7 +744,6 @@ public class WebActivity extends AppCompatActivity implements
         }
 
         webView.addJavascriptInterface(new GCJavascriptInterface(this), "GCAndroid");
-        webView.addJavascriptInterface(new GCTest(this), "GCTest");
 
         webView.setWebChromeClient(new WebChromeClient() {
             @Override
@@ -778,13 +782,17 @@ public class WebActivity extends AppCompatActivity implements
                     changeTitleColor( R.color.mainOrange);
                 }
 
+                if(url.contains("file:///android_asset/notifications.html")) {
+                    swipe.setEnabled(false);
+                } else {
+                    swipe.setEnabled(true);
+                }
+
                swipe.setRefreshing(false);
                setLoadingIndicator(true);
             }
 
             public void onPageFinished(WebView view, String url) {
-                swipe.setRefreshing(false);
-                setLoadingIndicator(false);
                 if(activeUrl != null && url.contains(activeUrl)) {
                      activeUrl = null;
 
@@ -805,22 +813,7 @@ public class WebActivity extends AppCompatActivity implements
 
                     swipe.setRefreshing(false);
                     setLoadingIndicator(false);
-                 } else {
-                    webView.evaluateJavascript(
-                            "(function(){if(window.mobileRender){window.mobileRender("+notificationsJSON+");}})()",
-                            new ValueCallback<String>() {
-                                @Override
-                                public void onReceiveValue(String value) {
-                                    swipe.setRefreshing(false);
-                                    setLoadingIndicator(false);
-                                }
-                            }
-                    );
-
-
-                    swipe.setRefreshing(false);
-                    setLoadingIndicator(false);
-                }
+                 }
             }
 
             @Override
@@ -910,7 +903,7 @@ public class WebActivity extends AppCompatActivity implements
         switch(id) {
             case "notifications":
                 updateCountMessages();
-                openPage(Api.FORUM_NOTIFICATIONS);
+                //openPage(Api.FORUM_NOTIFICATIONS);
                 break;
             case "pms":
                 updateCountMessages();
@@ -1161,90 +1154,107 @@ public class WebActivity extends AppCompatActivity implements
 
         @JavascriptInterface
         public void sendMessage(final String message) {
-            if(message != null) {
-                try {
-                    int privateMessagesUnwatched = 0;
-                    int notificationsUnwatched = 0;
+            executor.submit(new Runnable() {
+                @Override
+                public void run() {
+                    if(message != null) {
+                        try {
+                            int privateMessagesUnwatched = 0;
+                            int notificationsUnwatched = 0;
 
-                    final JSONObject mNotify = new JSONObject(message);
+                            final JSONObject mNotify = new JSONObject(message);
 
-                    if(!mNotify.isNull("group_general")) {
-                        notificationsJSON = message;
+                            if(!mNotify.isNull("group_general")) {
+                                notificationsJSON = message;
 
-                        final JSONArray notifications = mNotify.getJSONArray("group_general");
+                                final JSONArray notifications = mNotify.getJSONArray("group_general");
 
-                        for(int i = 0; i < notifications.length(); i++) {
-                            JSONObject notify = notifications.getJSONObject(i);
+                                notificationsJSON = "{\"group_general\": "+   mNotify.getString("group_general")+"}";
 
-                            if(notify.getBoolean("unwatched")) {
-                                notificationsUnwatched++;
+                                for(int i = 0; i < notifications.length(); i++) {
+                                    JSONObject notify = notifications.getJSONObject(i);
+
+                                    if(notify.getBoolean("unwatched")) {
+                                        notificationsUnwatched++;
+                                    }
+                                }
                             }
+
+                            if(!mNotify.isNull("privateMessages")) {
+                                final JSONObject privateMessages = mNotify.getJSONObject("privateMessages");
+
+                                if(!privateMessages.isNull("count")) {
+                                    privateMessagesUnwatched = privateMessages.getInt("count");
+                                }
+                            }
+
+                            presenter.setCountUnwatchedNotifications(notificationsUnwatched);
+                            presenter.setCountUnwatchedPMs(privateMessagesUnwatched);
+
+                            runOnUiThread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    updateCountMessages();
+                                }
+                            });
+                        } catch (JSONException e) {
+                            Log.e(mContext.getClass().getName(), e.getMessage());
                         }
                     }
-
-                    if(!mNotify.isNull("privateMessages")) {
-                        final JSONObject privateMessages = mNotify.getJSONObject("privateMessages");
-
-                        if(!privateMessages.isNull("count")) {
-                            privateMessagesUnwatched = privateMessages.getInt("count");
-                        }
-                    }
-
-                    presenter.setCountUnwatchedNotifications(notificationsUnwatched);
-                    presenter.setCountUnwatchedPMs(privateMessagesUnwatched);
-
-                    runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
-                            updateCountMessages();
-                        }
-                    });
-                } catch (JSONException e) {
-                    Log.e(mContext.getClass().getName(), e.getMessage());
                 }
-            }
-        }
-    }
-
-
-    public class GCTest {
-        Context mContext;
-
-        GCTest(Context ctx) {
-            this.mContext = ctx;
+            });
         }
 
         @JavascriptInterface
-        public void sendMessage(final String message) {
-            if(message != null) {
-                try {
-                    final JSONObject mNotify = new JSONObject(message);
+        public void notifications(final String data) {
+            executor.submit(new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        final JSONObject mNotify = new JSONObject(data);
 
-                    if(!mNotify.isNull("start")) {
-                        final String val = mNotify.getString("start");
-
+                        switch(mNotify.getString("action")) {
+                            case "pageLoaded":
+                                runOnUiThread(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        webView.evaluateJavascript(
+                                                "(function(){if(window.notifications && window.notifications.render) {window.notifications.render("+notificationsJSON+");}})()",
+                                                new ValueCallback<String>() {
+                                                    @Override
+                                                    public void onReceiveValue(String value) {
+                                                        Toast.makeText(WebActivity.this, "Render notifications", Toast.LENGTH_LONG).show();
+                                                    }
+                                                }
+                                        );
+                                    }
+                                });
+                                break;
+                            case "renderDone":
+                                runOnUiThread(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        swipe.setRefreshing(false);
+                                        setLoadingIndicator(false);
+                                        presenter.updateNotify();
+                                    }
+                                });
+                                break;
+                        }
+                    } catch (JSONException exception) {
                         runOnUiThread(new Runnable() {
                             @Override
                             public void run() {
-                                webView.evaluateJavascript(
-                                        "(function(){if(window.mobileRender){window.mobileRender("+notificationsJSON+");}})()",
-                                        new ValueCallback<String>() {
-                                            @Override
-                                            public void onReceiveValue(String value) {
-                                                swipe.setRefreshing(false);
-                                                setLoadingIndicator(false);
-                                            }
-                                        }
-                                );
+                                swipe.setRefreshing(false);
+                                setLoadingIndicator(false);
+                                Toast.makeText(WebActivity.this, "List of notifications are corrupt. Please go to the page later...", Toast.LENGTH_LONG).show();
                             }
                         });
                     }
-
-                } catch (JSONException e) {
-                    Log.e(mContext.getClass().getName(), e.getMessage());
                 }
-            }
+            });
         }
+
     }
 
     private void changeIconHomeForNavigationMenu(int iconColor) {

@@ -15,129 +15,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5d9e8901-ef33-43d6-bffb-1c758be0eff0" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/assets/notifications.html" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/built.bin" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties.lock" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/com_google_android_gms_play_services_ads_identifier_15_0_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/com_google_android_gms_play_services_auth_api_phone_15_0_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/com_google_android_gms_play_services_base_15_0_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/com_google_android_gms_play_services_basement_15_0_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/com_google_android_gms_play_services_measurement_base_15_0_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/com_google_android_gms_play_services_stats_15_0_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/com_google_android_gms_play_services_tasks_15_0_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/com_google_code_gson_gson_2_6_1_jar.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/com_google_firebase_firebase_analytics_15_0_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/com_google_firebase_firebase_analytics_impl_15_0_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/com_google_firebase_firebase_common_15_0_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/com_google_firebase_firebase_core_15_0_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/com_google_firebase_firebase_iid_15_0_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/com_google_firebase_firebase_messaging_15_0_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/com_squareup_retrofit2_converter_gson_2_0_2_jar.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-04-30-15-55-39-476.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-04-30-15-55-39-476.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-04-30-15-56-08-512.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-04-30-15-56-08-512.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-04-30-16-25-28-184.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-04-30-16-25-28-184.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-04-30-16-25-44-532.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-04-30-16-25-44-532.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-04-30-16-31-06-899.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-04-30-16-31-06-899.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-04-30-16-32-01-118.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-04-30-16-32-01-118.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-04-30-16-32-54-904.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-04-30-16-32-54-904.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-04-30-17-02-01-160.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-04-30-17-02-01-160.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-05-01-09-28-07-639.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-05-01-09-28-07-639.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-05-01-09-28-39-509.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-05-01-09-28-39-509.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-05-01-09-28-52-617.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-05-01-09-28-52-617.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-05-01-09-29-51-057.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-05-01-09-29-51-057.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-05-01-09-42-24-270.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-05-01-09-42-24-270.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-05-01-09-42-29-175.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-05-01-09-42-29-175.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-05-01-09-44-36-663.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-05-01-09-44-36-663.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-05-01-10-14-03-061.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-05-01-10-14-03-061.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-05-01-10-14-07-384.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-05-01-10-14-07-384.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-05-01-10-14-09-848.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-05-01-10-14-09-848.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-05-01-10-21-44-353.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-05-01-10-21-44-353.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-05-01-10-21-57-103.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-05-01-10-21-57-103.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-05-01-10-22-03-604.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-05-01-10-22-03-604.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-05-01-10-23-32-269.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-05-01-10-23-32-269.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-05-01-11-29-26-468.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-05-01-11-29-26-468.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-05-01-11-29-41-026.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-05-01-11-29-41-026.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-05-01-11-30-23-694.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-05-01-11-30-23-694.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-05-01-11-34-33-166.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-05-01-11-34-33-166.rawproto" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/fileHashes/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/4.1/fileHashes/fileHashes.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/fileHashes/fileHashes.lock" afterPath="$PROJECT_DIR$/.gradle/4.1/fileHashes/fileHashes.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/fileHashes/resourceHashesCache.bin" afterPath="$PROJECT_DIR$/.gradle/4.1/fileHashes/resourceHashesCache.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/javaCompile/classAnalysis.bin" afterPath="$PROJECT_DIR$/.gradle/4.1/javaCompile/classAnalysis.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/javaCompile/jarAnalysis.bin" afterPath="$PROJECT_DIR$/.gradle/4.1/javaCompile/jarAnalysis.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/javaCompile/javaCompile.lock" afterPath="$PROJECT_DIR$/.gradle/4.1/javaCompile/javaCompile.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/javaCompile/taskHistory.bin" afterPath="$PROJECT_DIR$/.gradle/4.1/javaCompile/taskHistory.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/javaCompile/taskJars.bin" afterPath="$PROJECT_DIR$/.gradle/4.1/javaCompile/taskJars.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/taskHistory/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/4.1/taskHistory/fileSnapshots.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.bin" afterPath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.lock" afterPath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/android_arch_lifecycle_runtime_1_0_3.xml" afterPath="$PROJECT_DIR$/.idea/libraries/android_arch_lifecycle_runtime_1_0_3.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/com_android_support_animated_vector_drawable_27_0_2.xml" afterPath="$PROJECT_DIR$/.idea/libraries/com_android_support_animated_vector_drawable_27_0_2.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/com_android_support_appcompat_v7_27_0_2.xml" afterPath="$PROJECT_DIR$/.idea/libraries/com_android_support_appcompat_v7_27_0_2.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/com_android_support_cardview_v7_27_0_2.xml" afterPath="$PROJECT_DIR$/.idea/libraries/com_android_support_cardview_v7_27_0_2.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/com_android_support_constraint_constraint_layout_1_1_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/com_android_support_constraint_constraint_layout_1_1_0.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/com_android_support_customtabs_27_0_2.xml" afterPath="$PROJECT_DIR$/.idea/libraries/com_android_support_customtabs_27_0_2.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/com_android_support_design_27_0_2.xml" afterPath="$PROJECT_DIR$/.idea/libraries/com_android_support_design_27_0_2.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/com_android_support_multidex_1_0_3.xml" afterPath="$PROJECT_DIR$/.idea/libraries/com_android_support_multidex_1_0_3.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/com_android_support_recyclerview_v7_27_0_2.xml" afterPath="$PROJECT_DIR$/.idea/libraries/com_android_support_recyclerview_v7_27_0_2.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/com_android_support_support_compat_27_0_2.xml" afterPath="$PROJECT_DIR$/.idea/libraries/com_android_support_support_compat_27_0_2.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/com_android_support_support_core_ui_27_0_2.xml" afterPath="$PROJECT_DIR$/.idea/libraries/com_android_support_support_core_ui_27_0_2.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/com_android_support_support_core_utils_27_0_2.xml" afterPath="$PROJECT_DIR$/.idea/libraries/com_android_support_support_core_utils_27_0_2.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/com_android_support_support_fragment_27_0_2.xml" afterPath="$PROJECT_DIR$/.idea/libraries/com_android_support_support_fragment_27_0_2.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/com_android_support_support_media_compat_27_0_2.xml" afterPath="$PROJECT_DIR$/.idea/libraries/com_android_support_support_media_compat_27_0_2.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/com_android_support_support_v4_27_0_2.xml" afterPath="$PROJECT_DIR$/.idea/libraries/com_android_support_support_v4_27_0_2.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/com_android_support_support_vector_drawable_27_0_2.xml" afterPath="$PROJECT_DIR$/.idea/libraries/com_android_support_support_vector_drawable_27_0_2.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/com_android_support_transition_27_0_2.xml" afterPath="$PROJECT_DIR$/.idea/libraries/com_android_support_transition_27_0_2.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/com_facebook_android_facebook_android_sdk_4_32_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/com_facebook_android_facebook_android_sdk_4_32_0.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/com_facebook_android_facebook_applinks_4_32_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/com_facebook_android_facebook_applinks_4_32_0.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/com_facebook_android_facebook_common_4_32_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/com_facebook_android_facebook_common_4_32_0.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/com_facebook_android_facebook_core_4_32_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/com_facebook_android_facebook_core_4_32_0.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/com_facebook_android_facebook_login_4_32_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/com_facebook_android_facebook_login_4_32_0.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/com_facebook_android_facebook_messenger_4_32_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/com_facebook_android_facebook_messenger_4_32_0.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/com_facebook_android_facebook_places_4_32_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/com_facebook_android_facebook_places_4_32_0.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/com_facebook_android_facebook_share_4_32_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/com_facebook_android_facebook_share_4_32_0.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/com_firebase_firebase_jobdispatcher_0_8_5.xml" afterPath="$PROJECT_DIR$/.idea/libraries/com_firebase_firebase_jobdispatcher_0_8_5.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/com_github_clans_fab_1_6_4.xml" afterPath="$PROJECT_DIR$/.idea/libraries/com_github_clans_fab_1_6_4.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/com_google_android_gms_play_services_auth_15_0_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/com_google_android_gms_play_services_auth_15_0_0.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/com_google_android_gms_play_services_auth_base_15_0_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/com_google_android_gms_play_services_auth_base_15_0_0.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/assets/notifications1.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.iml" afterPath="$PROJECT_DIR$/app/app.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build.gradle" afterPath="$PROJECT_DIR$/app/build.gradle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/notifications/GCFirebaseMessagingService.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/notifications/GCFirebaseMessagingService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/assets/notifications.html" afterPath="$PROJECT_DIR$/app/src/main/assets/notifications.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/web/WebActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/web/WebActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/lint-cache/maven.google/com/google/android/gms/group-index.xml" afterPath="$PROJECT_DIR$/build/intermediates/lint-cache/maven.google/com/google/android/gms/group-index.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/lint-cache/maven.google/com/google/firebase/group-index.xml" afterPath="$PROJECT_DIR$/build/intermediates/lint-cache/maven.google/com/google/firebase/group-index.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/proguard-files/proguard-android-optimize.txt-3.0.1" afterPath="$PROJECT_DIR$/build/intermediates/proguard-files/proguard-android-optimize.txt-3.0.1" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/proguard-files/proguard-android.txt-3.0.1" afterPath="$PROJECT_DIR$/build/intermediates/proguard-files/proguard-android.txt-3.0.1" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/proguard-files/proguard-defaults.txt-3.0.1" afterPath="$PROJECT_DIR$/build/intermediates/proguard-files/proguard-defaults.txt-3.0.1" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -183,28 +64,68 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="WebActivity.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="WebActivity.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/web/WebActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="151">
-              <caret line="649" column="34" lean-forward="false" selection-start-line="649" selection-start-column="26" selection-end-line="649" selection-end-column="34" />
+            <state relative-caret-position="166">
+              <caret line="1213" column="0" lean-forward="false" selection-start-line="1213" selection-start-column="0" selection-end-line="1213" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#30796#31140#0" expanded="true" />
-                <element signature="e#31139#31140#0" expanded="true" />
-                <element signature="e#31622#31960#0" expanded="true" />
-                <element signature="e#31959#31960#0" expanded="true" />
-                <element signature="method#openPageById#0;class#WebActivity#0" expanded="false" />
-                <element signature="e#44671#44672#0" expanded="true" />
-                <element signature="e#44714#44715#0" expanded="true" />
-                <element signature="e#46611#46612#0" expanded="true" />
-                <element signature="e#46654#46655#0" expanded="true" />
-                <element signature="e#47032#47864#0" expanded="true" />
-                <element signature="e#47363#47773#0" expanded="true" />
-                <element signature="e#47772#47773#0" expanded="true" />
-                <element signature="e#47863#47864#0" expanded="true" />
+                <element signature="e#5814#6142#0" expanded="true" />
+                <element signature="e#6141#6142#0" expanded="true" />
+                <element signature="e#6449#6732#0" expanded="true" />
+                <element signature="e#6731#6732#0" expanded="true" />
+                <element signature="e#31079#31423#0" expanded="true" />
+                <element signature="e#31422#31423#0" expanded="true" />
+                <element signature="method#initRequestExtraHeaders#0;class#WebActivity#0" expanded="false" />
+                <element signature="method#openPage#0;class#WebActivity#0" expanded="false" />
+                <element signature="method#setLoadingIndicator#0;class#WebActivity#0" expanded="false" />
+                <element signature="method#logout#0;class#WebActivity#0" expanded="false" />
+                <element signature="method#reload#0;class#WebActivity#0" expanded="false" />
+                <element signature="method#showSuccess#0;class#WebActivity#0" expanded="false" />
+                <element signature="method#signIn#0;class#WebActivity#0" expanded="false" />
+                <element signature="method#onBackPressed#0;class#WebActivity#0" expanded="false" />
+                <element signature="method#showMenu#0;class#WebActivity#0" expanded="false" />
+                <element signature="method#initNavigationView#0;class#WebActivity#0" expanded="false" />
+                <element signature="method#goPreviousActivity#0;class#WebActivity#0" expanded="false" />
+                <element signature="e#44279#44280#0" expanded="true" />
+                <element signature="e#44322#44323#0" expanded="true" />
+                <element signature="e#44438#46641#0" expanded="true" />
+                <element signature="e#46192#46425#0" expanded="true" />
+                <element signature="e#46424#46425#0" expanded="true" />
+                <element signature="e#46640#46641#0" expanded="true" />
+                <element signature="e#46767#49242#0" expanded="true" />
+                <element signature="e#47101#48058#0" expanded="true" />
+                <element signature="e#47513#47943#0" expanded="true" />
+                <element signature="e#47942#47943#0" expanded="true" />
+                <element signature="e#48057#48058#0" expanded="true" />
+                <element signature="e#48193#48585#0" expanded="true" />
+                <element signature="e#48584#48585#0" expanded="true" />
+                <element signature="e#48747#49186#0" expanded="true" />
+                <element signature="e#49185#49186#0" expanded="true" />
+                <element signature="e#49241#49242#0" expanded="true" />
                 <element signature="method#getDeviceInformation#0;class#WebActivity#0" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="IWebContract.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/web/IWebContract.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="476">
+              <caret line="30" column="25" lean-forward="false" selection-start-line="30" selection-start-column="13" selection-end-line="30" selection-end-column="25" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="WebPresenter.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/web/WebPresenter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="183">
+              <caret line="118" column="0" lean-forward="false" selection-start-line="118" selection-start-column="0" selection-end-line="118" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -213,18 +134,67 @@
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/notifications/Notifications.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="411">
-              <caret line="104" column="0" lean-forward="false" selection-start-line="104" selection-start-column="0" selection-end-line="104" selection-end-column="0" />
+              <caret line="83" column="32" lean-forward="false" selection-start-line="83" selection-start-column="32" selection-end-line="83" selection-end-column="32" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="notifications.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="GCFirebaseMessagingService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/notifications/GCFirebaseMessagingService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="300">
+              <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Repository.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/storage/Repository.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="166">
+              <caret line="233" column="0" lean-forward="false" selection-start-line="233" selection-start-column="0" selection-end-line="233" selection-end-column="0" />
+              <folding>
+                <element signature="e#2086#4736#0" expanded="true" />
+                <element signature="e#4735#4736#0" expanded="true" />
+                <element signature="method#forgotPassword#0;class#Repository#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="notifications.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/assets/notifications.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="141">
-              <caret line="36" column="32" lean-forward="false" selection-start-line="36" selection-start-column="29" selection-end-line="36" selection-end-column="32" />
+            <state relative-caret-position="-503">
+              <caret line="114" column="21" lean-forward="false" selection-start-line="114" selection-start-column="8" selection-end-line="114" selection-end-column="21" />
+              <folding>
+                <element signature="e#1505#1532#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Api.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/api/Api.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="163">
+              <caret line="27" column="57" lean-forward="false" selection-start-line="27" selection-start-column="31" selection-end-line="27" selection-end-column="57" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="notifications1.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/assets/notifications1.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="260">
+              <caret line="15" column="2" lean-forward="false" selection-start-line="15" selection-start-column="2" selection-end-line="30" selection-end-column="10" />
+              <folding>
+                <element signature="e#1297#1324#0" expanded="true" />
+                <element signature="e#1467#1491#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -236,52 +206,6 @@
               <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
               <folding />
             </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AddCookiesInterceptor.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/api/AddCookiesInterceptor.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="26" column="0" lean-forward="false" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Repository.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/storage/Repository.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="147">
-              <caret line="381" column="0" lean-forward="false" selection-start-line="381" selection-start-column="0" selection-end-line="381" selection-end-column="0" />
-              <folding>
-                <element signature="method#signIn#0;class#Repository#0" expanded="false" />
-                <element signature="method#forgotPassword#0;class#Repository#0" expanded="false" />
-                <element signature="method#updateNotify#0;class#Repository#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AndroidManifest.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="18" column="42" lean-forward="false" selection-start-line="18" selection-start-column="37" selection-end-line="18" selection-end-column="42" />
-              <folding>
-                <element signature="e#1030#1055#0" expanded="true" />
-                <marker date="1525348461614" expanded="false" signature="1505:1546" ph="&quot;gcNotifications&quot;" />
-                <marker date="1525348461614" expanded="false" signature="1747:1765" ph="&quot;GMAT Club Forum-Debug&quot;" />
-                <marker date="1525348461614" expanded="false" signature="2171:2205" ph="&quot;fb188832947830704&quot;" />
-                <marker date="1525348461614" expanded="false" signature="2436:2454" ph="&quot;GMAT Club Forum-Debug&quot;" />
-                <marker date="1525348461614" expanded="false" signature="3071:3099" ph="&quot;Web&quot;" />
-                <marker date="1525348461614" expanded="false" signature="3542:3571" ph="&quot;Auth&quot;" />
-                <marker date="1525348461614" expanded="false" signature="3869:3902" ph="&quot;FacebookActivity&quot;" />
-              </folding>
-            </state>
-          </provider>
-          <provider editor-type-id="android-manifest">
-            <state />
           </provider>
         </entry>
       </file>
@@ -299,36 +223,36 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>setLoa</find>
-      <find>setLoad</find>
-      <find>btnAddTopic</find>
-      <find>setLoading</find>
-      <find>setLoadingInd</find>
-      <find>setLoadingIndicator(boolean active)</find>
-      <find>gms:play-services</find>
-      <find>webView</find>
-      <find>initWebVi</find>
-      <find>src</find>
-      <find>url</find>
-      <find>icon-svg-notification</find>
-      <find>load</find>
-      <find>notificationsHTML</find>
-      <find>get_user_info</find>
-      <find>Test</find>
-      <find>initMobileNotify</find>
-      <find>initWeb</find>
-      <find>sendMessage</find>
-      <find>GCTest.send</find>
-      <find>GCAndroid</find>
-      <find>GCJavascriptInterface</find>
-      <find>evaluate</find>
-      <find>initWebView</find>
-      <find>evaluat</find>
-      <find>GCTest</find>
-      <find>mobileNotifyRecalculateWidth</find>
-      <find>id_notify</find>
-      <find>loa</find>
       <find>loadData</find>
+      <find>GCTes</find>
+      <find>notifications1</find>
+      <find>hammer</find>
+      <find>start</find>
+      <find>initWe</find>
+      <find>JS</find>
+      <find>format</find>
+      <find>notifications.h</find>
+      <find>getData</find>
+      <find>time</find>
+      <find>formatDateTime</find>
+      <find>Hammer</find>
+      <find>notification_group_count</find>
+      <find>GCAn</find>
+      <find>id_notify</find>
+      <find>notificationsJSON</find>
+      <find>open_tagmenu</find>
+      <find>notification</find>
+      <find>initWeb</find>
+      <find>swipe.setEnabled</find>
+      <find>console</find>
+      <find>count</find>
+      <find>m_notification_group_content</find>
+      <find>mobileNotify</find>
+      <find>notification_group_content</find>
+      <find>executorService</find>
+      <find>updateNotify</find>
+      <find>openPageById</find>
+      <find>renderPartial</find>
     </findStrings>
     <replaceStrings>
       <replace>goByMenu</replace>
@@ -2961,7 +2885,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_splash.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/content_splash.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_auth.xml" />
@@ -3011,6 +2934,7 @@
         <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/notifications/GCFirebaseMessagingService.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/web/WebActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/assets/notifications1.html" />
         <option value="$PROJECT_DIR$/app/src/main/assets/notifications.html" />
       </list>
     </option>
@@ -3037,73 +2961,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="AndroidView">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="gmatclub" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidResFolderNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="gmatclub" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="gmatclub" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="gmatclub" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="gmatclub" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="manifests" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidManifestsGroupNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
-      <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -3256,12 +3113,147 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gmatclub" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="storage" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="android" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="android" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gmatclub" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="api" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="android" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="android" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="assets" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="AndroidView">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gmatclub" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidResFolderNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gmatclub" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidSourceTypeNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gmatclub" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidSourceTypeNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gmatclub" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gmatclub" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="manifests" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidManifestsGroupNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+      <pane id="Scratches" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -3381,7 +3373,7 @@
       <option name="ACTIVITY_CLASS" value="com.deepinspire.gmatclub.auth.AuthActivity" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1525366508870" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1525436712188" />
       </method>
     </configuration>
     <configuration default="false" name="gmatclub [signingReport]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
@@ -3472,7 +3464,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1525366508870" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1525436712188" />
       </method>
     </configuration>
     <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Instrumented Tests">
@@ -3520,7 +3512,7 @@
       </Profilers>
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1525366508870" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1525436712189" />
       </method>
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -3552,27 +3544,6 @@
         </option>
         <option name="vmOptions" />
       </ExternalSystemSettings>
-      <method />
-    </configuration>
-    <configuration default="true" type="JUnit" factoryName="JUnit">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <module name="" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="class" />
-      <option name="VM_PARAMETERS" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
       <method />
     </configuration>
     <configuration default="true" type="JarApplication" factoryName="JAR Application">
@@ -3703,7 +3674,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1525366508872" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1525436712190" />
       </method>
     </configuration>
     <list size="4">
@@ -3766,65 +3737,41 @@
     <layout>
       <window_info id="Android Profiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25674218" sideWeight="0.4980631" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.49894738" sideWeight="0.49649218" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4757895" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19913654" sideWeight="0.37037036" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31789473" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19913654" sideWeight="0.36631578" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.49894738" sideWeight="0.50350785" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3416082" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32901832" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27666315" sideWeight="0.49584946" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4875944" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Logcat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5136842" sideWeight="0.4969563" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Logcat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.45789474" sideWeight="0.4969563" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.6831579" sideWeight="0.5019369" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19913654" sideWeight="0.6296296" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14786832" sideWeight="0.495671" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19913654" sideWeight="0.6336842" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.54421055" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.14786832" sideWeight="0.495671" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Device File Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32982844" sideWeight="0.504329" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27954668" sideWeight="0.33480176" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.43157893" sideWeight="0.91034865" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.38421053" sideWeight="0.91034865" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Android Profiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25674218" sideWeight="0.4980631" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19913654" sideWeight="0.36105263" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.49894738" sideWeight="0.50350785" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Logcat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.45789474" sideWeight="0.4969563" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Device File Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32982844" sideWeight="0.504329" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.46210527" sideWeight="0.91034865" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.49894738" sideWeight="0.49649218" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31789473" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3416082" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27666315" sideWeight="0.49584946" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32901832" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4875944" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.6831579" sideWeight="0.5019369" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19913654" sideWeight="0.63894737" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.54421055" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14786832" sideWeight="0.495671" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27954668" sideWeight="0.33480176" order="2" side_tool="true" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Android Profiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25674218" sideWeight="0.4980631" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27954668" sideWeight="0.34842107" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19913654" sideWeight="0.36631578" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.49894738" sideWeight="0.50350785" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Logcat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.45789474" sideWeight="0.4969563" order="9" side_tool="false" content_ui="tabs" />
@@ -3834,7 +3781,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Device File Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32982844" sideWeight="0.504329" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4694737" sideWeight="0.91034865" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.46210527" sideWeight="0.91034865" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.49894738" sideWeight="0.49649218" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31789473" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -3842,14 +3789,14 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3416082" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26210526" sideWeight="0.49584946" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32901832" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27666315" sideWeight="0.49584946" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4875944" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.68392664" sideWeight="0.5019369" order="13" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27954668" sideWeight="0.65157896" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.6831579" sideWeight="0.5019369" order="13" side_tool="true" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19913654" sideWeight="0.6336842" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.54421055" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32973558" sideWeight="0.495671" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14786832" sideWeight="0.495671" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27954668" sideWeight="0.33480176" order="7" side_tool="true" content_ui="tabs" />
     </layout-to-restore>
@@ -3886,7 +3833,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/web/WebActivity.java</url>
-          <line>981</line>
+          <line>974</line>
           <properties />
           <option name="timeStamp" value="73" />
         </line-breakpoint>
@@ -3910,7 +3857,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/web/WebActivity.java</url>
-          <line>986</line>
+          <line>979</line>
           <properties />
           <option name="timeStamp" value="100" />
         </line-breakpoint>
@@ -4078,7 +4025,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/web/WebActivity.java</url>
-          <line>551</line>
+          <line>555</line>
           <properties />
           <option name="timeStamp" value="202" />
         </line-breakpoint>
@@ -4161,12 +4108,6 @@
           <option name="timeStamp" value="252" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/web/WebActivity.java</url>
-          <line>1179</line>
-          <properties />
-          <option name="timeStamp" value="262" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/notifications/GCFirebaseInstanceIDService.java</url>
           <line>12</line>
           <properties />
@@ -4174,7 +4115,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/web/WebActivity.java</url>
-          <line>358</line>
+          <line>362</line>
           <properties />
           <option name="timeStamp" value="307" />
         </line-breakpoint>
@@ -4185,76 +4126,52 @@
           <option name="timeStamp" value="365" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/notifications/Notifications.java</url>
-          <line>91</line>
-          <properties />
-          <option name="timeStamp" value="372" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/web/WebActivity.java</url>
-          <line>598</line>
+          <line>602</line>
           <properties />
           <option name="timeStamp" value="376" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/web/WebActivity.java</url>
-          <line>599</line>
+          <line>603</line>
           <properties />
           <option name="timeStamp" value="377" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/web/WebActivity.java</url>
-          <line>602</line>
+          <line>606</line>
           <properties />
           <option name="timeStamp" value="378" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/web/WebActivity.java</url>
-          <line>605</line>
+          <line>609</line>
           <properties />
           <option name="timeStamp" value="381" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/web/WebActivity.java</url>
-          <line>401</line>
+          <line>405</line>
           <properties />
           <option name="timeStamp" value="390" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/web/WebActivity.java</url>
-          <line>402</line>
+          <line>406</line>
           <properties />
           <option name="timeStamp" value="391" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/web/WebActivity.java</url>
-          <line>404</line>
+          <line>408</line>
           <properties />
           <option name="timeStamp" value="392" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/web/WebActivity.java</url>
-          <line>586</line>
+          <line>590</line>
           <properties />
           <option name="timeStamp" value="401" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/notifications/Notifications.java</url>
-          <line>109</line>
-          <properties />
-          <option name="timeStamp" value="405" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/notifications/Notifications.java</url>
-          <line>104</line>
-          <properties />
-          <option name="timeStamp" value="406" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/notifications/Notifications.java</url>
-          <line>113</line>
-          <properties />
-          <option name="timeStamp" value="414" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/storage/Repository.java</url>
@@ -4273,24 +4190,6 @@
           <line>471</line>
           <properties />
           <option name="timeStamp" value="419" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/notifications/GCFirebaseMessagingService.java</url>
-          <line>17</line>
-          <properties />
-          <option name="timeStamp" value="420" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/notifications/GCFirebaseMessagingService.java</url>
-          <line>18</line>
-          <properties />
-          <option name="timeStamp" value="421" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/notifications/GCFirebaseMessagingService.java</url>
-          <line>19</line>
-          <properties />
-          <option name="timeStamp" value="424" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/auth/AuthActivity.java</url>
@@ -4341,91 +4240,97 @@
           <option name="timeStamp" value="453" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/api/ReceivedCookiesInterceptor.java</url>
-          <line>20</line>
-          <properties />
-          <option name="timeStamp" value="454" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/api/ReceivedCookiesInterceptor.java</url>
-          <line>22</line>
-          <properties />
-          <option name="timeStamp" value="456" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/api/AddCookiesInterceptor.java</url>
-          <line>26</line>
-          <properties />
-          <option name="timeStamp" value="457" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/web/WebActivity.java</url>
-          <line>650</line>
+          <line>653</line>
           <properties />
           <option name="timeStamp" value="459" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/web/WebActivity.java</url>
-          <line>754</line>
-          <properties />
-          <option name="timeStamp" value="460" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/web/WebActivity.java</url>
-          <line>766</line>
+          <line>770</line>
           <properties />
           <option name="timeStamp" value="461" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/web/WebActivity.java</url>
-          <line>772</line>
+          <line>750</line>
           <properties />
-          <option name="timeStamp" value="465" />
+          <option name="timeStamp" value="475" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/web/WebActivity.java</url>
-          <line>785</line>
+          <line>1213</line>
           <properties />
-          <option name="timeStamp" value="466" />
+          <option name="timeStamp" value="476" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/web/WebActivity.java</url>
-          <line>1218</line>
+          <line>1247</line>
           <properties />
-          <option name="timeStamp" value="467" />
+          <option name="timeStamp" value="483" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/web/WebActivity.java</url>
-          <line>1163</line>
+          <line>1217</line>
           <properties />
-          <option name="timeStamp" value="468" />
+          <option name="timeStamp" value="485" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/web/WebActivity.java</url>
-          <line>1166</line>
+          <line>1233</line>
           <properties />
-          <option name="timeStamp" value="469" />
+          <option name="timeStamp" value="489" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/web/WebActivity.java</url>
-          <line>1165</line>
+          <line>1225</line>
           <properties />
-          <option name="timeStamp" value="470" />
+          <option name="timeStamp" value="490" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/web/WebActivity.java</url>
-          <line>746</line>
+          <line>1171</line>
           <properties />
-          <option name="timeStamp" value="471" />
+          <option name="timeStamp" value="492" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/web/WebActivity.java</url>
           <line>1220</line>
           <properties />
-          <option name="timeStamp" value="472" />
+          <option name="timeStamp" value="493" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/web/WebPresenter.java</url>
+          <line>118</line>
+          <properties />
+          <option name="timeStamp" value="494" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/web/WebPresenter.java</url>
+          <line>117</line>
+          <properties />
+          <option name="timeStamp" value="495" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/web/WebPresenter.java</url>
+          <line>122</line>
+          <properties />
+          <option name="timeStamp" value="496" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/web/WebActivity.java</url>
+          <line>904</line>
+          <properties />
+          <option name="timeStamp" value="497" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/web/WebActivity.java</url>
+          <line>1215</line>
+          <properties />
+          <option name="timeStamp" value="498" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="473" />
+      <option name="time" value="499" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="app">
@@ -4435,36 +4340,12 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/play-services-auth-15.0.0.aar/ddca061a4ef2dd08891cde1c2ddd3c66/jars/classes.jar!/com/google/android/gms/auth/api/signin/GoogleSignIn.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="600">
-          <caret line="51" column="43" lean-forward="true" selection-start-line="51" selection-start-column="43" selection-end-line="51" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/play-services-base-15.0.0.aar/97f8778f3a5a80152eda63d31d14af7e/jars/classes.jar!/com/google/android/gms/common/api/GoogleApiClient.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="307">
-          <caret line="291" column="68" lean-forward="false" selection-start-line="291" selection-start-column="68" selection-end-line="291" selection-end-column="68" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/play-services-auth-15.0.0.aar/ddca061a4ef2dd08891cde1c2ddd3c66/jars/classes.jar!/com/google/android/gms/auth/api/Auth.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="33" column="49" lean-forward="false" selection-start-line="33" selection-start-column="49" selection-end-line="33" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/build/generated/source/r/gmatclub/debug/com/deepinspire/gmatclub/R.java" />
-    <entry file="file://$PROJECT_DIR$/app/build/outputs/logs/manifest-merger-gmatclub-release-report.txt" />
     <entry file="file://$PROJECT_DIR$/app/build/outputs/apk/gmatclub/release/gmatclub.apk" />
     <entry file="file://$PROJECT_DIR$/app/build/outputs/apk/gmatclub/release/gmatclub.apk" />
     <entry file="file://$PROJECT_DIR$/app/proguard-rules.pro">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="420">
           <caret line="21" column="52" lean-forward="false" selection-start-line="21" selection-start-column="52" selection-end-line="21" selection-end-column="52" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -4571,6 +4452,9 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/content_web.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="320">
           <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
@@ -4579,19 +4463,16 @@
           </folding>
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/toolbar.xml">
       <provider editor-type-id="android-designer2">
         <state />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/toolbar.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="420">
           <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
           <folding />
         </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
       </provider>
     </entry>
     <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.support/appcompat-v7/27.0.2/4ae031a24f432a35efae0d609731c5a34e65696c/appcompat-v7-27.0.2-sources.jar!/android/support/v7/app/AppCompatActivity.java">
@@ -4606,14 +4487,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="200">
           <caret line="10" column="28" lean-forward="false" selection-start-line="10" selection-start-column="28" selection-end-line="10" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/api/Api.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="503">
-          <caret line="44" column="25" lean-forward="false" selection-start-line="44" selection-start-column="25" selection-end-line="44" selection-end-column="25" />
           <folding />
         </state>
       </provider>
@@ -4633,13 +4506,13 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/content_auth.xml">
+      <provider selected="true" editor-type-id="android-designer2">
+        <state />
+      </provider>
       <provider editor-type-id="text-editor">
         <state relative-caret-position="640">
           <caret line="50" column="36" lean-forward="false" selection-start-line="50" selection-start-column="36" selection-end-line="50" selection-end-column="36" />
         </state>
-      </provider>
-      <provider selected="true" editor-type-id="android-designer2">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/utils/ViewHelper.java">
@@ -4665,25 +4538,25 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_web.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="907">
           <caret line="78" column="53" lean-forward="false" selection-start-line="78" selection-start-column="45" selection-end-line="78" selection-end-column="53" />
           <folding />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/alert_dialog_login.xml">
       <provider editor-type-id="android-designer2">
         <state />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/alert_dialog_login.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="243">
           <caret line="108" column="47" lean-forward="false" selection-start-line="108" selection-start-column="47" selection-end-line="108" selection-end-column="47" />
           <folding />
         </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/build.gradle">
@@ -4720,10 +4593,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
+        <state relative-caret-position="360">
           <caret line="18" column="42" lean-forward="false" selection-start-line="18" selection-start-column="37" selection-end-line="18" selection-end-column="42" />
           <folding>
-            <element signature="e#1030#1055#0" expanded="true" />
             <marker date="1525348461614" expanded="false" signature="1505:1546" ph="&quot;gcNotifications&quot;" />
             <marker date="1525348461614" expanded="false" signature="1747:1765" ph="&quot;GMAT Club Forum-Debug&quot;" />
             <marker date="1525348461614" expanded="false" signature="2171:2205" ph="&quot;fb188832947830704&quot;" />
@@ -4738,34 +4610,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/storage/Repository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="381" column="0" lean-forward="false" selection-start-line="381" selection-start-column="0" selection-end-line="381" selection-end-column="0" />
-          <folding>
-            <element signature="method#signIn#0;class#Repository#0" expanded="false" />
-            <element signature="method#forgotPassword#0;class#Repository#0" expanded="false" />
-            <element signature="method#updateNotify#0;class#Repository#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Android/Sdk/sources/android-26/android/webkit/WebView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="157">
-          <caret line="1022" column="63" lean-forward="false" selection-start-line="1022" selection-start-column="59" selection-end-line="1022" selection-end-column="63" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/notifications/GCFirebaseMessagingService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="16" column="64" lean-forward="true" selection-start-line="16" selection-start-column="64" selection-end-line="16" selection-end-column="64" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/Android/Sdk/sources/android-26/org/json/JSONObject.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="307">
@@ -4774,10 +4618,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/notifications/Notifications.java">
+    <entry file="file://$USER_HOME$/Android/Sdk/sources/android-26/android/webkit/WebView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="411">
-          <caret line="104" column="0" lean-forward="false" selection-start-line="104" selection-start-column="0" selection-end-line="104" selection-end-column="0" />
+        <state relative-caret-position="307">
+          <caret line="1960" column="23" lean-forward="false" selection-start-line="1960" selection-start-column="23" selection-end-line="1960" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Android/Sdk/sources/android-26/java/util/concurrent/Executors.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="307">
+          <caret line="76" column="13" lean-forward="false" selection-start-line="76" selection-start-column="13" selection-end-line="76" selection-end-column="13" />
           <folding />
         </state>
       </provider>
@@ -4798,34 +4650,127 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/assets/notifications.html">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/notifications/GCFirebaseMessagingService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="141">
-          <caret line="36" column="32" lean-forward="false" selection-start-line="36" selection-start-column="29" selection-end-line="36" selection-end-column="32" />
+        <state relative-caret-position="300">
+          <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Android/Sdk/sources/android-26/android/webkit/ValueCallback.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="21" column="30" lean-forward="false" selection-start-line="21" selection-start-column="17" selection-end-line="21" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/notifications/Notifications.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="411">
+          <caret line="83" column="32" lean-forward="false" selection-start-line="83" selection-start-column="32" selection-end-line="83" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/web/IWebContract.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="30" column="25" lean-forward="false" selection-start-line="30" selection-start-column="13" selection-end-line="30" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/assets/notifications1.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="15" column="2" lean-forward="false" selection-start-line="15" selection-start-column="2" selection-end-line="30" selection-end-column="10" />
+          <folding>
+            <element signature="e#1297#1324#0" expanded="true" />
+            <element signature="e#1467#1491#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/api/Api.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="163">
+          <caret line="27" column="57" lean-forward="false" selection-start-line="27" selection-start-column="31" selection-end-line="27" selection-end-column="57" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/storage/Repository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="166">
+          <caret line="233" column="0" lean-forward="false" selection-start-line="233" selection-start-column="0" selection-end-line="233" selection-end-column="0" />
+          <folding>
+            <element signature="e#2086#4736#0" expanded="true" />
+            <element signature="e#4735#4736#0" expanded="true" />
+            <element signature="method#forgotPassword#0;class#Repository#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/web/WebPresenter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="183">
+          <caret line="118" column="0" lean-forward="false" selection-start-line="118" selection-start-column="0" selection-end-line="118" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/web/WebActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="151">
-          <caret line="649" column="34" lean-forward="false" selection-start-line="649" selection-start-column="26" selection-end-line="649" selection-end-column="34" />
+        <state relative-caret-position="166">
+          <caret line="1213" column="0" lean-forward="false" selection-start-line="1213" selection-start-column="0" selection-end-line="1213" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#30796#31140#0" expanded="true" />
-            <element signature="e#31139#31140#0" expanded="true" />
-            <element signature="e#31622#31960#0" expanded="true" />
-            <element signature="e#31959#31960#0" expanded="true" />
-            <element signature="method#openPageById#0;class#WebActivity#0" expanded="false" />
-            <element signature="e#44671#44672#0" expanded="true" />
-            <element signature="e#44714#44715#0" expanded="true" />
-            <element signature="e#46611#46612#0" expanded="true" />
-            <element signature="e#46654#46655#0" expanded="true" />
-            <element signature="e#47032#47864#0" expanded="true" />
-            <element signature="e#47363#47773#0" expanded="true" />
-            <element signature="e#47772#47773#0" expanded="true" />
-            <element signature="e#47863#47864#0" expanded="true" />
+            <element signature="e#5814#6142#0" expanded="true" />
+            <element signature="e#6141#6142#0" expanded="true" />
+            <element signature="e#6449#6732#0" expanded="true" />
+            <element signature="e#6731#6732#0" expanded="true" />
+            <element signature="e#31079#31423#0" expanded="true" />
+            <element signature="e#31422#31423#0" expanded="true" />
+            <element signature="method#initRequestExtraHeaders#0;class#WebActivity#0" expanded="false" />
+            <element signature="method#openPage#0;class#WebActivity#0" expanded="false" />
+            <element signature="method#setLoadingIndicator#0;class#WebActivity#0" expanded="false" />
+            <element signature="method#logout#0;class#WebActivity#0" expanded="false" />
+            <element signature="method#reload#0;class#WebActivity#0" expanded="false" />
+            <element signature="method#showSuccess#0;class#WebActivity#0" expanded="false" />
+            <element signature="method#signIn#0;class#WebActivity#0" expanded="false" />
+            <element signature="method#onBackPressed#0;class#WebActivity#0" expanded="false" />
+            <element signature="method#showMenu#0;class#WebActivity#0" expanded="false" />
+            <element signature="method#initNavigationView#0;class#WebActivity#0" expanded="false" />
+            <element signature="method#goPreviousActivity#0;class#WebActivity#0" expanded="false" />
+            <element signature="e#44279#44280#0" expanded="true" />
+            <element signature="e#44322#44323#0" expanded="true" />
+            <element signature="e#44438#46641#0" expanded="true" />
+            <element signature="e#46192#46425#0" expanded="true" />
+            <element signature="e#46424#46425#0" expanded="true" />
+            <element signature="e#46640#46641#0" expanded="true" />
+            <element signature="e#46767#49242#0" expanded="true" />
+            <element signature="e#47101#48058#0" expanded="true" />
+            <element signature="e#47513#47943#0" expanded="true" />
+            <element signature="e#47942#47943#0" expanded="true" />
+            <element signature="e#48057#48058#0" expanded="true" />
+            <element signature="e#48193#48585#0" expanded="true" />
+            <element signature="e#48584#48585#0" expanded="true" />
+            <element signature="e#48747#49186#0" expanded="true" />
+            <element signature="e#49185#49186#0" expanded="true" />
+            <element signature="e#49241#49242#0" expanded="true" />
             <element signature="method#getDeviceInformation#0;class#WebActivity#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/assets/notifications.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-503">
+          <caret line="114" column="21" lean-forward="false" selection-start-line="114" selection-start-column="8" selection-end-line="114" selection-end-column="21" />
+          <folding>
+            <element signature="e#1505#1532#0" expanded="true" />
           </folding>
         </state>
       </provider>
