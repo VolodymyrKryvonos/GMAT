@@ -31,6 +31,9 @@
     });
 
     var notifications = {
+        update: function(data, action){
+                    doRequest(formatUpdateUrl(data), action)
+        },
         render: function(data) {
             this.clear();
 
@@ -77,21 +80,18 @@
             }
 
            $('.notification_group_content').on('click', '.noteItem', function(e) {
-                var url,
-                    self = $(this);
-
-                console.log(self.data('id') + ':' + self.data('group'));
+                var url;
+                var self = $(this);
 
                 var data = {
                     unread: false,
-                    unwatched: false
+                    unwatched: false,
+                    group: self.data('group')
                 };
 
-                var group = self.data('group');
-
                 data[self.data('type')] = self.data('id');
-                data['group'] = group;
-                //notify.update(data);
+
+                notifications.update(data);
 
                 if(e.target.nodeName != 'A') {
                     if(!$(e.target).hasClass('checkNote')) {
@@ -108,6 +108,19 @@
 
                 e.stopPropagation();
                 e.preventDefault();
+            });
+
+            $('.notification_group_content').on('click', '.readMark', function(e) {
+                    notifications.update({
+                        unread: false,
+                        type:   'group',
+                        group:  'group_general',
+                        data:   'group_general'
+                    },
+                    'markAllRead');
+
+                    e.preventDefault();
+                    e.stopPropagation();
             });
 
             setTimeout(function() {GCAndroid.notifications(JSON.stringify({"action": "renderDone"}));}, 0);
@@ -359,40 +372,77 @@
         }
     }
 
- function doRequest(url, callback) {
-            $.ajax({
-                type: "GET",
-                dataType: "json",
-                url: url,
-                cache: false,
-                success: callback,
-                error:  function(){}
-            });
-
-        }
-
-        /*function get_user_info() {
-
-        var cb = (Math.random() + 1).toString(36).slice(2, 10);
-
+    function doRequest(url, action) {
         $.ajax({
+            type: "GET",
             dataType: "json",
-            url: '/forum/get_user_info.php?cb=' + cb,
-            success: function (data) {
-             GCAndroid.notifications(JSON.stringify({"action": "pageLoaded"}));
-               if(data.user_id && data.is_auth){
-                     initMobileNotify(data);
-                 } else {
-                     window.location.href="/";
-                 }
+            url: url,
+            cache: false,
+            success: function(response) {
+                console.log(response);
+                if(action === 'markAllRead') {
+                    $('.noteItem').removeClass('unread');
+                    $('.notification_group_content .groupFooter').remove();
+                }
             },
-            error: function(e, st, m) {
-        console.log(e.toString());
-         console.log(st);
-         console.log(m);
+            error:  function(error) {
+               console.log('error');
             }
         });
-    }*/
+
+    }
+
+   function formatUpdateUrl(data) {
+        	var cb = (Math.random() + 1).toString(36).slice(2, 10);
+            var url = 'https://gmatclub.com/forum/notify.php?action=update&cb='+cb;
+
+            if(typeof data.unread != 'undefined') {
+                url += '&unread=' + (data.unread ? '1' : '0');
+            }
+
+            if(typeof data.unwatched != 'undefined') {
+                url += '&unwatched=' + (data.unwatched ? '1' : '0');
+            }
+
+            if(typeof data.group != 'undefined') {
+                url += '&group=' + encodeURIComponent(data.group);
+            }
+
+            if(data.single) {
+                url += '&type=single&data=' +  encodeURIComponent(data.single);
+            } else if(data.multiple) {
+                url += '&type=multiple';
+
+                for(var i = 0; i < data.multiple.length; i++) {
+                    url += '&data[]=' +  encodeURIComponent(data.multiple[i]);
+                }
+            } else if(data.group || data.hiddenGroup) {
+                var showGroup =  data.group || data.hiddenGroup;
+
+                url += '&type=group&data=' +  encodeURIComponent(showGroup);
+
+                if(data.hiddenGroup) {
+                    url += '&hgroup=' +  encodeURIComponent(data.hiddenGroup);
+                }
+            } else if(data.types) {
+                url += '&type=types';
+                for(var i = 0; i < data.types.length; i++) {
+                    url += '&data[]=' +  encodeURIComponent(data.types[i]);
+                }
+            } else if(data.subtypes) {
+                url += '&type=subtypes';
+                for(var i = 0; i < data.subtypes.length; i++) {
+                    url += '&data[i][type]=' + encodeURIComponent(data.subtypes[i].type) + '&data[i][subtype]=' +  encodeURIComponent(data.subtypes[i].subtype);
+                }
+            } else {
+                url += '&type=all';
+            }
+
+            url += '&refresh=0';
+
+            console.log(url);
+            return url;
+        }
 </script>
 
 
