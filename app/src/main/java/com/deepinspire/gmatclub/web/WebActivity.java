@@ -621,15 +621,15 @@ public class WebActivity extends AppCompatActivity implements
             url = intent.getStringExtra("url");
         }
 
-        if(url.equals(Api.PM_URL)) {
-            this.presenter.updateNotify();
-            updateCountMessages();
-        } else if(url.equals(Api.FORUM_URL)) {
+        /*if(url.equals(Api.PM_URL)) {
+            openPage(Api.PM_URL);
+            //this.presenter.updateNotify();
+            //updateCountMessages();
+        } else */if(url.equals(Api.FORUM_URL)) {
             highlightMenuItemOnClick(R.id.menu_forum);
-            openPage(Api.FORUM_URL);
-        } else {
-            openPage(url);
         }
+
+        openPage(url);
     }
 
     public void setPresenter(IWebContract.Presenter presenter) {
@@ -644,7 +644,7 @@ public class WebActivity extends AppCompatActivity implements
                 break;
             case R.id.menu_pms:
                 highlightMenuItemOnClick(R.id.menu_pms);
-                presenter.updatePMs();
+                openPage(Api.PM_URL);
                 break;
             case R.id.menu_notifications:
                 highlightMenuItemOnClick(R.id.menu_notifications);
@@ -733,7 +733,7 @@ public class WebActivity extends AppCompatActivity implements
         //webView.setInitialScale(1);
         //webView.setWebContentsDebuggingEnabled(true);
 
-        settings.setRenderPriority(WebSettings.RenderPriority.HIGH);
+        //settings.setRenderPriority(WebSettings.RenderPriority.HIGH);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             // chromium, enable hardware acceleration
@@ -813,21 +813,24 @@ public class WebActivity extends AppCompatActivity implements
 
                     swipe.setRefreshing(false);
                     setLoadingIndicator(false);
+                 } else if(url.contains(Api.PM_URL)) {
+                    presenter.updatePMs();
+                    updateCountMessages();
                  }
             }
 
-            @Override
+            /*@Override
             @TargetApi(Build.VERSION_CODES.LOLLIPOP)
             public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
-                view.loadUrl(request.getUrl().toString(), getRequestExtraHeaders());
+                request.getRequestHeaders().putAll(getRequestExtraHeaders());
                 return true;
             }
 
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
-                view.loadUrl(url, getRequestExtraHeaders());
+                request.getRequestHeaders().putAll(getRequestExtraHeaders());
                 return true;
-            }
+            }*/
 
             public void onReceivedError(WebView view, int errorCode, String description, String failingUrl) {
                 Toast.makeText(WebActivity.this, "Oh no! " + description, Toast.LENGTH_SHORT).show();
@@ -906,7 +909,6 @@ public class WebActivity extends AppCompatActivity implements
                 //openPage(Api.FORUM_NOTIFICATIONS);
                 break;
             case "pms":
-                updateCountMessages();
                 openPage(Api.PM_URL);
                 break;
             case "profile":
@@ -1223,7 +1225,7 @@ public class WebActivity extends AppCompatActivity implements
                                                 new ValueCallback<String>() {
                                                     @Override
                                                     public void onReceiveValue(String value) {
-                                                        Toast.makeText(WebActivity.this, "Render notifications", Toast.LENGTH_LONG).show();
+                                                        //Toast.makeText(WebActivity.this, "Render notifications", Toast.LENGTH_LONG).show();
                                                     }
                                                 }
                                         );
@@ -1236,9 +1238,52 @@ public class WebActivity extends AppCompatActivity implements
                                     public void run() {
                                         swipe.setRefreshing(false);
                                         setLoadingIndicator(false);
-                                        presenter.updateNotify();
+
+                                        if(presenter.getCountUnwatchedNotifications() > 0) {
+                                            presenter.updateNotify();
+                                        }
                                     }
                                 });
+                                break;
+                            case "markAllRead":
+                                if(notificationsJSON != null) {
+                                    JSONArray notifications = (new JSONObject(notificationsJSON)).getJSONArray("group_general");
+
+                                    for(int i = 0; i < notifications.length(); i++) {
+                                        JSONObject notification = notifications.getJSONObject(i);
+
+                                        if(!notification.isNull("unread")) {
+                                            notification.put("unread", false);
+                                        }
+
+                                        if(!notification.isNull("unwatched")) {
+                                            notification.put("unwatched", false);
+                                        }
+                                    }
+
+                                    notificationsJSON = "{\"group_general\": " + notifications.toString() + "}";
+                                }
+                                break;
+                            case "markOneRead":
+                                String id = mNotify.getString("id");
+
+                                if(notificationsJSON != null) {
+                                    JSONArray notifications = (new JSONObject(notificationsJSON)).getJSONArray("group_general");
+
+                                    for(int i = 0; i < notifications.length(); i++) {
+                                        JSONObject notification = notifications.getJSONObject(i);
+
+                                        if(!notification.isNull("id_notify") &&
+                                            !notification.isNull("unwatched") &&
+                                            !notification.isNull("unread") &&
+                                             notification.getString("id_notify").equals(id)) {
+                                            notification.put("unread", false);
+                                            notification.put("unwatched", false);
+                                        }
+                                    }
+
+                                    notificationsJSON = "{\"group_general\": " + notifications.toString() + "}";
+                                }
                                 break;
                         }
                     } catch (JSONException exception) {

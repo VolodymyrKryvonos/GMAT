@@ -128,7 +128,6 @@ public class WebPresenter implements IWebContract.Presenter {
 
     public void updatePMs() {
         setCountUnwatchedPMs(0);
-        view.openPageById("pms");
     }
 
     public User getUser() {

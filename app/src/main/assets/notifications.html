@@ -31,8 +31,8 @@
     });
 
     var notifications = {
-        update: function(data, action){
-                    doRequest(formatUpdateUrl(data), action)
+        update: function(data, action, id){
+                    doRequest(formatUpdateUrl(data), action, id)
         },
         render: function(data) {
             this.clear();
@@ -84,14 +84,16 @@
                 var self = $(this);
 
                 var data = {
-                    unread: false,
-                    unwatched: false,
-                    group: self.data('group')
-                };
+                        unread: false,
+                        unwatched: false,
+                        group: self.data('group')
+                    };
 
                 data[self.data('type')] = self.data('id');
 
-                notifications.update(data);
+                var id = self.data('id');
+
+                notifications.update(data, 'markOneRead', id);
 
                 if(e.target.nodeName != 'A') {
                     if(!$(e.target).hasClass('checkNote')) {
@@ -121,6 +123,15 @@
 
                     e.preventDefault();
                     e.stopPropagation();
+            });
+
+            $('.notification_group_content').on('click', '.jspTrack', function(e) {
+                e.stopPropagation();
+                e.preventDefault();
+            });
+
+            $(document).click(function(e) {
+                return false;
             });
 
             setTimeout(function() {GCAndroid.notifications(JSON.stringify({"action": "renderDone"}));}, 0);
@@ -372,22 +383,22 @@
         }
     }
 
-    function doRequest(url, action) {
+    function doRequest(url, action, id) {
         $.ajax({
             type: "GET",
             dataType: "json",
             url: url,
             cache: false,
             success: function(response) {
-                console.log(response);
                 if(action === 'markAllRead') {
                     $('.noteItem').removeClass('unread');
                     $('.notification_group_content .groupFooter').remove();
+                    GCAndroid.notifications(JSON.stringify({"action": "markAllRead"}));
+                } else {
+                    GCAndroid.notifications(JSON.stringify({"action": "markOneRead", "id": id}));
                 }
             },
-            error:  function(error) {
-               console.log('error');
-            }
+            error:  function(error) {}
         });
 
     }
@@ -439,7 +450,6 @@
             }
 
             url += '&refresh=0';
-
             console.log(url);
             return url;
         }

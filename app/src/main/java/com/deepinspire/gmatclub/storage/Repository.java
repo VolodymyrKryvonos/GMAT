@@ -197,7 +197,7 @@ public class Repository implements IStorage {
                         params.put("_", Long.toString(new Date().getTime()));
                         params.put("action", "update");
                         params.put("cb", Long.toString(new Date().getTime()));
-                        params.put("group", "");
+                        params.put("group", "group_general");
                         params.put("refresh", "0");
                         params.put("type", "all");
                         params.put("unwatched", "0");
