@@ -137,10 +137,6 @@ public class WebActivity extends AppCompatActivity implements
 
     private ViewTreeObserver.OnScrollChangedListener mOnScrollChangedListener;
 
-    private String notificationsHTML = "<html><body>You scored <b>192</b> points.</body></html>";
-
-    private String notificationsJSON = null;
-
     private final ExecutorService executor = Executors.newFixedThreadPool(4);
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -621,11 +617,7 @@ public class WebActivity extends AppCompatActivity implements
             url = intent.getStringExtra("url");
         }
 
-        /*if(url.equals(Api.PM_URL)) {
-            openPage(Api.PM_URL);
-            //this.presenter.updateNotify();
-            //updateCountMessages();
-        } else */if(url.equals(Api.FORUM_URL)) {
+        if(url.equals(Api.FORUM_URL)) {
             highlightMenuItemOnClick(R.id.menu_forum);
         }
 
@@ -748,9 +740,9 @@ public class WebActivity extends AppCompatActivity implements
         webView.setWebChromeClient(new WebChromeClient() {
             @Override
             public boolean onConsoleMessage(ConsoleMessage consoleMessage) {
-                Log.d("MyApplication", consoleMessage.message() + " -- From line "
+                /*Log.d("MyApplication", consoleMessage.message() + " -- From line "
                         + consoleMessage.lineNumber() + " of "
-                        + consoleMessage.sourceId());
+                        + consoleMessage.sourceId());*/
                 return super.onConsoleMessage(consoleMessage);
             }
 
@@ -1126,25 +1118,30 @@ public class WebActivity extends AppCompatActivity implements
         super.onPostCreate(savedInstanceState);
     }
 
-    private void updateCountMessages() {
-        int notificationsUnwatchedCount  = presenter.getCountUnwatchedNotifications();
-        int pmUnwatchedCount  = presenter.getCountUnwatchedPMs();
+    public void updateCountMessages() {
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                int notificationsUnwatchedCount  = presenter.getCountUnwatchedNotifications();
+                int pmUnwatchedCount  = presenter.getCountUnwatchedPMs();
 
-        if(notificationsUnwatchedCount > 0) {
-            countNotifications.setText(Integer.toString(notificationsUnwatchedCount));
-            countNotifications.setVisibility(View.VISIBLE);
-        } else {
-            countNotifications.setText("");
-            countNotifications.setVisibility(View.GONE);
-        }
+                if(notificationsUnwatchedCount > 0) {
+                    countNotifications.setText(Integer.toString(notificationsUnwatchedCount));
+                    countNotifications.setVisibility(View.VISIBLE);
+                } else {
+                    countNotifications.setText("");
+                    countNotifications.setVisibility(View.GONE);
+                }
 
-        if(pmUnwatchedCount > 0) {
-            countPMs.setText(Integer.toString(pmUnwatchedCount));
-            countPMs.setVisibility(View.VISIBLE);
-        } else {
-            countPMs.setText("");
-            countPMs.setVisibility(View.GONE);
-        }
+                if(pmUnwatchedCount > 0) {
+                    countPMs.setText(Integer.toString(pmUnwatchedCount));
+                    countPMs.setVisibility(View.VISIBLE);
+                } else {
+                    countPMs.setText("");
+                    countPMs.setVisibility(View.GONE);
+                }
+            }
+        });
     }
 
     public class GCJavascriptInterface {
@@ -1160,48 +1157,7 @@ public class WebActivity extends AppCompatActivity implements
                 @Override
                 public void run() {
                     if(message != null) {
-                        try {
-                            int privateMessagesUnwatched = 0;
-                            int notificationsUnwatched = 0;
-
-                            final JSONObject mNotify = new JSONObject(message);
-
-                            if(!mNotify.isNull("group_general")) {
-                                notificationsJSON = message;
-
-                                final JSONArray notifications = mNotify.getJSONArray("group_general");
-
-                                notificationsJSON = "{\"group_general\": "+   mNotify.getString("group_general")+"}";
-
-                                for(int i = 0; i < notifications.length(); i++) {
-                                    JSONObject notify = notifications.getJSONObject(i);
-
-                                    if(notify.getBoolean("unwatched")) {
-                                        notificationsUnwatched++;
-                                    }
-                                }
-                            }
-
-                            if(!mNotify.isNull("privateMessages")) {
-                                final JSONObject privateMessages = mNotify.getJSONObject("privateMessages");
-
-                                if(!privateMessages.isNull("count")) {
-                                    privateMessagesUnwatched = privateMessages.getInt("count");
-                                }
-                            }
-
-                            presenter.setCountUnwatchedNotifications(notificationsUnwatched);
-                            presenter.setCountUnwatchedPMs(privateMessagesUnwatched);
-
-                            runOnUiThread(new Runnable() {
-                                @Override
-                                public void run() {
-                                    updateCountMessages();
-                                }
-                            });
-                        } catch (JSONException e) {
-                            Log.e(mContext.getClass().getName(), e.getMessage());
-                        }
+                        presenter.saveNotifications(message);
                     }
                 }
             });
@@ -1221,7 +1177,7 @@ public class WebActivity extends AppCompatActivity implements
                                     @Override
                                     public void run() {
                                         webView.evaluateJavascript(
-                                                "(function(){if(window.notifications && window.notifications.render) {window.notifications.render("+notificationsJSON+");}})()",
+                                                "(function(){if(window.notifications && window.notifications.render) {window.notifications.render("+presenter.getNotifications()+");}})()",
                                                 new ValueCallback<String>() {
                                                     @Override
                                                     public void onReceiveValue(String value) {
@@ -1245,45 +1201,11 @@ public class WebActivity extends AppCompatActivity implements
                                     }
                                 });
                                 break;
-                            case "markAllRead":
-                                if(notificationsJSON != null) {
-                                    JSONArray notifications = (new JSONObject(notificationsJSON)).getJSONArray("group_general");
+                            case "request":
+                                String params = (mNotify.isNull("params")) ? null : mNotify.getString("params");
+                                String idNotify = (mNotify.isNull("id")) ? null : mNotify.getString("id");
 
-                                    for(int i = 0; i < notifications.length(); i++) {
-                                        JSONObject notification = notifications.getJSONObject(i);
-
-                                        if(!notification.isNull("unread")) {
-                                            notification.put("unread", false);
-                                        }
-
-                                        if(!notification.isNull("unwatched")) {
-                                            notification.put("unwatched", false);
-                                        }
-                                    }
-
-                                    notificationsJSON = "{\"group_general\": " + notifications.toString() + "}";
-                                }
-                                break;
-                            case "markOneRead":
-                                String id = mNotify.getString("id");
-
-                                if(notificationsJSON != null) {
-                                    JSONArray notifications = (new JSONObject(notificationsJSON)).getJSONArray("group_general");
-
-                                    for(int i = 0; i < notifications.length(); i++) {
-                                        JSONObject notification = notifications.getJSONObject(i);
-
-                                        if(!notification.isNull("id_notify") &&
-                                            !notification.isNull("unwatched") &&
-                                            !notification.isNull("unread") &&
-                                             notification.getString("id_notify").equals(id)) {
-                                            notification.put("unread", false);
-                                            notification.put("unwatched", false);
-                                        }
-                                    }
-
-                                    notificationsJSON = "{\"group_general\": " + notifications.toString() + "}";
-                                }
+                                presenter.updateNotify(params, idNotify);
                                 break;
                         }
                     } catch (JSONException exception) {

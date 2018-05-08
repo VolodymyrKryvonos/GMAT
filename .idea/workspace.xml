@@ -16,7 +16,13 @@
   <component name="ChangeListManager">
     <list default="true" id="5d9e8901-ef33-43d6-bffb-1c758be0eff0" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.iml" afterPath="$PROJECT_DIR$/app/app.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/assets/notifications.html" afterPath="$PROJECT_DIR$/app/src/main/assets/notifications.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/storage/IStorage.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/storage/IStorage.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/storage/Repository.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/storage/Repository.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/web/IWebContract.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/web/IWebContract.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/web/WebActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/web/WebActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/web/WebPresenter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/web/WebPresenter.java" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -62,16 +68,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="WebActivity.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="WebActivity.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/web/WebActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="293">
-              <caret line="1167" column="47" lean-forward="false" selection-start-line="1167" selection-start-column="47" selection-end-line="1167" selection-end-column="47" />
+            <state relative-caret-position="1067">
+              <caret line="1216" column="139" lean-forward="false" selection-start-line="1216" selection-start-column="134" selection-end-line="1216" selection-end-column="139" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="method#initRequestExtraHeaders#0;class#WebActivity#0" expanded="false" />
-                <element signature="method#openPage#0;class#WebActivity#0" expanded="false" />
-                <element signature="method#setLoadingIndicator#0;class#WebActivity#0" expanded="false" />
+                <element signature="e#5669#5997#0" expanded="true" />
+                <element signature="e#5996#5997#0" expanded="true" />
+                <element signature="e#6304#6587#0" expanded="true" />
+                <element signature="e#6586#6587#0" expanded="true" />
+                <element signature="e#30760#31104#0" expanded="true" />
+                <element signature="e#31103#31104#0" expanded="true" />
+                <element signature="method#openPageById#0;class#WebActivity#0" expanded="false" />
                 <element signature="method#logout#0;class#WebActivity#0" expanded="false" />
                 <element signature="method#reload#0;class#WebActivity#0" expanded="false" />
                 <element signature="method#showSuccess#0;class#WebActivity#0" expanded="false" />
@@ -80,12 +90,20 @@
                 <element signature="method#showMenu#0;class#WebActivity#0" expanded="false" />
                 <element signature="method#initNavigationView#0;class#WebActivity#0" expanded="false" />
                 <element signature="method#goPreviousActivity#0;class#WebActivity#0" expanded="false" />
-                <element signature="e#46192#46425#0" expanded="true" />
-                <element signature="e#46424#46425#0" expanded="true" />
-                <element signature="e#47101#48058#0" expanded="true" />
-                <element signature="e#48057#48058#0" expanded="true" />
-                <element signature="e#48193#48585#0" expanded="true" />
-                <element signature="e#48584#48585#0" expanded="true" />
+                <element signature="e#43244#44201#0" expanded="true" />
+                <element signature="e#44200#44201#0" expanded="true" />
+                <element signature="e#44481#44717#0" expanded="true" />
+                <element signature="e#44716#44717#0" expanded="true" />
+                <element signature="e#44843#47849#0" expanded="true" />
+                <element signature="e#45177#46147#0" expanded="true" />
+                <element signature="e#45600#46032#0" expanded="true" />
+                <element signature="e#46031#46032#0" expanded="true" />
+                <element signature="e#46146#46147#0" expanded="true" />
+                <element signature="e#46282#46814#0" expanded="true" />
+                <element signature="e#46813#46814#0" expanded="true" />
+                <element signature="e#47354#47793#0" expanded="true" />
+                <element signature="e#47792#47793#0" expanded="true" />
+                <element signature="e#47848#47849#0" expanded="true" />
                 <element signature="method#getDeviceInformation#0;class#WebActivity#0" expanded="false" />
               </folding>
             </state>
@@ -96,31 +114,36 @@
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/web/IWebContract.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="540">
-              <caret line="30" column="25" lean-forward="false" selection-start-line="30" selection-start-column="13" selection-end-line="30" selection-end-column="25" />
-              <folding>
-                <element signature="imports" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="WebPresenter.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/web/WebPresenter.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="263">
-              <caret line="118" column="0" lean-forward="false" selection-start-line="118" selection-start-column="0" selection-end-line="118" selection-end-column="0" />
+              <caret line="30" column="13" lean-forward="false" selection-start-line="30" selection-start-column="13" selection-end-line="30" selection-end-column="13" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Notifications.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/notifications/Notifications.java">
+      <file leaf-file-name="WebPresenter.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/web/WebPresenter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1280">
-              <caret line="83" column="32" lean-forward="false" selection-start-line="83" selection-start-column="32" selection-end-line="83" selection-end-column="32" />
+            <state relative-caret-position="-6">
+              <caret line="200" column="50" lean-forward="true" selection-start-line="200" selection-start-column="50" selection-end-line="200" selection-end-column="50" />
               <folding>
-                <element signature="imports" expanded="false" />
+                <element signature="e#4656#4657#0" expanded="true" />
+                <element signature="e#4706#4707#0" expanded="true" />
+                <element signature="e#4746#4747#0" expanded="true" />
+                <element signature="e#4787#4788#0" expanded="true" />
+                <element signature="method#updateNotifications#0;class#WebPresenter#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ViewHelper.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/utils/ViewHelper.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1020">
+              <caret line="87" column="41" lean-forward="false" selection-start-line="87" selection-start-column="41" selection-end-line="87" selection-end-column="41" />
+              <folding>
+                <element signature="method#showLeaveAppDialog#0;class#ViewHelper#0" expanded="false" />
+                <element signature="method#showErrorDialog#0;class#ViewHelper#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -129,8 +152,8 @@
       <file leaf-file-name="Repository.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/storage/Repository.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="233" column="0" lean-forward="false" selection-start-line="233" selection-start-column="0" selection-end-line="233" selection-end-column="0" />
+            <state relative-caret-position="1272">
+              <caret line="243" column="93" lean-forward="false" selection-start-line="243" selection-start-column="93" selection-end-line="243" selection-end-column="93" />
               <folding>
                 <element signature="method#forgotPassword#0;class#Repository#0" expanded="false" />
               </folding>
@@ -138,14 +161,35 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AuthPresenter.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/auth/AuthPresenter.java">
+      <file leaf-file-name="IStorage.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/storage/IStorage.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="234">
-              <caret line="40" column="0" lean-forward="false" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+            <state relative-caret-position="360">
+              <caret line="20" column="36" lean-forward="false" selection-start-line="20" selection-start-column="14" selection-end-line="20" selection-end-column="36" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Response.java" pinned="false" current-in-tab="false">
+        <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.squareup.retrofit2/retrofit/2.3.0/76f3c69879d3e01c082f49d8661c5590838148e1/retrofit-2.3.0-sources.jar!/retrofit2/Response.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="167">
+              <caret line="89" column="28" lean-forward="false" selection-start-line="89" selection-start-column="28" selection-end-line="89" selection-end-column="28" />
               <folding>
-                <element signature="e#1164#1165#0" expanded="true" />
+                <element signature="e#3625#3626#0" expanded="true" />
+                <element signature="e#3653#3654#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ResponseBody.java" pinned="false" current-in-tab="false">
+        <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp3/okhttp/3.10.0/e99b7b608968f16b07104b93e62cb90701174d0/okhttp-3.10.0-sources.jar!/okhttp3/ResponseBody.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="205">
+              <caret line="170" column="22" lean-forward="false" selection-start-line="170" selection-start-column="22" selection-end-line="170" selection-end-column="22" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -153,8 +197,8 @@
       <file leaf-file-name="ApiInterface.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/api/ApiInterface.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="740">
-              <caret line="58" column="99" lean-forward="false" selection-start-line="58" selection-start-column="99" selection-end-line="58" selection-end-column="99" />
+            <state relative-caret-position="394">
+              <caret line="58" column="77" lean-forward="false" selection-start-line="58" selection-start-column="77" selection-end-line="58" selection-end-column="85" />
               <folding />
             </state>
           </provider>
@@ -163,33 +207,10 @@
       <file leaf-file-name="notifications.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/assets/notifications.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1928">
-              <caret line="117" column="47" lean-forward="false" selection-start-line="117" selection-start-column="47" selection-end-line="117" selection-end-column="47" />
+            <state relative-caret-position="80">
+              <caret line="4" column="26" lean-forward="false" selection-start-line="4" selection-start-column="26" selection-end-line="4" selection-end-column="26" />
               <folding>
                 <element signature="e#1505#1532#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Api.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/api/Api.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="194">
-              <caret line="27" column="73" lean-forward="false" selection-start-line="27" selection-start-column="73" selection-end-line="27" selection-end-column="89" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="notifications1.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/assets/notifications1.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="15" column="2" lean-forward="false" selection-start-line="15" selection-start-column="2" selection-end-line="30" selection-end-column="10" />
-              <folding>
-                <element signature="e#1297#1324#0" expanded="true" />
-                <element signature="e#1467#1491#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -209,36 +230,36 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>getData</find>
-      <find>time</find>
-      <find>formatDateTime</find>
-      <find>Hammer</find>
-      <find>notification_group_count</find>
-      <find>GCAn</find>
-      <find>id_notify</find>
-      <find>notificationsJSON</find>
-      <find>open_tagmenu</find>
-      <find>notification</find>
-      <find>initWeb</find>
-      <find>swipe.setEnabled</find>
-      <find>console</find>
-      <find>count</find>
-      <find>m_notification_group_content</find>
-      <find>mobileNotify</find>
-      <find>notification_group_content</find>
-      <find>executorService</find>
-      <find>updateNotify</find>
-      <find>openPageById</find>
-      <find>renderPartial</find>
-      <find>gmatclub.com</find>
-      <find>unreadCount</find>
-      <find>unread</find>
-      <find>markAllRead</find>
-      <find>update</find>
-      <find>doRequest</find>
-      <find>formatUpdateUrl</find>
-      <find>setWebChrome</find>
+      <find>M_URL</find>
+      <find>PM_URL</find>
+      <find>multi</find>
+      <find>values</find>
+      <find>data-id</find>
+      <find>id</find>
+      <find>data('id</find>
+      <find>list of</find>
       <find>notify</find>
+      <find>updatePMs</find>
+      <find>setWeb</find>
+      <find>file://</find>
+      <find>formatUpdateUrl</find>
+      <find>notifications</find>
+      <find>сщтіщдуюдщп</find>
+      <find>render</find>
+      <find>loadUrl</find>
+      <find>openPage</find>
+      <find>GCAN</find>
+      <find>openPage(</find>
+      <find>notificationsJSON</find>
+      <find>doRequest</find>
+      <find>update</find>
+      <find>console.log</find>
+      <find>sendMessage</find>
+      <find>updateCountMe</find>
+      <find>updateCountMessages</find>
+      <find>updateNotify</find>
+      <find>console</find>
+      <find>toast</find>
     </findStrings>
     <replaceStrings>
       <replace>goByMenu</replace>
@@ -2871,7 +2892,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_splash.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/content_splash.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_auth.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/drawable/color_cursor.xml" />
@@ -2884,7 +2904,6 @@
         <option value="$PROJECT_DIR$/app/src/main/res/values/styles.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/storage/DeviceInfo.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/drawable/border_bottom_1dp_error.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/api/ApiInterface.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/notifications/MyJobService.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/alert_dialog_profile_anon.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/notifications/GCBroadcastReceiver.java" />
@@ -2896,8 +2915,6 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/utils/GCWeb.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/utils/Validator.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/utils/WebviewCookieHandler.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/web/IWebContract.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/web/WebPresenter.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/GCConfig.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/Application.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/notifications/GCFirebaseInstanceIDService.java" />
@@ -2905,7 +2922,6 @@
         <option value="$PROJECT_DIR$/app/proguard-rules.pro" />
         <option value="$PROJECT_DIR$/app/build/generated/source/buildConfig/androidTest/gmatclub/debug/com/deepinspire/gmatclub/test/BuildConfig.java" />
         <option value="$PROJECT_DIR$/app/google-services.json" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/storage/Repository.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/content_web.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_web.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/toolbar.xml" />
@@ -2919,9 +2935,14 @@
         <option value="$PROJECT_DIR$/build.gradle" />
         <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/notifications/GCFirebaseMessagingService.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/web/WebActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/assets/notifications1.html" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/api/ApiInterface.java" />
         <option value="$PROJECT_DIR$/app/src/main/assets/notifications.html" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/storage/IStorage.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/storage/Repository.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/web/IWebContract.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/web/WebPresenter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/web/WebActivity.java" />
       </list>
     </option>
   </component>
@@ -2947,7 +2968,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="AndroidView">
         <subPane>
           <PATH>
@@ -3012,8 +3032,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -3174,6 +3192,40 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="utils" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="android" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="android" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gmatclub" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="storage" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -3238,8 +3290,115 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="android" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="android" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="build" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="android" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="android" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="build" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="outputs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="android" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="android" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="build" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="outputs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apk" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gmatclub" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="release" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="android" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="android" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="build" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="outputs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apk" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gmatclub" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -3359,7 +3518,7 @@
       <option name="ACTIVITY_CLASS" value="com.deepinspire.gmatclub.auth.AuthActivity" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1525686341668" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1525782917484" />
       </method>
     </configuration>
     <configuration default="false" name="gmatclub [signingReport]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
@@ -3450,7 +3609,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1525686341668" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1525782917485" />
       </method>
     </configuration>
     <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Instrumented Tests">
@@ -3498,7 +3657,7 @@
       </Profilers>
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1525686341669" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1525782917485" />
       </method>
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -3681,7 +3840,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1525686341670" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1525782917486" />
       </method>
     </configuration>
     <list size="4">
@@ -3740,11 +3899,12 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="25" width="1853" height="1055" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Android Profiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25674218" sideWeight="0.4980631" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.49894738" sideWeight="0.49649218" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31789473" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19913654" sideWeight="0.36631578" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16729628" sideWeight="0.17263158" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -3757,12 +3917,12 @@
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.6831579" sideWeight="0.5019369" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19913654" sideWeight="0.6336842" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16729628" sideWeight="0.82736844" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.14786832" sideWeight="0.495671" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Device File Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32982844" sideWeight="0.504329" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.42526317" sideWeight="0.91034865" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.49052632" sideWeight="0.91034865" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27954668" sideWeight="0.33480176" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -3815,55 +3975,55 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/storage/Repository.java</url>
-          <line>124</line>
+          <line>125</line>
           <properties />
           <option name="timeStamp" value="26" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/storage/Repository.java</url>
-          <line>130</line>
+          <line>131</line>
           <properties />
           <option name="timeStamp" value="28" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/web/WebPresenter.java</url>
-          <line>46</line>
+          <line>54</line>
           <properties />
           <option name="timeStamp" value="62" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/storage/Repository.java</url>
-          <line>110</line>
+          <line>111</line>
           <properties />
           <option name="timeStamp" value="69" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/web/WebActivity.java</url>
-          <line>974</line>
+          <line>968</line>
           <properties />
           <option name="timeStamp" value="73" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/web/WebPresenter.java</url>
-          <line>37</line>
+          <line>45</line>
           <properties />
           <option name="timeStamp" value="84" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/web/WebPresenter.java</url>
-          <line>59</line>
+          <line>67</line>
           <properties />
           <option name="timeStamp" value="97" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/web/WebPresenter.java</url>
-          <line>64</line>
+          <line>72</line>
           <properties />
           <option name="timeStamp" value="98" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/web/WebActivity.java</url>
-          <line>979</line>
+          <line>973</line>
           <properties />
           <option name="timeStamp" value="100" />
         </line-breakpoint>
@@ -3875,7 +4035,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/storage/Repository.java</url>
-          <line>305</line>
+          <line>320</line>
           <properties />
           <option name="timeStamp" value="122" />
         </line-breakpoint>
@@ -3899,43 +4059,43 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/storage/Repository.java</url>
-          <line>324</line>
+          <line>339</line>
           <properties />
           <option name="timeStamp" value="127" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/storage/Repository.java</url>
-          <line>331</line>
+          <line>346</line>
           <properties />
           <option name="timeStamp" value="128" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/storage/Repository.java</url>
-          <line>308</line>
+          <line>323</line>
           <properties />
           <option name="timeStamp" value="129" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/storage/Repository.java</url>
-          <line>309</line>
+          <line>324</line>
           <properties />
           <option name="timeStamp" value="130" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/storage/Repository.java</url>
-          <line>310</line>
+          <line>325</line>
           <properties />
           <option name="timeStamp" value="131" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/storage/Repository.java</url>
-          <line>311</line>
+          <line>326</line>
           <properties />
           <option name="timeStamp" value="132" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/storage/Repository.java</url>
-          <line>315</line>
+          <line>330</line>
           <properties />
           <option name="timeStamp" value="133" />
         </line-breakpoint>
@@ -3959,61 +4119,55 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/storage/Repository.java</url>
-          <line>228</line>
+          <line>237</line>
           <properties />
           <option name="timeStamp" value="170" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/web/WebPresenter.java</url>
-          <line>114</line>
+          <line>122</line>
           <properties />
           <option name="timeStamp" value="175" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/web/WebPresenter.java</url>
-          <line>123</line>
+          <line>131</line>
           <properties />
           <option name="timeStamp" value="176" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/storage/Repository.java</url>
-          <line>214</line>
+          <line>223</line>
           <properties />
           <option name="timeStamp" value="177" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/storage/Repository.java</url>
-          <line>225</line>
+          <line>234</line>
           <properties />
           <option name="timeStamp" value="178" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/storage/Repository.java</url>
-          <line>244</line>
+          <line>259</line>
           <properties />
           <option name="timeStamp" value="179" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/storage/Repository.java</url>
-          <line>250</line>
+          <line>265</line>
           <properties />
           <option name="timeStamp" value="180" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/storage/Repository.java</url>
-          <line>233</line>
-          <properties />
-          <option name="timeStamp" value="183" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/storage/Repository.java</url>
-          <line>236</line>
+          <line>251</line>
           <properties />
           <option name="timeStamp" value="184" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/storage/Repository.java</url>
-          <line>223</line>
+          <line>232</line>
           <properties />
           <option name="timeStamp" value="188" />
         </line-breakpoint>
@@ -4031,13 +4185,13 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/web/WebActivity.java</url>
-          <line>555</line>
+          <line>551</line>
           <properties />
           <option name="timeStamp" value="202" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/storage/Repository.java</url>
-          <line>306</line>
+          <line>321</line>
           <properties />
           <option name="timeStamp" value="218" />
         </line-breakpoint>
@@ -4049,43 +4203,43 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/storage/Repository.java</url>
-          <line>116</line>
+          <line>117</line>
           <properties />
           <option name="timeStamp" value="224" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/storage/Repository.java</url>
-          <line>113</line>
+          <line>114</line>
           <properties />
           <option name="timeStamp" value="225" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/storage/Repository.java</url>
-          <line>166</line>
+          <line>167</line>
           <properties />
           <option name="timeStamp" value="226" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/storage/Repository.java</url>
-          <line>169</line>
+          <line>170</line>
           <properties />
           <option name="timeStamp" value="227" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/storage/Repository.java</url>
-          <line>175</line>
+          <line>176</line>
           <properties />
           <option name="timeStamp" value="229" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/storage/Repository.java</url>
-          <line>181</line>
+          <line>182</line>
           <properties />
           <option name="timeStamp" value="230" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/storage/Repository.java</url>
-          <line>302</line>
+          <line>317</line>
           <properties />
           <option name="timeStamp" value="231" />
         </line-breakpoint>
@@ -4121,79 +4275,79 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/web/WebActivity.java</url>
-          <line>362</line>
+          <line>358</line>
           <properties />
           <option name="timeStamp" value="307" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/web/WebPresenter.java</url>
-          <line>57</line>
+          <line>65</line>
           <properties />
           <option name="timeStamp" value="365" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/web/WebActivity.java</url>
-          <line>602</line>
+          <line>598</line>
           <properties />
           <option name="timeStamp" value="376" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/web/WebActivity.java</url>
-          <line>603</line>
+          <line>599</line>
           <properties />
           <option name="timeStamp" value="377" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/web/WebActivity.java</url>
-          <line>606</line>
+          <line>602</line>
           <properties />
           <option name="timeStamp" value="378" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/web/WebActivity.java</url>
-          <line>609</line>
+          <line>605</line>
           <properties />
           <option name="timeStamp" value="381" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/web/WebActivity.java</url>
-          <line>405</line>
+          <line>401</line>
           <properties />
           <option name="timeStamp" value="390" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/web/WebActivity.java</url>
-          <line>406</line>
+          <line>402</line>
           <properties />
           <option name="timeStamp" value="391" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/web/WebActivity.java</url>
-          <line>408</line>
+          <line>404</line>
           <properties />
           <option name="timeStamp" value="392" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/web/WebActivity.java</url>
-          <line>590</line>
+          <line>586</line>
           <properties />
           <option name="timeStamp" value="401" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/storage/Repository.java</url>
-          <line>461</line>
+          <line>476</line>
           <properties />
           <option name="timeStamp" value="417" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/storage/Repository.java</url>
-          <line>466</line>
+          <line>481</line>
           <properties />
           <option name="timeStamp" value="418" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/storage/Repository.java</url>
-          <line>471</line>
+          <line>486</line>
           <properties />
           <option name="timeStamp" value="419" />
         </line-breakpoint>
@@ -4247,96 +4401,138 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/web/WebActivity.java</url>
-          <line>653</line>
+          <line>645</line>
           <properties />
           <option name="timeStamp" value="459" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/web/WebActivity.java</url>
-          <line>770</line>
+          <line>762</line>
           <properties />
           <option name="timeStamp" value="461" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/web/WebActivity.java</url>
-          <line>750</line>
+          <line>742</line>
           <properties />
           <option name="timeStamp" value="475" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/web/WebActivity.java</url>
-          <line>1213</line>
-          <properties />
-          <option name="timeStamp" value="476" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/web/WebActivity.java</url>
-          <line>1247</line>
+          <line>1214</line>
           <properties />
           <option name="timeStamp" value="483" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/web/WebActivity.java</url>
-          <line>1217</line>
-          <properties />
-          <option name="timeStamp" value="485" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/web/WebActivity.java</url>
-          <line>1233</line>
+          <line>1191</line>
           <properties />
           <option name="timeStamp" value="489" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/web/WebActivity.java</url>
-          <line>1225</line>
-          <properties />
-          <option name="timeStamp" value="490" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/web/WebActivity.java</url>
-          <line>1171</line>
-          <properties />
-          <option name="timeStamp" value="492" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/web/WebActivity.java</url>
-          <line>1220</line>
-          <properties />
-          <option name="timeStamp" value="493" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/web/WebPresenter.java</url>
-          <line>118</line>
+          <line>126</line>
           <properties />
           <option name="timeStamp" value="494" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/web/WebPresenter.java</url>
-          <line>117</line>
+          <line>125</line>
           <properties />
           <option name="timeStamp" value="495" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/web/WebPresenter.java</url>
-          <line>122</line>
+          <line>130</line>
           <properties />
           <option name="timeStamp" value="496" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/web/WebActivity.java</url>
-          <line>904</line>
+          <line>899</line>
           <properties />
           <option name="timeStamp" value="497" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/web/WebActivity.java</url>
-          <line>1215</line>
+          <line>412</line>
           <properties />
-          <option name="timeStamp" value="498" />
+          <option name="timeStamp" value="514" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/web/WebActivity.java</url>
+          <line>634</line>
+          <properties />
+          <option name="timeStamp" value="516" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/web/WebActivity.java</url>
+          <line>1216</line>
+          <properties />
+          <option name="timeStamp" value="532" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/web/WebActivity.java</url>
+          <line>827</line>
+          <properties />
+          <option name="timeStamp" value="538" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/web/WebActivity.java</url>
+          <line>849</line>
+          <properties />
+          <option name="timeStamp" value="542" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/web/WebPresenter.java</url>
+          <line>141</line>
+          <properties />
+          <option name="timeStamp" value="543" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/web/WebPresenter.java</url>
+          <line>145</line>
+          <properties />
+          <option name="timeStamp" value="544" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/web/WebPresenter.java</url>
+          <line>156</line>
+          <properties />
+          <option name="timeStamp" value="545" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/web/WebPresenter.java</url>
+          <line>152</line>
+          <properties />
+          <option name="timeStamp" value="547" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/web/WebPresenter.java</url>
+          <line>186</line>
+          <properties />
+          <option name="timeStamp" value="548" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/web/WebActivity.java</url>
+          <line>1207</line>
+          <properties />
+          <option name="timeStamp" value="549" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/web/WebActivity.java</url>
+          <line>1204</line>
+          <properties />
+          <option name="timeStamp" value="550" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/storage/Repository.java</url>
+          <line>247</line>
+          <properties />
+          <option name="timeStamp" value="553" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="499" />
+      <option name="time" value="555" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="app">
@@ -4346,29 +4542,6 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/build/outputs/apk/gmatclub/release/gmatclub.apk" />
-    <entry file="file://$PROJECT_DIR$/app/build/outputs/apk/gmatclub/release/gmatclub.apk" />
-    <entry file="file://$PROJECT_DIR$/app/proguard-rules.pro">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="21" column="52" lean-forward="false" selection-start-line="21" selection-start-column="52" selection-end-line="21" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/notifications/GCFirebaseInstanceIDService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/build/generated/source/buildConfig/androidTest/gmatclub/debug/com/deepinspire/gmatclub/test/BuildConfig.java" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nkoventuresllc/gmatclub/Application.java" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nkoventuresllc/gmatclub/GCConfig.java" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nkoventuresllc/gmatclub/auth/AuthActivity.java" />
     <entry file="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/play-services-basement-15.0.0.aar/fa9f276dfb2b19bff708a22eb6081435/jars/classes.jar!/com/google/android/gms/common/api/ApiException.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="220">
@@ -4409,21 +4582,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="152">
           <caret line="904" column="16" lean-forward="false" selection-start-line="904" selection-start-column="16" selection-end-line="904" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/api/ApiClient.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="15" column="13" lean-forward="false" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/api/HttpBinResponse.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-65">
-          <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -4506,20 +4664,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/utils/ViewHelper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2020">
-          <caret line="61" column="31" lean-forward="false" selection-start-line="61" selection-start-column="31" selection-end-line="61" selection-end-column="31" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#1698#2059#0" expanded="false" />
-            <element signature="e#2058#2059#0" expanded="false" />
-            <element signature="method#showLeaveAppDialog#0;class#ViewHelper#0" expanded="false" />
-            <element signature="method#showErrorDialog#0;class#ViewHelper#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/auth/AuthActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -4550,22 +4694,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="9" column="54" lean-forward="false" selection-start-line="9" selection-start-column="54" selection-end-line="9" selection-end-column="54" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="55">
-          <caret line="128" column="13" lean-forward="false" selection-start-line="128" selection-start-column="13" selection-end-line="128" selection-end-column="61" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/Android/Sdk/sources/android-26/android/webkit/WebSettings.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="598">
@@ -4582,28 +4710,21 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+      <provider editor-type-id="android-manifest">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
           <caret line="18" column="42" lean-forward="false" selection-start-line="18" selection-start-column="37" selection-end-line="18" selection-end-column="42" />
           <folding>
-            <marker date="1525348461614" expanded="false" signature="1505:1546" ph="&quot;gcNotifications&quot;" />
-            <marker date="1525348461614" expanded="false" signature="1747:1765" ph="&quot;GMAT Club Forum-Debug&quot;" />
-            <marker date="1525348461614" expanded="false" signature="2171:2205" ph="&quot;fb188832947830704&quot;" />
-            <marker date="1525348461614" expanded="false" signature="2436:2454" ph="&quot;GMAT Club Forum-Debug&quot;" />
-            <marker date="1525348461614" expanded="false" signature="3071:3099" ph="&quot;Web&quot;" />
-            <marker date="1525348461614" expanded="false" signature="3542:3571" ph="&quot;Auth&quot;" />
-            <marker date="1525348461614" expanded="false" signature="3869:3902" ph="&quot;FacebookActivity&quot;" />
+            <marker date="1525686447657" expanded="false" signature="1505:1546" ph="&quot;gcNotifications&quot;" />
+            <marker date="1525686447657" expanded="false" signature="1747:1765" ph="&quot;GMAT Club Forum-Debug&quot;" />
+            <marker date="1525686447657" expanded="false" signature="2171:2205" ph="&quot;fb188832947830704&quot;" />
+            <marker date="1525686447657" expanded="false" signature="2436:2454" ph="&quot;GMAT Club Forum-Debug&quot;" />
+            <marker date="1525686447657" expanded="false" signature="3071:3099" ph="&quot;Web&quot;" />
+            <marker date="1525686447657" expanded="false" signature="3542:3571" ph="&quot;Auth&quot;" />
+            <marker date="1525686447657" expanded="false" signature="3869:3902" ph="&quot;FacebookActivity&quot;" />
           </folding>
-        </state>
-      </provider>
-      <provider editor-type-id="android-manifest">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Android/Sdk/sources/android-26/org/json/JSONObject.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="307">
-          <caret line="551" column="18" lean-forward="false" selection-start-line="551" selection-start-column="18" selection-end-line="551" selection-end-column="18" />
         </state>
       </provider>
     </entry>
@@ -4611,6 +4732,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="307">
           <caret line="1960" column="23" lean-forward="false" selection-start-line="1960" selection-start-column="23" selection-end-line="1960" selection-end-column="23" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -4641,7 +4763,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
           <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -4662,90 +4783,207 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/web/IWebContract.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/assets/notifications1.html" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/auth/AuthPresenter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="30" column="25" lean-forward="false" selection-start-line="30" selection-start-column="13" selection-end-line="30" selection-end-column="25" />
+        <state relative-caret-position="600">
+          <caret line="40" column="0" lean-forward="false" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="false" />
+            <element signature="e#718#719#0" expanded="false" />
+            <element signature="e#765#766#0" expanded="false" />
+            <element signature="e#962#963#0" expanded="false" />
+            <element signature="e#1025#1026#0" expanded="false" />
+            <element signature="e#1362#1363#0" expanded="false" />
+            <element signature="e#1428#1429#0" expanded="false" />
+            <element signature="e#1510#1511#0" expanded="false" />
+            <element signature="e#1567#1568#0" expanded="false" />
+            <element signature="e#1848#1849#0" expanded="false" />
+            <element signature="e#1911#1912#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/assets/notifications1.html">
+    <entry file="file://$USER_HOME$/Android/Sdk/sources/android-26/org/json/JSONArray.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="15" column="2" lean-forward="false" selection-start-line="15" selection-start-column="2" selection-end-line="30" selection-end-column="10" />
+        <state relative-caret-position="11720">
+          <caret line="618" column="63" lean-forward="false" selection-start-line="618" selection-start-column="57" selection-end-line="618" selection-end-column="63" />
           <folding>
-            <element signature="e#1297#1324#0" expanded="true" />
-            <element signature="e#1467#1491#0" expanded="true" />
+            <element signature="e#0#20592#0" expanded="false" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#4598#4599#0" expanded="false" />
+            <element signature="e#4634#4635#0" expanded="false" />
+            <element signature="e#11284#11285#0" expanded="false" />
+            <element signature="e#11331#11332#0" expanded="false" />
+            <element signature="e#12423#12424#0" expanded="false" />
+            <element signature="e#12474#12475#0" expanded="false" />
+            <element signature="e#13525#13526#0" expanded="false" />
+            <element signature="e#13564#13565#0" expanded="false" />
+            <element signature="e#14604#14605#0" expanded="false" />
+            <element signature="e#14645#14646#0" expanded="false" />
+            <element signature="e#15631#15632#0" expanded="false" />
+            <element signature="e#15674#15675#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="101">
+          <caret line="128" column="13" lean-forward="false" selection-start-line="128" selection-start-column="13" selection-end-line="128" selection-end-column="61" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-360">
+          <caret line="9" column="54" lean-forward="false" selection-start-line="9" selection-start-column="54" selection-end-line="9" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/utils/GCWebView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="500">
+          <caret line="37" column="16" lean-forward="false" selection-start-line="37" selection-start-column="16" selection-end-line="37" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Android/Sdk/sources/android-26/org/json/JSONObject.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="387">
+          <caret line="555" column="32" lean-forward="false" selection-start-line="555" selection-start-column="32" selection-end-line="555" selection-end-column="32" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/api/Api.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="194">
-          <caret line="27" column="73" lean-forward="false" selection-start-line="27" selection-start-column="73" selection-end-line="27" selection-end-column="89" />
+        <state relative-caret-position="714">
+          <caret line="53" column="0" lean-forward="true" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
           <folding />
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/api/ApiClient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-40">
+          <caret line="15" column="13" lean-forward="false" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.squareup.retrofit2/retrofit/2.3.0/76f3c69879d3e01c082f49d8661c5590838148e1/retrofit-2.3.0-sources.jar!/retrofit2/http/Query.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="623">
+          <caret line="72" column="18" lean-forward="false" selection-start-line="72" selection-start-column="18" selection-end-line="72" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Android/Sdk/sources/android-26/java/lang/String.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="307">
+          <caret line="2424" column="20" lean-forward="false" selection-start-line="2424" selection-start-column="20" selection-end-line="2424" selection-end-column="20" />
+          <folding>
+            <element signature="e#95415#95416#0" expanded="true" />
+            <element signature="e#95453#95454#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/api/HttpBinResponse.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/assets/opensans_semibold.ttf">
+      <provider selected="true" editor-type-id="fontseditor">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/api/ApiInterface.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="740">
-          <caret line="58" column="99" lean-forward="false" selection-start-line="58" selection-start-column="99" selection-end-line="58" selection-end-column="99" />
+        <state relative-caret-position="394">
+          <caret line="58" column="77" lean-forward="false" selection-start-line="58" selection-start-column="77" selection-end-line="58" selection-end-column="85" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/auth/AuthPresenter.java">
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp3/okhttp/3.10.0/e99b7b608968f16b07104b93e62cb90701174d0/okhttp-3.10.0-sources.jar!/okhttp3/ResponseBody.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="40" column="0" lean-forward="false" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+        <state relative-caret-position="205">
+          <caret line="170" column="22" lean-forward="false" selection-start-line="170" selection-start-column="22" selection-end-line="170" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.squareup.retrofit2/retrofit/2.3.0/76f3c69879d3e01c082f49d8661c5590838148e1/retrofit-2.3.0-sources.jar!/retrofit2/Response.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="167">
+          <caret line="89" column="28" lean-forward="false" selection-start-line="89" selection-start-column="28" selection-end-line="89" selection-end-column="28" />
           <folding>
-            <element signature="e#1164#1165#0" expanded="true" />
+            <element signature="e#3625#3626#0" expanded="true" />
+            <element signature="e#3653#3654#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/assets/notifications.html">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/storage/IStorage.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1928">
-          <caret line="117" column="47" lean-forward="false" selection-start-line="117" selection-start-column="47" selection-end-line="117" selection-end-column="47" />
+        <state relative-caret-position="360">
+          <caret line="20" column="36" lean-forward="false" selection-start-line="20" selection-start-column="14" selection-end-line="20" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/utils/ViewHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1020">
+          <caret line="87" column="41" lean-forward="false" selection-start-line="87" selection-start-column="41" selection-end-line="87" selection-end-column="41" />
           <folding>
-            <element signature="e#1505#1532#0" expanded="true" />
+            <element signature="method#showLeaveAppDialog#0;class#ViewHelper#0" expanded="false" />
+            <element signature="method#showErrorDialog#0;class#ViewHelper#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/web/IWebContract.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="30" column="13" lean-forward="false" selection-start-line="30" selection-start-column="13" selection-end-line="30" selection-end-column="13" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/storage/Repository.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="233" column="0" lean-forward="false" selection-start-line="233" selection-start-column="0" selection-end-line="233" selection-end-column="0" />
+        <state relative-caret-position="1272">
+          <caret line="243" column="93" lean-forward="false" selection-start-line="243" selection-start-column="93" selection-end-line="243" selection-end-column="93" />
           <folding>
             <element signature="method#forgotPassword#0;class#Repository#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/web/WebPresenter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="263">
-          <caret line="118" column="0" lean-forward="false" selection-start-line="118" selection-start-column="0" selection-end-line="118" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/web/WebActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="293">
-          <caret line="1167" column="47" lean-forward="false" selection-start-line="1167" selection-start-column="47" selection-end-line="1167" selection-end-column="47" />
+        <state relative-caret-position="1067">
+          <caret line="1216" column="139" lean-forward="false" selection-start-line="1216" selection-start-column="134" selection-end-line="1216" selection-end-column="139" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#initRequestExtraHeaders#0;class#WebActivity#0" expanded="false" />
-            <element signature="method#openPage#0;class#WebActivity#0" expanded="false" />
-            <element signature="method#setLoadingIndicator#0;class#WebActivity#0" expanded="false" />
+            <element signature="e#5669#5997#0" expanded="true" />
+            <element signature="e#5996#5997#0" expanded="true" />
+            <element signature="e#6304#6587#0" expanded="true" />
+            <element signature="e#6586#6587#0" expanded="true" />
+            <element signature="e#30760#31104#0" expanded="true" />
+            <element signature="e#31103#31104#0" expanded="true" />
+            <element signature="method#openPageById#0;class#WebActivity#0" expanded="false" />
             <element signature="method#logout#0;class#WebActivity#0" expanded="false" />
             <element signature="method#reload#0;class#WebActivity#0" expanded="false" />
             <element signature="method#showSuccess#0;class#WebActivity#0" expanded="false" />
@@ -4754,13 +4992,45 @@
             <element signature="method#showMenu#0;class#WebActivity#0" expanded="false" />
             <element signature="method#initNavigationView#0;class#WebActivity#0" expanded="false" />
             <element signature="method#goPreviousActivity#0;class#WebActivity#0" expanded="false" />
-            <element signature="e#46192#46425#0" expanded="true" />
-            <element signature="e#46424#46425#0" expanded="true" />
-            <element signature="e#47101#48058#0" expanded="true" />
-            <element signature="e#48057#48058#0" expanded="true" />
-            <element signature="e#48193#48585#0" expanded="true" />
-            <element signature="e#48584#48585#0" expanded="true" />
+            <element signature="e#43244#44201#0" expanded="true" />
+            <element signature="e#44200#44201#0" expanded="true" />
+            <element signature="e#44481#44717#0" expanded="true" />
+            <element signature="e#44716#44717#0" expanded="true" />
+            <element signature="e#44843#47849#0" expanded="true" />
+            <element signature="e#45177#46147#0" expanded="true" />
+            <element signature="e#45600#46032#0" expanded="true" />
+            <element signature="e#46031#46032#0" expanded="true" />
+            <element signature="e#46146#46147#0" expanded="true" />
+            <element signature="e#46282#46814#0" expanded="true" />
+            <element signature="e#46813#46814#0" expanded="true" />
+            <element signature="e#47354#47793#0" expanded="true" />
+            <element signature="e#47792#47793#0" expanded="true" />
+            <element signature="e#47848#47849#0" expanded="true" />
             <element signature="method#getDeviceInformation#0;class#WebActivity#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/assets/notifications.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="4" column="26" lean-forward="false" selection-start-line="4" selection-start-column="26" selection-end-line="4" selection-end-column="26" />
+          <folding>
+            <element signature="e#1505#1532#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/web/WebPresenter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-6">
+          <caret line="200" column="50" lean-forward="true" selection-start-line="200" selection-start-column="50" selection-end-line="200" selection-end-column="50" />
+          <folding>
+            <element signature="e#4656#4657#0" expanded="true" />
+            <element signature="e#4706#4707#0" expanded="true" />
+            <element signature="e#4746#4747#0" expanded="true" />
+            <element signature="e#4787#4788#0" expanded="true" />
+            <element signature="method#updateNotifications#0;class#WebPresenter#0" expanded="false" />
           </folding>
         </state>
       </provider>

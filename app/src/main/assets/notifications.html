@@ -31,8 +31,8 @@
     });
 
     var notifications = {
-        update: function(data, action, id){
-                    doRequest(formatUpdateUrl(data), action, id)
+        update: function(data, id){
+                    doRequest(formatUpdateUrl(data), id)
         },
         render: function(data) {
             this.clear();
@@ -78,61 +78,6 @@
                     groupContainer.append('<div class="empty">No notifications</div>');
                 }
             }
-
-           $('.notification_group_content').on('click', '.noteItem', function(e) {
-                var url;
-                var self = $(this);
-
-                var data = {
-                        unread: false,
-                        unwatched: false,
-                        group: self.data('group')
-                    };
-
-                data[self.data('type')] = self.data('id');
-
-                var id = self.data('id');
-
-                notifications.update(data, 'markOneRead', id);
-
-                if(e.target.nodeName != 'A') {
-                    if(!$(e.target).hasClass('checkNote')) {
-                        url = self.data('url');
-                    }
-                } else {
-                    url = $(e.target).attr('href');
-                }
-
-                if(url) {
-                    var tab = window.open(url, '_blank');
-                    tab.focus();
-                }
-
-                e.stopPropagation();
-                e.preventDefault();
-            });
-
-            $('.notification_group_content').on('click', '.readMark', function(e) {
-                    notifications.update({
-                        unread: false,
-                        type:   'group',
-                        group:  'group_general',
-                        data:   'group_general'
-                    },
-                    'markAllRead');
-
-                    e.preventDefault();
-                    e.stopPropagation();
-            });
-
-            $('.notification_group_content').on('click', '.jspTrack', function(e) {
-                e.stopPropagation();
-                e.preventDefault();
-            });
-
-            $(document).click(function(e) {
-                return false;
-            });
 
             setTimeout(function() {GCAndroid.notifications(JSON.stringify({"action": "renderDone"}));}, 0);
         },
@@ -291,8 +236,6 @@
                 div.setAttribute('data-id', data.id_notify);
             }
 
-            /* Add parameter "notifications" for Google Analytics */
-
             div.setAttribute('data-url', data.url + '?fl=notifications');
             div.setAttribute('data-group', data.group);
 
@@ -326,133 +269,183 @@
             return div;
         },
         formatDateTime: function(time) {
-                var intervalTime = [[0, 60*60, 'minute', 'min ago'], [60*60, 24*60*60, 'hour', 'hours ago'],
-                    [24*60*60, 2*24*60*60, 'yesterday', 'yesterday'], [2*24*60*60, 8*24*60*60, 'day', 'days ago'], [8*24*60*60, -1, 'date', '']];
+            var intervalTime = [[0, 60*60, 'minute', 'min ago'], [60*60, 24*60*60, 'hour', 'hours ago'],
+                [24*60*60, 2*24*60*60, 'yesterday', 'yesterday'], [2*24*60*60, 8*24*60*60, 'day', 'days ago'], [8*24*60*60, -1, 'date', '']];
 
-                var nowDate = new Date().getTime();
+            var nowDate = new Date().getTime();
 
-                var result = intervalTime.filter(function(item){
-                    var check = false;
-                    var obg = {};
+            var result = intervalTime.filter(function(item){
+                var check = false;
+                var obg = {};
 
-                    if(obg.toString.call(item) == '[object Array]' && isNumeric(item[0]) && isNumeric(item[1]) && item[2]) {
-                        var diffTime = nowDate - time*1000;
-                        if(diffTime >= item[0]*1000 && ((diffTime < item[1]*1000) || (item[1] == -1))) {
-                            check = true;
-                        }
-                    }
-
-                    return check;
-                });
-
-                var date = new Date(time * 1000), methodArr = {}.toString;
-
-                if(result[0] && methodArr.call(result[0]) == '[object Array]') {
-                    var diffTime = Math.round((nowDate - time*1000)/1000);
-
-                    switch(result[0][2]) {
-                        case 'minute' :
-                            date = Math.round(diffTime/60);
-                            date = (date) ? date + ' ' + result[0][3] : (diffTime) ? diffTime + ' sec ago' : 'now';
-                            break;
-                        case 'hour' :
-                            date = Math.round(diffTime/(60*60)) + ' ' + result[0][3];
-                            break;
-                        case 'yesterday' :
-                            date =  result[0][3];
-                            break;
-                        case 'day' :
-                            date = Math.round(diffTime/(60*60*24)) + ' ' + result[0][3];
-                            break;
-                        case 'date' :
-                            date = date.getFullYear() + ' - ' + ('0' + (date.getMonth()+1)).slice(-2) + ' - ' + ('0'+date.getDate()).slice(-2) + ' ' + result[0][3];
-                            break;
-                        default : {
-                        }
+                if(obg.toString.call(item) == '[object Array]' && isNumeric(item[0]) && isNumeric(item[1]) && item[2]) {
+                    var diffTime = nowDate - time*1000;
+                    if(diffTime >= item[0]*1000 && ((diffTime < item[1]*1000) || (item[1] == -1))) {
+                        check = true;
                     }
                 }
 
-                function isNumeric(n) {
-                    return !isNaN(parseFloat(n)) && isFinite(n);
-                }
+                return check;
+            });
 
-                return date;
+            var date = new Date(time * 1000), methodArr = {}.toString;
+
+            if(result[0] && methodArr.call(result[0]) == '[object Array]') {
+                var diffTime = Math.round((nowDate - time*1000)/1000);
+
+                switch(result[0][2]) {
+                    case 'minute' :
+                        date = Math.round(diffTime/60);
+                        date = (date) ? date + ' ' + result[0][3] : (diffTime) ? diffTime + ' sec ago' : 'now';
+                        break;
+                    case 'hour' :
+                        date = Math.round(diffTime/(60*60)) + ' ' + result[0][3];
+                        break;
+                    case 'yesterday' :
+                        date =  result[0][3];
+                        break;
+                    case 'day' :
+                        date = Math.round(diffTime/(60*60*24)) + ' ' + result[0][3];
+                        break;
+                    case 'date' :
+                        date = date.getFullYear() + ' - ' + ('0' + (date.getMonth()+1)).slice(-2) + ' - ' + ('0'+date.getDate()).slice(-2) + ' ' + result[0][3];
+                        break;
+                    default : {
+                    }
+                }
+            }
+
+            function isNumeric(n) {
+                return !isNaN(parseFloat(n)) && isFinite(n);
+            }
+
+            return date;
         },
         clear: function() {
             $('.notification_group_content .scroll-pane').html('');
         }
     }
 
-    function doRequest(url, action, id) {
-        $.ajax({
-            type: "GET",
-            dataType: "json",
-            url: url,
-            cache: false,
-            success: function(response) {
-                if(action === 'markAllRead') {
-                    $('.noteItem').removeClass('unread');
-                    $('.notification_group_content .groupFooter').remove();
-                    GCAndroid.notifications(JSON.stringify({"action": "markAllRead"}));
-                } else {
-                    GCAndroid.notifications(JSON.stringify({"action": "markOneRead", "id": id}));
-                }
-            },
-            error:  function(error) {}
+    $('.notification_group_content').on('click', '.noteItem', function(e) {
+        var url;
+        var self = $(this);
+
+        var data = {
+                unread: false,
+                unwatched: false,
+                group: self.data('group')
+            };
+
+        data[self.data('type')] = self.data('id');
+
+        var id = self.data('id');
+
+        notifications.update(data, id);
+
+        if(e.target.nodeName != 'A') {
+            if(!$(e.target).hasClass('checkNote')) {
+                url = self.data('url');
+            }
+        } else {
+            url = $(e.target).attr('href');
+        }
+
+        if(url) {
+            if(url.indexOf('https://gmatclub.com') === -1) {
+                url = 'https://gmatclub.com' + url;
+            }
+
+            var tab = window.open(url, '_blank');
+
+            tab.focus();
+        }
+
+        e.stopPropagation();
+        e.preventDefault();
+    });
+
+    $('.notification_group_content').on('click', '.readMark', function(e) {
+        notifications.update({
+            unread: false,
+            type:   'group',
+            group:  'group_general',
+            data:   'group_general'
         });
 
+        e.preventDefault();
+        e.stopPropagation();
+    });
+
+    $('.notification_group_content').on('click', '.jspTrack', function(e) {
+        e.stopPropagation();
+        e.preventDefault();
+    });
+
+    $(document).click(function(e) {
+        return false;
+    });
+
+    function doRequest(params, id) {
+        id = +id;
+
+        GCAndroid.notifications(JSON.stringify({"action": "request", "params": params, "id": id}));
+
+        if(id !== id) {
+          $('.noteItem').removeClass('unread');
+          $('.notification_group_content .groupFooter').remove();
+        }
     }
 
-   function formatUpdateUrl(data) {
-        	var cb = (Math.random() + 1).toString(36).slice(2, 10);
-            var url = 'https://gmatclub.com/forum/notify.php?action=update&cb='+cb;
+    function formatUpdateUrl(data) {
+        var cb = (Math.random() + 1).toString(36).slice(2, 10);
+        var url = 'action=update&cb='+cb;
 
-            if(typeof data.unread != 'undefined') {
-                url += '&unread=' + (data.unread ? '1' : '0');
-            }
-
-            if(typeof data.unwatched != 'undefined') {
-                url += '&unwatched=' + (data.unwatched ? '1' : '0');
-            }
-
-            if(typeof data.group != 'undefined') {
-                url += '&group=' + encodeURIComponent(data.group);
-            }
-
-            if(data.single) {
-                url += '&type=single&data=' +  encodeURIComponent(data.single);
-            } else if(data.multiple) {
-                url += '&type=multiple';
-
-                for(var i = 0; i < data.multiple.length; i++) {
-                    url += '&data[]=' +  encodeURIComponent(data.multiple[i]);
-                }
-            } else if(data.group || data.hiddenGroup) {
-                var showGroup =  data.group || data.hiddenGroup;
-
-                url += '&type=group&data=' +  encodeURIComponent(showGroup);
-
-                if(data.hiddenGroup) {
-                    url += '&hgroup=' +  encodeURIComponent(data.hiddenGroup);
-                }
-            } else if(data.types) {
-                url += '&type=types';
-                for(var i = 0; i < data.types.length; i++) {
-                    url += '&data[]=' +  encodeURIComponent(data.types[i]);
-                }
-            } else if(data.subtypes) {
-                url += '&type=subtypes';
-                for(var i = 0; i < data.subtypes.length; i++) {
-                    url += '&data[i][type]=' + encodeURIComponent(data.subtypes[i].type) + '&data[i][subtype]=' +  encodeURIComponent(data.subtypes[i].subtype);
-                }
-            } else {
-                url += '&type=all';
-            }
-
-            url += '&refresh=0';
-            console.log(url);
-            return url;
+        if(typeof data.unread != 'undefined') {
+            url += '&unread=' + (data.unread ? '1' : '0');
         }
+
+        if(typeof data.unwatched != 'undefined') {
+            url += '&unwatched=' + (data.unwatched ? '1' : '0');
+        }
+
+        if(typeof data.group != 'undefined') {
+            url += '&group=' + encodeURIComponent(data.group);
+        }
+
+        if(data.single) {
+            url += '&type=single&data=' +  encodeURIComponent(data.single);
+        } else if(data.multiple) {
+            url += '&type=multiple';
+
+            for(var i = 0; i < data.multiple.length; i++) {
+                url += '&data[]=' +  encodeURIComponent(data.multiple[i]);
+            }
+        } else if(data.group || data.hiddenGroup) {
+            var showGroup =  data.group || data.hiddenGroup;
+
+            url += '&type=group&data=' +  encodeURIComponent(showGroup);
+
+            if(data.hiddenGroup) {
+                url += '&hgroup=' +  encodeURIComponent(data.hiddenGroup);
+            }
+        } else if(data.types) {
+            url += '&type=types';
+            for(var i = 0; i < data.types.length; i++) {
+                url += '&data[]=' +  encodeURIComponent(data.types[i]);
+            }
+        } else if(data.subtypes) {
+            url += '&type=subtypes';
+            for(var i = 0; i < data.subtypes.length; i++) {
+                url += '&data[i][type]=' + encodeURIComponent(data.subtypes[i].type) + '&data[i][subtype]=' +  encodeURIComponent(data.subtypes[i].subtype);
+            }
+        } else {
+            url += '&type=all';
+        }
+
+        url += '&refresh=0';
+
+        return url;
+    }
 </script>
 
 

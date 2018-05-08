@@ -16,6 +16,7 @@ public interface IWebContract {
         void logout();
         void goPreviousActivity();
         void openPageById(String id);
+        void updateCountMessages();
     }
 
     interface Presenter extends IBasePresenter {
@@ -26,9 +27,13 @@ public interface IWebContract {
         boolean logged();
         void setCountUnwatchedNotifications(int count);
         void setCountUnwatchedPMs(int count);
+        void setNotifications(String notifications);
+        void saveNotifications(String notifications);
+        String getNotifications();
         int getCountUnwatchedNotifications();
         int getCountUnwatchedPMs();
         void updateNotify();
+        void updateNotify(String params, String id);
         void updatePMs();
         User getUser();
     }

@@ -17,4 +17,9 @@ public interface IStorage {
         void onSuccess();
         void onError(AuthException exc);
     }
+
+    interface ICallbackNotifications {
+        void onSuccess(String notifications);
+        void onError(AuthException exc);
+    }
 }

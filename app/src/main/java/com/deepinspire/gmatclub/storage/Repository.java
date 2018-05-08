@@ -17,6 +17,7 @@ import com.deepinspire.gmatclub.api.AuthException;
 import com.facebook.login.LoginManager;
 import com.google.firebase.iid.FirebaseInstanceId;
 
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
@@ -186,30 +187,38 @@ public class Repository implements IStorage {
         });
     }
 
-    public void updateNotify(@NonNull final int count, @NonNull final ICallbackAuth callback) {
+    public void updateNotify(@NonNull final int count, final String params, @NonNull final ICallbackNotifications callback) {
         executorService.submit(new Runnable() {
             @Override
             public void run() {
                 try {
-                    Map<String, String> params= new HashMap<>();
+                    Map<String, String> queryMap= new HashMap<>();
 
-                    if(count == 0) {
-                        params.put("_", Long.toString(new Date().getTime()));
-                        params.put("action", "update");
-                        params.put("cb", Long.toString(new Date().getTime()));
-                        params.put("group", "group_general");
-                        params.put("refresh", "0");
-                        params.put("type", "all");
-                        params.put("unwatched", "0");
+                    if(params != null) {
+                        String[] prms = params.split("&");
+
+                        for(String param: prms) {
+                            queryMap.put((param.split("="))[0], (param.split("="))[1]);
+                        }
                     } else {
-                        params.put("_", Long.toString(new Date().getTime()));
-                        params.put("action", "update");
-                        params.put("cb", Long.toString(new Date().getTime()));
-                        params.put("data", "group_general");
-                        params.put("group", "group_general");
-                        params.put("refresh", "0");
-                        params.put("type", "group");
-                        params.put("unwatched", "0");
+                        if(count == 0) {
+                            queryMap.put("_", Long.toString(new Date().getTime()));
+                            queryMap.put("action", "update");
+                            queryMap.put("cb", Long.toString(new Date().getTime()));
+                            queryMap.put("group", "group_general");
+                            queryMap.put("refresh", "0");
+                            queryMap.put("type", "all");
+                            queryMap.put("unwatched", "0");
+                        } else {
+                            queryMap.put("_", Long.toString(new Date().getTime()));
+                            queryMap.put("action", "update");
+                            queryMap.put("cb", Long.toString(new Date().getTime()));
+                            queryMap.put("data", "group_general");
+                            queryMap.put("group", "group_general");
+                            queryMap.put("refresh", "0");
+                            queryMap.put("type", "group");
+                            queryMap.put("unwatched", "0");
+                        }
                     }
 
                     ApiInterface apiService = (new ApiClient()).getClient().create(ApiInterface.class);
@@ -221,7 +230,7 @@ public class Repository implements IStorage {
 
                     String authHeader = "Basic " + Base64.encodeToString(base.getBytes(), Base64.NO_WRAP);
 
-                    Call<ResponseBody> call = apiService.updateNotify(authHeader, params);
+                    Call<ResponseBody> call = apiService.updateNotify(authHeader, queryMap);
 
                     call.enqueue(new retrofit2.Callback<ResponseBody>() {
                         @Override
@@ -231,7 +240,13 @@ public class Repository implements IStorage {
                                 callback.onError(ex);
                             } else {
                                if(logged()) {
-                                   callback.onSuccess();
+                                   try {
+                                       callback.onSuccess(response.body().string().toString());
+                                   } catch (IOException e) {
+                                       e.printStackTrace();
+                                   } finally {
+                                       callback.onSuccess(null);
+                                   }
                                } else {
                                    AuthException ex = new AuthException(new Exception("Login or password failed"), "login");
                                    callback.onError(ex);
