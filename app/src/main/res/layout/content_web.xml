@@ -62,7 +62,7 @@
                 android:textColor="@color/white"
                 android:text="Send"
                 android:textAllCaps="true"
-                android:fontFamily="@font/opensans_semibold"
+                android:fontFamily="@font/opensans_semibold_custom"
                 android:textSize="16sp"
                 android:backgroundTint="@color/mainOrange"
                 android:background="@color/mainOrange"

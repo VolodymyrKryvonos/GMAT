@@ -15,14 +15,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5d9e8901-ef33-43d6-bffb-1c758be0eff0" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/border.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/font/opensans_bold_custom.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/font/opensans_regular_custom.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/font/opensans_semibold_custom.xml" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/assets/opensans_semibold.ttf" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.iml" afterPath="$PROJECT_DIR$/app/app.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/assets/notifications.html" afterPath="$PROJECT_DIR$/app/src/main/assets/notifications.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/storage/IStorage.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/storage/IStorage.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/storage/Repository.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/storage/Repository.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/web/IWebContract.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/web/IWebContract.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/web/WebActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/web/WebActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/web/WebPresenter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/web/WebPresenter.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/alert_dialog_forgot_password.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/alert_dialog_forgot_password.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/alert_dialog_login.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/alert_dialog_login.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/alert_dialog_profile_anon.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/alert_dialog_profile_anon.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/content_auth.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/content_auth.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/content_feedback.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/content_feedback.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/content_web.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/content_web.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/styles.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/styles.xml" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -68,150 +74,45 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="WebActivity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/web/WebActivity.java">
+      <file leaf-file-name="opensans_regular_custom.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/font/opensans_regular_custom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1067">
-              <caret line="1216" column="139" lean-forward="false" selection-start-line="1216" selection-start-column="134" selection-end-line="1216" selection-end-column="139" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#5669#5997#0" expanded="true" />
-                <element signature="e#5996#5997#0" expanded="true" />
-                <element signature="e#6304#6587#0" expanded="true" />
-                <element signature="e#6586#6587#0" expanded="true" />
-                <element signature="e#30760#31104#0" expanded="true" />
-                <element signature="e#31103#31104#0" expanded="true" />
-                <element signature="method#openPageById#0;class#WebActivity#0" expanded="false" />
-                <element signature="method#logout#0;class#WebActivity#0" expanded="false" />
-                <element signature="method#reload#0;class#WebActivity#0" expanded="false" />
-                <element signature="method#showSuccess#0;class#WebActivity#0" expanded="false" />
-                <element signature="method#signIn#0;class#WebActivity#0" expanded="false" />
-                <element signature="method#onBackPressed#0;class#WebActivity#0" expanded="false" />
-                <element signature="method#showMenu#0;class#WebActivity#0" expanded="false" />
-                <element signature="method#initNavigationView#0;class#WebActivity#0" expanded="false" />
-                <element signature="method#goPreviousActivity#0;class#WebActivity#0" expanded="false" />
-                <element signature="e#43244#44201#0" expanded="true" />
-                <element signature="e#44200#44201#0" expanded="true" />
-                <element signature="e#44481#44717#0" expanded="true" />
-                <element signature="e#44716#44717#0" expanded="true" />
-                <element signature="e#44843#47849#0" expanded="true" />
-                <element signature="e#45177#46147#0" expanded="true" />
-                <element signature="e#45600#46032#0" expanded="true" />
-                <element signature="e#46031#46032#0" expanded="true" />
-                <element signature="e#46146#46147#0" expanded="true" />
-                <element signature="e#46282#46814#0" expanded="true" />
-                <element signature="e#46813#46814#0" expanded="true" />
-                <element signature="e#47354#47793#0" expanded="true" />
-                <element signature="e#47792#47793#0" expanded="true" />
-                <element signature="e#47848#47849#0" expanded="true" />
-                <element signature="method#getDeviceInformation#0;class#WebActivity#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="IWebContract.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/web/IWebContract.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="540">
-              <caret line="30" column="13" lean-forward="false" selection-start-line="30" selection-start-column="13" selection-end-line="30" selection-end-column="13" />
+            <state relative-caret-position="220">
+              <caret line="11" column="9" lean-forward="false" selection-start-line="11" selection-start-column="9" selection-end-line="11" selection-end-column="9" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="WebPresenter.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/web/WebPresenter.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-6">
-              <caret line="200" column="50" lean-forward="true" selection-start-line="200" selection-start-column="50" selection-end-line="200" selection-end-column="50" />
-              <folding>
-                <element signature="e#4656#4657#0" expanded="true" />
-                <element signature="e#4706#4707#0" expanded="true" />
-                <element signature="e#4746#4747#0" expanded="true" />
-                <element signature="e#4787#4788#0" expanded="true" />
-                <element signature="method#updateNotifications#0;class#WebPresenter#0" expanded="false" />
-              </folding>
-            </state>
+      <file leaf-file-name="alert_dialog_login.xml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/alert_dialog_login.xml">
+          <provider editor-type-id="android-designer2">
+            <state />
           </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ViewHelper.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/utils/ViewHelper.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1020">
-              <caret line="87" column="41" lean-forward="false" selection-start-line="87" selection-start-column="41" selection-end-line="87" selection-end-column="41" />
-              <folding>
-                <element signature="method#showLeaveAppDialog#0;class#ViewHelper#0" expanded="false" />
-                <element signature="method#showErrorDialog#0;class#ViewHelper#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Repository.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/storage/Repository.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1272">
-              <caret line="243" column="93" lean-forward="false" selection-start-line="243" selection-start-column="93" selection-end-line="243" selection-end-column="93" />
-              <folding>
-                <element signature="method#forgotPassword#0;class#Repository#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="IStorage.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/storage/IStorage.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="20" column="36" lean-forward="false" selection-start-line="20" selection-start-column="14" selection-end-line="20" selection-end-column="36" />
+            <state relative-caret-position="287">
+              <caret line="58" column="10" lean-forward="true" selection-start-line="58" selection-start-column="10" selection-end-line="58" selection-end-column="10" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Response.java" pinned="false" current-in-tab="false">
-        <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.squareup.retrofit2/retrofit/2.3.0/76f3c69879d3e01c082f49d8661c5590838148e1/retrofit-2.3.0-sources.jar!/retrofit2/Response.java">
+      <file leaf-file-name="opensans_bold_custom.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/font/opensans_bold_custom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="167">
-              <caret line="89" column="28" lean-forward="false" selection-start-line="89" selection-start-column="28" selection-end-line="89" selection-end-column="28" />
-              <folding>
-                <element signature="e#3625#3626#0" expanded="true" />
-                <element signature="e#3653#3654#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ResponseBody.java" pinned="false" current-in-tab="false">
-        <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp3/okhttp/3.10.0/e99b7b608968f16b07104b93e62cb90701174d0/okhttp-3.10.0-sources.jar!/okhttp3/ResponseBody.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="205">
-              <caret line="170" column="22" lean-forward="false" selection-start-line="170" selection-start-column="22" selection-end-line="170" selection-end-column="22" />
+            <state relative-caret-position="140">
+              <caret line="7" column="34" lean-forward="false" selection-start-line="7" selection-start-column="34" selection-end-line="7" selection-end-column="34" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ApiInterface.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/api/ApiInterface.java">
+      <file leaf-file-name="styles.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/values/styles.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="394">
-              <caret line="58" column="77" lean-forward="false" selection-start-line="58" selection-start-column="77" selection-end-line="58" selection-end-column="85" />
+            <state relative-caret-position="288">
+              <caret line="152" column="17" lean-forward="false" selection-start-line="152" selection-start-column="17" selection-end-line="152" selection-end-column="17" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="notifications.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/assets/notifications.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="80">
-              <caret line="4" column="26" lean-forward="false" selection-start-line="4" selection-start-column="26" selection-end-line="4" selection-end-column="26" />
-              <folding>
-                <element signature="e#1505#1532#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -230,9 +131,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>M_URL</find>
-      <find>PM_URL</find>
-      <find>multi</find>
       <find>values</find>
       <find>data-id</find>
       <find>id</find>
@@ -257,9 +155,12 @@
       <find>sendMessage</find>
       <find>updateCountMe</find>
       <find>updateCountMessages</find>
-      <find>updateNotify</find>
-      <find>console</find>
       <find>toast</find>
+      <find>console</find>
+      <find>updateNotify</find>
+      <find>sp</find>
+      <find>opensans_semibold_custom</find>
+      <find>opensans_semibold_custome</find>
     </findStrings>
     <replaceStrings>
       <replace>goByMenu</replace>
@@ -283,6 +184,7 @@
       <replace>btnAddTopic</replace>
       <replace>com.nkoventuresllc.gmatclub</replace>
       <replace>GCTest.sendMessage</replace>
+      <replace>opensans_semibold_custom</replace>
     </replaceStrings>
   </component>
   <component name="GenerateSignedApkSettings">
@@ -2892,20 +2794,10 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/content_splash.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_auth.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/drawable/color_cursor.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/alert_dialog_forgot_password.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/navigation_view.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/alert_dialog_leave_app.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/drawable/background_gradient_white.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/values/colors.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/alert_dialog_profile_auth.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/values/styles.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/storage/DeviceInfo.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/drawable/border_bottom_1dp_error.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/notifications/MyJobService.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/alert_dialog_profile_anon.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/notifications/GCBroadcastReceiver.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/auth/AuthPresenter.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/auth/FacebookActivity.java" />
@@ -2927,22 +2819,32 @@
         <option value="$PROJECT_DIR$/app/src/main/res/layout/toolbar.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/splash/SplashActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/api/Api.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/content_auth.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/auth/AuthActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/utils/ViewHelper.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/alert_dialog_login.xml" />
         <option value="$PROJECT_DIR$/app/build.gradle" />
         <option value="$PROJECT_DIR$/build.gradle" />
         <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/notifications/GCFirebaseMessagingService.java" />
         <option value="$PROJECT_DIR$/app/src/main/assets/notifications1.html" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/api/ApiInterface.java" />
-        <option value="$PROJECT_DIR$/app/src/main/assets/notifications.html" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/storage/IStorage.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/storage/Repository.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/web/IWebContract.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/web/WebPresenter.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/web/WebActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/web/WebPresenter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/assets/notifications.html" />
+        <option value="$PROJECT_DIR$/app/src/main/res/drawable/border.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/drawable/opensans_semibold" />
+        <option value="$PROJECT_DIR$/app/src/main/res/font/opensans_semibold.xml" />
+        <option value="$PROJECT_DIR$/app/build/intermediates/incremental/mergeGmatclubDebugResources/merged.dir/values/values.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/alert_dialog_forgot_password.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/alert_dialog_profile_anon.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/content_auth.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/font/opensans_semibold_custom.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/font/opensans_regular_custom.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/values/styles.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/font/opensans_bold_custom.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/alert_dialog_login.xml" />
       </list>
     </option>
   </component>
@@ -3095,6 +2997,122 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="android" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="android" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="android" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="android" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="layout" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="android" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="android" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="font" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="android" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="android" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="drawable" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -3417,28 +3435,31 @@
     <property name="android.profiler.active" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
-      <recent name="com.deepinspire.gmatclub" />
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/src/main/res/font" />
+      <recent name="$PROJECT_DIR$/app/src/main/assets" />
+      <recent name="$PROJECT_DIR$/app/src/main/res/fonts" />
+      <recent name="$PROJECT_DIR$/app" />
+      <recent name="$PROJECT_DIR$/app/src/main/res/assets" />
     </key>
     <key name="android.template.packageName">
       <recent name="com.deepinspire.gmatclub" />
       <recent name="com.deepinspire.gmatclub.auth" />
       <recent name="com.deepinspire.gmatclub.web" />
     </key>
-    <key name="android.template.parentActivityClass">
-      <recent name="" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/src/main/res/font" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.deepinspire.gmatclub" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.deepinspire.gmatclub.notifications" />
       <recent name="com.deepinspire.gmatclub.storage" />
       <recent name="com.deepinspire.gmatclub.api" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/app/src/main/assets" />
-      <recent name="$PROJECT_DIR$/app/src/main/res/fonts" />
-      <recent name="$PROJECT_DIR$/app/src/main/res/font" />
-      <recent name="$PROJECT_DIR$/app" />
-      <recent name="$PROJECT_DIR$/app/src/main/res/assets" />
+    <key name="android.template.parentActivityClass">
+      <recent name="" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -3518,7 +3539,7 @@
       <option name="ACTIVITY_CLASS" value="com.deepinspire.gmatclub.auth.AuthActivity" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1525782917484" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1525788711238" />
       </method>
     </configuration>
     <configuration default="false" name="gmatclub [signingReport]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
@@ -3609,7 +3630,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1525782917485" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1525788711238" />
       </method>
     </configuration>
     <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Instrumented Tests">
@@ -3657,7 +3678,7 @@
       </Profilers>
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1525782917485" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1525788711239" />
       </method>
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -3840,7 +3861,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1525782917486" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1525788711240" />
       </method>
     </configuration>
     <list size="4">
@@ -3902,27 +3923,29 @@
     <editor active="true" />
     <layout>
       <window_info id="Android Profiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25674218" sideWeight="0.4980631" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23313546" sideWeight="0.38526314" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.49894738" sideWeight="0.50350785" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Logcat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.45789474" sideWeight="0.4969563" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24986508" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Device File Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32982844" sideWeight="0.504329" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.49052632" sideWeight="0.91034865" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.49894738" sideWeight="0.49649218" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31789473" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16729628" sideWeight="0.17263158" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.49894738" sideWeight="0.50350785" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3416082" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27666315" sideWeight="0.49584946" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32901832" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4875944" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Logcat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.45789474" sideWeight="0.4969563" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.6831579" sideWeight="0.5019369" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16729628" sideWeight="0.82736844" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23313546" sideWeight="0.61473686" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.54421055" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.14786832" sideWeight="0.495671" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Device File Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32982844" sideWeight="0.504329" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.49052632" sideWeight="0.91034865" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27954668" sideWeight="0.33480176" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -3930,8 +3953,6 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3416082" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.54421055" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Android Profiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25674218" sideWeight="0.4980631" order="7" side_tool="false" content_ui="tabs" />
@@ -4542,125 +4563,10 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/play-services-basement-15.0.0.aar/fa9f276dfb2b19bff708a22eb6081435/jars/classes.jar!/com/google/android/gms/common/api/ApiException.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="15" column="37" lean-forward="false" selection-start-line="15" selection-start-column="37" selection-end-line="15" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/facebook-messenger-4.32.0.aar/e4a18adf0ff35fbfec778b366f04ba28/res/values/values.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="167">
-          <caret line="12" column="40" lean-forward="false" selection-start-line="12" selection-start-column="39" selection-end-line="12" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/styles.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3360">
-          <caret line="168" column="32" lean-forward="false" selection-start-line="168" selection-start-column="32" selection-end-line="168" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/google-services.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="500">
-          <caret line="81" column="9" lean-forward="false" selection-start-line="81" selection-start-column="9" selection-end-line="81" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/play-services-base-15.0.0.aar/97f8778f3a5a80152eda63d31d14af7e/jars/classes.jar!/com/google/android/gms/auth/api/signin/GoogleSignInAccount.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="159">
-          <caret line="233" column="16" lean-forward="false" selection-start-line="233" selection-start-column="16" selection-end-line="233" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Android/Sdk/sources/android-26/java/util/Date.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="904" column="16" lean-forward="false" selection-start-line="904" selection-start-column="16" selection-end-line="904" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/auth/IAuthContract.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="19" column="71" lean-forward="false" selection-start-line="19" selection-start-column="60" selection-end-line="19" selection-end-column="71" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/auth/FacebookActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="27" column="0" lean-forward="true" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/content_web.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-          <folding>
-            <element signature="e#659#2662#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/toolbar.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.support/appcompat-v7/27.0.2/4ae031a24f432a35efae0d609731c5a34e65696c/appcompat-v7-27.0.2-sources.jar!/android/support/v7/app/AppCompatActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="307">
-          <caret line="176" column="6" lean-forward="false" selection-start-line="176" selection-start-column="6" selection-end-line="176" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/GCConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="10" column="28" lean-forward="false" selection-start-line="10" selection-start-column="28" selection-end-line="10" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/splash/SplashActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="39" column="16" lean-forward="false" selection-start-line="39" selection-start-column="16" selection-end-line="39" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/Application.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="140">
           <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/content_auth.xml">
-      <provider selected="true" editor-type-id="android-designer2">
-        <state />
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="640">
-          <caret line="50" column="36" lean-forward="false" selection-start-line="50" selection-start-column="36" selection-end-line="50" selection-end-column="36" />
         </state>
       </provider>
     </entry>
@@ -4679,17 +4585,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="907">
           <caret line="78" column="53" lean-forward="false" selection-start-line="78" selection-start-column="45" selection-end-line="78" selection-end-column="53" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/alert_dialog_login.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="243">
-          <caret line="108" column="47" lean-forward="false" selection-start-line="108" selection-start-column="47" selection-end-line="108" selection-end-column="47" />
           <folding />
         </state>
       </provider>
@@ -4835,14 +4730,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-360">
-          <caret line="9" column="54" lean-forward="false" selection-start-line="9" selection-start-column="54" selection-end-line="9" selection-end-column="54" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/utils/GCWebView.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="500">
@@ -4888,8 +4775,8 @@
         <state relative-caret-position="307">
           <caret line="2424" column="20" lean-forward="false" selection-start-line="2424" selection-start-column="20" selection-end-line="2424" selection-end-column="20" />
           <folding>
-            <element signature="e#95415#95416#0" expanded="true" />
-            <element signature="e#95453#95454#0" expanded="true" />
+            <element signature="e#95415#95416#0" expanded="false" />
+            <element signature="e#95453#95454#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -4902,14 +4789,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/assets/opensans_semibold.ttf">
-      <provider selected="true" editor-type-id="fontseditor">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/api/ApiInterface.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="394">
+        <state relative-caret-position="754">
           <caret line="58" column="77" lean-forward="false" selection-start-line="58" selection-start-column="77" selection-end-line="58" selection-end-column="85" />
           <folding />
         </state>
@@ -4928,8 +4810,8 @@
         <state relative-caret-position="167">
           <caret line="89" column="28" lean-forward="false" selection-start-line="89" selection-start-column="28" selection-end-line="89" selection-end-column="28" />
           <folding>
-            <element signature="e#3625#3626#0" expanded="true" />
-            <element signature="e#3653#3654#0" expanded="true" />
+            <element signature="e#3625#3626#0" expanded="false" />
+            <element signature="e#3653#3654#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -4971,10 +4853,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/web/WebPresenter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="454">
+          <caret line="140" column="16" lean-forward="false" selection-start-line="140" selection-start-column="16" selection-end-line="140" selection-end-column="16" />
+          <folding>
+            <element signature="e#4656#4657#0" expanded="true" />
+            <element signature="e#4706#4707#0" expanded="true" />
+            <element signature="e#4746#4747#0" expanded="true" />
+            <element signature="e#4787#4788#0" expanded="true" />
+            <element signature="method#updateNotifications#0;class#WebPresenter#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/assets/notifications.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-260">
+          <caret line="17" column="6" lean-forward="true" selection-start-line="17" selection-start-column="6" selection-end-line="17" selection-end-column="6" />
+          <folding>
+            <element signature="e#1505#1532#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/web/WebActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1067">
-          <caret line="1216" column="139" lean-forward="false" selection-start-line="1216" selection-start-column="134" selection-end-line="1216" selection-end-column="139" />
+        <state relative-caret-position="267">
+          <caret line="740" column="21" lean-forward="true" selection-start-line="740" selection-start-column="21" selection-end-line="740" selection-end-column="21" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#5669#5997#0" expanded="true" />
@@ -5011,27 +4917,154 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/assets/notifications.html">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/border_bottom_1dp.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="4" column="26" lean-forward="false" selection-start-line="4" selection-start-column="26" selection-end-line="4" selection-end-column="26" />
-          <folding>
-            <element signature="e#1505#1532#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/web/WebPresenter.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/border.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-6">
-          <caret line="200" column="50" lean-forward="true" selection-start-line="200" selection-start-column="50" selection-end-line="200" selection-end-column="50" />
-          <folding>
-            <element signature="e#4656#4657#0" expanded="true" />
-            <element signature="e#4706#4707#0" expanded="true" />
-            <element signature="e#4746#4747#0" expanded="true" />
-            <element signature="e#4787#4788#0" expanded="true" />
-            <element signature="method#updateNotifications#0;class#WebPresenter#0" expanded="false" />
-          </folding>
+        <state relative-caret-position="200">
+          <caret line="10" column="8" lean-forward="false" selection-start-line="10" selection-start-column="8" selection-end-line="10" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/assets/opensans_semibold.ttf">
+      <provider selected="true" editor-type-id="fontseditor">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/font/opensans_semibold_custome.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="10" column="14" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="10" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/facebook-login-4.32.0.aar/f82e7624f03c66fce787ac3143d27ac6/res/values/values.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="584">
+          <caret line="56" column="4" lean-forward="false" selection-start-line="56" selection-start-column="4" selection-end-line="56" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/build/intermediates/incremental/mergeGmatclubDebugResources/merged.dir/values/values.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="137">
+          <caret line="2559" column="70" lean-forward="false" selection-start-line="2559" selection-start-column="70" selection-end-line="2559" selection-end-column="70" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/facebook-messenger-4.32.0.aar/34e751a8a7ebb6a946e7aee5903d83bd/res/values/values.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="3" column="34" lean-forward="false" selection-start-line="3" selection-start-column="34" selection-end-line="3" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/alert_dialog_profile_anon.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="355">
+          <caret line="28" column="0" lean-forward="false" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/alert_dialog_forgot_password.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="125">
+          <caret line="43" column="42" lean-forward="false" selection-start-line="43" selection-start-column="42" selection-end-line="43" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/content_web.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="19" column="43" lean-forward="true" selection-start-line="19" selection-start-column="43" selection-end-line="19" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/font/opensans_semibold_custom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/content_auth.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="447">
+          <caret line="50" column="40" lean-forward="false" selection-start-line="50" selection-start-column="40" selection-end-line="50" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/font/opensans_regular_custom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="11" column="9" lean-forward="false" selection-start-line="11" selection-start-column="9" selection-end-line="11" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/font/opensans_bold_custom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="7" column="34" lean-forward="false" selection-start-line="7" selection-start-column="34" selection-end-line="7" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/styles.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="152" column="17" lean-forward="false" selection-start-line="152" selection-start-column="17" selection-end-line="152" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="83">
+          <caret line="9" column="54" lean-forward="false" selection-start-line="9" selection-start-column="54" selection-end-line="9" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/alert_dialog_login.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="287">
+          <caret line="58" column="10" lean-forward="true" selection-start-line="58" selection-start-column="10" selection-end-line="58" selection-end-column="10" />
+          <folding />
         </state>
       </provider>
     </entry>
