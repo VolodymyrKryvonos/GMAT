@@ -26,6 +26,7 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:gravity">center</item>
         <item name="android:fontFamily">@font/opensans_semibold_custom</item>
+        <item name="android:textStyle">bold</item>
         <item name="android:textSize">15sp</item>
         <item name="android:textColor">@color/main</item>
         <item name="android:textAllCaps">true</item>
@@ -92,6 +93,7 @@
         <item name="android:textColor">@color/mainOrange</item>
         <item name="android:textSize">18sp</item>
         <item name="android:fontFamily">@font/opensans_semibold_custom</item>
+        <item name="android:textStyle">bold</item>
     </style>
 
     <style name="progressBar_style">
@@ -157,6 +159,7 @@
         <item name="android:textColor">@color/main</item>
         <!--<item name="android:lineSpacingMultiplier">1.3</item>-->
         <item name="android:fontFamily">@font/opensans_regular</item>
+        <item name="android:textStyle">bold</item>
     </style>
 
     <style name="alert_buttons_container">

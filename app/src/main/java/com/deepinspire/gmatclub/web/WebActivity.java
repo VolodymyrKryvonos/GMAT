@@ -15,8 +15,10 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
+import android.os.Handler;
 import android.os.StatFs;
 import android.support.annotation.NonNull;
+import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.NavigationView;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.graphics.drawable.DrawableCompat;
@@ -34,6 +36,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
@@ -72,6 +75,8 @@ import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
 import com.github.clans.fab.FloatingActionButton;
 import com.github.clans.fab.FloatingActionMenu;
+import com.github.clans.fab.Label;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -138,6 +143,8 @@ public class WebActivity extends AppCompatActivity implements
     private ViewTreeObserver.OnScrollChangedListener mOnScrollChangedListener;
 
     private final ExecutorService executor = Executors.newFixedThreadPool(4);
+
+    private Handler mUiHandler = new Handler();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -187,6 +194,10 @@ public class WebActivity extends AppCompatActivity implements
 
         btnAdd = (FloatingActionMenu) findViewById(R.id.btnAddMenu);
 
+        btnAdd.setAnimationDelayPerItem(0);
+
+        btnAdd.setAnimated(false);
+
         btnAdd.setOnMenuButtonClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -200,15 +211,19 @@ public class WebActivity extends AppCompatActivity implements
 
         btnAddTopic = (FloatingActionButton) findViewById(R.id.btnAddTopic);
         btnAddTopic.setOnClickListener(this);
+        //btnAddTopic.setVisibility(View.GONE);
 
         btnAddPm = (FloatingActionButton) findViewById(R.id.btnAddPm);
         btnAddPm.setOnClickListener(this);
+        //btnAddPm.setVisibility(View.GONE);
 
         btnAddChat = (FloatingActionButton) findViewById(R.id.btnAddChat);
         btnAddChat.setOnClickListener(this);
+        //btnAddChat.setVisibility(View.GONE);
 
         btnAddSchool = (FloatingActionButton) findViewById(R.id.btnAddSchool);
         btnAddSchool.setOnClickListener(this);
+        //btnAddSchool.setVisibility(View.GONE);
 
         toolbarTitleLayout = (LinearLayout) findViewById(R.id.toolbarTitleLayout);
 
@@ -740,9 +755,9 @@ public class WebActivity extends AppCompatActivity implements
         webView.setWebChromeClient(new WebChromeClient() {
             @Override
             public boolean onConsoleMessage(ConsoleMessage consoleMessage) {
-                /*Log.d("MyApplication", consoleMessage.message() + " -- From line "
+                Log.d("MyApplication", consoleMessage.message() + " -- From line "
                         + consoleMessage.lineNumber() + " of "
-                        + consoleMessage.sourceId());*/
+                        + consoleMessage.sourceId());
                 return super.onConsoleMessage(consoleMessage);
             }
 
@@ -865,21 +880,9 @@ public class WebActivity extends AppCompatActivity implements
             if(logged()) {
                 /*showBtnAddAllItems();*/
 
-                String url  = webView.getUrl();
-
-                if(url.contains(Api.FORUM_NEW_POSTS)) {
-                    showBtnAddTopic(false);
-                } else if(url.contains(Api.PM_NEW_URL)) {
-                    showBtnAddPm(false);
-                } else if(url.contains(Api.CHAT_URL)) {
-                    showBtnAddChat(false);
-                } else if(url.contains(Api.FORUM_ADD_NEW_SCHOOL)) {
-                    showBtnAddSchool(false);
-                }
+                toogleAddMenu(false);
 
                 showBtnAdd(true);
-
-                toogleAddMenu(false);
             } else {
                 showBtnAdd(false);
             }
@@ -1248,21 +1251,116 @@ public class WebActivity extends AppCompatActivity implements
 
     private void toogleAddMenu(boolean open) {
         if(open) {
-            btnAdd.open(true);
+            /*String url  = webView.getUrl();
 
+            if(url.contains(Api.FORUM_NEW_POSTS)) {
+                showBtnAddTopic(false);
+            } else if(url.contains(Api.PM_NEW_URL)) {
+                showBtnAddPm(false);
+            } else if(url.contains(Api.CHAT_URL)) {
+                showBtnAddChat(false);
+            } else if(url.contains(Api.FORUM_ADD_NEW_SCHOOL)) {
+                showBtnAddSchool(false);
+            }*/
+            //btnAdd.showMenuButton(true);
+            //btnAdd.showMenu(true);
+
+            //btnAdd.open(true);
+
+            //btnAdd.showMenuButton(true);
+
+           // btnAddTopic.show(true);
+            //btnAdd.addMenuButton(btnAddTopic);
+            //btnAdd.setAnimated(false);
+            //btnAdd.open(false);
+            //btnAdd.showMenu(false);
             btnAddLayout.getLayoutParams().height = mDrawerLayout.getHeight();
             btnAddLayout.getLayoutParams().width = mDrawerLayout.getWidth();
             btnAddLayout.requestLayout();
 
             btnAddLayout.setBackground(ContextCompat.getDrawable(getApplicationContext(), R.drawable.background_gradient_white));
+
+            showBtnAddAllItems();
+
+            btnAdd.open(false);
+            /*btnAdd.addMenuButton(btnAddTopic);
+            btnAdd.addMenuButton(btnAddSchool);
+            btnAdd.addMenuButton(btnAddChat);
+            btnAdd.addMenuButton(btnAddPm);*/
+            //btnAddTopic.showButtonInMenu(false);
+            //btnAddTopic.setVisibility(View.GONE);
+            //btnAddTopic.showButtonInMenu(true);
         } else {
-            btnAdd.close(true);
+            //hideBtnAddAllItems();
 
-            btnAddLayout.getLayoutParams().height = btnAdd.getHeight();
-            btnAddLayout.getLayoutParams().width = btnAdd.getWidth();
-            btnAddLayout.requestLayout();
+            //btnAdd.setAnimated(false);
+            //btnAdd.close(false);
+            hideBtnAddAllItems();
 
-            btnAddLayout.setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.transparent));
+            btnAdd.close(false);
+
+            mUiHandler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    if(!btnAdd.isOpened()) {
+                        //hideBtnAddAllItems();
+                    /*btnAdd.getChildAt(0).setVisibility(View.GONE);
+                    btnAdd.getChildAt(1).setVisibility(View.GONE);
+                    btnAdd.getChildAt(2).setVisibility(View.GONE);
+                    btnAdd.getChildAt(3).setVisibility(View.GONE);*/
+
+                        btnAddLayout.getLayoutParams().height = btnAdd.getHeight();
+                        btnAddLayout.getLayoutParams().width = btnAdd.getWidth();
+                        btnAddLayout.requestLayout();
+
+                        btnAddLayout.setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.transparent));
+                        //btnAdd.requestLayout();
+                    }
+
+                    //Toast.makeText(WebActivity.this, "height:" + btnAdd.getHeight(), Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(WebActivity.this, "width:" + btnAdd.getWidth(), Toast.LENGTH_SHORT).show();
+                }
+            }, 0);
+            //hideBtnAddAllItems();
+
+            //btnAdd.getLayoutParams().height = btnAdd.getHeight();
+            //btnAdd.getLayoutParams().width = btnAdd.getWidth();
+            //btnAdd.removeAllMenuButtons();
+            //btnAdd.removeAllMenuButtons();
+            //btnAddTopic.showButtonInMenu(false);
+            //btnAdd.hideMenu(true);
+            //btnAdd.hideMenuButton(true);
+            //hideBtnAddAllItems();
+            //btnAdd.close(true);
+
+            //hideBtnAddAllItems();
+
+            //btnAdd.hideMenuButton(true);
+
+            //btnAddTopic.showButtonInMenu(false);
+
+
+            //hideBtnAddAllItems();
+
+            /*ViewGroup.MarginLayoutParams p = (CoordinatorLayout.LayoutParams)    btnAddTopic.getLayoutParams();
+
+            //p.setAnchorId(View.NO_ID);
+            p.width = 0;
+            p.height = 0;
+            btnAddTopic.setLayoutParams(p);*/
+            //btnAddTopic.hide(false);
+            //btnAddTopic.setVisibility(View.GONE);
+
+            /*ViewGroup.LayoutParams p = (CoordinatorLayout.LayoutParams) btnAddTopic.getLayoutParams();
+            p.setAnchorId(View.NO_ID);
+            btnAddTopic.setLayoutParams(p);
+            btnAddTopic.setVisibility(View.GONE);*/
+
+            //Toast.makeText(WebActivity.this, "height:" + btnAdd.getHeight(), Toast.LENGTH_SHORT).show();
+            //Toast.makeText(WebActivity.this, "width:" + btnAdd.getWidth(), Toast.LENGTH_SHORT).show();
+
+            //btnAdd.getLayoutParams().height = 20;
+            //btnAdd.getLayoutParams().width = 20;
         }
     }
 
@@ -1465,33 +1563,41 @@ public class WebActivity extends AppCompatActivity implements
 
     private void showBtnAddTopic(boolean show) {
         if(show) {
-            btnAddTopic.show(true);
+            btnAddTopic.setVisibility(View.VISIBLE);
+            btnAddTopic.setLabelVisibility(View.VISIBLE);
         } else {
-            btnAddTopic.hide(true);
+            btnAddTopic.setVisibility(View.GONE);
+            btnAddTopic.setLabelVisibility(View.GONE);
         }
     }
 
     private void showBtnAddPm(boolean show) {
         if(show) {
-            btnAddPm.show(true);
+            btnAddPm.setVisibility(View.VISIBLE);
+            btnAddPm.setLabelVisibility(View.VISIBLE);
         } else {
-            btnAddPm.hide(true);
+            btnAddPm.setVisibility(View.GONE);
+            btnAddPm.setLabelVisibility(View.GONE);
         }
     }
 
     private void showBtnAddChat(boolean show) {
         if(show) {
-            btnAddChat.show(true);
+            btnAddChat.setVisibility(View.VISIBLE);
+            btnAddChat.setLabelVisibility(View.VISIBLE);
         } else {
-            btnAddChat.hide(true);
+            btnAddChat.setVisibility(View.GONE);
+            btnAddChat.setLabelVisibility(View.GONE);
         }
     }
 
     private void showBtnAddSchool(boolean show) {
         if(show) {
-            btnAddSchool.show(true);
+            btnAddSchool.setVisibility(View.VISIBLE);
+            btnAddSchool.setLabelVisibility(View.VISIBLE);
         } else {
-            btnAddSchool.hide(true);
+            btnAddSchool.setVisibility(View.GONE);
+            btnAddSchool.setLabelVisibility(View.GONE);
         }
     }
 
@@ -1500,5 +1606,12 @@ public class WebActivity extends AppCompatActivity implements
         showBtnAddPm(true);
         showBtnAddChat(true);
         showBtnAddSchool(true);
+    }
+
+    private void hideBtnAddAllItems () {
+        showBtnAddTopic(false);
+        showBtnAddPm(false);
+        showBtnAddChat(false);
+        showBtnAddSchool(false);
     }
 }
