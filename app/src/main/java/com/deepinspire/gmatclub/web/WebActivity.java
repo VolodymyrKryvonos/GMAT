@@ -878,8 +878,6 @@ public class WebActivity extends AppCompatActivity implements
             hideKeyboard();
 
             if(logged()) {
-                /*showBtnAddAllItems();*/
-
                 toogleAddMenu(false);
 
                 showBtnAdd(true);
@@ -1251,17 +1249,22 @@ public class WebActivity extends AppCompatActivity implements
 
     private void toogleAddMenu(boolean open) {
         if(open) {
-            /*String url  = webView.getUrl();
+            String url  = webView.getUrl();
+
+            setEnabledBtnAddTopic(true);
+            setEnabledBtnAddPm(true);
+            setEnabledBtnAddChat(true);
+            setEnabledBtnAddSchool(true);
 
             if(url.contains(Api.FORUM_NEW_POSTS)) {
-                showBtnAddTopic(false);
+                setEnabledBtnAddTopic(false);
             } else if(url.contains(Api.PM_NEW_URL)) {
-                showBtnAddPm(false);
-            } else if(url.contains(Api.CHAT_URL)) {
-                showBtnAddChat(false);
+                setEnabledBtnAddPm(false);
+            } else if(url.contains(Api.FORUM_URL + "/mchat.php")) {
+                setEnabledBtnAddChat(false);
             } else if(url.contains(Api.FORUM_ADD_NEW_SCHOOL)) {
-                showBtnAddSchool(false);
-            }*/
+                setEnabledBtnAddSchool(false);
+            }
             //btnAdd.showMenuButton(true);
             //btnAdd.showMenu(true);
 
@@ -1599,6 +1602,22 @@ public class WebActivity extends AppCompatActivity implements
             btnAddSchool.setVisibility(View.GONE);
             btnAddSchool.setLabelVisibility(View.GONE);
         }
+    }
+
+    private void setEnabledBtnAddTopic(boolean enable) {
+        btnAddTopic.setEnabled(enable);
+    }
+
+    private void setEnabledBtnAddPm(boolean enable) {
+        btnAddPm.setEnabled(enable);
+    }
+
+    private void setEnabledBtnAddChat(boolean enable) {
+       btnAddChat.setEnabled(enable);
+    }
+
+    private void setEnabledBtnAddSchool(boolean enable) {
+        btnAddSchool.setEnabled(enable);
     }
 
     private void showBtnAddAllItems () {
