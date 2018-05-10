@@ -47,6 +47,7 @@ import android.webkit.JavascriptInterface;
 import android.webkit.ValueCallback;
 import android.webkit.WebChromeClient;
 import android.webkit.WebResourceRequest;
+import android.webkit.WebResourceResponse;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -90,6 +91,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
 
 public class WebActivity extends AppCompatActivity implements
         IWebContract.View, SwipeRefreshLayout.OnRefreshListener, View.OnClickListener, View.OnTouchListener {
@@ -369,7 +374,16 @@ public class WebActivity extends AppCompatActivity implements
                 Intent sendIntent = new Intent();
                 sendIntent.setFlags(Intent.FLAG_ACTIVITY_FORWARD_RESULT);
                 sendIntent.setAction(Intent.ACTION_SEND);
-                sendIntent.putExtra(Intent.EXTRA_TEXT, webView.getUrl().replace("?style=12", "").replace("&style=12", ""));
+
+                String url = webView.getUrl();
+
+                if(url.contains("file:///android_asset/notifications.html")) {
+                    url = Api.PM_URL;
+                } else {
+                    url = url.replace("?style=12", "").replace("&style=12", "");
+                }
+
+                sendIntent.putExtra(Intent.EXTRA_TEXT, url);
                 sendIntent.setType("text/plain");
                 startActivity(sendIntent);
                 break;
@@ -448,8 +462,9 @@ public class WebActivity extends AppCompatActivity implements
 
     @Override
     public void onRefresh() {
-        swipe.setRefreshing(false);
-        webView.reload();
+        //swipe.setRefreshing(false);
+        webView.loadUrl(webView.getUrl(), getRequestExtraHeaders());
+        //webView.reload();
     }
 
     @Override
@@ -777,6 +792,51 @@ public class WebActivity extends AppCompatActivity implements
             public void onReceivedHttpAuthRequest(WebView view, HttpAuthHandler handler, String host, String realm) {
                 handler.proceed("guest", "GCTesterNew1");
             }
+
+            // Handle API until level 21
+            /*@SuppressWarnings("deprecation")
+            @Override
+            public WebResourceResponse shouldInterceptRequest(WebView view, String url) {
+                return getNewResponse(url);
+            }
+
+            // Handle API 21+
+            @TargetApi(Build.VERSION_CODES.LOLLIPOP)
+            @Override
+            public WebResourceResponse shouldInterceptRequest(WebView view, WebResourceRequest request) {
+
+                String url = request.getUrl().toString();
+
+                return getNewResponse(url);
+            }
+
+            private WebResourceResponse getNewResponse(String url) {
+
+                try {
+                    OkHttpClient httpClient = new OkHttpClient();
+
+                    Request.Builder builder = new Request.Builder()
+                            .url(url.trim());
+
+                    for(Map.Entry<String, String> header: getRequestExtraHeaders().entrySet()) {
+                        builder.header(header.getKey(), header.getKey());
+                    }
+
+                    Request request = builder.build();
+
+                    Response response = httpClient.newCall(request).execute();
+
+                    return new WebResourceResponse(
+                            null,
+                            response.header("content-encoding", "utf-8"),
+                            response.body().byteStream()
+                    );
+
+                } catch (Exception e) {
+                    return null;
+                }
+
+            }*/
 
             public void onLoadResource(WebView view, String url) {}
 
