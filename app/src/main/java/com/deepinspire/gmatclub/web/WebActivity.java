@@ -150,6 +150,9 @@ public class WebActivity extends AppCompatActivity implements
     private final ExecutorService executor = Executors.newFixedThreadPool(4);
 
     private Handler mUiHandler = new Handler();
+
+    private boolean overrideUrl = true;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -305,6 +308,12 @@ public class WebActivity extends AppCompatActivity implements
         if(intent != null) {
             onNewIntent(intent);
         }
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        overrideUrl = true;
     }
 
     @Override
@@ -744,6 +753,10 @@ public class WebActivity extends AppCompatActivity implements
         settings.setAllowFileAccessFromFileURLs(true); //Maybe you don't need this rule
         settings.setAllowUniversalAccessFromFileURLs(true);
 
+        settings.setLoadWithOverviewMode(true);
+        settings.setLoadWithOverviewMode(true);
+        settings.setUseWideViewPort(true);
+
         //settings.setDomStorageEnabled(true);
         //settings.setUserAgentString("Android GMAT Club Forum/1.0.0");
         //settings.setSupportZoom(true);
@@ -838,66 +851,79 @@ public class WebActivity extends AppCompatActivity implements
 
             }*/
 
-            public void onLoadResource(WebView view, String url) {}
+            public void onLoadResource(WebView view, String url) {
+                //Toast.makeText(WebActivity.this, "onLoadResource", Toast.LENGTH_SHORT).show();
+            }
 
             public void onPageStarted(WebView view, String url, Bitmap favicon) {
-                if(url.equals(Api.FORUM_URL + "?style=12") ||
-                        url.equals(Api.FORUM_URL + "/?style=12")
-                        ) {
-                    changeTitleColor( R.color.white);
-                } else {
-                    changeTitleColor( R.color.mainOrange);
-                }
+                //if(!overrideUrl) {
+                    if(url.equals(Api.FORUM_URL + "?style=12") ||
+                            url.equals(Api.FORUM_URL + "/?style=12")
+                            ) {
+                        changeTitleColor( R.color.white);
+                    } else {
+                        changeTitleColor( R.color.mainOrange);
+                    }
 
-                if(url.contains("file:///android_asset/notifications.html")) {
-                    swipe.setEnabled(false);
-                } else {
-                    swipe.setEnabled(true);
-                }
+                    if(url.contains("file:///android_asset/notifications.html")) {
+                        swipe.setEnabled(false);
+                    } else {
+                        swipe.setEnabled(true);
+                    }
 
-               swipe.setRefreshing(false);
-               setLoadingIndicator(true);
+                    swipe.setRefreshing(false);
+                    setLoadingIndicator(true);
+                //}
+
             }
 
             public void onPageFinished(WebView view, String url) {
-                if(activeUrl != null && url.contains(activeUrl)) {
-                     activeUrl = null;
+                //if(!overrideUrl) {
+                    if(activeUrl != null && url.contains(activeUrl)) {
+                        activeUrl = null;
 
-                     webView.evaluateJavascript(
-                             "(function(){document.querySelector('#statusesDecTracker .addMyInfo.btn').click();})()",
-                             new ValueCallback<String>() {
-                                 @Override
-                                 public void onReceiveValue(String value) {
-                                     swipe.setRefreshing(false);
-                                     setLoadingIndicator(false);
-                                 }
-                             }
-                     );
+                        webView.evaluateJavascript(
+                                "(function(){document.querySelector('#statusesDecTracker .addMyInfo.btn').click();})()",
+                                new ValueCallback<String>() {
+                                    @Override
+                                    public void onReceiveValue(String value) {
+                                        swipe.setRefreshing(false);
+                                        setLoadingIndicator(false);
+                                    }
+                                }
+                        );
 
-                     webView.stopLoading();
-                 } else if(url.contains(Api.HOME_URL)) {
-                    presenter.logged();
+                        webView.stopLoading();
+                    } else if(url.contains(Api.HOME_URL)) {
+                        presenter.logged();
 
-                    swipe.setRefreshing(false);
-                    setLoadingIndicator(false);
-                 } else if(url.contains(Api.PM_URL)) {
-                    presenter.updatePMs();
-                    updateCountMessages();
-                 }
+                        swipe.setRefreshing(false);
+                        setLoadingIndicator(false);
+                    } else if(url.contains(Api.PM_URL)) {
+                        presenter.updatePMs();
+                        updateCountMessages();
+                    }
+
+                    //overrideUrl = true;
+                //}
             }
 
-            /*@Override
+            @Override
             @TargetApi(Build.VERSION_CODES.LOLLIPOP)
             public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
-                request.getRequestHeaders().putAll(getRequestExtraHeaders());
+                //request.getRequestHeaders().putAll(getRequestExtraHeaders());
+                //overrideUrl = false;
+                view.loadUrl(request.getUrl().toString(), getRequestExtraHeaders());
                 return true;
             }
 
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
-                request.getRequestHeaders().putAll(getRequestExtraHeaders());
+                //request.getRequestHeaders().putAll(getRequestExtraHeaders());
+                //overrideUrl = false;
+                view.loadUrl(url, getRequestExtraHeaders());
                 return true;
-            }*/
+            }
 
             public void onReceivedError(WebView view, int errorCode, String description, String failingUrl) {
                 Toast.makeText(WebActivity.this, "Oh no! " + description, Toast.LENGTH_SHORT).show();
