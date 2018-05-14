@@ -99,7 +99,7 @@ public class Notifications {
                 .setStyle((new NotificationCompat.BigTextStyle()).bigText(body))
                 .setContentIntent(PendingIntent.getActivity(ctx, 0, intent, PendingIntent.FLAG_ONE_SHOT))
                 .setAutoCancel(true)
-                .setOngoing(true)
+                .setOngoing(false)
                 .build();
 
         notificationsManager.notify(sentTime, notify);

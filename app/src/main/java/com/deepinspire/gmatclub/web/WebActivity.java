@@ -151,7 +151,11 @@ public class WebActivity extends AppCompatActivity implements
 
     private Handler mUiHandler = new Handler();
 
-    private boolean overrideUrl = true;
+    private final static int FILECHOOSER_RESULTCODE = 100;
+
+    private ValueCallback<Uri> mUploadMessage;
+
+    private ValueCallback<Uri[]> uploadMessage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -313,7 +317,6 @@ public class WebActivity extends AppCompatActivity implements
     @Override
     public void onResume() {
         super.onResume();
-        overrideUrl = true;
     }
 
     @Override
@@ -633,6 +636,15 @@ public class WebActivity extends AppCompatActivity implements
             if(callbackManager != null) {
                 callbackManager.onActivityResult(requestCode, resultCode, data);
             }
+        } else if(requestCode == FILECHOOSER_RESULTCODE) {
+            if(mUploadMessage == null) {
+                return;
+            }
+
+            Uri result = (data == null || resultCode != RESULT_OK) ? null : data.getData();
+
+            mUploadMessage.onReceiveValue(result);
+            mUploadMessage = null;
         } else {
             switch(requestCode) {
                 case GCConfig.GOOGLE_SIGN_IN:
@@ -798,6 +810,45 @@ public class WebActivity extends AppCompatActivity implements
                     }
                 }
             }
+
+            // For Android 3.0+
+            public void openFileChooser(ValueCallback uploadMsg, String acceptType) {
+                openFileDialog(uploadMsg);
+            }
+
+            //For Android 4.1+ only
+            protected void openFileChooser(ValueCallback<Uri> uploadMsg, String acceptType, String capture) {
+                openFileDialog(uploadMsg);
+            }
+
+            protected void openFileChooser(ValueCallback<Uri> uploadMsg) {
+                openFileDialog(uploadMsg);
+            }
+
+            // For Lollipop 5.0+ Devices
+            public boolean onShowFileChooser(WebView mWebView, ValueCallback<Uri[]> filePathCallback, WebChromeClient.FileChooserParams fileChooserParams) {
+                if (uploadMessage != null) {
+                    uploadMessage.onReceiveValue(null);
+                    uploadMessage = null;
+                }
+
+                uploadMessage = filePathCallback;
+
+                Intent intent = null;
+
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                    intent = fileChooserParams.createIntent();
+                }
+
+                try {
+                    startActivityForResult(intent, FILECHOOSER_RESULTCODE);
+                } catch (ActivityNotFoundException e) {
+                    uploadMessage = null;
+                    return false;
+                }
+
+                return true;
+            }
         });
 
         webView.setWebViewClient(new WebViewClient() {
@@ -806,121 +857,69 @@ public class WebActivity extends AppCompatActivity implements
                 handler.proceed("guest", "GCTesterNew1");
             }
 
-            // Handle API until level 21
-            /*@SuppressWarnings("deprecation")
-            @Override
-            public WebResourceResponse shouldInterceptRequest(WebView view, String url) {
-                return getNewResponse(url);
-            }
-
-            // Handle API 21+
-            @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-            @Override
-            public WebResourceResponse shouldInterceptRequest(WebView view, WebResourceRequest request) {
-
-                String url = request.getUrl().toString();
-
-                return getNewResponse(url);
-            }
-
-            private WebResourceResponse getNewResponse(String url) {
-
-                try {
-                    OkHttpClient httpClient = new OkHttpClient();
-
-                    Request.Builder builder = new Request.Builder()
-                            .url(url.trim());
-
-                    for(Map.Entry<String, String> header: getRequestExtraHeaders().entrySet()) {
-                        builder.header(header.getKey(), header.getKey());
-                    }
-
-                    Request request = builder.build();
-
-                    Response response = httpClient.newCall(request).execute();
-
-                    return new WebResourceResponse(
-                            null,
-                            response.header("content-encoding", "utf-8"),
-                            response.body().byteStream()
-                    );
-
-                } catch (Exception e) {
-                    return null;
-                }
-
-            }*/
-
             public void onLoadResource(WebView view, String url) {
                 //Toast.makeText(WebActivity.this, "onLoadResource", Toast.LENGTH_SHORT).show();
             }
 
             public void onPageStarted(WebView view, String url, Bitmap favicon) {
-                //if(!overrideUrl) {
-                    if(url.equals(Api.FORUM_URL + "?style=12") ||
-                            url.equals(Api.FORUM_URL + "/?style=12")
-                            ) {
-                        changeTitleColor( R.color.white);
-                    } else {
-                        changeTitleColor( R.color.mainOrange);
-                    }
+                if(url.equals(Api.FORUM_URL + "?style=12") || url.equals(Api.FORUM_URL + "/?style=12")) {
+                    changeTitleColor(R.color.white);
+                    changeProfileIconColor(R.color.mainOrange);
+                } else if(url.contains(Api.PROFILE)) {
+                    changeTitleColor(R.color.mainOrange);
+                    changeProfileIconColor(R.color.white);
+                } else {
+                    changeTitleColor(R.color.mainOrange);
+                    changeProfileIconColor(R.color.mainOrange);
+                }
 
-                    if(url.contains("file:///android_asset/notifications.html")) {
-                        swipe.setEnabled(false);
-                    } else {
-                        swipe.setEnabled(true);
-                    }
+                if(url.contains("file:///android_asset/notifications.html")) {
+                    swipe.setEnabled(false);
+                } else {
+                    swipe.setEnabled(true);
+                }
 
-                    swipe.setRefreshing(false);
-                    setLoadingIndicator(true);
-                //}
+                swipe.setRefreshing(false);
+                setLoadingIndicator(true);
 
             }
 
             public void onPageFinished(WebView view, String url) {
-                //if(!overrideUrl) {
-                    if(activeUrl != null && url.contains(activeUrl)) {
-                        activeUrl = null;
+                if(activeUrl != null && url.contains(activeUrl)) {
+                    activeUrl = null;
 
-                        webView.evaluateJavascript(
-                                "(function(){document.querySelector('#statusesDecTracker .addMyInfo.btn').click();})()",
-                                new ValueCallback<String>() {
-                                    @Override
-                                    public void onReceiveValue(String value) {
-                                        swipe.setRefreshing(false);
-                                        setLoadingIndicator(false);
-                                    }
+                    webView.evaluateJavascript(
+                            "(function(){document.querySelector('#statusesDecTracker .addMyInfo.btn').click();})()",
+                            new ValueCallback<String>() {
+                                @Override
+                                public void onReceiveValue(String value) {
+                                    swipe.setRefreshing(false);
+                                    setLoadingIndicator(false);
                                 }
-                        );
+                            }
+                    );
 
-                        webView.stopLoading();
-                    } else if(url.contains(Api.HOME_URL)) {
-                        presenter.logged();
+                    webView.stopLoading();
+                } else if(url.contains(Api.HOME_URL)) {
+                    presenter.logged();
 
-                        swipe.setRefreshing(false);
-                        setLoadingIndicator(false);
-                    } else if(url.contains(Api.PM_URL)) {
-                        presenter.updatePMs();
-                        updateCountMessages();
-                    }
-
-                    //overrideUrl = true;
-                //}
+                    swipe.setRefreshing(false);
+                    setLoadingIndicator(false);
+                } else if(url.contains(Api.PM_URL)) {
+                    presenter.updatePMs();
+                    updateCountMessages();
+                }
             }
 
             @Override
             @TargetApi(Build.VERSION_CODES.LOLLIPOP)
             public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
-                //request.getRequestHeaders().putAll(getRequestExtraHeaders());
-                //overrideUrl = false;
                 view.loadUrl(request.getUrl().toString(), getRequestExtraHeaders());
                 return true;
             }
 
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
-                //request.getRequestHeaders().putAll(getRequestExtraHeaders());
-                //overrideUrl = false;
                 view.loadUrl(url, getRequestExtraHeaders());
                 return true;
             }
@@ -960,13 +959,22 @@ public class WebActivity extends AppCompatActivity implements
             progressBar.setVisibility(View.VISIBLE);
             feedbackLayout.setVisibility(View.GONE);
             swipe.setVisibility(View.GONE);
+            showBtnAdd(false);
         } else {
             hideKeyboard();
 
             if(logged()) {
                 toogleAddMenu(false);
 
-                showBtnAdd(true);
+                String url = webView.getUrl();
+
+                if(url.contains(Api.UCP_URL) && url.contains("mode=compose")) {
+                    showBtnAdd(false);
+                } else {
+                    showBtnAdd(true);
+                }
+
+
             } else {
                 showBtnAdd(false);
             }
@@ -1718,5 +1726,13 @@ public class WebActivity extends AppCompatActivity implements
         showBtnAddPm(false);
         showBtnAddChat(false);
         showBtnAddSchool(false);
+    }
+
+    private void openFileDialog(ValueCallback<Uri>  uploadMsg) {
+        mUploadMessage = uploadMsg;
+        Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
+        intent.addCategory(Intent.CATEGORY_OPENABLE);
+        intent.setType("image/*");
+        startActivityForResult(Intent.createChooser(intent, "File Chooser"), FILECHOOSER_RESULTCODE);
     }
 }
