@@ -33,6 +33,7 @@ public class Api {
     public static final String COOKIES = "cookies";
 
     public static final String TESTS_URL = HOME_URL + "/tests-beta";
+    public static final String PRACTICE_URL = HOME_URL + "/practice.php";
     public static final String DEALS_URL = HOME_URL + "/marketplace";
     public static final String REVIEWS_URL = HOME_URL + "/reviews";
     public static final String CHAT_URL = HOME_URL + "/gchat";

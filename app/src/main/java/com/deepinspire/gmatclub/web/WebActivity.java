@@ -698,7 +698,7 @@ public class WebActivity extends AppCompatActivity implements
                 break;
             case R.id.menu_practice:
                 highlightMenuItemOnClick(R.id.menu_practice);
-                openPage(Api.TESTS_URL);
+                openPage(Api.PRACTICE_URL);
                 break;
             case R.id.menu_chat:
                 highlightMenuItemOnClick(R.id.menu_chat);
@@ -813,20 +813,24 @@ public class WebActivity extends AppCompatActivity implements
 
             // For Android 3.0+
             public void openFileChooser(ValueCallback uploadMsg, String acceptType) {
+                Toast.makeText(getApplicationContext(), "openFile1", Toast.LENGTH_LONG).show();
                 openFileDialog(uploadMsg);
             }
 
             //For Android 4.1+ only
             protected void openFileChooser(ValueCallback<Uri> uploadMsg, String acceptType, String capture) {
+                Toast.makeText(getApplicationContext(), "openFile2", Toast.LENGTH_LONG).show();
                 openFileDialog(uploadMsg);
             }
 
             protected void openFileChooser(ValueCallback<Uri> uploadMsg) {
+                Toast.makeText(getApplicationContext(), "openFile3", Toast.LENGTH_LONG).show();
                 openFileDialog(uploadMsg);
             }
 
             // For Lollipop 5.0+ Devices
             public boolean onShowFileChooser(WebView mWebView, ValueCallback<Uri[]> filePathCallback, WebChromeClient.FileChooserParams fileChooserParams) {
+                Toast.makeText(getApplicationContext(), "openFile4", Toast.LENGTH_LONG).show();
                 if (uploadMessage != null) {
                     uploadMessage.onReceiveValue(null);
                     uploadMessage = null;
@@ -1729,6 +1733,7 @@ public class WebActivity extends AppCompatActivity implements
     }
 
     private void openFileDialog(ValueCallback<Uri>  uploadMsg) {
+        Toast.makeText(getApplicationContext(), "openFile", Toast.LENGTH_LONG).show();
         mUploadMessage = uploadMsg;
         Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
         intent.addCategory(Intent.CATEGORY_OPENABLE);
