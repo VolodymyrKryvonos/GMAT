@@ -15,6 +15,7 @@ import retrofit2.http.FieldMap;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.Header;
+import retrofit2.http.HeaderMap;
 import retrofit2.http.Headers;
 import retrofit2.http.Multipart;
 import retrofit2.http.POST;
@@ -37,18 +38,11 @@ public interface ApiInterface {
     Call<String> forgotPassword(@Header("Authorization") String header, @PartMap Map<String, RequestBody> params);
 
     @Multipart
-    //@FormUrlEncoded
-    //@Headers({"Referer: /forum/ucp.php?mode=login", "Cache-Control: no-cache"})
     @POST("forum/oauthorize_app.php")
-        //Call<String> signIn(@Body UserData data);
-        //Call<String> signIn(@FieldMap Map<String, String> params);
-    Call<ResponseBody> signInSocial(@Header("Authorization") String header, @QueryMap Map<String, String> options, @PartMap Map<String, RequestBody> params);
-    /*Call<ResponseBody> signInSocial(
-            @Header("Authorization") String header,
-            @Field(value = "token_type", encoded = true) String token_type,
-            @Field(value = "access_token", encoded = true) String access_token,
-            @Field(value = "expires_in", encoded = true) String expires_in);*/
+    Call<ResponseBody> signInSocial(@HeaderMap Map<String, String> headers, @QueryMap Map<String, String> options, @PartMap Map<String, RequestBody> params);
 
+    @GET("oauth2/v4/tokeninfo")
+    Call<ResponseBody> getToken(@QueryMap Map<String, String> options);
 
     @Multipart
     @POST("forum/notifications/register.php")

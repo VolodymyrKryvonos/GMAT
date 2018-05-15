@@ -1,11 +1,13 @@
 package com.deepinspire.gmatclub.web;
 
+import android.Manifest;
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.app.Activity;
 import android.app.ActivityManager;
 import android.app.SearchManager;
 import android.content.ActivityNotFoundException;
+import android.content.ClipData;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -16,10 +18,13 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
+import android.os.Parcelable;
 import android.os.StatFs;
+import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.graphics.drawable.DrawableCompat;
 import android.support.v4.view.GravityCompat;
@@ -151,12 +156,13 @@ public class WebActivity extends AppCompatActivity implements
 
     private Handler mUiHandler = new Handler();
 
-    private final static int FILECHOOSER_RESULTCODE = 100;
+    private static final int FILECHOOSER_RESULTCODE  = 100;
 
     private ValueCallback<Uri> mUploadMessage;
+    private ValueCallback<Uri[]> mUploadMessages;
+    private Uri mCapturedImageURI = null;
 
-    private ValueCallback<Uri[]> uploadMessage;
-
+    private static final int PICK_FROM_CAMERA = 101;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -637,14 +643,17 @@ public class WebActivity extends AppCompatActivity implements
                 callbackManager.onActivityResult(requestCode, resultCode, data);
             }
         } else if(requestCode == FILECHOOSER_RESULTCODE) {
-            if(mUploadMessage == null) {
+
+            if (null == mUploadMessage && null == mUploadMessages) {
                 return;
             }
 
-            Uri result = (data == null || resultCode != RESULT_OK) ? null : data.getData();
+            if (null != mUploadMessage) {
+                handleUploadMessage(requestCode, resultCode, data);
 
-            mUploadMessage.onReceiveValue(result);
-            mUploadMessage = null;
+            } else if (mUploadMessages != null) {
+                handleUploadMessages(requestCode, resultCode, data);
+            }
         } else {
             switch(requestCode) {
                 case GCConfig.GOOGLE_SIGN_IN:
@@ -795,6 +804,7 @@ public class WebActivity extends AppCompatActivity implements
         webView.setWebChromeClient(new WebChromeClient() {
             @Override
             public boolean onConsoleMessage(ConsoleMessage consoleMessage) {
+                //Toast.makeText(getApplicationContext(), consoleMessage.message(), Toast.LENGTH_LONG).show();
                 Log.d("MyApplication", consoleMessage.message() + " -- From line "
                         + consoleMessage.lineNumber() + " of "
                         + consoleMessage.sourceId());
@@ -811,47 +821,31 @@ public class WebActivity extends AppCompatActivity implements
                 }
             }
 
-            // For Android 3.0+
-            public void openFileChooser(ValueCallback uploadMsg, String acceptType) {
-                Toast.makeText(getApplicationContext(), "openFile1", Toast.LENGTH_LONG).show();
-                openFileDialog(uploadMsg);
-            }
+            // openFileChooser for Android 3.0+
 
-            //For Android 4.1+ only
-            protected void openFileChooser(ValueCallback<Uri> uploadMsg, String acceptType, String capture) {
-                Toast.makeText(getApplicationContext(), "openFile2", Toast.LENGTH_LONG).show();
-                openFileDialog(uploadMsg);
-            }
-
-            protected void openFileChooser(ValueCallback<Uri> uploadMsg) {
-                Toast.makeText(getApplicationContext(), "openFile3", Toast.LENGTH_LONG).show();
-                openFileDialog(uploadMsg);
+            public void openFileChooser(ValueCallback<Uri> uploadMsg, String acceptType){
+                mUploadMessage = uploadMsg;
+                openImageChooser();
             }
 
             // For Lollipop 5.0+ Devices
+
             public boolean onShowFileChooser(WebView mWebView, ValueCallback<Uri[]> filePathCallback, WebChromeClient.FileChooserParams fileChooserParams) {
-                Toast.makeText(getApplicationContext(), "openFile4", Toast.LENGTH_LONG).show();
-                if (uploadMessage != null) {
-                    uploadMessage.onReceiveValue(null);
-                    uploadMessage = null;
-                }
-
-                uploadMessage = filePathCallback;
-
-                Intent intent = null;
-
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                    intent = fileChooserParams.createIntent();
-                }
-
-                try {
-                    startActivityForResult(intent, FILECHOOSER_RESULTCODE);
-                } catch (ActivityNotFoundException e) {
-                    uploadMessage = null;
-                    return false;
-                }
-
+                mUploadMessages = filePathCallback;
+                openImageChooser();
                 return true;
+            }
+
+            // openFileChooser for Android < 3.0
+
+            public void openFileChooser(ValueCallback<Uri> uploadMsg){
+                openFileChooser(uploadMsg, "");
+            }
+
+            //openFileChooser for other Android versions
+
+            public void openFileChooser(ValueCallback<Uri> uploadMsg, String acceptType, String capture) {
+                openFileChooser(uploadMsg, acceptType);
             }
         });
 
@@ -1739,5 +1733,92 @@ public class WebActivity extends AppCompatActivity implements
         intent.addCategory(Intent.CATEGORY_OPENABLE);
         intent.setType("image/*");
         startActivityForResult(Intent.createChooser(intent, "File Chooser"), FILECHOOSER_RESULTCODE);
+    }
+
+    private void openImageChooser() {
+        try {
+            /*if (ActivityCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.CAMERA)
+                    != PackageManager.PERMISSION_GRANTED) {
+                // Callback onRequestPermissionsResult interceptadona Activity MainActivity
+                ActivityCompat.requestPermissions(WebActivity.this, new String[]{Manifest.permission.CAMERA}, PICK_FROM_CAMERA);
+            } else {*/
+                File imageStorageDir = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES), "FolderName");
+
+                if (!imageStorageDir.exists()) {
+                    imageStorageDir.mkdirs();
+                }
+
+                File file = new File(imageStorageDir + File.separator + "IMG_" + String.valueOf(System.currentTimeMillis()) + ".jpg");
+                mCapturedImageURI = Uri.fromFile(file);
+
+                final Intent captureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                captureIntent.putExtra(MediaStore.EXTRA_OUTPUT, mCapturedImageURI);
+
+                Intent i = new Intent(Intent.ACTION_GET_CONTENT);
+                i.addCategory(Intent.CATEGORY_OPENABLE);
+                i.setType("image/*");
+
+                Intent chooserIntent = Intent.createChooser(i, "Image Chooser");
+                chooserIntent.putExtra(Intent.EXTRA_INITIAL_INTENTS, new Parcelable[]{/*captureIntent*/});
+
+                startActivityForResult(chooserIntent, FILECHOOSER_RESULTCODE);
+            //}
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void handleUploadMessage(int requestCode, int resultCode, Intent intent) {
+        Uri result = null;
+        try {
+            if (resultCode != RESULT_OK) {
+                result = null;
+            } else {
+                // retrieve from the private variable if the intent is null
+
+                result = intent == null ? mCapturedImageURI : intent.getData();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        mUploadMessage.onReceiveValue(result);
+        mUploadMessage = null;
+    }
+
+    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
+    private void handleUploadMessages(int requestCode, int resultCode, Intent intent) {
+        Uri[] results = null;
+
+        try {
+            if (resultCode != RESULT_OK) {
+                results = null;
+            } else {
+                if (intent != null) {
+                    String dataString = intent.getDataString();
+                    ClipData clipData = intent.getClipData();
+
+                    if (clipData != null) {
+                        results = new Uri[clipData.getItemCount()];
+
+                        for (int i = 0; i < clipData.getItemCount(); i++) {
+                            ClipData.Item item = clipData.getItemAt(i);
+                            results[i] = item.getUri();
+                        }
+                    }
+
+                    if (dataString != null) {
+                        results = new Uri[]{Uri.parse(dataString)};
+                    }
+                } else {
+                    results = new Uri[]{mCapturedImageURI};
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        mUploadMessages.onReceiveValue(results);
+        mUploadMessages = null;
     }
 }

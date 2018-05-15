@@ -2,6 +2,7 @@ package com.deepinspire.gmatclub.storage;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.os.Build;
 import android.support.annotation.NonNull;
 import android.util.Base64;
@@ -289,12 +290,13 @@ public class Repository implements IStorage {
 
                     String formattedDate = sdf.format(date);
 
-
                     params.put("provider", provider);
                     params.put("token_type", provider);
                     params.put("access_token", accessToken);
-                    params.put("id_token", accessToken);
+                    params.put("id_token", idToken);
                     params.put("expires_in", formattedDate);
+                    //params.put("action", "register");
+                    params.put("login", "Login");
                     /*params.put("mode", "login");*/
 
                     ApiInterface apiService = (new ApiClient()).getClient().create(ApiInterface.class);
@@ -306,6 +308,9 @@ public class Repository implements IStorage {
                     rb = RequestBody.create(MediaType.parse("text/plain"), "Login");
                     mp.put("login", rb);
 
+                    rb = RequestBody.create(MediaType.parse("text/plain"), idToken);
+                    mp.put("id_token", rb);
+
                     String username = "guest";
                     String password = "GCTesterNew1";
 
@@ -313,7 +318,22 @@ public class Repository implements IStorage {
 
                     String authHeader = "Basic " + Base64.encodeToString(base.getBytes(), Base64.NO_WRAP);
 
-                    Call<ResponseBody> call = apiService.signInSocial(authHeader, params, mp);
+                    Map<String, String> headers = new HashMap<>();
+
+                    headers.put("Accept", "application/json");
+                    headers.put("Accept-Charset", "utf-8");
+
+                    String device = Build.MODEL + " " + Build.VERSION.RELEASE + " GMAT Club Forum";// + getString(R.string.app_name);
+
+                    try {
+                        device += "/" + context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionName;
+                    } catch (PackageManager.NameNotFoundException e) {
+                        e.printStackTrace();
+                    }
+
+                    headers.put("My-Agent", device);
+
+                    Call<ResponseBody> call = apiService.signInSocial(headers, params, mp);
 
                     call.enqueue(new retrofit2.Callback<ResponseBody>() {
                         @Override
@@ -323,13 +343,64 @@ public class Repository implements IStorage {
                                 AuthException ex = new AuthException(new Exception(response.errorBody().toString()), "login");
                                 callback.onError(ex);
                             } else {
-                               if(logged()) {
+                                try {
+                                    String body = response.body().string();
+                                    String body1 = response.body().string();
+                                } catch (IOException e) {
+                                    e.printStackTrace();
+                                }
+
+                                if(logged()) {
                                    callback.onSuccess();
                                } else {
                                    LoginManager.getInstance().logOut();
                                    AuthException ex = new AuthException(new Exception("Login or password failed"), "login");
                                    callback.onError(ex);
                                }
+                            }
+                        }
+
+                        @Override
+                        public void onFailure(Call<ResponseBody> call, Throwable t) {
+                            LoginManager.getInstance().logOut();
+                            AuthException ex = new AuthException(new Exception(t.getMessage()), "login");
+                            callback.onError(ex);
+                        }
+                    });
+
+                } catch (final Exception exception) {
+                    LoginManager.getInstance().logOut();
+                    AuthException ex = new AuthException(new Exception(exception.getMessage()), "login");
+                    callback.onError(ex);
+                }
+            }
+        });
+    }
+
+    public void getTokenInfo(@NonNull final String code, @NonNull final ICallbackAuth callback) {
+        executorService.submit(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    ApiInterface apiService = (new ApiClient()).getClient().create(ApiInterface.class);
+
+                    LinkedHashMap<String, RequestBody> mp = new LinkedHashMap<>();
+
+                    Map<String, String> queryMap= new HashMap<>();
+
+                    queryMap.put("id_token", code);
+
+                    Call<ResponseBody> call = apiService.getToken(queryMap);
+
+                    call.enqueue(new retrofit2.Callback<ResponseBody>() {
+                        @Override
+                        public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                            if (!response.isSuccessful()) {
+                                LoginManager.getInstance().logOut();
+                                AuthException ex = new AuthException(new Exception(response.errorBody().toString()), "login");
+                                callback.onError(ex);
+                            } else {
+                                callback.onSuccess();
                             }
                         }
 
