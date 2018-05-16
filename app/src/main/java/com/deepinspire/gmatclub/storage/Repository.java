@@ -3,6 +3,8 @@ package com.deepinspire.gmatclub.storage;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Build;
 import android.support.annotation.NonNull;
 import android.util.Base64;
@@ -19,6 +21,7 @@ import com.facebook.login.LoginManager;
 import com.google.firebase.iid.FirebaseInstanceId;
 
 import java.io.IOException;
+import java.net.UnknownHostException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
@@ -109,13 +112,13 @@ public class Repository implements IStorage {
                         @Override
                         public void onResponse(Call<String> call, Response<String> response) {
                             if (!response.isSuccessful()) {
-                                AuthException exc = new AuthException(new Exception("login or password failed"), "login");
+                                AuthException exc = new AuthException(new Exception("Incorrect Login and Password"), "login", "Incorrect Login and Password");
                                 callback.onError(exc);
                             } else {
                                if(logged()) {
                                    callback.onSuccess();
                                } else {
-                                   AuthException exc = new AuthException(new Exception("login or password failed"), "login");
+                                   AuthException exc = new AuthException(new Exception("Incorrect Login and Password"), "login", "Incorrect Login and Password");
                                    callback.onError(exc);
                                }
                             }
@@ -123,13 +126,23 @@ public class Repository implements IStorage {
 
                         @Override
                         public void onFailure(Call<String> call, Throwable t) {
-                            AuthException exc = new AuthException(new Exception(t.getMessage()), "login");
+                            String message = t.getMessage();
+                            String action = "";
+
+                            if(t instanceof UnknownHostException) {
+                                message = "No Internet connection detected";
+                                action = "UNKNOWN_HOST";
+                            }
+
+                            AuthException exc = new AuthException(new Exception(message), "login", message);
+                            exc.setAction(action);
+
                             callback.onError(exc);
                         }
                     });
 
                 } catch (final Exception exception) {
-                    AuthException exc = new AuthException(new Exception("login or password failed"), "login");
+                    AuthException exc = new AuthException(new Exception("Incorrect Login and Password"), "login", "Incorrect Login and Password");
                     callback.onError(exc);
                 }
             }
@@ -175,7 +188,17 @@ public class Repository implements IStorage {
 
                         @Override
                         public void onFailure(Call<String> call, Throwable t) {
-                            AuthException exc = new AuthException(new Exception(t.getMessage()), "forgotPassword");
+                            String message = t.getMessage();
+                            String action = "";
+
+                            if(t instanceof UnknownHostException) {
+                                message = "No Internet connection detected";
+                                action = "UNKNOWN_HOST";
+                            }
+
+                            AuthException exc = new AuthException(new Exception(message), "forgotPassword", message);
+                            exc.setAction(action);
+
                             callback.onError(exc);
                         }
                     });
@@ -595,5 +618,14 @@ public class Repository implements IStorage {
             sharedPreferences = context.getSharedPreferences(GCConfig.GMATCLUB, Context.MODE_PRIVATE);
         }
         return sharedPreferences;
+    }
+
+    public boolean isOnline() {
+        ConnectivityManager cm =
+                (ConnectivityManager)context.getSystemService(Context.CONNECTIVITY_SERVICE);
+
+        NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
+
+        return (activeNetwork != null && activeNetwork.isConnectedOrConnecting());
     }
 }

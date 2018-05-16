@@ -72,4 +72,24 @@ public class AuthPresenter implements IAuthContract.Presenter {
             }
         });
     }
+
+    public void getTokenInfo(String code) {
+        repository.getTokenInfo(code, new IStorage.ICallbackAuth() {
+            @Override
+            public void onSuccess() {
+                view.openWebSite(Api.FORUM_URL);
+            }
+
+            @Override
+            public void onError(AuthException exception) {
+                AuthException ex = new AuthException(new Exception("Failed sign in facebook"), "signInFacebook");
+
+                view.showError(ex);
+            }
+        });
+    }
+
+    public boolean isOnline() {
+       return repository.isOnline();
+    }
 }

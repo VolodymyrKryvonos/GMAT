@@ -1,11 +1,15 @@
 package com.deepinspire.gmatclub.auth;
 
+import android.accounts.Account;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
@@ -27,6 +31,8 @@ import com.facebook.FacebookException;
 import com.facebook.FacebookSdk;
 import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
+import com.google.android.gms.auth.GoogleAuthException;
+import com.google.android.gms.auth.GoogleAuthUtil;
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
@@ -34,14 +40,25 @@ import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.auth.api.signin.GoogleSignInResult;
 import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.Scopes;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.common.api.Scope;
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 
+import java.io.IOException;
 import java.sql.Time;
 import java.util.Arrays;
 import java.util.Date;
+import java.util.Set;
 import java.util.concurrent.TimeUnit;
+
+import okhttp3.Callback;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.RequestBody;
+import okhttp3.Response;
 
 public class AuthActivity extends AppCompatActivity implements IAuthContract.View, View.OnClickListener, GoogleApiClient.OnConnectionFailedListener {
     private IAuthContract.Presenter presenter;
@@ -82,6 +99,28 @@ public class AuthActivity extends AppCompatActivity implements IAuthContract.Vie
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 
             startActivity(intent);
+        } else {
+            //initGoogleSignIn();
+
+            //mGoogleApiClient.disconnect();
+            //
+
+            //Auth.GoogleSignInApi.signOut(mGoogleApiClient);
+            //mGoogleSignInClient.signOut();
+                    /*.addOnCompleteListener(this, new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task) {
+                            // ...
+                        }
+                    });*/
+
+            //mGoogleSignInClient.revokeAccess();
+                    /*.addOnCompleteListener(this, new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task) {
+                            // ...
+                        }
+                    });*/
         }
     }
 
@@ -91,23 +130,9 @@ public class AuthActivity extends AppCompatActivity implements IAuthContract.Vie
 
         switch(view.getId()) {
             case R.id.layoutSignInGoogle:
-               // mGoogleApiClient.connect();
-                GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                        .requestIdToken(getString(R.string.default_web_client_id))
-                        //.requestIdToken("241911688286-hdgjh2o7dg42155d31ts4m9vitq8nf0h.apps.googleusercontent.com")
-                        //.requestIdToken(getString(R.string.default_web_client_id))
-                        .requestEmail()
-                        //.requestProfile()
-                        .build();
+                initGoogleSignIn();
 
-                /*mGoogleApiClient = new GoogleApiClient.Builder(this)
-                        .enableAutoManage(this, this)
-                        .addApi(Auth.GOOGLE_SIGN_IN_API, gso)
-                        .build();*/
-
-                mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
-
-                Intent signInIntent = mGoogleSignInClient.getSignInIntent();
+                Intent signInIntent = Auth.GoogleSignInApi.getSignInIntent(mGoogleApiClient);
                 startActivityForResult(signInIntent, GCConfig.GOOGLE_SIGN_IN);
                 break;
             case R.id.layoutSignInFacebook:
@@ -124,7 +149,7 @@ public class AuthActivity extends AppCompatActivity implements IAuthContract.Vie
                                 AccessToken token = AccessToken.getCurrentAccessToken();
 
                                 if(token != null) {
-                                    String idToken = token.getUserId();
+                                    String idToken = token.getToken();//token.getUserId();
                                     String accessToken = token.getToken();
 
                                     long expiresIn = token.getExpires().getTime();
@@ -212,14 +237,60 @@ public class AuthActivity extends AppCompatActivity implements IAuthContract.Vie
             switch(requestCode) {
                 case GCConfig.GOOGLE_SIGN_IN:
                     //GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(this);
+                    //GoogleSignInResult result = Auth.GoogleSignInApi.getSignInResultFromIntent(data);
+                    //GoogleSignInAccount acct = result.getSignInAccount();
+                    //String authCode = acct.getServerAuthCode();
+                    //Long expiresIn  = (new Date()).getTime() + acct.getExpirationTimeSecs();
+                    //presenter.signIn("google", authCode, authCode, String.valueOf(expiresIn));
+                    //Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
+                    //handleSignInResult(task);
+                    //GoogleSignInResult result = Auth.GoogleSignInApi.getSignInResultFromIntent(data);
+                    //GoogleSignInResult result1 = Auth.GoogleSignInApi.getSignInResultFromIntent(data);
+                   // parseToken(data);
 
                     Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
                     handleSignInResult(task);
-                    //GoogleSignInResult result = Auth.GoogleSignInApi.getSignInResultFromIntent(data);
-                    //GoogleSignInResult result1 = Auth.GoogleSignInApi.getSignInResultFromIntent(data);
-                    //handleSignInResult(result);
                     break;
             }
+        }
+    }
+
+    public void parseToken(Intent data) {
+        GoogleSignInResult result = Auth.GoogleSignInApi.getSignInResultFromIntent(data);
+
+        if (result.isSuccess()) {
+            final GoogleSignInAccount account = result.getSignInAccount();
+
+            Runnable runnable = new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        String scope = "oauth2:"+Scopes.EMAIL+" "+ Scopes.PROFILE;
+                        String accessToken = GoogleAuthUtil.getToken(getApplicationContext(), account.getAccount(), scope, new Bundle());
+
+                        String idToken = account.getIdToken();
+                        Long expiresIn  = (new Date()).getTime() + account.getExpirationTimeSecs();
+
+                        presenter.signIn("google", accessToken, accessToken, String.valueOf(expiresIn));
+                        presenter.signIn("google", idToken, idToken, String.valueOf(expiresIn));
+                        presenter.signIn("google", idToken, accessToken, String.valueOf(expiresIn));
+                        presenter.signIn("google", accessToken, accessToken, String.valueOf(expiresIn));
+
+                        //presenter.getTokenInfo(idToken);
+                        //presenter.getTokenInfo(accessToken);
+
+                        Log.d("TOKEN", "accessToken:"+accessToken); //accessToken:ya29.Gl...
+
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    } catch (GoogleAuthException e) {
+                        e.printStackTrace();
+                    }
+                }
+            };
+            AsyncTask.execute(runnable);
+
+        } else {
         }
     }
 
@@ -230,11 +301,16 @@ public class AuthActivity extends AppCompatActivity implements IAuthContract.Vie
             if(account != null) {
                 //String id  = account.getId();
                 //String email = account.getEmail();
+                //Set<Scope> scope = account.getRequestedScopes();
 
                 String idToken = account.getIdToken();
                 Long expiresIn  = (new Date()).getTime() + account.getExpirationTimeSecs();
 
-                Toast.makeText(getApplicationContext(), idToken, Toast.LENGTH_LONG).show();
+                //String credential = GoogleAuthUtil.getToken(getApplicationContext(), (Account) account, null);
+
+               // String accessToken = GoogleAuthUtil.getToken(getApplicationContext(), account.getAccount(), scope, new Bundle());
+
+                //Toast.makeText(getApplicationContext(), idToken, Toast.LENGTH_LONG).show();
 
                 presenter.signIn("google", idToken, idToken, String.valueOf(expiresIn));
             }
@@ -244,7 +320,114 @@ public class AuthActivity extends AppCompatActivity implements IAuthContract.Vie
         }
     }
 
+    /*public void getTokenInfo() {
+        OkHttpClient client = new OkHttpClient();
+        RequestBody requestBody = new FormEncodingBuilder()
+                .add("grant_type", "authorization_code")
+                .add("client_id", "<Your-client-id>")   // something like : ...apps.googleusercontent.com
+                .add("client_secret", "{Your-client-secret}")
+                .add("redirect_uri","")
+                .add("code", "4/4-GMMhmHCXhWEzkobqIHGG_EnNYYsAkukHspeYUk9E8") // device code.
+                .add("id_token", idTokenString) // This is what we received in Step 5, the jwt token.
+                .build();
+
+        final Request request = new Request.Builder()
+                .url("https://www.googleapis.com/oauth2/v4/token")
+                .post(requestBody)
+                .build();
+
+        client.newCall(request).enqueue(new Callback() {
+            @Override
+            public void onFailure(final Request request, final IOException e) {
+                Log.e("FAILE", e.toString());
+            }
+
+            @Override
+            public void onResponse(Response response) throws IOException {
+                try {
+                    JSONObject jsonObject = new JSONObject(response.body().string());
+                    final String message = jsonObject.toString(5);
+                    Log.i(LOG_TAG, message);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+    }*/
+
     @Override
     public void onConnectionFailed(ConnectionResult connectionResult) {
+    }
+
+    /*public void validateIdToken() {
+        GoogleIdTokenVerifier verifier = new GoogleIdTokenVerifier.Builder(transport, jsonFactory)
+                // Specify the CLIENT_ID of the app that accesses the backend:
+                .setAudience(Collections.singletonList(CLIENT_ID))
+                // Or, if multiple clients access the backend:
+                //.setAudience(Arrays.asList(CLIENT_ID_1, CLIENT_ID_2, CLIENT_ID_3))
+                .build();
+
+        // (Receive idTokenString by HTTPS POST)
+
+        GoogleIdToken idToken = verifier.verify(idTokenString);
+        if (idToken != null) {
+            Payload payload = idToken.getPayload();
+
+            // Print user identifier
+            String userId = payload.getSubject();
+            System.out.println("User ID: " + userId);
+
+            // Get profile information from payload
+            String email = payload.getEmail();
+            boolean emailVerified = Boolean.valueOf(payload.getEmailVerified());
+            String name = (String) payload.get("name");
+            String pictureUrl = (String) payload.get("picture");
+            String locale = (String) payload.get("locale");
+            String familyName = (String) payload.get("family_name");
+            String givenName = (String) payload.get("given_name");
+
+            // Use or store profile information
+            // ...
+
+        } else {
+            System.out.println("Invalid ID token.");
+        }
+    }*/
+
+    private GoogleApiClient initGoogleSignIn() {
+        if(mGoogleApiClient == null) {
+            // mGoogleApiClient.connect();
+
+            GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                    //.requestIdToken(getString(R.string.default_web_client_id))
+                    .requestIdToken("789008364480-jr2io8r51h0eegmdvuu0bv1abt6bpppt.apps.googleusercontent.com")
+                    .requestServerAuthCode("789008364480-jr2io8r51h0eegmdvuu0bv1abt6bpppt.apps.googleusercontent.com")
+                    //.requestIdToken(getString(R.string.server_client_id))
+                    .requestProfile()
+                    .requestId()
+                    //.requestIdToken("241911688286-hdgjh2o7dg42155d31ts4m9vitq8nf0h.apps.googleusercontent.com")
+                    //.requestIdToken(getString(R.string.default_web_client_id))
+                    .requestEmail()
+                    //.requestScopes(new Scope(Scopes.PLUS_LOGIN))
+                    //.requestProfile()
+                    .build();
+
+                /*mGoogleApiClient = new GoogleApiClient.Builder(this)
+                        .enableAutoManage(this, this)
+                        .addApi(Auth.GOOGLE_SIGN_IN_API, gso)
+                        .build();*/
+
+            //mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
+
+            //Intent signInIntent = mGoogleSignInClient.getSignInIntent();
+            //startActivityForResult(signInIntent, GCConfig.GOOGLE_SIGN_IN);
+
+            mGoogleApiClient = new GoogleApiClient.Builder(this)
+                    .enableAutoManage(this, this)
+                    .addApi(Auth.GOOGLE_SIGN_IN_API, gso)
+                    .build();
+        }
+
+        return mGoogleApiClient;
     }
 }

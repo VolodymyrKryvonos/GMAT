@@ -18,6 +18,8 @@ public interface IAuthContract {
         boolean logged();
         void signIn(String login, String password);
         void signIn(String provider, String idToken, String accessToken, String expiresIn);
+        void getTokenInfo(String code);
         void forgotPassword(String email);
+        boolean isOnline();
     }
 }
