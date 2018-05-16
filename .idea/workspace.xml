@@ -15,15 +15,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5d9e8901-ef33-43d6-bffb-1c758be0eff0" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/google-services.json" afterPath="$PROJECT_DIR$/app/google-services.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/api/AuthException.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/api/AuthException.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/auth/AuthActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/auth/AuthActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/auth/AuthPresenter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/auth/AuthPresenter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/auth/IAuthContract.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/auth/IAuthContract.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/storage/Repository.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/storage/Repository.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/utils/FieldWatcher.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/utils/FieldWatcher.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/utils/ViewHelper.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/utils/ViewHelper.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/lint-cache/maven.google/com/google/android/gms/group-index.xml" afterPath="$PROJECT_DIR$/build/intermediates/lint-cache/maven.google/com/google/android/gms/group-index.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/lint-cache/maven.google/com/google/firebase/group-index.xml" afterPath="$PROJECT_DIR$/build/intermediates/lint-cache/maven.google/com/google/firebase/group-index.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/lint-cache/maven.google/master-index.xml" afterPath="$PROJECT_DIR$/build/intermediates/lint-cache/maven.google/master-index.xml" />
@@ -3654,7 +3645,7 @@
       <option name="ACTIVITY_CLASS" value="com.deepinspire.gmatclub.auth.AuthActivity" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1526460339786" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1526462835096" />
       </method>
     </configuration>
     <configuration default="false" name="gmatclub [signingReport]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
@@ -3745,7 +3736,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1526460339787" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1526462835096" />
       </method>
     </configuration>
     <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Instrumented Tests">
@@ -3793,7 +3784,7 @@
       </Profilers>
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1526460339787" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1526462835096" />
       </method>
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -3976,7 +3967,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1526460339788" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1526462835097" />
       </method>
     </configuration>
     <list size="4">
