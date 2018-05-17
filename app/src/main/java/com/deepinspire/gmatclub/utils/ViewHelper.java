@@ -488,6 +488,9 @@ public class ViewHelper {
 
             switch(exception.getType()) {
                 case "login":
+                    alertDialog.setCancelable(true);
+                    alertDialog.setCanceledOnTouchOutside(true);
+
                     message = (TextView) alertDialog.findViewById(R.id.errorMessage);
 
                     message.setText(/*"Incorrect Login and Password"*/exception.getMessage());

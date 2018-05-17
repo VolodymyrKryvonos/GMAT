@@ -764,7 +764,6 @@ public class WebActivity extends AppCompatActivity implements
         settings.setDatabaseEnabled(true);
         //settings.setDatabasePath("/data/data/" + webView.getContext().getPackageName() + "/databases/");
         settings.setDomStorageEnabled(true);
-        settings.setSupportZoom(false);
         settings.setAllowFileAccess(true);
         settings.setAllowContentAccess(true);
 
@@ -775,9 +774,14 @@ public class WebActivity extends AppCompatActivity implements
         settings.setAllowUniversalAccessFromFileURLs(true);
 
         settings.setLoadWithOverviewMode(true);
-        settings.setLoadWithOverviewMode(true);
         settings.setUseWideViewPort(true);
 
+        settings.setSupportZoom(true);
+
+        /*settings.setBuiltInZoomControls(true);
+        settings.setDisplayZoomControls(false);*/
+
+        //webView.zoomBy(0.1f);
         //settings.setDomStorageEnabled(true);
         //settings.setUserAgentString("Android GMAT Club Forum/1.0.0");
         //settings.setSupportZoom(true);
@@ -790,6 +794,12 @@ public class WebActivity extends AppCompatActivity implements
         //webView.setWebContentsDebuggingEnabled(true);
 
         //settings.setRenderPriority(WebSettings.RenderPriority.HIGH);
+
+        //webView.zoomIn();
+        //webView.zoomOut();
+
+        //settings.setLoadWithOverviewMode(true);
+        //webView.setInitialScale(100);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             // chromium, enable hardware acceleration
