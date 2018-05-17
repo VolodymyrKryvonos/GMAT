@@ -939,7 +939,7 @@ public class WebActivity extends AppCompatActivity implements
     }
 
     private void initRequestExtraHeaders() {
-        String device = Build.MODEL + " " + Build.VERSION.RELEASE + " GMAT Club Forum";// + getString(R.string.app_name);
+        String device = "Android" + " " + Build.MODEL + " " + Build.VERSION.RELEASE + " " + "GMAT Club Forum" ;// + getString(R.string.app_name);
 
         try {
             device += "/" + getPackageManager().getPackageInfo(getApplication().getPackageName(), 0).versionName;
