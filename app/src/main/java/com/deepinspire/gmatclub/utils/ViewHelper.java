@@ -515,6 +515,9 @@ public class ViewHelper {
                     signInLayout.setVisibility(View.VISIBLE);
                     break;
                 case "forgotPassword":
+                    alertDialog.setCancelable(true);
+                    alertDialog.setCanceledOnTouchOutside(true);
+                    
                     message = (TextView) alertDialog.findViewById(R.id.message);
 
                     if(!exception.getAction().equals("UNKNOWN_HOST")) {
