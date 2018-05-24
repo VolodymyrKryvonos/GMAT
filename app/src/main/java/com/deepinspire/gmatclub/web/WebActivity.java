@@ -691,45 +691,38 @@ public class WebActivity extends AppCompatActivity implements
     public void goByMenu(View view) {
         switch (view.getId()) {
             case R.id.menu_forum:
-                highlightMenuItemOnClick(R.id.menu_forum);
-                openPage(Api.FORUM_URL);
+                openPageFromHamburgerMenu(R.id.menu_forum, Api.FORUM_URL);
                 break;
             case R.id.menu_pms:
-                highlightMenuItemOnClick(R.id.menu_pms);
-                openPage(Api.PM_URL);
+                openPageFromHamburgerMenu(R.id.menu_pms, Api.PM_URL);
                 break;
             case R.id.menu_notifications:
-                highlightMenuItemOnClick(R.id.menu_notifications);
-                webView.loadUrl("file:///android_asset/notifications.html");
-                //webView.loadDataWithBaseURL();
-                //webView.loadDataWithBaseURL("file:///android_asset/", htmlParsing, "text/html", "utf-8", null);
-                //webView.loadData(notificationsHTML, "text/html", null);
+                openPageFromHamburgerMenu(R.id.menu_notifications, "file:///android_asset/notifications.html");
                 break;
             case R.id.menu_practice:
-                highlightMenuItemOnClick(R.id.menu_practice);
-                openPage(Api.PRACTICE_URL);
+                openPageFromHamburgerMenu(R.id.menu_practice, Api.PRACTICE_URL);
                 break;
             case R.id.menu_chat:
-                highlightMenuItemOnClick(R.id.menu_chat);
-                openPage(Api.CHAT_URL);
+                openPageFromHamburgerMenu(R.id.menu_chat, Api.CHAT_URL);
                 break;
             case R.id.menu_reviews:
-                highlightMenuItemOnClick(R.id.menu_reviews);
-                openPage(Api.REVIEWS_URL);
+                openPageFromHamburgerMenu(R.id.menu_reviews, Api.REVIEWS_URL);
                 break;
             case R.id.menu_deals_discounts:
-                highlightMenuItemOnClick(R.id.menu_deals_discounts);
-                openPage(Api.DEALS_URL);
+                openPageFromHamburgerMenu(R.id.menu_deals_discounts, Api.DEALS_URL);
                 break;
             case R.id.menu_advanced_search:
-                highlightMenuItemOnClick(R.id.menu_advanced_search);
-                openPage(Api.FORUM_SEARCH);
+                openPageFromHamburgerMenu(R.id.menu_advanced_search, Api.FORUM_SEARCH);
                 break;
             case R.id.menu_new_posts:
-                highlightMenuItemOnClick(R.id.menu_new_posts);
-                openPage(Api.FORUM_SEARCH_NEW_POSTS);
+                openPageFromHamburgerMenu(R.id.menu_new_posts, Api.FORUM_SEARCH_NEW_POSTS);
+                break;
+            case R.id.menu_unanswered:
+                openPageFromHamburgerMenu(R.id.menu_unanswered, Api.FORUM_SEARCH_UNANSWERED);
                 break;
             case R.id.menu_feedback:
+                mDrawerLayout.closeDrawers();
+
                 Intent intent = new Intent(Intent.ACTION_SEND);
 
                 intent.setType("message/rfc822");
@@ -744,13 +737,7 @@ public class WebActivity extends AppCompatActivity implements
                     Toast.makeText(getApplicationContext(), "There are no email clients installed.", Toast.LENGTH_LONG).show();
                 }
                 break;
-            case R.id.menu_unanswered:
-                highlightMenuItemOnClick(R.id.menu_unanswered);
-                openPage(Api.FORUM_SEARCH_UNANSWERED);
-                break;
         }
-
-        mDrawerLayout.closeDrawers();
     }
 
     @SuppressLint({"AddJavascriptInterface", "SetJavaScriptEnabled"})
@@ -767,16 +754,18 @@ public class WebActivity extends AppCompatActivity implements
         settings.setAllowFileAccess(true);
         settings.setAllowContentAccess(true);
 
-        settings.setAppCacheEnabled(false);
-        settings.setCacheMode(WebSettings.LOAD_NO_CACHE);
+        settings.setAppCacheEnabled(true);
+        settings.setCacheMode(WebSettings.LOAD_CACHE_ELSE_NETWORK);
+        //settings.setCacheMode(WebSettings.LOAD_NO_CACHE);
+        //settings.setCacheMode(WebSettings.LOAD_DEFAULT);
 
         settings.setAllowFileAccessFromFileURLs(true); //Maybe you don't need this rule
         settings.setAllowUniversalAccessFromFileURLs(true);
 
-        settings.setLoadWithOverviewMode(true);
-        settings.setUseWideViewPort(true);
+        //settings.setLoadWithOverviewMode(true);
+        //settings.setUseWideViewPort(true);
 
-        settings.setSupportZoom(true);
+        //settings.setSupportZoom(true);
 
         /*settings.setBuiltInZoomControls(true);
         settings.setDisplayZoomControls(false);*/
@@ -800,6 +789,16 @@ public class WebActivity extends AppCompatActivity implements
 
         //settings.setLoadWithOverviewMode(true);
         //webView.setInitialScale(100);
+
+        //webView.getSettings().setRenderPriority(WebSettings.RenderPriority.HIGH);
+
+        //webView.getSettings().setCacheMode(WebSettings.LOAD_NO_CACHE);
+
+        if (Build.VERSION.SDK_INT >= 19) {
+            webView.setLayerType(View.LAYER_TYPE_HARDWARE, null);
+        } else {
+            webView.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
+        }
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             // chromium, enable hardware acceleration
@@ -919,18 +918,18 @@ public class WebActivity extends AppCompatActivity implements
                 }
             }
 
-            @Override
+            /*@Override
             @TargetApi(Build.VERSION_CODES.LOLLIPOP)
             public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
-                view.loadUrl(request.getUrl().toString(), getRequestExtraHeaders());
+                //view.loadUrl(request.getUrl().toString(), getRequestExtraHeaders());
                 return true;
             }
 
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
-                view.loadUrl(url, getRequestExtraHeaders());
+                //view.loadUrl(url, getRequestExtraHeaders());
                 return true;
-            }
+            }*/
 
             public void onReceivedError(WebView view, int errorCode, String description, String failingUrl) {
                 Toast.makeText(WebActivity.this, "Oh no! " + description, Toast.LENGTH_SHORT).show();
@@ -954,19 +953,26 @@ public class WebActivity extends AppCompatActivity implements
         return requestExtraHeaders;
     }
 
+    private void openPageFromHamburgerMenu(int id, String url) {
+        mDrawerLayout.closeDrawers();
+        highlightMenuItemOnClick(id);
+        openPage(url);
+    }
+
     private void openPage(String url) {
         if (mDrawerLayout.isDrawerOpen(GravityCompat.START)) {
             mDrawerLayout.closeDrawer(GravityCompat.START);
         }
 
+        webView.loadUrl("about:blank");
         webView.loadUrl(url, getRequestExtraHeaders());
     }
 
     public void setLoadingIndicator(boolean active) {
         if (active) {
-            progressBar.setVisibility(View.VISIBLE);
-            feedbackLayout.setVisibility(View.GONE);
-            swipe.setVisibility(View.GONE);
+            //progressBar.setVisibility(View.VISIBLE);
+            //feedbackLayout.setVisibility(View.GONE);
+            //swipe.setVisibility(View.GONE);
             showBtnAdd(false);
         } else {
             hideKeyboard();
@@ -987,9 +993,9 @@ public class WebActivity extends AppCompatActivity implements
                 showBtnAdd(false);
             }
 
-            progressBar.setVisibility(View.GONE);
-            feedbackLayout.setVisibility(View.GONE);
-            swipe.setVisibility(View.VISIBLE);
+            //progressBar.setVisibility(View.GONE);
+            //feedbackLayout.setVisibility(View.GONE);
+            //swipe.setVisibility(View.VISIBLE);
         }
     }
 

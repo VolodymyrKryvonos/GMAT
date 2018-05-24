@@ -23,6 +23,7 @@
         android:roundIcon="@mipmap/app_icon"
         android:supportsRtl="true"
         android:hardwareAccelerated="false"
+        android:largeHeap="true"
         android:theme="@style/AppTheme">
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
