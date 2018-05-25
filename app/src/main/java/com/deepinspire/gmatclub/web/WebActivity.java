@@ -870,8 +870,6 @@ public class WebActivity extends AppCompatActivity implements
 
             public void onPageStarted(WebView view, String url, Bitmap favicon) {
                 //webView.destroyDrawingCache();
-                webView.loadUrl("javascript:document.open();document.close();");
-
                 if(url.equals(Api.FORUM_URL + "?style=12") || url.equals(Api.FORUM_URL + "/?style=12")) {
                     changeTitleColor(R.color.white);
                     changeProfileIconColor(R.color.mainOrange);
@@ -967,6 +965,7 @@ public class WebActivity extends AppCompatActivity implements
             mDrawerLayout.closeDrawer(GravityCompat.START);
         }
 
+        webView.loadUrl("javascript:document.open();document.close();");
         //webView.loadUrl("about:blank");
         webView.loadUrl(url, getRequestExtraHeaders());
     }
