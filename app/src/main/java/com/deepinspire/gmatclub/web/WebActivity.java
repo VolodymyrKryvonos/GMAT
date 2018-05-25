@@ -881,15 +881,8 @@ public class WebActivity extends AppCompatActivity implements
                     changeProfileIconColor(R.color.mainOrange);
                 }
 
-                if(url.contains("file:///android_asset/notifications.html")) {
-                    swipe.setEnabled(false);
-                } else {
-                    swipe.setEnabled(true);
-                }
-
                 swipe.setRefreshing(false);
                 setLoadingIndicator(true);
-
             }
 
             public void onPageFinished(WebView view, String url) {
