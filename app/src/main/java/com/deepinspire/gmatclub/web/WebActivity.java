@@ -765,6 +765,16 @@ public class WebActivity extends AppCompatActivity implements
         settings.setAllowFileAccessFromFileURLs(true); //Maybe you don't need this rule
         settings.setAllowUniversalAccessFromFileURLs(true);
 
+        String device = "Android" + " " + "GMAT Club Forum";
+
+        try {
+            device += "/" + getPackageManager().getPackageInfo(getApplication().getPackageName(), 0).versionName;
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        settings.setUserAgentString(device);
+
         //settings.setLoadWithOverviewMode(true);
         //settings.setUseWideViewPort(true);
 
