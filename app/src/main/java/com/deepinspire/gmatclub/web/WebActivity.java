@@ -35,6 +35,7 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
+import android.util.Base64;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.Menu;
@@ -49,6 +50,7 @@ import android.webkit.ConsoleMessage;
 import android.webkit.CookieManager;
 import android.webkit.HttpAuthHandler;
 import android.webkit.JavascriptInterface;
+import android.webkit.MimeTypeMap;
 import android.webkit.ValueCallback;
 import android.webkit.WebChromeClient;
 import android.webkit.WebResourceRequest;
@@ -97,6 +99,7 @@ import java.util.Map;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+import okhttp3.Call;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
@@ -912,6 +915,18 @@ public class WebActivity extends AppCompatActivity implements
                 }
             }
 
+            /*@SuppressWarnings("deprecation") // From API 21 we should use another overload
+            @Override
+            public WebResourceResponse shouldInterceptRequest(@NonNull WebView view, @NonNull String url) {
+                return handleRequestViaOkHttp(url);
+            }
+
+            @TargetApi(Build.VERSION_CODES.LOLLIPOP)
+            @Override
+            public WebResourceResponse shouldInterceptRequest(@NonNull WebView view, @NonNull WebResourceRequest request) {
+                return handleRequestViaOkHttp(request.getUrl().toString());
+            }*/
+
             /*@Override
             @TargetApi(Build.VERSION_CODES.LOLLIPOP)
             public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
@@ -930,6 +945,76 @@ public class WebActivity extends AppCompatActivity implements
             }
         });
     }
+
+    /*static boolean urlShouldBeHandledByWebView(@NonNull String url) {
+        // file: Resolve requests to local files such as files from cache folder via WebView itself
+        return url.startsWith("file:");
+    }
+
+    @NonNull
+    private WebResourceResponse handleRequestViaOkHttp(@NonNull String url) {
+        try {
+            OkHttpClient okHttpClient = new OkHttpClient.Builder()
+                    .build();
+
+            String username = "guest";
+            String password = "GCTesterNew1";
+
+            String base = username + ":" + password;
+
+            String authHeader = "Basic " + Base64.encodeToString(base.getBytes(), Base64.NO_WRAP);
+            //OkHttpClient.Builder okHttpClient1 = new OkHttpClient().newBuilder();\
+
+            // On Android API >= 21 you can get request method and headers
+            // As I said, we need to only display "simple" page with resources
+            // So it's GET without special headers
+            final Call call = okHttpClient.newCall(new Request.Builder()
+                    .addHeader("Authorization", authHeader)
+                    .addHeader("My-Agent", getRequestExtraHeaders().get("My-Agent"))
+                    .url(url)
+                    .build()
+            );
+
+            final Response response = call.execute();
+
+            return new WebResourceResponse(
+                    getMimeType(url),
+                    //response.header("content-type", "text/html"), // You can set something other as default content-type
+                    response.header("content-encoding", "utf-8"),  // Again, you can set another encoding as default
+                    response.body().byteStream()
+            );
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    private String getMimeType(String url) {
+        String type = null;
+        String extension = MimeTypeMap.getFileExtensionFromUrl(url);
+
+        if (extension != null) {
+
+            switch (extension) {
+                case "js":
+                    return "text/javascript";
+                case "woff":
+                    return "application/font-woff";
+                case "woff2":
+                    return "application/font-woff2";
+                case "ttf":
+                    return "application/x-font-ttf";
+                case "eot":
+                    return "application/vnd.ms-fontobject";
+                case "svg":
+                    return "image/svg+xml";
+            }
+
+            type = MimeTypeMap.getSingleton().getMimeTypeFromExtension(extension);
+        }
+
+        return type;
+    }*/
 
     private void initRequestExtraHeaders() {
         String device = "Android" + " " + Build.MODEL + " " + Build.VERSION.RELEASE + " " + "GMAT Club Forum" ;// + getString(R.string.app_name);

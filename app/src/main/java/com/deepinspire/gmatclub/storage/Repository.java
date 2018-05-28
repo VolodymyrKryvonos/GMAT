@@ -595,6 +595,10 @@ public class Repository implements IStorage {
         String cookiesString = webviewCookieManager.getCookie(Api.HOME_URL);
 
         if (cookiesString != null && !cookiesString.isEmpty()) {
+            cookiesString += ";device=" + getDevice();
+
+            webviewCookieManager.setCookie(Api.HOME_URL, cookiesString);
+
             SharedPreferences.Editor editor = getSharedPreferences().edit();
             editor.putString(GCConfig.COOKIES, cookiesString);
             editor.apply();
@@ -634,6 +638,18 @@ public class Repository implements IStorage {
         }
 
         return user.getLogged();
+    }
+
+    private String getDevice() {
+        String device = "Android" + " " + Build.MODEL + " " + Build.VERSION.RELEASE + " " + "GMAT Club Forum" ;
+
+        try {
+            device += "/" + context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionName;
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        return device;
     }
 
     @SuppressWarnings("deprecation")
