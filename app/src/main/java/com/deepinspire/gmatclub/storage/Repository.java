@@ -293,6 +293,77 @@ public class Repository implements IStorage {
         });
     }
 
+    public void getNotifications(final String params, @NonNull final ICallbackNotifications callback) {
+        executorService.submit(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    Map<String, String> queryMap= new HashMap<>();
+
+                    if(params != null) {
+                        String[] prms = params.split("&");
+
+                        for(String param: prms) {
+                            queryMap.put((param.split("="))[0], (param.split("="))[1]);
+                        }
+                    } else {
+                        queryMap.put("_", Long.toString(new Date().getTime()));
+                        queryMap.put("action", "get");
+                        queryMap.put("cb", Long.toString(new Date().getTime()));
+                        queryMap.put("group", "group_general");
+                        queryMap.put("refresh", "0");
+                        queryMap.put("type", "all");
+                        queryMap.put("unwatched", "0");
+                    }
+
+                    ApiInterface apiService = (new ApiClient()).getClient().create(ApiInterface.class);
+
+                    String username = "guest";
+                    String password = "GCTesterNew1";
+
+                    String base = username + ":" + password;
+
+                    String authHeader = "Basic " + Base64.encodeToString(base.getBytes(), Base64.NO_WRAP);
+
+                    Call<ResponseBody> call = apiService.getNotifications(authHeader, queryMap);
+
+                    call.enqueue(new retrofit2.Callback<ResponseBody>() {
+                        @Override
+                        public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                            if (!response.isSuccessful()) {
+                                AuthException ex = new AuthException(new Exception("Failed updating notify"), "updateNotify");
+                                callback.onError(ex);
+                            } else {
+                                if(logged()) {
+                                    try {
+                                        callback.onSuccess(response.body().string().toString());
+                                    } catch (IOException e) {
+                                        e.printStackTrace();
+                                    } finally {
+                                        callback.onSuccess(null);
+                                    }
+                                } else {
+                                    AuthException ex = new AuthException(new Exception("Login or password failed"), "login");
+                                    callback.onError(ex);
+                                }
+                            }
+                        }
+
+                        @Override
+                        public void onFailure(Call<ResponseBody> call, Throwable t) {
+                            AuthException ex = new AuthException(new Exception("Failed updating notify"), "updateNotify");
+                            callback.onError(ex);
+                        }
+                    });
+
+                } catch (final Exception exception) {
+                    AuthException ex = new AuthException(new Exception("Failed updating notify"), "updateNotify");
+                    callback.onError(ex);
+                }
+            }
+        });
+    }
+
     public void signInSocial(
             @NonNull final String provider,
             @NonNull final String idToken,

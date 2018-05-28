@@ -51,4 +51,8 @@ public interface ApiInterface {
     @Headers({"Accept: application/json", "Cache-Control: no-cache"})
     @GET("forum/notify.php")
     Call<ResponseBody> updateNotify(@Header("Authorization") String header, @QueryMap Map<String, String> options);
+
+    @Headers({"Accept: application/json", "Cache-Control: no-cache"})
+    @GET("forum/notify.php")
+    Call<ResponseBody> getNotifications(@Header("Authorization") String header, @QueryMap Map<String, String> options);
 }

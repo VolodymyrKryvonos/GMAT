@@ -153,8 +153,22 @@ public class WebPresenter implements IWebContract.Presenter {
         this.notifications = notifications;
     }
 
-    public String getNotifications() {
-        return this.notifications;
+    public void getNotifications() {
+        if(this.notifications == null) {
+            this.repository.getNotifications(null,  new IStorage.ICallbackNotifications() {
+                @Override
+                public void onSuccess(String notifications) {
+                    saveNotifications("{\"group_general\": " + notifications + "}");
+                }
+                @Override
+                public void onError(AuthException exception) {
+                    AuthException ex = new AuthException(new Exception(exception.getMessage()), "notification:update");
+                    view.showError(ex);
+                }
+            });
+        } else {
+            view.sendNotificationsForPage(notifications);
+        }
     }
 
     public void updatePMs() {
@@ -167,8 +181,8 @@ public class WebPresenter implements IWebContract.Presenter {
 
     private void updateNotifications(String id) {
         try {
-            if (getNotifications() != null) {
-                JSONArray notifications = (new JSONObject(getNotifications())).getJSONArray("group_general");
+            if (this.notifications != null) {
+                JSONArray notifications = (new JSONObject(this.notifications)).getJSONArray("group_general");
 
                 for (int i = 0; i < notifications.length(); i++) {
                     JSONObject notification = notifications.getJSONObject(i);

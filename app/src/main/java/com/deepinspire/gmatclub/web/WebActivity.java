@@ -1277,20 +1277,7 @@ public class WebActivity extends AppCompatActivity implements
 
                         switch(mNotify.getString("action")) {
                             case "pageLoaded":
-                                runOnUiThread(new Runnable() {
-                                    @Override
-                                    public void run() {
-                                        webView.evaluateJavascript(
-                                                "(function(){if(window.notifications && window.notifications.render) {window.notifications.render("+presenter.getNotifications()+");}})()",
-                                                new ValueCallback<String>() {
-                                                    @Override
-                                                    public void onReceiveValue(String value) {
-                                                        //Toast.makeText(WebActivity.this, "Render notifications", Toast.LENGTH_LONG).show();
-                                                    }
-                                                }
-                                        );
-                                    }
-                                });
+                                presenter.getNotifications();
                                 break;
                             case "renderDone":
                                 runOnUiThread(new Runnable() {
@@ -1326,6 +1313,23 @@ public class WebActivity extends AppCompatActivity implements
             });
         }
 
+    }
+
+    public void sendNotificationsForPage(final String notifications) {
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                webView.evaluateJavascript(
+                        "(function(){if(window.notifications && window.notifications.render) {window.notifications.render("+notifications+");}})()",
+                        new ValueCallback<String>() {
+                            @Override
+                            public void onReceiveValue(String value) {
+                                //Toast.makeText(WebActivity.this, "Render notifications", Toast.LENGTH_LONG).show();
+                            }
+                        }
+                );
+            }
+        });
     }
 
     private void changeIconHomeForNavigationMenu(int iconColor) {

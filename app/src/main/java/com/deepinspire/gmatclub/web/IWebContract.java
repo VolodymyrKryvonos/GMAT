@@ -17,6 +17,7 @@ public interface IWebContract {
         void goPreviousActivity();
         void openPageById(String id);
         void updateCountMessages();
+        void sendNotificationsForPage(String notifications);
     }
 
     interface Presenter extends IBasePresenter {
@@ -29,7 +30,7 @@ public interface IWebContract {
         void setCountUnwatchedPMs(int count);
         void setNotifications(String notifications);
         void saveNotifications(String notifications);
-        String getNotifications();
+        void getNotifications();
         int getCountUnwatchedNotifications();
         int getCountUnwatchedPMs();
         void updateNotify();
