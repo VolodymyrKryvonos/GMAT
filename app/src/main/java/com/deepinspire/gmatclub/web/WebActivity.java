@@ -754,8 +754,8 @@ public class WebActivity extends AppCompatActivity implements
         settings.setAllowFileAccess(true);
         settings.setAllowContentAccess(true);
 
-        settings.setAppCacheEnabled(true);
-        settings.setCacheMode(WebSettings.LOAD_CACHE_ELSE_NETWORK);
+        settings.setAppCacheEnabled(false);
+        settings.setCacheMode(WebSettings.LOAD_NO_CACHE);
         //settings.setCacheMode(WebSettings.LOAD_NO_CACHE);
         //settings.setCacheMode(WebSettings.LOAD_DEFAULT);
 
