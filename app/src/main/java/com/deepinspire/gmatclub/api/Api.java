@@ -39,7 +39,7 @@ public class Api {
     public static final String CHAT_URL = HOME_URL + "/gchat";
     public static final String UCP_URL = HOME_URL + "/forum/ucp.php";
     public static final String UCP_MY_POSTS_URL = UCP_URL + "?i=291";
-    public static final String UCP_MY_BOOKMARKS_URL = UCP_URL + "?i=222";
+    public static final String UCP_MY_BOOKMARKS_URL = UCP_URL + "?i=main&mode=bookmarks";
     public static final String UCP_MY_SETTINGS_URL = UCP_URL + "?i=301";
 
     public static String PM_URL = UCP_URL + "?i=pm&amp;folder=inbox";

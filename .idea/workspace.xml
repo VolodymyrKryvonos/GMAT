@@ -16,7 +16,7 @@
   <component name="ChangeListManager">
     <list default="true" id="5d9e8901-ef33-43d6-bffb-1c758be0eff0" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.iml" afterPath="$PROJECT_DIR$/app/app.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/api/Api.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/api/Api.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build.gradle" afterPath="$PROJECT_DIR$/build.gradle" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -117,11 +117,172 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="WebActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/web/WebActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="287">
+              <caret line="876" column="56" lean-forward="false" selection-start-line="876" selection-start-column="56" selection-end-line="876" selection-end-column="56" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <marker date="1527598619461" expanded="true" signature="33377:33489" ph="{...}" />
+                <marker date="1527598619461" expanded="true" signature="33571:34283" ph="{...}" />
+                <marker date="1527598619461" expanded="true" signature="34350:35421" ph="{...}" />
+                <marker date="1527598619461" expanded="false" signature="34651:34797" ph="(value) → {" />
+                <marker date="1527598619461" expanded="false" signature="34954:34989" ph="}" />
+                <marker date="1527598619461" expanded="true" signature="36628:36745" ph="{...}" />
+                <marker date="1527598619461" expanded="true" signature="39428:39866" ph="{...}" />
+                <marker date="1527598619461" expanded="false" signature="39924:39935" ph=" { " />
+                <marker date="1527598619461" expanded="false" signature="39962:39968" ph=" }" />
+                <marker date="1527598619461" expanded="true" signature="40033:40139" ph="{...}" />
+                <marker date="1527598619461" expanded="true" signature="40179:40491" ph="{...}" />
+                <marker date="1527598619461" expanded="true" signature="40545:41360" ph="{...}" />
+                <marker date="1527598619461" expanded="true" signature="40581:40724" ph="//..." />
+                <marker date="1527598619461" expanded="true" signature="41201:41344" ph="//..." />
+                <marker date="1527598619461" expanded="false" signature="41390:41401" ph=" { " />
+                <marker date="1527598619461" expanded="false" signature="41432:41438" ph=" }" />
+                <marker date="1527598619461" expanded="true" signature="41480:45224" ph="{...}" />
+                <marker date="1527598619461" expanded="true" signature="43413:45061" ph="{...}" />
+                <marker date="1527598619461" expanded="true" signature="43528:44449" ph="{...}" />
+                <marker date="1527598619461" expanded="false" signature="44539:44574" ph=" { " />
+                <marker date="1527598619461" expanded="false" signature="44612:44642" ph=" }" />
+                <marker date="1527598619461" expanded="true" signature="44759:45035" ph="{...}" />
+                <marker date="1527598619461" expanded="true" signature="45251:45349" ph="{...}" />
+                <marker date="1527598619461" expanded="true" signature="45376:45429" ph="{...}" />
+                <marker date="1527598619461" expanded="true" signature="45472:45769" ph="{...}" />
+                <marker date="1527598619461" expanded="false" signature="45821:45832" ph=" { " />
+                <marker date="1527598619461" expanded="false" signature="45864:45870" ph=" }" />
+                <marker date="1527598619461" expanded="true" signature="45929:45987" ph="{...}" />
+                <marker date="1527598619461" expanded="false" signature="46033:46044" ph=" { " />
+                <marker date="1527598619461" expanded="false" signature="46076:46082" ph=" }" />
+                <marker date="1527598619461" expanded="true" signature="46130:46460" ph="{...}" />
+                <marker date="1527598619461" expanded="true" signature="46489:48844" ph="{...}" />
+                <marker date="1527598619461" expanded="true" signature="48905:49746" ph="{...}" />
+                <marker date="1527598619461" expanded="true" signature="49055:49738" ph="{...}" />
+                <marker date="1527598619461" expanded="true" signature="49162:49422" ph="{...}" />
+                <marker date="1527598619461" expanded="true" signature="49511:49526" ph="{...}" />
+                <marker date="1527598619461" expanded="true" signature="49615:49630" ph="{...}" />
+                <marker date="1527598619461" expanded="true" signature="49713:49728" ph="{...}" />
+                <marker date="1527598619461" expanded="true" signature="49785:50173" ph="{...}" />
+                <marker date="1527598619461" expanded="true" signature="50248:50303" ph="{...}" />
+                <marker date="1527598619461" expanded="true" signature="50343:51332" ph="{...}" />
+                <marker date="1527598619461" expanded="false" signature="50367:50437" ph="() → {" />
+                <marker date="1527598619461" expanded="false" signature="51309:51324" ph="}" />
+                <marker date="1527598619461" expanded="true" signature="51373:54034" ph="{...}" />
+                <marker date="1527598619461" expanded="false" signature="51444:51459" ph=" { " />
+                <marker date="1527598619461" expanded="false" signature="51479:51489" ph=" }" />
+                <marker date="1527598619461" expanded="true" signature="51574:51852" ph="{...}" />
+                <marker date="1527598619461" expanded="false" signature="51604:51682" ph="(Runnable) () → {" />
+                <marker date="1527598619461" expanded="false" signature="51821:51840" ph="}" />
+                <marker date="1527598619461" expanded="true" signature="51936:54027" ph="{...}" />
+                <marker date="1527598619461" expanded="false" signature="51966:52044" ph="(Runnable) () → {" />
+                <marker date="1527598619461" expanded="false" signature="52448:52566" ph="() → {" />
+                <marker date="1527598619461" expanded="false" signature="52941:52980" ph="}" />
+                <marker date="1527598619461" expanded="false" signature="53520:53622" ph="() → {" />
+                <marker date="1527598619461" expanded="false" signature="53928:53959" ph="}" />
+                <marker date="1527598619461" expanded="false" signature="53996:54015" ph="}" />
+                <marker date="1527598619461" expanded="true" signature="54105:54780" ph="{...}" />
+                <marker date="1527598619461" expanded="false" signature="54129:54199" ph="() → {" />
+                <marker date="1527598619461" expanded="false" signature="54417:54555" ph="(value) → {" />
+                <marker date="1527598619461" expanded="false" signature="54698:54729" ph="}" />
+                <marker date="1527598619461" expanded="false" signature="54757:54772" ph="}" />
+                <marker date="1527598619461" expanded="true" signature="54846:55239" ph="{...}" />
+                <marker date="1527598619461" expanded="true" signature="55285:55383" ph="{...}" />
+                <marker date="1527598619461" expanded="true" signature="55435:55580" ph="{...}" />
+                <marker date="1527598619461" expanded="true" signature="55627:60302" ph="{...}" />
+                <marker date="1527598619461" expanded="true" signature="56300:56646" ph="//..." />
+                <marker date="1527598619461" expanded="true" signature="57245:57385" ph="//..." />
+                <marker date="1527598619461" expanded="true" signature="57415:57515" ph="//..." />
+                <marker date="1527598619461" expanded="false" signature="57620:57698" ph="() → {" />
+                <marker date="1527598619461" expanded="true" signature="58506:58713" ph="//..." />
+                <marker date="1527598619461" expanded="false" signature="58726:58745" ph="}" />
+                <marker date="1527598619461" expanded="true" signature="58763:59383" ph="//..." />
+                <marker date="1527598619461" expanded="true" signature="59650:59728" ph="//..." />
+                <marker date="1527598619461" expanded="true" signature="59983:60286" ph="//..." />
+                <marker date="1527598619461" expanded="true" signature="60366:64670" ph="{...}" />
+                <marker date="1527598619461" expanded="true" signature="60376:60551" ph="//..." />
+                <marker date="1527598619461" expanded="true" signature="64709:65021" ph="{...}" />
+                <marker date="1527598619461" expanded="true" signature="65061:65372" ph="{...}" />
+                <marker date="1527598619461" expanded="true" signature="65426:65543" ph="{...}" />
+                <marker date="1527598619461" expanded="true" signature="65601:65858" ph="{...}" />
+                <marker date="1527598619461" expanded="true" signature="65912:66156" ph="{...}" />
+                <marker date="1527598619461" expanded="true" signature="66214:66592" ph="{...}" />
+                <marker date="1527598619461" expanded="true" signature="66646:67011" ph="{...}" />
+                <marker date="1527598619461" expanded="true" signature="67060:67651" ph="{...}" />
+                <marker date="1527598619461" expanded="true" signature="67685:67873" ph="{...}" />
+                <marker date="1527598619461" expanded="true" signature="67917:68168" ph="{...}" />
+                <marker date="1527598619461" expanded="true" signature="68217:68486" ph="{...}" />
+                <marker date="1527598619461" expanded="true" signature="68532:68789" ph="{...}" />
+                <marker date="1527598619461" expanded="true" signature="68837:69102" ph="{...}" />
+                <marker date="1527598619461" expanded="true" signature="69152:69425" ph="{...}" />
+                <marker date="1527598619461" expanded="false" signature="69481:69492" ph=" { " />
+                <marker date="1527598619461" expanded="false" signature="69523:69529" ph=" }" />
+                <marker date="1527598619461" expanded="false" signature="69582:69593" ph=" { " />
+                <marker date="1527598619461" expanded="false" signature="69621:69627" ph=" }" />
+                <marker date="1527598619461" expanded="false" signature="69682:69692" ph=" { " />
+                <marker date="1527598619461" expanded="false" signature="69722:69728" ph=" }" />
+                <marker date="1527598619461" expanded="false" signature="69785:69796" ph=" { " />
+                <marker date="1527598619461" expanded="false" signature="69828:69834" ph=" }" />
+                <marker date="1527598619461" expanded="true" signature="69875:70003" ph="{...}" />
+                <marker date="1527598619461" expanded="true" signature="70044:70176" ph="{...}" />
+                <marker date="1527598619461" expanded="true" signature="70241:70625" ph="{...}" />
+                <marker date="1527598619461" expanded="true" signature="70663:72239" ph="{...}" />
+                <marker date="1527598619461" expanded="true" signature="72326:72794" ph="{...}" />
+                <marker date="1527598619461" expanded="true" signature="72927:74016" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Repository.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/storage/Repository.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="58">
+              <caret line="541" column="84" lean-forward="false" selection-start-line="541" selection-start-column="84" selection-end-line="541" selection-end-column="84" />
+              <folding>
+                <marker date="1527598608377" expanded="false" signature="2266:2336" ph="(Runnable) () → {" />
+                <marker date="1527598608377" expanded="true" signature="23746:25203" ph="{...}" />
+                <marker date="1527598608377" expanded="true" signature="24084:24945" ph="{...}" />
+                <marker date="1527598608377" expanded="true" signature="24225:24617" ph="{...}" />
+                <marker date="1527598608377" expanded="true" signature="24737:24923" ph="{...}" />
+                <marker date="1527598608377" expanded="false" signature="25180:25195" ph="}" />
+                <marker date="1527598608377" expanded="false" signature="25232:25243" ph=" { " />
+                <marker date="1527598608377" expanded="false" signature="25264:25270" ph=" }" />
+                <marker date="1527598608377" expanded="true" signature="25320:27051" ph="{...}" />
+                <marker date="1527598608377" expanded="true" signature="26560:26967" ph="{...}" />
+                <marker date="1527598608377" expanded="false" signature="26643:26674" ph=" { " />
+                <marker date="1527598608377" expanded="false" signature="26720:26746" ph=" }" />
+                <marker date="1527598608377" expanded="true" signature="26845:26945" ph="{...}" />
+                <marker date="1527598608377" expanded="false" signature="27057:27089" ph="/deprecation/" />
+                <marker date="1527598608377" expanded="true" signature="27148:27755" ph="{...}" />
+                <marker date="1527598608377" expanded="true" signature="27297:27674" ph="{...}" />
+                <marker date="1527598608377" expanded="true" signature="27373:27498" ph="{...}" />
+                <marker date="1527598608377" expanded="false" signature="27588:27615" ph=" { " />
+                <marker date="1527598608377" expanded="false" signature="27634:27656" ph=" }" />
+                <marker date="1527598608377" expanded="true" signature="27800:28590" ph="{...}" />
+                <marker date="1527598608377" expanded="false" signature="28617:28628" ph=" { " />
+                <marker date="1527598608377" expanded="false" signature="28640:28646" ph=" }" />
+                <marker date="1527598608377" expanded="true" signature="28701:28896" ph="{...}" />
+                <marker date="1527598608377" expanded="true" signature="28928:29209" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Api.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/api/Api.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="274">
+              <caret line="32" column="51" lean-forward="false" selection-start-line="32" selection-start-column="51" selection-end-line="32" selection-end-column="51" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="build.gradle" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/build.gradle">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="307">
-              <caret line="37" column="24" lean-forward="false" selection-start-line="37" selection-start-column="24" selection-end-line="37" selection-end-column="24" />
+            <state relative-caret-position="134">
+              <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -141,8 +302,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>errorMessage</find>
-      <find>forgotPassword</find>
       <find>init</find>
       <find>onBack</find>
       <find>showError</find>
@@ -167,10 +326,12 @@
       <find>getNotifications</find>
       <find>&quot;Android&quot;</find>
       <find>My-Agent</find>
+      <find>settings.</find>
       <find>g</find>
       <find>guest</find>
+      <find>book</find>
+      <find>bookmar</find>
       <find>GCTesterNew1</find>
-      <find>settings.</find>
     </findStrings>
     <replaceStrings>
       <replace>goByMenu</replace>
@@ -2852,9 +3013,9 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/api/ApiInterface.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/web/IWebContract.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/web/WebPresenter.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/api/Api.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/storage/Repository.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/web/WebActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/storage/Repository.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/api/Api.java" />
         <option value="$PROJECT_DIR$/build.gradle" />
       </list>
     </option>
@@ -2881,8 +3042,72 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="AndroidView">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gmatclub" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidResFolderNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gmatclub" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidSourceTypeNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gmatclub" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidSourceTypeNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gmatclub" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gmatclub" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="manifests" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidManifestsGroupNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
       <pane id="Scratches" />
-      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -3375,76 +3600,12 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="AndroidView">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="gmatclub" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidResFolderNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="gmatclub" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="gmatclub" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="gmatclub" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="gmatclub" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="manifests" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidManifestsGroupNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="android.sdk.path" value="$USER_HOME$/Android/Sdk" />
-    <property name="device.picker.selection" value="0123456789ABCDEF" />
+    <property name="device.picker.selection" value="1ffa6893" />
     <property name="android.project.structure.last.selected" value="app" />
     <property name="android.project.structure.proportion" value="0.15" />
     <property name="settings.editor.selected.configurable" value="android.sdk-updates" />
@@ -3562,7 +3723,7 @@
       <option name="ACTIVITY_CLASS" value="com.deepinspire.gmatclub.auth.AuthActivity" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1527518194636" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1527599756751" />
       </method>
     </configuration>
     <configuration default="false" name="gmatclub [signingReport]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
@@ -3653,7 +3814,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1527518194636" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1527599756751" />
       </method>
     </configuration>
     <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Instrumented Tests">
@@ -3701,7 +3862,7 @@
       </Profilers>
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1527518194636" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1527599756751" />
       </method>
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -3733,27 +3894,6 @@
         </option>
         <option name="vmOptions" />
       </ExternalSystemSettings>
-      <method />
-    </configuration>
-    <configuration default="true" type="JUnit" factoryName="JUnit">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <module name="" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="class" />
-      <option name="VM_PARAMETERS" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
       <method />
     </configuration>
     <configuration default="true" type="JarApplication" factoryName="JAR Application">
@@ -3884,7 +4024,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1527518194637" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1527599756752" />
       </method>
     </configuration>
     <list size="4">
@@ -3947,7 +4087,7 @@
       <window_info id="Android Profiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25674218" sideWeight="0.4980631" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.49894738" sideWeight="0.49649218" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31789473" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20345385" sideWeight="0.32503888" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2245008" sideWeight="0.3273684" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -3960,45 +4100,21 @@
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.6831579" sideWeight="0.5019369" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20345385" sideWeight="0.6749611" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2245008" sideWeight="0.67263156" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.54421055" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.14786832" sideWeight="0.495671" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24986508" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Device File Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32982844" sideWeight="0.504329" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3231579" sideWeight="0.91034865" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2736842" sideWeight="0.91034865" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27954668" sideWeight="0.33480176" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Android Profiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.25674218" sideWeight="0.4980631" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2245008" sideWeight="0.3168421" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.49894738" sideWeight="0.50350785" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Logcat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.59894735" sideWeight="0.4969563" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24986508" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Device File Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32982844" sideWeight="0.504329" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2736842" sideWeight="0.91034865" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.49894738" sideWeight="0.49649218" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31789473" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3416082" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27666315" sideWeight="0.49584946" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32901832" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4875944" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.6831579" sideWeight="0.5019369" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2245008" sideWeight="0.6831579" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.54421055" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.14786832" sideWeight="0.495671" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27954668" sideWeight="0.33480176" order="2" side_tool="true" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Android Profiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25674218" sideWeight="0.4980631" order="7" side_tool="false" content_ui="tabs" />
@@ -4042,13 +4158,13 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/storage/Repository.java</url>
-          <line>136</line>
+          <line>133</line>
           <properties />
           <option name="timeStamp" value="26" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/storage/Repository.java</url>
-          <line>142</line>
+          <line>139</line>
           <properties />
           <option name="timeStamp" value="28" />
         </line-breakpoint>
@@ -4060,7 +4176,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/storage/Repository.java</url>
-          <line>112</line>
+          <line>109</line>
           <properties />
           <option name="timeStamp" value="69" />
         </line-breakpoint>
@@ -4102,7 +4218,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/storage/Repository.java</url>
-          <line>419</line>
+          <line>407</line>
           <properties />
           <option name="timeStamp" value="122" />
         </line-breakpoint>
@@ -4126,43 +4242,37 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/storage/Repository.java</url>
-          <line>445</line>
+          <line>430</line>
           <properties />
           <option name="timeStamp" value="127" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/storage/Repository.java</url>
-          <line>452</line>
+          <line>437</line>
           <properties />
           <option name="timeStamp" value="128" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/storage/Repository.java</url>
-          <line>422</line>
+          <line>410</line>
           <properties />
           <option name="timeStamp" value="129" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/storage/Repository.java</url>
-          <line>423</line>
-          <properties />
-          <option name="timeStamp" value="130" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/storage/Repository.java</url>
-          <line>431</line>
+          <line>416</line>
           <properties />
           <option name="timeStamp" value="131" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/storage/Repository.java</url>
-          <line>432</line>
+          <line>417</line>
           <properties />
           <option name="timeStamp" value="132" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/storage/Repository.java</url>
-          <line>436</line>
+          <line>421</line>
           <properties />
           <option name="timeStamp" value="133" />
         </line-breakpoint>
@@ -4186,7 +4296,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/storage/Repository.java</url>
-          <line>252</line>
+          <line>246</line>
           <properties />
           <option name="timeStamp" value="170" />
         </line-breakpoint>
@@ -4204,31 +4314,31 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/storage/Repository.java</url>
-          <line>241</line>
+          <line>235</line>
           <properties />
           <option name="timeStamp" value="177" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/storage/Repository.java</url>
-          <line>274</line>
+          <line>265</line>
           <properties />
           <option name="timeStamp" value="179" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/storage/Repository.java</url>
-          <line>280</line>
+          <line>271</line>
           <properties />
           <option name="timeStamp" value="180" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/storage/Repository.java</url>
-          <line>266</line>
+          <line>257</line>
           <properties />
           <option name="timeStamp" value="184" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/storage/Repository.java</url>
-          <line>250</line>
+          <line>252</line>
           <properties />
           <option name="timeStamp" value="188" />
         </line-breakpoint>
@@ -4252,7 +4362,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/storage/Repository.java</url>
-          <line>420</line>
+          <line>408</line>
           <properties />
           <option name="timeStamp" value="218" />
         </line-breakpoint>
@@ -4264,43 +4374,43 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/storage/Repository.java</url>
-          <line>118</line>
+          <line>115</line>
           <properties />
           <option name="timeStamp" value="224" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/storage/Repository.java</url>
-          <line>115</line>
+          <line>112</line>
           <properties />
           <option name="timeStamp" value="225" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/storage/Repository.java</url>
-          <line>175</line>
+          <line>171</line>
           <properties />
           <option name="timeStamp" value="226" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/storage/Repository.java</url>
-          <line>178</line>
+          <line>172</line>
           <properties />
           <option name="timeStamp" value="227" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/storage/Repository.java</url>
-          <line>192</line>
+          <line>186</line>
           <properties />
           <option name="timeStamp" value="229" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/storage/Repository.java</url>
-          <line>200</line>
+          <line>194</line>
           <properties />
           <option name="timeStamp" value="230" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/storage/Repository.java</url>
-          <line>416</line>
+          <line>404</line>
           <properties />
           <option name="timeStamp" value="231" />
         </line-breakpoint>
@@ -4510,7 +4620,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/storage/Repository.java</url>
-          <line>262</line>
+          <line>253</line>
           <properties />
           <option name="timeStamp" value="553" />
         </line-breakpoint>
@@ -4672,25 +4782,25 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/storage/Repository.java</url>
-          <line>481</line>
+          <line>466</line>
           <properties />
           <option name="timeStamp" value="604" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/storage/Repository.java</url>
-          <line>476</line>
+          <line>461</line>
           <properties />
           <option name="timeStamp" value="605" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/storage/Repository.java</url>
-          <line>487</line>
+          <line>472</line>
           <properties />
           <option name="timeStamp" value="606" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/storage/Repository.java</url>
-          <line>494</line>
+          <line>479</line>
           <properties />
           <option name="timeStamp" value="608" />
         </line-breakpoint>
@@ -4720,19 +4830,13 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/storage/Repository.java</url>
-          <line>425</line>
-          <properties />
-          <option name="timeStamp" value="618" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/storage/Repository.java</url>
-          <line>428</line>
+          <line>413</line>
           <properties />
           <option name="timeStamp" value="619" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/storage/Repository.java</url>
-          <line>426</line>
+          <line>411</line>
           <properties />
           <option name="timeStamp" value="620" />
         </line-breakpoint>
@@ -4804,49 +4908,49 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/storage/Repository.java</url>
-          <line>326</line>
+          <line>317</line>
           <properties />
           <option name="timeStamp" value="635" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/storage/Repository.java</url>
-          <line>330</line>
+          <line>321</line>
           <properties />
           <option name="timeStamp" value="636" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/storage/Repository.java</url>
-          <line>334</line>
+          <line>323</line>
           <properties />
           <option name="timeStamp" value="637" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/storage/Repository.java</url>
-          <line>323</line>
+          <line>314</line>
           <properties />
           <option name="timeStamp" value="638" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/storage/Repository.java</url>
-          <line>291</line>
+          <line>282</line>
           <properties />
           <option name="timeStamp" value="639" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/storage/Repository.java</url>
-          <line>328</line>
+          <line>319</line>
           <properties />
           <option name="timeStamp" value="640" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/storage/Repository.java</url>
-          <line>341</line>
+          <line>329</line>
           <properties />
           <option name="timeStamp" value="641" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/storage/Repository.java</url>
-          <line>347</line>
+          <line>335</line>
           <properties />
           <option name="timeStamp" value="642" />
         </line-breakpoint>
@@ -4912,14 +5016,14 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_web.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="497">
           <caret line="68" column="63" lean-forward="false" selection-start-line="68" selection-start-column="51" selection-end-line="68" selection-end-column="63" />
           <folding />
         </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
       </provider>
     </entry>
     <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.clans/fab/1.6.4/b2470845485e429cf879d98bc5bbcd3cf9578187/fab-1.6.4-sources.jar!/com/github/clans/fab/FloatingActionMenu.java">
@@ -5063,28 +5167,31 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/alert_dialog_login.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="367">
           <caret line="62" column="46" lean-forward="true" selection-start-line="62" selection-start-column="46" selection-end-line="62" selection-end-column="46" />
           <folding />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/alert_dialog_profile_anon.xml">
       <provider editor-type-id="android-designer2">
         <state />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/alert_dialog_profile_anon.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="267">
           <caret line="63" column="0" lean-forward="true" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
           <folding />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/content_auth.xml">
       <provider editor-type-id="android-designer2">
         <state />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/content_auth.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="385">
           <caret line="84" column="0" lean-forward="false" selection-start-line="84" selection-start-column="0" selection-end-line="84" selection-end-column="0" />
@@ -5093,9 +5200,6 @@
             <element signature="e#4555#6090#0" expanded="false" />
           </folding>
         </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/auth/AuthPresenter.java">
@@ -5129,25 +5233,25 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/alert_dialog_forgot_password.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="560">
           <caret line="28" column="21" lean-forward="false" selection-start-line="28" selection-start-column="21" selection-end-line="28" selection-end-column="21" />
           <folding />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/content_web.xml">
       <provider editor-type-id="android-designer2">
         <state />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/content_web.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="349">
           <caret line="71" column="23" lean-forward="false" selection-start-line="71" selection-start-column="23" selection-end-line="71" selection-end-column="23" />
           <folding />
         </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/utils/ViewHelper.java">
@@ -5161,25 +5265,25 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+      <provider editor-type-id="android-manifest">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="480">
           <caret line="24" column="43" lean-forward="false" selection-start-line="24" selection-start-column="43" selection-end-line="24" selection-end-column="43" />
           <folding />
         </state>
       </provider>
-      <provider editor-type-id="android-manifest">
-        <state />
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/navigation_view.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
           <caret line="38" column="41" lean-forward="false" selection-start-line="38" selection-start-column="33" selection-end-line="38" selection-end-column="41" />
           <folding />
         </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
       </provider>
     </entry>
     <entry file="file://$USER_HOME$/Android/Sdk/sources/android-26/android/webkit/WebView.java">
@@ -5208,7 +5312,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="274">
           <caret line="28" column="42" lean-forward="false" selection-start-line="28" selection-start-column="42" selection-end-line="28" selection-end-column="42" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -5254,7 +5357,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="460">
           <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -5276,108 +5378,172 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="44" column="43" lean-forward="true" selection-start-line="44" selection-start-column="43" selection-end-line="44" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/web/WebActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="287">
+          <caret line="876" column="56" lean-forward="false" selection-start-line="876" selection-start-column="56" selection-end-line="876" selection-end-column="56" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <marker date="1527598619461" expanded="true" signature="33377:33489" ph="{...}" />
+            <marker date="1527598619461" expanded="true" signature="33571:34283" ph="{...}" />
+            <marker date="1527598619461" expanded="true" signature="34350:35421" ph="{...}" />
+            <marker date="1527598619461" expanded="false" signature="34651:34797" ph="(value) → {" />
+            <marker date="1527598619461" expanded="false" signature="34954:34989" ph="}" />
+            <marker date="1527598619461" expanded="true" signature="36628:36745" ph="{...}" />
+            <marker date="1527598619461" expanded="true" signature="39428:39866" ph="{...}" />
+            <marker date="1527598619461" expanded="false" signature="39924:39935" ph=" { " />
+            <marker date="1527598619461" expanded="false" signature="39962:39968" ph=" }" />
+            <marker date="1527598619461" expanded="true" signature="40033:40139" ph="{...}" />
+            <marker date="1527598619461" expanded="true" signature="40179:40491" ph="{...}" />
+            <marker date="1527598619461" expanded="true" signature="40545:41360" ph="{...}" />
+            <marker date="1527598619461" expanded="true" signature="40581:40724" ph="//..." />
+            <marker date="1527598619461" expanded="true" signature="41201:41344" ph="//..." />
+            <marker date="1527598619461" expanded="false" signature="41390:41401" ph=" { " />
+            <marker date="1527598619461" expanded="false" signature="41432:41438" ph=" }" />
+            <marker date="1527598619461" expanded="true" signature="41480:45224" ph="{...}" />
+            <marker date="1527598619461" expanded="true" signature="43413:45061" ph="{...}" />
+            <marker date="1527598619461" expanded="true" signature="43528:44449" ph="{...}" />
+            <marker date="1527598619461" expanded="false" signature="44539:44574" ph=" { " />
+            <marker date="1527598619461" expanded="false" signature="44612:44642" ph=" }" />
+            <marker date="1527598619461" expanded="true" signature="44759:45035" ph="{...}" />
+            <marker date="1527598619461" expanded="true" signature="45251:45349" ph="{...}" />
+            <marker date="1527598619461" expanded="true" signature="45376:45429" ph="{...}" />
+            <marker date="1527598619461" expanded="true" signature="45472:45769" ph="{...}" />
+            <marker date="1527598619461" expanded="false" signature="45821:45832" ph=" { " />
+            <marker date="1527598619461" expanded="false" signature="45864:45870" ph=" }" />
+            <marker date="1527598619461" expanded="true" signature="45929:45987" ph="{...}" />
+            <marker date="1527598619461" expanded="false" signature="46033:46044" ph=" { " />
+            <marker date="1527598619461" expanded="false" signature="46076:46082" ph=" }" />
+            <marker date="1527598619461" expanded="true" signature="46130:46460" ph="{...}" />
+            <marker date="1527598619461" expanded="true" signature="46489:48844" ph="{...}" />
+            <marker date="1527598619461" expanded="true" signature="48905:49746" ph="{...}" />
+            <marker date="1527598619461" expanded="true" signature="49055:49738" ph="{...}" />
+            <marker date="1527598619461" expanded="true" signature="49162:49422" ph="{...}" />
+            <marker date="1527598619461" expanded="true" signature="49511:49526" ph="{...}" />
+            <marker date="1527598619461" expanded="true" signature="49615:49630" ph="{...}" />
+            <marker date="1527598619461" expanded="true" signature="49713:49728" ph="{...}" />
+            <marker date="1527598619461" expanded="true" signature="49785:50173" ph="{...}" />
+            <marker date="1527598619461" expanded="true" signature="50248:50303" ph="{...}" />
+            <marker date="1527598619461" expanded="true" signature="50343:51332" ph="{...}" />
+            <marker date="1527598619461" expanded="false" signature="50367:50437" ph="() → {" />
+            <marker date="1527598619461" expanded="false" signature="51309:51324" ph="}" />
+            <marker date="1527598619461" expanded="true" signature="51373:54034" ph="{...}" />
+            <marker date="1527598619461" expanded="false" signature="51444:51459" ph=" { " />
+            <marker date="1527598619461" expanded="false" signature="51479:51489" ph=" }" />
+            <marker date="1527598619461" expanded="true" signature="51574:51852" ph="{...}" />
+            <marker date="1527598619461" expanded="false" signature="51604:51682" ph="(Runnable) () → {" />
+            <marker date="1527598619461" expanded="false" signature="51821:51840" ph="}" />
+            <marker date="1527598619461" expanded="true" signature="51936:54027" ph="{...}" />
+            <marker date="1527598619461" expanded="false" signature="51966:52044" ph="(Runnable) () → {" />
+            <marker date="1527598619461" expanded="false" signature="52448:52566" ph="() → {" />
+            <marker date="1527598619461" expanded="false" signature="52941:52980" ph="}" />
+            <marker date="1527598619461" expanded="false" signature="53520:53622" ph="() → {" />
+            <marker date="1527598619461" expanded="false" signature="53928:53959" ph="}" />
+            <marker date="1527598619461" expanded="false" signature="53996:54015" ph="}" />
+            <marker date="1527598619461" expanded="true" signature="54105:54780" ph="{...}" />
+            <marker date="1527598619461" expanded="false" signature="54129:54199" ph="() → {" />
+            <marker date="1527598619461" expanded="false" signature="54417:54555" ph="(value) → {" />
+            <marker date="1527598619461" expanded="false" signature="54698:54729" ph="}" />
+            <marker date="1527598619461" expanded="false" signature="54757:54772" ph="}" />
+            <marker date="1527598619461" expanded="true" signature="54846:55239" ph="{...}" />
+            <marker date="1527598619461" expanded="true" signature="55285:55383" ph="{...}" />
+            <marker date="1527598619461" expanded="true" signature="55435:55580" ph="{...}" />
+            <marker date="1527598619461" expanded="true" signature="55627:60302" ph="{...}" />
+            <marker date="1527598619461" expanded="true" signature="56300:56646" ph="//..." />
+            <marker date="1527598619461" expanded="true" signature="57245:57385" ph="//..." />
+            <marker date="1527598619461" expanded="true" signature="57415:57515" ph="//..." />
+            <marker date="1527598619461" expanded="false" signature="57620:57698" ph="() → {" />
+            <marker date="1527598619461" expanded="true" signature="58506:58713" ph="//..." />
+            <marker date="1527598619461" expanded="false" signature="58726:58745" ph="}" />
+            <marker date="1527598619461" expanded="true" signature="58763:59383" ph="//..." />
+            <marker date="1527598619461" expanded="true" signature="59650:59728" ph="//..." />
+            <marker date="1527598619461" expanded="true" signature="59983:60286" ph="//..." />
+            <marker date="1527598619461" expanded="true" signature="60366:64670" ph="{...}" />
+            <marker date="1527598619461" expanded="true" signature="60376:60551" ph="//..." />
+            <marker date="1527598619461" expanded="true" signature="64709:65021" ph="{...}" />
+            <marker date="1527598619461" expanded="true" signature="65061:65372" ph="{...}" />
+            <marker date="1527598619461" expanded="true" signature="65426:65543" ph="{...}" />
+            <marker date="1527598619461" expanded="true" signature="65601:65858" ph="{...}" />
+            <marker date="1527598619461" expanded="true" signature="65912:66156" ph="{...}" />
+            <marker date="1527598619461" expanded="true" signature="66214:66592" ph="{...}" />
+            <marker date="1527598619461" expanded="true" signature="66646:67011" ph="{...}" />
+            <marker date="1527598619461" expanded="true" signature="67060:67651" ph="{...}" />
+            <marker date="1527598619461" expanded="true" signature="67685:67873" ph="{...}" />
+            <marker date="1527598619461" expanded="true" signature="67917:68168" ph="{...}" />
+            <marker date="1527598619461" expanded="true" signature="68217:68486" ph="{...}" />
+            <marker date="1527598619461" expanded="true" signature="68532:68789" ph="{...}" />
+            <marker date="1527598619461" expanded="true" signature="68837:69102" ph="{...}" />
+            <marker date="1527598619461" expanded="true" signature="69152:69425" ph="{...}" />
+            <marker date="1527598619461" expanded="false" signature="69481:69492" ph=" { " />
+            <marker date="1527598619461" expanded="false" signature="69523:69529" ph=" }" />
+            <marker date="1527598619461" expanded="false" signature="69582:69593" ph=" { " />
+            <marker date="1527598619461" expanded="false" signature="69621:69627" ph=" }" />
+            <marker date="1527598619461" expanded="false" signature="69682:69692" ph=" { " />
+            <marker date="1527598619461" expanded="false" signature="69722:69728" ph=" }" />
+            <marker date="1527598619461" expanded="false" signature="69785:69796" ph=" { " />
+            <marker date="1527598619461" expanded="false" signature="69828:69834" ph=" }" />
+            <marker date="1527598619461" expanded="true" signature="69875:70003" ph="{...}" />
+            <marker date="1527598619461" expanded="true" signature="70044:70176" ph="{...}" />
+            <marker date="1527598619461" expanded="true" signature="70241:70625" ph="{...}" />
+            <marker date="1527598619461" expanded="true" signature="70663:72239" ph="{...}" />
+            <marker date="1527598619461" expanded="true" signature="72326:72794" ph="{...}" />
+            <marker date="1527598619461" expanded="true" signature="72927:74016" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/storage/Repository.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="550" column="21" lean-forward="false" selection-start-line="550" selection-start-column="21" selection-end-line="550" selection-end-column="21" />
+        <state relative-caret-position="58">
+          <caret line="541" column="84" lean-forward="false" selection-start-line="541" selection-start-column="84" selection-end-line="541" selection-end-column="84" />
           <folding>
-            <marker date="1527517707907" expanded="false" signature="2266:2336" ph="(Runnable) () → {" />
-            <marker date="1527517707907" expanded="true" signature="23746:25203" ph="{...}" />
-            <marker date="1527517707907" expanded="true" signature="24084:24945" ph="{...}" />
-            <marker date="1527517707907" expanded="true" signature="24225:24617" ph="{...}" />
-            <marker date="1527517707907" expanded="true" signature="24737:24923" ph="{...}" />
-            <marker date="1527517707907" expanded="false" signature="25180:25195" ph="}" />
-            <marker date="1527517707907" expanded="false" signature="25232:25243" ph=" { " />
-            <marker date="1527517707907" expanded="false" signature="25264:25270" ph=" }" />
-            <marker date="1527517707907" expanded="true" signature="25320:27051" ph="{...}" />
-            <marker date="1527517707907" expanded="true" signature="26560:26967" ph="{...}" />
-            <marker date="1527517707907" expanded="false" signature="26643:26674" ph=" { " />
-            <marker date="1527517707907" expanded="false" signature="26720:26746" ph=" }" />
-            <marker date="1527517707907" expanded="true" signature="26845:26945" ph="{...}" />
-            <marker date="1527517707907" expanded="false" signature="27057:27089" ph="/deprecation/" />
-            <marker date="1527517707907" expanded="true" signature="27148:27755" ph="{...}" />
-            <marker date="1527517707907" expanded="true" signature="27297:27674" ph="{...}" />
-            <marker date="1527517707907" expanded="true" signature="27373:27498" ph="{...}" />
-            <marker date="1527517707907" expanded="false" signature="27588:27615" ph=" { " />
-            <marker date="1527517707907" expanded="false" signature="27634:27656" ph=" }" />
-            <marker date="1527517707907" expanded="true" signature="27800:28590" ph="{...}" />
-            <marker date="1527517707907" expanded="false" signature="28617:28628" ph=" { " />
-            <marker date="1527517707907" expanded="false" signature="28640:28646" ph=" }" />
-            <marker date="1527517707907" expanded="true" signature="28701:28896" ph="{...}" />
-            <marker date="1527517707907" expanded="true" signature="28928:29209" ph="{...}" />
+            <marker date="1527598608377" expanded="false" signature="2266:2336" ph="(Runnable) () → {" />
+            <marker date="1527598608377" expanded="true" signature="23746:25203" ph="{...}" />
+            <marker date="1527598608377" expanded="true" signature="24084:24945" ph="{...}" />
+            <marker date="1527598608377" expanded="true" signature="24225:24617" ph="{...}" />
+            <marker date="1527598608377" expanded="true" signature="24737:24923" ph="{...}" />
+            <marker date="1527598608377" expanded="false" signature="25180:25195" ph="}" />
+            <marker date="1527598608377" expanded="false" signature="25232:25243" ph=" { " />
+            <marker date="1527598608377" expanded="false" signature="25264:25270" ph=" }" />
+            <marker date="1527598608377" expanded="true" signature="25320:27051" ph="{...}" />
+            <marker date="1527598608377" expanded="true" signature="26560:26967" ph="{...}" />
+            <marker date="1527598608377" expanded="false" signature="26643:26674" ph=" { " />
+            <marker date="1527598608377" expanded="false" signature="26720:26746" ph=" }" />
+            <marker date="1527598608377" expanded="true" signature="26845:26945" ph="{...}" />
+            <marker date="1527598608377" expanded="false" signature="27057:27089" ph="/deprecation/" />
+            <marker date="1527598608377" expanded="true" signature="27148:27755" ph="{...}" />
+            <marker date="1527598608377" expanded="true" signature="27297:27674" ph="{...}" />
+            <marker date="1527598608377" expanded="true" signature="27373:27498" ph="{...}" />
+            <marker date="1527598608377" expanded="false" signature="27588:27615" ph=" { " />
+            <marker date="1527598608377" expanded="false" signature="27634:27656" ph=" }" />
+            <marker date="1527598608377" expanded="true" signature="27800:28590" ph="{...}" />
+            <marker date="1527598608377" expanded="false" signature="28617:28628" ph=" { " />
+            <marker date="1527598608377" expanded="false" signature="28640:28646" ph=" }" />
+            <marker date="1527598608377" expanded="true" signature="28701:28896" ph="{...}" />
+            <marker date="1527598608377" expanded="true" signature="28928:29209" ph="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/api/Api.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="11" column="42" lean-forward="false" selection-start-line="11" selection-start-column="42" selection-end-line="11" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/web/WebActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="767" column="21" lean-forward="false" selection-start-line="767" selection-start-column="15" selection-end-line="767" selection-end-column="21" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <marker date="1527517744723" expanded="false" signature="34651:34797" ph="(value) → {" />
-            <marker date="1527517744723" expanded="false" signature="34954:34989" ph="}" />
-            <marker date="1527517744723" expanded="false" signature="39924:39935" ph=" { " />
-            <marker date="1527517744723" expanded="false" signature="39962:39968" ph=" }" />
-            <marker date="1527517744723" expanded="false" signature="41390:41401" ph=" { " />
-            <marker date="1527517744723" expanded="false" signature="41432:41438" ph=" }" />
-            <marker date="1527517744723" expanded="false" signature="44539:44574" ph=" { " />
-            <marker date="1527517744723" expanded="false" signature="44612:44642" ph=" }" />
-            <marker date="1527517744723" expanded="false" signature="45821:45832" ph=" { " />
-            <marker date="1527517744723" expanded="false" signature="45864:45870" ph=" }" />
-            <marker date="1527517744723" expanded="false" signature="45929:45987" ph="{...}" />
-            <marker date="1527517744723" expanded="false" signature="46033:46044" ph=" { " />
-            <marker date="1527517744723" expanded="false" signature="46076:46082" ph=" }" />
-            <marker date="1527517744723" expanded="false" signature="50367:50437" ph="() → {" />
-            <marker date="1527517744723" expanded="false" signature="51309:51324" ph="}" />
-            <marker date="1527517744723" expanded="false" signature="51444:51459" ph=" { " />
-            <marker date="1527517744723" expanded="false" signature="51479:51489" ph=" }" />
-            <marker date="1527517744723" expanded="false" signature="51604:51682" ph="(Runnable) () → {" />
-            <marker date="1527517744723" expanded="false" signature="51821:51840" ph="}" />
-            <marker date="1527517744723" expanded="false" signature="51966:52044" ph="(Runnable) () → {" />
-            <marker date="1527517744723" expanded="false" signature="52448:52566" ph="() → {" />
-            <marker date="1527517744723" expanded="false" signature="52941:52980" ph="}" />
-            <marker date="1527517744723" expanded="false" signature="53520:53622" ph="() → {" />
-            <marker date="1527517744723" expanded="false" signature="53928:53959" ph="}" />
-            <marker date="1527517744723" expanded="false" signature="53996:54015" ph="}" />
-            <marker date="1527517744723" expanded="false" signature="54129:54199" ph="() → {" />
-            <marker date="1527517744723" expanded="false" signature="54417:54555" ph="(value) → {" />
-            <marker date="1527517744723" expanded="false" signature="54698:54729" ph="}" />
-            <marker date="1527517744723" expanded="false" signature="54757:54772" ph="}" />
-            <marker date="1527517744723" expanded="false" signature="57620:57698" ph="() → {" />
-            <marker date="1527517744723" expanded="false" signature="58726:58745" ph="}" />
-            <marker date="1527517744723" expanded="false" signature="69481:69492" ph=" { " />
-            <marker date="1527517744723" expanded="false" signature="69523:69529" ph=" }" />
-            <marker date="1527517744723" expanded="false" signature="69582:69593" ph=" { " />
-            <marker date="1527517744723" expanded="false" signature="69621:69627" ph=" }" />
-            <marker date="1527517744723" expanded="false" signature="69682:69692" ph=" { " />
-            <marker date="1527517744723" expanded="false" signature="69722:69728" ph=" }" />
-            <marker date="1527517744723" expanded="false" signature="69785:69796" ph=" { " />
-            <marker date="1527517744723" expanded="false" signature="69828:69834" ph=" }" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="44" column="43" lean-forward="true" selection-start-line="44" selection-start-column="43" selection-end-line="44" selection-end-column="43" />
+        <state relative-caret-position="274">
+          <caret line="32" column="51" lean-forward="false" selection-start-line="32" selection-start-column="51" selection-end-line="32" selection-end-column="51" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="307">
-          <caret line="37" column="24" lean-forward="false" selection-start-line="37" selection-start-column="24" selection-end-line="37" selection-end-column="24" />
+        <state relative-caret-position="134">
+          <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
           <folding />
         </state>
       </provider>
