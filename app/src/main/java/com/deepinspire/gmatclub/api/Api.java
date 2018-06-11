@@ -20,7 +20,7 @@ public class Api {
     //    public static final String FORUM_LOGOUT_URL = HOME_URL + "/forum/ucp.php?mode=logout";
     public static final String FORUM_REGISTER_URL = HOME_URL + "/forum/ucp.php?mode=register";
 
-    public static final String FORUM_NOTIFICATIONS = HOME_URL + "/forum/notifications-view";
+    public static final String FORUM_NOTIFICATIONS = HOME_URL + "/forum/mobileAppNotifications.html";
 
     public static final String PROFILE = HOME_URL + "/forum/members";
 
@@ -40,6 +40,7 @@ public class Api {
     public static final String UCP_URL = HOME_URL + "/forum/ucp.php";
     public static final String UCP_MY_POSTS_URL = UCP_URL + "?i=291";
     public static final String UCP_MY_BOOKMARKS_URL = UCP_URL + "?i=main&mode=bookmarks";
+    public static final String UCP_MY_ERROR_LOG_URL = UCP_URL + "?i=error_log&mode=error_log";
     public static final String UCP_MY_SETTINGS_URL = UCP_URL + "?i=301";
 
     public static String PM_URL = UCP_URL + "?i=pm&amp;folder=inbox";

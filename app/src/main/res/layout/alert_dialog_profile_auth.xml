@@ -55,6 +55,13 @@
                    android:textColor="#666666"
                    android:text="My bookmarks" />
 
+               <TextView
+                   android:id="@+id/btnMyErrorLog"
+                   style="@style/alert_subTitle"
+                   android:layout_marginTop="25dp"
+                   android:textColor="#666666"
+                   android:text="My Error Log" />
+
                <View
                    android:id="@+id/splitLine"
                    android:layout_width="match_parent"

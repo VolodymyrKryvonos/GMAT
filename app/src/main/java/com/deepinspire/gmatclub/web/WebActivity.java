@@ -700,7 +700,7 @@ public class WebActivity extends AppCompatActivity implements
                 openPageFromHamburgerMenu(R.id.menu_pms, Api.PM_URL);
                 break;
             case R.id.menu_notifications:
-                openPageFromHamburgerMenu(R.id.menu_notifications, "file:///android_asset/notifications.html");
+                openPageFromHamburgerMenu(R.id.menu_notifications, Api.FORUM_NOTIFICATIONS/*"file:///android_asset/notifications.html"*/);
                 break;
             case R.id.menu_practice:
                 openPageFromHamburgerMenu(R.id.menu_practice, Api.PRACTICE_URL);
@@ -1111,6 +1111,9 @@ public class WebActivity extends AppCompatActivity implements
                 break;
             case "myBookmarks":
                 openPage(Api.UCP_MY_BOOKMARKS_URL);
+                break;
+            case "myErrorLog":
+                openPage(Api.UCP_MY_ERROR_LOG_URL);
                 break;
             case "settings":
                 openPage(Api.UCP_MY_SETTINGS_URL);
