@@ -22,7 +22,7 @@
                style="@style/alert_subTitle"
                android:layout_width="wrap_content"
                android:fontFamily="@font/opensans_bold"
-               android:text="Profile"
+               android:text="@string/menu_profile_title"
                android:textAllCaps="true" />
 
            <LinearLayout
@@ -39,21 +39,28 @@
                    android:textColor="#666666"
                    android:fontFamily="@font/opensans_regular"
                    android:fontStyle="normal"
-                   android:text="My Profile" />
+                   android:text="@string/menu_profile_profile_name" />
 
                <TextView
                    android:id="@+id/btnMyPosts"
                    style="@style/alert_subTitle"
                    android:layout_marginTop="25dp"
                    android:textColor="#666666"
-                   android:text="My posts" />
+                   android:text="@string/menu_profile_posts" />
 
                <TextView
                    android:id="@+id/btnMyBookmarks"
                    style="@style/alert_subTitle"
                    android:layout_marginTop="25dp"
                    android:textColor="#666666"
-                   android:text="My bookmarks" />
+                   android:text="@string/menu_profile_bookmarks" />
+
+               <TextView
+                   android:id="@+id/btnMyErrorLog"
+                   style="@style/alert_subTitle"
+                   android:layout_marginTop="25dp"
+                   android:textColor="#666666"
+                   android:text="@string/menu_profile_error_log" />
 
                <View
                    android:id="@+id/splitLine"
@@ -81,7 +88,7 @@
                        android:layout_marginBottom="0dp"
                        android:layout_marginLeft="10dp"
                        android:textColor="#666666"
-                       android:text="Settings" />
+                       android:text="@string/menu_profile_settings" />
                </LinearLayout>
 
                <LinearLayout
@@ -102,7 +109,7 @@
                        android:layout_marginBottom="0dp"
                        android:layout_marginLeft="10dp"
                        android:textColor="#666666"
-                       android:text="Logout" />
+                       android:text="@string/menu_profile_logout" />
                </LinearLayout>
 
            </LinearLayout>

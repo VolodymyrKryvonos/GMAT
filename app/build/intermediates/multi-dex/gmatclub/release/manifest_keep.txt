@@ -1,3 +1,3 @@
-# Referenced at /home/dmytro/projects/gmatclub/android/app/build/intermediates/manifests/full/gmatclub/release/AndroidManifest.xml:27
+# Referenced at /home/dmytro/projects/gmatclub/android/app/build/intermediates/manifests/full/gmatclub/release/AndroidManifest.xml:31
 -keep class com.deepinspire.gmatclub.Application { <init>(...); }
 
