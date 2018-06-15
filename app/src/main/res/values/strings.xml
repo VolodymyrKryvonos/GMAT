@@ -4,6 +4,30 @@
     <string name="title_activity_web">Web</string>
     <string name="title_activity_auth">Auth</string>
 
+    <!-- Menu profile -->
+    <string name="menu_profile_title">Profile</string>
+    <string name="menu_profile_settings">Forum Settings</string>
+    <string name="menu_profile_logout">Logout</string>
+    <string name="menu_profile_error_log">My Error Log</string>
+    <string name="menu_profile_bookmarks">My bookmarks</string>
+    <string name="menu_profile_posts">My posts</string>
+    <string name="menu_profile_profile_name">My Profile</string>
+
+
+    <!-- Hamburger menu -->
+    <string name="hm_forum">forum</string>
+    <string name="hm_pms">PMs</string>
+    <string name="hm_notifications">notifications</string>
+    <string name="hm_practice">practice</string>
+    <string name="hm_chat">chat</string>
+    <string name="hm_reviews">reviews</string>
+    <string name="hm_deals_discounts">deals and discounts</string>
+    <string name="hm_advanced_search">advanced search</string>
+    <string name="hm_new_posts">new posts</string>
+    <string name="hm_app_feedback">app feedback</string>
+    <string name="hm_unanswered">unanswered</string>
+    <string name="hm_notification_settings">Notification Settings</string>
+
     <!--Menu strings-->
     <string name="menu_scan">Add New</string>
     <string name="menu_myProspect">My Prospects</string>

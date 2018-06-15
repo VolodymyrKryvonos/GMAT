@@ -25,7 +25,7 @@
             <TextView
                 android:layout_marginTop="13dp"
                 android:id="@+id/menu_forum"
-                android:text="forum"
+                android:text="@string/hm_forum"
                 android:gravity="left"
                 android:onClick="goByMenu"
                 style="@style/menuButtons"
@@ -45,7 +45,7 @@
                     android:layout_margin="0dp"
                     android:layout_centerVertical="true"
                     android:layout_alignParentLeft="true"
-                    android:text="PMs" />
+                    android:text="@string/hm_pms" />
 
                 <TextView
                     android:id="@+id/menu_pms_count"
@@ -81,7 +81,7 @@
                     android:layout_centerHorizontal="true"
                     android:layout_alignParentLeft="true"
                     android:layout_margin="0dp"
-                    android:text="NOTIFICATIONS" />
+                    android:text="@string/hm_notifications" />
 
                 <TextView
                     android:id="@+id/menu_notifications_count"
@@ -109,56 +109,63 @@
                 style="@style/menuButtons"
                 android:onClick="goByMenu"
                 android:gravity="left"
-                android:text="PRACTICE" />
+                android:text="@string/hm_practice" />
 
             <TextView
                 android:id="@+id/menu_chat"
                 style="@style/menuButtons"
                 android:onClick="goByMenu"
                 android:gravity="left"
-                android:text="CHAT" />
+                android:text="@string/hm_chat" />
 
             <TextView
                 android:id="@+id/menu_reviews"
                 style="@style/menuButtons"
                 android:onClick="goByMenu"
                 android:gravity="left"
-                android:text="REVIEWS" />
+                android:text="@string/hm_reviews" />
 
             <TextView
                 android:id="@+id/menu_deals_discounts"
                 style="@style/menuButtons"
                 android:onClick="goByMenu"
                 android:gravity="left"
-                android:text="DEALS AND DISCOUNTS" />
+                android:text="@string/hm_deals_discounts" />
 
             <TextView
                 android:id="@+id/menu_advanced_search"
                 style="@style/menuButtons"
                 android:onClick="goByMenu"
                 android:gravity="left"
-                android:text="ADVANCED SEARCH" />
+                android:text="@string/hm_advanced_search" />
 
             <TextView
                 android:id="@+id/menu_new_posts"
                 style="@style/menuButtons"
                 android:onClick="goByMenu"
                 android:gravity="left"
-                android:text="NEW POSTS" />
+                android:text="@string/hm_new_posts" />
 
             <TextView
                 android:id="@+id/menu_feedback"
                 style="@style/menuButtons"
                 android:onClick="goByMenu"
                 android:gravity="left"
-                android:text="APP FEEDBACK" />
+                android:text="@string/hm_app_feedback" />
 
             <TextView
                 android:id="@+id/menu_unanswered"
                 style="@style/menuButtons"
                 android:onClick="goByMenu"
                 android:gravity="left"
-                android:text="UNANSWERED" />
+                android:text="@string/hm_unanswered" />
+
+            <TextView
+                android:id="@+id/menu_notification_settings"
+                style="@style/menuButtons"
+                android:onClick="goByMenu"
+                android:gravity="left"
+                android:text="@string/hm_notification_settings" />
         </LinearLayout>
 
     </ScrollView>
