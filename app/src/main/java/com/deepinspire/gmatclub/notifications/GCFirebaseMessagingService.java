@@ -15,7 +15,7 @@ public class GCFirebaseMessagingService extends FirebaseMessagingService {
      */
     @Override
     public void onMessageReceived(RemoteMessage remoteMessage) {
-        if (Injection.getRepository(getApplicationContext()).logged() && remoteMessage.getData().size() > 0) {
+      if (Injection.getRepository(getApplicationContext()).logged() && remoteMessage.getData().size() > 0) {
             Notifications notifications = new Notifications(getApplicationContext());
             notifications.send(remoteMessage);
         }

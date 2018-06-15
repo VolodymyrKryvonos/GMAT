@@ -20,7 +20,7 @@ public class Api {
     //    public static final String FORUM_LOGOUT_URL = HOME_URL + "/forum/ucp.php?mode=logout";
     public static final String FORUM_REGISTER_URL = HOME_URL + "/forum/ucp.php?mode=register";
 
-    public static final String FORUM_NOTIFICATIONS = HOME_URL + "/forum/notifications-view";
+    public static final String FORUM_NOTIFICATIONS = HOME_URL + "/forum/mobileAppNotifications.html";
 
     public static final String PROFILE = HOME_URL + "/forum/members";
 
@@ -33,15 +33,19 @@ public class Api {
     public static final String COOKIES = "cookies";
 
     public static final String TESTS_URL = HOME_URL + "/tests-beta";
+    public static final String PRACTICE_URL = HOME_URL + "/practice.php";
     public static final String DEALS_URL = HOME_URL + "/marketplace";
     public static final String REVIEWS_URL = HOME_URL + "/reviews";
     public static final String CHAT_URL = HOME_URL + "/gchat";
     public static final String UCP_URL = HOME_URL + "/forum/ucp.php";
     public static final String UCP_MY_POSTS_URL = UCP_URL + "?i=291";
-    public static final String UCP_MY_BOOKMARKS_URL = UCP_URL + "?i=222";
+    public static final String UCP_MY_BOOKMARKS_URL = UCP_URL + "?i=main&mode=bookmarks";
+    public static final String UCP_MY_ERROR_LOG_URL = UCP_URL + "?i=error_log&mode=error_log";
     public static final String UCP_MY_SETTINGS_URL = UCP_URL + "?i=301";
 
     public static String PM_URL = UCP_URL + "?i=pm&amp;folder=inbox";
+    public static String PM_NEW_URL = UCP_URL + "?i=pm&mode=compose";
+
     public static final String FORUM_SEARCH = HOME_URL + "/forum/advanced-search/";
 
     public static final String FORUM_SEARCH_MY_POSTS = FORUM_URL + "/search.php?search_id=egosearch";

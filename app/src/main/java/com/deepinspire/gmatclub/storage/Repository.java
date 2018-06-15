@@ -2,6 +2,9 @@ package com.deepinspire.gmatclub.storage;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Build;
 import android.support.annotation.NonNull;
 import android.util.Base64;
@@ -17,6 +20,8 @@ import com.deepinspire.gmatclub.api.AuthException;
 import com.facebook.login.LoginManager;
 import com.google.firebase.iid.FirebaseInstanceId;
 
+import java.io.IOException;
+import java.net.UnknownHostException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
@@ -107,13 +112,13 @@ public class Repository implements IStorage {
                         @Override
                         public void onResponse(Call<String> call, Response<String> response) {
                             if (!response.isSuccessful()) {
-                                AuthException exc = new AuthException(new Exception("login or password failed"), "login");
+                                AuthException exc = new AuthException(new Exception("Incorrect Login and Password"), "login", "Incorrect Login and Password");
                                 callback.onError(exc);
                             } else {
                                if(logged()) {
                                    callback.onSuccess();
                                } else {
-                                   AuthException exc = new AuthException(new Exception("login or password failed"), "login");
+                                   AuthException exc = new AuthException(new Exception("Incorrect Login and Password"), "login", "Incorrect Login and Password");
                                    callback.onError(exc);
                                }
                             }
@@ -121,13 +126,23 @@ public class Repository implements IStorage {
 
                         @Override
                         public void onFailure(Call<String> call, Throwable t) {
-                            AuthException exc = new AuthException(new Exception(t.getMessage()), "login");
+                            String message = t.getMessage();
+                            String action = "";
+
+                            if(t instanceof UnknownHostException) {
+                                message = "No Internet connection detected";
+                                action = "UNKNOWN_HOST";
+                            }
+
+                            AuthException exc = new AuthException(new Exception(message), "login", message);
+                            exc.setAction(action);
+
                             callback.onError(exc);
                         }
                     });
 
                 } catch (final Exception exception) {
-                    AuthException exc = new AuthException(new Exception("login or password failed"), "login");
+                    AuthException exc = new AuthException(new Exception("Incorrect Login and Password"), "login", "Incorrect Login and Password");
                     callback.onError(exc);
                 }
             }
@@ -173,7 +188,17 @@ public class Repository implements IStorage {
 
                         @Override
                         public void onFailure(Call<String> call, Throwable t) {
-                            AuthException exc = new AuthException(new Exception(t.getMessage()), "forgotPassword");
+                            String message = t.getMessage();
+                            String action = "";
+
+                            if(t instanceof UnknownHostException) {
+                                message = "No Internet connection detected";
+                                action = "UNKNOWN_HOST";
+                            }
+
+                            AuthException exc = new AuthException(new Exception(message), "forgotPassword", message);
+                            exc.setAction(action);
+
                             callback.onError(exc);
                         }
                     });
@@ -186,30 +211,38 @@ public class Repository implements IStorage {
         });
     }
 
-    public void updateNotify(@NonNull final int count, @NonNull final ICallbackAuth callback) {
+    public void updateNotify(@NonNull final int count, final String params, @NonNull final ICallbackNotifications callback) {
         executorService.submit(new Runnable() {
             @Override
             public void run() {
                 try {
-                    Map<String, String> params= new HashMap<>();
+                    Map<String, String> queryMap= new HashMap<>();
 
-                    if(count == 0) {
-                        params.put("_", Long.toString(new Date().getTime()));
-                        params.put("action", "update");
-                        params.put("cb", Long.toString(new Date().getTime()));
-                        params.put("group", "");
-                        params.put("refresh", "0");
-                        params.put("type", "all");
-                        params.put("unwatched", "0");
+                    if(params != null) {
+                        String[] prms = params.split("&");
+
+                        for(String param: prms) {
+                            queryMap.put((param.split("="))[0], (param.split("="))[1]);
+                        }
                     } else {
-                        params.put("_", Long.toString(new Date().getTime()));
-                        params.put("action", "update");
-                        params.put("cb", Long.toString(new Date().getTime()));
-                        params.put("data", "group_general");
-                        params.put("group", "group_general");
-                        params.put("refresh", "0");
-                        params.put("type", "group");
-                        params.put("unwatched", "0");
+                        if(count == 0) {
+                            queryMap.put("_", Long.toString(new Date().getTime()));
+                            queryMap.put("action", "update");
+                            queryMap.put("cb", Long.toString(new Date().getTime()));
+                            queryMap.put("group", "group_general");
+                            queryMap.put("refresh", "0");
+                            queryMap.put("type", "all");
+                            queryMap.put("unwatched", "0");
+                        } else {
+                            queryMap.put("_", Long.toString(new Date().getTime()));
+                            queryMap.put("action", "update");
+                            queryMap.put("cb", Long.toString(new Date().getTime()));
+                            queryMap.put("data", "group_general");
+                            queryMap.put("group", "group_general");
+                            queryMap.put("refresh", "0");
+                            queryMap.put("type", "group");
+                            queryMap.put("unwatched", "0");
+                        }
                     }
 
                     ApiInterface apiService = (new ApiClient()).getClient().create(ApiInterface.class);
@@ -221,7 +254,7 @@ public class Repository implements IStorage {
 
                     String authHeader = "Basic " + Base64.encodeToString(base.getBytes(), Base64.NO_WRAP);
 
-                    Call<ResponseBody> call = apiService.updateNotify(authHeader, params);
+                    Call<ResponseBody> call = apiService.updateNotify(authHeader, queryMap);
 
                     call.enqueue(new retrofit2.Callback<ResponseBody>() {
                         @Override
@@ -231,11 +264,88 @@ public class Repository implements IStorage {
                                 callback.onError(ex);
                             } else {
                                if(logged()) {
-                                   callback.onSuccess();
+                                   try {
+                                       callback.onSuccess(response.body().string().toString());
+                                   } catch (IOException e) {
+                                       e.printStackTrace();
+                                   } finally {
+                                       callback.onSuccess(null);
+                                   }
                                } else {
                                    AuthException ex = new AuthException(new Exception("Login or password failed"), "login");
                                    callback.onError(ex);
                                }
+                            }
+                        }
+
+                        @Override
+                        public void onFailure(Call<ResponseBody> call, Throwable t) {
+                            AuthException ex = new AuthException(new Exception("Failed updating notify"), "updateNotify");
+                            callback.onError(ex);
+                        }
+                    });
+
+                } catch (final Exception exception) {
+                    AuthException ex = new AuthException(new Exception("Failed updating notify"), "updateNotify");
+                    callback.onError(ex);
+                }
+            }
+        });
+    }
+
+    public void getNotifications(final String params, @NonNull final ICallbackNotifications callback) {
+        executorService.submit(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    Map<String, String> queryMap= new HashMap<>();
+
+                    if(params != null) {
+                        String[] prms = params.split("&");
+
+                        for(String param: prms) {
+                            queryMap.put((param.split("="))[0], (param.split("="))[1]);
+                        }
+                    } else {
+                        queryMap.put("_", Long.toString(new Date().getTime()));
+                        queryMap.put("action", "get");
+                        queryMap.put("cb", Long.toString(new Date().getTime()));
+                        queryMap.put("group", "group_general");
+                        queryMap.put("refresh", "0");
+                        queryMap.put("type", "all");
+                        queryMap.put("unwatched", "0");
+                    }
+
+                    ApiInterface apiService = (new ApiClient()).getClient().create(ApiInterface.class);
+
+                    String username = "guest";
+                    String password = "GCTesterNew1";
+
+                    String base = username + ":" + password;
+
+                    String authHeader = "Basic " + Base64.encodeToString(base.getBytes(), Base64.NO_WRAP);
+
+                    Call<ResponseBody> call = apiService.getNotifications(authHeader, queryMap);
+
+                    call.enqueue(new retrofit2.Callback<ResponseBody>() {
+                        @Override
+                        public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                            if (!response.isSuccessful()) {
+                                AuthException ex = new AuthException(new Exception("Failed updating notify"), "updateNotify");
+                                callback.onError(ex);
+                            } else {
+                                if(logged()) {
+                                    try {
+                                        callback.onSuccess(response.body().string().toString());
+                                    } catch (IOException e) {
+                                        e.printStackTrace();
+                                    } finally {
+                                        callback.onSuccess(null);
+                                    }
+                                } else {
+                                    AuthException ex = new AuthException(new Exception("Login or password failed"), "login");
+                                    callback.onError(ex);
+                                }
                             }
                         }
 
@@ -277,7 +387,10 @@ public class Repository implements IStorage {
                     params.put("provider", provider);
                     params.put("token_type", provider);
                     params.put("access_token", accessToken);
+                    params.put("id_token", idToken);
                     params.put("expires_in", formattedDate);
+                    //params.put("action", "register");
+                    params.put("login", "Login");
                     /*params.put("mode", "login");*/
 
                     ApiInterface apiService = (new ApiClient()).getClient().create(ApiInterface.class);
@@ -289,6 +402,9 @@ public class Repository implements IStorage {
                     rb = RequestBody.create(MediaType.parse("text/plain"), "Login");
                     mp.put("login", rb);
 
+                    rb = RequestBody.create(MediaType.parse("text/plain"), idToken);
+                    mp.put("id_token", rb);
+
                     String username = "guest";
                     String password = "GCTesterNew1";
 
@@ -296,7 +412,22 @@ public class Repository implements IStorage {
 
                     String authHeader = "Basic " + Base64.encodeToString(base.getBytes(), Base64.NO_WRAP);
 
-                    Call<ResponseBody> call = apiService.signInSocial(authHeader, params, mp);
+                    Map<String, String> headers = new HashMap<>();
+
+                    headers.put("Accept", "application/json");
+                    headers.put("Accept-Charset", "utf-8");
+
+                    String device = Build.MODEL + " " + Build.VERSION.RELEASE + " GMAT Club Forum";// + getString(R.string.app_name);
+
+                    try {
+                        device += "/" + context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionName;
+                    } catch (PackageManager.NameNotFoundException e) {
+                        e.printStackTrace();
+                    }
+
+                    headers.put("My-Agent", device);
+
+                    Call<ResponseBody> call = apiService.signInSocial(headers, params, mp);
 
                     call.enqueue(new retrofit2.Callback<ResponseBody>() {
                         @Override
@@ -306,13 +437,64 @@ public class Repository implements IStorage {
                                 AuthException ex = new AuthException(new Exception(response.errorBody().toString()), "login");
                                 callback.onError(ex);
                             } else {
-                               if(logged()) {
+                                try {
+                                    String body = response.body().string();
+                                    String body1 = response.body().string();
+                                } catch (IOException e) {
+                                    e.printStackTrace();
+                                }
+
+                                if(logged()) {
                                    callback.onSuccess();
                                } else {
                                    LoginManager.getInstance().logOut();
                                    AuthException ex = new AuthException(new Exception("Login or password failed"), "login");
                                    callback.onError(ex);
                                }
+                            }
+                        }
+
+                        @Override
+                        public void onFailure(Call<ResponseBody> call, Throwable t) {
+                            LoginManager.getInstance().logOut();
+                            AuthException ex = new AuthException(new Exception(t.getMessage()), "login");
+                            callback.onError(ex);
+                        }
+                    });
+
+                } catch (final Exception exception) {
+                    LoginManager.getInstance().logOut();
+                    AuthException ex = new AuthException(new Exception(exception.getMessage()), "login");
+                    callback.onError(ex);
+                }
+            }
+        });
+    }
+
+    public void getTokenInfo(@NonNull final String code, @NonNull final ICallbackAuth callback) {
+        executorService.submit(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    ApiInterface apiService = (new ApiClient()).getClient().create(ApiInterface.class);
+
+                    LinkedHashMap<String, RequestBody> mp = new LinkedHashMap<>();
+
+                    Map<String, String> queryMap= new HashMap<>();
+
+                    queryMap.put("id_token", code);
+
+                    Call<ResponseBody> call = apiService.getToken(queryMap);
+
+                    call.enqueue(new retrofit2.Callback<ResponseBody>() {
+                        @Override
+                        public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                            if (!response.isSuccessful()) {
+                                LoginManager.getInstance().logOut();
+                                AuthException ex = new AuthException(new Exception(response.errorBody().toString()), "login");
+                                callback.onError(ex);
+                            } else {
+                                callback.onSuccess();
                             }
                         }
 
@@ -507,5 +689,14 @@ public class Repository implements IStorage {
             sharedPreferences = context.getSharedPreferences(GCConfig.GMATCLUB, Context.MODE_PRIVATE);
         }
         return sharedPreferences;
+    }
+
+    public boolean isOnline() {
+        ConnectivityManager cm =
+                (ConnectivityManager)context.getSystemService(Context.CONNECTIVITY_SERVICE);
+
+        NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
+
+        return (activeNetwork != null && activeNetwork.isConnectedOrConnecting());
     }
 }

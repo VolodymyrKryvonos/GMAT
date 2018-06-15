@@ -74,6 +74,7 @@ class FieldWatcher implements TextWatcher {
                 EditText forgotPasswordInputEmail = (EditText) dialogLayout.findViewById(R.id.forgotPasswordInputEmail);
 
                 if(Validator.validEmail(forgotPasswordInputEmail.getText().toString().trim())) {
+                    errorMessage = (TextView) dialogLayout.findViewById(R.id.message);
                     errorMessage.setVisibility(View.GONE);
                     errorMessage.setText("");
                     forgotPasswordInputEmail.setBackgroundResource(R.drawable.border_bottom_1dp);

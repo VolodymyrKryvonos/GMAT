@@ -1,11 +1,13 @@
 package com.deepinspire.gmatclub.web;
 
+import android.Manifest;
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.app.Activity;
 import android.app.ActivityManager;
 import android.app.SearchManager;
 import android.content.ActivityNotFoundException;
+import android.content.ClipData;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -15,9 +17,14 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
+import android.os.Handler;
+import android.os.Parcelable;
 import android.os.StatFs;
+import android.provider.MediaStore;
 import android.support.annotation.NonNull;
+import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.graphics.drawable.DrawableCompat;
 import android.support.v4.view.GravityCompat;
@@ -28,19 +35,26 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
+import android.util.Base64;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
+import android.view.WindowManager;
+import android.view.inputmethod.InputMethodManager;
+import android.webkit.ConsoleMessage;
 import android.webkit.CookieManager;
 import android.webkit.HttpAuthHandler;
 import android.webkit.JavascriptInterface;
+import android.webkit.MimeTypeMap;
 import android.webkit.ValueCallback;
 import android.webkit.WebChromeClient;
 import android.webkit.WebResourceRequest;
+import android.webkit.WebResourceResponse;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -69,6 +83,8 @@ import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
 import com.github.clans.fab.FloatingActionButton;
 import com.github.clans.fab.FloatingActionMenu;
+import com.github.clans.fab.Label;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -80,6 +96,13 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
+import okhttp3.Call;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
 
 public class WebActivity extends AppCompatActivity implements
         IWebContract.View, SwipeRefreshLayout.OnRefreshListener, View.OnClickListener, View.OnTouchListener {
@@ -132,9 +155,24 @@ public class WebActivity extends AppCompatActivity implements
 
     private ViewTreeObserver.OnScrollChangedListener mOnScrollChangedListener;
 
+    private final ExecutorService executor = Executors.newFixedThreadPool(4);
+
+    private Handler mUiHandler = new Handler();
+
+    private static final int FILECHOOSER_RESULTCODE  = 100;
+
+    private ValueCallback<Uri> mUploadMessage;
+    private ValueCallback<Uri[]> mUploadMessages;
+    private Uri mCapturedImageURI = null;
+
+    private static final int PICK_FROM_CAMERA = 101;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        /*getWindow().setFlags(
+                WindowManager.LayoutParams.FLAG_HARDWARE_ACCELERATED,
+                WindowManager.LayoutParams.FLAG_HARDWARE_ACCELERATED);*/
 
         setPresenter(new WebPresenter(this.getApplicationContext(),this));
 
@@ -177,6 +215,10 @@ public class WebActivity extends AppCompatActivity implements
 
         btnAdd = (FloatingActionMenu) findViewById(R.id.btnAddMenu);
 
+        btnAdd.setAnimationDelayPerItem(0);
+
+        btnAdd.setAnimated(false);
+
         btnAdd.setOnMenuButtonClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -188,10 +230,21 @@ public class WebActivity extends AppCompatActivity implements
             }
         });
 
-        ((FloatingActionButton) findViewById(R.id.btnAddTopic)).setOnClickListener(this);
-        ((FloatingActionButton) findViewById(R.id.btnAddPm)).setOnClickListener(this);
-        ((FloatingActionButton) findViewById(R.id.btnAddChat)).setOnClickListener(this);
-        ((FloatingActionButton) findViewById(R.id.btnAddSchool)).setOnClickListener(this);
+        btnAddTopic = (FloatingActionButton) findViewById(R.id.btnAddTopic);
+        btnAddTopic.setOnClickListener(this);
+        //btnAddTopic.setVisibility(View.GONE);
+
+        btnAddPm = (FloatingActionButton) findViewById(R.id.btnAddPm);
+        btnAddPm.setOnClickListener(this);
+        //btnAddPm.setVisibility(View.GONE);
+
+        btnAddChat = (FloatingActionButton) findViewById(R.id.btnAddChat);
+        btnAddChat.setOnClickListener(this);
+        //btnAddChat.setVisibility(View.GONE);
+
+        btnAddSchool = (FloatingActionButton) findViewById(R.id.btnAddSchool);
+        btnAddSchool.setOnClickListener(this);
+        //btnAddSchool.setVisibility(View.GONE);
 
         toolbarTitleLayout = (LinearLayout) findViewById(R.id.toolbarTitleLayout);
 
@@ -271,6 +324,11 @@ public class WebActivity extends AppCompatActivity implements
     }
 
     @Override
+    public void onResume() {
+        super.onResume();
+    }
+
+    @Override
     public void onDestroy() {
         super.onDestroy();
         swipe.getViewTreeObserver().removeOnScrollChangedListener(mOnScrollChangedListener);
@@ -337,7 +395,16 @@ public class WebActivity extends AppCompatActivity implements
                 Intent sendIntent = new Intent();
                 sendIntent.setFlags(Intent.FLAG_ACTIVITY_FORWARD_RESULT);
                 sendIntent.setAction(Intent.ACTION_SEND);
-                sendIntent.putExtra(Intent.EXTRA_TEXT, webView.getUrl().replace("?style=12", "").replace("&style=12", ""));
+
+                String url = webView.getUrl();
+
+                if(url.contains("file:///android_asset/notifications.html")) {
+                    url = Api.PM_URL;
+                } else {
+                    url = url.replace("?style=12", "").replace("&style=12", "");
+                }
+
+                sendIntent.putExtra(Intent.EXTRA_TEXT, url);
                 sendIntent.setType("text/plain");
                 startActivity(sendIntent);
                 break;
@@ -366,7 +433,7 @@ public class WebActivity extends AppCompatActivity implements
                 break;
             case R.id.btnAddPm:
                 toogleAddMenu(false);
-                openPage(Api.PM_URL);
+                openPage(Api.PM_NEW_URL);
                 break;
             case R.id.btnAddChat:
                 toogleAddMenu(false);
@@ -416,8 +483,9 @@ public class WebActivity extends AppCompatActivity implements
 
     @Override
     public void onRefresh() {
-        swipe.setRefreshing(false);
-        webView.reload();
+        //swipe.setRefreshing(false);
+        webView.loadUrl(webView.getUrl(), getRequestExtraHeaders());
+        //webView.reload();
     }
 
     @Override
@@ -577,6 +645,18 @@ public class WebActivity extends AppCompatActivity implements
             if(callbackManager != null) {
                 callbackManager.onActivityResult(requestCode, resultCode, data);
             }
+        } else if(requestCode == FILECHOOSER_RESULTCODE) {
+
+            if (null == mUploadMessage && null == mUploadMessages) {
+                return;
+            }
+
+            if (null != mUploadMessage) {
+                handleUploadMessage(requestCode, resultCode, data);
+
+            } else if (mUploadMessages != null) {
+                handleUploadMessages(requestCode, resultCode, data);
+            }
         } else {
             switch(requestCode) {
                 case GCConfig.GOOGLE_SIGN_IN:
@@ -600,15 +680,11 @@ public class WebActivity extends AppCompatActivity implements
             url = intent.getStringExtra("url");
         }
 
-        if(url.equals(Api.PM_URL)) {
-            this.presenter.updateNotify();
-            updateCountMessages();
-        } else if(url.equals(Api.FORUM_URL)) {
+        if(url.equals(Api.FORUM_URL)) {
             highlightMenuItemOnClick(R.id.menu_forum);
-            openPage(Api.FORUM_URL);
-        } else {
-            openPage(url);
         }
+
+        openPage(url);
     }
 
     public void setPresenter(IWebContract.Presenter presenter) {
@@ -618,42 +694,38 @@ public class WebActivity extends AppCompatActivity implements
     public void goByMenu(View view) {
         switch (view.getId()) {
             case R.id.menu_forum:
-                highlightMenuItemOnClick(R.id.menu_forum);
-                openPage(Api.FORUM_URL);
+                openPageFromHamburgerMenu(R.id.menu_forum, Api.FORUM_URL);
                 break;
             case R.id.menu_pms:
-                highlightMenuItemOnClick(R.id.menu_pms);
-                presenter.updatePMs();
+                openPageFromHamburgerMenu(R.id.menu_pms, Api.PM_URL);
                 break;
             case R.id.menu_notifications:
-                highlightMenuItemOnClick(R.id.menu_notifications);
-                this.presenter.updateNotify();
+                openPageFromHamburgerMenu(R.id.menu_notifications, Api.FORUM_NOTIFICATIONS/*"file:///android_asset/notifications.html"*/);
                 break;
             case R.id.menu_practice:
-                highlightMenuItemOnClick(R.id.menu_practice);
-                openPage(Api.TESTS_URL);
+                openPageFromHamburgerMenu(R.id.menu_practice, Api.PRACTICE_URL);
                 break;
             case R.id.menu_chat:
-                highlightMenuItemOnClick(R.id.menu_chat);
-                openPage(Api.CHAT_URL);
+                openPageFromHamburgerMenu(R.id.menu_chat, Api.CHAT_URL);
                 break;
             case R.id.menu_reviews:
-                highlightMenuItemOnClick(R.id.menu_reviews);
-                openPage(Api.REVIEWS_URL);
+                openPageFromHamburgerMenu(R.id.menu_reviews, Api.REVIEWS_URL);
                 break;
             case R.id.menu_deals_discounts:
-                highlightMenuItemOnClick(R.id.menu_deals_discounts);
-                openPage(Api.DEALS_URL);
+                openPageFromHamburgerMenu(R.id.menu_deals_discounts, Api.DEALS_URL);
                 break;
             case R.id.menu_advanced_search:
-                highlightMenuItemOnClick(R.id.menu_advanced_search);
-                openPage(Api.FORUM_SEARCH);
+                openPageFromHamburgerMenu(R.id.menu_advanced_search, Api.FORUM_SEARCH);
                 break;
             case R.id.menu_new_posts:
-                highlightMenuItemOnClick(R.id.menu_new_posts);
-                openPage(Api.FORUM_SEARCH_NEW_POSTS);
+                openPageFromHamburgerMenu(R.id.menu_new_posts, Api.FORUM_SEARCH_NEW_POSTS);
+                break;
+            case R.id.menu_unanswered:
+                openPageFromHamburgerMenu(R.id.menu_unanswered, Api.FORUM_SEARCH_UNANSWERED);
                 break;
             case R.id.menu_feedback:
+                mDrawerLayout.closeDrawers();
+
                 Intent intent = new Intent(Intent.ACTION_SEND);
 
                 intent.setType("message/rfc822");
@@ -668,13 +740,7 @@ public class WebActivity extends AppCompatActivity implements
                     Toast.makeText(getApplicationContext(), "There are no email clients installed.", Toast.LENGTH_LONG).show();
                 }
                 break;
-            case R.id.menu_unanswered:
-                highlightMenuItemOnClick(R.id.menu_unanswered);
-                openPage(Api.FORUM_SEARCH_UNANSWERED);
-                break;
         }
-
-        mDrawerLayout.closeDrawers();
     }
 
     @SuppressLint({"AddJavascriptInterface", "SetJavaScriptEnabled"})
@@ -688,13 +754,36 @@ public class WebActivity extends AppCompatActivity implements
         settings.setDatabaseEnabled(true);
         //settings.setDatabasePath("/data/data/" + webView.getContext().getPackageName() + "/databases/");
         settings.setDomStorageEnabled(true);
-        settings.setSupportZoom(false);
         settings.setAllowFileAccess(true);
         settings.setAllowContentAccess(true);
 
         settings.setAppCacheEnabled(false);
         settings.setCacheMode(WebSettings.LOAD_NO_CACHE);
+        //settings.setCacheMode(WebSettings.LOAD_NO_CACHE);
+        //settings.setCacheMode(WebSettings.LOAD_DEFAULT);
 
+        settings.setAllowFileAccessFromFileURLs(true); //Maybe you don't need this rule
+        settings.setAllowUniversalAccessFromFileURLs(true);
+
+        String device = "Android" + " " + "GMAT Club Forum";
+
+        try {
+            device += "/" + getPackageManager().getPackageInfo(getApplication().getPackageName(), 0).versionName;
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        settings.setUserAgentString(device);
+
+        //settings.setLoadWithOverviewMode(true);
+        //settings.setUseWideViewPort(true);
+
+        //settings.setSupportZoom(true);
+
+        /*settings.setBuiltInZoomControls(true);
+        settings.setDisplayZoomControls(false);*/
+
+        //webView.zoomBy(0.1f);
         //settings.setDomStorageEnabled(true);
         //settings.setUserAgentString("Android GMAT Club Forum/1.0.0");
         //settings.setSupportZoom(true);
@@ -706,9 +795,44 @@ public class WebActivity extends AppCompatActivity implements
         //webView.setInitialScale(1);
         //webView.setWebContentsDebuggingEnabled(true);
 
+        //settings.setRenderPriority(WebSettings.RenderPriority.HIGH);
+
+        //webView.zoomIn();
+        //webView.zoomOut();
+
+        //settings.setLoadWithOverviewMode(true);
+        //webView.setInitialScale(100);
+
+        //webView.getSettings().setRenderPriority(WebSettings.RenderPriority.HIGH);
+
+        //webView.getSettings().setCacheMode(WebSettings.LOAD_NO_CACHE);
+
+        if (Build.VERSION.SDK_INT >= 19) {
+            webView.setLayerType(View.LAYER_TYPE_HARDWARE, null);
+        } else {
+            webView.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
+        }
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            // chromium, enable hardware acceleration
+            webView.setLayerType(View.LAYER_TYPE_HARDWARE, null);
+        } else {
+            // older android version, disable hardware acceleration
+            webView.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
+        }
+
         webView.addJavascriptInterface(new GCJavascriptInterface(this), "GCAndroid");
 
         webView.setWebChromeClient(new WebChromeClient() {
+            @Override
+            public boolean onConsoleMessage(ConsoleMessage consoleMessage) {
+                //Toast.makeText(getApplicationContext(), consoleMessage.message(), Toast.LENGTH_LONG).show();
+                Log.d("MyApplication", consoleMessage.message() + " -- From line "
+                        + consoleMessage.lineNumber() + " of "
+                        + consoleMessage.sourceId());
+                return super.onConsoleMessage(consoleMessage);
+            }
+
             @Override
             public void onProgressChanged(WebView view, int progress) {
                 if (progress == 100) {
@@ -718,8 +842,34 @@ public class WebActivity extends AppCompatActivity implements
                     }
                 }
             }
-        });
 
+            // openFileChooser for Android 3.0+
+
+            public void openFileChooser(ValueCallback<Uri> uploadMsg, String acceptType){
+                mUploadMessage = uploadMsg;
+                openImageChooser();
+            }
+
+            // For Lollipop 5.0+ Devices
+
+            public boolean onShowFileChooser(WebView mWebView, ValueCallback<Uri[]> filePathCallback, WebChromeClient.FileChooserParams fileChooserParams) {
+                mUploadMessages = filePathCallback;
+                openImageChooser();
+                return true;
+            }
+
+            // openFileChooser for Android < 3.0
+
+            public void openFileChooser(ValueCallback<Uri> uploadMsg){
+                openFileChooser(uploadMsg, "");
+            }
+
+            //openFileChooser for other Android versions
+
+            public void openFileChooser(ValueCallback<Uri> uploadMsg, String acceptType, String capture) {
+                openFileChooser(uploadMsg, acceptType);
+            }
+        });
 
         webView.setWebViewClient(new WebViewClient() {
             @Override
@@ -727,57 +877,78 @@ public class WebActivity extends AppCompatActivity implements
                 handler.proceed("guest", "GCTesterNew1");
             }
 
-            public void onLoadResource(WebView view, String url) {}
+            public void onLoadResource(WebView view, String url) {
+                //Toast.makeText(WebActivity.this, "onLoadResource", Toast.LENGTH_SHORT).show();
+            }
 
             public void onPageStarted(WebView view, String url, Bitmap favicon) {
-                if(url.equals(Api.FORUM_URL + "?style=12") ||
-                        url.equals(Api.FORUM_URL + "/?style=12")
-                        ) {
-                    changeTitleColor( R.color.white);
+                //webView.destroyDrawingCache();
+                if(url.equals(Api.FORUM_URL + "?style=12") || url.equals(Api.FORUM_URL + "/?style=12")) {
+                    changeTitleColor(R.color.white);
+                    changeProfileIconColor(R.color.mainOrange);
+                } else if(url.contains(Api.PROFILE)) {
+                    changeTitleColor(R.color.mainOrange);
+                    changeProfileIconColor(R.color.white);
                 } else {
-                    changeTitleColor( R.color.mainOrange);
+                    changeTitleColor(R.color.mainOrange);
+                    changeProfileIconColor(R.color.mainOrange);
                 }
 
-               swipe.setRefreshing(false);
-               setLoadingIndicator(true);
+                swipe.setRefreshing(false);
+                setLoadingIndicator(true);
             }
 
             public void onPageFinished(WebView view, String url) {
                 if(activeUrl != null && url.contains(activeUrl)) {
-                     activeUrl = null;
+                    activeUrl = null;
 
-                     webView.evaluateJavascript(
-                             "(function(){document.querySelector('#statusesDecTracker .addMyInfo.btn').click();})()",
-                             new ValueCallback<String>() {
-                                 @Override
-                                 public void onReceiveValue(String value) {
-                                     swipe.setRefreshing(false);
-                                     setLoadingIndicator(false);
-                                 }
-                             }
-                     );
+                    webView.evaluateJavascript(
+                            "(function(){document.querySelector('#statusesDecTracker .addMyInfo.btn').click();})()",
+                            new ValueCallback<String>() {
+                                @Override
+                                public void onReceiveValue(String value) {
+                                    swipe.setRefreshing(false);
+                                    setLoadingIndicator(false);
+                                }
+                            }
+                    );
 
-                     webView.stopLoading();
-                 } else if(url.contains(Api.HOME_URL)) {
+                    webView.stopLoading();
+                } else if(url.contains(Api.HOME_URL)) {
                     presenter.logged();
 
                     swipe.setRefreshing(false);
                     setLoadingIndicator(false);
-                 }
+                } else if(url.contains(Api.PM_URL)) {
+                    presenter.updatePMs();
+                    updateCountMessages();
+                }
             }
 
+            /*@SuppressWarnings("deprecation") // From API 21 we should use another overload
             @Override
+            public WebResourceResponse shouldInterceptRequest(@NonNull WebView view, @NonNull String url) {
+                return handleRequestViaOkHttp(url);
+            }
+
+            @TargetApi(Build.VERSION_CODES.LOLLIPOP)
+            @Override
+            public WebResourceResponse shouldInterceptRequest(@NonNull WebView view, @NonNull WebResourceRequest request) {
+                return handleRequestViaOkHttp(request.getUrl().toString());
+            }*/
+
+            /*@Override
             @TargetApi(Build.VERSION_CODES.LOLLIPOP)
             public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
-                view.loadUrl(request.getUrl().toString(), getRequestExtraHeaders());
+                //view.loadUrl(request.getUrl().toString(), getRequestExtraHeaders());
                 return true;
             }
 
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
-                view.loadUrl(url, getRequestExtraHeaders());
+                //view.loadUrl(url, getRequestExtraHeaders());
                 return true;
-            }
+            }*/
 
             public void onReceivedError(WebView view, int errorCode, String description, String failingUrl) {
                 Toast.makeText(WebActivity.this, "Oh no! " + description, Toast.LENGTH_SHORT).show();
@@ -785,8 +956,78 @@ public class WebActivity extends AppCompatActivity implements
         });
     }
 
+    /*static boolean urlShouldBeHandledByWebView(@NonNull String url) {
+        // file: Resolve requests to local files such as files from cache folder via WebView itself
+        return url.startsWith("file:");
+    }
+
+    @NonNull
+    private WebResourceResponse handleRequestViaOkHttp(@NonNull String url) {
+        try {
+            OkHttpClient okHttpClient = new OkHttpClient.Builder()
+                    .build();
+
+            String username = "guest";
+            String password = "GCTesterNew1";
+
+            String base = username + ":" + password;
+
+            String authHeader = "Basic " + Base64.encodeToString(base.getBytes(), Base64.NO_WRAP);
+            //OkHttpClient.Builder okHttpClient1 = new OkHttpClient().newBuilder();\
+
+            // On Android API >= 21 you can get request method and headers
+            // As I said, we need to only display "simple" page with resources
+            // So it's GET without special headers
+            final Call call = okHttpClient.newCall(new Request.Builder()
+                    .addHeader("Authorization", authHeader)
+                    .addHeader("My-Agent", getRequestExtraHeaders().get("My-Agent"))
+                    .url(url)
+                    .build()
+            );
+
+            final Response response = call.execute();
+
+            return new WebResourceResponse(
+                    getMimeType(url),
+                    //response.header("content-type", "text/html"), // You can set something other as default content-type
+                    response.header("content-encoding", "utf-8"),  // Again, you can set another encoding as default
+                    response.body().byteStream()
+            );
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    private String getMimeType(String url) {
+        String type = null;
+        String extension = MimeTypeMap.getFileExtensionFromUrl(url);
+
+        if (extension != null) {
+
+            switch (extension) {
+                case "js":
+                    return "text/javascript";
+                case "woff":
+                    return "application/font-woff";
+                case "woff2":
+                    return "application/font-woff2";
+                case "ttf":
+                    return "application/x-font-ttf";
+                case "eot":
+                    return "application/vnd.ms-fontobject";
+                case "svg":
+                    return "image/svg+xml";
+            }
+
+            type = MimeTypeMap.getSingleton().getMimeTypeFromExtension(extension);
+        }
+
+        return type;
+    }*/
+
     private void initRequestExtraHeaders() {
-        String device = Build.MODEL + " " + Build.VERSION.RELEASE + " GMAT Club Forum";// + getString(R.string.app_name);
+        String device = "Android" + " " + Build.MODEL + " " + Build.VERSION.RELEASE + " " + "GMAT Club Forum" ;// + getString(R.string.app_name);
 
         try {
             device += "/" + getPackageManager().getPackageInfo(getApplication().getPackageName(), 0).versionName;
@@ -801,33 +1042,50 @@ public class WebActivity extends AppCompatActivity implements
         return requestExtraHeaders;
     }
 
+    private void openPageFromHamburgerMenu(int id, String url) {
+        mDrawerLayout.closeDrawers();
+        highlightMenuItemOnClick(id);
+        openPage(url);
+    }
+
     private void openPage(String url) {
         if (mDrawerLayout.isDrawerOpen(GravityCompat.START)) {
             mDrawerLayout.closeDrawer(GravityCompat.START);
         }
 
+        webView.loadUrl("javascript:document.open();document.close();");
+        //webView.loadUrl("about:blank");
         webView.loadUrl(url, getRequestExtraHeaders());
     }
 
     public void setLoadingIndicator(boolean active) {
         if (active) {
-            progressBar.setVisibility(View.VISIBLE);
-            feedbackLayout.setVisibility(View.GONE);
-            swipe.setVisibility(View.GONE);
+            //progressBar.setVisibility(View.VISIBLE);
+            //feedbackLayout.setVisibility(View.GONE);
+            //swipe.setVisibility(View.GONE);
+            showBtnAdd(false);
         } else {
-            toogleAddMenu(false);
-
-            progressBar.setVisibility(View.GONE);
-            feedbackLayout.setVisibility(View.GONE);
-            swipe.setVisibility(View.VISIBLE);
+            hideKeyboard();
 
             if(logged()) {
-                btnAddLayout.setVisibility(View.VISIBLE);
-                btnAdd.setVisibility(View.VISIBLE);
+                toogleAddMenu(false);
+
+                String url = webView.getUrl();
+
+                if(url.contains(Api.UCP_URL) && url.contains("mode=compose")) {
+                    showBtnAdd(false);
+                } else {
+                    showBtnAdd(true);
+                }
+
+
             } else {
-                btnAddLayout.setVisibility(View.GONE);
-                btnAdd.setVisibility(View.GONE);
+                showBtnAdd(false);
             }
+
+            //progressBar.setVisibility(View.GONE);
+            //feedbackLayout.setVisibility(View.GONE);
+            //swipe.setVisibility(View.VISIBLE);
         }
     }
 
@@ -839,10 +1097,9 @@ public class WebActivity extends AppCompatActivity implements
         switch(id) {
             case "notifications":
                 updateCountMessages();
-                openPage(Api.FORUM_NOTIFICATIONS);
+                //openPage(Api.FORUM_NOTIFICATIONS);
                 break;
             case "pms":
-                updateCountMessages();
                 openPage(Api.PM_URL);
                 break;
             case "profile":
@@ -854,6 +1111,9 @@ public class WebActivity extends AppCompatActivity implements
                 break;
             case "myBookmarks":
                 openPage(Api.UCP_MY_BOOKMARKS_URL);
+                break;
+            case "myErrorLog":
+                openPage(Api.UCP_MY_ERROR_LOG_URL);
                 break;
             case "settings":
                 openPage(Api.UCP_MY_SETTINGS_URL);
@@ -1060,25 +1320,30 @@ public class WebActivity extends AppCompatActivity implements
         super.onPostCreate(savedInstanceState);
     }
 
-    private void updateCountMessages() {
-        int notificationsUnwatchedCount  = presenter.getCountUnwatchedNotifications();
-        int pmUnwatchedCount  = presenter.getCountUnwatchedPMs();
+    public void updateCountMessages() {
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                int notificationsUnwatchedCount  = presenter.getCountUnwatchedNotifications();
+                int pmUnwatchedCount  = presenter.getCountUnwatchedPMs();
 
-        if(notificationsUnwatchedCount > 0) {
-            countNotifications.setText(Integer.toString(notificationsUnwatchedCount));
-            countNotifications.setVisibility(View.VISIBLE);
-        } else {
-            countNotifications.setText("");
-            countNotifications.setVisibility(View.GONE);
-        }
+                if(notificationsUnwatchedCount > 0) {
+                    countNotifications.setText(Integer.toString(notificationsUnwatchedCount));
+                    countNotifications.setVisibility(View.VISIBLE);
+                } else {
+                    countNotifications.setText("");
+                    countNotifications.setVisibility(View.GONE);
+                }
 
-        if(pmUnwatchedCount > 0) {
-            countPMs.setText(Integer.toString(pmUnwatchedCount));
-            countPMs.setVisibility(View.VISIBLE);
-        } else {
-            countPMs.setText("");
-            countPMs.setVisibility(View.GONE);
-        }
+                if(pmUnwatchedCount > 0) {
+                    countPMs.setText(Integer.toString(pmUnwatchedCount));
+                    countPMs.setVisibility(View.VISIBLE);
+                } else {
+                    countPMs.setText("");
+                    countPMs.setVisibility(View.GONE);
+                }
+            }
+        });
     }
 
     public class GCJavascriptInterface {
@@ -1090,47 +1355,79 @@ public class WebActivity extends AppCompatActivity implements
 
         @JavascriptInterface
         public void sendMessage(final String message) {
-            if(message != null) {
-                try {
-                    int privateMessagesUnwatched = 0;
-                    int notificationsUnwatched = 0;
+            executor.submit(new Runnable() {
+                @Override
+                public void run() {
+                    if(message != null) {
+                        presenter.saveNotifications(message);
+                    }
+                }
+            });
+        }
 
-                    final JSONObject mNotify = new JSONObject(message);
+        @JavascriptInterface
+        public void notifications(final String data) {
+            executor.submit(new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        final JSONObject mNotify = new JSONObject(data);
 
-                    if(!mNotify.isNull("group_general")) {
-                        final JSONArray notifications = mNotify.getJSONArray("group_general");
+                        switch(mNotify.getString("action")) {
+                            case "pageLoaded":
+                                presenter.getNotifications();
+                                break;
+                            case "renderDone":
+                                runOnUiThread(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        swipe.setRefreshing(false);
+                                        setLoadingIndicator(false);
 
-                        for(int i = 0; i < notifications.length(); i++) {
-                            JSONObject notify = notifications.getJSONObject(i);
+                                        if(presenter.getCountUnwatchedNotifications() > 0) {
+                                            presenter.updateNotify();
+                                        }
+                                    }
+                                });
+                                break;
+                            case "request":
+                                String params = (mNotify.isNull("params")) ? null : mNotify.getString("params");
+                                String idNotify = (mNotify.isNull("id")) ? null : mNotify.getString("id");
 
-                            if(notify.getBoolean("unwatched")) {
-                                notificationsUnwatched++;
+                                presenter.updateNotify(params, idNotify);
+                                break;
+                        }
+                    } catch (JSONException exception) {
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                swipe.setRefreshing(false);
+                                setLoadingIndicator(false);
+                                Toast.makeText(WebActivity.this, "List of notifications are corrupt. Please go to the page later...", Toast.LENGTH_LONG).show();
+                            }
+                        });
+                    }
+                }
+            });
+        }
+
+    }
+
+    public void sendNotificationsForPage(final String notifications) {
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                webView.evaluateJavascript(
+                        "(function(){if(window.notifications && window.notifications.render) {window.notifications.render("+notifications+");}})()",
+                        new ValueCallback<String>() {
+                            @Override
+                            public void onReceiveValue(String value) {
+                                //Toast.makeText(WebActivity.this, "Render notifications", Toast.LENGTH_LONG).show();
                             }
                         }
-                    }
-
-                    if(!mNotify.isNull("privateMessages")) {
-                        final JSONObject privateMessages = mNotify.getJSONObject("privateMessages");
-
-                        if(!privateMessages.isNull("count")) {
-                            privateMessagesUnwatched = privateMessages.getInt("count");
-                        }
-                    }
-
-                    presenter.setCountUnwatchedNotifications(notificationsUnwatched);
-                    presenter.setCountUnwatchedPMs(privateMessagesUnwatched);
-
-                    runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
-                            updateCountMessages();
-                        }
-                    });
-                } catch (JSONException e) {
-                    Log.e(mContext.getClass().getName(), e.getMessage());
-                }
+                );
             }
-        }
+        });
     }
 
     private void changeIconHomeForNavigationMenu(int iconColor) {
@@ -1157,21 +1454,121 @@ public class WebActivity extends AppCompatActivity implements
 
     private void toogleAddMenu(boolean open) {
         if(open) {
-            btnAdd.open(true);
+            String url  = webView.getUrl();
 
+            setEnabledBtnAddTopic(true);
+            setEnabledBtnAddPm(true);
+            setEnabledBtnAddChat(true);
+            setEnabledBtnAddSchool(true);
+
+            if(url.contains(Api.FORUM_NEW_POSTS)) {
+                setEnabledBtnAddTopic(false);
+            } else if(url.contains(Api.PM_NEW_URL)) {
+                setEnabledBtnAddPm(false);
+            } else if(url.contains(Api.FORUM_URL + "/mchat.php")) {
+                setEnabledBtnAddChat(false);
+            } else if(url.contains(Api.FORUM_ADD_NEW_SCHOOL)) {
+                setEnabledBtnAddSchool(false);
+            }
+            //btnAdd.showMenuButton(true);
+            //btnAdd.showMenu(true);
+
+            //btnAdd.open(true);
+
+            //btnAdd.showMenuButton(true);
+
+           // btnAddTopic.show(true);
+            //btnAdd.addMenuButton(btnAddTopic);
+            //btnAdd.setAnimated(false);
+            //btnAdd.open(false);
+            //btnAdd.showMenu(false);
             btnAddLayout.getLayoutParams().height = mDrawerLayout.getHeight();
             btnAddLayout.getLayoutParams().width = mDrawerLayout.getWidth();
             btnAddLayout.requestLayout();
 
             btnAddLayout.setBackground(ContextCompat.getDrawable(getApplicationContext(), R.drawable.background_gradient_white));
+
+            showBtnAddAllItems();
+
+            btnAdd.open(false);
+            /*btnAdd.addMenuButton(btnAddTopic);
+            btnAdd.addMenuButton(btnAddSchool);
+            btnAdd.addMenuButton(btnAddChat);
+            btnAdd.addMenuButton(btnAddPm);*/
+            //btnAddTopic.showButtonInMenu(false);
+            //btnAddTopic.setVisibility(View.GONE);
+            //btnAddTopic.showButtonInMenu(true);
         } else {
-            btnAdd.close(true);
+            //hideBtnAddAllItems();
 
-            btnAddLayout.getLayoutParams().height = btnAdd.getHeight();
-            btnAddLayout.getLayoutParams().width = btnAdd.getWidth();
-            btnAddLayout.requestLayout();
+            //btnAdd.setAnimated(false);
+            //btnAdd.close(false);
+            hideBtnAddAllItems();
 
-            btnAddLayout.setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.transparent));
+            btnAdd.close(false);
+
+            mUiHandler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    if(!btnAdd.isOpened()) {
+                        //hideBtnAddAllItems();
+                    /*btnAdd.getChildAt(0).setVisibility(View.GONE);
+                    btnAdd.getChildAt(1).setVisibility(View.GONE);
+                    btnAdd.getChildAt(2).setVisibility(View.GONE);
+                    btnAdd.getChildAt(3).setVisibility(View.GONE);*/
+
+                        btnAddLayout.getLayoutParams().height = btnAdd.getHeight();
+                        btnAddLayout.getLayoutParams().width = btnAdd.getWidth();
+                        btnAddLayout.requestLayout();
+
+                        btnAddLayout.setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.transparent));
+                        //btnAdd.requestLayout();
+                    }
+
+                    //Toast.makeText(WebActivity.this, "height:" + btnAdd.getHeight(), Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(WebActivity.this, "width:" + btnAdd.getWidth(), Toast.LENGTH_SHORT).show();
+                }
+            }, 0);
+            //hideBtnAddAllItems();
+
+            //btnAdd.getLayoutParams().height = btnAdd.getHeight();
+            //btnAdd.getLayoutParams().width = btnAdd.getWidth();
+            //btnAdd.removeAllMenuButtons();
+            //btnAdd.removeAllMenuButtons();
+            //btnAddTopic.showButtonInMenu(false);
+            //btnAdd.hideMenu(true);
+            //btnAdd.hideMenuButton(true);
+            //hideBtnAddAllItems();
+            //btnAdd.close(true);
+
+            //hideBtnAddAllItems();
+
+            //btnAdd.hideMenuButton(true);
+
+            //btnAddTopic.showButtonInMenu(false);
+
+
+            //hideBtnAddAllItems();
+
+            /*ViewGroup.MarginLayoutParams p = (CoordinatorLayout.LayoutParams)    btnAddTopic.getLayoutParams();
+
+            //p.setAnchorId(View.NO_ID);
+            p.width = 0;
+            p.height = 0;
+            btnAddTopic.setLayoutParams(p);*/
+            //btnAddTopic.hide(false);
+            //btnAddTopic.setVisibility(View.GONE);
+
+            /*ViewGroup.LayoutParams p = (CoordinatorLayout.LayoutParams) btnAddTopic.getLayoutParams();
+            p.setAnchorId(View.NO_ID);
+            btnAddTopic.setLayoutParams(p);
+            btnAddTopic.setVisibility(View.GONE);*/
+
+            //Toast.makeText(WebActivity.this, "height:" + btnAdd.getHeight(), Toast.LENGTH_SHORT).show();
+            //Toast.makeText(WebActivity.this, "width:" + btnAdd.getWidth(), Toast.LENGTH_SHORT).show();
+
+            //btnAdd.getLayoutParams().height = 20;
+            //btnAdd.getLayoutParams().width = 20;
         }
     }
 
@@ -1355,5 +1752,186 @@ public class WebActivity extends AppCompatActivity implements
         }
         if (suffix != null) resultBuffer.append(suffix);
         return resultBuffer.toString();
+    }
+
+    private void hideKeyboard() {
+        ((InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE)).
+                hideSoftInputFromWindow((getWindow().getDecorView().getApplicationWindowToken()), 0);
+    }
+
+    private void showBtnAdd(boolean show) {
+        if(show) {
+            btnAddLayout.setVisibility(View.VISIBLE);
+            btnAdd.setVisibility(View.VISIBLE);
+        } else {
+            btnAddLayout.setVisibility(View.GONE);
+            btnAdd.setVisibility(View.GONE);
+        }
+    }
+
+    private void showBtnAddTopic(boolean show) {
+        if(show) {
+            btnAddTopic.setVisibility(View.VISIBLE);
+            btnAddTopic.setLabelVisibility(View.VISIBLE);
+        } else {
+            btnAddTopic.setVisibility(View.GONE);
+            btnAddTopic.setLabelVisibility(View.GONE);
+        }
+    }
+
+    private void showBtnAddPm(boolean show) {
+        if(show) {
+            btnAddPm.setVisibility(View.VISIBLE);
+            btnAddPm.setLabelVisibility(View.VISIBLE);
+        } else {
+            btnAddPm.setVisibility(View.GONE);
+            btnAddPm.setLabelVisibility(View.GONE);
+        }
+    }
+
+    private void showBtnAddChat(boolean show) {
+        if(show) {
+            btnAddChat.setVisibility(View.VISIBLE);
+            btnAddChat.setLabelVisibility(View.VISIBLE);
+        } else {
+            btnAddChat.setVisibility(View.GONE);
+            btnAddChat.setLabelVisibility(View.GONE);
+        }
+    }
+
+    private void showBtnAddSchool(boolean show) {
+        if(show) {
+            btnAddSchool.setVisibility(View.VISIBLE);
+            btnAddSchool.setLabelVisibility(View.VISIBLE);
+        } else {
+            btnAddSchool.setVisibility(View.GONE);
+            btnAddSchool.setLabelVisibility(View.GONE);
+        }
+    }
+
+    private void setEnabledBtnAddTopic(boolean enable) {
+        btnAddTopic.setEnabled(enable);
+    }
+
+    private void setEnabledBtnAddPm(boolean enable) {
+        btnAddPm.setEnabled(enable);
+    }
+
+    private void setEnabledBtnAddChat(boolean enable) {
+       btnAddChat.setEnabled(enable);
+    }
+
+    private void setEnabledBtnAddSchool(boolean enable) {
+        btnAddSchool.setEnabled(enable);
+    }
+
+    private void showBtnAddAllItems () {
+        showBtnAddTopic(true);
+        showBtnAddPm(true);
+        showBtnAddChat(true);
+        showBtnAddSchool(true);
+    }
+
+    private void hideBtnAddAllItems () {
+        showBtnAddTopic(false);
+        showBtnAddPm(false);
+        showBtnAddChat(false);
+        showBtnAddSchool(false);
+    }
+
+    private void openFileDialog(ValueCallback<Uri>  uploadMsg) {
+        Toast.makeText(getApplicationContext(), "openFile", Toast.LENGTH_LONG).show();
+        mUploadMessage = uploadMsg;
+        Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
+        intent.addCategory(Intent.CATEGORY_OPENABLE);
+        intent.setType("image/*");
+        startActivityForResult(Intent.createChooser(intent, "File Chooser"), FILECHOOSER_RESULTCODE);
+    }
+
+    private void openImageChooser() {
+        try {
+            /*if (ActivityCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.CAMERA)
+                    != PackageManager.PERMISSION_GRANTED) {
+                // Callback onRequestPermissionsResult interceptadona Activity MainActivity
+                ActivityCompat.requestPermissions(WebActivity.this, new String[]{Manifest.permission.CAMERA}, PICK_FROM_CAMERA);
+            } else {*/
+                File imageStorageDir = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES), "FolderName");
+
+                if (!imageStorageDir.exists()) {
+                    imageStorageDir.mkdirs();
+                }
+
+                File file = new File(imageStorageDir + File.separator + "IMG_" + String.valueOf(System.currentTimeMillis()) + ".jpg");
+                mCapturedImageURI = Uri.fromFile(file);
+
+                final Intent captureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                captureIntent.putExtra(MediaStore.EXTRA_OUTPUT, mCapturedImageURI);
+
+                Intent i = new Intent(Intent.ACTION_GET_CONTENT);
+                i.addCategory(Intent.CATEGORY_OPENABLE);
+                i.setType("image/*");
+
+                Intent chooserIntent = Intent.createChooser(i, "Image Chooser");
+                chooserIntent.putExtra(Intent.EXTRA_INITIAL_INTENTS, new Parcelable[]{/*captureIntent*/});
+
+                startActivityForResult(chooserIntent, FILECHOOSER_RESULTCODE);
+            //}
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void handleUploadMessage(int requestCode, int resultCode, Intent intent) {
+        Uri result = null;
+        try {
+            if (resultCode != RESULT_OK) {
+                result = null;
+            } else {
+                // retrieve from the private variable if the intent is null
+
+                result = intent == null ? mCapturedImageURI : intent.getData();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        mUploadMessage.onReceiveValue(result);
+        mUploadMessage = null;
+    }
+
+    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
+    private void handleUploadMessages(int requestCode, int resultCode, Intent intent) {
+        Uri[] results = null;
+
+        try {
+            if (resultCode != RESULT_OK) {
+                results = null;
+            } else {
+                if (intent != null) {
+                    String dataString = intent.getDataString();
+                    ClipData clipData = intent.getClipData();
+
+                    if (clipData != null) {
+                        results = new Uri[clipData.getItemCount()];
+
+                        for (int i = 0; i < clipData.getItemCount(); i++) {
+                            ClipData.Item item = clipData.getItemAt(i);
+                            results[i] = item.getUri();
+                        }
+                    }
+
+                    if (dataString != null) {
+                        results = new Uri[]{Uri.parse(dataString)};
+                    }
+                } else {
+                    results = new Uri[]{mCapturedImageURI};
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        mUploadMessages.onReceiveValue(results);
+        mUploadMessages = null;
     }
 }

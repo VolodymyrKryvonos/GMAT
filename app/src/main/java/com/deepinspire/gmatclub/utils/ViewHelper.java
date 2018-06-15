@@ -267,6 +267,7 @@ public class ViewHelper {
         TextView btnProfile = (TextView) dialogLayout.findViewById(R.id.btnProfile);
         TextView btnMyPosts = (TextView)dialogLayout.findViewById(R.id.btnMyPosts);
         TextView btnMyBookmarks = (TextView)dialogLayout.findViewById(R.id.btnMyBookmarks);
+        TextView btnMyErrorLog = (TextView)dialogLayout.findViewById(R.id.btnMyErrorLog);
         LinearLayout btnSettings = (LinearLayout) dialogLayout.findViewById(R.id.btnSettingsLayout);
         LinearLayout btnLogout = (LinearLayout)dialogLayout.findViewById(R.id.btnLogoutLayout);
 
@@ -290,6 +291,14 @@ public class ViewHelper {
             @Override
             public void onClick(View v) {
                 activity.openPageById("myBookmarks");
+                alertDialog.hide();
+            }
+        });
+
+        btnMyErrorLog.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                activity.openPageById("myErrorLog");
                 alertDialog.hide();
             }
         });
@@ -488,37 +497,48 @@ public class ViewHelper {
 
             switch(exception.getType()) {
                 case "login":
+                    alertDialog.setCancelable(true);
+                    alertDialog.setCanceledOnTouchOutside(true);
+
                     message = (TextView) alertDialog.findViewById(R.id.errorMessage);
 
-                    EditText signInInputUsername = (EditText) alertDialog.findViewById(R.id.signInInputUsername);
-                    EditText signInInputPassword = (EditText) alertDialog.findViewById(R.id.signInInputPassword);
+                    message.setText(/*"Incorrect Login and Password"*/exception.getMessage());
 
-                    TextView signInInputPasswordForgot = (TextView) alertDialog.findViewById(R.id.signInInputPasswordForgot);
+                    if(!exception.getAction().equals("UNKNOWN_HOST")) {
+                        EditText signInInputUsername = (EditText) alertDialog.findViewById(R.id.signInInputUsername);
+                        EditText signInInputPassword = (EditText) alertDialog.findViewById(R.id.signInInputPassword);
 
-                    message.setText("Incorrect Login and Password");
+                        TextView signInInputPasswordForgot = (TextView) alertDialog.findViewById(R.id.signInInputPasswordForgot);
 
-                    signInInputUsername.setHintTextColor(ContextCompat.getColor(alertDialog.getContext(), R.color.red));
-                    signInInputUsername.setBackgroundResource(R.drawable.border_bottom_1dp_error);
+                        signInInputUsername.setHintTextColor(ContextCompat.getColor(alertDialog.getContext(), R.color.red));
+                        signInInputUsername.setBackgroundResource(R.drawable.border_bottom_1dp_error);
 
-                    signInInputPassword.setHintTextColor(ContextCompat.getColor(alertDialog.getContext(), R.color.red));
-                    signInInputPassword.setBackgroundResource(R.drawable.border_bottom_1dp_error);
+                        signInInputPassword.setHintTextColor(ContextCompat.getColor(alertDialog.getContext(), R.color.red));
+                        signInInputPassword.setBackgroundResource(R.drawable.border_bottom_1dp_error);
 
-                    signInInputPasswordForgot.setTextColor(ContextCompat.getColor(alertDialog.getContext(), R.color.red));
+                        signInInputPasswordForgot.setTextColor(ContextCompat.getColor(alertDialog.getContext(), R.color.red));
+                    }
 
                     message.setVisibility(View.VISIBLE);
-
                     progressbar.setVisibility(View.GONE);
                     signInLayout.setVisibility(View.VISIBLE);
                     break;
                 case "forgotPassword":
+                    alertDialog.setCancelable(true);
+                    alertDialog.setCanceledOnTouchOutside(true);
+
                     message = (TextView) alertDialog.findViewById(R.id.message);
 
-                    EditText forgotPasswordInputEmail = (EditText) alertDialog.findViewById(R.id.forgotPasswordInputEmail);
+                    if(!exception.getAction().equals("UNKNOWN_HOST")) {
+                        EditText forgotPasswordInputEmail = (EditText) alertDialog.findViewById(R.id.forgotPasswordInputEmail);
 
-                    message.setText("The information submitted could not be found.");
+                        forgotPasswordInputEmail.setHintTextColor(ContextCompat.getColor(alertDialog.getContext(), R.color.red));
+                        forgotPasswordInputEmail.setBackgroundResource(R.drawable.border_bottom_1dp_error);
 
-                    forgotPasswordInputEmail.setHintTextColor(ContextCompat.getColor(alertDialog.getContext(), R.color.red));
-                    forgotPasswordInputEmail.setBackgroundResource(R.drawable.border_bottom_1dp_error);
+                        message.setText("The information submitted could not be found.");
+                    } else {
+                        message.setText(exception.getMessage());
+                    }
 
                     message.setVisibility(View.VISIBLE);
                     progressbar.setVisibility(View.GONE);
@@ -579,4 +599,5 @@ public class ViewHelper {
         }
 
     }
+
 }
