@@ -2357,7 +2357,6 @@ android.support.v4.content.PermissionChecker:
     public static final int PERMISSION_DENIED_APP_OP
     76:78:private PermissionChecker()
     151:155:public static int checkCallingPermission(android.content.Context,java.lang.String,java.lang.String)
-    170:173:public static int checkCallingOrSelfPermission(android.content.Context,java.lang.String)
 android.support.v4.content.PermissionChecker$PermissionResult
 android.support.v4.content.SharedPreferencesCompat
 android.support.v4.content.SharedPreferencesCompat$EditorCompat
@@ -6001,20 +6000,26 @@ com.deepinspire.gmatclub.api.Api:
     9:9:public Api()
 com.deepinspire.gmatclub.api.ApiClient:
     53:73:public retrofit2.Retrofit getClient(java.lang.String)
+com.deepinspire.gmatclub.api.ApiInterface:
+    public abstract retrofit2.Call getToken(java.util.Map)
 com.deepinspire.gmatclub.api.AuthException:
-    10:12:public AuthException(java.lang.Exception)
+    9:15:public AuthException(java.lang.Exception)
 com.deepinspire.gmatclub.api.ErrorUtils
 com.deepinspire.gmatclub.api.HttpBinResponse
 com.deepinspire.gmatclub.auth.AuthActivity:
-    private com.google.android.gms.common.api.GoogleApiClient mGoogleApiClient
-    41:41:public bridge synthetic void setPresenter(java.lang.Object)
+    261:297:public void parseToken(android.content.Intent)
+    63:63:public bridge synthetic void setPresenter(java.lang.Object)
+com.deepinspire.gmatclub.auth.AuthActivity$2
 com.deepinspire.gmatclub.auth.AuthPresenter:
     26:26:public void start()
-    29:29:public boolean logged()
+    77:90:public void getTokenInfo(java.lang.String)
+    93:93:public boolean isOnline()
+com.deepinspire.gmatclub.auth.AuthPresenter$4
 com.deepinspire.gmatclub.auth.FacebookActivity:
     private static final java.lang.String EMAIL
 com.deepinspire.gmatclub.auth.IAuthContract$Presenter:
-    public abstract boolean logged()
+    public abstract void getTokenInfo(java.lang.String)
+    public abstract boolean isOnline()
 com.deepinspire.gmatclub.notifications.GCFirebaseInstanceIDService:
     13:14:public void onTokenRefresh()
 com.deepinspire.gmatclub.notifications.Notifications:
@@ -6024,6 +6029,10 @@ com.deepinspire.gmatclub.storage.Injection:
     9:9:public Injection()
 com.deepinspire.gmatclub.storage.Repository:
     private static final java.lang.String APP_PREFERENCES
+    475:516:public void getTokenInfo(java.lang.String,com.deepinspire.gmatclub.storage.IStorage$ICallbackAuth)
+    695:700:public boolean isOnline()
+com.deepinspire.gmatclub.storage.Repository$6
+com.deepinspire.gmatclub.storage.Repository$6$1
 com.deepinspire.gmatclub.storage.UserData
 com.deepinspire.gmatclub.utils.GCWebView:
     81:81:public boolean isLoading()
@@ -6032,30 +6041,34 @@ com.deepinspire.gmatclub.utils.Validator:
     9:9:public Validator()
 com.deepinspire.gmatclub.utils.ViewHelper:
     30:30:public ViewHelper()
-    416:446:public static void showErrorDialog(com.deepinspire.gmatclub.auth.AuthActivity)
-com.deepinspire.gmatclub.utils.ViewHelper$24
+    425:455:public static void showErrorDialog(com.deepinspire.gmatclub.auth.AuthActivity)
 com.deepinspire.gmatclub.utils.ViewHelper$25
+com.deepinspire.gmatclub.utils.ViewHelper$26
+com.deepinspire.gmatclub.web.IWebContract$Presenter:
+    public abstract void setCountUnwatchedNotifications(int)
+    public abstract void setCountUnwatchedPMs(int)
+    public abstract void setNotifications(java.lang.String)
 com.deepinspire.gmatclub.web.IWebContract$View:
     public abstract void goPreviousActivity()
 com.deepinspire.gmatclub.web.WebActivity:
-    private com.github.clans.fab.FloatingActionButton btnAddTopic
-    private com.github.clans.fab.FloatingActionButton btnAddPm
-    private com.github.clans.fab.FloatingActionButton btnAddChat
-    private com.github.clans.fab.FloatingActionButton btnAddSchool
     private android.webkit.CookieManager cookieManager
     private android.support.v7.app.ActionBarDrawerToggle toggle
-    1161:1251:public com.deepinspire.gmatclub.storage.DeviceInfo getDeviceInformation(android.app.Activity)
-    1255:1260:private long freeRamMemorySize()
-    1264:1268:private long totalRamMemorySize()
-    1272:1272:public static boolean externalMemoryAvailable()
-    1276:1280:public static long getAvailableInternalMemorySize()
-    1284:1288:public static long getTotalInternalMemorySize()
-    1292:1299:public static long getAvailableExternalMemorySize()
-    1304:1311:public static long getTotalExternalMemorySize()
-    1316:1334:public static java.lang.String formatSize(long)
-    83:83:public bridge synthetic void setPresenter(java.lang.Object)
+    private static final int FILECHOOSER_RESULTCODE
+    private static final int PICK_FROM_CAMERA
+    1592:1682:public com.deepinspire.gmatclub.storage.DeviceInfo getDeviceInformation(android.app.Activity)
+    1686:1691:private long freeRamMemorySize()
+    1695:1699:private long totalRamMemorySize()
+    1703:1703:public static boolean externalMemoryAvailable()
+    1707:1711:public static long getAvailableInternalMemorySize()
+    1715:1719:public static long getTotalInternalMemorySize()
+    1723:1730:public static long getAvailableExternalMemorySize()
+    1735:1742:public static long getTotalExternalMemorySize()
+    1747:1765:public static java.lang.String formatSize(long)
+    1854:1860:private void openFileDialog(android.webkit.ValueCallback)
+    108:108:public bridge synthetic void setPresenter(java.lang.Object)
 com.deepinspire.gmatclub.web.WebPresenter:
-    35:35:public void start()
+    43:43:public void start()
+    184:213:private void updateNotifications(java.lang.String)
 com.facebook.AccessToken:
     public static final java.lang.String ACCESS_TOKEN_KEY
     public static final java.lang.String EXPIRES_IN_KEY
@@ -6069,12 +6082,11 @@ com.facebook.AccessToken:
     private static final java.lang.String SOURCE_KEY
     private static final java.lang.String LAST_REFRESH_KEY
     private static final java.lang.String APPLICATION_ID_KEY
-    165:166:public static void refreshCurrentAccessTokenAsync()
-    174:175:public static void refreshCurrentAccessTokenAsync(com.facebook.AccessToken$AccessTokenRefreshCallback)
-    290:341:public static void createFromNativeLinkingIntent(android.content.Intent,java.lang.String,com.facebook.AccessToken$AccessTokenCreationCallback)
-    399:416:static com.facebook.AccessToken createFromRefresh(com.facebook.AccessToken,android.os.Bundle)
-    480:480:public boolean isExpired()
-    533:541:private static com.facebook.AccessToken createFromBundle(java.util.List,android.os.Bundle,com.facebook.AccessTokenSource,java.util.Date,java.lang.String)
+    186:187:public static void refreshCurrentAccessTokenAsync()
+    195:196:public static void refreshCurrentAccessTokenAsync(com.facebook.AccessToken$AccessTokenRefreshCallback)
+    311:362:public static void createFromNativeLinkingIntent(android.content.Intent,java.lang.String,com.facebook.AccessToken$AccessTokenCreationCallback)
+    420:437:static com.facebook.AccessToken createFromRefresh(com.facebook.AccessToken,android.os.Bundle)
+    566:574:private static com.facebook.AccessToken createFromBundle(java.util.List,android.os.Bundle,com.facebook.AccessTokenSource,java.util.Date,java.lang.String)
     53:53:static synthetic com.facebook.AccessToken access$000(java.util.List,android.os.Bundle,com.facebook.AccessTokenSource,java.util.Date,java.lang.String)
 com.facebook.AccessToken$1
 com.facebook.AccessToken$AccessTokenCreationCallback
@@ -6151,29 +6163,29 @@ com.facebook.FacebookSdk:
     public static final java.lang.String WEB_DIALOG_THEME
     public static final java.lang.String AUTO_LOG_APP_EVENTS_ENABLED_PROPERTY
     public static final java.lang.String CALLBACK_OFFSET_PROPERTY
-    172:173:public static synchronized void sdkInitialize(android.content.Context,int)
-    203:212:public static synchronized void sdkInitialize(android.content.Context,int,com.facebook.FacebookSdk$InitializeCallback)
-    354:356:public static java.util.Set getLoggingBehaviors()
-    369:373:public static void addLoggingBehavior(com.facebook.LoggingBehavior)
-    385:388:public static void removeLoggingBehavior(com.facebook.LoggingBehavior)
-    397:400:public static void clearLoggingBehaviors()
-    430:431:public static void setIsDebugEnabled(boolean)
-    443:447:private static void updateGraphDebugBehavior()
-    454:455:public static void setLegacyTokenUpgradeSupported(boolean)
-    481:485:public static void setExecutor(java.util.concurrent.Executor)
-    506:510:public static void setFacebookDomain(java.lang.String)
-    528:532:public static void setGraphApiVersion(java.lang.String)
-    638:642:public static void setLimitEventAndDataUsage(android.content.Context,boolean)
-    659:660:public static void setOnProgressThreshold(long)
-    723:753:public static java.lang.String getApplicationSignature(android.content.Context)
-    772:773:public static void setApplicationId(java.lang.String)
-    782:783:public static java.lang.String getApplicationName()
-    791:792:public static void setApplicationName(java.lang.String)
-    809:810:public static void setClientToken(java.lang.String)
-    827:828:public static void setAutoLogAppEventsEnabled(boolean)
-    837:838:public static java.io.File getCacheDir()
-    846:847:public static void setCacheDir(java.io.File)
-    870:870:public static boolean isFacebookRequestCode(int)
+    173:174:public static synchronized void sdkInitialize(android.content.Context,int)
+    204:213:public static synchronized void sdkInitialize(android.content.Context,int,com.facebook.FacebookSdk$InitializeCallback)
+    355:357:public static java.util.Set getLoggingBehaviors()
+    370:374:public static void addLoggingBehavior(com.facebook.LoggingBehavior)
+    386:389:public static void removeLoggingBehavior(com.facebook.LoggingBehavior)
+    398:401:public static void clearLoggingBehaviors()
+    431:432:public static void setIsDebugEnabled(boolean)
+    444:448:private static void updateGraphDebugBehavior()
+    455:456:public static void setLegacyTokenUpgradeSupported(boolean)
+    482:486:public static void setExecutor(java.util.concurrent.Executor)
+    507:511:public static void setFacebookDomain(java.lang.String)
+    530:537:public static void setGraphApiVersion(java.lang.String)
+    644:648:public static void setLimitEventAndDataUsage(android.content.Context,boolean)
+    665:666:public static void setOnProgressThreshold(long)
+    729:759:public static java.lang.String getApplicationSignature(android.content.Context)
+    778:779:public static void setApplicationId(java.lang.String)
+    788:789:public static java.lang.String getApplicationName()
+    797:798:public static void setApplicationName(java.lang.String)
+    815:816:public static void setClientToken(java.lang.String)
+    833:834:public static void setAutoLogAppEventsEnabled(boolean)
+    843:844:public static java.io.File getCacheDir()
+    852:853:public static void setCacheDir(java.io.File)
+    876:876:public static boolean isFacebookRequestCode(int)
 com.facebook.FacebookSdkNotInitializedException:
     52:53:public FacebookSdkNotInitializedException(java.lang.String,java.lang.Throwable)
     61:62:public FacebookSdkNotInitializedException(java.lang.Throwable)
@@ -6271,11 +6283,11 @@ com.facebook.GraphResponse:
     private static final java.lang.String CODE_KEY
     private static final java.lang.String BODY_KEY
     private static final java.lang.String RESPONSE_LOG_TAG
-    133:133:public final org.json.JSONArray getJSONArray()
-    143:143:public final java.net.HttpURLConnection getConnection()
-    152:152:public com.facebook.GraphRequest getRequest()
-    161:161:public java.lang.String getRawResponse()
-    188:216:public com.facebook.GraphRequest getRequestForPagedResults(com.facebook.GraphResponse$PagingDirection)
+    138:138:public final org.json.JSONArray getJSONArray()
+    148:148:public final java.net.HttpURLConnection getConnection()
+    157:157:public com.facebook.GraphRequest getRequest()
+    166:166:public java.lang.String getRawResponse()
+    193:221:public com.facebook.GraphRequest getRequestForPagedResults(com.facebook.GraphResponse$PagingDirection)
 com.facebook.GraphResponse$PagingDirection
 com.facebook.LegacyTokenHelper:
     public static final java.lang.String TOKEN_KEY
@@ -6335,12 +6347,12 @@ com.facebook.Profile:
     private static final java.lang.String LAST_NAME_KEY
     private static final java.lang.String NAME_KEY
     private static final java.lang.String LINK_URI_KEY
-    153:153:public android.net.Uri getProfilePictureUri(int,int)
-    161:161:public java.lang.String getId()
-    169:169:public java.lang.String getFirstName()
-    177:177:public java.lang.String getMiddleName()
-    185:185:public java.lang.String getLastName()
-    201:201:public android.net.Uri getLinkUri()
+    158:158:public android.net.Uri getProfilePictureUri(int,int)
+    166:166:public java.lang.String getId()
+    174:174:public java.lang.String getFirstName()
+    182:182:public java.lang.String getMiddleName()
+    190:190:public java.lang.String getLastName()
+    206:206:public android.net.Uri getLinkUri()
 com.facebook.ProfileCache:
     static final java.lang.String CACHED_PROFILE_KEY
     static final java.lang.String SHARED_PREFERENCES_NAME
@@ -6424,14 +6436,14 @@ com.facebook.appevents.AppEventsLogger:
     851:855:public static void updateUserProperties(android.os.Bundle,com.facebook.GraphRequest$Callback)
     861:908:public static void updateUserProperties(android.os.Bundle,java.lang.String,com.facebook.GraphRequest$Callback)
     929:929:public java.lang.String getApplicationId()
-    1118:1120:static void setSourceApplication(java.lang.String,boolean)
+    1121:1123:static void setSourceApplication(java.lang.String,boolean)
     147:147:static synthetic void access$100(com.facebook.appevents.AppEventsLogger,long)
 com.facebook.appevents.AppEventsLogger$2
 com.facebook.appevents.AppEventsLogger$4
 com.facebook.appevents.AppEventsLogger$PersistedAppSessionInfo:
     private static final java.lang.String PERSISTED_SESSION_INFO_FILENAME
-    1187:1187:AppEventsLogger$PersistedAppSessionInfo()
-    1293:1298:static void onSuspend(android.content.Context,com.facebook.appevents.AccessTokenAppIdPair,com.facebook.appevents.AppEventsLogger,long)
+    1190:1190:AppEventsLogger$PersistedAppSessionInfo()
+    1296:1301:static void onSuspend(android.content.Context,com.facebook.appevents.AccessTokenAppIdPair,com.facebook.appevents.AppEventsLogger,long)
 com.facebook.appevents.FacebookTimeSpentData:
     private static final long FIRST_TIME_LOAD_RESUME_TIME
     private static final long INTERRUPTION_THRESHOLD_MILLISECONDS
@@ -6618,15 +6630,18 @@ com.facebook.internal.FacebookRequestErrorClassification:
     public static final int EC_USER_TOO_MANY_CALLS
     public static final int EC_INVALID_SESSION
     public static final int EC_INVALID_TOKEN
+    public static final int EC_APP_NOT_INSTALLED
     public static final int EC_TOO_MANY_USER_ACTION_CALLS
+    public static final int ESC_APP_NOT_INSTALLED
+    public static final int ESC_APP_INACTIVE
     public static final java.lang.String KEY_RECOVERY_MESSAGE
     public static final java.lang.String KEY_NAME
     public static final java.lang.String KEY_OTHER
     public static final java.lang.String KEY_TRANSIENT
     public static final java.lang.String KEY_LOGIN_RECOVERABLE
-    78:78:public java.util.Map getOtherErrors()
-    82:82:public java.util.Map getTransientErrors()
-    86:86:public java.util.Map getLoginRecoverableErrors()
+    82:82:public java.util.Map getOtherErrors()
+    86:86:public java.util.Map getTransientErrors()
+    90:90:public java.util.Map getLoginRecoverableErrors()
 com.facebook.internal.FacebookSignatureValidator:
     private static final java.lang.String FBI_HASH
     private static final java.lang.String FBL_HASH
@@ -6840,9 +6855,9 @@ com.facebook.internal.NativeProtocol$KatanaAppInfo:
 com.facebook.internal.NativeProtocol$MessengerAppInfo:
     static final java.lang.String MESSENGER_PACKAGE
 com.facebook.internal.NativeProtocol$ProtocolVersionQueryResult:
-    1004:1004:public com.facebook.internal.NativeProtocol$NativeAppInfo getAppInfo()
-    979:979:static synthetic com.facebook.internal.NativeProtocol$NativeAppInfo access$700(com.facebook.internal.NativeProtocol$ProtocolVersionQueryResult)
-    979:979:static synthetic int access$800(com.facebook.internal.NativeProtocol$ProtocolVersionQueryResult)
+    1006:1006:public com.facebook.internal.NativeProtocol$NativeAppInfo getAppInfo()
+    981:981:static synthetic com.facebook.internal.NativeProtocol$NativeAppInfo access$700(com.facebook.internal.NativeProtocol$ProtocolVersionQueryResult)
+    981:981:static synthetic int access$800(com.facebook.internal.NativeProtocol$ProtocolVersionQueryResult)
 com.facebook.internal.NativeProtocol$WakizashiAppInfo:
     static final java.lang.String WAKIZASHI_PACKAGE
 com.facebook.internal.PlatformServiceClient:
@@ -6953,9 +6968,9 @@ com.facebook.internal.WebDialog:
     private static final int MAX_PADDING_SCREEN_HEIGHT
     private static final double MIN_SCALE_FACTOR
     private static final int BACKGROUND_GRAY
-    280:280:public com.facebook.internal.WebDialog$OnCompleteListener getOnCompleteListener()
+    282:282:public com.facebook.internal.WebDialog$OnCompleteListener getOnCompleteListener()
 com.facebook.internal.WebDialog$Builder:
-    726:727:public com.facebook.internal.WebDialog$Builder setTheme(int)
+    727:728:public com.facebook.internal.WebDialog$Builder setTheme(int)
 com.facebook.internal.WorkQueue
 com.facebook.internal.WorkQueue$1
 com.facebook.internal.WorkQueue$WorkItem
@@ -7744,7 +7759,6 @@ com.github.clans.fab.R$styleable:
     101:101:public R$styleable()
 com.github.clans.fab.Util:
     8:9:private Util()
-com.google.android.gms.R
 com.google.android.gms.actions.ItemListIntents
 com.google.android.gms.actions.NoteIntents
 com.google.android.gms.actions.ReserveIntents
@@ -7875,6 +7889,7 @@ com.google.android.gms.auth.api.proxy.zze
 com.google.android.gms.auth.api.signin.GoogleSignIn:
     private GoogleSignIn()
     public static com.google.android.gms.auth.api.signin.GoogleSignInClient getClient(android.content.Context,com.google.android.gms.auth.api.signin.GoogleSignInOptions)
+    public static com.google.android.gms.auth.api.signin.GoogleSignInAccount getLastSignedInAccount(android.content.Context)
     public static varargs com.google.android.gms.auth.api.signin.GoogleSignInAccount getAccountForScopes(android.content.Context,com.google.android.gms.common.api.Scope,com.google.android.gms.common.api.Scope[])
     public static com.google.android.gms.auth.api.signin.GoogleSignInAccount getAccountForExtension(android.content.Context,com.google.android.gms.auth.api.signin.GoogleSignInOptionsExtension)
     public static boolean hasPermissions(com.google.android.gms.auth.api.signin.GoogleSignInAccount,com.google.android.gms.auth.api.signin.GoogleSignInOptionsExtension)
@@ -7949,6 +7964,7 @@ com.google.android.gms.auth.api.signin.internal.zzk
 com.google.android.gms.auth.api.signin.internal.zzl
 com.google.android.gms.auth.api.signin.internal.zzm
 com.google.android.gms.auth.api.signin.internal.zzq:
+    public final synchronized com.google.android.gms.auth.api.signin.GoogleSignInAccount zzo()
     public final synchronized com.google.android.gms.auth.api.signin.GoogleSignInOptions zzp()
 com.google.android.gms.auth.api.signin.internal.zzv:
     public abstract void zzd(com.google.android.gms.auth.api.signin.internal.zzt,com.google.android.gms.auth.api.signin.GoogleSignInOptions)
@@ -8079,8 +8095,6 @@ com.google.android.gms.common.GooglePlayServicesUtilLight:
     public static void ensurePlayServicesAvailable(android.content.Context)
     public static void ensurePlayServicesAvailable(android.content.Context,int)
     public static android.content.Intent getGooglePlayServicesAvailabilityRecoveryIntent(int)
-    public static boolean isUserBuildDevice()
-    public static boolean isTestKeysBuild(android.content.Context)
     public static android.app.PendingIntent getErrorPendingIntent(int,android.content.Context,int)
     public static java.lang.String getOpenSourceSoftwareLicenseInfo(android.content.Context)
     public static int getClientVersion(android.content.Context)
@@ -8193,8 +8207,6 @@ com.google.android.gms.common.api.GoogleApiClient$Builder:
     public final com.google.android.gms.common.api.GoogleApiClient$Builder setAccountName(java.lang.String)
     public final com.google.android.gms.common.api.GoogleApiClient$Builder useDefaultAccount()
     public final com.google.android.gms.common.api.GoogleApiClient$Builder setGravityForPopups(int)
-    public final com.google.android.gms.common.api.GoogleApiClient$Builder enableAutoManage(android.support.v4.app.FragmentActivity,int,com.google.android.gms.common.api.GoogleApiClient$OnConnectionFailedListener)
-    public final com.google.android.gms.common.api.GoogleApiClient$Builder enableAutoManage(android.support.v4.app.FragmentActivity,com.google.android.gms.common.api.GoogleApiClient$OnConnectionFailedListener)
     private final varargs void zza(com.google.android.gms.common.api.Api,com.google.android.gms.common.api.Api$ApiOptions,com.google.android.gms.common.api.Scope[])
 com.google.android.gms.common.api.GoogleApiClient$ConnectionCallbacks:
     public static final int CAUSE_SERVICE_DISCONNECTED
@@ -8935,7 +8947,6 @@ com.google.android.gms.common.util.ArrayUtils:
     public static void writeArray(java.lang.StringBuilder,double[])
     public static void writeArray(java.lang.StringBuilder,boolean[])
     public static void writeStringArray(java.lang.StringBuilder,java.lang.String[])
-    public static varargs java.lang.Object[] concat(java.lang.Object[][])
     public static varargs byte[] concatByteArrays(byte[][])
     public static java.lang.Object[] appendToArray(java.lang.Object[],java.lang.Object)
     public static int[] appendToArray(int[],int)
@@ -9080,7 +9091,6 @@ com.google.android.gms.common.util.DeviceProperties:
     public static boolean isLatchsky(android.content.Context)
     public static boolean isAuto(android.content.Context)
     public static boolean isTv(android.content.Context)
-    public static boolean isUserBuild()
     public static boolean isLowRamOrPreKitKat(android.content.Context)
     public static boolean isChromeOsDevice(android.content.Context)
     public static boolean isPixelDevice(android.content.Context)
@@ -9362,10 +9372,6 @@ com.google.android.gms.internal.measurement.zzaao
 com.google.android.gms.internal.measurement.zzaap
 com.google.android.gms.internal.measurement.zzaaq
 com.google.android.gms.internal.measurement.zzaar
-com.google.android.gms.internal.measurement.zzaar$zza
-com.google.android.gms.internal.measurement.zzaar$zzb
-com.google.android.gms.internal.measurement.zzaar$zzc
-com.google.android.gms.internal.measurement.zzaar$zzd
 com.google.android.gms.internal.measurement.zzaas
 com.google.android.gms.internal.measurement.zzaat
 com.google.android.gms.internal.measurement.zzaau
@@ -9374,55 +9380,61 @@ com.google.android.gms.internal.measurement.zzaaw
 com.google.android.gms.internal.measurement.zzaax
 com.google.android.gms.internal.measurement.zzaay
 com.google.android.gms.internal.measurement.zzaaz
-com.google.android.gms.internal.measurement.zzabd:
-    public final java.lang.Object zza(com.google.android.gms.internal.measurement.zzabe)
-com.google.android.gms.internal.measurement.zzabe:
-    private final com.google.android.gms.internal.measurement.zzyv zzbzk
-    public static com.google.android.gms.internal.measurement.zzabe zza(int,java.lang.Class,long)
-    private zzabe(int,java.lang.Class,int,boolean)
-    private zzabe(int,java.lang.Class,com.google.android.gms.internal.measurement.zzyv,int,boolean)
-com.google.android.gms.internal.measurement.zzabg:
-    final java.lang.Object zzb(com.google.android.gms.internal.measurement.zzabe)
-com.google.android.gms.internal.measurement.zzabh:
+com.google.android.gms.internal.measurement.zzaba
+com.google.android.gms.internal.measurement.zzabb
+com.google.android.gms.internal.measurement.zzabc
+com.google.android.gms.internal.measurement.zzabd
+com.google.android.gms.internal.measurement.zzabe
+com.google.android.gms.internal.measurement.zzabf
+com.google.android.gms.internal.measurement.zzabg
+com.google.android.gms.internal.measurement.zzabh
+com.google.android.gms.internal.measurement.zzabi
+com.google.android.gms.internal.measurement.zzabj
+com.google.android.gms.internal.measurement.zzabk
+com.google.android.gms.internal.measurement.zzabl
+com.google.android.gms.internal.measurement.zzabm
+com.google.android.gms.internal.measurement.zzabm$zza
+com.google.android.gms.internal.measurement.zzabm$zzb
+com.google.android.gms.internal.measurement.zzabm$zzc
+com.google.android.gms.internal.measurement.zzabm$zzd
+com.google.android.gms.internal.measurement.zzabn
+com.google.android.gms.internal.measurement.zzabo
+com.google.android.gms.internal.measurement.zzabp
+com.google.android.gms.internal.measurement.zzabq
+com.google.android.gms.internal.measurement.zzabr
+com.google.android.gms.internal.measurement.zzabs
+com.google.android.gms.internal.measurement.zzabt
+com.google.android.gms.internal.measurement.zzabu
+com.google.android.gms.internal.measurement.zzaby:
+    public final java.lang.Object zza(com.google.android.gms.internal.measurement.zzabz)
+com.google.android.gms.internal.measurement.zzabz:
+    private final com.google.android.gms.internal.measurement.zzzq zzbwz
+    public static com.google.android.gms.internal.measurement.zzabz zza(int,java.lang.Class,long)
+    private zzabz(int,java.lang.Class,int,boolean)
+    private zzabz(int,java.lang.Class,com.google.android.gms.internal.measurement.zzzq,int,boolean)
+com.google.android.gms.internal.measurement.zzacb:
+    final java.lang.Object zzb(com.google.android.gms.internal.measurement.zzabz)
+com.google.android.gms.internal.measurement.zzacc:
     public static boolean equals(int[],int[])
     public static int hashCode(int[])
-com.google.android.gms.internal.measurement.zzabj:
-    public static final void zza(com.google.android.gms.internal.measurement.zzabj,byte[],int,int)
+com.google.android.gms.internal.measurement.zzace:
+    public static final void zza(com.google.android.gms.internal.measurement.zzace,byte[],int,int)
+    public static final com.google.android.gms.internal.measurement.zzace zza(com.google.android.gms.internal.measurement.zzace,byte[])
+    private static final com.google.android.gms.internal.measurement.zzace zzb(com.google.android.gms.internal.measurement.zzace,byte[],int,int)
+com.google.android.gms.internal.measurement.zzn:
+    protected final void transactOneway(int,android.os.Parcel)
 com.google.android.gms.internal.measurement.zzp:
     public static void zza(android.os.Parcel,android.os.IInterface)
     public static java.util.HashMap zzb(android.os.Parcel)
-com.google.android.gms.internal.measurement.zzwi
-com.google.android.gms.internal.measurement.zzwi$zza
-com.google.android.gms.internal.measurement.zzwj
-com.google.android.gms.internal.measurement.zzwk
-com.google.android.gms.internal.measurement.zzwl
-com.google.android.gms.internal.measurement.zzwm
-com.google.android.gms.internal.measurement.zzwn
-com.google.android.gms.internal.measurement.zzxz
-com.google.android.gms.internal.measurement.zzya
-com.google.android.gms.internal.measurement.zzyb
-com.google.android.gms.internal.measurement.zzyc
-com.google.android.gms.internal.measurement.zzyd
-com.google.android.gms.internal.measurement.zzye
-com.google.android.gms.internal.measurement.zzyf
-com.google.android.gms.internal.measurement.zzyg
-com.google.android.gms.internal.measurement.zzyh
-com.google.android.gms.internal.measurement.zzyi
-com.google.android.gms.internal.measurement.zzyj
-com.google.android.gms.internal.measurement.zzyk
-com.google.android.gms.internal.measurement.zzyl
-com.google.android.gms.internal.measurement.zzym
-com.google.android.gms.internal.measurement.zzyn
-com.google.android.gms.internal.measurement.zzyo
-com.google.android.gms.internal.measurement.zzyp
-com.google.android.gms.internal.measurement.zzyq
-com.google.android.gms.internal.measurement.zzyr
-com.google.android.gms.internal.measurement.zzys
-com.google.android.gms.internal.measurement.zzyt
+com.google.android.gms.internal.measurement.zzxd
+com.google.android.gms.internal.measurement.zzxd$zza
+com.google.android.gms.internal.measurement.zzxe
+com.google.android.gms.internal.measurement.zzxf
+com.google.android.gms.internal.measurement.zzxg
+com.google.android.gms.internal.measurement.zzxh
+com.google.android.gms.internal.measurement.zzxi
 com.google.android.gms.internal.measurement.zzyu
 com.google.android.gms.internal.measurement.zzyv
-com.google.android.gms.internal.measurement.zzyv$zza
-com.google.android.gms.internal.measurement.zzyv$zzb
 com.google.android.gms.internal.measurement.zzyw
 com.google.android.gms.internal.measurement.zzyx
 com.google.android.gms.internal.measurement.zzyy
@@ -9444,6 +9456,8 @@ com.google.android.gms.internal.measurement.zzzn
 com.google.android.gms.internal.measurement.zzzo
 com.google.android.gms.internal.measurement.zzzp
 com.google.android.gms.internal.measurement.zzzq
+com.google.android.gms.internal.measurement.zzzq$zza
+com.google.android.gms.internal.measurement.zzzq$zzb
 com.google.android.gms.internal.measurement.zzzr
 com.google.android.gms.internal.measurement.zzzs
 com.google.android.gms.internal.measurement.zzzt
@@ -9480,6 +9494,7 @@ com.google.android.gms.measurement.AppMeasurement$UserProperty:
     public static final java.lang.String FIREBASE_LAST_NOTIFICATION
     private AppMeasurement$UserProperty()
 com.google.android.gms.measurement.AppMeasurementContentProvider
+com.google.android.gms.measurement_base.R
 com.google.android.gms.security.ProviderInstaller
 com.google.android.gms.security.ProviderInstaller$ProviderInstallListener
 com.google.android.gms.security.zza
@@ -9548,7 +9563,6 @@ com.google.android.gms.stats.zzb
 com.google.android.gms.stats.zzc
 com.google.android.gms.tasks.CancellationToken
 com.google.android.gms.tasks.CancellationTokenSource
-com.google.android.gms.tasks.Continuation
 com.google.android.gms.tasks.OnTokenCanceledListener
 com.google.android.gms.tasks.R
 com.google.android.gms.tasks.SuccessContinuation
@@ -9561,7 +9575,6 @@ com.google.android.gms.tasks.Task:
     public com.google.android.gms.tasks.Task addOnCanceledListener(com.google.android.gms.tasks.OnCanceledListener)
     public com.google.android.gms.tasks.Task addOnCanceledListener(android.app.Activity,com.google.android.gms.tasks.OnCanceledListener)
     public com.google.android.gms.tasks.Task continueWith(com.google.android.gms.tasks.Continuation)
-    public com.google.android.gms.tasks.Task continueWith(java.util.concurrent.Executor,com.google.android.gms.tasks.Continuation)
     public com.google.android.gms.tasks.Task continueWithTask(com.google.android.gms.tasks.Continuation)
     public com.google.android.gms.tasks.Task continueWithTask(java.util.concurrent.Executor,com.google.android.gms.tasks.Continuation)
     public com.google.android.gms.tasks.Task onSuccessTask(com.google.android.gms.tasks.SuccessContinuation)
@@ -9584,8 +9597,8 @@ com.google.android.gms.tasks.Tasks:
 com.google.android.gms.tasks.Tasks$zzc
 com.google.android.gms.tasks.zza
 com.google.android.gms.tasks.zzb
-com.google.android.gms.tasks.zzc
-com.google.android.gms.tasks.zzd
+com.google.android.gms.tasks.zzc:
+    public final void cancel()
 com.google.android.gms.tasks.zze
 com.google.android.gms.tasks.zzf
 com.google.android.gms.tasks.zzg:
@@ -9608,14 +9621,12 @@ com.google.android.gms.tasks.zzu:
     public final com.google.android.gms.tasks.Task addOnFailureListener(android.app.Activity,com.google.android.gms.tasks.OnFailureListener)
     public final com.google.android.gms.tasks.Task addOnCompleteListener(android.app.Activity,com.google.android.gms.tasks.OnCompleteListener)
     public final com.google.android.gms.tasks.Task continueWith(com.google.android.gms.tasks.Continuation)
-    public final com.google.android.gms.tasks.Task continueWith(java.util.concurrent.Executor,com.google.android.gms.tasks.Continuation)
     public final com.google.android.gms.tasks.Task continueWithTask(com.google.android.gms.tasks.Continuation)
     public final com.google.android.gms.tasks.Task addOnCanceledListener(com.google.android.gms.tasks.OnCanceledListener)
     public final com.google.android.gms.tasks.Task addOnCanceledListener(android.app.Activity,com.google.android.gms.tasks.OnCanceledListener)
     public final com.google.android.gms.tasks.Task continueWithTask(java.util.concurrent.Executor,com.google.android.gms.tasks.Continuation)
     public final com.google.android.gms.tasks.Task onSuccessTask(java.util.concurrent.Executor,com.google.android.gms.tasks.SuccessContinuation)
     public final com.google.android.gms.tasks.Task onSuccessTask(com.google.android.gms.tasks.SuccessContinuation)
-    public final boolean zzdp()
 com.google.android.gms.tasks.zzu$zza
 com.google.android.gms.tasks.zzw
 com.google.android.gms.tasks.zzx
@@ -9629,7 +9640,6 @@ com.google.firebase.FirebaseApp:
     public void setIdTokenListenersCountChangedListener(com.google.firebase.FirebaseApp$IdTokenListenersCountChangedListener)
     public com.google.android.gms.tasks.Task getToken(boolean)
     public final java.lang.String getUid()
-    public java.lang.Object get(java.lang.Class)
     public void setAutomaticResourceManagementEnabled(boolean)
     public void notifyIdTokenListeners(com.google.firebase.internal.InternalTokenResult)
     public void addIdTokenListener(com.google.firebase.FirebaseApp$IdTokenListener)
@@ -9748,40 +9758,69 @@ com.google.firebase.analytics.FirebaseAnalytics$Param:
 com.google.firebase.analytics.FirebaseAnalytics$UserProperty:
     public static final java.lang.String SIGN_UP_METHOD
     protected FirebaseAnalytics$UserProperty()
+com.google.firebase.analytics.connector.AnalyticsConnector:
+    public abstract java.util.Map getUserProperties(boolean)
+    public abstract com.google.firebase.analytics.connector.AnalyticsConnector$AnalyticsConnectorHandle registerAnalyticsConnectorListener(java.lang.String,com.google.firebase.analytics.connector.AnalyticsConnector$AnalyticsConnectorListener)
+    public abstract void setConditionalUserProperty(com.google.firebase.analytics.connector.AnalyticsConnector$ConditionalUserProperty)
+    public abstract void clearConditionalUserProperty(java.lang.String,java.lang.String,android.os.Bundle)
+    public abstract java.util.List getConditionalUserProperties(java.lang.String,java.lang.String)
+    public abstract int getMaxUserProperties(java.lang.String)
+com.google.firebase.analytics.connector.AnalyticsConnector$AnalyticsConnectorHandle
+com.google.firebase.analytics.connector.AnalyticsConnector$AnalyticsConnectorListener
+com.google.firebase.analytics.connector.AnalyticsConnector$ConditionalUserProperty
+com.google.firebase.analytics.connector.AnalyticsConnectorImpl:
+    public static com.google.firebase.analytics.connector.AnalyticsConnector getInstance()
+    public static com.google.firebase.analytics.connector.AnalyticsConnector getInstance(com.google.firebase.FirebaseApp)
+    public java.util.Map getUserProperties(boolean)
+    public com.google.firebase.analytics.connector.AnalyticsConnector$AnalyticsConnectorHandle registerAnalyticsConnectorListener(java.lang.String,com.google.firebase.analytics.connector.AnalyticsConnector$AnalyticsConnectorListener)
+    public void setConditionalUserProperty(com.google.firebase.analytics.connector.AnalyticsConnector$ConditionalUserProperty)
+    public void clearConditionalUserProperty(java.lang.String,java.lang.String,android.os.Bundle)
+    public java.util.List getConditionalUserProperties(java.lang.String,java.lang.String)
+    public int getMaxUserProperties(java.lang.String)
+    private final boolean zzfc(java.lang.String)
+    protected com.google.firebase.analytics.connector.internal.Adapter createAdapter(java.lang.String,com.google.android.gms.measurement.AppMeasurement,com.google.firebase.analytics.connector.AnalyticsConnector$AnalyticsConnectorListener)
+    static synthetic boolean zza(com.google.firebase.analytics.connector.AnalyticsConnectorImpl,java.lang.String)
+com.google.firebase.analytics.connector.R
+com.google.firebase.analytics.connector.impl.R
+com.google.firebase.analytics.connector.internal.Adapter
+com.google.firebase.analytics.connector.internal.zzb:
+    public static boolean zza(com.google.firebase.analytics.connector.AnalyticsConnector$ConditionalUserProperty)
+    public static com.google.android.gms.measurement.AppMeasurement$ConditionalUserProperty zzb(com.google.firebase.analytics.connector.AnalyticsConnector$ConditionalUserProperty)
+    public static com.google.firebase.analytics.connector.AnalyticsConnector$ConditionalUserProperty zzd(com.google.android.gms.measurement.AppMeasurement$ConditionalUserProperty)
+com.google.firebase.analytics.connector.zza
 com.google.firebase.auth.FirebaseAuthException
 com.google.firebase.auth.GetTokenResult
 com.google.firebase.components.Component:
     public static varargs com.google.firebase.components.Component$Builder builder(java.lang.Class,java.lang.Class[])
 com.google.firebase.components.Component$Builder:
-    public com.google.firebase.components.Component$Builder add(com.google.firebase.components.Dependency)
-    public com.google.firebase.components.Component$Builder alwaysEager()
     public com.google.firebase.components.Component$Builder eagerInDefaultApp()
-    private final com.google.firebase.components.Component$Builder zza(int)
-com.google.firebase.components.ComponentContainer:
-    public abstract java.lang.Object get(java.lang.Class)
 com.google.firebase.components.Dependency:
-    private Dependency(java.lang.Class,int,int)
     public static com.google.firebase.components.Dependency optional(java.lang.Class)
-    public static com.google.firebase.components.Dependency required(java.lang.Class)
     public static com.google.firebase.components.Dependency optionalProvider(java.lang.Class)
     public static com.google.firebase.components.Dependency requiredProvider(java.lang.Class)
 com.google.firebase.components.DependencyCycleException:
     public java.util.List getComponentsInCycle()
-com.google.firebase.components.zzl:
-    public final java.lang.Object get(java.lang.Class)
 com.google.firebase.firebase_common.R
 com.google.firebase.firebase_core.R
 com.google.firebase.iid.FirebaseInstanceId:
     public long getCreationTime()
     public void deleteInstanceId()
     public void deleteToken(java.lang.String,java.lang.String)
-    public final synchronized void zzev(java.lang.String)
-    public final synchronized void zzv(boolean)
+    public final synchronized void zza(java.lang.String)
+    public final synchronized void zzb(boolean)
 com.google.firebase.iid.R
-com.google.firebase.iid.zzaa:
-    public final synchronized void zzev(java.lang.String)
-    public final synchronized long zzfa(java.lang.String)
-    public final synchronized void zzk(java.lang.String,java.lang.String,java.lang.String)
+com.google.firebase.iid.Registrar$zza:
+    public final java.lang.String getId()
+    public final java.lang.String getToken()
+com.google.firebase.iid.internal.FirebaseInstanceIdInternal:
+    public abstract java.lang.String getId()
+    public abstract java.lang.String getToken()
+com.google.firebase.iid.internal.R
+com.google.firebase.iid.zzao:
+    public final synchronized void zza(java.lang.String)
+    public final synchronized void zzc(java.lang.String,java.lang.String,java.lang.String)
+com.google.firebase.iid.zzq:
+    final long getCreationTime()
 com.google.firebase.internal.FirebaseAppHelper
 com.google.firebase.internal.InternalTokenProvider
 com.google.firebase.internal.InternalTokenResult
@@ -9796,8 +9835,8 @@ com.google.firebase.measurement.R
 com.google.firebase.measurement_impl.R
 com.google.firebase.messaging.FirebaseMessaging:
     public static final java.lang.String INSTANCE_ID_SCOPE
-    private static com.google.firebase.messaging.FirebaseMessaging zzbsr
-    private final com.google.firebase.iid.FirebaseInstanceId zzbse
+    private static com.google.firebase.messaging.FirebaseMessaging zzdf
+    private final com.google.firebase.iid.FirebaseInstanceId zzaw
     public static synchronized com.google.firebase.messaging.FirebaseMessaging getInstance()
     private FirebaseMessaging(com.google.firebase.iid.FirebaseInstanceId)
     public boolean isAutoInitEnabled()
@@ -9837,7 +9876,7 @@ com.google.firebase.messaging.SendException:
     public final int getErrorCode()
 com.google.firebase.zzb
 com.google.gson.DefaultDateTypeAdapter:
-    55:56:DefaultDateTypeAdapter(int)
+    54:55:DefaultDateTypeAdapter(int)
 com.google.gson.FieldAttributes:
     53:53:public java.lang.Class getDeclaringClass()
     60:60:public java.lang.String getName()
@@ -9857,52 +9896,51 @@ com.google.gson.Gson:
     static final boolean DEFAULT_COMPLEX_MAP_KEYS
     static final boolean DEFAULT_SPECIALIZE_FLOAT_VALUES
     private static final java.lang.String JSON_NON_EXECUTABLE_PREFIX
-    530:533:public com.google.gson.JsonElement toJsonTree(java.lang.Object)
-    553:555:public com.google.gson.JsonElement toJsonTree(java.lang.Object,java.lang.reflect.Type)
-    572:575:public java.lang.String toJson(java.lang.Object)
-    594:596:public java.lang.String toJson(java.lang.Object,java.lang.reflect.Type)
-    614:619:public void toJson(java.lang.Object,java.lang.Appendable)
-    639:644:public void toJson(java.lang.Object,java.lang.reflect.Type,java.lang.Appendable)
-    653:669:public void toJson(java.lang.Object,java.lang.reflect.Type,com.google.gson.stream.JsonWriter)
-    679:681:public java.lang.String toJson(com.google.gson.JsonElement)
-    694:699:public void toJson(com.google.gson.JsonElement,java.lang.Appendable)
-    730:745:public void toJson(com.google.gson.JsonElement,com.google.gson.stream.JsonWriter)
-    765:766:public java.lang.Object fromJson(java.lang.String,java.lang.Class)
-    789:794:public java.lang.Object fromJson(java.lang.String,java.lang.reflect.Type)
-    816:819:public java.lang.Object fromJson(java.io.Reader,java.lang.Class)
-    843:846:public java.lang.Object fromJson(java.io.Reader,java.lang.reflect.Type)
-    851:859:private static void assertFullConsumption(java.lang.Object,com.google.gson.stream.JsonReader)
-    871:896:public java.lang.Object fromJson(com.google.gson.stream.JsonReader,java.lang.reflect.Type)
-    917:918:public java.lang.Object fromJson(com.google.gson.JsonElement,java.lang.Class)
-    941:944:public java.lang.Object fromJson(com.google.gson.JsonElement,java.lang.reflect.Type)
-com.google.gson.Gson$1:
-    138:138:public java.lang.Object deserialize(com.google.gson.JsonElement,java.lang.reflect.Type)
-com.google.gson.Gson$2:
-    144:144:public com.google.gson.JsonElement serialize(java.lang.Object)
-    147:147:public com.google.gson.JsonElement serialize(java.lang.Object,java.lang.reflect.Type)
+    259:259:public com.google.gson.internal.Excluder excluder()
+    263:263:public com.google.gson.FieldNamingStrategy fieldNamingStrategy()
+    267:267:public boolean serializeNulls()
+    271:271:public boolean htmlSafe()
+    538:541:public com.google.gson.JsonElement toJsonTree(java.lang.Object)
+    561:563:public com.google.gson.JsonElement toJsonTree(java.lang.Object,java.lang.reflect.Type)
+    580:583:public java.lang.String toJson(java.lang.Object)
+    602:604:public java.lang.String toJson(java.lang.Object,java.lang.reflect.Type)
+    622:627:public void toJson(java.lang.Object,java.lang.Appendable)
+    647:652:public void toJson(java.lang.Object,java.lang.reflect.Type,java.lang.Appendable)
+    661:677:public void toJson(java.lang.Object,java.lang.reflect.Type,com.google.gson.stream.JsonWriter)
+    687:689:public java.lang.String toJson(com.google.gson.JsonElement)
+    702:707:public void toJson(com.google.gson.JsonElement,java.lang.Appendable)
+    738:753:public void toJson(com.google.gson.JsonElement,com.google.gson.stream.JsonWriter)
+    773:774:public java.lang.Object fromJson(java.lang.String,java.lang.Class)
+    797:802:public java.lang.Object fromJson(java.lang.String,java.lang.reflect.Type)
+    824:827:public java.lang.Object fromJson(java.io.Reader,java.lang.Class)
+    851:854:public java.lang.Object fromJson(java.io.Reader,java.lang.reflect.Type)
+    859:867:private static void assertFullConsumption(java.lang.Object,com.google.gson.stream.JsonReader)
+    879:904:public java.lang.Object fromJson(com.google.gson.stream.JsonReader,java.lang.reflect.Type)
+    925:926:public java.lang.Object fromJson(com.google.gson.JsonElement,java.lang.Class)
+    949:952:public java.lang.Object fromJson(com.google.gson.JsonElement,java.lang.reflect.Type)
 com.google.gson.GsonBuilder:
-    114:115:public com.google.gson.GsonBuilder setVersion(double)
-    130:131:public varargs com.google.gson.GsonBuilder excludeFieldsWithModifiers(int[])
-    144:145:public com.google.gson.GsonBuilder generateNonExecutableJson()
-    155:156:public com.google.gson.GsonBuilder excludeFieldsWithoutExposeAnnotation()
-    167:168:public com.google.gson.GsonBuilder serializeNulls()
-    248:249:public com.google.gson.GsonBuilder enableComplexMapKeySerialization()
-    259:260:public com.google.gson.GsonBuilder disableInnerClassSerialization()
-    272:273:public com.google.gson.GsonBuilder setLongSerializationPolicy(com.google.gson.LongSerializationPolicy)
-    285:286:public com.google.gson.GsonBuilder setFieldNamingPolicy(com.google.gson.FieldNamingPolicy)
-    298:299:public com.google.gson.GsonBuilder setFieldNamingStrategy(com.google.gson.FieldNamingStrategy)
-    313:316:public varargs com.google.gson.GsonBuilder setExclusionStrategies(com.google.gson.ExclusionStrategy[])
-    332:333:public com.google.gson.GsonBuilder addSerializationExclusionStrategy(com.google.gson.ExclusionStrategy)
-    349:350:public com.google.gson.GsonBuilder addDeserializationExclusionStrategy(com.google.gson.ExclusionStrategy)
-    360:361:public com.google.gson.GsonBuilder setPrettyPrinting()
-    385:386:public com.google.gson.GsonBuilder disableHtmlEscaping()
-    407:408:public com.google.gson.GsonBuilder setDateFormat(java.lang.String)
-    426:428:public com.google.gson.GsonBuilder setDateFormat(int)
-    447:450:public com.google.gson.GsonBuilder setDateFormat(int,int)
-    471:485:public com.google.gson.GsonBuilder registerTypeAdapter(java.lang.reflect.Type,java.lang.Object)
-    497:498:public com.google.gson.GsonBuilder registerTypeAdapterFactory(com.google.gson.TypeAdapterFactory)
-    517:527:public com.google.gson.GsonBuilder registerTypeHierarchyAdapter(java.lang.Class,java.lang.Object)
-    551:552:public com.google.gson.GsonBuilder serializeSpecialFloatingPointValues()
+    115:116:public com.google.gson.GsonBuilder setVersion(double)
+    131:132:public varargs com.google.gson.GsonBuilder excludeFieldsWithModifiers(int[])
+    145:146:public com.google.gson.GsonBuilder generateNonExecutableJson()
+    156:157:public com.google.gson.GsonBuilder excludeFieldsWithoutExposeAnnotation()
+    168:169:public com.google.gson.GsonBuilder serializeNulls()
+    249:250:public com.google.gson.GsonBuilder enableComplexMapKeySerialization()
+    260:261:public com.google.gson.GsonBuilder disableInnerClassSerialization()
+    273:274:public com.google.gson.GsonBuilder setLongSerializationPolicy(com.google.gson.LongSerializationPolicy)
+    286:287:public com.google.gson.GsonBuilder setFieldNamingPolicy(com.google.gson.FieldNamingPolicy)
+    299:300:public com.google.gson.GsonBuilder setFieldNamingStrategy(com.google.gson.FieldNamingStrategy)
+    314:317:public varargs com.google.gson.GsonBuilder setExclusionStrategies(com.google.gson.ExclusionStrategy[])
+    333:334:public com.google.gson.GsonBuilder addSerializationExclusionStrategy(com.google.gson.ExclusionStrategy)
+    350:351:public com.google.gson.GsonBuilder addDeserializationExclusionStrategy(com.google.gson.ExclusionStrategy)
+    361:362:public com.google.gson.GsonBuilder setPrettyPrinting()
+    386:387:public com.google.gson.GsonBuilder disableHtmlEscaping()
+    408:409:public com.google.gson.GsonBuilder setDateFormat(java.lang.String)
+    427:429:public com.google.gson.GsonBuilder setDateFormat(int)
+    448:451:public com.google.gson.GsonBuilder setDateFormat(int,int)
+    472:486:public com.google.gson.GsonBuilder registerTypeAdapter(java.lang.reflect.Type,java.lang.Object)
+    498:499:public com.google.gson.GsonBuilder registerTypeAdapterFactory(com.google.gson.TypeAdapterFactory)
+    518:528:public com.google.gson.GsonBuilder registerTypeHierarchyAdapter(java.lang.Class,java.lang.Object)
+    552:553:public com.google.gson.GsonBuilder serializeSpecialFloatingPointValues()
 com.google.gson.JsonArray:
     45:49:com.google.gson.JsonArray deepCopy()
     58:59:public void add(java.lang.Boolean)
@@ -9947,11 +9985,12 @@ com.google.gson.JsonObject:
     101:102:public void addProperty(java.lang.String,java.lang.Boolean)
     112:113:public void addProperty(java.lang.String,java.lang.Character)
     122:122:private com.google.gson.JsonElement createJsonElement(java.lang.Object)
-    142:142:public boolean has(java.lang.String)
-    152:152:public com.google.gson.JsonElement get(java.lang.String)
-    162:162:public com.google.gson.JsonPrimitive getAsJsonPrimitive(java.lang.String)
-    172:172:public com.google.gson.JsonArray getAsJsonArray(java.lang.String)
-    182:182:public com.google.gson.JsonObject getAsJsonObject(java.lang.String)
+    141:141:public int size()
+    151:151:public boolean has(java.lang.String)
+    161:161:public com.google.gson.JsonElement get(java.lang.String)
+    171:171:public com.google.gson.JsonPrimitive getAsJsonPrimitive(java.lang.String)
+    181:181:public com.google.gson.JsonArray getAsJsonArray(java.lang.String)
+    191:191:public com.google.gson.JsonObject getAsJsonObject(java.lang.String)
     32:32:bridge synthetic com.google.gson.JsonElement deepCopy()
 com.google.gson.JsonParser
 com.google.gson.JsonPrimitive:
@@ -9959,7 +9998,7 @@ com.google.gson.JsonPrimitive:
     84:86:JsonPrimitive(java.lang.Object)
     90:90:com.google.gson.JsonPrimitive deepCopy()
     204:204:public java.math.BigDecimal getAsBigDecimal()
-    215:215:public java.math.BigInteger getAsBigInteger()
+    215:216:public java.math.BigInteger getAsBigInteger()
     227:227:public float getAsFloat()
     249:249:public short getAsShort()
     265:265:public byte getAsByte()
@@ -9975,9 +10014,6 @@ com.google.gson.LongSerializationPolicy$1:
     36:36:public com.google.gson.JsonElement serialize(java.lang.Long)
 com.google.gson.LongSerializationPolicy$2:
     47:47:public com.google.gson.JsonElement serialize(java.lang.Long)
-com.google.gson.TreeTypeAdapter:
-    95:96:public static com.google.gson.TypeAdapterFactory newFactoryWithMatchRawType(com.google.gson.reflect.TypeToken,java.lang.Object)
-    105:105:public static com.google.gson.TypeAdapterFactory newTypeHierarchyFactory(java.lang.Class,java.lang.Object)
 com.google.gson.TypeAdapter:
     141:143:public final void toJson(java.io.Writer,java.lang.Object)
     215:221:public final java.lang.String toJson(java.lang.Object)
@@ -10007,21 +10043,29 @@ com.google.gson.internal.LinkedHashTreeMap$LinkedTreeMapIterator
 com.google.gson.internal.LinkedHashTreeMap$Node
 com.google.gson.internal.Primitives:
     32:33:private Primitives()
-    82:82:public static boolean isWrapperType(java.lang.reflect.Type)
+    82:83:public static boolean isWrapperType(java.lang.reflect.Type)
     98:100:public static java.lang.Class wrap(java.lang.Class)
     115:117:public static java.lang.Class unwrap(java.lang.Class)
 com.google.gson.internal.Streams:
     36:37:private Streams()
-    77:77:public static java.io.Writer writerForAppendable(java.lang.Appendable)
+    76:76:public static java.io.Writer writerForAppendable(java.lang.Appendable)
 com.google.gson.internal.Streams$AppendableWriter
 com.google.gson.internal.Streams$AppendableWriter$CurrentWrite
 com.google.gson.internal.bind.JsonTreeReader:
-    50:55:public JsonTreeReader(com.google.gson.JsonElement)
+    51:68:public JsonTreeReader(com.google.gson.JsonElement)
 com.google.gson.internal.bind.JsonTreeWriter:
-    163:167:public com.google.gson.stream.JsonWriter value(double)
+    171:175:public com.google.gson.stream.JsonWriter value(double)
+com.google.gson.internal.bind.TreeTypeAdapter:
+    106:107:public static com.google.gson.TypeAdapterFactory newFactoryWithMatchRawType(com.google.gson.reflect.TypeToken,java.lang.Object)
+    116:116:public static com.google.gson.TypeAdapterFactory newTypeHierarchyFactory(java.lang.Class,java.lang.Object)
+    41:41:static synthetic com.google.gson.Gson access$100(com.google.gson.internal.bind.TreeTypeAdapter)
+com.google.gson.internal.bind.TreeTypeAdapter$GsonContextImpl:
+    155:155:public com.google.gson.JsonElement serialize(java.lang.Object)
+    158:158:public com.google.gson.JsonElement serialize(java.lang.Object,java.lang.reflect.Type)
+    162:162:public java.lang.Object deserialize(com.google.gson.JsonElement,java.lang.reflect.Type)
 com.google.gson.internal.bind.TypeAdapters:
     64:65:private TypeAdapters()
-    844:844:public static com.google.gson.TypeAdapterFactory newFactory(com.google.gson.reflect.TypeToken,com.google.gson.TypeAdapter)
+    840:840:public static com.google.gson.TypeAdapterFactory newFactory(com.google.gson.reflect.TypeToken,com.google.gson.TypeAdapter)
 com.google.gson.internal.bind.TypeAdapters$27:
     private static final java.lang.String YEAR
     private static final java.lang.String MONTH
@@ -10045,7 +10089,7 @@ com.google.gson.reflect.TypeToken:
     188:231:private static boolean isAssignableFrom(java.lang.reflect.Type,java.lang.reflect.ParameterizedType,java.util.Map)
     240:250:private static boolean typeEquals(java.lang.reflect.ParameterizedType,java.lang.reflect.ParameterizedType,java.util.Map)
     257:265:private static varargs java.lang.AssertionError buildUnexpectedTypeError(java.lang.reflect.Type,java.lang.Class[])
-    273:273:private static boolean matches(java.lang.reflect.Type,java.lang.reflect.Type,java.util.Map)
+    273:275:private static boolean matches(java.lang.reflect.Type,java.lang.reflect.Type,java.util.Map)
 com.google.gson.stream.JsonReader:
     private static final long MIN_INCOMPLETE_INTEGER
     private static final int PEEKED_NONE
@@ -10079,7 +10123,7 @@ com.google.gson.stream.JsonWriter:
     253:254:public final void setHtmlSafe(boolean)
     261:261:public final boolean isHtmlSafe()
     431:437:public com.google.gson.stream.JsonWriter jsonValue(java.lang.String)
-    479:485:public com.google.gson.stream.JsonWriter value(double)
+    494:500:public com.google.gson.stream.JsonWriter value(double)
 com.google.gson.stream.MalformedJsonException:
     33:37:public MalformedJsonException(java.lang.String,java.lang.Throwable)
     39:43:public MalformedJsonException(java.lang.Throwable)
@@ -11229,7 +11273,6 @@ okhttp3.Response$Builder:
 okhttp3.ResponseBody:
     115:115:public final java.io.InputStream byteStream()
     128:147:public final byte[] bytes()
-    172:177:public final java.lang.String string()
     195:204:public static okhttp3.ResponseBody create(okhttp3.MediaType,java.lang.String)
 okhttp3.TlsVersion:
     65:65:public java.lang.String javaName()
@@ -11499,7 +11542,6 @@ okio.Buffer:
     548:563:public int select(okio.Options)
     572:581:int selectPrefix(okio.Options)
     585:590:public void readFully(okio.Buffer,long)
-    614:616:public java.lang.String readString(java.nio.charset.Charset)
     647:653:public java.lang.String readUtf8Line()
     691:762:public int readUtf8CodePoint()
     785:785:public int read(byte[])
@@ -11566,7 +11608,6 @@ okio.BufferedSource:
     public abstract java.lang.String readUtf8(long)
     public abstract java.lang.String readUtf8Line()
     public abstract int readUtf8CodePoint()
-    public abstract java.lang.String readString(java.nio.charset.Charset)
     public abstract java.lang.String readString(long,java.nio.charset.Charset)
     public abstract long indexOf(byte,long)
     public abstract long indexOf(byte,long,long)
@@ -11657,7 +11698,6 @@ okio.RealBufferedSource:
     160:167:public void readFully(okio.Buffer,long)
     188:189:public java.lang.String readUtf8()
     193:194:public java.lang.String readUtf8(long)
-    198:201:public java.lang.String readString(java.nio.charset.Charset)
     205:207:public java.lang.String readString(long,java.nio.charset.Charset)
     211:217:public java.lang.String readUtf8Line()
     241:252:public int readUtf8CodePoint()
@@ -11727,7 +11767,6 @@ retrofit2.Response:
     107:107:public int code()
     112:112:public java.lang.String message()
     117:117:public okhttp3.Headers headers()
-    127:127:public java.lang.Object body()
 retrofit2.Retrofit:
     195:195:public java.util.List callAdapterFactories()
     251:251:public java.util.List converterFactories()
@@ -11744,4 +11783,5 @@ retrofit2.Utils:
     36:38:private Utils()
 retrofit2.converter.gson.GsonConverterFactory:
     42:42:public static retrofit2.converter.gson.GsonConverterFactory create()
+retrofit2.converter.gson.package-info
 retrofit2.package-info
