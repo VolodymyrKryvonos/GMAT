@@ -13,7 +13,9 @@
     <ProgressBar
         android:id="@+id/loading"
         android:layout_gravity="center"
-        style="@style/progressBar_style" />
+        style="@style/progressBar_style"
+        android:visibility="gone"
+        />
 
     <LinearLayout
         android:id="@+id/feedbackLayout"
@@ -62,7 +64,7 @@
                 android:textColor="@color/white"
                 android:text="Send"
                 android:textAllCaps="true"
-                android:fontFamily="@font/opensans_semibold"
+                android:fontFamily="@font/opensans_semibold_custom"
                 android:textSize="16sp"
                 android:backgroundTint="@color/mainOrange"
                 android:background="@color/mainOrange"
@@ -75,7 +77,7 @@
         android:id="@+id/swipe"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:visibility="gone"
+        android:visibility="visible"
         >
         <com.deepinspire.gmatclub.utils.GCWebView
             android:id="@+id/webView"

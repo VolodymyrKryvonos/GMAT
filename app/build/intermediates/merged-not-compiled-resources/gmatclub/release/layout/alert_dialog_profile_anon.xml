@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:textColor="#e53a3a"
         android:textSize="16sp"
-        android:fontFamily="@font/opensans_semibold"
+        android:fontFamily="@font/opensans_semibold_custom"
         android:layout_marginBottom="10dp"
         android:layout_below="@+id/btnProfileTitle"
         android:visibility="gone"
@@ -75,6 +75,7 @@
                    android:layout_height= "1dp"
                    android:background="@color/mainBorder"
                    android:layout_marginTop="25dp"
+                   android:visibility="gone"
                    />
 
                <LinearLayout
@@ -83,6 +84,7 @@
                    android:layout_height="wrap_content"
                    android:gravity="center"
                    android:layout_marginTop="25dp"
+                   android:visibility="gone"
                    >
                    <ImageView
                        android:layout_width="wrap_content"
@@ -109,7 +111,9 @@
                    android:layout_height="wrap_content"
                    android:layout_marginLeft="3dp"
                    android:layout_marginTop="25dp"
-                   android:gravity="center">
+                   android:gravity="center"
+                   android:visibility="gone"
+                   >
                    <ImageView
                        android:layout_width="wrap_content"
                        android:layout_height="wrap_content"
