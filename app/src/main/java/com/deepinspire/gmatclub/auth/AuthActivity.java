@@ -132,7 +132,9 @@ public class AuthActivity extends AppCompatActivity implements IAuthContract.Vie
             case R.id.layoutSignInGoogle:
                 initGoogleSignIn();
 
-                Intent signInIntent = Auth.GoogleSignInApi.getSignInIntent(mGoogleApiClient);
+                //Intent signInIntent = Auth.GoogleSignInApi.getSignInIntent(mGoogleApiClient);
+                Intent signInIntent = mGoogleSignInClient.getSignInIntent();
+
                 startActivityForResult(signInIntent, GCConfig.GOOGLE_SIGN_IN);
                 break;
             case R.id.layoutSignInFacebook:
@@ -399,12 +401,13 @@ public class AuthActivity extends AppCompatActivity implements IAuthContract.Vie
             // mGoogleApiClient.connect();
 
             GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                    //.requestIdToken(getString(R.string.default_web_client_id))
-                    .requestIdToken("789008364480-jr2io8r51h0eegmdvuu0bv1abt6bpppt.apps.googleusercontent.com")
-                    .requestServerAuthCode("789008364480-jr2io8r51h0eegmdvuu0bv1abt6bpppt.apps.googleusercontent.com")
+                    .requestIdToken("241911688286-hdgjh2o7dg42155d31ts4m9vitq8nf0h.apps.googleusercontent.com")
+                    //.requestIdToken("241911688286-p0000000hdgjh2o7dg42155d31ts4m9vitq8nf0h.apps.googleusercontent.com")
+                    //.requestIdToken("789008364480-jr2io8r51h0eegmdvuu0bv1abt6bpppt.apps.googleusercontent.com")
+                    //.requestServerAuthCode("789008364480-jr2io8r51h0eegmdvuu0bv1abt6bpppt.apps.googleusercontent.com")
                     //.requestIdToken(getString(R.string.server_client_id))
-                    .requestProfile()
-                    .requestId()
+                    //.requestProfile()
+                    //.requestId()
                     //.requestIdToken("241911688286-hdgjh2o7dg42155d31ts4m9vitq8nf0h.apps.googleusercontent.com")
                     //.requestIdToken(getString(R.string.default_web_client_id))
                     .requestEmail()
@@ -421,6 +424,8 @@ public class AuthActivity extends AppCompatActivity implements IAuthContract.Vie
 
             //Intent signInIntent = mGoogleSignInClient.getSignInIntent();
             //startActivityForResult(signInIntent, GCConfig.GOOGLE_SIGN_IN);
+
+            mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
 
             mGoogleApiClient = new GoogleApiClient.Builder(this)
                     .enableAutoManage(this, this)
