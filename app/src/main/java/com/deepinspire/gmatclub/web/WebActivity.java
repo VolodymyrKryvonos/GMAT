@@ -1127,7 +1127,7 @@ public class WebActivity extends AppCompatActivity implements
                 openPage(Api.UCP_MY_ERROR_LOG_URL);
                 break;
             case "settings":
-                openPage(Api.UCP_MY_SETTINGS_URL);
+                openPage(Api.UCP_FORUM_SETTINGS_URL);
                 break;
             case "logout":
                 this.presenter.logout();

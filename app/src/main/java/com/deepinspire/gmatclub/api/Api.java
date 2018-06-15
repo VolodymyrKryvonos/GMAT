@@ -42,6 +42,7 @@ public class Api {
     public static final String UCP_MY_BOOKMARKS_URL = UCP_URL + "?i=main&mode=bookmarks";
     public static final String UCP_MY_ERROR_LOG_URL = UCP_URL + "?i=error_log&mode=error_log";
     public static final String UCP_MY_SETTINGS_URL = UCP_URL + "?i=301";
+    public static final String UCP_FORUM_SETTINGS_URL = UCP_URL + "?i=profile&mode=notice_settings";
 
     public static String PM_URL = UCP_URL + "?i=pm&amp;folder=inbox";
     public static String PM_NEW_URL = UCP_URL + "?i=pm&mode=compose";

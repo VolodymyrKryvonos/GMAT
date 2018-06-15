@@ -181,6 +181,7 @@ Referenced Strings:
   BOTTOM
   BYTE
   BasePendingResult
+  BiChannelGoogleApi
   Big5
   BundleCompatBaseImpl
   Button
@@ -255,6 +256,7 @@ Referenced Strings:
   DISPLAY_ALWAYS
   DRIVE_EXTERNAL_STORAGE_REQUIRED
   Date
+  DefaultAuthUserInfo
   DeviceShare
   DeviceShareDialogFragment
   DialogRedirect
@@ -278,7 +280,45 @@ Referenced Strings:
   ENHANCE_YOUR_CALM
   EQUAL
   ERROR
+  ERROR_ACCOUNT_EXISTS_WITH_DIFFERENT_C...
+  ERROR_API_NOT_AVAILABLE
+  ERROR_APP_NOT_AUTHORIZED
   ERROR_CORRECTION
+  ERROR_CREDENTIAL_ALREADY_IN_USE
+  ERROR_CUSTOM_TOKEN_MISMATCH
+  ERROR_EMAIL_ALREADY_IN_USE
+  ERROR_EXPIRED_ACTION_CODE
+  ERROR_INVALID_ACTION_CODE
+  ERROR_INVALID_CERT_HASH
+  ERROR_INVALID_CREDENTIAL
+  ERROR_INVALID_CUSTOM_TOKEN
+  ERROR_INVALID_EMAIL
+  ERROR_INVALID_MESSAGE_PAYLOAD
+  ERROR_INVALID_PHONE_NUMBER
+  ERROR_INVALID_RECIPIENT_EMAIL
+  ERROR_INVALID_SENDER
+  ERROR_INVALID_USER_TOKEN
+  ERROR_INVALID_VERIFICATION_CODE
+  ERROR_INVALID_VERIFICATION_ID
+  ERROR_MISSING_CONTINUE_URI
+  ERROR_MISSING_EMAIL
+  ERROR_MISSING_PASSWORD
+  ERROR_MISSING_PHONE_NUMBER
+  ERROR_MISSING_VERIFICATION_CODE
+  ERROR_MISSING_VERIFICATION_ID
+  ERROR_OPERATION_NOT_ALLOWED
+  ERROR_QUOTA_EXCEEDED
+  ERROR_REQUIRES_RECENT_LOGIN
+  ERROR_RETRY_PHONE_AUTH
+  ERROR_SESSION_EXPIRED
+  ERROR_USER_DISABLED
+  ERROR_USER_MISMATCH
+  ERROR_USER_NOT_FOUND
+  ERROR_USER_TOKEN_EXPIRED
+  ERROR_WEAK_PASSWORD
+  ERROR_WEB_INTERNAL_ERROR
+  ERROR_WEB_STORAGE_UNSUPPORTED
+  ERROR_WRONG_PASSWORD
   ETag
   EUC_CN
   EUC_KR
@@ -319,11 +359,16 @@ Referenced Strings:
   FacebookSDK.WebDialog
   Firebase
   FirebaseApp
+  FirebaseAuth
+  FirebaseAuth:
   FirebaseInitProvider
   FirebaseInstanceId
   FirebaseInstanceId.class
   FirebaseInstanceIdReceiver.class
   FirebaseMessaging
+  FlagDataUtils
+  FlagProviderImpl
+  FlagValueProvider
   FloatingActionButton
   FolderName
   FragmentActivity
@@ -345,6 +390,8 @@ Referenced Strings:
   GRAPH_API_DEBUG_WARNING
   GREATER_THAN
   GameRequest
+  GetTokenResponse
+  GetTokenResultFactory
   GmsClient
   GmsClientEvents
   GmsClientSupervisor
@@ -395,6 +442,7 @@ Referenced Strings:
   INTERNAL_ERROR
   INTERRUPTED
   INVALID_ACCOUNT
+  INVALID_CERT_HASH
   INVALID_HOST
   INVALID_PORT
   IN_LIST
@@ -417,10 +465,13 @@ Referenced Strings:
   ITEM_ID_LIST
   ITF
   Id
+  IdpSignInActivity
   ImageButton
   ImageView
   InAppPurchase
   Infinity
+  InternalFirebaseAuth.FIREBASE_AUTH_API
+  JSONParser
   KANJI
   KATANA_ONLY
   L
@@ -428,6 +479,7 @@ Referenced Strings:
   LESS_THAN
   LICENSE_CHECK_FAILED
   LOCAL_CONNECTING
+  LOCK
   LOGIN_RECOVERABLE
   LOWER
   LOWER_CASE_WITH_DASHES
@@ -491,6 +543,7 @@ Referenced Strings:
   NONE
   NO_CONNECTIVITY
   NO_ERROR
+  NO_SUCH_PROVIDER
   NULL
   NUMBER
   NUMERIC
@@ -538,6 +591,7 @@ Referenced Strings:
   PassThrough
   PathParser
   PhenotypeFlag
+  PhoneAuthProvider
   PopupWindowCompatApi21
   Pragma
   PrivateApi
@@ -579,6 +633,7 @@ Referenced Strings:
   RevocationService
   RevokeAccessOperation
   S
+  SAFE_PARCELABLE_NULL_STRING
   SCHEDULE_TASK
   SDK_INT
   SERVER_ERROR
@@ -647,6 +702,7 @@ Referenced Strings:
   SingleFragment
   Spinner
   StaticFieldLeak
+  StorageHelpers
   Submit
   Success
   SuggestionsAdapter
@@ -768,6 +824,7 @@ Referenced Strings:
   TaskStackBuilder
   TextView
   Theme.Dialog.Alert
+  TokenRefresher
   ToolbarWidgetWrapper
   TooltipCompatHandler
   TooltipPopup
@@ -820,7 +877,9 @@ Referenced Strings:
   ViewUtilsApi22
   W
   WEAK
+  WEB_NETWORK_REQUEST_FAILED
   WEB_ONLY
+  WEB_STORAGE_UNSUPPORTED
   WEB_VIEW
   WEB_VIEW_ONLY
   WINDOW_UPDATE
@@ -1131,6 +1190,7 @@ Referenced Strings:
   animator
   anonClient
   anon_id
+  anonymous
   anonymousAppDeviceGUID
   anticipateInterpolator
   anticipateOvershootInterpolator
@@ -1167,6 +1227,7 @@ Referenced Strings:
   application/json
   applicationContext
   applicationId
+  applicationName
   application_id
   application_package_name
   application_tracking_enabled
@@ -1207,6 +1268,7 @@ Referenced Strings:
   c:
   cacheResponse
   cachedSize
+  cachedTokenState
   call
   callback
   calling_package
@@ -1384,6 +1446,10 @@ Referenced Strings:
   com.google.android.gms.dynamite.IDyna...
   com.google.android.gms.dynamite.descr...
   com.google.android.gms.dynamiteloader...
+  com.google.android.gms.firebase_auth
+  com.google.android.gms.flags
+  com.google.android.gms.flags.IFlagPro...
+  com.google.android.gms.flags.impl.Fla...
   com.google.android.gms.gcm.ACTION_SCH...
   com.google.android.gms.gcm.ACTION_TAS...
   com.google.android.gms.gcm.INetworkTa...
@@ -1427,7 +1493,26 @@ Referenced Strings:
   com.google.firebase.INSTANCE_ID_EVENT
   com.google.firebase.MESSAGING_EVENT
   com.google.firebase.analytics.screen_...
+  com.google.firebase.auth
+  com.google.firebase.auth.API_KEY
+  com.google.firebase.auth.FIREBASE_USER
   com.google.firebase.auth.FirebaseAuth
+  com.google.firebase.auth.GET_TOKEN_RE...
+  com.google.firebase.auth.api.Store.%s
+  com.google.firebase.auth.api.gms.serv...
+  com.google.firebase.auth.api.gms.ui.S...
+  com.google.firebase.auth.api.internal...
+  com.google.firebase.auth.api.internal...
+  com.google.firebase.auth.internal.CRE...
+  com.google.firebase.auth.internal.Def...
+  com.google.firebase.auth.internal.GET...
+  com.google.firebase.auth.internal.KEY...
+  com.google.firebase.auth.internal.OPE...
+  com.google.firebase.auth.internal.SIG...
+  com.google.firebase.auth.internal.STATUS
+  com.google.firebase.auth.internal.VER...
+  com.google.firebase.auth.internal.WEB...
+  com.google.firebase.common.prefs
   com.google.firebase.components.Compon...
   com.google.firebase.components:
   com.google.firebase.crash.FirebaseCrash
@@ -1495,11 +1580,13 @@ Referenced Strings:
   createFromFamiliesWithDefault
   createNotificationChannel
   create_event
+  creationTimestamp
   creation_timestamp
   currency
   current_bundle_count
   current_data
   current_results
+  custom
   custom_events_file
   custom_tab
   cycleInterpolator
@@ -1681,9 +1768,12 @@ Referenced Strings:
   filter_id
   find
   findTrustAnchorByIssuerAndSignature
+  firebase
   firebase_
   firebase_analytics_collection_deactiv...
   firebase_analytics_collection_enabled
+  firebase_auth_proactive_token_refresh...
+  firebase_automatic_data_collection_en...
   firebase_campaign
   firebase_conversion
   firebase_database_url
@@ -1700,6 +1790,7 @@ Referenced Strings:
   firebase_screen
   firebase_screen_class
   firebase_screen_id
+  firebear.preference
   first_name
   first_open
   first_open_after_install
@@ -1772,6 +1863,7 @@ Referenced Strings:
   gdpv4_nux_enabled
   generic
   get
+  getAccessToken
   getAdvertisingIdInfo
   getAlpnSelectedProtocol
   getApplicationProtocol
@@ -1828,6 +1920,7 @@ Referenced Strings:
   google_app_measurement.db
   google_app_measurement_enable
   google_app_measurement_local.db
+  google_sdk_flags
   google_storage_bucket
   gps
   grant_type
@@ -1900,6 +1993,7 @@ Referenced Strings:
   invalid_parameters
   invalidateChildInParentFast
   isCleartextTrafficPermitted
+  isEmailVerified
   isGooglePlayServicesAvailable
   isLimitAdTrackingEnabled
   isMeasurementExplicitlyDisabled
@@ -1907,6 +2001,7 @@ Referenced Strings:
   isReauthorize
   is_fallback
   is_transient
+  issued_at
   item
   items
   java.
@@ -1921,6 +2016,7 @@ Referenced Strings:
   keyguard
   kid
   label
+  lastSignInTimestamp
   last_bundle_end_timestamp
   last_bundle_index
   last_bundle_start_timestamp
@@ -1948,6 +2044,7 @@ Referenced Strings:
   linearInterpolator
   link
   link_uri
+  local
   localBroadcastManager
   location
   lock
@@ -2185,6 +2282,7 @@ Referenced Strings:
   persisted
   persistent
   phone
+  phoneNumber
   photoUrl
   phpbb3_2oaiz_u
   ping
@@ -2222,6 +2320,7 @@ Referenced Strings:
   protocol_version
   protocols
   provider
+  providerId
   pub
   public
   public_profile
@@ -2240,6 +2339,7 @@ Referenced Strings:
   range
   raw
   rawData
+  rawUserInfo
   raw_events
   raw_events_metadata
   realtime
@@ -2255,6 +2355,7 @@ Referenced Strings:
   referrer_timestamp_seconds
   refresh
   refreshToken
+  refresh_token
   register
   registration_id
   relative_url
@@ -2366,6 +2467,7 @@ Referenced Strings:
   signInGoogle
   signInResultCode
   signInResultData
+  sign_in_provider
   signed_request
   signingInGoogleApiClients
   signout
@@ -2487,6 +2589,8 @@ Referenced Strings:
   use_service
   user
   userId
+  userInfos
+  userMetadata
   user_attributes
   user_code
   user_default_language
@@ -2613,6 +2717,9 @@ Marking declare-styleable:ListPopupWindow:-1 used because its prefix matches str
 Marking styleable:ListPopupWindow:-1 used because its prefix matches string pool constant ListPopupWindow
 Marking attr:alpha:2130903079 used because its prefix matches string pool constant alpha
 Marking attr:alphabeticModifiers:2130903080 used because its prefix matches string pool constant alpha
+Marking attr:customNavigationLayout:2130903180 used because its prefix matches string pool constant custom
+Marking id:custom:2131296350 used because its prefix matches string pool constant custom
+Marking id:customPanel:2131296351 used because its prefix matches string pool constant custom
 Marking attr:actionBarDivider:2130903040 used because its prefix matches string pool constant action
 Marking attr:actionBarItemBackground:2130903041 used because its prefix matches string pool constant action
 Marking attr:actionBarPopupTheme:2130903042 used because its prefix matches string pool constant action
@@ -3043,6 +3150,7 @@ Marking id:search_src_text:2131296496 used because its prefix matches string poo
 Marking id:search_voice_btn:2131296497 used because its prefix matches string pool constant search
 Marking string:search_menu_title:2131624057 used because its prefix matches string pool constant search
 Marking color:search_background:2131034659 used because its prefix matches string pool constant search
+Marking string:firebase_database_url:2131624016 used because its prefix matches string pool constant firebase
 Marking declare-styleable:CoordinatorLayout:-1 used because its prefix matches string pool constant CoordinatorLayout
 Marking styleable:CoordinatorLayout:-1 used because its prefix matches string pool constant CoordinatorLayout
 Marking declare-styleable:CoordinatorLayout_Layout:-1 used because its prefix matches string pool constant CoordinatorLayout
@@ -4013,6 +4121,7 @@ anim:fab_scale_down:2130771982,
    attr:contentPaddingLeft:2130903171,
    attr:contentPaddingRight:2130903172,
    attr:contentPaddingTop:2130903173,
+   attr:customNavigationLayout:2130903180,
    attr:defaultQueryHint:2130903181,
    attr:dialogTheme:2130903183,
    attr:displayOptions:2130903184,
@@ -4926,18 +5035,18 @@ Skipped unused resource res/drawable-v21/design_password_eye.xml: -1 bytes (repl
 Skipped unused resource res/drawable-mdpi-v4/com_facebook_profile_picture_blank_portrait.png: 1553 bytes (replaced with small dummy file of size 67 bytes)
 Skipped unused resource res/drawable-mdpi-v4/com_facebook_profile_picture_blank_square.png: 1476 bytes (replaced with small dummy file of size 67 bytes)
 Skipped unused resource res/drawable-mdpi-v4/ic_edit.png: 320 bytes (replaced with small dummy file of size 67 bytes)
-Skipped unused resource res/drawable-xhdpi-v4/com_facebook_button_icon_blue.png: 904 bytes (replaced with small dummy file of size 67 bytes)
-Skipped unused resource res/drawable-xhdpi-v4/com_facebook_button_icon_white.png: 231 bytes (replaced with small dummy file of size 67 bytes)
-Skipped unused resource res/drawable-xhdpi-v4/com_facebook_button_like_icon_selected.png: 197 bytes (replaced with small dummy file of size 67 bytes)
-Skipped unused resource res/drawable-xhdpi-v4/com_facebook_button_send_icon_blue.png: 460 bytes (replaced with small dummy file of size 67 bytes)
-Skipped unused resource res/drawable-xhdpi-v4/com_facebook_button_send_icon_white.png: 445 bytes (replaced with small dummy file of size 67 bytes)
-Skipped unused resource res/drawable-xhdpi-v4/common_google_signin_btn_icon_dark_normal_background.9.png: 1032 bytes (replaced with small dummy file of size 77 bytes)
-Skipped unused resource res/drawable-xhdpi-v4/common_google_signin_btn_icon_light_normal_background.9.png: 776 bytes (replaced with small dummy file of size 77 bytes)
-Skipped unused resource res/drawable-xhdpi-v4/common_google_signin_btn_text_dark_normal_background.9.png: 1086 bytes (replaced with small dummy file of size 77 bytes)
-Skipped unused resource res/drawable-xhdpi-v4/common_google_signin_btn_text_light_normal_background.9.png: 808 bytes (replaced with small dummy file of size 77 bytes)
-Skipped unused resource res/drawable-xhdpi-v4/design_ic_visibility.png: 593 bytes (replaced with small dummy file of size 67 bytes)
-Skipped unused resource res/drawable-xhdpi-v4/design_ic_visibility_off.png: 629 bytes (replaced with small dummy file of size 67 bytes)
-Skipped unused resource res/drawable-xhdpi-v4/ic_school_white_24dp.png: 424 bytes (replaced with small dummy file of size 67 bytes)
+Skipped unused resource res/drawable-hdpi-v4/com_facebook_button_icon_blue.png: 626 bytes (replaced with small dummy file of size 67 bytes)
+Skipped unused resource res/drawable-hdpi-v4/com_facebook_button_icon_white.png: 198 bytes (replaced with small dummy file of size 67 bytes)
+Skipped unused resource res/drawable-hdpi-v4/com_facebook_button_like_icon_selected.png: 179 bytes (replaced with small dummy file of size 67 bytes)
+Skipped unused resource res/drawable-hdpi-v4/com_facebook_button_send_icon_blue.png: 659 bytes (replaced with small dummy file of size 67 bytes)
+Skipped unused resource res/drawable-hdpi-v4/com_facebook_button_send_icon_white.png: 348 bytes (replaced with small dummy file of size 67 bytes)
+Skipped unused resource res/drawable-hdpi-v4/common_google_signin_btn_icon_dark_normal_background.9.png: 897 bytes (replaced with small dummy file of size 77 bytes)
+Skipped unused resource res/drawable-hdpi-v4/common_google_signin_btn_icon_light_normal_background.9.png: 683 bytes (replaced with small dummy file of size 77 bytes)
+Skipped unused resource res/drawable-hdpi-v4/common_google_signin_btn_text_dark_normal_background.9.png: 960 bytes (replaced with small dummy file of size 77 bytes)
+Skipped unused resource res/drawable-hdpi-v4/common_google_signin_btn_text_light_normal_background.9.png: 694 bytes (replaced with small dummy file of size 77 bytes)
+Skipped unused resource res/drawable-hdpi-v4/design_ic_visibility.png: 470 bytes (replaced with small dummy file of size 67 bytes)
+Skipped unused resource res/drawable-hdpi-v4/design_ic_visibility_off.png: 507 bytes (replaced with small dummy file of size 67 bytes)
+Skipped unused resource res/drawable-hdpi-v4/ic_school_white_24dp.png: 387 bytes (replaced with small dummy file of size 67 bytes)
 Skipped unused resource res/drawable-xxxhdpi-v4/ic_perm_identity_white_48dp.png: 1720 bytes (replaced with small dummy file of size 67 bytes)
 Skipped unused resource res/drawable-xxxhdpi-v4/ic_search_white_36dp.png: 1393 bytes (replaced with small dummy file of size 67 bytes)
 Skipped unused resource res/drawable-xxxhdpi-v4/ic_search_white_48dp.png: 1925 bytes (replaced with small dummy file of size 67 bytes)

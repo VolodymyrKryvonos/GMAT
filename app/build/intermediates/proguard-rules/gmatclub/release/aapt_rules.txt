@@ -154,7 +154,7 @@
 # Referenced at /home/dmytro/projects/gmatclub/android/app/build/intermediates/manifests/full/gmatclub/release/AndroidManifest.xml:83
 -keep class com.deepinspire.gmatclub.web.WebActivity { <init>(...); }
 
-# Referenced at /home/dmytro/projects/gmatclub/android/app/build/intermediates/manifests/full/gmatclub/release/AndroidManifest.xml:247
+# Referenced at /home/dmytro/projects/gmatclub/android/app/build/intermediates/manifests/full/gmatclub/release/AndroidManifest.xml:259
 -keep class com.facebook.CurrentAccessTokenExpirationBroadcastReceiver { <init>(...); }
 
 # Referenced at /home/dmytro/projects/gmatclub/android/app/build/intermediates/manifests/full/gmatclub/release/AndroidManifest.xml:59
@@ -166,7 +166,7 @@
 # Referenced at /home/dmytro/projects/gmatclub/android/app/build/intermediates/manifests/full/gmatclub/release/AndroidManifest.xml:54
 -keep class com.facebook.FacebookActivity { <init>(...); }
 
-# Referenced at /home/dmytro/projects/gmatclub/android/app/build/intermediates/manifests/full/gmatclub/release/AndroidManifest.xml:242
+# Referenced at /home/dmytro/projects/gmatclub/android/app/build/intermediates/manifests/full/gmatclub/release/AndroidManifest.xml:254
 -keep class com.facebook.internal.FacebookInitProvider { <init>(...); }
 
 # Referenced at /home/dmytro/projects/gmatclub/android/app/src/main/res/layout/content_facebook.xml:12
@@ -190,34 +190,37 @@
 # Referenced at /home/dmytro/projects/gmatclub/android/app/build/intermediates/manifests/full/gmatclub/release/AndroidManifest.xml:125
 -keep class com.google.android.gms.auth.api.signin.internal.SignInHubActivity { <init>(...); }
 
-# Referenced at /home/dmytro/projects/gmatclub/android/app/build/intermediates/manifests/full/gmatclub/release/AndroidManifest.xml:219
+# Referenced at /home/dmytro/projects/gmatclub/android/app/build/intermediates/manifests/full/gmatclub/release/AndroidManifest.xml:231
 -keep class com.google.android.gms.common.api.GoogleApiActivity { <init>(...); }
 
-# Referenced at /home/dmytro/projects/gmatclub/android/app/build/intermediates/manifests/full/gmatclub/release/AndroidManifest.xml:177
+# Referenced at /home/dmytro/projects/gmatclub/android/app/build/intermediates/manifests/full/gmatclub/release/AndroidManifest.xml:189
 -keep class com.google.android.gms.measurement.AppMeasurementInstallReferrerReceiver { <init>(...); }
 
-# Referenced at /home/dmytro/projects/gmatclub/android/app/build/intermediates/manifests/full/gmatclub/release/AndroidManifest.xml:191
+# Referenced at /home/dmytro/projects/gmatclub/android/app/build/intermediates/manifests/full/gmatclub/release/AndroidManifest.xml:203
 -keep class com.google.android.gms.measurement.AppMeasurementJobService { <init>(...); }
 
-# Referenced at /home/dmytro/projects/gmatclub/android/app/build/intermediates/manifests/full/gmatclub/release/AndroidManifest.xml:172
+# Referenced at /home/dmytro/projects/gmatclub/android/app/build/intermediates/manifests/full/gmatclub/release/AndroidManifest.xml:184
 -keep class com.google.android.gms.measurement.AppMeasurementReceiver { <init>(...); }
 
-# Referenced at /home/dmytro/projects/gmatclub/android/app/build/intermediates/manifests/full/gmatclub/release/AndroidManifest.xml:187
+# Referenced at /home/dmytro/projects/gmatclub/android/app/build/intermediates/manifests/full/gmatclub/release/AndroidManifest.xml:199
 -keep class com.google.android.gms.measurement.AppMeasurementService { <init>(...); }
 
-# Referenced at /home/dmytro/projects/gmatclub/android/app/build/intermediates/manifests/full/gmatclub/release/AndroidManifest.xml:163
+# Referenced at /home/dmytro/projects/gmatclub/android/app/build/intermediates/manifests/full/gmatclub/release/AndroidManifest.xml:164
+-keep class com.google.firebase.auth.internal.FederatedSignInActivity { <init>(...); }
+
+# Referenced at /home/dmytro/projects/gmatclub/android/app/build/intermediates/manifests/full/gmatclub/release/AndroidManifest.xml:172
 -keep class com.google.firebase.components.ComponentDiscoveryService { <init>(...); }
 
-# Referenced at /home/dmytro/projects/gmatclub/android/app/build/intermediates/manifests/full/gmatclub/release/AndroidManifest.xml:197
+# Referenced at /home/dmytro/projects/gmatclub/android/app/build/intermediates/manifests/full/gmatclub/release/AndroidManifest.xml:209
 -keep class com.google.firebase.iid.FirebaseInstanceIdReceiver { <init>(...); }
 
-# Referenced at /home/dmytro/projects/gmatclub/android/app/build/intermediates/manifests/full/gmatclub/release/AndroidManifest.xml:211
+# Referenced at /home/dmytro/projects/gmatclub/android/app/build/intermediates/manifests/full/gmatclub/release/AndroidManifest.xml:223
 -keep class com.google.firebase.iid.FirebaseInstanceIdService { <init>(...); }
 
 # Referenced at /home/dmytro/projects/gmatclub/android/app/build/intermediates/manifests/full/gmatclub/release/AndroidManifest.xml:142
 -keep class com.google.firebase.messaging.FirebaseMessagingService { <init>(...); }
 
-# Referenced at /home/dmytro/projects/gmatclub/android/app/build/intermediates/manifests/full/gmatclub/release/AndroidManifest.xml:224
+# Referenced at /home/dmytro/projects/gmatclub/android/app/build/intermediates/manifests/full/gmatclub/release/AndroidManifest.xml:236
 -keep class com.google.firebase.provider.FirebaseInitProvider { <init>(...); }
 
 # Referenced at /home/dmytro/projects/gmatclub/android/app/src/main/res/layout/navigation_view.xml:25

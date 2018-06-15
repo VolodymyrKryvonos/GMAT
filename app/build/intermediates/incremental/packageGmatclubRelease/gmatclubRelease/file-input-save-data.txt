@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Fri Jun 15 09:09:45 EEST 2018
+#Fri Jun 15 13:34:57 EEST 2018
 1.base=/home/dmytro/projects/gmatclub/android/app/build/intermediates/assets/gmatclub/release
 2.path=opensans_semibold.ttf
 0.baseType=DIRECTORY

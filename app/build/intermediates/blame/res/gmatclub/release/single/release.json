@@ -12,28 +12,28 @@
         "source": "/root/.gradle/caches/transforms-1/files-1.1/play-services-base-15.0.1.aar/6f8a7a565aac65a8119fe23def3d6dd6/res/drawable/common_google_signin_btn_icon_light.xml"
     },
     {
-        "merged": "/home/dmytro/projects/gmatclub/android/app/build/intermediates/res/merged/gmatclub/release/drawable_abc_dialog_material_background.xml.flat",
-        "source": "/root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.2.aar/54077ed55b3b45b360f89508a45948d1/res/drawable/abc_dialog_material_background.xml"
-    },
-    {
         "merged": "/home/dmytro/projects/gmatclub/android/app/build/intermediates/res/merged/gmatclub/release/drawable-xxhdpi-v4_abc_textfield_search_default_mtrl_alpha.9.png.flat",
         "source": "/root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.2.aar/54077ed55b3b45b360f89508a45948d1/res/drawable-xxhdpi-v4/abc_textfield_search_default_mtrl_alpha.9.png"
     },
     {
-        "merged": "/home/dmytro/projects/gmatclub/android/app/build/intermediates/res/merged/gmatclub/release/drawable-xxhdpi-v4_abc_ic_star_black_16dp.png.flat",
-        "source": "/root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.2.aar/54077ed55b3b45b360f89508a45948d1/res/drawable-xxhdpi-v4/abc_ic_star_black_16dp.png"
+        "merged": "/home/dmytro/projects/gmatclub/android/app/build/intermediates/res/merged/gmatclub/release/drawable_abc_dialog_material_background.xml.flat",
+        "source": "/root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.2.aar/54077ed55b3b45b360f89508a45948d1/res/drawable/abc_dialog_material_background.xml"
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/android/app/build/intermediates/res/merged/gmatclub/release/drawable-hdpi-v4_abc_ic_star_black_48dp.png.flat",
         "source": "/root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.2.aar/54077ed55b3b45b360f89508a45948d1/res/drawable-hdpi-v4/abc_ic_star_black_48dp.png"
     },
     {
-        "merged": "/home/dmytro/projects/gmatclub/android/app/build/intermediates/res/merged/gmatclub/release/drawable-xxhdpi_ic_settings.png.flat",
-        "source": "/home/dmytro/projects/gmatclub/android/app/src/main/res/drawable-xxhdpi/ic_settings.png"
+        "merged": "/home/dmytro/projects/gmatclub/android/app/build/intermediates/res/merged/gmatclub/release/drawable-xxhdpi-v4_abc_ic_star_black_16dp.png.flat",
+        "source": "/root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.2.aar/54077ed55b3b45b360f89508a45948d1/res/drawable-xxhdpi-v4/abc_ic_star_black_16dp.png"
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/android/app/build/intermediates/res/merged/gmatclub/release/drawable-xxhdpi-v4_abc_ic_star_half_black_16dp.png.flat",
         "source": "/root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.2.aar/54077ed55b3b45b360f89508a45948d1/res/drawable-xxhdpi-v4/abc_ic_star_half_black_16dp.png"
+    },
+    {
+        "merged": "/home/dmytro/projects/gmatclub/android/app/build/intermediates/res/merged/gmatclub/release/drawable-xxhdpi_ic_settings.png.flat",
+        "source": "/home/dmytro/projects/gmatclub/android/app/src/main/res/drawable-xxhdpi/ic_settings.png"
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/android/app/build/intermediates/res/merged/gmatclub/release/layout_select_dialog_multichoice_material.xml.flat",
@@ -60,16 +60,16 @@
         "source": "/home/dmytro/projects/gmatclub/android/app/src/main/res/layout/alert_dialog_login.xml"
     },
     {
-        "merged": "/home/dmytro/projects/gmatclub/android/app/build/intermediates/res/merged/gmatclub/release/drawable-mdpi-v4_abc_list_pressed_holo_light.9.png.flat",
-        "source": "/root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.2.aar/54077ed55b3b45b360f89508a45948d1/res/drawable-mdpi-v4/abc_list_pressed_holo_light.9.png"
+        "merged": "/home/dmytro/projects/gmatclub/android/app/build/intermediates/res/merged/gmatclub/release/color_abc_search_url_text.xml.flat",
+        "source": "/root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.2.aar/54077ed55b3b45b360f89508a45948d1/res/color/abc_search_url_text.xml"
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/android/app/build/intermediates/res/merged/gmatclub/release/drawable-hdpi-v4_abc_list_longpressed_holo.9.png.flat",
         "source": "/root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.2.aar/54077ed55b3b45b360f89508a45948d1/res/drawable-hdpi-v4/abc_list_longpressed_holo.9.png"
     },
     {
-        "merged": "/home/dmytro/projects/gmatclub/android/app/build/intermediates/res/merged/gmatclub/release/color_abc_search_url_text.xml.flat",
-        "source": "/root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.2.aar/54077ed55b3b45b360f89508a45948d1/res/color/abc_search_url_text.xml"
+        "merged": "/home/dmytro/projects/gmatclub/android/app/build/intermediates/res/merged/gmatclub/release/drawable-mdpi-v4_abc_list_pressed_holo_light.9.png.flat",
+        "source": "/root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.2.aar/54077ed55b3b45b360f89508a45948d1/res/drawable-mdpi-v4/abc_list_pressed_holo_light.9.png"
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/android/app/build/intermediates/res/merged/gmatclub/release/drawable-mdpi-v4_design_ic_visibility_off.png.flat",

@@ -90,6 +90,7 @@
         android:gravity="center"
         android:layout_below="@id/layoutParentRegister"
         android:layout_marginTop="40dp"
+        android:visibility="gone"
         >
         <LinearLayout
             android:id="@+id/layoutSignInGoogle"
@@ -129,6 +130,7 @@
         android:gravity="center"
         android:layout_marginTop="40dp"
         android:layout_below="@id/layoutParentSignInGoogle"
+        android:visibility="gone"
         >
         <LinearLayout
             android:id="@+id/layoutSignInFacebook"
@@ -138,6 +140,7 @@
             android:layout_marginLeft="-15dp"
             android:paddingLeft="30dp"
             android:paddingRight="30dp"
+
             >
             <ImageView
                 android:id="@+id/signInFacebookIcon"
