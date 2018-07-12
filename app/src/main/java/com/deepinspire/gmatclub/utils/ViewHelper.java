@@ -269,6 +269,7 @@ public class ViewHelper {
         TextView btnMyBookmarks = (TextView)dialogLayout.findViewById(R.id.btnMyBookmarks);
         TextView btnMyErrorLog = (TextView)dialogLayout.findViewById(R.id.btnMyErrorLog);
         LinearLayout btnSettings = (LinearLayout) dialogLayout.findViewById(R.id.btnSettingsLayout);
+        LinearLayout btnSettingsNotifications = (LinearLayout) dialogLayout.findViewById(R.id.btnSettingsNotificationsLayout);
         LinearLayout btnLogout = (LinearLayout)dialogLayout.findViewById(R.id.btnLogoutLayout);
 
         btnProfile.setOnClickListener(new View.OnClickListener() {
@@ -307,6 +308,15 @@ public class ViewHelper {
             @Override
             public void onClick(View v) {
                 activity.openPageById("settings");
+                alertDialog.hide();
+            }
+        });
+
+
+        btnSettingsNotifications.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                activity.openPageById("settingsNotifications");
                 alertDialog.hide();
             }
         });

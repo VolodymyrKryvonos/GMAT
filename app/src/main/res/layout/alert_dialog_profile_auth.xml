@@ -92,6 +92,27 @@
                </LinearLayout>
 
                <LinearLayout
+                   android:id="@+id/btnSettingsNotificationsLayout"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:layout_marginTop="25dp"
+                   android:gravity="center">
+
+                   <ImageView
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:src="@drawable/ic_settings"
+                       android:tint="@color/mainOrange" />
+
+                   <TextView
+                       style="@style/alert_subTitle"
+                       android:layout_marginBottom="0dp"
+                       android:layout_marginLeft="10dp"
+                       android:textColor="#666666"
+                       android:text="@string/menu_profile_settings_notifications" />
+               </LinearLayout>
+
+               <LinearLayout
                    android:id="@+id/btnLogoutLayout"
                    android:layout_width="wrap_content"
                    android:layout_height="wrap_content"

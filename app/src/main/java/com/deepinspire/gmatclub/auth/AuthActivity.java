@@ -51,10 +51,12 @@ import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.GetTokenResult;
 import com.google.firebase.auth.GoogleAuthProvider;
 
 import java.io.IOException;
 import java.sql.Time;
+import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.Set;
@@ -323,11 +325,11 @@ public class AuthActivity extends AppCompatActivity implements IAuthContract.Vie
 
                 //Toast.makeText(getApplicationContext(), idToken, Toast.LENGTH_LONG).show();
 
-                presenter.signIn("google", idToken, idToken, String.valueOf(expiresIn));
+                //presenter.signIn("google", idToken, idToken, String.valueOf(expiresIn));
 
                 //presenter.getTokenInfo(idToken);
 
-                //firebaseAuthWithGoogle(account);
+                firebaseAuthWithGoogle(account);
 
             }
         } catch (ApiException e) {
@@ -351,7 +353,32 @@ public class AuthActivity extends AppCompatActivity implements IAuthContract.Vie
                             // Sign in success, update UI with the signed-in user's information
                             //Log.d(TAG, "signInWithCredential:success");
                             FirebaseUser user = mAuth.getCurrentUser();
+
+                            Task<GetTokenResult> idToken = user.getIdToken(false);
+                            Task<GetTokenResult> idToken1 = user.getIdToken(true);
+
                             FirebaseUser user1 = mAuth.getCurrentUser();
+
+                            FirebaseUser mUser = FirebaseAuth.getInstance().getCurrentUser();
+
+                            mUser.getIdToken(true)
+                                    .addOnCompleteListener(new OnCompleteListener<GetTokenResult>() {
+                                        public void onComplete(@NonNull Task<GetTokenResult> task) {
+                                            if (task.isSuccessful()) {
+                                                String idToken = task.getResult().getToken();
+
+                                                Long expiresIn  = (new Date()).getTime() + task.getResult().getExpirationTimestamp();
+
+                                                presenter.signIn("google", task.getResult().getToken(), task.getResult().getToken(), String.valueOf(expiresIn));
+
+                                                // Send token to your backend via HTTPS
+                                                // ...
+                                            } else {
+                                                // Handle error -> task.getException();
+                                            }
+                                        }
+                                    });
+
                             //updateUI(user);
                         } else {
                             // If sign in fails, display a message to the user.
@@ -446,6 +473,7 @@ public class AuthActivity extends AppCompatActivity implements IAuthContract.Vie
             GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                     //.requestIdToken("241911688286-hdgjh2o7dg42155d31ts4m9vitq8nf0h.apps.googleusercontent.com")
                     .requestIdToken(getString(R.string.default_web_client_id))
+                    //.requestIdToken("241911688286-hdgjh2o7dg42155d31ts4m9vitq8nf0h.apps.googleusercontent.com")
                     //.requestIdToken("241911688286-p0000000hdgjh2o7dg42155d31ts4m9vitq8nf0h.apps.googleusercontent.com")
                     //.requestIdToken("789008364480-jr2io8r51h0eegmdvuu0bv1abt6bpppt.apps.googleusercontent.com")
                     //.requestServerAuthCode("789008364480-jr2io8r51h0eegmdvuu0bv1abt6bpppt.apps.googleusercontent.com")
