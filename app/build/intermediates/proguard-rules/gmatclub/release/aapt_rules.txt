@@ -90,15 +90,15 @@
 # Referenced at /root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.2.aar/54077ed55b3b45b360f89508a45948d1/res/layout/abc_alert_dialog_material.xml:18
 -keep class android.support.v7.widget.AlertDialogLayout { <init>(...); }
 
-# Referenced at /root/.gradle/caches/transforms-1/files-1.1/facebook-common-4.33.0.aar/3cf8649f53c5c693f0d93252903f66cb/res/layout/com_facebook_device_auth_dialog_fragment.xml:45
-# Referenced at /root/.gradle/caches/transforms-1/files-1.1/facebook-common-4.33.0.aar/3cf8649f53c5c693f0d93252903f66cb/res/layout/com_facebook_smart_device_dialog_fragment.xml:47
+# Referenced at /root/.gradle/caches/transforms-1/files-1.1/facebook-common-4.34.0.aar/f00024104f09d707005c56759713923f/res/layout/com_facebook_device_auth_dialog_fragment.xml:45
+# Referenced at /root/.gradle/caches/transforms-1/files-1.1/facebook-common-4.34.0.aar/f00024104f09d707005c56759713923f/res/layout/com_facebook_smart_device_dialog_fragment.xml:47
 -keep class android.support.v7.widget.AppCompatImageView { <init>(...); }
 
 # Referenced at /root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.2.aar/54077ed55b3b45b360f89508a45948d1/res/layout/abc_alert_dialog_button_bar_material.xml:26
 -keep class android.support.v7.widget.ButtonBarLayout { <init>(...); }
 
-# Referenced at /root/.gradle/caches/transforms-1/files-1.1/facebook-common-4.33.0.aar/3cf8649f53c5c693f0d93252903f66cb/res/layout/com_facebook_device_auth_dialog_fragment.xml:22
-# Referenced at /root/.gradle/caches/transforms-1/files-1.1/facebook-common-4.33.0.aar/3cf8649f53c5c693f0d93252903f66cb/res/layout/com_facebook_smart_device_dialog_fragment.xml:22
+# Referenced at /root/.gradle/caches/transforms-1/files-1.1/facebook-common-4.34.0.aar/f00024104f09d707005c56759713923f/res/layout/com_facebook_device_auth_dialog_fragment.xml:22
+# Referenced at /root/.gradle/caches/transforms-1/files-1.1/facebook-common-4.34.0.aar/f00024104f09d707005c56759713923f/res/layout/com_facebook_smart_device_dialog_fragment.xml:22
 -keep class android.support.v7.widget.CardView { <init>(...); }
 
 # Referenced at /root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.2.aar/54077ed55b3b45b360f89508a45948d1/res/layout/abc_screen_content_include.xml:19
@@ -154,7 +154,7 @@
 # Referenced at /home/dmytro/projects/gmatclub/android/app/build/intermediates/manifests/full/gmatclub/release/AndroidManifest.xml:83
 -keep class com.deepinspire.gmatclub.web.WebActivity { <init>(...); }
 
-# Referenced at /home/dmytro/projects/gmatclub/android/app/build/intermediates/manifests/full/gmatclub/release/AndroidManifest.xml:259
+# Referenced at /home/dmytro/projects/gmatclub/android/app/build/intermediates/manifests/full/gmatclub/release/AndroidManifest.xml:264
 -keep class com.facebook.CurrentAccessTokenExpirationBroadcastReceiver { <init>(...); }
 
 # Referenced at /home/dmytro/projects/gmatclub/android/app/build/intermediates/manifests/full/gmatclub/release/AndroidManifest.xml:59
@@ -166,11 +166,14 @@
 # Referenced at /home/dmytro/projects/gmatclub/android/app/build/intermediates/manifests/full/gmatclub/release/AndroidManifest.xml:54
 -keep class com.facebook.FacebookActivity { <init>(...); }
 
-# Referenced at /home/dmytro/projects/gmatclub/android/app/build/intermediates/manifests/full/gmatclub/release/AndroidManifest.xml:254
+# Referenced at /home/dmytro/projects/gmatclub/android/app/build/intermediates/manifests/full/gmatclub/release/AndroidManifest.xml:259
 -keep class com.facebook.internal.FacebookInitProvider { <init>(...); }
 
 # Referenced at /home/dmytro/projects/gmatclub/android/app/src/main/res/layout/content_facebook.xml:12
 -keep class com.facebook.login.widget.LoginButton { <init>(...); }
+
+# Referenced at /home/dmytro/projects/gmatclub/android/app/build/intermediates/manifests/full/gmatclub/release/AndroidManifest.xml:246
+-keep class com.facebook.marketing.internal.MarketingInitProvider { <init>(...); }
 
 # Referenced at /home/dmytro/projects/gmatclub/android/app/build/intermediates/manifests/full/gmatclub/release/AndroidManifest.xml:155
 -keep class com.firebase.jobdispatcher.GooglePlayReceiver { <init>(...); }
@@ -234,6 +237,5 @@
 # Referenced at /home/dmytro/projects/gmatclub/android/app/src/main/res/layout/navigation_view.xml:142
 # Referenced at /home/dmytro/projects/gmatclub/android/app/src/main/res/layout/navigation_view.xml:149
 # Referenced at /home/dmytro/projects/gmatclub/android/app/src/main/res/layout/navigation_view.xml:156
-# Referenced at /home/dmytro/projects/gmatclub/android/app/src/main/res/layout/navigation_view.xml:163
 -keepclassmembers class * { *** goByMenu(...); }
 

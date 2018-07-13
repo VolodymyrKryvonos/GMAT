@@ -87,6 +87,7 @@ android/support/d/a$a$b.class
 b/a/c.class
 android/support/v4/b/b.class
 com/google/android/gms/auth/api/signin/SignInAccount.class
+com/google/firebase/auth/internal/k.class
 d/h.class
 b/a/a/c.class
 c/c.class

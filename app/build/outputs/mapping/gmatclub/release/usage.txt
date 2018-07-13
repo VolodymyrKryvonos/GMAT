@@ -6007,13 +6007,9 @@ com.deepinspire.gmatclub.api.AuthException:
 com.deepinspire.gmatclub.api.ErrorUtils
 com.deepinspire.gmatclub.api.HttpBinResponse
 com.deepinspire.gmatclub.auth.AuthActivity:
-    private com.google.firebase.auth.FirebaseAuth mAuth
-    270:306:public void parseToken(android.content.Intent)
-    342:366:private void firebaseAuthWithGoogle(com.google.android.gms.auth.api.signin.GoogleSignInAccount)
-    69:69:public bridge synthetic void setPresenter(java.lang.Object)
-    69:69:static synthetic com.google.firebase.auth.FirebaseAuth access$200(com.deepinspire.gmatclub.auth.AuthActivity)
+    272:308:public void parseToken(android.content.Intent)
+    71:71:public bridge synthetic void setPresenter(java.lang.Object)
 com.deepinspire.gmatclub.auth.AuthActivity$2
-com.deepinspire.gmatclub.auth.AuthActivity$3
 com.deepinspire.gmatclub.auth.AuthPresenter:
     26:26:public void start()
     77:90:public void getTokenInfo(java.lang.String)
@@ -6045,9 +6041,9 @@ com.deepinspire.gmatclub.utils.Validator:
     9:9:public Validator()
 com.deepinspire.gmatclub.utils.ViewHelper:
     30:30:public ViewHelper()
-    425:455:public static void showErrorDialog(com.deepinspire.gmatclub.auth.AuthActivity)
-com.deepinspire.gmatclub.utils.ViewHelper$25
+    435:465:public static void showErrorDialog(com.deepinspire.gmatclub.auth.AuthActivity)
 com.deepinspire.gmatclub.utils.ViewHelper$26
+com.deepinspire.gmatclub.utils.ViewHelper$27
 com.deepinspire.gmatclub.web.IWebContract$Presenter:
     public abstract void setCountUnwatchedNotifications(int)
     public abstract void setCountUnwatchedPMs(int)
@@ -6424,30 +6420,32 @@ com.facebook.appevents.AppEventsLogger:
     335:342:public static void deactivateApp(android.content.Context)
     356:376:public static void deactivateApp(android.content.Context,java.lang.String)
     388:393:private void logAppSessionSuspendEvent(long)
-    464:464:public static com.facebook.appevents.AppEventsLogger newLogger(android.content.Context,com.facebook.AccessToken)
-    483:483:public static com.facebook.appevents.AppEventsLogger newLogger(android.content.Context,java.lang.String,com.facebook.AccessToken)
-    531:534:public static void setFlushBehavior(com.facebook.appevents.AppEventsLogger$FlushBehavior)
-    547:548:public void logEvent(java.lang.String)
-    565:566:public void logEvent(java.lang.String,double)
-    635:640:public void logPurchase(java.math.BigDecimal,java.util.Currency)
-    656:661:public void logPurchase(java.math.BigDecimal,java.util.Currency,android.os.Bundle)
-    730:731:public void logPushNotificationOpen(android.os.Bundle)
-    738:762:public void logPushNotificationOpen(android.os.Bundle,java.lang.String)
-    790:791:public boolean isValidForAccessToken(com.facebook.AccessToken)
-    799:814:public static void setPushNotificationsRegistrationId(java.lang.String)
-    831:832:public static void setUserID(java.lang.String)
-    845:846:public static void clearUserID()
-    851:855:public static void updateUserProperties(android.os.Bundle,com.facebook.GraphRequest$Callback)
-    861:908:public static void updateUserProperties(android.os.Bundle,java.lang.String,com.facebook.GraphRequest$Callback)
-    929:929:public java.lang.String getApplicationId()
-    1121:1123:static void setSourceApplication(java.lang.String,boolean)
+    467:467:public static com.facebook.appevents.AppEventsLogger newLogger(android.content.Context,com.facebook.AccessToken)
+    486:486:public static com.facebook.appevents.AppEventsLogger newLogger(android.content.Context,java.lang.String,com.facebook.AccessToken)
+    534:537:public static void setFlushBehavior(com.facebook.appevents.AppEventsLogger$FlushBehavior)
+    550:551:public void logEvent(java.lang.String)
+    568:569:public void logEvent(java.lang.String,double)
+    638:643:public void logPurchase(java.math.BigDecimal,java.util.Currency)
+    659:664:public void logPurchase(java.math.BigDecimal,java.util.Currency,android.os.Bundle)
+    733:734:public void logPushNotificationOpen(android.os.Bundle)
+    741:765:public void logPushNotificationOpen(android.os.Bundle,java.lang.String)
+    793:794:public boolean isValidForAccessToken(com.facebook.AccessToken)
+    802:817:public static void setPushNotificationsRegistrationId(java.lang.String)
+    837:850:public static void augmentWebView(android.webkit.WebView,android.content.Context)
+    861:862:public static void setUserID(java.lang.String)
+    875:876:public static void clearUserID()
+    881:885:public static void updateUserProperties(android.os.Bundle,com.facebook.GraphRequest$Callback)
+    891:938:public static void updateUserProperties(android.os.Bundle,java.lang.String,com.facebook.GraphRequest$Callback)
+    959:959:public java.lang.String getApplicationId()
+    1151:1153:static void setSourceApplication(java.lang.String,boolean)
     147:147:static synthetic void access$100(com.facebook.appevents.AppEventsLogger,long)
 com.facebook.appevents.AppEventsLogger$2
 com.facebook.appevents.AppEventsLogger$4
 com.facebook.appevents.AppEventsLogger$PersistedAppSessionInfo:
     private static final java.lang.String PERSISTED_SESSION_INFO_FILENAME
-    1190:1190:AppEventsLogger$PersistedAppSessionInfo()
-    1296:1301:static void onSuspend(android.content.Context,com.facebook.appevents.AccessTokenAppIdPair,com.facebook.appevents.AppEventsLogger,long)
+    1220:1220:AppEventsLogger$PersistedAppSessionInfo()
+    1326:1331:static void onSuspend(android.content.Context,com.facebook.appevents.AccessTokenAppIdPair,com.facebook.appevents.AppEventsLogger,long)
+com.facebook.appevents.FacebookSDKJSInterface
 com.facebook.appevents.FacebookTimeSpentData:
     private static final long FIRST_TIME_LOAD_RESUME_TIME
     private static final long INTERRUPTION_THRESHOLD_MILLISECONDS
@@ -6459,12 +6457,68 @@ com.facebook.appevents.FacebookTimeSpentData:
 com.facebook.appevents.FacebookTimeSpentData$SerializationProxyV1
 com.facebook.appevents.SessionEventsState:
     130:131:public synchronized void accumulatePersistedEvents(java.util.List)
+com.facebook.appevents.codeless.CodelessMatcher:
+    private static final java.lang.String PARENT_CLASS_NAME
+    private static final java.lang.String CURRENT_CLASS_NAME
+com.facebook.appevents.codeless.internal.Constants
+com.facebook.appevents.codeless.internal.EventBinding:
+    135:135:public com.facebook.appevents.codeless.internal.EventBinding$MappingMethod getMethod()
+    139:139:public java.lang.String getAppVersion()
+    143:143:public java.lang.String getComponentId()
+    147:147:public java.lang.String getPathType()
+com.facebook.appevents.codeless.internal.ParameterComponent:
+    private static final java.lang.String PARAMETER_NAME_KEY
+    private static final java.lang.String PARAMETER_PATH_KEY
+    private static final java.lang.String PARAMETER_VALUE_KEY
+com.facebook.appevents.codeless.internal.PathComponent:
+    private static final java.lang.String PATH_CLASS_NAME_KEY
+    private static final java.lang.String PATH_INDEX_KEY
+    private static final java.lang.String PATH_ID_KEY
+    private static final java.lang.String PATH_TEXT_KEY
+    private static final java.lang.String PATH_TAG_KEY
+    private static final java.lang.String PATH_DESCRIPTION_KEY
+    private static final java.lang.String PATH_HINT_KEY
+    private static final java.lang.String PATH_MATCH_BITMASK_KEY
+com.facebook.appevents.codeless.internal.SensitiveUserDataUtils:
+    30:30:public SensitiveUserDataUtils()
+com.facebook.appevents.codeless.internal.ViewHierarchy:
+    private static final java.lang.String GET_ACCESSIBILITY_METHOD
+    private static final java.lang.String ID_KEY
+    private static final java.lang.String CLASS_NAME_KEY
+    private static final java.lang.String CLASS_TYPE_BITMASK_KEY
+    private static final java.lang.String TEXT_KEY
+    private static final java.lang.String DESC_KEY
+    private static final java.lang.String DIMENSION_KEY
+    private static final java.lang.String TAG_KEY
+    private static final java.lang.String CHILDREN_VIEW_KEY
+    private static final java.lang.String HINT_KEY
+    private static final java.lang.String DIMENSION_TOP_KEY
+    private static final java.lang.String DIMENSION_LEFT_KEY
+    private static final java.lang.String DIMENSION_WIDTH_KEY
+    private static final java.lang.String DIMENSION_HEIGHT_KEY
+    private static final java.lang.String DIMENSION_SCROLL_X_KEY
+    private static final java.lang.String DIMENSION_SCROLL_Y_KEY
+    private static final java.lang.String DIMENSION_VISIBILITY_KEY
+    private static final int TEXTVIEW_BITMASK
+    private static final int IMAGEVIEW_BITMASK
+    private static final int BUTTON_BITMASK
+    private static final int CLICKABLE_VIEW_BITMASK
+    private static final int ADAPTER_VIEW_ITEM_BITMASK
+    private static final int LABEL_BITMASK
+    private static final int INPUT_BITMASK
+    private static final int PICKER_BITMASK
+    private static final int SWITCH_BITMASK
+    private static final int RADIO_GROUP_BITMASK
+    private static final int CHECKBOX_BITMASK
+    private static final int RATINGBAR_BITMASK
+    89:98:public static android.view.ViewGroup getParentOfView(android.view.View)
 com.facebook.appevents.internal.ActivityLifecycleTracker:
     private static final java.lang.String INCORRECT_IMPL_WARNING
     private static final long INTERRUPTION_THRESHOLD_MILLISECONDS
 com.facebook.appevents.internal.AppEventUtility:
-    29:29:public AppEventUtility()
-    47:47:private static boolean isMainThread()
+    private static final java.lang.String regex
+    35:35:public AppEventUtility()
+    72:72:private static boolean isMainThread()
 com.facebook.appevents.internal.AppEventsLoggerUtility:
     42:42:public AppEventsLoggerUtility()
 com.facebook.appevents.internal.AutomaticAnalyticsLogger:
@@ -6658,17 +6712,17 @@ com.facebook.internal.FacebookSignatureValidator:
 com.facebook.internal.FacebookWebFallbackDialog:
     private static final int OS_BACK_BUTTON_RESPONSE_TIMEOUT_MILLISECONDS
 com.facebook.internal.FetchedAppSettings:
-    109:109:public java.util.Map getDialogConfigurations()
-    116:116:public java.lang.String getSmartLoginBookmarkIconURL()
-    117:117:public java.lang.String getSmartLoginMenuIconURL()
-    234:247:public static com.facebook.internal.FetchedAppSettings$DialogFeatureConfig getDialogFeatureConfig(java.lang.String,java.lang.String,java.lang.String)
+    115:115:public java.util.Map getDialogConfigurations()
+    122:122:public java.lang.String getSmartLoginBookmarkIconURL()
+    123:123:public java.lang.String getSmartLoginMenuIconURL()
+    248:261:public static com.facebook.internal.FetchedAppSettings$DialogFeatureConfig getDialogFeatureConfig(java.lang.String,java.lang.String,java.lang.String)
 com.facebook.internal.FetchedAppSettings$DialogFeatureConfig:
     private static final java.lang.String DIALOG_CONFIG_DIALOG_NAME_FEATURE_NAME_SEPARATOR
     private static final java.lang.String DIALOG_CONFIG_NAME_KEY
     private static final java.lang.String DIALOG_CONFIG_VERSIONS_KEY
     private static final java.lang.String DIALOG_CONFIG_URL_KEY
-    222:222:public android.net.Uri getFallbackUrl()
-    226:226:public int[] getVersionSpec()
+    236:236:public android.net.Uri getFallbackUrl()
+    240:240:public int[] getVersionSpec()
 com.facebook.internal.FetchedAppSettingsManager:
     private static final java.lang.String APP_SETTINGS_PREFS_STORE
     private static final java.lang.String APP_SETTINGS_PREFS_KEY_FORMAT
@@ -6680,8 +6734,10 @@ com.facebook.internal.FetchedAppSettingsManager:
     private static final java.lang.String APP_SETTING_ANDROID_SDK_ERROR_CATEGORIES
     private static final java.lang.String APP_SETTING_APP_EVENTS_SESSION_TIMEOUT
     private static final java.lang.String APP_SETTING_APP_EVENTS_FEATURE_BITMASK
+    private static final java.lang.String APP_SETTING_APP_EVENTS_EVENT_BINDINGS
     private static final int AUTOMATIC_LOGGING_ENABLED_BITMASK_FIELD
     private static final int IAP_AUTOMATIC_LOGGING_ENABLED_BITMASK_FIELD
+    private static final int CODELESS_EVENTS_ENABLED_BITMASK_FIELD
     private static final java.lang.String APP_SETTING_SMART_LOGIN_OPTIONS
     private static final java.lang.String SMART_LOGIN_BOOKMARK_ICON_URL
     private static final java.lang.String SMART_LOGIN_MENU_ICON_URL
@@ -6841,14 +6897,14 @@ com.facebook.internal.NativeProtocol:
     private static final java.lang.String PLATFORM_PROVIDER
     private static final java.lang.String PLATFORM_PROVIDER_VERSIONS
     private static final java.lang.String PLATFORM_PROVIDER_VERSION_COLUMN
-    550:560:public static android.content.Intent createTokenRefreshIntent(android.content.Context)
-    598:618:public static android.content.Intent createPlatformActivityIntent(android.content.Context,java.lang.String,java.lang.String,com.facebook.internal.NativeProtocol$ProtocolVersionQueryResult,android.os.Bundle)
-    630:655:public static void setupProtocolRequestIntent(android.content.Intent,java.lang.String,java.lang.String,int,android.os.Bundle)
-    731:736:public static android.os.Bundle getBridgeArgumentsFromIntent(android.content.Intent)
-    749:755:public static android.os.Bundle getSuccessResultsFromIntent(android.content.Intent)
-    759:763:public static boolean isErrorResult(android.content.Intent)
-    768:777:public static android.os.Bundle getErrorDataFromResultIntent(android.content.Intent)
-    826:827:public static com.facebook.internal.NativeProtocol$ProtocolVersionQueryResult getLatestAvailableProtocolVersionForAction(java.lang.String,int[])
+    555:565:public static android.content.Intent createTokenRefreshIntent(android.content.Context)
+    603:623:public static android.content.Intent createPlatformActivityIntent(android.content.Context,java.lang.String,java.lang.String,com.facebook.internal.NativeProtocol$ProtocolVersionQueryResult,android.os.Bundle)
+    635:660:public static void setupProtocolRequestIntent(android.content.Intent,java.lang.String,java.lang.String,int,android.os.Bundle)
+    736:741:public static android.os.Bundle getBridgeArgumentsFromIntent(android.content.Intent)
+    754:760:public static android.os.Bundle getSuccessResultsFromIntent(android.content.Intent)
+    764:768:public static boolean isErrorResult(android.content.Intent)
+    773:782:public static android.os.Bundle getErrorDataFromResultIntent(android.content.Intent)
+    831:832:public static com.facebook.internal.NativeProtocol$ProtocolVersionQueryResult getLatestAvailableProtocolVersionForAction(java.lang.String,int[])
 com.facebook.internal.NativeProtocol$EffectTestAppInfo:
     static final java.lang.String EFFECT_TEST_APP_PACKAGE
 com.facebook.internal.NativeProtocol$FBLiteAppInfo:
@@ -6859,9 +6915,9 @@ com.facebook.internal.NativeProtocol$KatanaAppInfo:
 com.facebook.internal.NativeProtocol$MessengerAppInfo:
     static final java.lang.String MESSENGER_PACKAGE
 com.facebook.internal.NativeProtocol$ProtocolVersionQueryResult:
-    1006:1006:public com.facebook.internal.NativeProtocol$NativeAppInfo getAppInfo()
-    981:981:static synthetic com.facebook.internal.NativeProtocol$NativeAppInfo access$700(com.facebook.internal.NativeProtocol$ProtocolVersionQueryResult)
-    981:981:static synthetic int access$800(com.facebook.internal.NativeProtocol$ProtocolVersionQueryResult)
+    1011:1011:public com.facebook.internal.NativeProtocol$NativeAppInfo getAppInfo()
+    986:986:static synthetic com.facebook.internal.NativeProtocol$NativeAppInfo access$700(com.facebook.internal.NativeProtocol$ProtocolVersionQueryResult)
+    986:986:static synthetic int access$800(com.facebook.internal.NativeProtocol$ProtocolVersionQueryResult)
 com.facebook.internal.NativeProtocol$WakizashiAppInfo:
     static final java.lang.String WAKIZASHI_PACKAGE
 com.facebook.internal.PlatformServiceClient:
@@ -6891,6 +6947,7 @@ com.facebook.internal.ServerProtocol:
     public static final java.lang.String DIALOG_RESPONSE_TYPE_TOKEN_AND_SIGNED_REQUEST
     public static final java.lang.String DIALOG_RETURN_SCOPES_TRUE
     public static final java.lang.String DIALOG_REDIRECT_URI
+    public static final java.lang.String DIALOG_REDIRECT_CHROME_OS_URI
     public static final java.lang.String DIALOG_CANCEL_URI
     public static final java.lang.String FALLBACK_DIALOG_PARAM_APP_ID
     public static final java.lang.String FALLBACK_DIALOG_PARAM_BRIDGE_ARGS
@@ -6903,7 +6960,7 @@ com.facebook.internal.ServerProtocol:
     private static final java.lang.String GRAPH_URL_FORMAT
     private static final java.lang.String GRAPH_API_VERSION
     public static final java.lang.String errorConnectionFailure
-    108:142:public static android.os.Bundle getQueryParamsForPlatformActivityIntentWebFallback(java.lang.String,int,android.os.Bundle)
+    109:143:public static android.os.Bundle getQueryParamsForPlatformActivityIntentWebFallback(java.lang.String,int,android.os.Bundle)
 com.facebook.internal.UrlRedirectCache
 com.facebook.internal.Utility:
     static final java.lang.String LOG_TAG
@@ -6916,28 +6973,27 @@ com.facebook.internal.Utility:
     private static final int REFRESH_TIME_FOR_EXTENDED_DEVICE_INFO_MILLIS
     private static final java.lang.String noCarrierConstant
     private static final int GINGERBREAD_MR1
+    private static final java.lang.String ARC_DEVICE_PATTERN
     95:95:public Utility()
-    139:203:public static int[] intersectRanges(int[],int[])
-    210:220:public static boolean isSubset(java.util.Collection,java.util.Collection)
-    241:245:public static java.lang.String coerceValueIfNullOrEmpty(java.lang.String,java.lang.String)
-    253:257:public static varargs java.util.ArrayList arrayList(java.lang.Object[])
-    261:265:public static varargs java.util.HashSet hashSet(java.lang.Object[])
-    269:269:public static java.lang.String md5hash(java.lang.String)
-    273:273:public static java.lang.String sha1hash(java.lang.String)
-    281:281:private static java.lang.String hashWithAlgorithm(java.lang.String,java.lang.String)
-    354:366:public static void putCommaSeparatedStringList(android.os.Bundle,java.lang.String,java.util.List)
-    430:444:static java.util.Map convertJSONObjectToHashMap(org.json.JSONObject)
-    526:538:public static boolean stringsEqualOrEmpty(java.lang.String,java.lang.String)
-    602:613:public static boolean hasSameId(org.json.JSONObject,org.json.JSONObject)
-    617:617:public static java.lang.String safeGetStringFromResponse(org.json.JSONObject,java.lang.String)
-    621:621:public static org.json.JSONObject tryGetJSONObjectFromResponse(org.json.JSONObject,java.lang.String)
-    625:625:public static org.json.JSONArray tryGetJSONArrayFromResponse(org.json.JSONObject,java.lang.String)
-    629:630:public static void clearCaches(android.content.Context)
-    633:646:public static void deleteDirectory(java.io.File)
-    669:674:public static java.util.Set jsonArrayToSet(org.json.JSONArray)
-    832:841:public static java.util.List filter(java.util.List,com.facebook.internal.Utility$Predicate)
-    849:859:public static java.util.List map(java.util.List,com.facebook.internal.Utility$Mapper)
-    863:863:public static java.lang.String getUriString(android.net.Uri)
+    142:206:public static int[] intersectRanges(int[],int[])
+    213:223:public static boolean isSubset(java.util.Collection,java.util.Collection)
+    244:248:public static java.lang.String coerceValueIfNullOrEmpty(java.lang.String,java.lang.String)
+    256:260:public static varargs java.util.ArrayList arrayList(java.lang.Object[])
+    264:268:public static varargs java.util.HashSet hashSet(java.lang.Object[])
+    276:276:public static java.lang.String sha1hash(java.lang.String)
+    357:369:public static void putCommaSeparatedStringList(android.os.Bundle,java.lang.String,java.util.List)
+    433:447:static java.util.Map convertJSONObjectToHashMap(org.json.JSONObject)
+    529:541:public static boolean stringsEqualOrEmpty(java.lang.String,java.lang.String)
+    605:616:public static boolean hasSameId(org.json.JSONObject,org.json.JSONObject)
+    620:620:public static java.lang.String safeGetStringFromResponse(org.json.JSONObject,java.lang.String)
+    624:624:public static org.json.JSONObject tryGetJSONObjectFromResponse(org.json.JSONObject,java.lang.String)
+    628:628:public static org.json.JSONArray tryGetJSONArrayFromResponse(org.json.JSONObject,java.lang.String)
+    632:633:public static void clearCaches(android.content.Context)
+    636:649:public static void deleteDirectory(java.io.File)
+    672:677:public static java.util.Set jsonArrayToSet(org.json.JSONArray)
+    835:844:public static java.util.List filter(java.util.List,com.facebook.internal.Utility$Predicate)
+    852:862:public static java.util.List map(java.util.List,com.facebook.internal.Utility$Mapper)
+    866:866:public static java.lang.String getUriString(android.net.Uri)
 com.facebook.internal.Utility$Mapper
 com.facebook.internal.Utility$Predicate
 com.facebook.internal.Validate:
@@ -6963,8 +7019,6 @@ com.facebook.internal.WebDialog:
     private static final java.lang.String LOG_TAG
     private static final java.lang.String DISPLAY_TOUCH
     private static final int API_EC_DIALOG_CANCEL
-    static final java.lang.String REDIRECT_URI
-    static final java.lang.String CANCEL_URI
     static final boolean DISABLE_SSL_CHECK_FOR_TESTING
     private static final int NO_PADDING_SCREEN_WIDTH
     private static final int MAX_PADDING_SCREEN_WIDTH
@@ -6972,9 +7026,9 @@ com.facebook.internal.WebDialog:
     private static final int MAX_PADDING_SCREEN_HEIGHT
     private static final double MIN_SCALE_FACTOR
     private static final int BACKGROUND_GRAY
-    282:282:public com.facebook.internal.WebDialog$OnCompleteListener getOnCompleteListener()
+    290:290:public com.facebook.internal.WebDialog$OnCompleteListener getOnCompleteListener()
 com.facebook.internal.WebDialog$Builder:
-    727:728:public com.facebook.internal.WebDialog$Builder setTheme(int)
+    735:736:public com.facebook.internal.WebDialog$Builder setTheme(int)
 com.facebook.internal.WorkQueue
 com.facebook.internal.WorkQueue$1
 com.facebook.internal.WorkQueue$WorkItem
@@ -6995,11 +7049,12 @@ com.facebook.login.DeviceAuthDialog:
     private static final int LOGIN_ERROR_SUBCODE_CODE_EXPIRED
 com.facebook.login.DeviceLoginManager
 com.facebook.login.LoginClient:
-    308:308:com.facebook.login.LoginClient$OnCompletedListener getOnCompletedListener()
-    316:316:com.facebook.login.LoginClient$BackgroundProcessingListener getBackgroundProcessingListener()
-    362:370:private static com.facebook.AccessToken createFromTokenWithRefreshedPermissions(com.facebook.AccessToken,java.util.Collection,java.util.Collection)
+    307:307:com.facebook.login.LoginClient$OnCompletedListener getOnCompletedListener()
+    315:315:com.facebook.login.LoginClient$BackgroundProcessingListener getBackgroundProcessingListener()
+    361:369:private static com.facebook.AccessToken createFromTokenWithRefreshedPermissions(com.facebook.AccessToken,java.util.Collection,java.util.Collection)
 com.facebook.login.LoginClient$Request:
-    499:500:void setDeviceRedirectUriString(java.lang.String)
+    501:502:void setDeviceRedirectUriString(java.lang.String)
+    509:510:void setAuthType(java.lang.String)
 com.facebook.login.LoginFragment:
     static final java.lang.String RESULT_KEY
     static final java.lang.String REQUEST_KEY
@@ -7045,25 +7100,26 @@ com.facebook.login.LoginManager:
     private static final java.lang.String MANAGE_PERMISSION_PREFIX
     private static final java.lang.String EXPRESS_LOGIN_ALLOWED
     private static final java.lang.String PREFERENCE_LOGIN_MANAGER
-    108:112:public void resolveError(android.app.Activity,com.facebook.GraphResponse)
-    122:123:public void resolveError(android.support.v4.app.Fragment,com.facebook.GraphResponse)
-    133:134:public void resolveError(android.app.Fragment,com.facebook.GraphResponse)
-    144:148:private void resolveError(com.facebook.internal.FragmentWrapper,com.facebook.GraphResponse)
-    151:153:private com.facebook.login.LoginClient$Request createLoginRequestFromResponse(com.facebook.GraphResponse)
-    188:194:public void unregisterCallback(com.facebook.CallbackManager)
-    254:254:public com.facebook.login.LoginBehavior getLoginBehavior()
-    272:272:public com.facebook.login.DefaultAudience getDefaultAudience()
-    306:307:public void retrieveLoginStatus(android.content.Context,com.facebook.LoginStatusCallback)
-    323:324:public void retrieveLoginStatus(android.content.Context,long,com.facebook.LoginStatusCallback)
-    648:741:private void retrieveLoginStatusImpl(android.content.Context,com.facebook.LoginStatusCallback,long)
-    750:750:private boolean isExpressLoginAllowed()
-    755:777:private static com.facebook.Profile getProfileFromBundle(android.os.Bundle)
-    786:789:private static void handleLoginStatusError(java.lang.String,java.lang.String,java.lang.String,com.facebook.login.LoginLogger,com.facebook.LoginStatusCallback)
+    109:113:public void resolveError(android.app.Activity,com.facebook.GraphResponse)
+    123:124:public void resolveError(android.support.v4.app.Fragment,com.facebook.GraphResponse)
+    134:135:public void resolveError(android.app.Fragment,com.facebook.GraphResponse)
+    145:149:private void resolveError(com.facebook.internal.FragmentWrapper,com.facebook.GraphResponse)
+    152:154:private com.facebook.login.LoginClient$Request createLoginRequestFromResponse(com.facebook.GraphResponse)
+    189:195:public void unregisterCallback(com.facebook.CallbackManager)
+    255:255:public com.facebook.login.LoginBehavior getLoginBehavior()
+    273:273:public com.facebook.login.DefaultAudience getDefaultAudience()
+    291:291:public java.lang.String getAuthType()
+    325:326:public void retrieveLoginStatus(android.content.Context,com.facebook.LoginStatusCallback)
+    342:343:public void retrieveLoginStatus(android.content.Context,long,com.facebook.LoginStatusCallback)
+    668:761:private void retrieveLoginStatusImpl(android.content.Context,com.facebook.LoginStatusCallback,long)
+    770:770:private boolean isExpressLoginAllowed()
+    775:797:private static com.facebook.Profile getProfileFromBundle(android.os.Bundle)
+    806:809:private static void handleLoginStatusError(java.lang.String,java.lang.String,java.lang.String,com.facebook.login.LoginLogger,com.facebook.LoginStatusCallback)
     65:65:static synthetic void access$100(java.lang.String,java.lang.String,java.lang.String,com.facebook.login.LoginLogger,com.facebook.LoginStatusCallback)
     65:65:static synthetic com.facebook.Profile access$200(android.os.Bundle)
 com.facebook.login.LoginManager$4
 com.facebook.login.LoginManager$LoginLoggerHolder:
-    829:829:private LoginManager$LoginLoggerHolder()
+    849:849:private LoginManager$LoginLoggerHolder()
 com.facebook.login.LoginResult:
     56:56:public com.facebook.AccessToken getAccessToken()
     72:72:public java.util.Set getRecentlyDeniedPermissions()
@@ -7093,20 +7149,55 @@ com.facebook.login.WebLoginMethodHandler:
     private static final java.lang.String WEB_VIEW_AUTH_HANDLER_TOKEN_KEY
 com.facebook.login.WebViewLoginMethodHandler$AuthDialogBuilder:
     private static final java.lang.String OAUTH_DIALOG
-    static final java.lang.String REDIRECT_URI
+    130:130:public com.facebook.login.WebViewLoginMethodHandler$AuthDialogBuilder setIsRerequest(boolean)
 com.facebook.login.widget.DeviceLoginButton
 com.facebook.login.widget.DeviceLoginButton$1
 com.facebook.login.widget.DeviceLoginButton$DeviceLoginClickListener
 com.facebook.login.widget.LoginButton:
-    356:357:public void clearPermissions()
-    465:466:public void unregisterCallback(com.facebook.CallbackManager)
+    366:367:public void clearPermissions()
+    491:492:public void unregisterCallback(com.facebook.CallbackManager)
 com.facebook.login.widget.LoginButton$LoginButtonProperties:
-    176:178:public void clearPermissions()
+    178:180:public void clearPermissions()
 com.facebook.login.widget.ProfilePictureView
 com.facebook.login.widget.ProfilePictureView$1
 com.facebook.login.widget.ProfilePictureView$OnErrorListener
 com.facebook.login.widget.ToolTipPopup:
     public static final long DEFAULT_POPUP_DISPLAY_TIME
+com.facebook.marketing.BuildConfig
+com.facebook.marketing.R
+com.facebook.marketing.R$attr
+com.facebook.marketing.R$bool
+com.facebook.marketing.R$color
+com.facebook.marketing.R$dimen
+com.facebook.marketing.R$drawable
+com.facebook.marketing.R$id
+com.facebook.marketing.R$integer
+com.facebook.marketing.R$layout
+com.facebook.marketing.R$string
+com.facebook.marketing.R$style
+com.facebook.marketing.R$styleable
+com.facebook.marketing.ViewIndexer:
+    private static final java.lang.String SUCCESS
+    private static final java.lang.String TREE_PARAM
+    private static final java.lang.String APP_VERSION_PARAM
+    private static final java.lang.String PLATFORM_PARAM
+com.facebook.marketing.ViewIndexingTrigger:
+    private static final double SHAKE_THRESHOLD_GRAVITY
+    private static final int SHAKE_SLOP_TIME_MS
+    private static final int SHAKE_COUNT_RESET_TIME_MS
+com.facebook.marketing.internal.Constants
+com.facebook.marketing.internal.MarketingLogger:
+    static final java.lang.String EVENT_NAME_CODELESS_DEBUG
+    static final java.lang.String CODELESS_ACTION_SDK_INITIALIZED
+    static final java.lang.String CODELESS_ACTION_GESTURE_TRIGGERED
+    static final java.lang.String CODELESS_ACTION_SESSION_READY
+    static final java.lang.String CODELESS_ACTION_INDEXING_START
+    static final java.lang.String CODELESS_ACTION_INDEXING_COMPLETE
+    static final java.lang.String CODELESS_ACTION_INDEXING_CANCELLED
+    static final java.lang.String ACTIVITY_NAME
+    static final java.lang.String CODELESS_ACTION_KEY
+com.facebook.marketing.internal.MarketingUtils:
+    63:68:public static double normalizePrice(java.lang.String)
 com.facebook.messenger.BuildConfig
 com.facebook.messenger.MessengerThreadParams
 com.facebook.messenger.MessengerThreadParams$Origin
@@ -8171,7 +8262,6 @@ com.google.android.gms.common.api.DataBufferResponse
 com.google.android.gms.common.api.GoogleApi:
     public GoogleApi(android.content.Context,com.google.android.gms.common.api.Api,com.google.android.gms.common.api.Api$ApiOptions,android.os.Looper,com.google.android.gms.common.api.internal.StatusExceptionMapper)
     public com.google.android.gms.common.api.internal.BaseImplementation$ApiMethodImpl doRead(com.google.android.gms.common.api.internal.BaseImplementation$ApiMethodImpl)
-    public com.google.android.gms.tasks.Task doWrite(com.google.android.gms.common.api.internal.TaskApiCall)
     public com.google.android.gms.common.api.internal.BaseImplementation$ApiMethodImpl doBestEffortWrite(com.google.android.gms.common.api.internal.BaseImplementation$ApiMethodImpl)
     public com.google.android.gms.tasks.Task doBestEffortWrite(com.google.android.gms.common.api.internal.TaskApiCall)
     public com.google.android.gms.tasks.Task doRegisterEventListener(com.google.android.gms.common.api.internal.RegisterListenerMethod,com.google.android.gms.common.api.internal.UnregisterListenerMethod)
@@ -9437,24 +9527,13 @@ com.google.android.gms.internal.firebase_auth.zzag
 com.google.android.gms.internal.firebase_auth.zzah
 com.google.android.gms.internal.firebase_auth.zzai
 com.google.android.gms.internal.firebase_auth.zzaj:
-    public final java.lang.String getEmail()
-    public final boolean isEmailVerified()
-    public final java.lang.String getLocalId()
-    public final java.lang.String getDisplayName()
-    public final android.net.Uri getPhotoUri()
-    public final java.lang.String getPhoneNumber()
-    public final long getCreationTimestamp()
-    public final long getLastSignInTimestamp()
-    public final boolean isNewUser()
     public final com.google.android.gms.internal.firebase_auth.zzaj zzl(java.lang.String)
     public final com.google.android.gms.internal.firebase_auth.zzaj zzm(java.lang.String)
     public final com.google.android.gms.internal.firebase_auth.zzaj zzn(java.lang.String)
     public final com.google.android.gms.internal.firebase_auth.zzaj zzo(java.lang.String)
     public final com.google.android.gms.internal.firebase_auth.zzaj zzb(java.util.List)
     public final com.google.android.gms.internal.firebase_auth.zzaj zzc(boolean)
-    public final java.util.List zzat()
     public final com.google.android.gms.internal.firebase_auth.zzas zzau()
-    public final com.google.firebase.auth.zzd zzav()
     public final com.google.android.gms.internal.firebase_auth.zzaj zzb(com.google.firebase.auth.zzd)
 com.google.android.gms.internal.firebase_auth.zzal
 com.google.android.gms.internal.firebase_auth.zzam
@@ -9465,16 +9544,8 @@ com.google.android.gms.internal.firebase_auth.zzao:
     public final java.lang.Class zzag()
     public final synthetic com.google.firebase.auth.api.internal.zzcg zza(com.google.android.gms.internal.firebase_auth.zzgt)
 com.google.android.gms.internal.firebase_auth.zzaq:
-    public final java.lang.String zzaz()
-    public final java.lang.String getDisplayName()
-    public final android.net.Uri getPhotoUri()
-    public final java.lang.String getProviderId()
-    public final java.lang.String getPhoneNumber()
     public final void zzt(java.lang.String)
-    public final java.lang.String getRawUserInfo()
-    public final java.lang.String getEmail()
 com.google.android.gms.internal.firebase_auth.zzas:
-    public final java.util.List zzat()
     public static com.google.android.gms.internal.firebase_auth.zzas zza(com.google.android.gms.internal.firebase_auth.zzt[])
 com.google.android.gms.internal.firebase_auth.zzau
 com.google.android.gms.internal.firebase_auth.zzav:
@@ -9494,8 +9565,6 @@ com.google.android.gms.internal.firebase_auth.zzbd:
 com.google.android.gms.internal.firebase_auth.zzbf:
     public final com.google.android.gms.internal.firebase_auth.zzbf zzac(java.lang.String)
     public final com.google.android.gms.internal.firebase_auth.zzbf zzd(boolean)
-    public zzbf(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)
-    public zzbf(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)
     public final synthetic com.google.android.gms.internal.firebase_auth.zzgt zzao()
 com.google.android.gms.internal.firebase_auth.zzbh
 com.google.android.gms.internal.firebase_auth.zzbi
@@ -9516,8 +9585,6 @@ com.google.android.gms.internal.firebase_auth.zzbw
 com.google.android.gms.internal.firebase_auth.zzbx
 com.google.android.gms.internal.firebase_auth.zzby
 com.google.android.gms.internal.firebase_auth.zzbz
-com.google.android.gms.internal.firebase_auth.zzc:
-    public static void zza(android.os.Parcel,android.os.Parcelable)
 com.google.android.gms.internal.firebase_auth.zzca
 com.google.android.gms.internal.firebase_auth.zzcb
 com.google.android.gms.internal.firebase_auth.zzcc
@@ -9918,7 +9985,6 @@ com.google.android.gms.tasks.Task:
     public abstract com.google.android.gms.tasks.Task addOnSuccessListener(com.google.android.gms.tasks.OnSuccessListener)
     public abstract com.google.android.gms.tasks.Task addOnSuccessListener(android.app.Activity,com.google.android.gms.tasks.OnSuccessListener)
     public abstract com.google.android.gms.tasks.Task addOnFailureListener(android.app.Activity,com.google.android.gms.tasks.OnFailureListener)
-    public com.google.android.gms.tasks.Task addOnCompleteListener(android.app.Activity,com.google.android.gms.tasks.OnCompleteListener)
     public com.google.android.gms.tasks.Task addOnCanceledListener(com.google.android.gms.tasks.OnCanceledListener)
     public com.google.android.gms.tasks.Task addOnCanceledListener(android.app.Activity,com.google.android.gms.tasks.OnCanceledListener)
     public com.google.android.gms.tasks.Task continueWith(com.google.android.gms.tasks.Continuation)
@@ -9944,28 +10010,15 @@ com.google.android.gms.tasks.Tasks:
 com.google.android.gms.tasks.Tasks$zzc
 com.google.android.gms.tasks.zza
 com.google.android.gms.tasks.zzb
-com.google.android.gms.tasks.zzc:
-    public final void cancel()
 com.google.android.gms.tasks.zze
 com.google.android.gms.tasks.zzf
-com.google.android.gms.tasks.zzg:
-    public final void cancel()
-com.google.android.gms.tasks.zzi:
-    public final void cancel()
-com.google.android.gms.tasks.zzk:
-    public final void cancel()
-com.google.android.gms.tasks.zzm:
-    public final void cancel()
 com.google.android.gms.tasks.zzo
 com.google.android.gms.tasks.zzp
-com.google.android.gms.tasks.zzq:
-    public abstract void cancel()
 com.google.android.gms.tasks.zzs
 com.google.android.gms.tasks.zzu:
     public final com.google.android.gms.tasks.Task addOnSuccessListener(com.google.android.gms.tasks.OnSuccessListener)
     public final com.google.android.gms.tasks.Task addOnSuccessListener(android.app.Activity,com.google.android.gms.tasks.OnSuccessListener)
     public final com.google.android.gms.tasks.Task addOnFailureListener(android.app.Activity,com.google.android.gms.tasks.OnFailureListener)
-    public final com.google.android.gms.tasks.Task addOnCompleteListener(android.app.Activity,com.google.android.gms.tasks.OnCompleteListener)
     public final com.google.android.gms.tasks.Task continueWith(com.google.android.gms.tasks.Continuation)
     public final com.google.android.gms.tasks.Task continueWithTask(com.google.android.gms.tasks.Continuation)
     public final com.google.android.gms.tasks.Task addOnCanceledListener(com.google.android.gms.tasks.OnCanceledListener)
@@ -9973,7 +10026,6 @@ com.google.android.gms.tasks.zzu:
     public final com.google.android.gms.tasks.Task continueWithTask(java.util.concurrent.Executor,com.google.android.gms.tasks.Continuation)
     public final com.google.android.gms.tasks.Task onSuccessTask(java.util.concurrent.Executor,com.google.android.gms.tasks.SuccessContinuation)
     public final com.google.android.gms.tasks.Task onSuccessTask(com.google.android.gms.tasks.SuccessContinuation)
-com.google.android.gms.tasks.zzu$zza
 com.google.android.gms.tasks.zzw
 com.google.android.gms.tasks.zzx
 com.google.firebase.AutomaticDataCollectionChange
@@ -10135,13 +10187,28 @@ com.google.firebase.auth.ActionCodeResult$ActionDataKey
 com.google.firebase.auth.ActionCodeResult$Operation
 com.google.firebase.auth.ActionCodeSettings
 com.google.firebase.auth.ActionCodeSettings$Builder
-com.google.firebase.auth.AdditionalUserInfo
+com.google.firebase.auth.AdditionalUserInfo:
+    public abstract java.lang.String getProviderId()
+    public abstract java.util.Map getProfile()
+    public abstract java.lang.String getUsername()
+    public abstract boolean isNewUser()
 com.google.firebase.auth.AuthCredential:
     public abstract java.lang.String getSignInMethod()
-com.google.firebase.auth.AuthResult
-com.google.firebase.auth.EmailAuthCredential
+com.google.firebase.auth.AuthResult:
+    public abstract com.google.firebase.auth.FirebaseUser getUser()
+    public abstract com.google.firebase.auth.AdditionalUserInfo getAdditionalUserInfo()
+com.google.firebase.auth.EmailAuthCredential:
+    EmailAuthCredential(java.lang.String,java.lang.String)
+    public final java.lang.String zzg()
+    public final java.lang.String zzh()
+    public final boolean zzi()
+    public final com.google.firebase.auth.EmailAuthCredential zza(com.google.firebase.auth.FirebaseUser)
+    public java.lang.String getSignInMethod()
+    public static boolean isSignInWithEmailLink(java.lang.String)
+    private static boolean zzb(java.lang.String)
 com.google.firebase.auth.EmailAuthProvider
-com.google.firebase.auth.FacebookAuthCredential
+com.google.firebase.auth.FacebookAuthCredential:
+    public java.lang.String getSignInMethod()
 com.google.firebase.auth.FacebookAuthProvider
 com.google.firebase.auth.FirebaseAuth:
     private java.lang.String zzej
@@ -10153,7 +10220,6 @@ com.google.firebase.auth.FirebaseAuth:
     public void removeIdTokenListener(com.google.firebase.auth.internal.IdTokenListener)
     public void addAuthStateListener(com.google.firebase.auth.FirebaseAuth$AuthStateListener)
     public void removeAuthStateListener(com.google.firebase.auth.FirebaseAuth$AuthStateListener)
-    public com.google.android.gms.tasks.Task signInWithCredential(com.google.firebase.auth.AuthCredential)
     public final com.google.android.gms.tasks.Task zza(com.google.firebase.auth.FirebaseUser,com.google.firebase.auth.AuthCredential)
     public final com.google.android.gms.tasks.Task zzb(com.google.firebase.auth.FirebaseUser,com.google.firebase.auth.AuthCredential)
     public com.google.android.gms.tasks.Task signInWithCustomToken(java.lang.String)
@@ -10190,7 +10256,6 @@ com.google.firebase.auth.FirebaseAuth:
     public com.google.android.gms.tasks.Task setFirebaseUIVersion(java.lang.String)
     static synthetic com.google.firebase.auth.internal.zzk zze(com.google.firebase.auth.FirebaseAuth)
     static synthetic com.google.firebase.auth.FirebaseUser zzf(com.google.firebase.auth.FirebaseAuth)
-com.google.firebase.auth.FirebaseAuth$zza
 com.google.firebase.auth.FirebaseAuth$zzb
 com.google.firebase.auth.FirebaseAuth$zzc
 com.google.firebase.auth.FirebaseAuthException:
@@ -10208,7 +10273,6 @@ com.google.firebase.auth.FirebaseUser:
     public abstract android.net.Uri getPhotoUrl()
     public abstract java.lang.String getEmail()
     public abstract java.lang.String getPhoneNumber()
-    public com.google.android.gms.tasks.Task getIdToken(boolean)
     public com.google.android.gms.tasks.Task reload()
     public com.google.android.gms.tasks.Task reauthenticate(com.google.firebase.auth.AuthCredential)
     public com.google.android.gms.tasks.Task reauthenticateAndRetrieveData(com.google.firebase.auth.AuthCredential)
@@ -10225,16 +10289,18 @@ com.google.firebase.auth.FirebaseUserMetadata:
     public abstract long getLastSignInTimestamp()
     public abstract long getCreationTimestamp()
 com.google.firebase.auth.GetTokenResult:
-    36:36:public java.lang.String getToken()
-    41:41:public long getExpirationTimestamp()
     49:49:public long getAuthTimestamp()
     57:57:public long getIssuedAtTimestamp()
     83:83:public java.util.Map getClaims()
-    87:88:private long zza(java.lang.String)
-com.google.firebase.auth.GithubAuthCredential
+com.google.firebase.auth.GithubAuthCredential:
+    public java.lang.String getSignInMethod()
 com.google.firebase.auth.GithubAuthProvider
-com.google.firebase.auth.GoogleAuthCredential
-com.google.firebase.auth.GoogleAuthProvider
+com.google.firebase.auth.GoogleAuthCredential:
+    public java.lang.String getSignInMethod()
+com.google.firebase.auth.GoogleAuthProvider:
+    public static final java.lang.String PROVIDER_ID
+    public static final java.lang.String GOOGLE_SIGN_IN_METHOD
+    private GoogleAuthProvider()
 com.google.firebase.auth.OAuthProvider
 com.google.firebase.auth.PhoneAuthCredential:
     public java.lang.String getSignInMethod()
@@ -10252,12 +10318,14 @@ com.google.firebase.auth.PhoneAuthProvider:
     public void verifyPhoneNumber(java.lang.String,long,java.util.concurrent.TimeUnit,java.util.concurrent.Executor,com.google.firebase.auth.PhoneAuthProvider$OnVerificationStateChangedCallbacks,com.google.firebase.auth.PhoneAuthProvider$ForceResendingToken)
     private final void zza(java.lang.String,long,java.util.concurrent.TimeUnit,android.app.Activity,java.util.concurrent.Executor,com.google.firebase.auth.PhoneAuthProvider$OnVerificationStateChangedCallbacks,com.google.firebase.auth.PhoneAuthProvider$ForceResendingToken)
     public static com.google.firebase.auth.PhoneAuthCredential getCredential(java.lang.String,java.lang.String)
-com.google.firebase.auth.PlayGamesAuthCredential
+com.google.firebase.auth.PlayGamesAuthCredential:
+    public java.lang.String getSignInMethod()
 com.google.firebase.auth.PlayGamesAuthProvider
 com.google.firebase.auth.ProviderQueryResult
 com.google.firebase.auth.R
 com.google.firebase.auth.SignInMethodQueryResult
-com.google.firebase.auth.TwitterAuthCredential
+com.google.firebase.auth.TwitterAuthCredential:
+    public java.lang.String getSignInMethod()
 com.google.firebase.auth.TwitterAuthProvider
 com.google.firebase.auth.UserInfo:
     public abstract java.lang.String getUid()
@@ -10276,11 +10344,8 @@ com.google.firebase.auth.api.internal.zzad
 com.google.firebase.auth.api.internal.zzae
 com.google.firebase.auth.api.internal.zzaf
 com.google.firebase.auth.api.internal.zzag
-com.google.firebase.auth.api.internal.zzah:
-    public final com.google.android.gms.tasks.Task zzb(com.google.firebase.auth.api.internal.zzam)
 com.google.firebase.auth.api.internal.zzao:
     public final com.google.android.gms.tasks.Task zza(com.google.firebase.FirebaseApp,java.lang.String,com.google.firebase.auth.internal.zza)
-    public final com.google.android.gms.tasks.Task zza(com.google.firebase.FirebaseApp,com.google.firebase.auth.AuthCredential,com.google.firebase.auth.internal.zza)
     public final com.google.android.gms.tasks.Task zza(com.google.firebase.FirebaseApp,com.google.firebase.auth.FirebaseUser,com.google.firebase.auth.AuthCredential,com.google.firebase.auth.internal.zzae)
     public final com.google.android.gms.tasks.Task zzb(com.google.firebase.FirebaseApp,com.google.firebase.auth.FirebaseUser,com.google.firebase.auth.AuthCredential,com.google.firebase.auth.internal.zzae)
     public final com.google.android.gms.tasks.Task zza(com.google.firebase.FirebaseApp,com.google.firebase.auth.internal.zza)
@@ -10290,13 +10355,10 @@ com.google.firebase.auth.api.internal.zzao:
     public final com.google.android.gms.tasks.Task zzc(com.google.firebase.FirebaseApp,com.google.firebase.auth.FirebaseUser,java.lang.String,com.google.firebase.auth.internal.zzae)
     public final com.google.android.gms.tasks.Task zza(com.google.firebase.FirebaseApp,com.google.firebase.auth.FirebaseUser,com.google.firebase.auth.PhoneAuthCredential,com.google.firebase.auth.internal.zzae)
     public final com.google.android.gms.tasks.Task zza(com.google.firebase.FirebaseApp,java.lang.String,java.lang.String,com.google.firebase.auth.internal.zza)
-    public final com.google.android.gms.tasks.Task zzb(com.google.firebase.FirebaseApp,java.lang.String,java.lang.String,com.google.firebase.auth.internal.zza)
-    public final com.google.android.gms.tasks.Task zza(com.google.firebase.FirebaseApp,com.google.firebase.auth.EmailAuthCredential,com.google.firebase.auth.internal.zza)
     public final com.google.android.gms.tasks.Task zza(com.google.firebase.FirebaseApp,com.google.firebase.auth.FirebaseUser,java.lang.String,java.lang.String,com.google.firebase.auth.internal.zzae)
     public final com.google.android.gms.tasks.Task zzb(com.google.firebase.FirebaseApp,com.google.firebase.auth.FirebaseUser,java.lang.String,java.lang.String,com.google.firebase.auth.internal.zzae)
     public final com.google.android.gms.tasks.Task zza(com.google.firebase.FirebaseApp,com.google.firebase.auth.FirebaseUser,com.google.firebase.auth.EmailAuthCredential,com.google.firebase.auth.internal.zzae)
     public final com.google.android.gms.tasks.Task zzb(com.google.firebase.FirebaseApp,com.google.firebase.auth.FirebaseUser,com.google.firebase.auth.EmailAuthCredential,com.google.firebase.auth.internal.zzae)
-    public final com.google.android.gms.tasks.Task zza(com.google.firebase.FirebaseApp,com.google.firebase.auth.PhoneAuthCredential,com.google.firebase.auth.internal.zza)
     public final com.google.android.gms.tasks.Task zzb(com.google.firebase.FirebaseApp,com.google.firebase.auth.FirebaseUser,com.google.firebase.auth.PhoneAuthCredential,com.google.firebase.auth.internal.zzae)
     public final com.google.android.gms.tasks.Task zzc(com.google.firebase.FirebaseApp,com.google.firebase.auth.FirebaseUser,com.google.firebase.auth.AuthCredential,com.google.firebase.auth.internal.zzae)
     public final com.google.android.gms.tasks.Task zza(com.google.firebase.FirebaseApp,java.lang.String)
@@ -10313,7 +10375,6 @@ com.google.firebase.auth.api.internal.zzao:
     public final com.google.android.gms.tasks.Task zza(com.google.firebase.FirebaseApp,com.google.firebase.auth.FirebaseUser,com.google.firebase.auth.internal.zzae)
     public final com.google.android.gms.tasks.Task zza(com.google.firebase.auth.FirebaseUser,com.google.firebase.auth.internal.zzv)
     public final com.google.android.gms.tasks.Task setFirebaseUIVersion(java.lang.String)
-    static com.google.firebase.auth.internal.zzl zza(com.google.firebase.FirebaseApp,com.google.android.gms.internal.firebase_auth.zzaj)
 com.google.firebase.auth.api.internal.zzap
 com.google.firebase.auth.api.internal.zzaq
 com.google.firebase.auth.api.internal.zzar
@@ -10338,11 +10399,7 @@ com.google.firebase.auth.api.internal.zzbk
 com.google.firebase.auth.api.internal.zzbl
 com.google.firebase.auth.api.internal.zzbm
 com.google.firebase.auth.api.internal.zzbn
-com.google.firebase.auth.api.internal.zzbo
 com.google.firebase.auth.api.internal.zzbp
-com.google.firebase.auth.api.internal.zzbq
-com.google.firebase.auth.api.internal.zzbr
-com.google.firebase.auth.api.internal.zzbs
 com.google.firebase.auth.api.internal.zzbt
 com.google.firebase.auth.api.internal.zzbu
 com.google.firebase.auth.api.internal.zzbv
@@ -10357,12 +10414,10 @@ com.google.firebase.auth.api.internal.zzcg
 com.google.firebase.auth.api.internal.zzcj
 com.google.firebase.auth.api.internal.zzck:
     public abstract void zzb(java.lang.String,com.google.firebase.auth.api.internal.zzch)
-    public abstract void zza(com.google.android.gms.internal.firebase_auth.zzbf,com.google.firebase.auth.api.internal.zzch)
     public abstract void zza(java.lang.String,com.google.firebase.auth.UserProfileChangeRequest,com.google.firebase.auth.api.internal.zzch)
     public abstract void zza(java.lang.String,java.lang.String,com.google.firebase.auth.api.internal.zzch)
     public abstract void zzb(java.lang.String,java.lang.String,com.google.firebase.auth.api.internal.zzch)
     public abstract void zzc(java.lang.String,java.lang.String,com.google.firebase.auth.api.internal.zzch)
-    public abstract void zzd(java.lang.String,java.lang.String,com.google.firebase.auth.api.internal.zzch)
     public abstract void zzc(java.lang.String,com.google.firebase.auth.api.internal.zzch)
     public abstract void zzd(java.lang.String,com.google.firebase.auth.api.internal.zzch)
     public abstract void zza(java.lang.String,java.lang.String,java.lang.String,com.google.firebase.auth.api.internal.zzch)
@@ -10377,22 +10432,18 @@ com.google.firebase.auth.api.internal.zzck:
     public abstract void zzj(java.lang.String,com.google.firebase.auth.api.internal.zzch)
     public abstract void zzf(java.lang.String,java.lang.String,com.google.firebase.auth.api.internal.zzch)
     public abstract void zza(com.google.android.gms.internal.firebase_auth.zzax,com.google.firebase.auth.api.internal.zzch)
-    public abstract void zza(com.google.firebase.auth.PhoneAuthCredential,com.google.firebase.auth.api.internal.zzch)
     public abstract void zza(java.lang.String,com.google.firebase.auth.PhoneAuthCredential,com.google.firebase.auth.api.internal.zzch)
     public abstract void zza(java.lang.String,com.google.firebase.auth.ActionCodeSettings,com.google.firebase.auth.api.internal.zzch)
     public abstract void zzb(java.lang.String,com.google.firebase.auth.ActionCodeSettings,com.google.firebase.auth.api.internal.zzch)
     public abstract void zzk(java.lang.String,com.google.firebase.auth.api.internal.zzch)
     public abstract void zzc(java.lang.String,com.google.firebase.auth.ActionCodeSettings,com.google.firebase.auth.api.internal.zzch)
-    public abstract void zza(com.google.firebase.auth.EmailAuthCredential,com.google.firebase.auth.api.internal.zzch)
 com.google.firebase.auth.api.internal.zzcl
 com.google.firebase.auth.api.internal.zzcm:
     public final void zzb(java.lang.String,com.google.firebase.auth.api.internal.zzch)
-    public final void zza(com.google.android.gms.internal.firebase_auth.zzbf,com.google.firebase.auth.api.internal.zzch)
     public final void zza(java.lang.String,com.google.firebase.auth.UserProfileChangeRequest,com.google.firebase.auth.api.internal.zzch)
     public final void zza(java.lang.String,java.lang.String,com.google.firebase.auth.api.internal.zzch)
     public final void zzb(java.lang.String,java.lang.String,com.google.firebase.auth.api.internal.zzch)
     public final void zzc(java.lang.String,java.lang.String,com.google.firebase.auth.api.internal.zzch)
-    public final void zzd(java.lang.String,java.lang.String,com.google.firebase.auth.api.internal.zzch)
     public final void zzc(java.lang.String,com.google.firebase.auth.api.internal.zzch)
     public final void zzd(java.lang.String,com.google.firebase.auth.api.internal.zzch)
     public final void zza(java.lang.String,java.lang.String,java.lang.String,com.google.firebase.auth.api.internal.zzch)
@@ -10407,13 +10458,11 @@ com.google.firebase.auth.api.internal.zzcm:
     public final void zzj(java.lang.String,com.google.firebase.auth.api.internal.zzch)
     public final void zzf(java.lang.String,java.lang.String,com.google.firebase.auth.api.internal.zzch)
     public final void zza(com.google.android.gms.internal.firebase_auth.zzax,com.google.firebase.auth.api.internal.zzch)
-    public final void zza(com.google.firebase.auth.PhoneAuthCredential,com.google.firebase.auth.api.internal.zzch)
     public final void zza(java.lang.String,com.google.firebase.auth.PhoneAuthCredential,com.google.firebase.auth.api.internal.zzch)
     public final void zza(java.lang.String,com.google.firebase.auth.ActionCodeSettings,com.google.firebase.auth.api.internal.zzch)
     public final void zzb(java.lang.String,com.google.firebase.auth.ActionCodeSettings,com.google.firebase.auth.api.internal.zzch)
     public final void zzk(java.lang.String,com.google.firebase.auth.api.internal.zzch)
     public final void zzc(java.lang.String,com.google.firebase.auth.ActionCodeSettings,com.google.firebase.auth.api.internal.zzch)
-    public final void zza(com.google.firebase.auth.EmailAuthCredential,com.google.firebase.auth.api.internal.zzch)
 com.google.firebase.auth.api.internal.zzcw
 com.google.firebase.auth.api.internal.zzcy:
     private android.app.Activity zzii
@@ -10455,17 +10504,12 @@ com.google.firebase.auth.internal.InternalAuthProvider:
 com.google.firebase.auth.internal.R
 com.google.firebase.auth.internal.zzab:
     public final void zzf(int)
-com.google.firebase.auth.internal.zzb
 com.google.firebase.auth.internal.zzc
-com.google.firebase.auth.internal.zzd
-com.google.firebase.auth.internal.zze
-com.google.firebase.auth.internal.zzf
-com.google.firebase.auth.internal.zzg
+com.google.firebase.auth.internal.zzd:
+    public final java.util.Map getProfile()
+    public final java.lang.String getUsername()
 com.google.firebase.auth.internal.zzh:
-    public zzh(com.google.android.gms.internal.firebase_auth.zzaj,java.lang.String)
-    public zzh(com.google.android.gms.internal.firebase_auth.zzaq)
     public final android.net.Uri getPhotoUrl()
-    public final java.lang.String getRawUserInfo()
 com.google.firebase.auth.internal.zzk:
     private java.lang.String zzbd
     private java.lang.String zzez
@@ -10479,10 +10523,6 @@ com.google.firebase.auth.internal.zzl:
     public java.lang.String getEmail()
     public java.lang.String getPhoneNumber()
     public boolean isEmailVerified()
-    public final void zze(boolean)
-    public final boolean isNewUser()
-    public final void zzc(com.google.firebase.auth.zzd)
-    public final com.google.firebase.auth.zzd zzav()
     public static com.google.firebase.auth.FirebaseUser zza(com.google.firebase.FirebaseApp,com.google.firebase.auth.FirebaseUser)
 com.google.firebase.auth.internal.zzp
 com.google.firebase.auth.internal.zzq
@@ -10493,9 +10533,6 @@ com.google.firebase.auth.zzb
 com.google.firebase.auth.zzd:
     public static com.google.firebase.auth.zzd zza(java.lang.String,java.lang.String,java.lang.String)
     public java.lang.String getSignInMethod()
-    public static com.google.android.gms.internal.firebase_auth.zzbf zza(com.google.firebase.auth.zzd)
-com.google.firebase.auth.zzf
-com.google.firebase.auth.zzg
 com.google.firebase.auth.zzh
 com.google.firebase.auth.zzi
 com.google.firebase.auth.zzj
@@ -10503,10 +10540,6 @@ com.google.firebase.auth.zzn
 com.google.firebase.auth.zzo
 com.google.firebase.auth.zzq
 com.google.firebase.auth.zzr
-com.google.firebase.auth.zzs
-com.google.firebase.auth.zzt
-com.google.firebase.auth.zzw
-com.google.firebase.auth.zzx
 com.google.firebase.auth.zzy
 com.google.firebase.components.Component:
     136:136:public static com.google.firebase.components.Component of(java.lang.Class,java.lang.Object)
