@@ -1073,7 +1073,7 @@ public class WebActivity extends AppCompatActivity implements
 
                 String url = webView.getUrl();
 
-                if(url.contains(Api.UCP_URL) && url.contains("mode=compose")) {
+                if(url.contains(Api.UCP_URL) && url.contains("mode=compose") || url.contains(Api.TESTS_URL)) {
                     showBtnAdd(false);
                 } else {
                     showBtnAdd(true);
