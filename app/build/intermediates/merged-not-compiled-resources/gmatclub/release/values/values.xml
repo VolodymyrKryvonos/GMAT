@@ -1469,6 +1469,7 @@
     <string name="menu_profile_posts">My posts</string>
     <string name="menu_profile_profile_name">My Profile</string>
     <string name="menu_profile_settings">Forum Settings</string>
+    <string name="menu_profile_settings_notifications">App Settings</string>
     <string name="menu_profile_title">Profile</string>
     <string name="menu_scan">Add New</string>
     <string name="menu_settings">Settings</string>

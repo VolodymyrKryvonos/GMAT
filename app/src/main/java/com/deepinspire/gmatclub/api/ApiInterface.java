@@ -39,9 +39,9 @@ public interface ApiInterface {
 
     @Multipart
     @POST("forum/oauthorize_app.php")
-    Call<ResponseBody> signInSocial(@HeaderMap Map<String, String> headers, @QueryMap Map<String, String> options, @PartMap Map<String, RequestBody> params);
+    Call<ResponseBody> signInSocial(@HeaderMap Map<String, String> headers, @QueryMap(encoded = true) Map<String, String> options, @PartMap Map<String, RequestBody> params);
 
-    @GET("oauth2/v4/tokeninfo")
+    @GET("https://www.googleapis.com/oauth2/v3/tokeninfo")
     Call<ResponseBody> getToken(@QueryMap Map<String, String> options);
 
     @Multipart

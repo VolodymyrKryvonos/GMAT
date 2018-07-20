@@ -7,6 +7,7 @@
     <!-- Menu profile -->
     <string name="menu_profile_title">Profile</string>
     <string name="menu_profile_settings">Forum Settings</string>
+    <string name="menu_profile_settings_notifications">App Settings</string>
     <string name="menu_profile_logout">Logout</string>
     <string name="menu_profile_error_log">My Error Log</string>
     <string name="menu_profile_bookmarks">My bookmarks</string>

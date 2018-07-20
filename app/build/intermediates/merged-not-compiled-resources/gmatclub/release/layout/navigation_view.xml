@@ -159,13 +159,6 @@
                 android:onClick="goByMenu"
                 android:gravity="left"
                 android:text="@string/hm_unanswered" />
-
-            <TextView
-                android:id="@+id/menu_notification_settings"
-                style="@style/menuButtons"
-                android:onClick="goByMenu"
-                android:gravity="left"
-                android:text="@string/hm_notification_settings" />
         </LinearLayout>
 
     </ScrollView>

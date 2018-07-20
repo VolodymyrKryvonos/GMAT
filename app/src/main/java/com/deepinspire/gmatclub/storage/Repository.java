@@ -20,6 +20,9 @@ import com.deepinspire.gmatclub.api.AuthException;
 import com.facebook.login.LoginManager;
 import com.google.firebase.iid.FirebaseInstanceId;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.IOException;
 import java.net.UnknownHostException;
 import java.text.SimpleDateFormat;
@@ -384,13 +387,13 @@ public class Repository implements IStorage {
 
                     String formattedDate = sdf.format(date);
 
+                    //params.put("access_token", accessToken);
+                    //params.put("id_token", idToken);
                     params.put("provider", provider);
-                    params.put("token_type", provider);
-                    params.put("access_token", accessToken);
-                    params.put("id_token", idToken);
-                    params.put("expires_in", formattedDate);
+                    //params.put("token_type", provider);
+                    //params.put("expires_in", "2018-07-12");//formattedDate);
                     //params.put("action", "register");
-                    params.put("login", "Login");
+                    //params.put("login", "Login");
                     /*params.put("mode", "login");*/
 
                     ApiInterface apiService = (new ApiClient()).getClient().create(ApiInterface.class);
@@ -404,6 +407,18 @@ public class Repository implements IStorage {
 
                     rb = RequestBody.create(MediaType.parse("text/plain"), idToken);
                     mp.put("id_token", rb);
+
+                    rb = RequestBody.create(MediaType.parse("text/plain"), accessToken);
+                    mp.put("access_token", rb);
+
+                    rb = RequestBody.create(MediaType.parse("text/plain"), formattedDate);
+                    mp.put("expires_in", rb);
+
+                    rb = RequestBody.create(MediaType.parse("text/plain"), provider);
+                    mp.put("provider", rb);
+
+                    rb = RequestBody.create(MediaType.parse("text/plain"), provider);
+                    mp.put("token_type", rb);
 
                     String username = "guest";
                     String password = "GCTesterNew1";
@@ -494,6 +509,15 @@ public class Repository implements IStorage {
                                 AuthException ex = new AuthException(new Exception(response.errorBody().toString()), "login");
                                 callback.onError(ex);
                             } else {
+                                try {
+                                    String body = response.body().string();
+                                    JSONObject tokenInfo = new JSONObject(body);
+                                    JSONObject tokenInfo1 = new JSONObject(body);
+                                } catch (IOException e) {
+                                    e.printStackTrace();
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
+                                }
                                 callback.onSuccess();
                             }
                         }

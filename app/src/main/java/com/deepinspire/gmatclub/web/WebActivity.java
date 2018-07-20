@@ -741,16 +741,6 @@ public class WebActivity extends AppCompatActivity implements
                     Toast.makeText(getApplicationContext(), "There are no email clients installed.", Toast.LENGTH_LONG).show();
                 }
                 break;
-            case R.id.menu_notification_settings:
-                final Intent i = new Intent();
-                i.setAction(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
-                i.addCategory(Intent.CATEGORY_DEFAULT);
-                i.setData(Uri.parse("package:" + getPackageName()));
-                i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                i.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
-                i.addFlags(Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);
-                startActivity(i);
-                break;
         }
     }
 
@@ -817,12 +807,6 @@ public class WebActivity extends AppCompatActivity implements
         //webView.getSettings().setRenderPriority(WebSettings.RenderPriority.HIGH);
 
         //webView.getSettings().setCacheMode(WebSettings.LOAD_NO_CACHE);
-
-        if (Build.VERSION.SDK_INT >= 19) {
-            webView.setLayerType(View.LAYER_TYPE_HARDWARE, null);
-        } else {
-            webView.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
-        }
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             // chromium, enable hardware acceleration
@@ -1083,7 +1067,7 @@ public class WebActivity extends AppCompatActivity implements
 
                 String url = webView.getUrl();
 
-                if(url.contains(Api.UCP_URL) && url.contains("mode=compose")) {
+                if(url.contains(Api.UCP_URL) && url.contains("mode=compose") || url.contains(Api.TESTS_URL)) {
                     showBtnAdd(false);
                 } else {
                     showBtnAdd(true);
@@ -1127,7 +1111,17 @@ public class WebActivity extends AppCompatActivity implements
                 openPage(Api.UCP_MY_ERROR_LOG_URL);
                 break;
             case "settings":
-                openPage(Api.UCP_MY_SETTINGS_URL);
+                openPage(Api.UCP_FORUM_SETTINGS_URL);
+                break;
+                case "settingsNotifications":
+                    final Intent i = new Intent();
+                    i.setAction(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
+                    i.addCategory(Intent.CATEGORY_DEFAULT);
+                    i.setData(Uri.parse("package:" + getPackageName()));
+                    i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    i.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
+                    i.addFlags(Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);
+                    startActivity(i);
                 break;
             case "logout":
                 this.presenter.logout();
