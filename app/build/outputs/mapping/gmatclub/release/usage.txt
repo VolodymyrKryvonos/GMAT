@@ -6055,16 +6055,16 @@ com.deepinspire.gmatclub.web.WebActivity:
     private android.support.v7.app.ActionBarDrawerToggle toggle
     private static final int FILECHOOSER_RESULTCODE
     private static final int PICK_FROM_CAMERA
-    1592:1682:public com.deepinspire.gmatclub.storage.DeviceInfo getDeviceInformation(android.app.Activity)
-    1686:1691:private long freeRamMemorySize()
-    1695:1699:private long totalRamMemorySize()
-    1703:1703:public static boolean externalMemoryAvailable()
-    1707:1711:public static long getAvailableInternalMemorySize()
-    1715:1719:public static long getTotalInternalMemorySize()
-    1723:1730:public static long getAvailableExternalMemorySize()
-    1735:1742:public static long getTotalExternalMemorySize()
-    1747:1765:public static java.lang.String formatSize(long)
-    1854:1860:private void openFileDialog(android.webkit.ValueCallback)
+    1586:1676:public com.deepinspire.gmatclub.storage.DeviceInfo getDeviceInformation(android.app.Activity)
+    1680:1685:private long freeRamMemorySize()
+    1689:1693:private long totalRamMemorySize()
+    1697:1697:public static boolean externalMemoryAvailable()
+    1701:1705:public static long getAvailableInternalMemorySize()
+    1709:1713:public static long getTotalInternalMemorySize()
+    1717:1724:public static long getAvailableExternalMemorySize()
+    1729:1736:public static long getTotalExternalMemorySize()
+    1741:1759:public static java.lang.String formatSize(long)
+    1848:1854:private void openFileDialog(android.webkit.ValueCallback)
     108:108:public bridge synthetic void setPresenter(java.lang.Object)
 com.deepinspire.gmatclub.web.WebPresenter:
     43:43:public void start()

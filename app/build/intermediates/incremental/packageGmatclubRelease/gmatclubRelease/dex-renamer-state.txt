@@ -1,4 +1,4 @@
-#Fri Jul 13 14:05:16 EEST 2018
+#Fri Jul 20 12:59:10 EEST 2018
 base.0=/home/dmytro/projects/gmatclub/android/app/build/intermediates/transforms/dex/gmatclub/release/0
 path.0=classes.dex
 renamed.0=classes.dex
