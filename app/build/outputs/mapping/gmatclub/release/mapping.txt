@@ -19315,18 +19315,19 @@ com.facebook.FacebookSdk -> com.facebook.o:
     java.lang.String applicationName -> e
     java.lang.String appClientToken -> f
     java.lang.Boolean autoLogAppEventsEnabled -> g
-    java.lang.String facebookDomain -> h
-    java.util.concurrent.atomic.AtomicLong onProgressThreshold -> i
-    boolean isDebugEnabled -> j
-    boolean isLegacyTokenUpgradeSupported -> k
-    com.facebook.internal.LockOnGetVariable cacheDir -> l
-    android.content.Context applicationContext -> m
-    int callbackRequestCodeOffset -> n
-    java.lang.Object LOCK -> o
-    java.lang.String graphApiVersion -> p
-    java.util.concurrent.BlockingQueue DEFAULT_WORK_QUEUE -> q
-    java.util.concurrent.ThreadFactory DEFAULT_THREAD_FACTORY -> r
-    java.lang.Boolean sdkInitialized -> s
+    java.lang.Boolean codelessDebugLogEnabled -> h
+    java.lang.String facebookDomain -> i
+    java.util.concurrent.atomic.AtomicLong onProgressThreshold -> j
+    boolean isDebugEnabled -> k
+    boolean isLegacyTokenUpgradeSupported -> l
+    com.facebook.internal.LockOnGetVariable cacheDir -> m
+    android.content.Context applicationContext -> n
+    int callbackRequestCodeOffset -> o
+    java.lang.Object LOCK -> p
+    java.lang.String graphApiVersion -> q
+    java.util.concurrent.BlockingQueue DEFAULT_WORK_QUEUE -> r
+    java.util.concurrent.ThreadFactory DEFAULT_THREAD_FACTORY -> s
+    java.lang.Boolean sdkInitialized -> t
     void <init>() -> <init>
     void sdkInitialize(android.content.Context) -> a
     void sdkInitialize(android.content.Context,com.facebook.FacebookSdk$InitializeCallback) -> a
@@ -19347,9 +19348,10 @@ com.facebook.FacebookSdk -> com.facebook.o:
     java.lang.String getApplicationId() -> j
     java.lang.String getClientToken() -> k
     boolean getAutoLogAppEventsEnabled() -> l
-    int getCallbackRequestCodeOffset() -> m
-    android.content.Context access$000() -> n
-    java.lang.String access$100() -> o
+    boolean getCodelessDebugLogEnabled() -> m
+    int getCallbackRequestCodeOffset() -> n
+    android.content.Context access$000() -> o
+    java.lang.String access$100() -> p
     void <clinit>() -> <clinit>
 com.facebook.FacebookSdk$1 -> com.facebook.o$1:
     java.util.concurrent.atomic.AtomicInteger counter -> a
@@ -23807,53 +23809,56 @@ com.facebook.marketing.CodelessActivityLifecycleTracker$2 -> com.facebook.market
     com.facebook.marketing.internal.MarketingLogger val$logger -> b
     void <init>(java.lang.String,com.facebook.marketing.internal.MarketingLogger) -> <init>
     void run() -> run
-com.facebook.marketing.ViewIndexer -> com.facebook.marketing.b:
+com.facebook.marketing.Marketing -> com.facebook.marketing.b:
+    void <init>() -> <init>
+com.facebook.marketing.ViewIndexer -> com.facebook.marketing.c:
     java.lang.String TAG -> a
     android.os.Handler uiThreadHandler -> b
-    android.app.Activity activity -> c
+    java.lang.ref.WeakReference activityReference -> c
     java.util.Timer indexingTimer -> d
     java.lang.String previousDigest -> e
     com.facebook.marketing.internal.MarketingLogger logger -> f
     void <init>(android.app.Activity) -> <init>
     void schedule() -> a
     void unschedule() -> b
-    void sendToServer(java.lang.String) -> a
+    void sendToServer(java.lang.String,java.lang.String) -> a
     com.facebook.GraphRequest buildAppIndexingRequest(java.lang.String,com.facebook.AccessToken,java.lang.String) -> b
-    android.app.Activity access$000(com.facebook.marketing.ViewIndexer) -> a
-    android.os.Handler access$100(com.facebook.marketing.ViewIndexer) -> b
-    java.lang.String access$200() -> c
-    void access$300(com.facebook.marketing.ViewIndexer,java.lang.String) -> a
-    java.util.Timer access$400(com.facebook.marketing.ViewIndexer) -> c
-    java.lang.String access$502(com.facebook.marketing.ViewIndexer,java.lang.String) -> b
-    java.util.Timer access$402(com.facebook.marketing.ViewIndexer,java.util.Timer) -> a
-    java.lang.String access$500(com.facebook.marketing.ViewIndexer) -> d
-    com.facebook.marketing.internal.MarketingLogger access$600(com.facebook.marketing.ViewIndexer) -> e
-    com.facebook.GraphRequest access$700(java.lang.String,com.facebook.AccessToken,java.lang.String) -> a
+    android.os.Handler access$000(com.facebook.marketing.ViewIndexer) -> a
+    java.lang.String access$100() -> c
+    void access$200(com.facebook.marketing.ViewIndexer,java.lang.String,java.lang.String) -> a
+    java.util.Timer access$300(com.facebook.marketing.ViewIndexer) -> b
+    java.lang.String access$402(com.facebook.marketing.ViewIndexer,java.lang.String) -> a
+    java.util.Timer access$302(com.facebook.marketing.ViewIndexer,java.util.Timer) -> a
+    java.lang.String access$400(com.facebook.marketing.ViewIndexer) -> c
+    com.facebook.marketing.internal.MarketingLogger access$500(com.facebook.marketing.ViewIndexer) -> d
+    com.facebook.GraphRequest access$600(java.lang.String,com.facebook.AccessToken,java.lang.String) -> a
     void <clinit>() -> <clinit>
-com.facebook.marketing.ViewIndexer$1 -> com.facebook.marketing.b$1:
-    java.lang.String val$activityName -> a
-    com.facebook.marketing.ViewIndexer this$0 -> b
-    void <init>(com.facebook.marketing.ViewIndexer,java.lang.String) -> <init>
+com.facebook.marketing.ViewIndexer$1 -> com.facebook.marketing.c$1:
+    android.app.Activity val$activity -> a
+    java.lang.String val$activityName -> b
+    com.facebook.marketing.ViewIndexer this$0 -> c
+    void <init>(com.facebook.marketing.ViewIndexer,android.app.Activity,java.lang.String) -> <init>
     void run() -> run
-com.facebook.marketing.ViewIndexer$2 -> com.facebook.marketing.b$2:
+com.facebook.marketing.ViewIndexer$2 -> com.facebook.marketing.c$2:
     java.util.TimerTask val$indexingTask -> a
     com.facebook.marketing.ViewIndexer this$0 -> b
     void <init>(com.facebook.marketing.ViewIndexer,java.util.TimerTask) -> <init>
     void run() -> run
-com.facebook.marketing.ViewIndexer$3 -> com.facebook.marketing.b$3:
+com.facebook.marketing.ViewIndexer$3 -> com.facebook.marketing.c$3:
     java.lang.String val$tree -> a
-    com.facebook.marketing.ViewIndexer this$0 -> b
-    void <init>(com.facebook.marketing.ViewIndexer,java.lang.String) -> <init>
+    java.lang.String val$activityName -> b
+    com.facebook.marketing.ViewIndexer this$0 -> c
+    void <init>(com.facebook.marketing.ViewIndexer,java.lang.String,java.lang.String) -> <init>
     void run() -> run
-com.facebook.marketing.ViewIndexer$4 -> com.facebook.marketing.b$4:
+com.facebook.marketing.ViewIndexer$4 -> com.facebook.marketing.c$4:
     void <init>() -> <init>
     void onCompleted(com.facebook.GraphResponse) -> a
-com.facebook.marketing.ViewIndexer$ScreenshotTaker -> com.facebook.marketing.b$a:
+com.facebook.marketing.ViewIndexer$ScreenshotTaker -> com.facebook.marketing.c$a:
     java.lang.ref.WeakReference rootView -> a
     void <init>(android.view.View) -> <init>
     java.lang.String call() -> a
     java.lang.Object call() -> call
-com.facebook.marketing.ViewIndexingTrigger -> com.facebook.marketing.c:
+com.facebook.marketing.ViewIndexingTrigger -> com.facebook.marketing.d:
     com.facebook.marketing.ViewIndexingTrigger$OnShakeListener mListener -> a
     long mShakeTimestamp -> b
     int mShakeCount -> c
@@ -23862,7 +23867,7 @@ com.facebook.marketing.ViewIndexingTrigger -> com.facebook.marketing.c:
     void onSensorChanged(android.hardware.SensorEvent) -> onSensorChanged
     void onAccuracyChanged(android.hardware.Sensor,int) -> onAccuracyChanged
     void resetCount() -> a
-com.facebook.marketing.ViewIndexingTrigger$OnShakeListener -> com.facebook.marketing.c$a:
+com.facebook.marketing.ViewIndexingTrigger$OnShakeListener -> com.facebook.marketing.d$a:
     void onShake(int) -> a
 com.facebook.marketing.internal.MarketingInitProvider -> com.facebook.marketing.internal.MarketingInitProvider:
     java.lang.String TAG -> a

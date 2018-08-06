@@ -16601,6 +16601,8 @@ com.facebook.share.internal.OpenGraphMessageDialogFeature: com.facebook.share.in
 com.facebook.share.internal.ShareDialogFeature: com.facebook.share.internal.ShareDialogFeature[] values()
 com.facebook.share.internal.ShareDialogFeature: com.facebook.share.internal.ShareDialogFeature valueOf(java.lang.String)
 com.facebook.share.internal.ShareFeedContent: android.os.Parcelable$Creator CREATOR
+com.facebook.share.internal.ShareStoryFeature: com.facebook.share.internal.ShareStoryFeature[] values()
+com.facebook.share.internal.ShareStoryFeature: com.facebook.share.internal.ShareStoryFeature valueOf(java.lang.String)
 com.facebook.share.model.AppGroupCreationContent: android.os.Parcelable$Creator CREATOR
 com.facebook.share.model.AppGroupCreationContent$AppGroupPrivacy: com.facebook.share.model.AppGroupCreationContent$AppGroupPrivacy[] values()
 com.facebook.share.model.AppGroupCreationContent$AppGroupPrivacy: com.facebook.share.model.AppGroupCreationContent$AppGroupPrivacy valueOf(java.lang.String)
@@ -16636,6 +16638,7 @@ com.facebook.share.model.ShareOpenGraphContent: android.os.Parcelable$Creator CR
 com.facebook.share.model.ShareOpenGraphObject: android.os.Parcelable$Creator CREATOR
 com.facebook.share.model.SharePhoto: android.os.Parcelable$Creator CREATOR
 com.facebook.share.model.SharePhotoContent: android.os.Parcelable$Creator CREATOR
+com.facebook.share.model.ShareStoryContent: android.os.Parcelable$Creator CREATOR
 com.facebook.share.model.ShareVideo: android.os.Parcelable$Creator CREATOR
 com.facebook.share.model.ShareVideoContent: android.os.Parcelable$Creator CREATOR
 com.facebook.share.widget.DeviceShareButton: com.facebook.share.model.ShareContent getShareContent()

@@ -393,21 +393,19 @@ public class WebActivity extends AppCompatActivity implements
     public void onClick(View view) {
         switch(view.getId()) {
             case R.id.toolbarShare:
-                Intent sendIntent = new Intent();
-                sendIntent.setFlags(Intent.FLAG_ACTIVITY_FORWARD_RESULT);
-                sendIntent.setAction(Intent.ACTION_SEND);
-
                 String url = webView.getUrl();
 
-                if(url.contains("file:///android_asset/notifications.html")) {
-                    url = Api.PM_URL;
-                } else {
+                if(url != null) {
                     url = url.replace("?style=12", "").replace("&style=12", "");
-                }
 
-                sendIntent.putExtra(Intent.EXTRA_TEXT, url);
-                sendIntent.setType("text/plain");
-                startActivity(sendIntent);
+                    Intent sendIntent = new Intent();
+                    sendIntent.setFlags(Intent.FLAG_ACTIVITY_FORWARD_RESULT);
+                    sendIntent.setAction(Intent.ACTION_SEND);
+
+                    sendIntent.putExtra(Intent.EXTRA_TEXT, url);
+                    sendIntent.setType("text/plain");
+                    startActivity(sendIntent);
+                }
                 break;
             case R.id.toolbarProfile:
                 changeProfileIconColor(R.color.white);
@@ -1067,7 +1065,7 @@ public class WebActivity extends AppCompatActivity implements
 
                 String url = webView.getUrl();
 
-                if(url.contains(Api.UCP_URL) && url.contains("mode=compose") || url.contains(Api.TESTS_URL)) {
+                if(url == null || (url.contains(Api.UCP_URL) && url.contains("mode=compose") || url.contains(Api.TESTS_URL))) {
                     showBtnAdd(false);
                 } else {
                     showBtnAdd(true);
@@ -1466,15 +1464,18 @@ public class WebActivity extends AppCompatActivity implements
             setEnabledBtnAddChat(true);
             setEnabledBtnAddSchool(true);
 
-            if(url.contains(Api.FORUM_NEW_POSTS)) {
-                setEnabledBtnAddTopic(false);
-            } else if(url.contains(Api.PM_NEW_URL)) {
-                setEnabledBtnAddPm(false);
-            } else if(url.contains(Api.FORUM_URL + "/mchat.php")) {
-                setEnabledBtnAddChat(false);
-            } else if(url.contains(Api.FORUM_ADD_NEW_SCHOOL)) {
-                setEnabledBtnAddSchool(false);
+            if(url != null) {
+                if(url.contains(Api.FORUM_NEW_POSTS)) {
+                    setEnabledBtnAddTopic(false);
+                } else if(url.contains(Api.PM_NEW_URL)) {
+                    setEnabledBtnAddPm(false);
+                } else if(url.contains(Api.FORUM_URL + "/mchat.php")) {
+                    setEnabledBtnAddChat(false);
+                } else if(url.contains(Api.FORUM_ADD_NEW_SCHOOL)) {
+                    setEnabledBtnAddSchool(false);
+                }
             }
+
             //btnAdd.showMenuButton(true);
             //btnAdd.showMenu(true);
 

@@ -6055,16 +6055,16 @@ com.deepinspire.gmatclub.web.WebActivity:
     private android.support.v7.app.ActionBarDrawerToggle toggle
     private static final int FILECHOOSER_RESULTCODE
     private static final int PICK_FROM_CAMERA
-    1586:1676:public com.deepinspire.gmatclub.storage.DeviceInfo getDeviceInformation(android.app.Activity)
-    1680:1685:private long freeRamMemorySize()
-    1689:1693:private long totalRamMemorySize()
-    1697:1697:public static boolean externalMemoryAvailable()
-    1701:1705:public static long getAvailableInternalMemorySize()
-    1709:1713:public static long getTotalInternalMemorySize()
-    1717:1724:public static long getAvailableExternalMemorySize()
-    1729:1736:public static long getTotalExternalMemorySize()
-    1741:1759:public static java.lang.String formatSize(long)
-    1848:1854:private void openFileDialog(android.webkit.ValueCallback)
+    1587:1677:public com.deepinspire.gmatclub.storage.DeviceInfo getDeviceInformation(android.app.Activity)
+    1681:1686:private long freeRamMemorySize()
+    1690:1694:private long totalRamMemorySize()
+    1698:1698:public static boolean externalMemoryAvailable()
+    1702:1706:public static long getAvailableInternalMemorySize()
+    1710:1714:public static long getTotalInternalMemorySize()
+    1718:1725:public static long getAvailableExternalMemorySize()
+    1730:1737:public static long getTotalExternalMemorySize()
+    1742:1760:public static java.lang.String formatSize(long)
+    1849:1855:private void openFileDialog(android.webkit.ValueCallback)
     108:108:public bridge synthetic void setPresenter(java.lang.Object)
 com.deepinspire.gmatclub.web.WebPresenter:
     43:43:public void start()
@@ -6162,30 +6162,32 @@ com.facebook.FacebookSdk:
     public static final java.lang.String CLIENT_TOKEN_PROPERTY
     public static final java.lang.String WEB_DIALOG_THEME
     public static final java.lang.String AUTO_LOG_APP_EVENTS_ENABLED_PROPERTY
+    public static final java.lang.String CODELESS_DEBUG_LOG_ENABLED_PROPERTY
     public static final java.lang.String CALLBACK_OFFSET_PROPERTY
-    173:174:public static synchronized void sdkInitialize(android.content.Context,int)
-    204:213:public static synchronized void sdkInitialize(android.content.Context,int,com.facebook.FacebookSdk$InitializeCallback)
-    355:357:public static java.util.Set getLoggingBehaviors()
-    370:374:public static void addLoggingBehavior(com.facebook.LoggingBehavior)
-    386:389:public static void removeLoggingBehavior(com.facebook.LoggingBehavior)
-    398:401:public static void clearLoggingBehaviors()
-    431:432:public static void setIsDebugEnabled(boolean)
-    444:448:private static void updateGraphDebugBehavior()
-    455:456:public static void setLegacyTokenUpgradeSupported(boolean)
-    482:486:public static void setExecutor(java.util.concurrent.Executor)
-    507:511:public static void setFacebookDomain(java.lang.String)
-    530:537:public static void setGraphApiVersion(java.lang.String)
-    644:648:public static void setLimitEventAndDataUsage(android.content.Context,boolean)
-    665:666:public static void setOnProgressThreshold(long)
-    729:759:public static java.lang.String getApplicationSignature(android.content.Context)
-    778:779:public static void setApplicationId(java.lang.String)
-    788:789:public static java.lang.String getApplicationName()
-    797:798:public static void setApplicationName(java.lang.String)
-    815:816:public static void setClientToken(java.lang.String)
-    833:834:public static void setAutoLogAppEventsEnabled(boolean)
-    843:844:public static java.io.File getCacheDir()
-    852:853:public static void setCacheDir(java.io.File)
-    876:876:public static boolean isFacebookRequestCode(int)
+    180:181:public static synchronized void sdkInitialize(android.content.Context,int)
+    211:220:public static synchronized void sdkInitialize(android.content.Context,int,com.facebook.FacebookSdk$InitializeCallback)
+    362:364:public static java.util.Set getLoggingBehaviors()
+    377:381:public static void addLoggingBehavior(com.facebook.LoggingBehavior)
+    393:396:public static void removeLoggingBehavior(com.facebook.LoggingBehavior)
+    405:408:public static void clearLoggingBehaviors()
+    438:439:public static void setIsDebugEnabled(boolean)
+    451:455:private static void updateGraphDebugBehavior()
+    462:463:public static void setLegacyTokenUpgradeSupported(boolean)
+    489:493:public static void setExecutor(java.util.concurrent.Executor)
+    514:518:public static void setFacebookDomain(java.lang.String)
+    538:545:public static void setGraphApiVersion(java.lang.String)
+    652:656:public static void setLimitEventAndDataUsage(android.content.Context,boolean)
+    673:674:public static void setOnProgressThreshold(long)
+    743:773:public static java.lang.String getApplicationSignature(android.content.Context)
+    792:793:public static void setApplicationId(java.lang.String)
+    802:803:public static java.lang.String getApplicationName()
+    811:812:public static void setApplicationName(java.lang.String)
+    829:830:public static void setClientToken(java.lang.String)
+    847:848:public static void setAutoLogAppEventsEnabled(boolean)
+    863:864:public static void setCodelessDebugLogEnabled(boolean)
+    873:874:public static java.io.File getCacheDir()
+    882:883:public static void setCacheDir(java.io.File)
+    906:906:public static boolean isFacebookRequestCode(int)
 com.facebook.FacebookSdkNotInitializedException:
     52:53:public FacebookSdkNotInitializedException(java.lang.String,java.lang.Throwable)
     61:62:public FacebookSdkNotInitializedException(java.lang.Throwable)
@@ -6266,12 +6268,12 @@ com.facebook.GraphRequest$2
 com.facebook.GraphRequest$3
 com.facebook.GraphRequest$GraphJSONArrayCallback
 com.facebook.GraphRequestAsyncTask:
-    52:53:public varargs GraphRequestAsyncTask(com.facebook.GraphRequest[])
-    62:63:public GraphRequestAsyncTask(java.util.Collection)
-    85:86:public varargs GraphRequestAsyncTask(java.net.HttpURLConnection,com.facebook.GraphRequest[])
-    98:99:public GraphRequestAsyncTask(java.net.HttpURLConnection,java.util.Collection)
-    116:116:protected final java.lang.Exception getException()
-    120:120:protected final com.facebook.GraphRequestBatch getRequests()
+    54:55:public varargs GraphRequestAsyncTask(com.facebook.GraphRequest[])
+    64:65:public GraphRequestAsyncTask(java.util.Collection)
+    87:88:public varargs GraphRequestAsyncTask(java.net.HttpURLConnection,com.facebook.GraphRequest[])
+    100:101:public GraphRequestAsyncTask(java.net.HttpURLConnection,java.util.Collection)
+    118:118:protected final java.lang.Exception getException()
+    122:122:protected final com.facebook.GraphRequestBatch getRequests()
 com.facebook.GraphRequestBatch:
     36:74:public GraphRequestBatch(com.facebook.GraphRequestBatch)
     89:93:public void setTimeout(int)
@@ -6420,31 +6422,31 @@ com.facebook.appevents.AppEventsLogger:
     335:342:public static void deactivateApp(android.content.Context)
     356:376:public static void deactivateApp(android.content.Context,java.lang.String)
     388:393:private void logAppSessionSuspendEvent(long)
-    467:467:public static com.facebook.appevents.AppEventsLogger newLogger(android.content.Context,com.facebook.AccessToken)
-    486:486:public static com.facebook.appevents.AppEventsLogger newLogger(android.content.Context,java.lang.String,com.facebook.AccessToken)
-    534:537:public static void setFlushBehavior(com.facebook.appevents.AppEventsLogger$FlushBehavior)
-    550:551:public void logEvent(java.lang.String)
-    568:569:public void logEvent(java.lang.String,double)
-    638:643:public void logPurchase(java.math.BigDecimal,java.util.Currency)
-    659:664:public void logPurchase(java.math.BigDecimal,java.util.Currency,android.os.Bundle)
-    733:734:public void logPushNotificationOpen(android.os.Bundle)
-    741:765:public void logPushNotificationOpen(android.os.Bundle,java.lang.String)
-    793:794:public boolean isValidForAccessToken(com.facebook.AccessToken)
-    802:817:public static void setPushNotificationsRegistrationId(java.lang.String)
-    837:850:public static void augmentWebView(android.webkit.WebView,android.content.Context)
-    861:862:public static void setUserID(java.lang.String)
-    875:876:public static void clearUserID()
-    881:885:public static void updateUserProperties(android.os.Bundle,com.facebook.GraphRequest$Callback)
-    891:938:public static void updateUserProperties(android.os.Bundle,java.lang.String,com.facebook.GraphRequest$Callback)
-    959:959:public java.lang.String getApplicationId()
-    1151:1153:static void setSourceApplication(java.lang.String,boolean)
+    484:484:public static com.facebook.appevents.AppEventsLogger newLogger(android.content.Context,com.facebook.AccessToken)
+    503:503:public static com.facebook.appevents.AppEventsLogger newLogger(android.content.Context,java.lang.String,com.facebook.AccessToken)
+    551:554:public static void setFlushBehavior(com.facebook.appevents.AppEventsLogger$FlushBehavior)
+    567:568:public void logEvent(java.lang.String)
+    585:586:public void logEvent(java.lang.String,double)
+    655:660:public void logPurchase(java.math.BigDecimal,java.util.Currency)
+    676:681:public void logPurchase(java.math.BigDecimal,java.util.Currency,android.os.Bundle)
+    750:751:public void logPushNotificationOpen(android.os.Bundle)
+    758:782:public void logPushNotificationOpen(android.os.Bundle,java.lang.String)
+    810:811:public boolean isValidForAccessToken(com.facebook.AccessToken)
+    819:834:public static void setPushNotificationsRegistrationId(java.lang.String)
+    854:867:public static void augmentWebView(android.webkit.WebView,android.content.Context)
+    878:879:public static void setUserID(java.lang.String)
+    892:893:public static void clearUserID()
+    898:902:public static void updateUserProperties(android.os.Bundle,com.facebook.GraphRequest$Callback)
+    908:955:public static void updateUserProperties(android.os.Bundle,java.lang.String,com.facebook.GraphRequest$Callback)
+    976:976:public java.lang.String getApplicationId()
+    1168:1170:static void setSourceApplication(java.lang.String,boolean)
     147:147:static synthetic void access$100(com.facebook.appevents.AppEventsLogger,long)
 com.facebook.appevents.AppEventsLogger$2
 com.facebook.appevents.AppEventsLogger$4
 com.facebook.appevents.AppEventsLogger$PersistedAppSessionInfo:
     private static final java.lang.String PERSISTED_SESSION_INFO_FILENAME
-    1220:1220:AppEventsLogger$PersistedAppSessionInfo()
-    1326:1331:static void onSuspend(android.content.Context,com.facebook.appevents.AccessTokenAppIdPair,com.facebook.appevents.AppEventsLogger,long)
+    1237:1237:AppEventsLogger$PersistedAppSessionInfo()
+    1343:1348:static void onSuspend(android.content.Context,com.facebook.appevents.AccessTokenAppIdPair,com.facebook.appevents.AppEventsLogger,long)
 com.facebook.appevents.FacebookSDKJSInterface
 com.facebook.appevents.FacebookTimeSpentData:
     private static final long FIRST_TIME_LOAD_RESUME_TIME
@@ -6846,6 +6848,7 @@ com.facebook.internal.NativeProtocol:
     public static final java.lang.String ACTION_LIKE_DIALOG
     public static final java.lang.String ACTION_APPINVITE_DIALOG
     public static final java.lang.String ACTION_CAMERA_EFFECT
+    public static final java.lang.String ACTION_SHARE_STORY
     public static final java.lang.String EXTRA_PERMISSIONS
     public static final java.lang.String EXTRA_APPLICATION_ID
     public static final java.lang.String EXTRA_APPLICATION_NAME
@@ -6897,14 +6900,14 @@ com.facebook.internal.NativeProtocol:
     private static final java.lang.String PLATFORM_PROVIDER
     private static final java.lang.String PLATFORM_PROVIDER_VERSIONS
     private static final java.lang.String PLATFORM_PROVIDER_VERSION_COLUMN
-    555:565:public static android.content.Intent createTokenRefreshIntent(android.content.Context)
-    603:623:public static android.content.Intent createPlatformActivityIntent(android.content.Context,java.lang.String,java.lang.String,com.facebook.internal.NativeProtocol$ProtocolVersionQueryResult,android.os.Bundle)
-    635:660:public static void setupProtocolRequestIntent(android.content.Intent,java.lang.String,java.lang.String,int,android.os.Bundle)
-    736:741:public static android.os.Bundle getBridgeArgumentsFromIntent(android.content.Intent)
-    754:760:public static android.os.Bundle getSuccessResultsFromIntent(android.content.Intent)
-    764:768:public static boolean isErrorResult(android.content.Intent)
-    773:782:public static android.os.Bundle getErrorDataFromResultIntent(android.content.Intent)
-    831:832:public static com.facebook.internal.NativeProtocol$ProtocolVersionQueryResult getLatestAvailableProtocolVersionForAction(java.lang.String,int[])
+    558:568:public static android.content.Intent createTokenRefreshIntent(android.content.Context)
+    606:626:public static android.content.Intent createPlatformActivityIntent(android.content.Context,java.lang.String,java.lang.String,com.facebook.internal.NativeProtocol$ProtocolVersionQueryResult,android.os.Bundle)
+    638:663:public static void setupProtocolRequestIntent(android.content.Intent,java.lang.String,java.lang.String,int,android.os.Bundle)
+    739:744:public static android.os.Bundle getBridgeArgumentsFromIntent(android.content.Intent)
+    757:763:public static android.os.Bundle getSuccessResultsFromIntent(android.content.Intent)
+    767:771:public static boolean isErrorResult(android.content.Intent)
+    776:785:public static android.os.Bundle getErrorDataFromResultIntent(android.content.Intent)
+    834:835:public static com.facebook.internal.NativeProtocol$ProtocolVersionQueryResult getLatestAvailableProtocolVersionForAction(java.lang.String,int[])
 com.facebook.internal.NativeProtocol$EffectTestAppInfo:
     static final java.lang.String EFFECT_TEST_APP_PACKAGE
 com.facebook.internal.NativeProtocol$FBLiteAppInfo:
@@ -6915,9 +6918,9 @@ com.facebook.internal.NativeProtocol$KatanaAppInfo:
 com.facebook.internal.NativeProtocol$MessengerAppInfo:
     static final java.lang.String MESSENGER_PACKAGE
 com.facebook.internal.NativeProtocol$ProtocolVersionQueryResult:
-    1011:1011:public com.facebook.internal.NativeProtocol$NativeAppInfo getAppInfo()
-    986:986:static synthetic com.facebook.internal.NativeProtocol$NativeAppInfo access$700(com.facebook.internal.NativeProtocol$ProtocolVersionQueryResult)
-    986:986:static synthetic int access$800(com.facebook.internal.NativeProtocol$ProtocolVersionQueryResult)
+    1014:1014:public com.facebook.internal.NativeProtocol$NativeAppInfo getAppInfo()
+    989:989:static synthetic com.facebook.internal.NativeProtocol$NativeAppInfo access$700(com.facebook.internal.NativeProtocol$ProtocolVersionQueryResult)
+    989:989:static synthetic int access$800(com.facebook.internal.NativeProtocol$ProtocolVersionQueryResult)
 com.facebook.internal.NativeProtocol$WakizashiAppInfo:
     static final java.lang.String WAKIZASHI_PACKAGE
 com.facebook.internal.PlatformServiceClient:
@@ -7028,7 +7031,7 @@ com.facebook.internal.WebDialog:
     private static final int BACKGROUND_GRAY
     290:290:public com.facebook.internal.WebDialog$OnCompleteListener getOnCompleteListener()
 com.facebook.internal.WebDialog$Builder:
-    735:736:public com.facebook.internal.WebDialog$Builder setTheme(int)
+    736:737:public com.facebook.internal.WebDialog$Builder setTheme(int)
 com.facebook.internal.WorkQueue
 com.facebook.internal.WorkQueue$1
 com.facebook.internal.WorkQueue$WorkItem
@@ -7384,6 +7387,7 @@ com.facebook.share.internal.ShareConstants
 com.facebook.share.internal.ShareContentValidation
 com.facebook.share.internal.ShareContentValidation$1
 com.facebook.share.internal.ShareContentValidation$ApiValidator
+com.facebook.share.internal.ShareContentValidation$StoryShareValidator
 com.facebook.share.internal.ShareContentValidation$Validator
 com.facebook.share.internal.ShareContentValidation$WebShareValidator
 com.facebook.share.internal.ShareDialogFeature
@@ -7394,40 +7398,47 @@ com.facebook.share.internal.ShareInternalUtility:
     public static final java.lang.String MY_PHOTOS
     private static final java.lang.String MY_STAGING_RESOURCES
     private static final java.lang.String STAGING_PARAM
-    81:81:public ShareInternalUtility()
-    91:98:public static void invokeCallbackWithException(com.facebook.FacebookCallback,java.lang.Exception)
-    103:104:public static void invokeCallbackWithError(com.facebook.FacebookCallback,java.lang.String)
-    110:120:public static void invokeCallbackWithResults(com.facebook.FacebookCallback,java.lang.String,com.facebook.GraphResponse)
-    130:133:public static java.lang.String getNativeDialogCompletionGesture(android.os.Bundle)
-    144:150:public static java.lang.String getShareDialogPostId(android.os.Bundle)
-    158:182:public static boolean handleActivityResult(int,int,android.content.Intent,com.facebook.share.internal.ResultProcessor)
-    188:188:public static com.facebook.share.internal.ResultProcessor getShareResultProcessor(com.facebook.FacebookCallback)
-    221:226:private static com.facebook.internal.AppCall getAppCallFromActivityResult(int,int,android.content.Intent)
-    231:244:public static void registerStaticShareCallback(int)
-    250:267:public static void registerSharerCallback(int,com.facebook.CallbackManager,com.facebook.FacebookCallback)
-    273:297:public static java.util.List getPhotoUrls(com.facebook.share.model.SharePhotoContent,java.util.UUID)
-    301:314:public static java.lang.String getVideoUrl(com.facebook.share.model.ShareVideoContent,java.util.UUID)
-    321:347:public static java.util.List getMediaInfos(com.facebook.share.model.ShareMediaContent,java.util.UUID)
-    354:371:public static android.os.Bundle getTextureUrlBundle(com.facebook.share.model.ShareCameraEffectContent,java.util.UUID)
-    378:433:public static org.json.JSONObject toJSONObjectForCall(java.util.UUID,com.facebook.share.model.ShareOpenGraphContent)
-    547:559:private static com.facebook.internal.NativeAppCallAttachmentStore$Attachment getAttachment(java.util.UUID,com.facebook.share.model.ShareMedia)
-    566:577:private static com.facebook.internal.NativeAppCallAttachmentStore$Attachment getAttachment(java.util.UUID,android.net.Uri,android.graphics.Bitmap)
-    581:585:static void invokeOnCancelCallback(com.facebook.FacebookCallback)
-    590:594:static void invokeOnSuccessCallback(com.facebook.FacebookCallback,java.lang.String)
-    600:604:static void invokeOnErrorCallback(com.facebook.FacebookCallback,com.facebook.GraphResponse,java.lang.String)
-    610:614:static void invokeOnErrorCallback(com.facebook.FacebookCallback,java.lang.String)
-    619:623:static void invokeOnErrorCallback(com.facebook.FacebookCallback,com.facebook.FacebookException)
-    626:638:private static void logShareResult(java.lang.String,java.lang.String)
-    656:659:public static com.facebook.GraphRequest newUploadStagingResourceWithImageRequest(com.facebook.AccessToken,android.graphics.Bitmap,com.facebook.GraphRequest$Callback)
-    744:754:public static com.facebook.share.widget.LikeView$ObjectType getMostSpecificObjectType(com.facebook.share.widget.LikeView$ObjectType,com.facebook.share.widget.LikeView$ObjectType)
-    81:81:static synthetic com.facebook.internal.NativeAppCallAttachmentStore$Attachment access$000(java.util.UUID,com.facebook.share.model.ShareMedia)
+    82:82:public ShareInternalUtility()
+    92:99:public static void invokeCallbackWithException(com.facebook.FacebookCallback,java.lang.Exception)
+    104:105:public static void invokeCallbackWithError(com.facebook.FacebookCallback,java.lang.String)
+    111:121:public static void invokeCallbackWithResults(com.facebook.FacebookCallback,java.lang.String,com.facebook.GraphResponse)
+    131:134:public static java.lang.String getNativeDialogCompletionGesture(android.os.Bundle)
+    145:151:public static java.lang.String getShareDialogPostId(android.os.Bundle)
+    159:183:public static boolean handleActivityResult(int,int,android.content.Intent,com.facebook.share.internal.ResultProcessor)
+    189:189:public static com.facebook.share.internal.ResultProcessor getShareResultProcessor(com.facebook.FacebookCallback)
+    222:227:private static com.facebook.internal.AppCall getAppCallFromActivityResult(int,int,android.content.Intent)
+    232:245:public static void registerStaticShareCallback(int)
+    251:268:public static void registerSharerCallback(int,com.facebook.CallbackManager,com.facebook.FacebookCallback)
+    274:298:public static java.util.List getPhotoUrls(com.facebook.share.model.SharePhotoContent,java.util.UUID)
+    302:315:public static java.lang.String getVideoUrl(com.facebook.share.model.ShareVideoContent,java.util.UUID)
+    322:348:public static java.util.List getMediaInfos(com.facebook.share.model.ShareMediaContent,java.util.UUID)
+    355:372:public static android.os.Bundle getTextureUrlBundle(com.facebook.share.model.ShareCameraEffectContent,java.util.UUID)
+    379:434:public static org.json.JSONObject toJSONObjectForCall(java.util.UUID,com.facebook.share.model.ShareOpenGraphContent)
+    548:560:private static com.facebook.internal.NativeAppCallAttachmentStore$Attachment getAttachment(java.util.UUID,com.facebook.share.model.ShareMedia)
+    567:578:private static com.facebook.internal.NativeAppCallAttachmentStore$Attachment getAttachment(java.util.UUID,android.net.Uri,android.graphics.Bitmap)
+    582:586:static void invokeOnCancelCallback(com.facebook.FacebookCallback)
+    591:595:static void invokeOnSuccessCallback(com.facebook.FacebookCallback,java.lang.String)
+    601:605:static void invokeOnErrorCallback(com.facebook.FacebookCallback,com.facebook.GraphResponse,java.lang.String)
+    611:615:static void invokeOnErrorCallback(com.facebook.FacebookCallback,java.lang.String)
+    620:624:static void invokeOnErrorCallback(com.facebook.FacebookCallback,com.facebook.FacebookException)
+    627:639:private static void logShareResult(java.lang.String,java.lang.String)
+    657:660:public static com.facebook.GraphRequest newUploadStagingResourceWithImageRequest(com.facebook.AccessToken,android.graphics.Bitmap,com.facebook.GraphRequest$Callback)
+    745:755:public static com.facebook.share.widget.LikeView$ObjectType getMostSpecificObjectType(com.facebook.share.widget.LikeView$ObjectType,com.facebook.share.widget.LikeView$ObjectType)
+    763:798:public static android.os.Bundle getStickerUrl(com.facebook.share.model.ShareStoryContent,java.util.UUID)
+    806:840:public static android.os.Bundle getBackgroundAssetMediaInfo(com.facebook.share.model.ShareStoryContent,java.util.UUID)
+    846:854:public static java.lang.String getUriExtension(android.net.Uri)
+    82:82:static synthetic com.facebook.internal.NativeAppCallAttachmentStore$Attachment access$000(java.util.UUID,com.facebook.share.model.ShareMedia)
 com.facebook.share.internal.ShareInternalUtility$1
+com.facebook.share.internal.ShareInternalUtility$10
+com.facebook.share.internal.ShareInternalUtility$11
 com.facebook.share.internal.ShareInternalUtility$2
 com.facebook.share.internal.ShareInternalUtility$3
 com.facebook.share.internal.ShareInternalUtility$4
 com.facebook.share.internal.ShareInternalUtility$5
 com.facebook.share.internal.ShareInternalUtility$6
 com.facebook.share.internal.ShareInternalUtility$7
+com.facebook.share.internal.ShareInternalUtility$9
+com.facebook.share.internal.ShareStoryFeature
 com.facebook.share.internal.VideoUploader
 com.facebook.share.internal.VideoUploader$1
 com.facebook.share.internal.VideoUploader$FinishUploadWorkItem
@@ -7571,6 +7582,9 @@ com.facebook.share.model.SharePhoto$Builder
 com.facebook.share.model.SharePhotoContent
 com.facebook.share.model.SharePhotoContent$1
 com.facebook.share.model.SharePhotoContent$Builder
+com.facebook.share.model.ShareStoryContent
+com.facebook.share.model.ShareStoryContent$1
+com.facebook.share.model.ShareStoryContent$Builder
 com.facebook.share.model.ShareVideo
 com.facebook.share.model.ShareVideo$1
 com.facebook.share.model.ShareVideo$Builder
@@ -7627,6 +7641,8 @@ com.facebook.share.widget.ShareDialog$FeedHandler
 com.facebook.share.widget.ShareDialog$Mode
 com.facebook.share.widget.ShareDialog$NativeHandler
 com.facebook.share.widget.ShareDialog$NativeHandler$1
+com.facebook.share.widget.ShareDialog$ShareStoryHandler
+com.facebook.share.widget.ShareDialog$ShareStoryHandler$1
 com.facebook.share.widget.ShareDialog$WebShareHandler
 com.firebase.jobdispatcher.BuildConfig
 com.firebase.jobdispatcher.BundleProtocol

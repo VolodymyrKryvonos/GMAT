@@ -38,7 +38,7 @@
                     }
                 },
                 {
-                    "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-login-4.34.0.aar/cd3782325c3810b93c3f742f2ab13e96/res/values-en-rGB/values-en-rGB.xml",
+                    "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-login-4.35.0.aar/f446d4a4c5576b943a83c88848b51ba2/res/values-en-rGB/values-en-rGB.xml",
                     "from": {
                         "startLines": "2,3,4,5",
                         "startColumns": "4,4,4,4",
