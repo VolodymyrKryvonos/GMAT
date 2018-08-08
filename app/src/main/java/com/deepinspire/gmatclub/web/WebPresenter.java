@@ -31,6 +31,8 @@ public class WebPresenter implements IWebContract.Presenter {
 
     private String notifications = null;
 
+    private int errorCode = 0;
+
     WebPresenter(Context ctx, IWebContract.View view) {
         this.repository = Injection.getRepository(ctx);
 
@@ -38,6 +40,8 @@ public class WebPresenter implements IWebContract.Presenter {
 
         this.countUnwatchedNotifications = 0;
         this.countUnwatchedPMs = 0;
+
+        this.errorCode = 0;
     }
 
     public void start() {}
@@ -250,5 +254,17 @@ public class WebPresenter implements IWebContract.Presenter {
         } catch (JSONException e) {
             //Log.e(mContext.getClass().getName(), e.getMessage());
         }
+    }
+
+    public boolean checkAccessNetwork() {
+        return repository.isOnline();
+    }
+
+    public void setError(int errorCode) {
+        this.errorCode = errorCode;
+    }
+
+    public int getError() {
+        return this.errorCode;
     }
 }

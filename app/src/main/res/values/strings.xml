@@ -50,6 +50,11 @@
 
     <string name="default_notification_channel_id">gcNotifications</string>
 
+    <string name="alert_dialog_offline_try_again">Try again</string>
+    <string name="alert_dialog_offline_message">You are currently offline</string>
+    <string name="alert_dialog_settings">Settings</string>
+    <string name="alert_dialog_network">Network</string>
+
     <!-- 'id'     => '188832947830704',
     'secret' => '25e1ac94899287fbcbab95d769f5ac6f',-->
 </resources>

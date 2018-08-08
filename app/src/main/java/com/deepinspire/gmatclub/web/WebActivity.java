@@ -54,6 +54,7 @@ import android.webkit.JavascriptInterface;
 import android.webkit.MimeTypeMap;
 import android.webkit.ValueCallback;
 import android.webkit.WebChromeClient;
+import android.webkit.WebResourceError;
 import android.webkit.WebResourceRequest;
 import android.webkit.WebResourceResponse;
 import android.webkit.WebSettings;
@@ -167,6 +168,9 @@ public class WebActivity extends AppCompatActivity implements
     private Uri mCapturedImageURI = null;
 
     private static final int PICK_FROM_CAMERA = 101;
+
+    private static final int DEVICE_SETTINGS = 102;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -662,6 +666,13 @@ public class WebActivity extends AppCompatActivity implements
                     break;
                     case GCConfig.EMAIL:
                     break;
+                case DEVICE_SETTINGS:
+                    if(ViewHelper.alertDialog != null) {
+                        ViewHelper.alertDialog.dismiss();
+                        ViewHelper.alertDialog = null;
+                    }
+                    tryAgain();
+                    break;
             }
         }
     }
@@ -828,12 +839,20 @@ public class WebActivity extends AppCompatActivity implements
 
             @Override
             public void onProgressChanged(WebView view, int progress) {
-                if (progress == 100) {
-                    if(ViewHelper.alertDialog != null) {
-                        ViewHelper.alertDialog.dismiss();
-                        ViewHelper.alertDialog = null;
+                /*if (progress == 100) {
+                    switch(presenter.getError()) {
+                        case  WebViewClient.ERROR_HOST_LOOKUP:
+                        case  WebViewClient.ERROR_CONNECT:
+                            ViewHelper.showOfflineDialog(WebActivity.this);
+                            break;
+                        default: {
+                            if(ViewHelper.alertDialog != null) {
+                                ViewHelper.alertDialog.dismiss();
+                                ViewHelper.alertDialog = null;
+                            }
+                        }
                     }
-                }
+                }*/
             }
 
             // openFileChooser for Android 3.0+
@@ -892,30 +911,45 @@ public class WebActivity extends AppCompatActivity implements
             }
 
             public void onPageFinished(WebView view, String url) {
-                if(activeUrl != null && url.contains(activeUrl)) {
-                    activeUrl = null;
+                switch(presenter.getError()) {
+                    case  WebViewClient.ERROR_HOST_LOOKUP:
+                    case  WebViewClient.ERROR_CONNECT:
+                        presenter.setError(0);
+                        ViewHelper.showOfflineDialog(WebActivity.this);
+                        break;
+                    default: {
+                        if(activeUrl != null && url.contains(activeUrl)) {
+                            activeUrl = null;
 
-                    webView.evaluateJavascript(
-                            "(function(){document.querySelector('#statusesDecTracker .addMyInfo.btn').click();})()",
-                            new ValueCallback<String>() {
-                                @Override
-                                public void onReceiveValue(String value) {
-                                    swipe.setRefreshing(false);
-                                    setLoadingIndicator(false);
-                                }
-                            }
-                    );
+                            webView.evaluateJavascript(
+                                    "(function(){document.querySelector('#statusesDecTracker .addMyInfo.btn').click();})()",
+                                    new ValueCallback<String>() {
+                                        @Override
+                                        public void onReceiveValue(String value) {
+                                            swipe.setRefreshing(false);
+                                            setLoadingIndicator(false);
+                                        }
+                                    }
+                            );
 
-                    webView.stopLoading();
-                } else if(url.contains(Api.HOME_URL)) {
-                    presenter.logged();
+                            webView.stopLoading();
+                        } else if(url.contains(Api.HOME_URL)) {
+                            presenter.logged();
 
-                    swipe.setRefreshing(false);
-                    setLoadingIndicator(false);
-                } else if(url.contains(Api.PM_URL)) {
-                    presenter.updatePMs();
-                    updateCountMessages();
+                            swipe.setRefreshing(false);
+                            setLoadingIndicator(false);
+                        } else if(url.contains(Api.PM_URL)) {
+                            presenter.updatePMs();
+                            updateCountMessages();
+                        }
+
+                        if(ViewHelper.alertDialog != null) {
+                            ViewHelper.alertDialog.dismiss();
+                            ViewHelper.alertDialog = null;
+                        }
+                    }
                 }
+
             }
 
             /*@SuppressWarnings("deprecation") // From API 21 we should use another overload
@@ -944,7 +978,15 @@ public class WebActivity extends AppCompatActivity implements
             }*/
 
             public void onReceivedError(WebView view, int errorCode, String description, String failingUrl) {
-                Toast.makeText(WebActivity.this, "Oh no! " + description, Toast.LENGTH_SHORT).show();
+                presenter.setError(errorCode);
+                //Toast.makeText(WebActivity.this, "Oh no! " + description, Toast.LENGTH_SHORT).show();
+            }
+
+            @TargetApi(android.os.Build.VERSION_CODES.M)
+            @Override
+            public void onReceivedError(WebView view, WebResourceRequest req, WebResourceError rerr) {
+                // Redirect to deprecated method, so you can use it in all SDK versions
+                onReceivedError(view, rerr.getErrorCode(), rerr.getDescription().toString(), req.getUrl().toString());
             }
         });
     }
@@ -1111,16 +1153,16 @@ public class WebActivity extends AppCompatActivity implements
             case "settings":
                 openPage(Api.UCP_FORUM_SETTINGS_URL);
                 break;
-                case "settingsNotifications":
-                    final Intent i = new Intent();
-                    i.setAction(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
-                    i.addCategory(Intent.CATEGORY_DEFAULT);
-                    i.setData(Uri.parse("package:" + getPackageName()));
-                    i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                    i.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
-                    i.addFlags(Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);
-                    startActivity(i);
-                break;
+            case "settingsNotifications":
+                final Intent i = new Intent();
+                i.setAction(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
+                i.addCategory(Intent.CATEGORY_DEFAULT);
+                i.setData(Uri.parse("package:" + getPackageName()));
+                i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                i.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
+                i.addFlags(Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);
+                startActivity(i);
+            break;
             case "logout":
                 this.presenter.logout();
                 break;
@@ -1939,5 +1981,13 @@ public class WebActivity extends AppCompatActivity implements
 
         mUploadMessages.onReceiveValue(results);
         mUploadMessages = null;
+    }
+
+    public void openDeviceSettings() {
+        startActivityForResult(new Intent(android.provider.Settings.ACTION_SETTINGS), DEVICE_SETTINGS);
+    }
+
+    public void tryAgain() {
+        webView.reload();
     }
 }

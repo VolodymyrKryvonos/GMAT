@@ -610,4 +610,50 @@ public class ViewHelper {
 
     }
 
+    public static void showOfflineDialog(final WebActivity activity) {
+        LayoutInflater inflaterAlertDialog = LayoutInflater.from(activity);
+        View dialogLayout = inflaterAlertDialog.inflate(R.layout.alert_dialog_offline, null);
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(activity);
+        builder.setView(dialogLayout);
+
+        alertDialog = builder.create();
+        alertDialog.show();
+
+        alertDialog.setCancelable(false);
+
+        alertDialog.setOnCancelListener(new DialogInterface.OnCancelListener(){
+            @Override
+            public void onCancel(DialogInterface dialogInterface) {
+                dialogInterface.dismiss();
+            }
+        });
+
+        alertDialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
+            @Override
+            public void onDismiss(DialogInterface dialog) {
+                dialog.dismiss();
+            }
+        });
+
+        TextView btnNetworkTryAgain = (TextView) dialogLayout.findViewById(R.id.btnNetworkTryAgain);
+        TextView btnNetworkSettings = (TextView) dialogLayout.findViewById(R.id.btnNetworkSettings);
+
+        btnNetworkTryAgain.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                activity.tryAgain();
+                alertDialog.dismiss();
+                alertDialog = null;
+            }
+        });
+
+        btnNetworkSettings.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                activity.openDeviceSettings();
+            }
+        });
+    }
+
 }

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="25dp"
+    android:background="@drawable/alert_dialog_background_shape">
+
+    <ProgressBar
+        android:id="@+id/loading"
+        android:layout_gravity="center"
+        style="@style/progressBar_style"
+        android:visibility="gone"
+        />
+
+   <ScrollView
+       android:id="@+id/offlineLayout"
+       android:layout_width="match_parent"
+       android:layout_height="0dp"
+       android:layout_weight="1">
+
+       <RelativeLayout
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:gravity="center"
+           >
+           <TextView
+               android:id="@+id/btnNetworkTitle"
+               android:text="@string/alert_dialog_network"
+               android:textAllCaps="true"
+               android:fontFamily="@font/opensans_bold"
+               android:layout_marginBottom="15dp"
+               android:layout_centerHorizontal="true"
+               style="@style/alert_subTitle"
+               />
+
+           <TextView
+               android:id="@+id/networkMessage"
+               android:layout_below="@id/btnNetworkTitle"
+               android:layout_gravity="center"
+               android:gravity="center"
+               android:text="@string/alert_dialog_offline_message"
+               android:textColor="#666666"
+               android:layout_centerHorizontal="true"
+               style="@style/alert_subTitle"
+               />
+
+           <LinearLayout
+               android:layout_width="match_parent"
+               android:layout_height="match_parent"
+               android:orientation="horizontal"
+               android:layout_below="@+id/networkMessage"
+               android:layout_marginStart="5dp"
+               android:layout_marginTop="35dp"
+               android:layout_centerHorizontal="true"
+               android:layout_centerVertical="true"
+               android:gravity="center"
+               >
+               <TextView
+                   android:id="@+id/btnNetworkTryAgain"
+                   android:text="@string/alert_dialog_offline_try_again"
+                   android:textColor="#666666"
+                   android:layout_marginEnd="25dp"
+                   style="@style/alert_subTitle"
+                   />
+               <TextView
+                   android:id="@+id/btnNetworkSettings"
+                   android:textColor="#666666"
+                   android:text="@string/alert_dialog_settings"
+                   android:layout_marginStart="25dp"
+                   style="@style/alert_subTitle"
+                   />
+           </LinearLayout>
+       </RelativeLayout>
+
+   </ScrollView>
+</LinearLayout>

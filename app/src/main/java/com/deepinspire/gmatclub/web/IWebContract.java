@@ -18,6 +18,8 @@ public interface IWebContract {
         void openPageById(String id);
         void updateCountMessages();
         void sendNotificationsForPage(String notifications);
+        void tryAgain();
+        void openDeviceSettings();
     }
 
     interface Presenter extends IBasePresenter {
@@ -37,5 +39,9 @@ public interface IWebContract {
         void updateNotify(String params, String id);
         void updatePMs();
         User getUser();
+        boolean checkAccessNetwork();
+        void setError(int errorCode);
+        int getError();
+
     }
 }
