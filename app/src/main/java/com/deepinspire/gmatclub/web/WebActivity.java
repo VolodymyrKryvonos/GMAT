@@ -831,9 +831,9 @@ public class WebActivity extends AppCompatActivity implements
             @Override
             public boolean onConsoleMessage(ConsoleMessage consoleMessage) {
                 //Toast.makeText(getApplicationContext(), consoleMessage.message(), Toast.LENGTH_LONG).show();
-                Log.d("MyApplication", consoleMessage.message() + " -- From line "
+                /*Log.d("MyApplication", consoleMessage.message() + " -- From line "
                         + consoleMessage.lineNumber() + " of "
-                        + consoleMessage.sourceId());
+                        + consoleMessage.sourceId());*/
                 return super.onConsoleMessage(consoleMessage);
             }
 
@@ -935,7 +935,6 @@ public class WebActivity extends AppCompatActivity implements
                             webView.stopLoading();
                         } else if(url.contains(Api.HOME_URL)) {
                             presenter.logged();
-
                             swipe.setRefreshing(false);
                             setLoadingIndicator(false);
                         } else if(url.contains(Api.PM_URL)) {
@@ -1107,7 +1106,7 @@ public class WebActivity extends AppCompatActivity implements
 
                 String url = webView.getUrl();
 
-                if(url == null || (url.contains(Api.UCP_URL) && url.contains("mode=compose") || url.contains(Api.TESTS_URL))) {
+                if(url == null || (url.contains(Api.UCP_URL) && url.contains("mode=compose")) || url.contains(Api.TESTS_URL)) {
                     showBtnAdd(false);
                 } else {
                     showBtnAdd(true);
@@ -1404,7 +1403,31 @@ public class WebActivity extends AppCompatActivity implements
                 @Override
                 public void run() {
                     if(message != null) {
-                        presenter.saveNotifications(message);
+                        try {
+                            final JSONObject mNotify = new JSONObject(message);
+
+                            if(!mNotify.isNull("action")) {
+                                final String action = mNotify.getString("action");
+
+                                runOnUiThread(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        switch(action) {
+                                            case "showButtonPlus":
+                                                showBtnAdd(true);
+                                                break;
+                                            case "hideButtonPlus":
+                                                showBtnAdd(false);
+                                                break;
+                                        }
+                                    }
+                                });
+                            } else {
+                                presenter.saveNotifications(message);
+                            }
+                        } catch (JSONException e) {
+                            Log.e(mContext.getClass().getName(), e.getMessage());
+                        }
                     }
                 }
             });
