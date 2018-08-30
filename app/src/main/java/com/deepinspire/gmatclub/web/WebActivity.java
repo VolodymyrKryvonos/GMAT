@@ -39,6 +39,7 @@ import android.support.v7.widget.Toolbar;
 import android.util.Base64;
 import android.util.DisplayMetrics;
 import android.util.Log;
+import android.util.TypedValue;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
@@ -213,6 +214,20 @@ public class WebActivity extends AppCompatActivity implements
             });
 
         progressBar = (ProgressBar) findViewById(R.id.loading);
+
+        final View activityRootView = findViewById(R.id.top_parent);
+        activityRootView.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+            @Override
+            public void onGlobalLayout() {
+                int heightDiff = activityRootView.getRootView().getHeight() - activityRootView.getHeight();
+                if (heightDiff > dpToPx(WebActivity.this, 200)) {
+                    showBtnAdd(false);
+                } else {
+                    showBtnAdd(true);
+                }
+            }
+        });
+
 
         btnAddLayout = (LinearLayout) findViewById(R.id.btnAddMenuLayout);
 
@@ -831,7 +846,7 @@ public class WebActivity extends AppCompatActivity implements
             @Override
             public boolean onConsoleMessage(ConsoleMessage consoleMessage) {
                 //Toast.makeText(getApplicationContext(), consoleMessage.message(), Toast.LENGTH_LONG).show();
-                /*Log.d("MyApplication", consoleMessage.message() + " -- From line "
+                 /*Log.d("MyApplication", consoleMessage.message() + " -- From line "
                         + consoleMessage.lineNumber() + " of "
                         + consoleMessage.sourceId());*/
                 return super.onConsoleMessage(consoleMessage);
@@ -840,7 +855,7 @@ public class WebActivity extends AppCompatActivity implements
             @Override
             public void onProgressChanged(WebView view, int progress) {
                 /*if (progress == 100) {
-                    switch(presenter.getError()) {
+                    switch(presenter.getError()) {initWeb
                         case  WebViewClient.ERROR_HOST_LOOKUP:
                         case  WebViewClient.ERROR_CONNECT:
                             ViewHelper.showOfflineDialog(WebActivity.this);
@@ -886,6 +901,7 @@ public class WebActivity extends AppCompatActivity implements
         webView.setWebViewClient(new WebViewClient() {
             @Override
             public void onReceivedHttpAuthRequest(WebView view, HttpAuthHandler handler, String host, String realm) {
+                //handler.proceed("deepdesi", "deepcomp");
                 handler.proceed("guest", "GCTesterNew1");
             }
 
@@ -1403,7 +1419,8 @@ public class WebActivity extends AppCompatActivity implements
                 @Override
                 public void run() {
                     if(message != null) {
-                        try {
+                        presenter.saveNotifications(message);
+                        /*try {
                             final JSONObject mNotify = new JSONObject(message);
 
                             if(!mNotify.isNull("action")) {
@@ -1427,7 +1444,7 @@ public class WebActivity extends AppCompatActivity implements
                             }
                         } catch (JSONException e) {
                             Log.e(mContext.getClass().getName(), e.getMessage());
-                        }
+                        }*/
                     }
                 }
             });
@@ -2012,5 +2029,10 @@ public class WebActivity extends AppCompatActivity implements
 
     public void tryAgain() {
         webView.reload();
+    }
+
+    public static float dpToPx(Context context, float valueInDp) {
+        DisplayMetrics metrics = context.getResources().getDisplayMetrics();
+        return TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, valueInDp, metrics);
     }
 }

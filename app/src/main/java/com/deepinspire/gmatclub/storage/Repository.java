@@ -105,6 +105,9 @@ public class Repository implements IStorage {
                     String username = "guest";
                     String password = "GCTesterNew1";
 
+                    //String username = "deepdesi";
+                    //String password = "deepcomp";
+
                     String base = username + ":" + password;
 
                     String authHeader = "Basic " + Base64.encodeToString(base.getBytes(), Base64.NO_WRAP);
@@ -171,6 +174,9 @@ public class Repository implements IStorage {
 
                     String username = "guest";
                     String password = "GCTesterNew1";
+
+                    //String username = "deepdesi";
+                    //String password = "deepcomp";
 
                     String base = username + ":" + password;
 
@@ -253,6 +259,9 @@ public class Repository implements IStorage {
                     String username = "guest";
                     String password = "GCTesterNew1";
 
+                    //String username = "deepdesi";
+                    //String password = "deepcomp";
+
                     String base = username + ":" + password;
 
                     String authHeader = "Basic " + Base64.encodeToString(base.getBytes(), Base64.NO_WRAP);
@@ -323,6 +332,9 @@ public class Repository implements IStorage {
 
                     String username = "guest";
                     String password = "GCTesterNew1";
+
+                    //String username = "deepdesi";
+                    //String password = "deepcomp";
 
                     String base = username + ":" + password;
 
@@ -422,6 +434,9 @@ public class Repository implements IStorage {
 
                     String username = "guest";
                     String password = "GCTesterNew1";
+
+                    //String username = "deepdesi";
+                    //String password = "deepcomp";
 
                     String base = username + ":" + password;
 
@@ -576,6 +591,9 @@ public class Repository implements IStorage {
 
                     String username = "guest";
                     String password = "GCTesterNew1";
+
+                    //String username = "deepdesi";
+                    //String password = "deepcomp";
 
                     String base = username + ":" + password;
 
