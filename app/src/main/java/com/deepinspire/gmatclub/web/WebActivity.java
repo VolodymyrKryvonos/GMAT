@@ -110,6 +110,12 @@ import okhttp3.Response;
 public class WebActivity extends AppCompatActivity implements
         IWebContract.View, SwipeRefreshLayout.OnRefreshListener, View.OnClickListener, View.OnTouchListener {
 
+    private static final int FILECHOOSER_RESULTCODE  = 100;
+
+    private static final int PICK_FROM_CAMERA = 101;
+
+    private static final int DEVICE_SETTINGS = 102;
+
     private IWebContract.Presenter presenter;
 
     private GCWebView webView;
@@ -162,15 +168,11 @@ public class WebActivity extends AppCompatActivity implements
 
     private Handler mUiHandler = new Handler();
 
-    private static final int FILECHOOSER_RESULTCODE  = 100;
-
     private ValueCallback<Uri> mUploadMessage;
     private ValueCallback<Uri[]> mUploadMessages;
     private Uri mCapturedImageURI = null;
 
-    private static final int PICK_FROM_CAMERA = 101;
-
-    private static final int DEVICE_SETTINGS = 102;
+    private boolean openedKeyboard = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -216,16 +218,32 @@ public class WebActivity extends AppCompatActivity implements
         progressBar = (ProgressBar) findViewById(R.id.loading);
 
         final View activityRootView = findViewById(R.id.top_parent);
-        activityRootView.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
-            @Override
-            public void onGlobalLayout() {
-                int heightDiff = activityRootView.getRootView().getHeight() - activityRootView.getHeight();
-                if (heightDiff > dpToPx(WebActivity.this, 200)) {
-                    showBtnAdd(false);
-                } else {
-                    showBtnAdd(true);
-                }
-            }
+
+        activityRootView.getViewTreeObserver()
+                .addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+                    @Override
+                    public void onGlobalLayout() {
+                        int heightDiff = activityRootView.getRootView().getHeight() - activityRootView.getHeight();
+
+                        if (heightDiff > dpToPx(WebActivity.this, 200)) {
+                            openedKeyboard = true;
+                            showBtnAdd(false);
+                        } else {
+                            if (openedKeyboard && logged()) {
+                                openedKeyboard = false;
+
+                                String url = webView.getUrl();
+
+                                if(url == null ||
+                                        (url.contains(Api.UCP_URL) && url.contains("mode=compose")) ||
+                                        url.contains(Api.TESTS_URL)) {
+                                    showBtnAdd(false);
+                                } else {
+                                    showBtnAdd(true);
+                                }
+                            }
+                        }
+                    }
         });
 
 
