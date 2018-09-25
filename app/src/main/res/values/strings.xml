@@ -55,6 +55,15 @@
     <string name="alert_dialog_settings">Settings</string>
     <string name="alert_dialog_network">Network</string>
 
+
+
+    <string name="or">Or</string>
+    <string name="button_login">Login</string>
+    <string name="facebook_button_login">Login with Facebook</string>
+    <string name="forgot">Forgot?</string>
+    <string name="password">Password</string>
+    <string name="message_error_login_password">Incorrect Login or Password</string>
+
     <!-- 'id'     => '188832947830704',
     'secret' => '25e1ac94899287fbcbab95d769f5ac6f',-->
 </resources>

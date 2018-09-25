@@ -1222,47 +1222,7 @@ public class WebActivity extends AppCompatActivity implements
                 Toast.makeText(this, "Sign In Google", Toast.LENGTH_LONG).show();
                 break;
             case "signInFacebook":
-                ViewHelper.setLoadingIndicator(true);
-
-                callbackManager = CallbackManager.Factory.create();
-
-                LoginManager.getInstance().registerCallback(callbackManager,
-                        new FacebookCallback<LoginResult>() {
-                            @Override
-                            public void onSuccess(LoginResult loginResult) {
-                                //LoginManager lm = LoginManager.getInstance();
-
-                                AccessToken token = AccessToken.getCurrentAccessToken();
-
-                                if(token != null) {
-                                    String idToken = token.getUserId();
-                                    String accessToken = token.getToken();
-
-                                    long expiresIn = token.getExpires().getTime();
-
-                                    callbackManager = null;
-
-                                    presenter.signIn("facebook", idToken, accessToken, Long.toString(expiresIn));
-                                } else {
-                                    AuthException ex = new AuthException(new Exception("Failed sign in facebook"), "signInFacebook");
-                                    showError(ex);
-                                }
-                            }
-
-                            @Override
-                            public void onCancel() {
-                                ViewHelper.setLoadingIndicator(false);
-                            }
-
-                            @Override
-                            public void onError(FacebookException exception) {
-                                ViewHelper.setLoadingIndicator(false);
-                                AuthException ex = new AuthException(new Exception(exception.getMessage()), "signInFacebook");
-                                showError(ex);
-                            }
-                        });
-
-                LoginManager.getInstance().logInWithReadPermissions(WebActivity.this, Arrays.asList("public_profile"));
+                signInFacebook();
                 break;
 
         }
@@ -1296,6 +1256,50 @@ public class WebActivity extends AppCompatActivity implements
 
     public void signIn(String username, String password) {
         this.presenter.signIn(username, password);
+    }
+
+    public void signInFacebook() {
+        ViewHelper.setLoadingIndicator(true);
+
+        callbackManager = CallbackManager.Factory.create();
+
+        LoginManager.getInstance().registerCallback(callbackManager,
+                new FacebookCallback<LoginResult>() {
+                    @Override
+                    public void onSuccess(LoginResult loginResult) {
+                        //LoginManager lm = LoginManager.getInstance();
+
+                        AccessToken token = AccessToken.getCurrentAccessToken();
+
+                        if(token != null) {
+                            String idToken = token.getUserId();
+                            String accessToken = token.getToken();
+
+                            long expiresIn = token.getExpires().getTime();
+
+                            callbackManager = null;
+
+                            presenter.signIn("facebook", idToken, accessToken, Long.toString(expiresIn));
+                        } else {
+                            AuthException ex = new AuthException(new Exception("Failed sign in facebook"), "signInFacebook");
+                            showError(ex);
+                        }
+                    }
+
+                    @Override
+                    public void onCancel() {
+                        ViewHelper.setLoadingIndicator(false);
+                    }
+
+                    @Override
+                    public void onError(FacebookException exception) {
+                        ViewHelper.setLoadingIndicator(false);
+                        AuthException ex = new AuthException(new Exception(exception.getMessage()), "signInFacebook");
+                        showError(ex);
+                    }
+                });
+
+        LoginManager.getInstance().logInWithReadPermissions(WebActivity.this, Arrays.asList("public_profile"));
     }
 
     public void forgotPassword(String email) {

@@ -15,8 +15,383 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5d9e8901-ef33-43d6-bffb-1c758be0eff0" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/background_button_facebook.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/background_button_login.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/android/arch/lifecycle/R.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/android/arch/lifecycle/R.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/android/support/compat/R$drawable.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/android/support/compat/R$drawable.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/android/support/compat/R$id.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/android/support/compat/R$id.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/android/support/compat/R$layout.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/android/support/compat/R$layout.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/android/support/compat/R$string.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/android/support/compat/R$string.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/android/support/constraint/R$id.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/android/support/constraint/R$id.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/android/support/coreui/R$drawable.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/android/support/coreui/R$drawable.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/android/support/coreui/R$id.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/android/support/coreui/R$id.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/android/support/coreui/R$layout.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/android/support/coreui/R$layout.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/android/support/coreui/R$string.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/android/support/coreui/R$string.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/android/support/coreutils/R$drawable.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/android/support/coreutils/R$drawable.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/android/support/coreutils/R$id.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/android/support/coreutils/R$id.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/android/support/coreutils/R$layout.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/android/support/coreutils/R$layout.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/android/support/coreutils/R$string.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/android/support/coreutils/R$string.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/android/support/customtabs/R$drawable.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/android/support/customtabs/R$drawable.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/android/support/customtabs/R$id.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/android/support/customtabs/R$id.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/android/support/customtabs/R$layout.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/android/support/customtabs/R$layout.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/android/support/customtabs/R$string.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/android/support/customtabs/R$string.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/android/support/design/R$drawable.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/android/support/design/R$drawable.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/android/support/design/R$id.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/android/support/design/R$id.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/android/support/design/R$layout.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/android/support/design/R$layout.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/android/support/design/R$string.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/android/support/design/R$string.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/android/support/fragment/R$drawable.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/android/support/fragment/R$drawable.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/android/support/fragment/R$id.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/android/support/fragment/R$id.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/android/support/fragment/R$layout.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/android/support/fragment/R$layout.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/android/support/fragment/R$string.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/android/support/fragment/R$string.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/android/support/graphics/drawable/R$drawable.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/android/support/graphics/drawable/R$drawable.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/android/support/graphics/drawable/R$id.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/android/support/graphics/drawable/R$id.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/android/support/graphics/drawable/R$layout.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/android/support/graphics/drawable/R$layout.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/android/support/graphics/drawable/R$string.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/android/support/graphics/drawable/R$string.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/android/support/graphics/drawable/animated/R$drawable.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/android/support/graphics/drawable/animated/R$drawable.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/android/support/graphics/drawable/animated/R$id.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/android/support/graphics/drawable/animated/R$id.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/android/support/graphics/drawable/animated/R$layout.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/android/support/graphics/drawable/animated/R$layout.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/android/support/graphics/drawable/animated/R$string.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/android/support/graphics/drawable/animated/R$string.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/android/support/mediacompat/R$drawable.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/android/support/mediacompat/R$drawable.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/android/support/mediacompat/R$id.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/android/support/mediacompat/R$id.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/android/support/mediacompat/R$layout.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/android/support/mediacompat/R$layout.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/android/support/mediacompat/R$string.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/android/support/mediacompat/R$string.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/android/support/transition/R$drawable.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/android/support/transition/R$drawable.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/android/support/transition/R$id.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/android/support/transition/R$id.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/android/support/transition/R$layout.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/android/support/transition/R$layout.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/android/support/transition/R$string.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/android/support/transition/R$string.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/android/support/v4/R$drawable.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/android/support/v4/R$drawable.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/android/support/v4/R$id.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/android/support/v4/R$id.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/android/support/v4/R$layout.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/android/support/v4/R$layout.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/android/support/v4/R$string.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/android/support/v4/R$string.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/android/support/v7/appcompat/R$drawable.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/android/support/v7/appcompat/R$drawable.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/android/support/v7/appcompat/R$id.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/android/support/v7/appcompat/R$id.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/android/support/v7/appcompat/R$layout.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/android/support/v7/appcompat/R$layout.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/android/support/v7/appcompat/R$string.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/android/support/v7/appcompat/R$string.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/android/support/v7/recyclerview/R$drawable.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/android/support/v7/recyclerview/R$drawable.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/android/support/v7/recyclerview/R$id.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/android/support/v7/recyclerview/R$id.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/android/support/v7/recyclerview/R$layout.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/android/support/v7/recyclerview/R$layout.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/android/support/v7/recyclerview/R$string.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/android/support/v7/recyclerview/R$string.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/deepinspire/gmatclub/BuildConfig.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/deepinspire/gmatclub/BuildConfig.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/deepinspire/gmatclub/R$drawable.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/deepinspire/gmatclub/R$drawable.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/deepinspire/gmatclub/R$font.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/deepinspire/gmatclub/R$font.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/deepinspire/gmatclub/R$id.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/deepinspire/gmatclub/R$id.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/deepinspire/gmatclub/R$integer.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/deepinspire/gmatclub/R$integer.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/deepinspire/gmatclub/R$layout.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/deepinspire/gmatclub/R$layout.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/deepinspire/gmatclub/R$menu.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/deepinspire/gmatclub/R$menu.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/deepinspire/gmatclub/R$mipmap.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/deepinspire/gmatclub/R$mipmap.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/deepinspire/gmatclub/R$string.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/deepinspire/gmatclub/R$string.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/deepinspire/gmatclub/R$style.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/deepinspire/gmatclub/R$style.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/deepinspire/gmatclub/R$styleable.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/deepinspire/gmatclub/R$styleable.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/deepinspire/gmatclub/auth/AuthActivity$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/deepinspire/gmatclub/auth/AuthActivity$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/deepinspire/gmatclub/auth/AuthActivity.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/deepinspire/gmatclub/auth/AuthActivity.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/deepinspire/gmatclub/auth/FacebookActivity.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/deepinspire/gmatclub/auth/FacebookActivity.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/deepinspire/gmatclub/auth/IAuthContract$Presenter.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/deepinspire/gmatclub/auth/IAuthContract$Presenter.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/deepinspire/gmatclub/storage/Repository$1$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/deepinspire/gmatclub/storage/Repository$1$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/deepinspire/gmatclub/storage/Repository$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/deepinspire/gmatclub/storage/Repository$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/deepinspire/gmatclub/storage/Repository$2$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/deepinspire/gmatclub/storage/Repository$2$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/deepinspire/gmatclub/storage/Repository$2.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/deepinspire/gmatclub/storage/Repository$2.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/deepinspire/gmatclub/storage/Repository$3$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/deepinspire/gmatclub/storage/Repository$3$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/deepinspire/gmatclub/storage/Repository$3.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/deepinspire/gmatclub/storage/Repository$3.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/deepinspire/gmatclub/storage/Repository$4$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/deepinspire/gmatclub/storage/Repository$4$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/deepinspire/gmatclub/storage/Repository$4.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/deepinspire/gmatclub/storage/Repository$4.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/deepinspire/gmatclub/storage/Repository$5$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/deepinspire/gmatclub/storage/Repository$5$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/deepinspire/gmatclub/storage/Repository$5.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/deepinspire/gmatclub/storage/Repository$5.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/deepinspire/gmatclub/storage/Repository$6.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/deepinspire/gmatclub/storage/Repository$6.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/deepinspire/gmatclub/storage/Repository$7.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/deepinspire/gmatclub/storage/Repository$7.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/deepinspire/gmatclub/storage/Repository.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/deepinspire/gmatclub/storage/Repository.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/deepinspire/gmatclub/utils/FieldWatcher.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/deepinspire/gmatclub/utils/FieldWatcher.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/deepinspire/gmatclub/utils/ViewHelper$10.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/deepinspire/gmatclub/utils/ViewHelper$10.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/deepinspire/gmatclub/utils/ViewHelper$11.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/deepinspire/gmatclub/utils/ViewHelper$11.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/deepinspire/gmatclub/utils/ViewHelper$12.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/deepinspire/gmatclub/utils/ViewHelper$12.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/deepinspire/gmatclub/utils/ViewHelper$13.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/deepinspire/gmatclub/utils/ViewHelper$13.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/deepinspire/gmatclub/utils/ViewHelper$14.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/deepinspire/gmatclub/utils/ViewHelper$14.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/deepinspire/gmatclub/utils/ViewHelper$15.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/deepinspire/gmatclub/utils/ViewHelper$15.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/deepinspire/gmatclub/utils/ViewHelper$16.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/deepinspire/gmatclub/utils/ViewHelper$16.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/deepinspire/gmatclub/utils/ViewHelper$17.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/deepinspire/gmatclub/utils/ViewHelper$17.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/deepinspire/gmatclub/utils/ViewHelper$18.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/deepinspire/gmatclub/utils/ViewHelper$18.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/deepinspire/gmatclub/utils/ViewHelper$19.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/deepinspire/gmatclub/utils/ViewHelper$19.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/deepinspire/gmatclub/utils/ViewHelper$20.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/deepinspire/gmatclub/utils/ViewHelper$20.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/deepinspire/gmatclub/utils/ViewHelper$21.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/deepinspire/gmatclub/utils/ViewHelper$21.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/deepinspire/gmatclub/utils/ViewHelper$22.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/deepinspire/gmatclub/utils/ViewHelper$22.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/deepinspire/gmatclub/utils/ViewHelper$23.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/deepinspire/gmatclub/utils/ViewHelper$23.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/deepinspire/gmatclub/utils/ViewHelper$24.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/deepinspire/gmatclub/utils/ViewHelper$24.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/deepinspire/gmatclub/utils/ViewHelper$25.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/deepinspire/gmatclub/utils/ViewHelper$25.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/deepinspire/gmatclub/utils/ViewHelper$26.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/deepinspire/gmatclub/utils/ViewHelper$26.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/deepinspire/gmatclub/utils/ViewHelper$4.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/deepinspire/gmatclub/utils/ViewHelper$4.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/deepinspire/gmatclub/utils/ViewHelper$5.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/deepinspire/gmatclub/utils/ViewHelper$5.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/deepinspire/gmatclub/utils/ViewHelper$6.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/deepinspire/gmatclub/utils/ViewHelper$6.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/deepinspire/gmatclub/utils/ViewHelper$7.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/deepinspire/gmatclub/utils/ViewHelper$7.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/deepinspire/gmatclub/utils/ViewHelper$8.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/deepinspire/gmatclub/utils/ViewHelper$8.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/deepinspire/gmatclub/utils/ViewHelper$9.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/deepinspire/gmatclub/utils/ViewHelper$9.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/deepinspire/gmatclub/utils/ViewHelper.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/deepinspire/gmatclub/utils/ViewHelper.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/deepinspire/gmatclub/web/IWebContract$Presenter.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/deepinspire/gmatclub/web/IWebContract$Presenter.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/deepinspire/gmatclub/web/IWebContract$View.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/deepinspire/gmatclub/web/IWebContract$View.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/deepinspire/gmatclub/web/WebActivity$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/deepinspire/gmatclub/web/WebActivity$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/deepinspire/gmatclub/web/WebActivity$2.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/deepinspire/gmatclub/web/WebActivity$2.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/deepinspire/gmatclub/web/WebActivity$3.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/deepinspire/gmatclub/web/WebActivity$3.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/deepinspire/gmatclub/web/WebActivity$4.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/deepinspire/gmatclub/web/WebActivity$4.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/deepinspire/gmatclub/web/WebActivity$5.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/deepinspire/gmatclub/web/WebActivity$5.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/deepinspire/gmatclub/web/WebActivity$6.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/deepinspire/gmatclub/web/WebActivity$6.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/deepinspire/gmatclub/web/WebActivity$GCJavascriptInterface$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/deepinspire/gmatclub/web/WebActivity$GCJavascriptInterface$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/deepinspire/gmatclub/web/WebActivity$GCJavascriptInterface.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/deepinspire/gmatclub/web/WebActivity$GCJavascriptInterface.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/deepinspire/gmatclub/web/WebActivity.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/deepinspire/gmatclub/web/WebActivity.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/deepinspire/gmatclub/web/WebPresenter$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/deepinspire/gmatclub/web/WebPresenter$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/deepinspire/gmatclub/web/WebPresenter$2.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/deepinspire/gmatclub/web/WebPresenter$2.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/deepinspire/gmatclub/web/WebPresenter$3.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/deepinspire/gmatclub/web/WebPresenter$3.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/deepinspire/gmatclub/web/WebPresenter$4.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/deepinspire/gmatclub/web/WebPresenter$4.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/deepinspire/gmatclub/web/WebPresenter$5.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/deepinspire/gmatclub/web/WebPresenter$5.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/deepinspire/gmatclub/web/WebPresenter.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/deepinspire/gmatclub/web/WebPresenter.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/facebook/R$drawable.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/facebook/R$drawable.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/facebook/R$id.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/facebook/R$id.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/facebook/R$layout.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/facebook/R$layout.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/facebook/R$string.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/facebook/R$string.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/facebook/applinks/R$drawable.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/facebook/applinks/R$drawable.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/facebook/applinks/R$id.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/facebook/applinks/R$id.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/facebook/applinks/R$layout.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/facebook/applinks/R$layout.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/facebook/applinks/R$string.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/facebook/applinks/R$string.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/facebook/common/R$drawable.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/facebook/common/R$drawable.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/facebook/common/R$id.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/facebook/common/R$id.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/facebook/common/R$layout.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/facebook/common/R$layout.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/facebook/common/R$string.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/facebook/common/R$string.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/facebook/core/R$drawable.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/facebook/core/R$drawable.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/facebook/core/R$id.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/facebook/core/R$id.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/facebook/core/R$layout.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/facebook/core/R$layout.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/facebook/core/R$string.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/facebook/core/R$string.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/facebook/login/R$drawable.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/facebook/login/R$drawable.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/facebook/login/R$id.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/facebook/login/R$id.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/facebook/login/R$layout.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/facebook/login/R$layout.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/facebook/login/R$string.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/facebook/login/R$string.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/facebook/messenger/R$drawable.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/facebook/messenger/R$drawable.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/facebook/messenger/R$id.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/facebook/messenger/R$id.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/facebook/messenger/R$layout.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/facebook/messenger/R$layout.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/facebook/messenger/R$string.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/facebook/messenger/R$string.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/facebook/places/R$drawable.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/facebook/places/R$drawable.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/facebook/places/R$id.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/facebook/places/R$id.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/facebook/places/R$layout.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/facebook/places/R$layout.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/facebook/places/R$string.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/facebook/places/R$string.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/facebook/share/R$drawable.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/facebook/share/R$drawable.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/facebook/share/R$id.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/facebook/share/R$id.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/facebook/share/R$layout.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/facebook/share/R$layout.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/facebook/share/R$string.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/facebook/share/R$string.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/firebase/jobdispatcher/R.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/firebase/jobdispatcher/R.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/github/clans/fab/R$drawable.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/github/clans/fab/R$drawable.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/github/clans/fab/R$id.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/github/clans/fab/R$id.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/google/android/gms/auth/api/R$drawable.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/google/android/gms/auth/api/R$drawable.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/google/android/gms/auth/api/R$id.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/google/android/gms/auth/api/R$id.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/google/android/gms/auth/api/R$string.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/google/android/gms/auth/api/R$string.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/google/android/gms/base/R$drawable.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/google/android/gms/base/R$drawable.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/google/android/gms/base/R$id.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/google/android/gms/base/R$id.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/google/android/gms/base/R$string.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/google/android/gms/base/R$string.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/google/android/gms/common/R$string.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/google/android/gms/common/R$string.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/google/firebase/messaging/R$string.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/gmatclub/release/com/google/firebase/messaging/R$string.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/gmatclubRelease-mergeJavaRes/merge-state" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/gmatclubRelease-mergeJavaRes/merge-state" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/gmatclubRelease-mergeJniLibs/merge-state" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/gmatclubRelease-mergeJniLibs/merge-state" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/packageGmatclubRelease/gmatclubRelease/zip-cache/OXtiVAqiNjqDGvr5a7K95Xzd0To=" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/packageGmatclubRelease/gmatclubRelease/zip-cache/OXtiVAqiNjqDGvr5a7K95Xzd0To=" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/packageGmatclubRelease/gmatclubRelease/zip-cache/gYkrVCIHWWOSuUM60qXXrNmLJHE=" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/packageGmatclubRelease/gmatclubRelease/zip-cache/gYkrVCIHWWOSuUM60qXXrNmLJHE=" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/multi-dex/gmatclub/release/componentClasses.jar" afterPath="$PROJECT_DIR$/app/build/intermediates/multi-dex/gmatclub/release/componentClasses.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/gmatclub/release/resources-gmatclubRelease.ap_" afterPath="$PROJECT_DIR$/app/build/intermediates/res/gmatclub/release/resources-gmatclubRelease.ap_" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/color_com_facebook_button_text_color.xml.flat" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/color_com_facebook_button_text_color.xml.flat" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/color_com_facebook_send_button_text_color.xml.flat" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/color_com_facebook_send_button_text_color.xml.flat" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable-hdpi-v4_com_facebook_button_icon_blue.png.flat" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable-hdpi-v4_com_facebook_button_icon_blue.png.flat" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable-hdpi-v4_com_facebook_button_icon_white.png.flat" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable-hdpi-v4_com_facebook_button_icon_white.png.flat" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable-hdpi-v4_com_facebook_button_like_icon_selected.png.flat" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable-hdpi-v4_com_facebook_button_like_icon_selected.png.flat" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable-hdpi-v4_com_facebook_button_send_icon_blue.png.flat" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable-hdpi-v4_com_facebook_button_send_icon_blue.png.flat" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable-hdpi-v4_com_facebook_button_send_icon_white.png.flat" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable-hdpi-v4_com_facebook_button_send_icon_white.png.flat" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable-hdpi-v4_com_facebook_close.png.flat" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable-hdpi-v4_com_facebook_close.png.flat" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable-hdpi-v4_com_facebook_tooltip_black_background.9.png.flat" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable-hdpi-v4_com_facebook_tooltip_black_background.9.png.flat" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable-hdpi-v4_com_facebook_tooltip_black_bottomnub.png.flat" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable-hdpi-v4_com_facebook_tooltip_black_bottomnub.png.flat" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable-hdpi-v4_com_facebook_tooltip_black_topnub.png.flat" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable-hdpi-v4_com_facebook_tooltip_black_topnub.png.flat" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable-hdpi-v4_com_facebook_tooltip_black_xout.png.flat" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable-hdpi-v4_com_facebook_tooltip_black_xout.png.flat" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable-hdpi-v4_com_facebook_tooltip_blue_background.9.png.flat" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable-hdpi-v4_com_facebook_tooltip_blue_background.9.png.flat" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable-hdpi-v4_com_facebook_tooltip_blue_bottomnub.png.flat" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable-hdpi-v4_com_facebook_tooltip_blue_bottomnub.png.flat" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable-hdpi-v4_com_facebook_tooltip_blue_topnub.png.flat" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable-hdpi-v4_com_facebook_tooltip_blue_topnub.png.flat" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable-hdpi-v4_com_facebook_tooltip_blue_xout.png.flat" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable-hdpi-v4_com_facebook_tooltip_blue_xout.png.flat" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable-hdpi-v4_messenger_bubble_large_blue.png.flat" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable-hdpi-v4_messenger_bubble_large_blue.png.flat" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable-hdpi-v4_messenger_bubble_large_white.png.flat" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable-hdpi-v4_messenger_bubble_large_white.png.flat" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable-hdpi-v4_messenger_bubble_small_blue.png.flat" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable-hdpi-v4_messenger_bubble_small_blue.png.flat" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable-hdpi-v4_messenger_bubble_small_white.png.flat" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable-hdpi-v4_messenger_bubble_small_white.png.flat" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable-hdpi-v4_messenger_button_send_round_shadow.png.flat" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable-hdpi-v4_messenger_button_send_round_shadow.png.flat" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable-mdpi-v4_com_facebook_button_icon_blue.png.flat" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable-mdpi-v4_com_facebook_button_icon_blue.png.flat" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable-mdpi-v4_com_facebook_button_icon_white.png.flat" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable-mdpi-v4_com_facebook_button_icon_white.png.flat" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable-mdpi-v4_com_facebook_button_like_icon_selected.png.flat" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable-mdpi-v4_com_facebook_button_like_icon_selected.png.flat" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable-mdpi-v4_com_facebook_button_send_icon_blue.png.flat" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable-mdpi-v4_com_facebook_button_send_icon_blue.png.flat" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable-mdpi-v4_com_facebook_button_send_icon_white.png.flat" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable-mdpi-v4_com_facebook_button_send_icon_white.png.flat" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable-mdpi-v4_com_facebook_close.png.flat" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable-mdpi-v4_com_facebook_close.png.flat" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable-mdpi-v4_com_facebook_profile_picture_blank_portrait.png.flat" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable-mdpi-v4_com_facebook_profile_picture_blank_portrait.png.flat" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable-mdpi-v4_com_facebook_profile_picture_blank_square.png.flat" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable-mdpi-v4_com_facebook_profile_picture_blank_square.png.flat" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable-mdpi-v4_com_facebook_tooltip_black_background.9.png.flat" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable-mdpi-v4_com_facebook_tooltip_black_background.9.png.flat" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable-mdpi-v4_com_facebook_tooltip_black_bottomnub.png.flat" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable-mdpi-v4_com_facebook_tooltip_black_bottomnub.png.flat" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable-mdpi-v4_com_facebook_tooltip_black_topnub.png.flat" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable-mdpi-v4_com_facebook_tooltip_black_topnub.png.flat" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable-mdpi-v4_com_facebook_tooltip_black_xout.png.flat" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable-mdpi-v4_com_facebook_tooltip_black_xout.png.flat" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable-mdpi-v4_com_facebook_tooltip_blue_background.9.png.flat" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable-mdpi-v4_com_facebook_tooltip_blue_background.9.png.flat" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable-mdpi-v4_com_facebook_tooltip_blue_bottomnub.png.flat" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable-mdpi-v4_com_facebook_tooltip_blue_bottomnub.png.flat" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable-mdpi-v4_com_facebook_tooltip_blue_topnub.png.flat" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable-mdpi-v4_com_facebook_tooltip_blue_topnub.png.flat" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable-mdpi-v4_com_facebook_tooltip_blue_xout.png.flat" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable-mdpi-v4_com_facebook_tooltip_blue_xout.png.flat" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable-mdpi-v4_messenger_bubble_large_blue.png.flat" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable-mdpi-v4_messenger_bubble_large_blue.png.flat" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable-mdpi-v4_messenger_bubble_large_white.png.flat" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable-mdpi-v4_messenger_bubble_large_white.png.flat" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable-mdpi-v4_messenger_bubble_small_blue.png.flat" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable-mdpi-v4_messenger_bubble_small_blue.png.flat" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable-mdpi-v4_messenger_bubble_small_white.png.flat" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable-mdpi-v4_messenger_bubble_small_white.png.flat" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable-mdpi-v4_messenger_button_send_round_shadow.png.flat" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable-mdpi-v4_messenger_button_send_round_shadow.png.flat" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable-xhdpi-v4_com_facebook_button_icon_blue.png.flat" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable-xhdpi-v4_com_facebook_button_icon_blue.png.flat" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable-xhdpi-v4_com_facebook_button_icon_white.png.flat" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable-xhdpi-v4_com_facebook_button_icon_white.png.flat" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable-xhdpi-v4_com_facebook_button_like_icon_selected.png.flat" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable-xhdpi-v4_com_facebook_button_like_icon_selected.png.flat" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable-xhdpi-v4_com_facebook_button_send_icon_blue.png.flat" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable-xhdpi-v4_com_facebook_button_send_icon_blue.png.flat" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable-xhdpi-v4_com_facebook_button_send_icon_white.png.flat" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable-xhdpi-v4_com_facebook_button_send_icon_white.png.flat" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable-xhdpi-v4_com_facebook_close.png.flat" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable-xhdpi-v4_com_facebook_close.png.flat" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable-xhdpi-v4_com_facebook_tooltip_black_background.9.png.flat" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable-xhdpi-v4_com_facebook_tooltip_black_background.9.png.flat" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable-xhdpi-v4_com_facebook_tooltip_black_bottomnub.png.flat" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable-xhdpi-v4_com_facebook_tooltip_black_bottomnub.png.flat" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable-xhdpi-v4_com_facebook_tooltip_black_topnub.png.flat" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable-xhdpi-v4_com_facebook_tooltip_black_topnub.png.flat" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable-xhdpi-v4_com_facebook_tooltip_black_xout.png.flat" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable-xhdpi-v4_com_facebook_tooltip_black_xout.png.flat" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable-xhdpi-v4_com_facebook_tooltip_blue_background.9.png.flat" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable-xhdpi-v4_com_facebook_tooltip_blue_background.9.png.flat" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable-xhdpi-v4_com_facebook_tooltip_blue_bottomnub.png.flat" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable-xhdpi-v4_com_facebook_tooltip_blue_bottomnub.png.flat" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable-xhdpi-v4_com_facebook_tooltip_blue_topnub.png.flat" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable-xhdpi-v4_com_facebook_tooltip_blue_topnub.png.flat" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable-xhdpi-v4_com_facebook_tooltip_blue_xout.png.flat" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable-xhdpi-v4_com_facebook_tooltip_blue_xout.png.flat" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable-xhdpi-v4_messenger_bubble_large_blue.png.flat" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable-xhdpi-v4_messenger_bubble_large_blue.png.flat" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable-xhdpi-v4_messenger_bubble_large_white.png.flat" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable-xhdpi-v4_messenger_bubble_large_white.png.flat" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable-xhdpi-v4_messenger_bubble_small_blue.png.flat" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable-xhdpi-v4_messenger_bubble_small_blue.png.flat" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable-xhdpi-v4_messenger_bubble_small_white.png.flat" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable-xhdpi-v4_messenger_bubble_small_white.png.flat" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable-xhdpi-v4_messenger_button_send_round_shadow.png.flat" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable-xhdpi-v4_messenger_button_send_round_shadow.png.flat" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable-xxhdpi-v4_com_facebook_button_icon_blue.png.flat" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable-xxhdpi-v4_com_facebook_button_icon_blue.png.flat" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable-xxhdpi-v4_com_facebook_button_icon_white.png.flat" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable-xxhdpi-v4_com_facebook_button_icon_white.png.flat" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable-xxhdpi-v4_com_facebook_button_like_icon_selected.png.flat" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable-xxhdpi-v4_com_facebook_button_like_icon_selected.png.flat" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable-xxhdpi-v4_com_facebook_button_send_icon_white.png.flat" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable-xxhdpi-v4_com_facebook_button_send_icon_white.png.flat" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable-xxhdpi-v4_messenger_bubble_large_blue.png.flat" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable-xxhdpi-v4_messenger_bubble_large_blue.png.flat" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable-xxhdpi-v4_messenger_bubble_large_white.png.flat" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable-xxhdpi-v4_messenger_bubble_large_white.png.flat" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable-xxhdpi-v4_messenger_bubble_small_blue.png.flat" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable-xxhdpi-v4_messenger_bubble_small_blue.png.flat" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable-xxhdpi-v4_messenger_bubble_small_white.png.flat" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable-xxhdpi-v4_messenger_bubble_small_white.png.flat" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable-xxhdpi-v4_messenger_button_send_round_shadow.png.flat" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable-xxhdpi-v4_messenger_button_send_round_shadow.png.flat" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable_com_facebook_auth_dialog_background.xml.flat" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable_com_facebook_auth_dialog_background.xml.flat" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable_com_facebook_auth_dialog_cancel_background.xml.flat" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable_com_facebook_auth_dialog_cancel_background.xml.flat" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable_com_facebook_auth_dialog_header_background.xml.flat" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable_com_facebook_auth_dialog_header_background.xml.flat" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable_com_facebook_button_background.xml.flat" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable_com_facebook_button_background.xml.flat" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable_com_facebook_button_icon.xml.flat" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable_com_facebook_button_icon.xml.flat" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable_com_facebook_button_like_background.xml.flat" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable_com_facebook_button_like_background.xml.flat" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable_com_facebook_button_login_background.xml.flat" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable_com_facebook_button_login_background.xml.flat" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable_com_facebook_button_login_logo.xml.flat" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable_com_facebook_button_login_logo.xml.flat" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable_com_facebook_button_login_silver_background.xml.flat" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable_com_facebook_button_login_silver_background.xml.flat" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable_com_facebook_button_send_background.xml.flat" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable_com_facebook_button_send_background.xml.flat" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable_com_facebook_favicon_blue.xml.flat" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable_com_facebook_favicon_blue.xml.flat" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable_com_facebook_send_button_icon.xml.flat" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable_com_facebook_send_button_icon.xml.flat" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable_messenger_button_blue_bg_round.xml.flat" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable_messenger_button_blue_bg_round.xml.flat" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable_messenger_button_blue_bg_selector.xml.flat" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable_messenger_button_blue_bg_selector.xml.flat" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable_messenger_button_white_bg_round.xml.flat" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable_messenger_button_white_bg_round.xml.flat" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable_messenger_button_white_bg_selector.xml.flat" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/drawable_messenger_button_white_bg_selector.xml.flat" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/layout_alert_dialog_login.xml.flat" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/layout_alert_dialog_login.xml.flat" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/layout_com_facebook_activity_layout.xml.flat" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/layout_com_facebook_activity_layout.xml.flat" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/layout_com_facebook_device_auth_dialog_fragment.xml.flat" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/layout_com_facebook_device_auth_dialog_fragment.xml.flat" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/layout_com_facebook_login_fragment.xml.flat" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/layout_com_facebook_login_fragment.xml.flat" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/layout_com_facebook_smart_device_dialog_fragment.xml.flat" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/layout_com_facebook_smart_device_dialog_fragment.xml.flat" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/layout_com_facebook_tooltip_bubble.xml.flat" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/layout_com_facebook_tooltip_bubble.xml.flat" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/layout_messenger_button_send_blue_large.xml.flat" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/layout_messenger_button_send_blue_large.xml.flat" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/layout_messenger_button_send_blue_round.xml.flat" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/layout_messenger_button_send_blue_round.xml.flat" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/layout_messenger_button_send_blue_small.xml.flat" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/layout_messenger_button_send_blue_small.xml.flat" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/layout_messenger_button_send_white_large.xml.flat" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/layout_messenger_button_send_white_large.xml.flat" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/layout_messenger_button_send_white_round.xml.flat" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/layout_messenger_button_send_white_round.xml.flat" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/layout_messenger_button_send_white_small.xml.flat" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/layout_messenger_button_send_white_small.xml.flat" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/values-in_values-in.arsc.flat" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/values-in_values-in.arsc.flat" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/values_values.arsc.flat" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/gmatclub/release/values_values.arsc.flat" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res_stripped/gmatclub/release/resources-gmatclub-release-stripped.ap_" afterPath="$PROJECT_DIR$/app/build/intermediates/res_stripped/gmatclub/release/resources-gmatclub-release-stripped.ap_" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dex/gmatclub/release/0/classes.dex" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dex/gmatclub/release/0/classes.dex" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/mergeJavaRes/gmatclub/release/0.jar" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/mergeJavaRes/gmatclub/release/0.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/proguard/gmatclub/release/0.jar" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/proguard/gmatclub/release/0.jar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build.gradle" afterPath="$PROJECT_DIR$/build.gradle" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.iml" afterPath="$PROJECT_DIR$/app/app.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/generated/res/google-services/gmatclub/release/values/values.xml" afterPath="$PROJECT_DIR$/app/build/generated/res/google-services/gmatclub/release/values/values.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/generated/source/buildConfig/gmatclub/release/com/deepinspire/gmatclub/BuildConfig.java" afterPath="$PROJECT_DIR$/app/build/generated/source/buildConfig/gmatclub/release/com/deepinspire/gmatclub/BuildConfig.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/generated/source/r/gmatclub/release/android/arch/lifecycle/R.java" afterPath="$PROJECT_DIR$/app/build/generated/source/r/gmatclub/release/android/arch/lifecycle/R.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/generated/source/r/gmatclub/release/android/support/compat/R.java" afterPath="$PROJECT_DIR$/app/build/generated/source/r/gmatclub/release/android/support/compat/R.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/generated/source/r/gmatclub/release/android/support/constraint/R.java" afterPath="$PROJECT_DIR$/app/build/generated/source/r/gmatclub/release/android/support/constraint/R.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/generated/source/r/gmatclub/release/android/support/coreui/R.java" afterPath="$PROJECT_DIR$/app/build/generated/source/r/gmatclub/release/android/support/coreui/R.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/generated/source/r/gmatclub/release/android/support/coreutils/R.java" afterPath="$PROJECT_DIR$/app/build/generated/source/r/gmatclub/release/android/support/coreutils/R.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/generated/source/r/gmatclub/release/android/support/customtabs/R.java" afterPath="$PROJECT_DIR$/app/build/generated/source/r/gmatclub/release/android/support/customtabs/R.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/generated/source/r/gmatclub/release/android/support/design/R.java" afterPath="$PROJECT_DIR$/app/build/generated/source/r/gmatclub/release/android/support/design/R.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/generated/source/r/gmatclub/release/android/support/fragment/R.java" afterPath="$PROJECT_DIR$/app/build/generated/source/r/gmatclub/release/android/support/fragment/R.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/generated/source/r/gmatclub/release/android/support/graphics/drawable/R.java" afterPath="$PROJECT_DIR$/app/build/generated/source/r/gmatclub/release/android/support/graphics/drawable/R.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/generated/source/r/gmatclub/release/android/support/graphics/drawable/animated/R.java" afterPath="$PROJECT_DIR$/app/build/generated/source/r/gmatclub/release/android/support/graphics/drawable/animated/R.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/generated/source/r/gmatclub/release/android/support/mediacompat/R.java" afterPath="$PROJECT_DIR$/app/build/generated/source/r/gmatclub/release/android/support/mediacompat/R.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/generated/source/r/gmatclub/release/android/support/transition/R.java" afterPath="$PROJECT_DIR$/app/build/generated/source/r/gmatclub/release/android/support/transition/R.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/generated/source/r/gmatclub/release/android/support/v4/R.java" afterPath="$PROJECT_DIR$/app/build/generated/source/r/gmatclub/release/android/support/v4/R.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/generated/source/r/gmatclub/release/android/support/v7/appcompat/R.java" afterPath="$PROJECT_DIR$/app/build/generated/source/r/gmatclub/release/android/support/v7/appcompat/R.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/generated/source/r/gmatclub/release/android/support/v7/recyclerview/R.java" afterPath="$PROJECT_DIR$/app/build/generated/source/r/gmatclub/release/android/support/v7/recyclerview/R.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/gmatclub/release/multi-v2/release.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/gmatclub/release/multi-v2/release.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/gmatclub/release/multi-v2/values-af.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/gmatclub/release/multi-v2/values-af.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/gmatclub/release/multi-v2/values-ar.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/gmatclub/release/multi-v2/values-ar.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/gmatclub/release/multi-v2/values-bn.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/gmatclub/release/multi-v2/values-bn.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/gmatclub/release/multi-v2/values-cs.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/gmatclub/release/multi-v2/values-cs.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/gmatclub/release/multi-v2/values-da.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/gmatclub/release/multi-v2/values-da.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/gmatclub/release/multi-v2/values-de.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/gmatclub/release/multi-v2/values-de.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/gmatclub/release/multi-v2/values-el.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/gmatclub/release/multi-v2/values-el.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/gmatclub/release/multi-v2/values-en-rGB.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/gmatclub/release/multi-v2/values-en-rGB.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/gmatclub/release/multi-v2/values-es-rES.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/gmatclub/release/multi-v2/values-es-rES.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/gmatclub/release/multi-v2/values-es.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/gmatclub/release/multi-v2/values-es.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/gmatclub/release/multi-v2/values-fi.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/gmatclub/release/multi-v2/values-fi.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/gmatclub/release/multi-v2/values-fr.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/gmatclub/release/multi-v2/values-fr.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/gmatclub/release/multi-v2/values-gu.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/gmatclub/release/multi-v2/values-gu.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/gmatclub/release/multi-v2/values-hi.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/gmatclub/release/multi-v2/values-hi.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/gmatclub/release/multi-v2/values-hr.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/gmatclub/release/multi-v2/values-hr.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/gmatclub/release/multi-v2/values-hu.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/gmatclub/release/multi-v2/values-hu.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/gmatclub/release/multi-v2/values-id.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/gmatclub/release/multi-v2/values-id.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/gmatclub/release/multi-v2/values-in.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/gmatclub/release/multi-v2/values-in.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/gmatclub/release/multi-v2/values-it.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/gmatclub/release/multi-v2/values-it.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/gmatclub/release/multi-v2/values-iw.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/gmatclub/release/multi-v2/values-iw.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/gmatclub/release/multi-v2/values-ja.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/gmatclub/release/multi-v2/values-ja.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/gmatclub/release/multi-v2/values-kn.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/gmatclub/release/multi-v2/values-kn.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/gmatclub/release/multi-v2/values-ko.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/gmatclub/release/multi-v2/values-ko.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/gmatclub/release/multi-v2/values-ml.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/gmatclub/release/multi-v2/values-ml.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/gmatclub/release/multi-v2/values-mr.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/gmatclub/release/multi-v2/values-mr.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/gmatclub/release/multi-v2/values-ms.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/gmatclub/release/multi-v2/values-ms.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/gmatclub/release/multi-v2/values-nb.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/gmatclub/release/multi-v2/values-nb.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/gmatclub/release/multi-v2/values-nl.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/gmatclub/release/multi-v2/values-nl.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/gmatclub/release/multi-v2/values-pa.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/gmatclub/release/multi-v2/values-pa.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/gmatclub/release/multi-v2/values-pl.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/gmatclub/release/multi-v2/values-pl.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/gmatclub/release/multi-v2/values-pt-rPT.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/gmatclub/release/multi-v2/values-pt-rPT.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/gmatclub/release/multi-v2/values-pt.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/gmatclub/release/multi-v2/values-pt.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/gmatclub/release/multi-v2/values-ru.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/gmatclub/release/multi-v2/values-ru.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/gmatclub/release/multi-v2/values-sk.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/gmatclub/release/multi-v2/values-sk.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/gmatclub/release/multi-v2/values-sv.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/gmatclub/release/multi-v2/values-sv.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/gmatclub/release/multi-v2/values-ta.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/gmatclub/release/multi-v2/values-ta.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/gmatclub/release/multi-v2/values-te.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/gmatclub/release/multi-v2/values-te.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/gmatclub/release/multi-v2/values-th.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/gmatclub/release/multi-v2/values-th.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/gmatclub/release/multi-v2/values-tl.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/gmatclub/release/multi-v2/values-tl.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/gmatclub/release/multi-v2/values-tr.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/gmatclub/release/multi-v2/values-tr.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/gmatclub/release/multi-v2/values-vi.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/gmatclub/release/multi-v2/values-vi.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/gmatclub/release/multi-v2/values-zh-rCN.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/gmatclub/release/multi-v2/values-zh-rCN.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/gmatclub/release/multi-v2/values-zh-rHK.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/gmatclub/release/multi-v2/values-zh-rHK.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/gmatclub/release/multi-v2/values-zh-rTW.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/gmatclub/release/multi-v2/values-zh-rTW.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/gmatclub/release/multi-v2/values.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/gmatclub/release/multi-v2/values.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/gmatclub/release/single/release.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/gmatclub/release/single/release.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeGmatclubReleaseResources/compile-file-map.properties" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeGmatclubReleaseResources/compile-file-map.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeGmatclubReleaseResources/merger.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeGmatclubReleaseResources/merger.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/packageGmatclubRelease/gmatclubRelease/dex-renamer-state.txt" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/packageGmatclubRelease/gmatclubRelease/dex-renamer-state.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/packageGmatclubRelease/gmatclubRelease/file-input-save-data.txt" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/packageGmatclubRelease/gmatclubRelease/file-input-save-data.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/manifests/full/gmatclub/release/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/manifests/full/gmatclub/release/AndroidManifest.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/manifests/full/gmatclub/release/output.json" afterPath="$PROJECT_DIR$/app/build/intermediates/manifests/full/gmatclub/release/output.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/manifests/instant-run/gmatclub/release/output.json" afterPath="$PROJECT_DIR$/app/build/intermediates/manifests/instant-run/gmatclub/release/output.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/merged-not-compiled-resources/gmatclub/release/layout/alert_dialog_login.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/merged-not-compiled-resources/gmatclub/release/layout/alert_dialog_login.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/merged-not-compiled-resources/gmatclub/release/values-in/values-in.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/merged-not-compiled-resources/gmatclub/release/values-in/values-in.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/merged-not-compiled-resources/gmatclub/release/values/values.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/merged-not-compiled-resources/gmatclub/release/values/values.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/proguard-rules/gmatclub/release/aapt_rules.txt" afterPath="$PROJECT_DIR$/app/build/intermediates/proguard-rules/gmatclub/release/aapt_rules.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/gmatclub/release/output.json" afterPath="$PROJECT_DIR$/app/build/intermediates/res/gmatclub/release/output.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/symbol-table-with-package/gmatclub/release/package-aware-r.txt" afterPath="$PROJECT_DIR$/app/build/intermediates/res/symbol-table-with-package/gmatclub/release/package-aware-r.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res_stripped/gmatclub/release/output.json" afterPath="$PROJECT_DIR$/app/build/intermediates/res_stripped/gmatclub/release/output.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/symbols/gmatclub/release/R.txt" afterPath="$PROJECT_DIR$/app/build/intermediates/symbols/gmatclub/release/R.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dex/gmatclub/release/__content__.json" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dex/gmatclub/release/__content__.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/mergeJavaRes/gmatclub/release/__content__.json" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/mergeJavaRes/gmatclub/release/__content__.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/mergeJniLibs/gmatclub/release/__content__.json" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/mergeJniLibs/gmatclub/release/__content__.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/proguard/gmatclub/release/__content__.json" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/proguard/gmatclub/release/__content__.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/outputs/logs/manifest-merger-gmatclub-release-report.txt" afterPath="$PROJECT_DIR$/app/build/outputs/logs/manifest-merger-gmatclub-release-report.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/outputs/mapping/gmatclub/release/dump.txt" afterPath="$PROJECT_DIR$/app/build/outputs/mapping/gmatclub/release/dump.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/outputs/mapping/gmatclub/release/mapping.txt" afterPath="$PROJECT_DIR$/app/build/outputs/mapping/gmatclub/release/mapping.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/outputs/mapping/gmatclub/release/resources.txt" afterPath="$PROJECT_DIR$/app/build/outputs/mapping/gmatclub/release/resources.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/outputs/mapping/gmatclub/release/seeds.txt" afterPath="$PROJECT_DIR$/app/build/outputs/mapping/gmatclub/release/seeds.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/outputs/mapping/gmatclub/release/usage.txt" afterPath="$PROJECT_DIR$/app/build/outputs/mapping/gmatclub/release/usage.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/reports/lint-results-gmatclubRelease-fatal.html" afterPath="$PROJECT_DIR$/app/build/reports/lint-results-gmatclubRelease-fatal.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/auth/AuthActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/auth/AuthActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/auth/IAuthContract.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/auth/IAuthContract.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/utils/ViewHelper.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/utils/ViewHelper.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/web/WebActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/web/WebActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/alert_dialog_login.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/alert_dialog_login.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -116,11 +491,136 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="build.gradle" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/build.gradle">
+      <file leaf-file-name="alert_dialog_login.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/alert_dialog_login.xml">
+          <provider selected="true" editor-type-id="android-designer2">
+            <state />
+          </provider>
+          <provider editor-type-id="text-editor">
+            <state relative-caret-position="363">
+              <caret line="135" column="30" lean-forward="false" selection-start-line="135" selection-start-column="30" selection-end-line="135" selection-end-column="30" />
+              <folding>
+                <element signature="e#993#1015#0" expanded="true" />
+                <element signature="e#1282#1320#0" expanded="true" />
+                <element signature="e#2245#2267#0" expanded="true" />
+                <element signature="e#3086#3104#0" expanded="true" />
+                <element signature="e#4090#4106#0" expanded="true" />
+                <element signature="e#4706#4728#0" expanded="true" />
+                <element signature="e#5754#5766#0" expanded="true" />
+                <element signature="e#7388#7419#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ViewHelper.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/utils/ViewHelper.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="474">
-              <caret line="30" column="22" lean-forward="false" selection-start-line="30" selection-start-column="22" selection-end-line="30" selection-end-column="22" />
+            <state relative-caret-position="300">
+              <caret line="166" column="24" lean-forward="false" selection-start-line="166" selection-start-column="24" selection-end-line="166" selection-end-column="24" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1457#1653#0" expanded="true" />
+                <element signature="e#1652#1653#0" expanded="true" />
+                <element signature="e#1698#2059#0" expanded="true" />
+                <element signature="e#2058#2059#0" expanded="true" />
+                <element signature="e#2837#6757#0" expanded="true" />
+                <element signature="e#6756#6757#0" expanded="true" />
+                <element signature="e#6941#7365#0" expanded="true" />
+                <element signature="e#7364#7365#0" expanded="true" />
+                <element signature="method#showProfileAuthDialog#0;class#ViewHelper#0" expanded="false" />
+                <element signature="e#19087#19239#0" expanded="true" />
+                <element signature="e#19238#19239#0" expanded="true" />
+                <element signature="method#showSuccess#0;class#ViewHelper#0" expanded="false" />
+                <element signature="method#setLoadingIndicator#1;class#ViewHelper#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AndroidManifest.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+          <provider editor-type-id="android-manifest">
+            <state />
+          </provider>
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1860">
+              <caret line="93" column="45" lean-forward="false" selection-start-line="93" selection-start-column="45" selection-end-line="93" selection-end-column="45" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AuthActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/auth/AuthActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="434">
+              <caret line="188" column="0" lean-forward="false" selection-start-line="188" selection-start-column="0" selection-end-line="188" selection-end-column="0" />
+              <folding>
+                <element signature="e#6262#6263#0" expanded="true" />
+                <element signature="e#6311#6312#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="WebActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/web/WebActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="183">
+              <caret line="1264" column="0" lean-forward="false" selection-start-line="1264" selection-start-column="0" selection-end-line="1264" selection-end-column="0" />
+              <folding>
+                <element signature="method#dispatchTouchEvent#0;class#WebActivity#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="IWebContract.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/web/IWebContract.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="800">
+              <caret line="43" column="23" lean-forward="false" selection-start-line="43" selection-start-column="23" selection-end-line="43" selection-end-column="23" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AuthPresenter.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/auth/AuthPresenter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="140">
+              <caret line="13" column="7" lean-forward="false" selection-start-line="13" selection-start-column="7" selection-end-line="13" selection-end-column="7" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FacebookActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/auth/FacebookActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="80">
+              <caret line="21" column="13" lean-forward="false" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="IAuthContract.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/auth/IAuthContract.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="260">
+              <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="strings.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="664">
+              <caret line="64" column="46" lean-forward="false" selection-start-line="64" selection-start-column="46" selection-end-line="64" selection-end-column="46" />
               <folding />
             </state>
           </provider>
@@ -140,9 +640,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>lastBlockMap</find>
-      <find>string</find>
-      <find>signIn</find>
       <find>goByMenu</find>
       <find>access_token</find>
       <find>json</find>
@@ -170,6 +667,9 @@
       <find>setOnDismissListener</find>
       <find>alertDialog.di</find>
       <find>setLo</find>
+      <find>signIn</find>
+      <find>login</find>
+      <find>signIn(</find>
     </findStrings>
     <replaceStrings>
       <replace>goByMenu</replace>
@@ -2804,8 +3304,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/utils/Validator.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/utils/WebviewCookieHandler.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/GCConfig.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/Application.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/notifications/GCFirebaseInstanceIDService.java" />
@@ -2824,13 +3322,11 @@
         <option value="$PROJECT_DIR$/app/src/main/res/layout/alert_dialog_forgot_password.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/font/opensans_regular_custom.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/font/opensans_bold_custom.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/alert_dialog_login.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/font/opensans_semibold_custom.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_web.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/api/ApiClient.java" />
         <option value="$PROJECT_DIR$/app/proguard-rules.pro" />
         <option value="$PROJECT_DIR$/app/google-services.json" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/auth/IAuthContract.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/auth/AuthPresenter.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/api/AuthException.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/utils/FieldWatcher.java" />
@@ -2844,17 +3340,21 @@
         <option value="$PROJECT_DIR$/app/build.gradle" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/navigation_view.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/alert_dialog_profile_auth.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/auth/AuthActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/content_auth.xml" />
         <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/api/Api.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/web/WebPresenter.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/web/IWebContract.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/alert_dialog_offline.xml" />
+        <option value="$PROJECT_DIR$/build.gradle" />
+        <option value="$PROJECT_DIR$/app/src/main/res/drawable/background_button_login.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/drawable/background_button_facebook.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/alert_dialog_login.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/auth/AuthActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/auth/IAuthContract.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/utils/ViewHelper.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/web/WebActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/alert_dialog_offline.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
-        <option value="$PROJECT_DIR$/build.gradle" />
       </list>
     </option>
   </component>
@@ -2880,8 +3380,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -3031,6 +3529,36 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="layout" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="android" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="android" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="drawable" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -3371,43 +3899,11 @@
               <option name="myItemId" value="gmatclub" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="release" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="android" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="android" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="build" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="outputs" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="apk" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="gmatclub" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="PackagesPane" />
       <pane id="AndroidView">
         <subPane>
@@ -3492,11 +3988,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/src/main/res/drawable" />
       <recent name="$PROJECT_DIR$/app/src/main/res/layout" />
       <recent name="$PROJECT_DIR$/app/src/main/assets" />
       <recent name="$PROJECT_DIR$/app/src/main/res/font" />
       <recent name="$PROJECT_DIR$/app/src/main/res/fonts" />
-      <recent name="$PROJECT_DIR$/app" />
     </key>
     <key name="android.template.packageName">
       <recent name="com.deepinspire.gmatclub" />
@@ -3594,8 +4090,7 @@
       <option name="DEEP_LINK" value="" />
       <option name="ACTIVITY_CLASS" value="com.deepinspire.gmatclub.auth.AuthActivity" />
       <method>
-        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1537863361247" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1537875161784" />
       </method>
     </configuration>
     <configuration default="false" name="gmatclub [signingReport]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
@@ -3685,8 +4180,7 @@
       <option name="DEEP_LINK" value="" />
       <option name="ACTIVITY_CLASS" value="" />
       <method>
-        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1537863361247" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1537875161784" />
       </method>
     </configuration>
     <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Instrumented Tests">
@@ -3733,8 +4227,7 @@
         <option name="ADVANCED_PROFILING_ENABLED" value="false" />
       </Profilers>
       <method>
-        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1537863361247" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1537875161784" />
       </method>
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -3766,6 +4259,27 @@
         </option>
         <option name="vmOptions" />
       </ExternalSystemSettings>
+      <method />
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
       <method />
     </configuration>
     <configuration default="true" type="JarApplication" factoryName="JAR Application">
@@ -3895,8 +4409,7 @@
       <option name="DEEP_LINK" value="" />
       <option name="ACTIVITY_CLASS" value="" />
       <method>
-        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1537863361248" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1537875161785" />
       </method>
     </configuration>
     <list size="4">
@@ -3958,61 +4471,38 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="25" width="1853" height="1055" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info id="Android Profiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.25674218" sideWeight="0.4980631" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.49894738" sideWeight="0.49649218" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2245008" sideWeight="0.3631579" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.49894738" sideWeight="0.50350785" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4063158" sideWeight="0.49584946" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32901832" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4875944" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Logcat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34736842" sideWeight="0.4969563" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.6831579" sideWeight="0.5019369" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2245008" sideWeight="0.63684213" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.14786832" sideWeight="0.495671" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24986508" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.42" sideWeight="0.91034865" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Device File Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32982844" sideWeight="0.504329" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27954668" sideWeight="0.33480176" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Android Profiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25674218" sideWeight="0.4980631" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2245008" sideWeight="0.3326316" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.49894738" sideWeight="0.50350785" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Logcat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3273684" sideWeight="0.4969563" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24986508" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Device File Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32982844" sideWeight="0.504329" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5726316" sideWeight="0.91034865" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.49894738" sideWeight="0.49649218" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31789473" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2245008" sideWeight="0.3431579" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.49894738" sideWeight="0.50350785" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3416082" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4063158" sideWeight="0.49584946" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32901832" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4875944" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Logcat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3273684" sideWeight="0.4969563" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.6831579" sideWeight="0.5019369" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2245008" sideWeight="0.6673684" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.54421055" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2245008" sideWeight="0.6568421" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.14786832" sideWeight="0.495671" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24986508" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Device File Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32982844" sideWeight="0.504329" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5726316" sideWeight="0.91034865" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27954668" sideWeight="0.33480176" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.54421055" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Android Profiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25674218" sideWeight="0.4980631" order="7" side_tool="false" content_ui="tabs" />
@@ -4062,49 +4552,49 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/utils/ViewHelper.java</url>
-          <line>613</line>
+          <line>628</line>
           <properties />
           <option name="timeStamp" value="726" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/utils/ViewHelper.java</url>
-          <line>641</line>
+          <line>656</line>
           <properties />
           <option name="timeStamp" value="727" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/utils/ViewHelper.java</url>
-          <line>644</line>
+          <line>659</line>
           <properties />
           <option name="timeStamp" value="728" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/utils/ViewHelper.java</url>
-          <line>654</line>
+          <line>669</line>
           <properties />
           <option name="timeStamp" value="729" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/utils/ViewHelper.java</url>
-          <line>627</line>
+          <line>642</line>
           <properties />
           <option name="timeStamp" value="730" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/utils/ViewHelper.java</url>
-          <line>634</line>
+          <line>649</line>
           <properties />
           <option name="timeStamp" value="731" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/web/WebActivity.java</url>
-          <line>1990</line>
+          <line>1994</line>
           <properties />
           <option name="timeStamp" value="732" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/web/WebActivity.java</url>
-          <line>1986</line>
+          <line>1990</line>
           <properties />
           <option name="timeStamp" value="733" />
         </line-breakpoint>
@@ -4120,12 +4610,6 @@
           <properties />
           <option name="timeStamp" value="736" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/web/WebActivity.java</url>
-          <line>1250</line>
-          <properties />
-          <option name="timeStamp" value="738" />
-        </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
@@ -4140,76 +4624,24 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/content_web.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="349">
-          <caret line="71" column="23" lean-forward="false" selection-start-line="71" selection-start-column="23" selection-end-line="71" selection-end-column="23" />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/view_alertsbadge.xml">
+      <provider selected="true" editor-type-id="android-designer2">
         <state />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/utils/GCWebView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="367">
-          <caret line="37" column="16" lean-forward="false" selection-start-line="37" selection-start-column="16" selection-end-line="37" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/notifications/Notifications.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="26" column="19" lean-forward="false" selection-start-line="26" selection-start-column="19" selection-end-line="26" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/api/ApiClient.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="274">
-          <caret line="28" column="42" lean-forward="false" selection-start-line="28" selection-start-column="42" selection-end-line="28" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/assets/notifications.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3860">
-          <caret line="193" column="29" lean-forward="false" selection-start-line="193" selection-start-column="16" selection-end-line="193" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/api/ReceivedCookiesInterceptor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="460">
-          <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/utils/FieldWatcher.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="163">
-          <caret line="26" column="0" lean-forward="false" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/view_alertsbadge.xml">
       <provider editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
-      </provider>
-      <provider selected="true" editor-type-id="android-designer2">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/toolbar.xml">
+      <provider selected="true" editor-type-id="android-designer2">
+        <state />
+      </provider>
       <provider editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
-      </provider>
-      <provider selected="true" editor-type-id="android-designer2">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/local.properties">
@@ -4231,13 +4663,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="178">
           <caret line="5427" column="28" lean-forward="false" selection-start-line="5427" selection-start-column="28" selection-end-line="5427" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/colors.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -4325,30 +4750,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/alert_dialog_profile_auth.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1460">
-          <caret line="73" column="31" lean-forward="false" selection-start-line="73" selection-start-column="31" selection-end-line="73" selection-end-column="31" />
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/navigation_view.xml">
       <provider editor-type-id="android-designer2">
         <state />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/navigation_view.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3200">
           <caret line="160" column="55" lean-forward="false" selection-start-line="160" selection-start-column="55" selection-end-line="160" selection-end-column="55" />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/auth/AuthPresenter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="980">
-          <caret line="67" column="26" lean-forward="false" selection-start-line="67" selection-start-column="26" selection-end-line="67" selection-end-column="26" />
         </state>
       </provider>
     </entry>
@@ -4373,33 +4781,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/auth/AuthActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
-          <caret line="88" column="40" lean-forward="false" selection-start-line="88" selection-start-column="40" selection-end-line="88" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_auth.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="160">
           <caret line="8" column="35" lean-forward="true" selection-start-line="8" selection-start-column="35" selection-end-line="8" selection-end-column="35" />
         </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/content_auth.xml">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="1020">
-          <caret line="51" column="38" lean-forward="false" selection-start-line="51" selection-start-column="38" selection-end-line="51" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="android-designer2">
-        <state />
       </provider>
     </entry>
     <entry file="file://$USER_HOME$/Android/Sdk/sources/android-26/android/webkit/WebView.java">
@@ -4425,14 +4814,14 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/alert_dialog_profile_anon.xml">
+      <provider selected="true" editor-type-id="android-designer2">
+        <state />
+      </provider>
       <provider editor-type-id="text-editor">
         <state relative-caret-position="1260">
           <caret line="63" column="0" lean-forward="false" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
           <folding />
         </state>
-      </provider>
-      <provider selected="true" editor-type-id="android-designer2">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/Application.java">
@@ -4454,62 +4843,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1460">
-          <caret line="73" column="66" lean-forward="false" selection-start-line="73" selection-start-column="66" selection-end-line="73" selection-end-column="66" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-manifest">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/web/WebPresenter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4360">
           <caret line="262" column="16" lean-forward="false" selection-start-line="262" selection-start-column="16" selection-end-line="262" selection-end-column="39" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#1358#1359#0" expanded="false" />
-            <element signature="e#1403#1404#0" expanded="false" />
-            <element signature="e#1657#1658#0" expanded="false" />
-            <element signature="e#1704#1705#0" expanded="false" />
-            <element signature="e#1901#1902#0" expanded="false" />
-            <element signature="e#1946#1947#0" expanded="false" />
-            <element signature="e#2028#2029#0" expanded="false" />
-            <element signature="e#2085#2086#0" expanded="false" />
-            <element signature="e#2366#2367#0" expanded="false" />
-            <element signature="e#2423#2424#0" expanded="false" />
-            <element signature="e#2505#2506#0" expanded="false" />
-            <element signature="e#2562#2563#0" expanded="false" />
-            <element signature="e#2760#2761#0" expanded="false" />
-            <element signature="e#2826#2827#0" expanded="false" />
-            <element signature="e#2908#2909#0" expanded="false" />
-            <element signature="e#2965#2966#0" expanded="false" />
-            <element signature="e#3151#3152#0" expanded="false" />
-            <element signature="e#3197#3198#0" expanded="false" />
-            <element signature="e#3248#3249#0" expanded="false" />
-            <element signature="e#3303#3304#0" expanded="false" />
-            <element signature="e#3344#3345#0" expanded="false" />
-            <element signature="e#3389#3390#0" expanded="false" />
-            <element signature="e#4717#4718#0" expanded="false" />
-            <element signature="e#4767#4768#0" expanded="false" />
-            <element signature="e#5534#5535#0" expanded="false" />
-            <element signature="e#5573#5574#0" expanded="false" />
-            <element signature="e#5602#5603#0" expanded="false" />
-            <element signature="e#5645#5646#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/web/IWebContract.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="800">
-          <caret line="43" column="23" lean-forward="false" selection-start-line="43" selection-start-column="23" selection-end-line="43" selection-end-column="23" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -4523,78 +4860,226 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/alert_dialog_offline.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="13" column="33" lean-forward="false" selection-start-line="13" selection-start-column="33" selection-end-line="13" selection-end-column="33" />
+          <folding>
+            <element signature="e#936#966#0" expanded="false" />
+            <element signature="e#1475#1513#0" expanded="false" />
+            <element signature="e#2280#2320#0" expanded="false" />
+            <element signature="e#2650#2681#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/dimens.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="40">
+          <caret line="2" column="17" lean-forward="false" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/mystyle_for_button_sign_in.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="440">
+          <caret line="22" column="36" lean-forward="true" selection-start-line="22" selection-start-column="36" selection-end-line="22" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/values/styles.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="307">
+        <state relative-caret-position="288">
           <caret line="154" column="17" lean-forward="false" selection-start-line="154" selection-start-column="17" selection-end-line="154" selection-end-column="17" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/utils/ViewHelper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="354">
-          <caret line="623" column="0" lean-forward="false" selection-start-line="623" selection-start-column="0" selection-end-line="623" selection-end-column="0" />
-          <folding>
-            <element signature="method#showProfileAuthDialog#0;class#ViewHelper#0" expanded="false" />
-            <element signature="method#showSuccess#0;class#ViewHelper#0" expanded="false" />
-            <element signature="method#setLoadingIndicator#1;class#ViewHelper#0" expanded="false" />
-            <element signature="e#26143#26324#0" expanded="true" />
-            <element signature="e#26323#26324#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/web/WebActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="47">
-          <caret line="1095" column="16" lean-forward="false" selection-start-line="1095" selection-start-column="16" selection-end-line="1095" selection-end-column="16" />
-          <folding>
-            <element signature="e#7625#7626#0" expanded="true" />
-            <element signature="method#dispatchTouchEvent#0;class#WebActivity#0" expanded="false" />
-            <element signature="e#61288#61289#0" expanded="true" />
-            <element signature="e#76771#76772#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/alert_dialog_offline.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="13" column="33" lean-forward="false" selection-start-line="13" selection-start-column="33" selection-end-line="13" selection-end-column="33" />
-          <folding>
-            <element signature="e#936#966#0" expanded="true" />
-            <element signature="e#1475#1513#0" expanded="true" />
-            <element signature="e#2280#2320#0" expanded="true" />
-            <element signature="e#2650#2681#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/background_button_login.xml">
+      <provider selected="true" editor-type-id="android-designer2">
         <state />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="624">
-          <caret line="54" column="41" lean-forward="false" selection-start-line="54" selection-start-column="41" selection-end-line="54" selection-end-column="41" />
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="4" column="30" lean-forward="false" selection-start-line="4" selection-start-column="30" selection-end-line="4" selection-end-column="30" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/build.gradle">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/background_button_facebook.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="743">
-          <caret line="136" column="61" lean-forward="false" selection-start-line="136" selection-start-column="61" selection-end-line="136" selection-end-column="61" />
+        <state relative-caret-position="40">
+          <caret line="2" column="26" lean-forward="false" selection-start-line="2" selection-start-column="26" selection-end-line="2" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/content_auth.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="403">
+          <caret line="144" column="11" lean-forward="false" selection-start-line="144" selection-start-column="11" selection-end-line="150" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/alert_dialog_profile_auth.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="223">
+          <caret line="64" column="10" lean-forward="false" selection-start-line="64" selection-start-column="10" selection-end-line="70" selection-end-column="60" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="664">
+          <caret line="64" column="46" lean-forward="false" selection-start-line="64" selection-start-column="46" selection-end-line="64" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/colors.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="8" column="17" lean-forward="false" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/alert_dialog_login.xml">
+      <provider selected="true" editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="363">
+          <caret line="135" column="30" lean-forward="false" selection-start-line="135" selection-start-column="30" selection-end-line="135" selection-end-column="30" />
+          <folding>
+            <element signature="e#993#1015#0" expanded="true" />
+            <element signature="e#1282#1320#0" expanded="true" />
+            <element signature="e#2245#2267#0" expanded="true" />
+            <element signature="e#3086#3104#0" expanded="true" />
+            <element signature="e#4090#4106#0" expanded="true" />
+            <element signature="e#4706#4728#0" expanded="true" />
+            <element signature="e#5754#5766#0" expanded="true" />
+            <element signature="e#7388#7419#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/auth/AuthPresenter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="13" column="7" lean-forward="false" selection-start-line="13" selection-start-column="7" selection-end-line="13" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/auth/FacebookActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="21" column="13" lean-forward="false" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/auth/IAuthContract.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="474">
+        <state relative-caret-position="600">
           <caret line="30" column="22" lean-forward="false" selection-start-line="30" selection-start-column="22" selection-end-line="30" selection-end-column="22" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="563">
+          <caret line="127" column="53" lean-forward="true" selection-start-line="127" selection-start-column="53" selection-end-line="127" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+      <provider editor-type-id="android-manifest">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1860">
+          <caret line="93" column="45" lean-forward="false" selection-start-line="93" selection-start-column="45" selection-end-line="93" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/auth/AuthActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="434">
+          <caret line="188" column="0" lean-forward="false" selection-start-line="188" selection-start-column="0" selection-end-line="188" selection-end-column="0" />
+          <folding>
+            <element signature="e#6262#6263#0" expanded="true" />
+            <element signature="e#6311#6312#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/web/IWebContract.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="800">
+          <caret line="43" column="23" lean-forward="false" selection-start-line="43" selection-start-column="23" selection-end-line="43" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/web/WebActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="183">
+          <caret line="1264" column="0" lean-forward="false" selection-start-line="1264" selection-start-column="0" selection-end-line="1264" selection-end-column="0" />
+          <folding>
+            <element signature="method#dispatchTouchEvent#0;class#WebActivity#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/utils/ViewHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="166" column="24" lean-forward="false" selection-start-line="166" selection-start-column="24" selection-end-line="166" selection-end-column="24" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1457#1653#0" expanded="true" />
+            <element signature="e#1652#1653#0" expanded="true" />
+            <element signature="e#1698#2059#0" expanded="true" />
+            <element signature="e#2058#2059#0" expanded="true" />
+            <element signature="e#2837#6757#0" expanded="true" />
+            <element signature="e#6756#6757#0" expanded="true" />
+            <element signature="e#6941#7365#0" expanded="true" />
+            <element signature="e#7364#7365#0" expanded="true" />
+            <element signature="method#showProfileAuthDialog#0;class#ViewHelper#0" expanded="false" />
+            <element signature="e#19087#19239#0" expanded="true" />
+            <element signature="e#19238#19239#0" expanded="true" />
+            <element signature="method#showSuccess#0;class#ViewHelper#0" expanded="false" />
+            <element signature="method#setLoadingIndicator#1;class#ViewHelper#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

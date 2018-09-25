@@ -71,9 +71,9 @@ public class ViewHelper {
             }
         });
 
-        TextView signInButton = (TextView) dialogLayout.findViewById(R.id.signInButton);
+        LinearLayout signInButtonLayout = (LinearLayout) dialogLayout.findViewById(R.id.signInButtonLayout);
 
-        signInButton.setOnClickListener(new View.OnClickListener() {
+        signInButtonLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 TextView errorMessage = (TextView) dialogLayout.findViewById(R.id.errorMessage);
@@ -152,6 +152,21 @@ public class ViewHelper {
                     }
                 }
 
+            }
+        });
+
+        LinearLayout signInButtonFacebookLayout = (LinearLayout) dialogLayout.findViewById(R.id.signInButtonFacebookLayout);
+
+        signInButtonFacebookLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(activity instanceof AuthActivity) {
+                    alertDialog.dismiss();
+                    alertDialog = null;
+                    ((AuthActivity) activity).signInFacebook();
+                } else {
+                    ((WebActivity) activity).signInFacebook();
+                }
             }
         });
 

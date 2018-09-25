@@ -149,45 +149,7 @@ public class AuthActivity extends AppCompatActivity implements IAuthContract.Vie
                 startActivityForResult(signInIntent, GCConfig.GOOGLE_SIGN_IN);
                 break;
             case R.id.layoutSignInFacebook:
-                ViewHelper.showFacebookSignInDialog(AuthActivity.this);
-
-                ViewHelper.setLoadingIndicator(true);
-
-                callbackManager = CallbackManager.Factory.create();
-
-                LoginManager.getInstance().registerCallback(callbackManager,
-                        new FacebookCallback<LoginResult>() {
-                            @Override
-                            public void onSuccess(LoginResult loginResult) {
-                                AccessToken token = AccessToken.getCurrentAccessToken();
-
-                                if(token != null) {
-                                    String idToken = token.getToken();//token.getUserId();
-                                    String accessToken = token.getToken();
-
-                                    long expiresIn = token.getExpires().getTime();
-
-                                    callbackManager = null;
-
-                                    presenter.signIn("facebook", idToken, accessToken, Long.toString(expiresIn));
-                                }
-                            }
-
-                            @Override
-                            public void onCancel() {
-                                if(ViewHelper.alertDialog != null) {
-                                    ViewHelper.alertDialog.dismiss();
-                                }
-                            }
-
-                            @Override
-                            public void onError(FacebookException exception) {
-                                AuthException ex = new AuthException(new Exception("Failed sign in facebook"), "signInFacebook");
-                                ViewHelper.showError(ex);
-                            }
-                        });
-
-                LoginManager.getInstance().logInWithReadPermissions(AuthActivity.this, Arrays.asList("public_profile"));
+                signInFacebook();
                 break;
             case R.id.layoutSignIn:
                 ViewHelper.showLoginDialog(AuthActivity.this);
@@ -210,6 +172,48 @@ public class AuthActivity extends AppCompatActivity implements IAuthContract.Vie
 
     public void signIn(String login, String password) {
         presenter.signIn(login, password);
+    }
+
+    public void signInFacebook() {
+        ViewHelper.showFacebookSignInDialog(AuthActivity.this);
+
+        ViewHelper.setLoadingIndicator(true);
+
+        callbackManager = CallbackManager.Factory.create();
+
+        LoginManager.getInstance().registerCallback(callbackManager,
+                new FacebookCallback<LoginResult>() {
+                    @Override
+                    public void onSuccess(LoginResult loginResult) {
+                        AccessToken token = AccessToken.getCurrentAccessToken();
+
+                        if(token != null) {
+                            String idToken = token.getToken();//token.getUserId();
+                            String accessToken = token.getToken();
+
+                            long expiresIn = token.getExpires().getTime();
+
+                            callbackManager = null;
+
+                            presenter.signIn("facebook", idToken, accessToken, Long.toString(expiresIn));
+                        }
+                    }
+
+                    @Override
+                    public void onCancel() {
+                        if(ViewHelper.alertDialog != null) {
+                            ViewHelper.alertDialog.dismiss();
+                        }
+                    }
+
+                    @Override
+                    public void onError(FacebookException exception) {
+                        AuthException ex = new AuthException(new Exception("Failed sign in facebook"), "signInFacebook");
+                        ViewHelper.showError(ex);
+                    }
+                });
+
+        LoginManager.getInstance().logInWithReadPermissions(AuthActivity.this, Arrays.asList("public_profile"));
     }
 
     public void forgotPassword(String email) {
