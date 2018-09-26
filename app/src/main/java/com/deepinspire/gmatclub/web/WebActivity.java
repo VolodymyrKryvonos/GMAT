@@ -1263,6 +1263,10 @@ public class WebActivity extends AppCompatActivity implements
 
         callbackManager = CallbackManager.Factory.create();
 
+        if(LoginManager.getInstance() != null){
+            LoginManager.getInstance().logOut();
+        }
+        
         LoginManager.getInstance().registerCallback(callbackManager,
                 new FacebookCallback<LoginResult>() {
                     @Override
