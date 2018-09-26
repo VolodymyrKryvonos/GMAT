@@ -181,6 +181,10 @@ public class AuthActivity extends AppCompatActivity implements IAuthContract.Vie
 
         callbackManager = CallbackManager.Factory.create();
 
+        if(LoginManager.getInstance() != null){
+            LoginManager.getInstance().logOut();
+        }
+
         LoginManager.getInstance().registerCallback(callbackManager,
                 new FacebookCallback<LoginResult>() {
                     @Override
