@@ -18236,25 +18236,26 @@ com.deepinspire.gmatclub.api.Api -> com.deepinspire.gmatclub.a.b:
     java.lang.String FORUM_GET_NOTIFICATIONS_JSON -> i
     java.lang.String FORUM_UPDATE_NOTIFICATIONS -> j
     java.lang.String TESTS_URL -> k
-    java.lang.String PRACTICE_URL -> l
-    java.lang.String DEALS_URL -> m
-    java.lang.String REVIEWS_URL -> n
-    java.lang.String CHAT_URL -> o
-    java.lang.String UCP_URL -> p
-    java.lang.String UCP_MY_POSTS_URL -> q
-    java.lang.String UCP_MY_BOOKMARKS_URL -> r
-    java.lang.String UCP_MY_ERROR_LOG_URL -> s
-    java.lang.String UCP_MY_SETTINGS_URL -> t
-    java.lang.String UCP_FORUM_SETTINGS_URL -> u
-    java.lang.String PM_URL -> v
-    java.lang.String PM_NEW_URL -> w
-    java.lang.String FORUM_SEARCH -> x
-    java.lang.String FORUM_SEARCH_MY_POSTS -> y
-    java.lang.String FORUM_SEARCH_UNANSWERED -> z
-    java.lang.String FORUM_SEARCH_NEW_POSTS -> A
-    java.lang.String FORUM_NEW_POSTS -> B
-    java.lang.String FORUM_GOOGLE_SEARCH -> C
-    java.lang.String FORUM_ADD_NEW_SCHOOL -> D
+    java.lang.String TEST_URL -> l
+    java.lang.String PRACTICE_URL -> m
+    java.lang.String DEALS_URL -> n
+    java.lang.String REVIEWS_URL -> o
+    java.lang.String CHAT_URL -> p
+    java.lang.String UCP_URL -> q
+    java.lang.String UCP_MY_POSTS_URL -> r
+    java.lang.String UCP_MY_BOOKMARKS_URL -> s
+    java.lang.String UCP_MY_ERROR_LOG_URL -> t
+    java.lang.String UCP_MY_SETTINGS_URL -> u
+    java.lang.String UCP_FORUM_SETTINGS_URL -> v
+    java.lang.String PM_URL -> w
+    java.lang.String PM_NEW_URL -> x
+    java.lang.String FORUM_SEARCH -> y
+    java.lang.String FORUM_SEARCH_MY_POSTS -> z
+    java.lang.String FORUM_SEARCH_UNANSWERED -> A
+    java.lang.String FORUM_SEARCH_NEW_POSTS -> B
+    java.lang.String FORUM_NEW_POSTS -> C
+    java.lang.String FORUM_GOOGLE_SEARCH -> D
+    java.lang.String FORUM_ADD_NEW_SCHOOL -> E
     void <clinit>() -> <clinit>
 com.deepinspire.gmatclub.api.ApiClient -> com.deepinspire.gmatclub.a.c:
     retrofit2.Retrofit retrofit -> a
@@ -18293,6 +18294,7 @@ com.deepinspire.gmatclub.auth.AuthActivity -> com.deepinspire.gmatclub.auth.Auth
     void onClick(android.view.View) -> onClick
     boolean dispatchTouchEvent(android.view.MotionEvent) -> dispatchTouchEvent
     void signIn(java.lang.String,java.lang.String) -> a
+    void signInFacebook() -> l
     void forgotPassword(java.lang.String) -> a
     void setPresenter(com.deepinspire.gmatclub.auth.IAuthContract$Presenter) -> a
     void openWebSite(java.lang.String) -> b
@@ -18302,7 +18304,7 @@ com.deepinspire.gmatclub.auth.AuthActivity -> com.deepinspire.gmatclub.auth.Auth
     void handleSignInResult(com.google.android.gms.tasks.Task) -> a
     void firebaseAuthWithGoogle(com.google.android.gms.auth.api.signin.GoogleSignInAccount) -> a
     void onConnectionFailed(com.google.android.gms.common.ConnectionResult) -> a
-    com.google.android.gms.common.api.GoogleApiClient initGoogleSignIn() -> l
+    com.google.android.gms.common.api.GoogleApiClient initGoogleSignIn() -> m
     com.facebook.CallbackManager access$002(com.deepinspire.gmatclub.auth.AuthActivity,com.facebook.CallbackManager) -> a
     com.deepinspire.gmatclub.auth.IAuthContract$Presenter access$100(com.deepinspire.gmatclub.auth.AuthActivity) -> a
     com.google.firebase.auth.FirebaseAuth access$200(com.deepinspire.gmatclub.auth.AuthActivity) -> b
@@ -18566,14 +18568,14 @@ com.deepinspire.gmatclub.utils.ViewHelper -> com.deepinspire.gmatclub.utils.c:
     void showError(com.deepinspire.gmatclub.api.AuthException) -> a
     void showSuccess(java.lang.String) -> a
     void setLoadingIndicator(boolean) -> a
+    void showOfflineDialog(com.deepinspire.gmatclub.web.WebActivity) -> d
 com.deepinspire.gmatclub.utils.ViewHelper$1 -> com.deepinspire.gmatclub.utils.c$1:
     void <init>() -> <init>
     void onCancel(android.content.DialogInterface) -> onCancel
 com.deepinspire.gmatclub.utils.ViewHelper$10 -> com.deepinspire.gmatclub.utils.c$2:
     com.deepinspire.gmatclub.web.WebActivity val$activity -> a
-    android.app.AlertDialog val$alertDialog -> b
-    void <init>(com.deepinspire.gmatclub.web.WebActivity,android.app.AlertDialog) -> <init>
-    void onClick(android.view.View) -> onClick
+    void <init>(com.deepinspire.gmatclub.web.WebActivity) -> <init>
+    void onDismiss(android.content.DialogInterface) -> onDismiss
 com.deepinspire.gmatclub.utils.ViewHelper$11 -> com.deepinspire.gmatclub.utils.c$3:
     com.deepinspire.gmatclub.web.WebActivity val$activity -> a
     android.app.AlertDialog val$alertDialog -> b
@@ -18605,16 +18607,17 @@ com.deepinspire.gmatclub.utils.ViewHelper$16 -> com.deepinspire.gmatclub.utils.c
     void <init>(com.deepinspire.gmatclub.web.WebActivity,android.app.AlertDialog) -> <init>
     void onClick(android.view.View) -> onClick
 com.deepinspire.gmatclub.utils.ViewHelper$17 -> com.deepinspire.gmatclub.utils.c$9:
+    com.deepinspire.gmatclub.web.WebActivity val$activity -> a
+    android.app.AlertDialog val$alertDialog -> b
+    void <init>(com.deepinspire.gmatclub.web.WebActivity,android.app.AlertDialog) -> <init>
+    void onClick(android.view.View) -> onClick
+com.deepinspire.gmatclub.utils.ViewHelper$18 -> com.deepinspire.gmatclub.utils.c$10:
     void <init>() -> <init>
     void onCancel(android.content.DialogInterface) -> onCancel
-com.deepinspire.gmatclub.utils.ViewHelper$18 -> com.deepinspire.gmatclub.utils.c$10:
-    com.deepinspire.gmatclub.web.WebActivity val$activity -> a
-    void <init>(com.deepinspire.gmatclub.web.WebActivity) -> <init>
-    void onDismiss(android.content.DialogInterface) -> onDismiss
 com.deepinspire.gmatclub.utils.ViewHelper$19 -> com.deepinspire.gmatclub.utils.c$11:
     com.deepinspire.gmatclub.web.WebActivity val$activity -> a
     void <init>(com.deepinspire.gmatclub.web.WebActivity) -> <init>
-    void onClick(android.view.View) -> onClick
+    void onDismiss(android.content.DialogInterface) -> onDismiss
 com.deepinspire.gmatclub.utils.ViewHelper$2 -> com.deepinspire.gmatclub.utils.c$12:
     android.app.Activity val$activity -> a
     void <init>(android.app.Activity) -> <init>
@@ -18632,24 +18635,42 @@ com.deepinspire.gmatclub.utils.ViewHelper$22 -> com.deepinspire.gmatclub.utils.c
     void <init>(com.deepinspire.gmatclub.web.WebActivity) -> <init>
     void onClick(android.view.View) -> onClick
 com.deepinspire.gmatclub.utils.ViewHelper$23 -> com.deepinspire.gmatclub.utils.c$16:
-    void <init>() -> <init>
-    void onCancel(android.content.DialogInterface) -> onCancel
-com.deepinspire.gmatclub.utils.ViewHelper$24 -> com.deepinspire.gmatclub.utils.c$17:
     com.deepinspire.gmatclub.web.WebActivity val$activity -> a
     void <init>(com.deepinspire.gmatclub.web.WebActivity) -> <init>
     void onClick(android.view.View) -> onClick
+com.deepinspire.gmatclub.utils.ViewHelper$24 -> com.deepinspire.gmatclub.utils.c$17:
+    void <init>() -> <init>
+    void onCancel(android.content.DialogInterface) -> onCancel
 com.deepinspire.gmatclub.utils.ViewHelper$25 -> com.deepinspire.gmatclub.utils.c$18:
+    com.deepinspire.gmatclub.web.WebActivity val$activity -> a
+    void <init>(com.deepinspire.gmatclub.web.WebActivity) -> <init>
+    void onClick(android.view.View) -> onClick
+com.deepinspire.gmatclub.utils.ViewHelper$26 -> com.deepinspire.gmatclub.utils.c$19:
     android.app.AlertDialog val$alertDialog -> a
     void <init>(android.app.AlertDialog) -> <init>
     void onClick(android.view.View) -> onClick
-com.deepinspire.gmatclub.utils.ViewHelper$28 -> com.deepinspire.gmatclub.utils.c$19:
+com.deepinspire.gmatclub.utils.ViewHelper$29 -> com.deepinspire.gmatclub.utils.c$20:
     void <init>() -> <init>
     void onCancel(android.content.DialogInterface) -> onCancel
-com.deepinspire.gmatclub.utils.ViewHelper$3 -> com.deepinspire.gmatclub.utils.c$20:
+com.deepinspire.gmatclub.utils.ViewHelper$3 -> com.deepinspire.gmatclub.utils.c$21:
     android.app.Activity val$activity -> a
     void <init>(android.app.Activity) -> <init>
     void onClick(android.view.View) -> onClick
-com.deepinspire.gmatclub.utils.ViewHelper$4 -> com.deepinspire.gmatclub.utils.c$21:
+com.deepinspire.gmatclub.utils.ViewHelper$30 -> com.deepinspire.gmatclub.utils.c$22:
+    void <init>() -> <init>
+    void onCancel(android.content.DialogInterface) -> onCancel
+com.deepinspire.gmatclub.utils.ViewHelper$31 -> com.deepinspire.gmatclub.utils.c$23:
+    void <init>() -> <init>
+    void onDismiss(android.content.DialogInterface) -> onDismiss
+com.deepinspire.gmatclub.utils.ViewHelper$32 -> com.deepinspire.gmatclub.utils.c$24:
+    com.deepinspire.gmatclub.web.WebActivity val$activity -> a
+    void <init>(com.deepinspire.gmatclub.web.WebActivity) -> <init>
+    void onClick(android.view.View) -> onClick
+com.deepinspire.gmatclub.utils.ViewHelper$33 -> com.deepinspire.gmatclub.utils.c$25:
+    com.deepinspire.gmatclub.web.WebActivity val$activity -> a
+    void <init>(com.deepinspire.gmatclub.web.WebActivity) -> <init>
+    void onClick(android.view.View) -> onClick
+com.deepinspire.gmatclub.utils.ViewHelper$4 -> com.deepinspire.gmatclub.utils.c$26:
     android.view.View val$dialogLayout -> a
     android.app.Activity val$activity -> b
     android.widget.TextView val$signInInputPasswordForgot -> c
@@ -18657,30 +18678,30 @@ com.deepinspire.gmatclub.utils.ViewHelper$4 -> com.deepinspire.gmatclub.utils.c$
     android.widget.ScrollView val$signInLayout -> e
     void <init>(android.view.View,android.app.Activity,android.widget.TextView,android.widget.ProgressBar,android.widget.ScrollView) -> <init>
     void onClick(android.view.View) -> onClick
-com.deepinspire.gmatclub.utils.ViewHelper$4$1 -> com.deepinspire.gmatclub.utils.c$21$1:
+com.deepinspire.gmatclub.utils.ViewHelper$4$1 -> com.deepinspire.gmatclub.utils.c$26$1:
     com.deepinspire.gmatclub.utils.ViewHelper$4 this$0 -> a
     void <init>(com.deepinspire.gmatclub.utils.ViewHelper$4) -> <init>
-com.deepinspire.gmatclub.utils.ViewHelper$5 -> com.deepinspire.gmatclub.utils.c$22:
+com.deepinspire.gmatclub.utils.ViewHelper$5 -> com.deepinspire.gmatclub.utils.c$27:
+    android.app.Activity val$activity -> a
+    void <init>(android.app.Activity) -> <init>
+    void onClick(android.view.View) -> onClick
+com.deepinspire.gmatclub.utils.ViewHelper$6 -> com.deepinspire.gmatclub.utils.c$28:
     void <init>() -> <init>
     void onCancel(android.content.DialogInterface) -> onCancel
-com.deepinspire.gmatclub.utils.ViewHelper$6 -> com.deepinspire.gmatclub.utils.c$23:
+com.deepinspire.gmatclub.utils.ViewHelper$7 -> com.deepinspire.gmatclub.utils.c$29:
     android.app.Activity val$activity -> a
     void <init>(android.app.Activity) -> <init>
     void onDismiss(android.content.DialogInterface) -> onDismiss
-com.deepinspire.gmatclub.utils.ViewHelper$7 -> com.deepinspire.gmatclub.utils.c$24:
+com.deepinspire.gmatclub.utils.ViewHelper$8 -> com.deepinspire.gmatclub.utils.c$30:
     android.view.View val$dialogLayout -> a
     android.app.Activity val$activity -> b
     android.widget.ProgressBar val$progressbar -> c
     android.widget.ScrollView val$signInLayout -> d
     void <init>(android.view.View,android.app.Activity,android.widget.ProgressBar,android.widget.ScrollView) -> <init>
     void onClick(android.view.View) -> onClick
-com.deepinspire.gmatclub.utils.ViewHelper$8 -> com.deepinspire.gmatclub.utils.c$25:
+com.deepinspire.gmatclub.utils.ViewHelper$9 -> com.deepinspire.gmatclub.utils.c$31:
     void <init>() -> <init>
     void onCancel(android.content.DialogInterface) -> onCancel
-com.deepinspire.gmatclub.utils.ViewHelper$9 -> com.deepinspire.gmatclub.utils.c$26:
-    com.deepinspire.gmatclub.web.WebActivity val$activity -> a
-    void <init>(com.deepinspire.gmatclub.web.WebActivity) -> <init>
-    void onDismiss(android.content.DialogInterface) -> onDismiss
 com.deepinspire.gmatclub.utils.WebviewCookieHandler -> com.deepinspire.gmatclub.utils.d:
     android.webkit.CookieManager webviewCookieManager -> b
     void <init>() -> <init>
@@ -18701,6 +18722,8 @@ com.deepinspire.gmatclub.web.IWebContract$Presenter -> com.deepinspire.gmatclub.
     void updateNotify(java.lang.String,java.lang.String) -> b
     void updatePMs() -> g
     com.deepinspire.gmatclub.storage.User getUser() -> h
+    void setError(int) -> a
+    int getError() -> i
 com.deepinspire.gmatclub.web.IWebContract$View -> com.deepinspire.gmatclub.web.a$b:
     void showSuccess(java.lang.String) -> a
     void showError(com.deepinspire.gmatclub.api.AuthException) -> a
@@ -18741,6 +18764,7 @@ com.deepinspire.gmatclub.web.WebActivity -> com.deepinspire.gmatclub.web.WebActi
     android.webkit.ValueCallback mUploadMessage -> N
     android.webkit.ValueCallback mUploadMessages -> O
     android.net.Uri mCapturedImageURI -> P
+    boolean openedKeyboard -> Q
     void <init>() -> <init>
     void onCreate(android.os.Bundle) -> onCreate
     void onResume() -> onResume
@@ -18760,24 +18784,25 @@ com.deepinspire.gmatclub.web.WebActivity -> com.deepinspire.gmatclub.web.WebActi
     void onNewIntent(android.content.Intent) -> onNewIntent
     void setPresenter(com.deepinspire.gmatclub.web.IWebContract$Presenter) -> a
     void goByMenu(android.view.View) -> goByMenu
-    void initWebView() -> n
-    void initRequestExtraHeaders() -> o
-    java.util.Map getRequestExtraHeaders() -> p
+    void initWebView() -> q
+    void initRequestExtraHeaders() -> r
+    java.util.Map getRequestExtraHeaders() -> s
     void openPageFromHamburgerMenu(int,java.lang.String) -> a
     void openPage(java.lang.String) -> e
     void setLoadingIndicator(boolean) -> b
-    boolean logged() -> q
+    boolean logged() -> t
     void openPageById(java.lang.String) -> b
     void logout() -> c
     void reload() -> c_
     void showSuccess(java.lang.String) -> a
     void showError(com.deepinspire.gmatclub.api.AuthException) -> a
     void signIn(java.lang.String,java.lang.String) -> a
+    void signInFacebook() -> l
     void forgotPassword(java.lang.String) -> d
     void onBackPressed() -> onBackPressed
-    void showMenu() -> l
+    void showMenu() -> m
     void initNavigationView(android.support.v7.widget.Toolbar) -> b
-    void goPreviousActivity() -> m
+    void goPreviousActivity() -> n
     void onPostCreate(android.os.Bundle) -> onPostCreate
     void updateCountMessages() -> d_
     void sendNotificationsForPage(java.lang.String) -> c
@@ -18785,7 +18810,7 @@ com.deepinspire.gmatclub.web.WebActivity -> com.deepinspire.gmatclub.web.WebActi
     void changeTitleColor(int) -> b
     void changeProfileIconColor(int) -> c
     void toogleAddMenu(boolean) -> c
-    void hideKeyboard() -> r
+    void hideKeyboard() -> u
     void showBtnAdd(boolean) -> d
     void showBtnAddTopic(boolean) -> e
     void showBtnAddPm(boolean) -> f
@@ -18795,47 +18820,71 @@ com.deepinspire.gmatclub.web.WebActivity -> com.deepinspire.gmatclub.web.WebActi
     void setEnabledBtnAddPm(boolean) -> j
     void setEnabledBtnAddChat(boolean) -> k
     void setEnabledBtnAddSchool(boolean) -> l
-    void showBtnAddAllItems() -> s
-    void hideBtnAddAllItems() -> t
-    void openImageChooser() -> u
+    void showBtnAddAllItems() -> v
+    void hideBtnAddAllItems() -> w
+    void openImageChooser() -> x
     void handleUploadMessage(int,int,android.content.Intent) -> a
     void handleUploadMessages(int,int,android.content.Intent) -> b
+    void openDeviceSettings() -> o
+    void tryAgain() -> p
+    float dpToPx(android.content.Context,float) -> a
+    void updateVisibilityToolbar(java.lang.String) -> f
     com.deepinspire.gmatclub.utils.GCWebView access$000(com.deepinspire.gmatclub.web.WebActivity) -> a
     android.support.v4.widget.SwipeRefreshLayout access$100(com.deepinspire.gmatclub.web.WebActivity) -> b
-    com.github.clans.fab.FloatingActionMenu access$200(com.deepinspire.gmatclub.web.WebActivity) -> c
-    void access$300(com.deepinspire.gmatclub.web.WebActivity,boolean) -> a
-    void access$400(com.deepinspire.gmatclub.web.WebActivity,java.lang.String) -> a
-    android.webkit.ValueCallback access$502(com.deepinspire.gmatclub.web.WebActivity,android.webkit.ValueCallback) -> a
-    void access$600(com.deepinspire.gmatclub.web.WebActivity) -> d
-    android.webkit.ValueCallback access$702(com.deepinspire.gmatclub.web.WebActivity,android.webkit.ValueCallback) -> b
-    java.lang.String access$800(com.deepinspire.gmatclub.web.WebActivity) -> e
-    java.lang.String access$802(com.deepinspire.gmatclub.web.WebActivity,java.lang.String) -> b
-    com.deepinspire.gmatclub.web.IWebContract$Presenter access$900(com.deepinspire.gmatclub.web.WebActivity) -> f
-    com.facebook.CallbackManager access$1002(com.deepinspire.gmatclub.web.WebActivity,com.facebook.CallbackManager) -> a
-    android.support.v4.widget.DrawerLayout access$1100(com.deepinspire.gmatclub.web.WebActivity) -> g
-    void access$1200(com.deepinspire.gmatclub.web.WebActivity,int) -> a
-    android.widget.TextView access$1300(com.deepinspire.gmatclub.web.WebActivity) -> h
-    android.widget.TextView access$1400(com.deepinspire.gmatclub.web.WebActivity) -> i
-    java.util.concurrent.ExecutorService access$1500(com.deepinspire.gmatclub.web.WebActivity) -> j
-    android.widget.LinearLayout access$1600(com.deepinspire.gmatclub.web.WebActivity) -> k
+    boolean access$202(com.deepinspire.gmatclub.web.WebActivity,boolean) -> a
+    void access$300(com.deepinspire.gmatclub.web.WebActivity,boolean) -> b
+    boolean access$200(com.deepinspire.gmatclub.web.WebActivity) -> c
+    boolean access$400(com.deepinspire.gmatclub.web.WebActivity) -> d
+    com.github.clans.fab.FloatingActionMenu access$500(com.deepinspire.gmatclub.web.WebActivity) -> e
+    void access$600(com.deepinspire.gmatclub.web.WebActivity,boolean) -> c
+    void access$700(com.deepinspire.gmatclub.web.WebActivity,java.lang.String) -> a
+    android.webkit.ValueCallback access$802(com.deepinspire.gmatclub.web.WebActivity,android.webkit.ValueCallback) -> a
+    void access$900(com.deepinspire.gmatclub.web.WebActivity) -> f
+    android.webkit.ValueCallback access$1002(com.deepinspire.gmatclub.web.WebActivity,android.webkit.ValueCallback) -> b
+    void access$1100(com.deepinspire.gmatclub.web.WebActivity,java.lang.String) -> b
+    com.deepinspire.gmatclub.web.IWebContract$Presenter access$1200(com.deepinspire.gmatclub.web.WebActivity) -> g
+    java.lang.String access$1300(com.deepinspire.gmatclub.web.WebActivity) -> h
+    java.lang.String access$1302(com.deepinspire.gmatclub.web.WebActivity,java.lang.String) -> c
+    com.facebook.CallbackManager access$1402(com.deepinspire.gmatclub.web.WebActivity,com.facebook.CallbackManager) -> a
+    android.support.v4.widget.DrawerLayout access$1500(com.deepinspire.gmatclub.web.WebActivity) -> i
+    void access$1600(com.deepinspire.gmatclub.web.WebActivity,int) -> a
+    android.widget.TextView access$1700(com.deepinspire.gmatclub.web.WebActivity) -> j
+    android.widget.TextView access$1800(com.deepinspire.gmatclub.web.WebActivity) -> k
+    java.util.concurrent.ExecutorService access$1900(com.deepinspire.gmatclub.web.WebActivity) -> l
+    android.widget.LinearLayout access$2000(com.deepinspire.gmatclub.web.WebActivity) -> m
 com.deepinspire.gmatclub.web.WebActivity$1 -> com.deepinspire.gmatclub.web.WebActivity$1:
     com.deepinspire.gmatclub.web.WebActivity this$0 -> a
     void <init>(com.deepinspire.gmatclub.web.WebActivity) -> <init>
     void onScrollChanged() -> onScrollChanged
 com.deepinspire.gmatclub.web.WebActivity$10 -> com.deepinspire.gmatclub.web.WebActivity$2:
+    java.lang.String val$notifications -> a
+    com.deepinspire.gmatclub.web.WebActivity this$0 -> b
+    void <init>(com.deepinspire.gmatclub.web.WebActivity,java.lang.String) -> <init>
+    void run() -> run
+com.deepinspire.gmatclub.web.WebActivity$10$1 -> com.deepinspire.gmatclub.web.WebActivity$2$1:
+    com.deepinspire.gmatclub.web.WebActivity$10 this$1 -> a
+    void <init>(com.deepinspire.gmatclub.web.WebActivity$10) -> <init>
+    void onReceiveValue(java.lang.String) -> a
+    void onReceiveValue(java.lang.Object) -> onReceiveValue
+com.deepinspire.gmatclub.web.WebActivity$11 -> com.deepinspire.gmatclub.web.WebActivity$3:
     com.deepinspire.gmatclub.web.WebActivity this$0 -> a
     void <init>(com.deepinspire.gmatclub.web.WebActivity) -> <init>
     void run() -> run
-com.deepinspire.gmatclub.web.WebActivity$2 -> com.deepinspire.gmatclub.web.WebActivity$3:
+com.deepinspire.gmatclub.web.WebActivity$2 -> com.deepinspire.gmatclub.web.WebActivity$4:
+    android.view.View val$activityRootView -> a
+    com.deepinspire.gmatclub.web.WebActivity this$0 -> b
+    void <init>(com.deepinspire.gmatclub.web.WebActivity,android.view.View) -> <init>
+    void onGlobalLayout() -> onGlobalLayout
+com.deepinspire.gmatclub.web.WebActivity$3 -> com.deepinspire.gmatclub.web.WebActivity$5:
     com.deepinspire.gmatclub.web.WebActivity this$0 -> a
     void <init>(com.deepinspire.gmatclub.web.WebActivity) -> <init>
     void onClick(android.view.View) -> onClick
-com.deepinspire.gmatclub.web.WebActivity$3 -> com.deepinspire.gmatclub.web.WebActivity$4:
+com.deepinspire.gmatclub.web.WebActivity$4 -> com.deepinspire.gmatclub.web.WebActivity$6:
     com.deepinspire.gmatclub.web.WebActivity this$0 -> a
     void <init>(com.deepinspire.gmatclub.web.WebActivity) -> <init>
     boolean onQueryTextSubmit(java.lang.String) -> a
     boolean onQueryTextChange(java.lang.String) -> b
-com.deepinspire.gmatclub.web.WebActivity$4 -> com.deepinspire.gmatclub.web.WebActivity$5:
+com.deepinspire.gmatclub.web.WebActivity$5 -> com.deepinspire.gmatclub.web.WebActivity$7:
     com.deepinspire.gmatclub.web.WebActivity this$0 -> a
     void <init>(com.deepinspire.gmatclub.web.WebActivity) -> <init>
     boolean onConsoleMessage(android.webkit.ConsoleMessage) -> onConsoleMessage
@@ -18844,7 +18893,7 @@ com.deepinspire.gmatclub.web.WebActivity$4 -> com.deepinspire.gmatclub.web.WebAc
     boolean onShowFileChooser(android.webkit.WebView,android.webkit.ValueCallback,android.webkit.WebChromeClient$FileChooserParams) -> onShowFileChooser
     void openFileChooser(android.webkit.ValueCallback) -> openFileChooser
     void openFileChooser(android.webkit.ValueCallback,java.lang.String,java.lang.String) -> openFileChooser
-com.deepinspire.gmatclub.web.WebActivity$5 -> com.deepinspire.gmatclub.web.WebActivity$6:
+com.deepinspire.gmatclub.web.WebActivity$6 -> com.deepinspire.gmatclub.web.WebActivity$8:
     com.deepinspire.gmatclub.web.WebActivity this$0 -> a
     void <init>(com.deepinspire.gmatclub.web.WebActivity) -> <init>
     void onReceivedHttpAuthRequest(android.webkit.WebView,android.webkit.HttpAuthHandler,java.lang.String,java.lang.String) -> onReceivedHttpAuthRequest
@@ -18852,39 +18901,30 @@ com.deepinspire.gmatclub.web.WebActivity$5 -> com.deepinspire.gmatclub.web.WebAc
     void onPageStarted(android.webkit.WebView,java.lang.String,android.graphics.Bitmap) -> onPageStarted
     void onPageFinished(android.webkit.WebView,java.lang.String) -> onPageFinished
     void onReceivedError(android.webkit.WebView,int,java.lang.String,java.lang.String) -> onReceivedError
-com.deepinspire.gmatclub.web.WebActivity$5$1 -> com.deepinspire.gmatclub.web.WebActivity$6$1:
-    com.deepinspire.gmatclub.web.WebActivity$5 this$1 -> a
-    void <init>(com.deepinspire.gmatclub.web.WebActivity$5) -> <init>
+    void onReceivedError(android.webkit.WebView,android.webkit.WebResourceRequest,android.webkit.WebResourceError) -> onReceivedError
+com.deepinspire.gmatclub.web.WebActivity$6$1 -> com.deepinspire.gmatclub.web.WebActivity$8$1:
+    com.deepinspire.gmatclub.web.WebActivity$6 this$1 -> a
+    void <init>(com.deepinspire.gmatclub.web.WebActivity$6) -> <init>
     void onReceiveValue(java.lang.String) -> a
     void onReceiveValue(java.lang.Object) -> onReceiveValue
-com.deepinspire.gmatclub.web.WebActivity$6 -> com.deepinspire.gmatclub.web.WebActivity$7:
+com.deepinspire.gmatclub.web.WebActivity$7 -> com.deepinspire.gmatclub.web.WebActivity$9:
     com.deepinspire.gmatclub.web.WebActivity this$0 -> a
     void <init>(com.deepinspire.gmatclub.web.WebActivity) -> <init>
     void onSuccess(com.facebook.login.LoginResult) -> a
     void onCancel() -> a
     void onError(com.facebook.FacebookException) -> a
     void onSuccess(java.lang.Object) -> a
-com.deepinspire.gmatclub.web.WebActivity$7 -> com.deepinspire.gmatclub.web.WebActivity$8:
+com.deepinspire.gmatclub.web.WebActivity$8 -> com.deepinspire.gmatclub.web.WebActivity$10:
     com.deepinspire.gmatclub.web.WebActivity this$0 -> a
     void <init>(com.deepinspire.gmatclub.web.WebActivity) -> <init>
     void onDrawerSlide(android.view.View,float) -> a
     void onDrawerOpened(android.view.View) -> a
     void onDrawerClosed(android.view.View) -> b
     void onDrawerStateChanged(int) -> a
-com.deepinspire.gmatclub.web.WebActivity$8 -> com.deepinspire.gmatclub.web.WebActivity$9:
+com.deepinspire.gmatclub.web.WebActivity$9 -> com.deepinspire.gmatclub.web.WebActivity$11:
     com.deepinspire.gmatclub.web.WebActivity this$0 -> a
     void <init>(com.deepinspire.gmatclub.web.WebActivity) -> <init>
     void run() -> run
-com.deepinspire.gmatclub.web.WebActivity$9 -> com.deepinspire.gmatclub.web.WebActivity$10:
-    java.lang.String val$notifications -> a
-    com.deepinspire.gmatclub.web.WebActivity this$0 -> b
-    void <init>(com.deepinspire.gmatclub.web.WebActivity,java.lang.String) -> <init>
-    void run() -> run
-com.deepinspire.gmatclub.web.WebActivity$9$1 -> com.deepinspire.gmatclub.web.WebActivity$10$1:
-    com.deepinspire.gmatclub.web.WebActivity$9 this$1 -> a
-    void <init>(com.deepinspire.gmatclub.web.WebActivity$9) -> <init>
-    void onReceiveValue(java.lang.String) -> a
-    void onReceiveValue(java.lang.Object) -> onReceiveValue
 com.deepinspire.gmatclub.web.WebActivity$GCJavascriptInterface -> com.deepinspire.gmatclub.web.WebActivity$a:
     android.content.Context mContext -> a
     com.deepinspire.gmatclub.web.WebActivity this$0 -> b
@@ -18916,14 +18956,15 @@ com.deepinspire.gmatclub.web.WebPresenter -> com.deepinspire.gmatclub.web.b:
     int countUnwatchedNotifications -> d
     int countUnwatchedPMs -> e
     java.lang.String notifications -> f
+    int errorCode -> g
     void <init>(android.content.Context,com.deepinspire.gmatclub.web.IWebContract$View) -> <init>
     void logout() -> a
     boolean logged() -> b
     void signIn(java.lang.String,java.lang.String) -> a
     void signIn(java.lang.String,java.lang.String,java.lang.String,java.lang.String) -> a
     void forgotPassword(java.lang.String) -> a
-    void setCountUnwatchedNotifications(int) -> a
-    void setCountUnwatchedPMs(int) -> b
+    void setCountUnwatchedNotifications(int) -> b
+    void setCountUnwatchedPMs(int) -> c
     int getCountUnwatchedNotifications() -> d
     int getCountUnwatchedPMs() -> e
     void updateNotify() -> f
@@ -18933,6 +18974,8 @@ com.deepinspire.gmatclub.web.WebPresenter -> com.deepinspire.gmatclub.web.b:
     void updatePMs() -> g
     com.deepinspire.gmatclub.storage.User getUser() -> h
     void saveNotifications(java.lang.String) -> b
+    void setError(int) -> a
+    int getError() -> i
     com.deepinspire.gmatclub.web.IWebContract$View access$000(com.deepinspire.gmatclub.web.WebPresenter) -> a
     void <clinit>() -> <clinit>
 com.deepinspire.gmatclub.web.WebPresenter$1 -> com.deepinspire.gmatclub.web.b$1:
@@ -19809,7 +19852,6 @@ com.facebook.appevents.AppEvent -> com.facebook.a.c:
     java.lang.String toString() -> toString
     java.lang.String calculateChecksum() -> e
     java.lang.String md5Checksum(java.lang.String) -> b
-    java.lang.String bytesToHex(byte[]) -> a
     void <init>(java.lang.String,boolean,java.lang.String,com.facebook.appevents.AppEvent$1) -> <init>
     void <clinit>() -> <clinit>
 com.facebook.appevents.AppEvent$1 -> com.facebook.a.c$1:
@@ -19918,28 +19960,30 @@ com.facebook.appevents.AppEventsLogger -> com.facebook.a.g:
     com.facebook.appevents.AppEventsLogger$FlushBehavior getFlushBehavior() -> a
     void logEvent(java.lang.String,android.os.Bundle) -> a
     void logEvent(java.lang.String,double,android.os.Bundle) -> a
-    void logPurchaseImplicitly(java.math.BigDecimal,java.util.Currency,android.os.Bundle) -> a
+    void logPurchaseImplicitlyInternal(java.math.BigDecimal,java.util.Currency,android.os.Bundle) -> a
     void logPurchase(java.math.BigDecimal,java.util.Currency,android.os.Bundle,boolean) -> a
     void flush() -> b
     void onContextStop() -> c
     java.lang.String getPushNotificationsRegistrationId() -> d
     java.lang.String getUserID() -> e
+    java.lang.String getUserData() -> f
     void logSdkEvent(java.lang.String,java.lang.Double,android.os.Bundle) -> a
     void <init>(android.content.Context,java.lang.String,com.facebook.AccessToken) -> <init>
     void <init>(java.lang.String,java.lang.String,com.facebook.AccessToken) -> <init>
-    void initializeTimersIfNeeded() -> l
+    void initializeTimersIfNeeded() -> m
+    void logEventImplicitly(java.lang.String,java.math.BigDecimal,java.util.Currency,android.os.Bundle) -> a
     void logEvent(java.lang.String,java.lang.Double,android.os.Bundle,boolean,java.util.UUID) -> a
-    void logEvent(android.content.Context,com.facebook.appevents.AppEvent,com.facebook.appevents.AccessTokenAppIdPair) -> a
-    void eagerFlush() -> f
+    void logEvent(com.facebook.appevents.AppEvent,com.facebook.appevents.AccessTokenAppIdPair) -> a
+    void eagerFlush() -> g
     void notifyDeveloperError(java.lang.String) -> a
     void setSourceApplication(android.app.Activity) -> a
-    java.lang.String getSourceApplication() -> g
-    void resetSourceApplication() -> h
-    java.util.concurrent.Executor getAnalyticsExecutor() -> i
+    java.lang.String getSourceApplication() -> h
+    void resetSourceApplication() -> i
+    java.util.concurrent.Executor getAnalyticsExecutor() -> j
     java.lang.String getAnonymousAppDeviceGUID(android.content.Context) -> c
     void access$000(com.facebook.appevents.AppEventsLogger,long,java.lang.String) -> a
-    java.lang.String access$200() -> j
-    java.util.concurrent.ScheduledThreadPoolExecutor access$300() -> k
+    java.lang.String access$200() -> k
+    java.util.concurrent.ScheduledThreadPoolExecutor access$300() -> l
     void <clinit>() -> <clinit>
 com.facebook.appevents.AppEventsLogger$1 -> com.facebook.a.g$1:
     com.facebook.appevents.AppEventsLogger val$logger -> a
@@ -20068,6 +20112,20 @@ com.facebook.appevents.SessionEventsState -> com.facebook.a.m:
     java.util.List getEventsToPersist() -> b
     void populateRequest(com.facebook.GraphRequest,android.content.Context,int,org.json.JSONArray,boolean) -> a
     byte[] getStringAsByteArray(java.lang.String) -> a
+com.facebook.appevents.UserDataStore -> com.facebook.a.n:
+    java.lang.String TAG -> a
+    java.util.concurrent.locks.ReentrantReadWriteLock lock -> b
+    java.lang.String hashedUserData -> c
+    boolean initialized -> d
+    void <init>() -> <init>
+    void initStore() -> a
+    java.lang.String getHashedUserData() -> b
+    void initAndWait() -> d
+    void access$000() -> c
+    void <clinit>() -> <clinit>
+com.facebook.appevents.UserDataStore$1 -> com.facebook.a.n$1:
+    void <init>() -> <init>
+    void run() -> run
 com.facebook.appevents.codeless.CodelessLoggingEventListener -> com.facebook.a.a.a:
     java.lang.String TAG -> a
     void <init>() -> <init>
@@ -20078,14 +20136,19 @@ com.facebook.appevents.codeless.CodelessLoggingEventListener$1 -> com.facebook.a
     int[] $SwitchMap$com$facebook$appevents$codeless$internal$EventBinding$ActionType -> a
     void <clinit>() -> <clinit>
 com.facebook.appevents.codeless.CodelessLoggingEventListener$AutoLoggingAccessibilityDelegate -> com.facebook.a.a.a$a:
-    com.facebook.appevents.codeless.internal.EventBinding mapping -> a
-    java.lang.ref.WeakReference hostView -> b
-    java.lang.ref.WeakReference rootView -> c
-    int accessibilityEventType -> d
-    android.view.View$AccessibilityDelegate existingDelegate -> e
+    com.facebook.appevents.codeless.internal.EventBinding mapping -> b
+    java.lang.ref.WeakReference hostView -> c
+    java.lang.ref.WeakReference rootView -> d
+    int accessibilityEventType -> e
+    android.view.View$AccessibilityDelegate existingDelegate -> f
+    boolean supportCodelessLogging -> g
+    boolean supportButtonIndexing -> a
+    void <init>() -> <init>
     void <init>(com.facebook.appevents.codeless.internal.EventBinding,android.view.View,android.view.View) -> <init>
     void sendAccessibilityEvent(android.view.View,int) -> sendAccessibilityEvent
-    void logEvent() -> a
+    void logEvent() -> c
+    boolean getSupportCodelessLogging() -> a
+    boolean getSupportButtonIndexing() -> b
 com.facebook.appevents.codeless.CodelessLoggingEventListener$AutoLoggingAccessibilityDelegate$1 -> com.facebook.a.a.a$a$1:
     java.lang.String val$eventName -> a
     android.os.Bundle val$params -> b
@@ -20208,15 +20271,16 @@ com.facebook.appevents.codeless.internal.SensitiveUserDataUtils -> com.facebook.
 com.facebook.appevents.codeless.internal.ViewHierarchy -> com.facebook.a.a.a.e:
     java.lang.String TAG -> a
     void <init>() -> <init>
-    java.util.List getChildrenOfView(android.view.View) -> a
-    org.json.JSONObject getDictionaryOfView(android.view.View) -> b
-    int getClassTypeBitmask(android.view.View) -> f
-    boolean isClickableView(android.view.View) -> g
-    boolean isAdapterViewItem(android.view.View) -> h
-    java.lang.String getTextOfView(android.view.View) -> c
-    java.lang.String getHintOfView(android.view.View) -> d
-    org.json.JSONObject getDimensionOfView(android.view.View) -> i
-    android.view.View$AccessibilityDelegate getExistingDelegate(android.view.View) -> e
+    android.view.ViewGroup getParentOfView(android.view.View) -> a
+    java.util.List getChildrenOfView(android.view.View) -> b
+    org.json.JSONObject getDictionaryOfView(android.view.View) -> c
+    int getClassTypeBitmask(android.view.View) -> h
+    boolean isClickableView(android.view.View) -> d
+    boolean isAdapterViewItem(android.view.View) -> i
+    java.lang.String getTextOfView(android.view.View) -> e
+    java.lang.String getHintOfView(android.view.View) -> f
+    org.json.JSONObject getDimensionOfView(android.view.View) -> j
+    android.view.View$AccessibilityDelegate getExistingDelegate(android.view.View) -> g
     void <clinit>() -> <clinit>
 com.facebook.appevents.internal.ActivityLifecycleTracker -> com.facebook.a.b.a:
     java.lang.String TAG -> a
@@ -20241,8 +20305,8 @@ com.facebook.appevents.internal.ActivityLifecycleTracker -> com.facebook.a.b.a:
     java.lang.String access$000() -> c
     void access$100(android.app.Activity) -> c
     com.facebook.appevents.internal.SessionInfo access$200() -> d
-    java.lang.String access$300() -> e
     com.facebook.appevents.internal.SessionInfo access$202(com.facebook.appevents.internal.SessionInfo) -> a
+    java.lang.String access$300() -> e
     int access$400() -> f
     java.util.concurrent.atomic.AtomicInteger access$500() -> g
     java.lang.Object access$600() -> h
@@ -20260,23 +20324,17 @@ com.facebook.appevents.internal.ActivityLifecycleTracker$1 -> com.facebook.a.b.a
     void onActivitySaveInstanceState(android.app.Activity,android.os.Bundle) -> onActivitySaveInstanceState
     void onActivityDestroyed(android.app.Activity) -> onActivityDestroyed
 com.facebook.appevents.internal.ActivityLifecycleTracker$2 -> com.facebook.a.b.a$2:
-    android.content.Context val$applicationContext -> a
-    java.lang.String val$activityName -> b
-    long val$currentTime -> c
-    com.facebook.appevents.internal.SourceApplicationInfo val$sourceApplicationInfo -> d
-    void <init>(android.content.Context,java.lang.String,long,com.facebook.appevents.internal.SourceApplicationInfo) -> <init>
+    void <init>() -> <init>
     void run() -> run
 com.facebook.appevents.internal.ActivityLifecycleTracker$3 -> com.facebook.a.b.a$3:
     long val$currentTime -> a
-    android.content.Context val$applicationContext -> b
-    java.lang.String val$activityName -> c
-    void <init>(long,android.content.Context,java.lang.String) -> <init>
+    java.lang.String val$activityName -> b
+    void <init>(long,java.lang.String) -> <init>
     void run() -> run
 com.facebook.appevents.internal.ActivityLifecycleTracker$4 -> com.facebook.a.b.a$4:
     long val$currentTime -> a
-    android.content.Context val$applicationContext -> b
-    java.lang.String val$activityName -> c
-    void <init>(long,android.content.Context,java.lang.String) -> <init>
+    java.lang.String val$activityName -> b
+    void <init>(long,java.lang.String) -> <init>
     void run() -> run
 com.facebook.appevents.internal.ActivityLifecycleTracker$4$1 -> com.facebook.a.b.a$4$1:
     com.facebook.appevents.internal.ActivityLifecycleTracker$4 this$0 -> a
@@ -20286,6 +20344,7 @@ com.facebook.appevents.internal.AppEventUtility -> com.facebook.a.b.b:
     void assertIsNotMainThread() -> a
     void assertIsMainThread() -> b
     double normalizePrice(java.lang.String) -> a
+    java.lang.String bytesToHex(byte[]) -> a
 com.facebook.appevents.internal.AppEventsLoggerUtility -> com.facebook.a.b.c:
     java.util.Map API_ACTIVITY_TYPE_TO_STRING -> a
     org.json.JSONObject getJSONObjectForGraphAPICall(com.facebook.appevents.internal.AppEventsLoggerUtility$GraphAPIActivityType,com.facebook.internal.AttributionIdentifiers,java.lang.String,boolean,android.content.Context) -> a
@@ -20302,35 +20361,101 @@ com.facebook.appevents.internal.AppEventsLoggerUtility$GraphAPIActivityType -> c
     void <clinit>() -> <clinit>
 com.facebook.appevents.internal.AutomaticAnalyticsLogger -> com.facebook.a.b.d:
     java.lang.String TAG -> a
-    java.lang.Object inAppBillingObj -> b
+    com.facebook.appevents.internal.InternalAppEventsLogger internalAppEventsLogger -> b
     void <init>() -> <init>
     void logActivateAppEvent() -> a
     void logActivityTimeSpentEvent(java.lang.String,long) -> a
-    boolean logInAppPurchaseEvent(android.content.Context,int,android.content.Intent) -> a
+    void logPurchaseInapp(java.lang.String,java.lang.String) -> a
+    void logPurchaseSubs(com.facebook.appevents.internal.SubscriptionType,java.lang.String,java.lang.String) -> a
     boolean isImplicitPurchaseLoggingEnabled() -> b
-    java.lang.Object access$002(java.lang.Object) -> a
-    java.lang.String access$100() -> c
-    java.lang.Object access$000() -> d
+    com.facebook.appevents.internal.AutomaticAnalyticsLogger$PurchaseLoggingParameters getPurchaseLoggingParameters(java.lang.String,java.lang.String) -> b
     void <clinit>() -> <clinit>
 com.facebook.appevents.internal.AutomaticAnalyticsLogger$1 -> com.facebook.a.b.d$1:
-    android.content.Context val$context -> a
-    java.lang.String val$purchaseData -> b
-    void <init>(android.content.Context,java.lang.String) -> <init>
-    void onServiceDisconnected(android.content.ComponentName) -> onServiceDisconnected
-    void onServiceConnected(android.content.ComponentName,android.os.IBinder) -> onServiceConnected
+    int[] $SwitchMap$com$facebook$appevents$internal$SubscriptionType -> a
+    void <clinit>() -> <clinit>
+com.facebook.appevents.internal.AutomaticAnalyticsLogger$PurchaseLoggingParameters -> com.facebook.a.b.d$a:
+    java.math.BigDecimal purchaseAmount -> a
+    java.util.Currency currency -> b
+    android.os.Bundle param -> c
+    void <init>(java.math.BigDecimal,java.util.Currency,android.os.Bundle) -> <init>
 com.facebook.appevents.internal.Constants -> com.facebook.a.b.e:
     int getDefaultAppEventsSessionTimeoutInSeconds() -> a
-com.facebook.appevents.internal.InAppPurchaseEventManager -> com.facebook.a.b.f:
-    java.util.HashMap methodMap -> a
-    java.util.HashMap classMap -> b
-    java.lang.String TAG -> c
+com.facebook.appevents.internal.InAppPurchaseActivityLifecycleTracker -> com.facebook.a.b.f:
+    java.lang.String TAG -> a
+    java.util.concurrent.atomic.AtomicBoolean isTracking -> b
+    java.lang.Boolean hasBillingService -> c
+    java.lang.Boolean hasBiillingActivity -> d
+    android.content.ServiceConnection serviceConnection -> e
+    android.app.Application$ActivityLifecycleCallbacks callbacks -> f
+    android.content.Intent intent -> g
+    java.lang.Object inAppBillingObj -> h
     void <init>() -> <init>
-    java.lang.Object getServiceInterface(android.content.Context,android.os.IBinder) -> a
-    java.lang.String getPurchaseDetails(android.content.Context,java.lang.String,java.lang.Object,boolean) -> a
+    void update() -> a
+    void initializeIfNotInitialized() -> d
+    void startTracking() -> e
+    void logPurchaseInapp(android.content.Context,java.util.ArrayList) -> b
+    void logPurchaseSubs(android.content.Context,java.util.Map) -> b
+    java.lang.Object access$002(java.lang.Object) -> a
+    java.lang.Object access$000() -> b
+    void access$100(android.content.Context,java.util.ArrayList) -> a
+    void access$200(android.content.Context,java.util.Map) -> a
+    java.lang.Boolean access$300() -> c
     void <clinit>() -> <clinit>
-com.facebook.appevents.internal.InternalAppEventsLogger -> com.facebook.a.b.g:
+com.facebook.appevents.internal.InAppPurchaseActivityLifecycleTracker$1 -> com.facebook.a.b.f$1:
+    void <init>() -> <init>
+    void onServiceConnected(android.content.ComponentName,android.os.IBinder) -> onServiceConnected
+    void onServiceDisconnected(android.content.ComponentName) -> onServiceDisconnected
+com.facebook.appevents.internal.InAppPurchaseActivityLifecycleTracker$2 -> com.facebook.a.b.f$2:
+    void <init>() -> <init>
+    void onActivityResumed(android.app.Activity) -> onActivityResumed
+    void onActivityCreated(android.app.Activity,android.os.Bundle) -> onActivityCreated
+    void onActivityStarted(android.app.Activity) -> onActivityStarted
+    void onActivityPaused(android.app.Activity) -> onActivityPaused
+    void onActivityStopped(android.app.Activity) -> onActivityStopped
+    void onActivitySaveInstanceState(android.app.Activity,android.os.Bundle) -> onActivitySaveInstanceState
+    void onActivityDestroyed(android.app.Activity) -> onActivityDestroyed
+com.facebook.appevents.internal.InAppPurchaseActivityLifecycleTracker$2$1 -> com.facebook.a.b.f$2$1:
+    com.facebook.appevents.internal.InAppPurchaseActivityLifecycleTracker$2 this$0 -> a
+    void <init>(com.facebook.appevents.internal.InAppPurchaseActivityLifecycleTracker$2) -> <init>
+    void run() -> run
+com.facebook.appevents.internal.InAppPurchaseActivityLifecycleTracker$2$2 -> com.facebook.a.b.f$2$2:
+    com.facebook.appevents.internal.InAppPurchaseActivityLifecycleTracker$2 this$0 -> a
+    void <init>(com.facebook.appevents.internal.InAppPurchaseActivityLifecycleTracker$2) -> <init>
+    void run() -> run
+com.facebook.appevents.internal.InAppPurchaseEventManager -> com.facebook.a.b.g:
+    java.lang.String TAG -> a
+    java.util.HashMap methodMap -> b
+    java.util.HashMap classMap -> c
+    java.lang.String PACKAGE_NAME -> d
+    android.content.SharedPreferences skuDetailSharedPrefs -> e
+    android.content.SharedPreferences purchaseInappSharedPrefs -> f
+    android.content.SharedPreferences purchaseSubsSharedPrefs -> g
+    void <init>() -> <init>
+    java.lang.Object asInterface(android.content.Context,android.os.IBinder) -> a
+    java.util.Map getSkuDetails(android.content.Context,java.util.ArrayList,java.lang.Object,boolean) -> a
+    java.util.Map getSkuDetailsFromGoogle(android.content.Context,java.util.ArrayList,java.lang.Object,boolean) -> b
+    java.util.Map readSkuDetailsFromCache(java.util.ArrayList) -> a
+    void writeSkuDetailsToCache(java.util.Map) -> a
+    java.lang.Boolean isBillingSupported(android.content.Context,java.lang.Object,java.lang.String) -> a
+    java.util.ArrayList getPurchasesInapp(android.content.Context,java.lang.Object) -> a
+    java.util.ArrayList getPurchasesSubsExpire(android.content.Context,java.lang.Object) -> b
+    java.util.Map getPurchasesSubs(android.content.Context,java.lang.Object) -> c
+    com.facebook.appevents.internal.SubscriptionType getSubsType(java.lang.String) -> a
+    java.util.ArrayList getPurchases(android.content.Context,java.lang.Object,java.lang.String) -> b
+    java.util.ArrayList getPurchaseHistoryInapp(android.content.Context,java.lang.Object) -> d
+    java.util.ArrayList getPurchaseHistory(android.content.Context,java.lang.Object,java.lang.String) -> c
+    java.util.ArrayList filterPurchasesInapp(java.util.ArrayList) -> b
+    java.lang.reflect.Method getMethod(java.lang.Class,java.lang.String) -> a
+    java.lang.Class getClass(android.content.Context,java.lang.String) -> a
+    java.lang.Object invokeMethod(android.content.Context,java.lang.String,java.lang.String,java.lang.Object,java.lang.Object[]) -> a
+    void clearSkuDetailsCache() -> a
+    void <clinit>() -> <clinit>
+com.facebook.appevents.internal.InternalAppEventsLogger -> com.facebook.a.b.h:
+    void <init>(android.content.Context) -> <init>
     void <init>(java.lang.String,java.lang.String,com.facebook.AccessToken) -> <init>
-com.facebook.appevents.internal.SessionInfo -> com.facebook.a.b.h:
+    void logPurchaseImplicitlyInternal(java.math.BigDecimal,java.util.Currency,android.os.Bundle) -> a
+    void logEventImplicitly(java.lang.String,java.math.BigDecimal,java.util.Currency,android.os.Bundle) -> a
+com.facebook.appevents.internal.SessionInfo -> com.facebook.a.b.i:
     java.lang.Long sessionStartTime -> a
     java.lang.Long sessionLastEventTime -> b
     int interruptionCount -> c
@@ -20349,18 +20474,17 @@ com.facebook.appevents.internal.SessionInfo -> com.facebook.a.b.h:
     java.util.UUID getSessionId() -> g
     long getSessionLength() -> h
     com.facebook.appevents.internal.SourceApplicationInfo getSourceApplicationInfo() -> i
-    void setSourceApplicationInfo(com.facebook.appevents.internal.SourceApplicationInfo) -> a
     void writeSessionToDisk() -> j
-com.facebook.appevents.internal.SessionLogger -> com.facebook.a.b.i:
+com.facebook.appevents.internal.SessionLogger -> com.facebook.a.b.j:
     java.lang.String TAG -> a
     long[] INACTIVE_SECONDS_QUANTA -> b
     void <init>() -> <init>
-    void logActivateApp(android.content.Context,java.lang.String,com.facebook.appevents.internal.SourceApplicationInfo,java.lang.String) -> a
-    void logDeactivateApp(android.content.Context,java.lang.String,com.facebook.appevents.internal.SessionInfo,java.lang.String) -> a
+    void logActivateApp(java.lang.String,com.facebook.appevents.internal.SourceApplicationInfo,java.lang.String) -> a
+    void logDeactivateApp(java.lang.String,com.facebook.appevents.internal.SessionInfo,java.lang.String) -> a
     void logClockSkewEvent() -> a
     int getQuantaIndex(long) -> a
     void <clinit>() -> <clinit>
-com.facebook.appevents.internal.SourceApplicationInfo -> com.facebook.a.b.j:
+com.facebook.appevents.internal.SourceApplicationInfo -> com.facebook.a.b.k:
     java.lang.String callingApplicationPackage -> a
     boolean openedByAppLink -> b
     void <init>(java.lang.String,boolean) -> <init>
@@ -20369,9 +20493,22 @@ com.facebook.appevents.internal.SourceApplicationInfo -> com.facebook.a.b.j:
     java.lang.String toString() -> toString
     void writeSourceApplicationInfoToDisk() -> c
     void <init>(java.lang.String,boolean,com.facebook.appevents.internal.SourceApplicationInfo$1) -> <init>
-com.facebook.appevents.internal.SourceApplicationInfo$1 -> com.facebook.a.b.j$1:
-com.facebook.appevents.internal.SourceApplicationInfo$Factory -> com.facebook.a.b.j$a:
+com.facebook.appevents.internal.SourceApplicationInfo$1 -> com.facebook.a.b.k$1:
+com.facebook.appevents.internal.SourceApplicationInfo$Factory -> com.facebook.a.b.k$a:
     com.facebook.appevents.internal.SourceApplicationInfo create(android.app.Activity) -> a
+com.facebook.appevents.internal.SubscriptionType -> com.facebook.a.b.l:
+    com.facebook.appevents.internal.SubscriptionType NEW -> a
+    com.facebook.appevents.internal.SubscriptionType HEARTBEAT -> b
+    com.facebook.appevents.internal.SubscriptionType EXPIRE -> c
+    com.facebook.appevents.internal.SubscriptionType CANCEL -> d
+    com.facebook.appevents.internal.SubscriptionType RESTORE -> e
+    com.facebook.appevents.internal.SubscriptionType DUPLICATED -> f
+    com.facebook.appevents.internal.SubscriptionType UNKNOWN -> g
+    com.facebook.appevents.internal.SubscriptionType[] $VALUES -> h
+    com.facebook.appevents.internal.SubscriptionType[] values() -> values
+    com.facebook.appevents.internal.SubscriptionType valueOf(java.lang.String) -> valueOf
+    void <init>(java.lang.String,int) -> <init>
+    void <clinit>() -> <clinit>
 com.facebook.applinks.AppLinks -> com.facebook.applinks.AppLinks:
     void <init>() -> <init>
 com.facebook.common.Common -> com.facebook.common.Common:
@@ -21183,7 +21320,9 @@ com.facebook.common.R$style -> com.facebook.common.a$f:
 com.facebook.core.Core -> com.facebook.core.Core:
     void <init>() -> <init>
 com.facebook.devicerequests.internal.DeviceRequestsHelper -> com.facebook.b.a.a:
-    java.util.HashMap deviceRequestsListeners -> a
+    java.lang.String TAG -> a
+    java.util.HashMap deviceRequestsListeners -> b
+    void <init>() -> <init>
     java.lang.String getDeviceInfo() -> a
     boolean startAdvertisementService(java.lang.String) -> a
     boolean isAvailable() -> b
@@ -21281,7 +21420,6 @@ com.facebook.internal.CallbackManagerImpl -> com.facebook.internal.d:
     boolean runStaticCallback(int,int,android.content.Intent) -> b
     void registerCallback(int,com.facebook.internal.CallbackManagerImpl$Callback) -> b
     boolean onActivityResult(int,int,android.content.Intent) -> a
-    boolean isPurchaseIntent(android.content.Intent) -> a
     void <clinit>() -> <clinit>
 com.facebook.internal.CallbackManagerImpl$Callback -> com.facebook.internal.d$a:
     boolean onActivityResult(int,android.content.Intent) -> a
@@ -21295,9 +21433,8 @@ com.facebook.internal.CallbackManagerImpl$RequestCodeOffset -> com.facebook.inte
     com.facebook.internal.CallbackManagerImpl$RequestCodeOffset AppGroupJoin -> g
     com.facebook.internal.CallbackManagerImpl$RequestCodeOffset AppInvite -> h
     com.facebook.internal.CallbackManagerImpl$RequestCodeOffset DeviceShare -> i
-    com.facebook.internal.CallbackManagerImpl$RequestCodeOffset InAppPurchase -> j
-    int offset -> k
-    com.facebook.internal.CallbackManagerImpl$RequestCodeOffset[] $VALUES -> l
+    int offset -> j
+    com.facebook.internal.CallbackManagerImpl$RequestCodeOffset[] $VALUES -> k
     com.facebook.internal.CallbackManagerImpl$RequestCodeOffset[] values() -> values
     com.facebook.internal.CallbackManagerImpl$RequestCodeOffset valueOf(java.lang.String) -> valueOf
     void <init>(java.lang.String,int,int) -> <init>
@@ -21394,7 +21531,9 @@ com.facebook.internal.FetchedAppSettings -> com.facebook.internal.j:
     boolean codelessEventsEnabled -> m
     java.lang.String sdkUpdateMessage -> n
     org.json.JSONArray eventBindings -> o
-    void <init>(boolean,java.lang.String,boolean,boolean,int,java.util.EnumSet,java.util.Map,boolean,com.facebook.internal.FacebookRequestErrorClassification,java.lang.String,java.lang.String,boolean,boolean,org.json.JSONArray,java.lang.String) -> <init>
+    boolean trackUninstallEnabled -> p
+    boolean codelessSetupEnabled -> q
+    void <init>(boolean,java.lang.String,boolean,boolean,int,java.util.EnumSet,java.util.Map,boolean,com.facebook.internal.FacebookRequestErrorClassification,java.lang.String,java.lang.String,boolean,boolean,org.json.JSONArray,java.lang.String,boolean,boolean) -> <init>
     boolean supportsImplicitLogging() -> a
     java.lang.String getNuxContent() -> b
     boolean getNuxEnabled() -> c
@@ -21405,8 +21544,9 @@ com.facebook.internal.FetchedAppSettings -> com.facebook.internal.j:
     com.facebook.internal.FacebookRequestErrorClassification getErrorClassification() -> h
     boolean getIAPAutomaticLoggingEnabled() -> i
     boolean getCodelessEventsEnabled() -> j
-    org.json.JSONArray getEventBindings() -> k
-    java.lang.String getSdkUpdateMessage() -> l
+    boolean getCodelessSetupEnabled() -> k
+    org.json.JSONArray getEventBindings() -> l
+    java.lang.String getSdkUpdateMessage() -> m
 com.facebook.internal.FetchedAppSettings$DialogFeatureConfig -> com.facebook.internal.j$a:
     java.lang.String dialogName -> a
     java.lang.String featureName -> b
@@ -21421,23 +21561,25 @@ com.facebook.internal.FetchedAppSettingsManager -> com.facebook.internal.k:
     java.lang.String TAG -> a
     java.lang.String[] APP_SETTING_FIELDS -> b
     java.util.Map fetchedAppSettings -> c
-    java.util.concurrent.atomic.AtomicBoolean loadingSettings -> d
-    boolean printedSDKUpdatedMessage -> e
+    java.util.concurrent.atomic.AtomicReference loadingState -> d
+    java.util.concurrent.ConcurrentLinkedQueue fetchedAppSettingsCallbacks -> e
+    boolean printedSDKUpdatedMessage -> f
     void <init>() -> <init>
     void loadAppSettingsAsync() -> a
     com.facebook.internal.FetchedAppSettings getAppSettingsWithoutQuery(java.lang.String) -> a
+    void pollCallbacks() -> g
     com.facebook.internal.FetchedAppSettings queryAppSettings(java.lang.String,boolean) -> a
     com.facebook.internal.FetchedAppSettings parseAppSettingsFromJSON(java.lang.String,org.json.JSONObject) -> b
     org.json.JSONObject getAppSettingsQueryResponse(java.lang.String) -> c
     java.util.Map parseDialogConfigurations(org.json.JSONObject) -> a
-    void startInAppPurchaseAutoLogging(android.content.Context) -> b
     com.facebook.internal.FetchedAppSettings access$000(java.lang.String,org.json.JSONObject) -> a
     org.json.JSONObject access$100(java.lang.String) -> b
     boolean access$200() -> b
     boolean access$202(boolean) -> a
     java.lang.String access$300() -> c
-    void access$400(android.content.Context) -> a
-    java.util.concurrent.atomic.AtomicBoolean access$500() -> d
+    java.util.Map access$400() -> d
+    java.util.concurrent.atomic.AtomicReference access$500() -> e
+    void access$600() -> f
     void <clinit>() -> <clinit>
 com.facebook.internal.FetchedAppSettingsManager$1 -> com.facebook.internal.k$1:
     android.content.Context val$context -> a
@@ -21446,15 +21588,27 @@ com.facebook.internal.FetchedAppSettingsManager$1 -> com.facebook.internal.k$1:
     void <init>(android.content.Context,java.lang.String,java.lang.String) -> <init>
     void run() -> run
 com.facebook.internal.FetchedAppSettingsManager$2 -> com.facebook.internal.k$2:
-    android.content.Context val$context -> a
-    void <init>(android.content.Context) -> <init>
-    boolean onActivityResult(int,android.content.Intent) -> a
-com.facebook.internal.FetchedAppSettingsManager$2$1 -> com.facebook.internal.k$2$1:
-    int val$finalResultCode -> a
-    android.content.Intent val$finalData -> b
-    com.facebook.internal.FetchedAppSettingsManager$2 this$0 -> c
-    void <init>(com.facebook.internal.FetchedAppSettingsManager$2,int,android.content.Intent) -> <init>
+    com.facebook.internal.FetchedAppSettingsManager$FetchedAppSettingsCallback val$callback -> a
+    void <init>(com.facebook.internal.FetchedAppSettingsManager$FetchedAppSettingsCallback) -> <init>
     void run() -> run
+com.facebook.internal.FetchedAppSettingsManager$3 -> com.facebook.internal.k$3:
+    com.facebook.internal.FetchedAppSettingsManager$FetchedAppSettingsCallback val$callback -> a
+    com.facebook.internal.FetchedAppSettings val$appSettings -> b
+    void <init>(com.facebook.internal.FetchedAppSettingsManager$FetchedAppSettingsCallback,com.facebook.internal.FetchedAppSettings) -> <init>
+    void run() -> run
+com.facebook.internal.FetchedAppSettingsManager$FetchAppSettingState -> com.facebook.internal.k$a:
+    com.facebook.internal.FetchedAppSettingsManager$FetchAppSettingState NOT_LOADED -> a
+    com.facebook.internal.FetchedAppSettingsManager$FetchAppSettingState LOADING -> b
+    com.facebook.internal.FetchedAppSettingsManager$FetchAppSettingState SUCCESS -> c
+    com.facebook.internal.FetchedAppSettingsManager$FetchAppSettingState ERROR -> d
+    com.facebook.internal.FetchedAppSettingsManager$FetchAppSettingState[] $VALUES -> e
+    com.facebook.internal.FetchedAppSettingsManager$FetchAppSettingState[] values() -> values
+    com.facebook.internal.FetchedAppSettingsManager$FetchAppSettingState valueOf(java.lang.String) -> valueOf
+    void <init>(java.lang.String,int) -> <init>
+    void <clinit>() -> <clinit>
+com.facebook.internal.FetchedAppSettingsManager$FetchedAppSettingsCallback -> com.facebook.internal.k$b:
+    void onSuccess(com.facebook.internal.FetchedAppSettings) -> a
+    void onError() -> a
 com.facebook.internal.FragmentWrapper -> com.facebook.internal.l:
     android.support.v4.app.Fragment supportFragment -> a
     android.app.Fragment nativeFragment -> b
@@ -21866,7 +22020,7 @@ com.facebook.login.CustomTabLoginMethodHandler -> com.facebook.login.a:
     com.facebook.AccessTokenSource getTokenSource() -> f_
     java.lang.String getSSODevice() -> c
     boolean tryAuthorize(com.facebook.login.LoginClient$Request) -> a
-    boolean isCustomTabsAllowed() -> e
+    boolean isCustomTabsAllowed() -> d
     boolean isCustomTabsEnabled() -> f
     java.lang.String getChromePackage() -> g
     boolean isCustomTabsCompatibleWithAutofill() -> h
@@ -21918,6 +22072,7 @@ com.facebook.login.DeviceAuthDialog -> com.facebook.login.c:
     void startLogin(com.facebook.login.LoginClient$Request) -> a
     void setCurrentRequestState(com.facebook.login.DeviceAuthDialog$RequestState) -> a
     android.view.View initializeContentView(boolean) -> j
+    int getLayoutResId(boolean) -> k
     void poll() -> ad
     void schedulePoll() -> ae
     com.facebook.GraphRequest getPollRequest() -> af
@@ -21927,21 +22082,19 @@ com.facebook.login.DeviceAuthDialog -> com.facebook.login.c:
     void onError(com.facebook.FacebookException) -> a
     void onCancel() -> ag
     boolean access$000(com.facebook.login.DeviceAuthDialog) -> a
-    void access$100(com.facebook.login.DeviceAuthDialog,com.facebook.FacebookException) -> a
-    void access$200(com.facebook.login.DeviceAuthDialog,com.facebook.login.DeviceAuthDialog$RequestState) -> a
-    void access$300(com.facebook.login.DeviceAuthDialog) -> b
-    void access$400(com.facebook.login.DeviceAuthDialog) -> c
-    java.util.concurrent.atomic.AtomicBoolean access$500(com.facebook.login.DeviceAuthDialog) -> d
-    void access$600(com.facebook.login.DeviceAuthDialog) -> e
-    void access$700(com.facebook.login.DeviceAuthDialog,java.lang.String) -> a
-    android.view.View access$800(com.facebook.login.DeviceAuthDialog,boolean) -> a
-    android.app.Dialog access$900(com.facebook.login.DeviceAuthDialog) -> f
-    com.facebook.login.LoginClient$Request access$1000(com.facebook.login.DeviceAuthDialog) -> g
-    void access$1100(com.facebook.login.DeviceAuthDialog,java.lang.String,com.facebook.internal.Utility$PermissionsPair,java.lang.String) -> a
-    com.facebook.login.DeviceAuthDialog$RequestState access$1200(com.facebook.login.DeviceAuthDialog) -> h
-    boolean access$1300(com.facebook.login.DeviceAuthDialog) -> i
-    boolean access$1302(com.facebook.login.DeviceAuthDialog,boolean) -> b
-    void access$1400(com.facebook.login.DeviceAuthDialog,java.lang.String,com.facebook.internal.Utility$PermissionsPair,java.lang.String,java.lang.String) -> a
+    void access$100(com.facebook.login.DeviceAuthDialog,com.facebook.login.DeviceAuthDialog$RequestState) -> a
+    void access$200(com.facebook.login.DeviceAuthDialog) -> b
+    void access$300(com.facebook.login.DeviceAuthDialog) -> c
+    java.util.concurrent.atomic.AtomicBoolean access$400(com.facebook.login.DeviceAuthDialog) -> d
+    void access$500(com.facebook.login.DeviceAuthDialog) -> e
+    com.facebook.login.DeviceAuthDialog$RequestState access$600(com.facebook.login.DeviceAuthDialog) -> f
+    com.facebook.login.LoginClient$Request access$700(com.facebook.login.DeviceAuthDialog) -> g
+    void access$800(com.facebook.login.DeviceAuthDialog,java.lang.String) -> a
+    android.app.Dialog access$900(com.facebook.login.DeviceAuthDialog) -> h
+    void access$1000(com.facebook.login.DeviceAuthDialog,java.lang.String,com.facebook.internal.Utility$PermissionsPair,java.lang.String) -> a
+    boolean access$1100(com.facebook.login.DeviceAuthDialog) -> i
+    boolean access$1102(com.facebook.login.DeviceAuthDialog,boolean) -> a
+    void access$1200(com.facebook.login.DeviceAuthDialog,java.lang.String,com.facebook.internal.Utility$PermissionsPair,java.lang.String,java.lang.String) -> a
 com.facebook.login.DeviceAuthDialog$1 -> com.facebook.login.c$1:
     com.facebook.login.DeviceAuthDialog this$0 -> a
     void <init>(com.facebook.login.DeviceAuthDialog) -> <init>
@@ -22007,10 +22160,11 @@ com.facebook.login.DeviceAuthMethodHandler -> com.facebook.login.d:
     void <init>(com.facebook.login.LoginClient) -> <init>
     boolean tryAuthorize(com.facebook.login.LoginClient$Request) -> a
     void showDialog(com.facebook.login.LoginClient$Request) -> b
-    void onCancel() -> g_
+    com.facebook.login.DeviceAuthDialog createDeviceAuthDialog() -> g_
+    void onCancel() -> c
     void onError(java.lang.Exception) -> a
     void onSuccess(java.lang.String,java.lang.String,java.lang.String,java.util.Collection,java.util.Collection,com.facebook.AccessTokenSource,java.util.Date,java.util.Date) -> a
-    java.util.concurrent.ScheduledThreadPoolExecutor getBackgroundExecutor() -> c
+    java.util.concurrent.ScheduledThreadPoolExecutor getBackgroundExecutor() -> d
     void <init>(android.os.Parcel) -> <init>
     java.lang.String getNameForLogging() -> a
     int describeContents() -> describeContents
@@ -22352,7 +22506,7 @@ com.facebook.login.LoginMethodHandler -> com.facebook.login.n:
     boolean tryAuthorize(com.facebook.login.LoginClient$Request) -> a
     java.lang.String getNameForLogging() -> a
     boolean onActivityResult(int,int,android.content.Intent) -> a
-    boolean needsInternetPermission() -> d
+    boolean needsInternetPermission() -> e
     void cancel() -> b
     void putChallengeParam(org.json.JSONObject) -> a
     java.lang.String getClientState(java.lang.String) -> a
@@ -23539,7 +23693,7 @@ com.facebook.login.StartActivityDelegate -> com.facebook.login.r:
     android.app.Activity getActivityContext() -> a
 com.facebook.login.WebLoginMethodHandler -> com.facebook.login.s:
     java.lang.String e2e -> c
-    java.lang.String getRedirectUri() -> e
+    java.lang.String getRedirectUri() -> d
     void <init>(com.facebook.login.LoginClient) -> <init>
     void <init>(android.os.Parcel) -> <init>
     com.facebook.AccessTokenSource getTokenSource() -> f_
@@ -23556,7 +23710,7 @@ com.facebook.login.WebViewLoginMethodHandler -> com.facebook.login.t:
     void <init>(com.facebook.login.LoginClient) -> <init>
     java.lang.String getNameForLogging() -> a
     com.facebook.AccessTokenSource getTokenSource() -> f_
-    boolean needsInternetPermission() -> d
+    boolean needsInternetPermission() -> e
     void cancel() -> b
     boolean tryAuthorize(com.facebook.login.LoginClient$Request) -> a
     void onWebDialogComplete(com.facebook.login.LoginClient$Request,android.os.Bundle,com.facebook.FacebookException) -> b
@@ -23772,21 +23926,23 @@ com.facebook.marketing.CodelessActivityLifecycleTracker -> com.facebook.marketin
     java.lang.String deviceSessionID -> e
     java.lang.Boolean isAppIndexingEnabled -> f
     java.lang.Boolean isCheckingSession -> g
+    com.facebook.marketing.internal.ButtonIndexer buttonIndexer -> h
     void <init>() -> <init>
     void startTracking(android.app.Application,java.lang.String) -> a
     void checkCodelessSession(java.lang.String,com.facebook.marketing.internal.MarketingLogger) -> a
     java.lang.String getCurrentDeviceSessionID() -> a
     boolean getIsAppIndexingEnabled() -> b
     void updateAppIndexing(java.lang.Boolean) -> a
-    android.hardware.SensorManager access$002(android.hardware.SensorManager) -> a
-    android.hardware.SensorManager access$000() -> c
-    com.facebook.marketing.ViewIndexer access$102(com.facebook.marketing.ViewIndexer) -> a
-    com.facebook.marketing.ViewIndexingTrigger access$200() -> d
-    com.facebook.marketing.ViewIndexer access$100() -> e
-    java.lang.Boolean access$302(java.lang.Boolean) -> b
-    java.lang.Boolean access$300() -> f
-    java.lang.String access$402(java.lang.String) -> a
-    java.lang.Boolean access$502(java.lang.Boolean) -> c
+    com.facebook.marketing.internal.ButtonIndexer access$000() -> c
+    android.hardware.SensorManager access$102(android.hardware.SensorManager) -> a
+    android.hardware.SensorManager access$100() -> d
+    com.facebook.marketing.ViewIndexer access$202(com.facebook.marketing.ViewIndexer) -> a
+    com.facebook.marketing.ViewIndexingTrigger access$300() -> e
+    com.facebook.marketing.ViewIndexer access$200() -> f
+    java.lang.Boolean access$402(java.lang.Boolean) -> b
+    java.lang.Boolean access$400() -> g
+    java.lang.String access$502(java.lang.String) -> a
+    java.lang.Boolean access$602(java.lang.Boolean) -> c
     void <clinit>() -> <clinit>
 com.facebook.marketing.CodelessActivityLifecycleTracker$1 -> com.facebook.marketing.a$1:
     void <init>() -> <init>
@@ -23803,7 +23959,7 @@ com.facebook.marketing.CodelessActivityLifecycleTracker$1$1 -> com.facebook.mark
     com.facebook.internal.FetchedAppSettings val$appSettings -> c
     com.facebook.marketing.CodelessActivityLifecycleTracker$1 this$0 -> d
     void <init>(com.facebook.marketing.CodelessActivityLifecycleTracker$1,android.content.Context,java.lang.String,com.facebook.internal.FetchedAppSettings) -> <init>
-    void onShake(int) -> a
+    void onShake() -> a
 com.facebook.marketing.CodelessActivityLifecycleTracker$2 -> com.facebook.marketing.a$2:
     java.lang.String val$applicationId -> a
     com.facebook.marketing.internal.MarketingLogger val$logger -> b
@@ -23860,15 +24016,76 @@ com.facebook.marketing.ViewIndexer$ScreenshotTaker -> com.facebook.marketing.c$a
     java.lang.Object call() -> call
 com.facebook.marketing.ViewIndexingTrigger -> com.facebook.marketing.d:
     com.facebook.marketing.ViewIndexingTrigger$OnShakeListener mListener -> a
-    long mShakeTimestamp -> b
-    int mShakeCount -> c
     void <init>() -> <init>
     void setOnShakeListener(com.facebook.marketing.ViewIndexingTrigger$OnShakeListener) -> a
     void onSensorChanged(android.hardware.SensorEvent) -> onSensorChanged
     void onAccuracyChanged(android.hardware.Sensor,int) -> onAccuracyChanged
-    void resetCount() -> a
 com.facebook.marketing.ViewIndexingTrigger$OnShakeListener -> com.facebook.marketing.d$a:
-    void onShake(int) -> a
+    void onShake() -> a
+com.facebook.marketing.internal.ButtonIndexer -> com.facebook.marketing.internal.a:
+    java.lang.String TAG -> a
+    android.os.Handler uiThreadHandler -> b
+    java.util.Set activitiesSet -> c
+    java.util.Set viewProcessors -> d
+    java.util.HashSet delegateSet -> e
+    void <init>() -> <init>
+    void add(android.app.Activity) -> a
+    void remove(android.app.Activity) -> b
+    void startTracking() -> b
+    void processViews() -> c
+    void access$000(com.facebook.marketing.internal.ButtonIndexer) -> a
+    java.lang.String access$200() -> a
+    void <clinit>() -> <clinit>
+com.facebook.marketing.internal.ButtonIndexer$1 -> com.facebook.marketing.internal.a$1:
+    com.facebook.marketing.internal.ButtonIndexer this$0 -> a
+    void <init>(com.facebook.marketing.internal.ButtonIndexer) -> <init>
+    void run() -> run
+com.facebook.marketing.internal.ButtonIndexer$ViewProcessor -> com.facebook.marketing.internal.a$a:
+    java.lang.ref.WeakReference rootView -> a
+    android.os.Handler handler -> b
+    java.lang.String activityName -> c
+    java.util.HashSet delegateSet -> d
+    java.util.HashMap viewMap -> e
+    void <init>(android.view.View,java.lang.String,java.util.HashSet,android.os.Handler) -> <init>
+    void run() -> run
+    void onGlobalLayout() -> onGlobalLayout
+    void onScrollChanged() -> onScrollChanged
+    void process() -> a
+    void attachListeners(android.view.View) -> a
+    void getClickableElementsOfView(android.view.View,int,java.lang.String) -> a
+    void attachListener(android.view.View,java.lang.String) -> a
+    java.util.HashMap access$100(com.facebook.marketing.internal.ButtonIndexer$ViewProcessor) -> a
+com.facebook.marketing.internal.ButtonIndexer$ViewProcessor$1 -> com.facebook.marketing.internal.a$a$1:
+    com.facebook.marketing.internal.ButtonIndexer$ViewProcessor this$0 -> a
+    void <init>(com.facebook.marketing.internal.ButtonIndexer$ViewProcessor) -> <init>
+    void run() -> run
+com.facebook.marketing.internal.ButtonIndexingEventListener -> com.facebook.marketing.internal.b:
+    java.lang.String TAG -> a
+    void <init>() -> <init>
+    com.facebook.marketing.internal.ButtonIndexingEventListener$ButtonIndexingAccessibilityDelegate getAccessibilityDelegate(android.view.View,java.lang.String) -> a
+    java.lang.String access$000() -> a
+    void <clinit>() -> <clinit>
+com.facebook.marketing.internal.ButtonIndexingEventListener$ButtonIndexingAccessibilityDelegate -> com.facebook.marketing.internal.b$a:
+    android.view.View$AccessibilityDelegate existingDelegate -> b
+    java.lang.String mapKey -> c
+    void <init>(android.view.View,java.lang.String) -> <init>
+    void sendAccessibilityEvent(android.view.View,int) -> sendAccessibilityEvent
+com.facebook.marketing.internal.ButtonIndexingEventListener$ButtonIndexingAccessibilityDelegate$1 -> com.facebook.marketing.internal.b$a$1:
+    android.view.View val$host -> a
+    java.lang.String val$mapKey -> b
+    com.facebook.marketing.internal.ButtonIndexingEventListener$ButtonIndexingAccessibilityDelegate this$0 -> c
+    void <init>(com.facebook.marketing.internal.ButtonIndexingEventListener$ButtonIndexingAccessibilityDelegate,android.view.View,java.lang.String) -> <init>
+    void run() -> run
+com.facebook.marketing.internal.ButtonIndexingLogger -> com.facebook.marketing.internal.c:
+    java.lang.String TAG -> a
+    java.util.Set clickedKeySet -> b
+    java.util.Set loadedKeySet -> c
+    void <init>() -> <init>
+    org.json.JSONObject generateButtonDetail(android.view.View,java.lang.String,boolean) -> a
+    void sendGraphAPIRequest(android.content.Context,java.lang.String,java.lang.String) -> a
+    void logIndexing(java.lang.String,android.view.View,java.lang.String,android.content.Context) -> a
+    void logAllIndexing(java.lang.String,java.util.HashMap,android.content.Context) -> a
+    void <clinit>() -> <clinit>
 com.facebook.marketing.internal.MarketingInitProvider -> com.facebook.marketing.internal.MarketingInitProvider:
     java.lang.String TAG -> a
     void <init>() -> <init>
@@ -23885,7 +24102,7 @@ com.facebook.marketing.internal.MarketingInitProvider$1 -> com.facebook.marketin
     com.facebook.marketing.internal.MarketingInitProvider this$0 -> a
     void <init>(com.facebook.marketing.internal.MarketingInitProvider) -> <init>
     void onInitialized() -> a
-com.facebook.marketing.internal.MarketingLogger -> com.facebook.marketing.internal.a:
+com.facebook.marketing.internal.MarketingLogger -> com.facebook.marketing.internal.d:
     com.facebook.appevents.AppEventsLogger appEventsLogger -> a
     void <init>(android.content.Context,java.lang.String) -> <init>
     void logCodelessInitialized() -> a
@@ -23894,12 +24111,30 @@ com.facebook.marketing.internal.MarketingLogger -> com.facebook.marketing.intern
     void logIndexingStart(java.lang.String) -> a
     void logIndexingComplete(java.lang.String) -> b
     void logIndexingCancelled(java.lang.String) -> c
-com.facebook.marketing.internal.MarketingUtils -> com.facebook.marketing.internal.b:
+com.facebook.marketing.internal.MarketingUtils -> com.facebook.marketing.internal.e:
     java.lang.String TAG -> a
     void <init>() -> <init>
     java.lang.String getAppVersion() -> a
     boolean isEmulator() -> b
     void <clinit>() -> <clinit>
+com.facebook.marketing.internal.RemoteConfig -> com.facebook.marketing.internal.f:
+    boolean enableButtonIndexing -> a
+    void <init>(boolean) -> <init>
+    boolean getEnableButtonIndexing() -> a
+com.facebook.marketing.internal.RemoteConfigManager -> com.facebook.marketing.internal.g:
+    java.lang.String TAG -> a
+    java.util.Map remoteConfigs -> b
+    void <init>() -> <init>
+    void loadRemoteConfig() -> a
+    com.facebook.marketing.internal.RemoteConfig getRemoteConfigWithoutQuery(java.lang.String) -> a
+    org.json.JSONObject getRemoteConfigQueryResponse(java.lang.String,java.lang.String) -> b
+    void parseRemoteConfigFromJSON(java.lang.String,org.json.JSONObject) -> b
+    org.json.JSONObject access$000(java.lang.String,java.lang.String) -> a
+    void access$100(java.lang.String,org.json.JSONObject) -> a
+    void <clinit>() -> <clinit>
+com.facebook.marketing.internal.RemoteConfigManager$1 -> com.facebook.marketing.internal.g$1:
+    void <init>() -> <init>
+    void run() -> run
 com.facebook.messenger.Messenger -> com.facebook.messenger.Messenger:
     void <init>() -> <init>
 com.facebook.places.Places -> com.facebook.places.Places:

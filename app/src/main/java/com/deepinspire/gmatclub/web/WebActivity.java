@@ -46,6 +46,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
+import android.view.Window;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.webkit.ConsoleMessage;
@@ -928,6 +929,14 @@ public class WebActivity extends AppCompatActivity implements
             }
 
             public void onPageStarted(WebView view, String url, Bitmap favicon) {
+                //getWindow().requestFeature(Window.FEATURE_NO_TITLE);
+                //Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+                //toolbar.setVisibility(View.GONE);
+                //WebActivity.this.getSupportActionBar().set
+                //https://gmatclub.org/tests-beta/test/welcome.html?id=1121737
+                //https://gmatclub.org/tests-beta/test-1065456.html
+                //https://gmatclub.org/tests-beta/test/endExam.html?id=1065456
+
                 //webView.destroyDrawingCache();
                 if(url.equals(Api.FORUM_URL + "?style=12") || url.equals(Api.FORUM_URL + "/?style=12")) {
                     changeTitleColor(R.color.white);
@@ -942,6 +951,8 @@ public class WebActivity extends AppCompatActivity implements
 
                 swipe.setRefreshing(false);
                 setLoadingIndicator(true);
+
+                updateVisibilityToolbar(url);
             }
 
             public void onPageFinished(WebView view, String url) {
@@ -2060,5 +2071,11 @@ public class WebActivity extends AppCompatActivity implements
     public static float dpToPx(Context context, float valueInDp) {
         DisplayMetrics metrics = context.getResources().getDisplayMetrics();
         return TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, valueInDp, metrics);
+    }
+
+    private void updateVisibilityToolbar(String url) {
+        int state = (url.contains(Api.TEST_URL) ? View.GONE : View.VISIBLE);
+
+        ((Toolbar) findViewById(R.id.toolbar)).setVisibility(state);
     }
 }

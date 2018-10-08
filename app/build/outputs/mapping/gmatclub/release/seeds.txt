@@ -7273,6 +7273,8 @@ com.deepinspire.gmatclub.R$drawable: int abc_vector_test
 com.deepinspire.gmatclub.R$drawable: int alert_dialog_background_shape
 com.deepinspire.gmatclub.R$drawable: int avd_hide_password
 com.deepinspire.gmatclub.R$drawable: int avd_show_password
+com.deepinspire.gmatclub.R$drawable: int background_button_facebook
+com.deepinspire.gmatclub.R$drawable: int background_button_login
 com.deepinspire.gmatclub.R$drawable: int background_gradient_white
 com.deepinspire.gmatclub.R$drawable: int border
 com.deepinspire.gmatclub.R$drawable: int border_bottom_1dp
@@ -7457,6 +7459,9 @@ com.deepinspire.gmatclub.R$id: int btnLogoutLayout
 com.deepinspire.gmatclub.R$id: int btnMyBookmarks
 com.deepinspire.gmatclub.R$id: int btnMyErrorLog
 com.deepinspire.gmatclub.R$id: int btnMyPosts
+com.deepinspire.gmatclub.R$id: int btnNetworkSettings
+com.deepinspire.gmatclub.R$id: int btnNetworkTitle
+com.deepinspire.gmatclub.R$id: int btnNetworkTryAgain
 com.deepinspire.gmatclub.R$id: int btnOk
 com.deepinspire.gmatclub.R$id: int btnProfile
 com.deepinspire.gmatclub.R$id: int btnProfileTitle
@@ -7517,7 +7522,6 @@ com.deepinspire.gmatclub.R$id: int end
 com.deepinspire.gmatclub.R$id: int end_padder
 com.deepinspire.gmatclub.R$id: int enterAlways
 com.deepinspire.gmatclub.R$id: int enterAlwaysCollapsed
-com.deepinspire.gmatclub.R$id: int errorEmailMessage
 com.deepinspire.gmatclub.R$id: int errorMessage
 com.deepinspire.gmatclub.R$id: int exitUntilCollapsed
 com.deepinspire.gmatclub.R$id: int expand_activities_button
@@ -7596,6 +7600,7 @@ com.deepinspire.gmatclub.R$id: int multiply
 com.deepinspire.gmatclub.R$id: int navViewHeaderLogo
 com.deepinspire.gmatclub.R$id: int nav_view
 com.deepinspire.gmatclub.R$id: int navigation_header_container
+com.deepinspire.gmatclub.R$id: int networkMessage
 com.deepinspire.gmatclub.R$id: int never
 com.deepinspire.gmatclub.R$id: int never_display
 com.deepinspire.gmatclub.R$id: int newChat
@@ -7607,6 +7612,7 @@ com.deepinspire.gmatclub.R$id: int normal
 com.deepinspire.gmatclub.R$id: int notification_background
 com.deepinspire.gmatclub.R$id: int notification_main_column
 com.deepinspire.gmatclub.R$id: int notification_main_column_container
+com.deepinspire.gmatclub.R$id: int offlineLayout
 com.deepinspire.gmatclub.R$id: int open_graph
 com.deepinspire.gmatclub.R$id: int packed
 com.deepinspire.gmatclub.R$id: int page
@@ -7650,6 +7656,9 @@ com.deepinspire.gmatclub.R$id: int showHome
 com.deepinspire.gmatclub.R$id: int showTitle
 com.deepinspire.gmatclub.R$id: int signIn
 com.deepinspire.gmatclub.R$id: int signInButton
+com.deepinspire.gmatclub.R$id: int signInButtonFacebook
+com.deepinspire.gmatclub.R$id: int signInButtonFacebookLayout
+com.deepinspire.gmatclub.R$id: int signInButtonLayout
 com.deepinspire.gmatclub.R$id: int signInFacebook
 com.deepinspire.gmatclub.R$id: int signInFacebookIcon
 com.deepinspire.gmatclub.R$id: int signInGoogle
@@ -7665,6 +7674,8 @@ com.deepinspire.gmatclub.R$id: int snackbar_text
 com.deepinspire.gmatclub.R$id: int snap
 com.deepinspire.gmatclub.R$id: int spacer
 com.deepinspire.gmatclub.R$id: int splitLine
+com.deepinspire.gmatclub.R$id: int splitLineLeft
+com.deepinspire.gmatclub.R$id: int splitLineRight
 com.deepinspire.gmatclub.R$id: int split_action_bar
 com.deepinspire.gmatclub.R$id: int spread
 com.deepinspire.gmatclub.R$id: int spread_inside
@@ -7771,6 +7782,7 @@ com.deepinspire.gmatclub.R$layout: int alert_dialog_error
 com.deepinspire.gmatclub.R$layout: int alert_dialog_forgot_password
 com.deepinspire.gmatclub.R$layout: int alert_dialog_leave_app
 com.deepinspire.gmatclub.R$layout: int alert_dialog_login
+com.deepinspire.gmatclub.R$layout: int alert_dialog_offline
 com.deepinspire.gmatclub.R$layout: int alert_dialog_profile_anon
 com.deepinspire.gmatclub.R$layout: int alert_dialog_profile_auth
 com.deepinspire.gmatclub.R$layout: int com_facebook_activity_layout
@@ -7860,9 +7872,14 @@ com.deepinspire.gmatclub.R$string: int abc_shareactionprovider_share_with
 com.deepinspire.gmatclub.R$string: int abc_shareactionprovider_share_with_application
 com.deepinspire.gmatclub.R$string: int abc_toolbar_collapse_description
 com.deepinspire.gmatclub.R$string: int action_settings
+com.deepinspire.gmatclub.R$string: int alert_dialog_network
+com.deepinspire.gmatclub.R$string: int alert_dialog_offline_message
+com.deepinspire.gmatclub.R$string: int alert_dialog_offline_try_again
+com.deepinspire.gmatclub.R$string: int alert_dialog_settings
 com.deepinspire.gmatclub.R$string: int app_name
 com.deepinspire.gmatclub.R$string: int appbar_scrolling_view_behavior
 com.deepinspire.gmatclub.R$string: int bottom_sheet_behavior
+com.deepinspire.gmatclub.R$string: int button_login
 com.deepinspire.gmatclub.R$string: int character_counter_pattern
 com.deepinspire.gmatclub.R$string: int com_facebook_device_auth_instructions
 com.deepinspire.gmatclub.R$string: int com_facebook_image_download_unknown_error
@@ -7908,9 +7925,11 @@ com.deepinspire.gmatclub.R$string: int common_signin_button_text_long
 com.deepinspire.gmatclub.R$string: int default_notification_channel_id
 com.deepinspire.gmatclub.R$string: int default_web_client_id
 com.deepinspire.gmatclub.R$string: int facebook_app_id
+com.deepinspire.gmatclub.R$string: int facebook_button_login
 com.deepinspire.gmatclub.R$string: int fb_login_protocol_scheme
 com.deepinspire.gmatclub.R$string: int fcm_fallback_notification_channel_label
 com.deepinspire.gmatclub.R$string: int firebase_database_url
+com.deepinspire.gmatclub.R$string: int forgot
 com.deepinspire.gmatclub.R$string: int gcm_defaultSenderId
 com.deepinspire.gmatclub.R$string: int google_api_key
 com.deepinspire.gmatclub.R$string: int google_app_id
@@ -7943,9 +7962,12 @@ com.deepinspire.gmatclub.R$string: int menu_profile_settings_notifications
 com.deepinspire.gmatclub.R$string: int menu_profile_title
 com.deepinspire.gmatclub.R$string: int menu_scan
 com.deepinspire.gmatclub.R$string: int menu_settings
+com.deepinspire.gmatclub.R$string: int message_error_login_password
 com.deepinspire.gmatclub.R$string: int messenger_send_button_text
 com.deepinspire.gmatclub.R$string: int navigation_drawer_close
 com.deepinspire.gmatclub.R$string: int navigation_drawer_open
+com.deepinspire.gmatclub.R$string: int or
+com.deepinspire.gmatclub.R$string: int password
 com.deepinspire.gmatclub.R$string: int password_toggle_content_description
 com.deepinspire.gmatclub.R$string: int path_password_eye
 com.deepinspire.gmatclub.R$string: int path_password_eye_mask_strike_through
@@ -9186,9 +9208,9 @@ com.deepinspire.gmatclub.web.WebActivity
 com.deepinspire.gmatclub.web.WebActivity: WebActivity()
 com.deepinspire.gmatclub.web.WebActivity: void onClick(android.view.View)
 com.deepinspire.gmatclub.web.WebActivity: void goByMenu(android.view.View)
-com.deepinspire.gmatclub.web.WebActivity$4: void openFileChooser(android.webkit.ValueCallback,java.lang.String)
-com.deepinspire.gmatclub.web.WebActivity$4: void openFileChooser(android.webkit.ValueCallback)
-com.deepinspire.gmatclub.web.WebActivity$4: void openFileChooser(android.webkit.ValueCallback,java.lang.String,java.lang.String)
+com.deepinspire.gmatclub.web.WebActivity$5: void openFileChooser(android.webkit.ValueCallback,java.lang.String)
+com.deepinspire.gmatclub.web.WebActivity$5: void openFileChooser(android.webkit.ValueCallback)
+com.deepinspire.gmatclub.web.WebActivity$5: void openFileChooser(android.webkit.ValueCallback,java.lang.String,java.lang.String)
 com.deepinspire.gmatclub.web.WebActivity$GCJavascriptInterface: void sendMessage(java.lang.String)
 com.deepinspire.gmatclub.web.WebActivity$GCJavascriptInterface: void notifications(java.lang.String)
 com.facebook.AccessToken: android.os.Parcelable$Creator CREATOR
@@ -10969,6 +10991,10 @@ com.facebook.appevents.AppEvent$SerializationProxyV2: long serialVersionUID
 com.facebook.appevents.AppEvent$SerializationProxyV2: java.lang.Object readResolve()
 com.facebook.appevents.AppEventsLogger$FlushBehavior: com.facebook.appevents.AppEventsLogger$FlushBehavior[] values()
 com.facebook.appevents.AppEventsLogger$FlushBehavior: com.facebook.appevents.AppEventsLogger$FlushBehavior valueOf(java.lang.String)
+com.facebook.appevents.AppEventsLogger$ProductAvailability: com.facebook.appevents.AppEventsLogger$ProductAvailability[] values()
+com.facebook.appevents.AppEventsLogger$ProductAvailability: com.facebook.appevents.AppEventsLogger$ProductAvailability valueOf(java.lang.String)
+com.facebook.appevents.AppEventsLogger$ProductCondition: com.facebook.appevents.AppEventsLogger$ProductCondition[] values()
+com.facebook.appevents.AppEventsLogger$ProductCondition: com.facebook.appevents.AppEventsLogger$ProductCondition valueOf(java.lang.String)
 com.facebook.appevents.FacebookSDKJSInterface: void sendEvent(java.lang.String,java.lang.String,java.lang.String)
 com.facebook.appevents.FacebookSDKJSInterface: java.lang.String getProtocol()
 com.facebook.appevents.FacebookTimeSpentData: long serialVersionUID
@@ -10993,6 +11019,8 @@ com.facebook.appevents.codeless.internal.PathComponent$MatchBitmaskType: com.fac
 com.facebook.appevents.codeless.internal.PathComponent$MatchBitmaskType: com.facebook.appevents.codeless.internal.PathComponent$MatchBitmaskType valueOf(java.lang.String)
 com.facebook.appevents.internal.AppEventsLoggerUtility$GraphAPIActivityType: com.facebook.appevents.internal.AppEventsLoggerUtility$GraphAPIActivityType[] values()
 com.facebook.appevents.internal.AppEventsLoggerUtility$GraphAPIActivityType: com.facebook.appevents.internal.AppEventsLoggerUtility$GraphAPIActivityType valueOf(java.lang.String)
+com.facebook.appevents.internal.SubscriptionType: com.facebook.appevents.internal.SubscriptionType[] values()
+com.facebook.appevents.internal.SubscriptionType: com.facebook.appevents.internal.SubscriptionType valueOf(java.lang.String)
 com.facebook.applinks.AppLinks
 com.facebook.applinks.R$attr: int font
 com.facebook.applinks.R$attr: int fontProviderAuthority
@@ -12837,6 +12865,8 @@ com.facebook.internal.CallbackManagerImpl$RequestCodeOffset: com.facebook.intern
 com.facebook.internal.CallbackManagerImpl$RequestCodeOffset: com.facebook.internal.CallbackManagerImpl$RequestCodeOffset valueOf(java.lang.String)
 com.facebook.internal.FacebookInitProvider
 com.facebook.internal.FacebookInitProvider: FacebookInitProvider()
+com.facebook.internal.FetchedAppSettingsManager$FetchAppSettingState: com.facebook.internal.FetchedAppSettingsManager$FetchAppSettingState[] values()
+com.facebook.internal.FetchedAppSettingsManager$FetchAppSettingState: com.facebook.internal.FetchedAppSettingsManager$FetchAppSettingState valueOf(java.lang.String)
 com.facebook.internal.LoginAuthorizationType: com.facebook.internal.LoginAuthorizationType[] values()
 com.facebook.internal.LoginAuthorizationType: com.facebook.internal.LoginAuthorizationType valueOf(java.lang.String)
 com.facebook.internal.SmartLoginOption: com.facebook.internal.SmartLoginOption[] values()
