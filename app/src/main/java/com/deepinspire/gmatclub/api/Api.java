@@ -1,11 +1,5 @@
 package com.deepinspire.gmatclub.api;
 
-import android.net.Uri;
-import android.webkit.ValueCallback;
-
-/**
- * Created by dmytro mytsko on 22.03.18.
- */
 public class Api {
     public static String DOMAIN = "gmatclub.com";
 

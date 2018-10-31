@@ -88,8 +88,7 @@ Referenced Strings:
   304
   3456789
   3_method
-  3i2ndDfv2rTHiSisAbouNdArYfORhtTPEefj3q2f
-  4.37.0
+  4.38.0
   400
   404
   4_error_code
@@ -220,6 +219,7 @@ Referenced Strings:
   CREATED
   CUSTOM_APP_EVENTS
   Canceled
+  CaptureViewHierarchy
   CheckBox
   CheckedTextView
   Common.API
@@ -256,6 +256,7 @@ Referenced Strings:
   DEVELOPER_ERROR
   DEVELOPER_ERRORS
   DEVICE_AUTH
+  DIALOG_ONLY
   DIGIT
   DIRECT
   DISCONNECTED
@@ -587,6 +588,7 @@ Referenced Strings:
   OPTIONS
   OTHER
   OkHttp
+  OnReceiveMapping
   Operations:
   PADDED
   PARTIAL
@@ -726,6 +728,7 @@ Referenced Strings:
   StaticFieldLeak
   StorageHelpers
   Submit
+  Subscribe
   SubscriptionCancel
   SubscriptionExpire
   SubscriptionHeartbeat
@@ -888,6 +891,9 @@ Referenced Strings:
   Unclassified
   UnicodeBig
   UnicodeBigUnmarked
+  Unity.
+  UnityFacebookSDKPlugin
+  UnitySendMessage
   Unknown
   UntrackedBindService
   Upgrade
@@ -921,7 +927,6 @@ Referenced Strings:
   __debug__
   _aa
   _ac
-  _activity_name
   _ae
   _aeid
   _ai
@@ -1242,9 +1247,11 @@ Referenced Strings:
   app_context
   app_data
   app_events_feature_bitmask
+  app_events_if_auto_log_subs
   app_events_session_timeout
   app_exception
   app_id
+  app_indexing
   app_install
   app_install_time
   app_instance_id
@@ -1305,6 +1312,7 @@ Referenced Strings:
   bundle
   bundle_end_timestamp
   bundle_sequential_index
+  button_sampling
   byte
   c
   c:
@@ -1387,10 +1395,12 @@ Referenced Strings:
   com.facebook.applinks.AppLinks
   com.facebook.arstudio.player
   com.facebook.core.Core
+  com.facebook.internal.APP_GATEKEEPERS.%s
   com.facebook.internal.APP_SETTINGS.%s
   com.facebook.internal.PURCHASE
   com.facebook.internal.PURCHASE_SUBS
   com.facebook.internal.SKU_DETAILS
+  com.facebook.internal.preferences.APP...
   com.facebook.internal.preferences.APP...
   com.facebook.katana
   com.facebook.katana.ProxyAuth
@@ -1416,6 +1426,7 @@ Referenced Strings:
   com.facebook.platform.extra.ACCESS_TOKEN
   com.facebook.platform.extra.APPLICATI...
   com.facebook.platform.extra.EXPIRES_S...
+  com.facebook.platform.extra.EXTRA_DAT...
   com.facebook.platform.extra.PERMISSIONS
   com.facebook.platform.extra.USER_ID
   com.facebook.platform.protocol.BRIDGE...
@@ -1584,6 +1595,7 @@ Referenced Strings:
   com.google.firebase.messaging.default...
   com.google.iid.TOKEN_REQUEST
   com.parse.bolts.measurement_event
+  com.unity3d.player.UnityPlayer
   common_google_play_services_api_unava...
   common_google_play_services_invalid_a...
   common_google_play_services_invalid_a...
@@ -1644,7 +1656,7 @@ Referenced Strings:
   current_data
   current_results
   custom
-  custom_events_file
+  custom_events
   custom_tab
   cycleInterpolator
   d
@@ -1656,6 +1668,7 @@ Referenced Strings:
   dalvik.system.CloseGuard
   dalvik.system.DexPathList$Element
   data
+  data_access_expiration_time
   databaseUrl
   date
   day
@@ -1861,6 +1874,7 @@ Referenced Strings:
   float
   font
   font_italic
+  font_size
   font_ttc_index
   font_variation_settings
   font_weight
@@ -1894,6 +1908,7 @@ Referenced Strings:
   gads:ad_id_use_persistent_service:ena...
   gads:ad_id_use_shared_preference:expe...
   gaia_collection_enabled
+  gatekeepers
   gcNotifications
   gclid
   gcm
@@ -1922,7 +1937,6 @@ Referenced Strings:
   gdpv4_nux_content
   gdpv4_nux_enabled
   generic
-  gesture_triggered
   get
   getAccessToken
   getAccessibilityDelegate
@@ -2030,6 +2044,7 @@ Referenced Strings:
   https://www.google.com
   https://www.googleapis.com/auth/games
   https://www.googleapis.com/auth/games...
+  icon_image
   id
   id/
   idToken
@@ -2044,9 +2059,6 @@ Referenced Strings:
   index
   index.php
   indexed_button_list
-  indexing_cancelled
-  indexing_complete
-  indexing_start
   info
   init
   initial_backoff_seconds
@@ -2075,8 +2087,10 @@ Referenced Strings:
   isProjected
   isReauthorize
   is_app_indexing_enabled
+  is_bold
   is_fallback
   is_from_click
+  is_italic
   is_selected
   is_transient
   issued_at
@@ -2261,6 +2275,7 @@ Referenced Strings:
   minute
   mipmap
   missing_to
+  mobile_sdk_gk
   model
   month
   mounted
@@ -2454,6 +2469,7 @@ Referenced Strings:
   request
   request_code
   request_state
+  request_type
   requests
   requiredChars
   requiredNetwork
@@ -2500,6 +2516,7 @@ Referenced Strings:
   sdk
   sdk_initialized
   sdk_update_message
+  sdk_version
   seamless_login
   search
   search_results
@@ -2528,7 +2545,6 @@ Referenced Strings:
   service_upload
   servicediscovery
   session_quanta_%d
-  session_ready
   session_start
   session_timeout
   set
@@ -2622,10 +2638,12 @@ Referenced Strings:
   system_app_update
   tag
   target
+  target_user_id
   te
   term
   text
   text/plain
+  text_style
   theUnsafe
   this
   time
@@ -2706,7 +2724,7 @@ Referenced Strings:
   utm_source
   utm_term
   v
-  v3.1
+  v3.2
   value
   valueFrom
   valueTo

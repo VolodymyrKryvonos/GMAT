@@ -5997,7 +5997,7 @@ com.deepinspire.gmatclub.api.Api:
     public static final java.lang.String EMAIL
     public static final java.lang.String PASSWORD
     public static final java.lang.String COOKIES
-    9:9:public Api()
+    3:3:public Api()
 com.deepinspire.gmatclub.api.ApiClient:
     53:73:public retrofit2.Retrofit getClient(java.lang.String)
 com.deepinspire.gmatclub.api.ApiInterface:
@@ -6059,17 +6059,17 @@ com.deepinspire.gmatclub.web.WebActivity:
     private static final int DEVICE_SETTINGS
     private android.webkit.CookieManager cookieManager
     private android.support.v7.app.ActionBarDrawerToggle toggle
-    1706:1796:public com.deepinspire.gmatclub.storage.DeviceInfo getDeviceInformation(android.app.Activity)
-    1800:1805:private long freeRamMemorySize()
-    1809:1813:private long totalRamMemorySize()
-    1817:1817:public static boolean externalMemoryAvailable()
-    1821:1825:public static long getAvailableInternalMemorySize()
-    1829:1833:public static long getTotalInternalMemorySize()
-    1837:1844:public static long getAvailableExternalMemorySize()
-    1849:1856:public static long getTotalExternalMemorySize()
-    1861:1879:public static java.lang.String formatSize(long)
-    1968:1974:private void openFileDialog(android.webkit.ValueCallback)
-    111:111:public bridge synthetic void setPresenter(java.lang.Object)
+    1713:1803:public com.deepinspire.gmatclub.storage.DeviceInfo getDeviceInformation(android.app.Activity)
+    1807:1812:private long freeRamMemorySize()
+    1816:1820:private long totalRamMemorySize()
+    1824:1824:public static boolean externalMemoryAvailable()
+    1828:1832:public static long getAvailableInternalMemorySize()
+    1836:1840:public static long getTotalInternalMemorySize()
+    1844:1851:public static long getAvailableExternalMemorySize()
+    1856:1863:public static long getTotalExternalMemorySize()
+    1868:1886:public static java.lang.String formatSize(long)
+    1975:1981:private void openFileDialog(android.webkit.ValueCallback)
+    113:113:public bridge synthetic void setPresenter(java.lang.Object)
 com.deepinspire.gmatclub.web.WebPresenter:
     47:47:public void start()
     188:217:private void updateNotifications(java.lang.String)
@@ -6078,6 +6078,7 @@ com.facebook.AccessToken:
     public static final java.lang.String ACCESS_TOKEN_KEY
     public static final java.lang.String EXPIRES_IN_KEY
     public static final java.lang.String USER_ID_KEY
+    public static final java.lang.String DATA_ACCESS_EXPIRATION_TIME
     private static final int CURRENT_JSON_FORMAT
     private static final java.lang.String VERSION_KEY
     private static final java.lang.String EXPIRES_AT_KEY
@@ -6087,11 +6088,13 @@ com.facebook.AccessToken:
     private static final java.lang.String SOURCE_KEY
     private static final java.lang.String LAST_REFRESH_KEY
     private static final java.lang.String APPLICATION_ID_KEY
-    186:187:public static void refreshCurrentAccessTokenAsync()
-    195:196:public static void refreshCurrentAccessTokenAsync(com.facebook.AccessToken$AccessTokenRefreshCallback)
-    311:362:public static void createFromNativeLinkingIntent(android.content.Intent,java.lang.String,com.facebook.AccessToken$AccessTokenCreationCallback)
-    420:437:static com.facebook.AccessToken createFromRefresh(com.facebook.AccessToken,android.os.Bundle)
-    566:574:private static com.facebook.AccessToken createFromBundle(java.util.List,android.os.Bundle,com.facebook.AccessTokenSource,java.util.Date,java.lang.String)
+    173:174:public static boolean isDataAccessActive()
+    202:203:public static void refreshCurrentAccessTokenAsync()
+    211:212:public static void refreshCurrentAccessTokenAsync(com.facebook.AccessToken$AccessTokenRefreshCallback)
+    336:387:public static void createFromNativeLinkingIntent(android.content.Intent,java.lang.String,com.facebook.AccessToken$AccessTokenCreationCallback)
+    447:466:static com.facebook.AccessToken createFromRefresh(com.facebook.AccessToken,android.os.Bundle)
+    554:554:public boolean isDataAccessExpired()
+    610:619:private static com.facebook.AccessToken createFromBundle(java.util.List,android.os.Bundle,com.facebook.AccessTokenSource,java.util.Date,java.lang.String)
     53:53:static synthetic com.facebook.AccessToken access$000(java.util.List,android.os.Bundle,com.facebook.AccessTokenSource,java.util.Date,java.lang.String)
 com.facebook.AccessToken$1
 com.facebook.AccessToken$AccessTokenCreationCallback
@@ -6169,30 +6172,30 @@ com.facebook.FacebookSdk:
     public static final java.lang.String AUTO_LOG_APP_EVENTS_ENABLED_PROPERTY
     public static final java.lang.String CODELESS_DEBUG_LOG_ENABLED_PROPERTY
     public static final java.lang.String CALLBACK_OFFSET_PROPERTY
-    180:181:public static synchronized void sdkInitialize(android.content.Context,int)
-    211:220:public static synchronized void sdkInitialize(android.content.Context,int,com.facebook.FacebookSdk$InitializeCallback)
-    362:364:public static java.util.Set getLoggingBehaviors()
-    377:381:public static void addLoggingBehavior(com.facebook.LoggingBehavior)
-    393:396:public static void removeLoggingBehavior(com.facebook.LoggingBehavior)
-    405:408:public static void clearLoggingBehaviors()
-    438:439:public static void setIsDebugEnabled(boolean)
-    451:455:private static void updateGraphDebugBehavior()
-    462:463:public static void setLegacyTokenUpgradeSupported(boolean)
-    489:493:public static void setExecutor(java.util.concurrent.Executor)
-    514:518:public static void setFacebookDomain(java.lang.String)
-    538:545:public static void setGraphApiVersion(java.lang.String)
-    652:656:public static void setLimitEventAndDataUsage(android.content.Context,boolean)
-    673:674:public static void setOnProgressThreshold(long)
-    743:773:public static java.lang.String getApplicationSignature(android.content.Context)
-    792:793:public static void setApplicationId(java.lang.String)
-    802:803:public static java.lang.String getApplicationName()
-    811:812:public static void setApplicationName(java.lang.String)
-    829:830:public static void setClientToken(java.lang.String)
-    847:848:public static void setAutoLogAppEventsEnabled(boolean)
-    863:864:public static void setCodelessDebugLogEnabled(boolean)
-    873:874:public static java.io.File getCacheDir()
-    882:883:public static void setCacheDir(java.io.File)
-    906:906:public static boolean isFacebookRequestCode(int)
+    181:182:public static synchronized void sdkInitialize(android.content.Context,int)
+    212:221:public static synchronized void sdkInitialize(android.content.Context,int,com.facebook.FacebookSdk$InitializeCallback)
+    365:367:public static java.util.Set getLoggingBehaviors()
+    380:384:public static void addLoggingBehavior(com.facebook.LoggingBehavior)
+    396:399:public static void removeLoggingBehavior(com.facebook.LoggingBehavior)
+    408:411:public static void clearLoggingBehaviors()
+    441:442:public static void setIsDebugEnabled(boolean)
+    454:458:private static void updateGraphDebugBehavior()
+    465:466:public static void setLegacyTokenUpgradeSupported(boolean)
+    492:496:public static void setExecutor(java.util.concurrent.Executor)
+    517:521:public static void setFacebookDomain(java.lang.String)
+    541:548:public static void setGraphApiVersion(java.lang.String)
+    655:659:public static void setLimitEventAndDataUsage(android.content.Context,boolean)
+    676:677:public static void setOnProgressThreshold(long)
+    746:776:public static java.lang.String getApplicationSignature(android.content.Context)
+    795:796:public static void setApplicationId(java.lang.String)
+    805:806:public static java.lang.String getApplicationName()
+    814:815:public static void setApplicationName(java.lang.String)
+    832:833:public static void setClientToken(java.lang.String)
+    850:851:public static void setAutoLogAppEventsEnabled(boolean)
+    866:867:public static void setCodelessDebugLogEnabled(boolean)
+    876:877:public static java.io.File getCacheDir()
+    885:886:public static void setCacheDir(java.io.File)
+    909:909:public static boolean isFacebookRequestCode(int)
 com.facebook.FacebookSdkNotInitializedException:
     52:53:public FacebookSdkNotInitializedException(java.lang.String,java.lang.Throwable)
     61:62:public FacebookSdkNotInitializedException(java.lang.Throwable)
@@ -6236,39 +6239,38 @@ com.facebook.GraphRequest:
     private static final java.lang.String PICTURE_PARAM
     private static final java.lang.String CAPTION_PARAM
     public static final java.lang.String FIELDS_PARAM
-    private static final java.lang.String MIME_BOUNDARY
     private static final java.lang.String GRAPH_PATH_FORMAT
-    163:164:public GraphRequest(com.facebook.AccessToken,java.lang.String)
-    187:188:public GraphRequest(com.facebook.AccessToken,java.lang.String,android.os.Bundle,com.facebook.HttpMethod)
-    138:268:GraphRequest(com.facebook.AccessToken,java.net.URL)
-    283:283:public static com.facebook.GraphRequest newDeleteObjectRequest(com.facebook.AccessToken,java.lang.String,com.facebook.GraphRequest$Callback)
-    297:305:public static com.facebook.GraphRequest newMeRequest(com.facebook.AccessToken,com.facebook.GraphRequest$GraphJSONObjectCallback)
-    345:355:public static com.facebook.GraphRequest newMyFriendsRequest(com.facebook.AccessToken,com.facebook.GraphRequest$GraphJSONArrayCallback)
-    397:428:public static com.facebook.GraphRequest newPlacesSearchRequest(com.facebook.AccessToken,android.location.Location,int,int,java.lang.String,com.facebook.GraphRequest$GraphJSONArrayCallback)
-    451:461:public static com.facebook.GraphRequest newUploadPhotoRequest(com.facebook.AccessToken,java.lang.String,android.graphics.Bitmap,java.lang.String,android.os.Bundle,com.facebook.GraphRequest$Callback)
-    486:498:public static com.facebook.GraphRequest newUploadPhotoRequest(com.facebook.AccessToken,java.lang.String,java.io.File,java.lang.String,android.os.Bundle,com.facebook.GraphRequest$Callback)
-    523:546:public static com.facebook.GraphRequest newUploadPhotoRequest(com.facebook.AccessToken,java.lang.String,android.net.Uri,java.lang.String,android.os.Bundle,com.facebook.GraphRequest$Callback)
-    590:631:public static com.facebook.GraphRequest newCustomAudienceThirdPartyIdRequest(com.facebook.AccessToken,android.content.Context,java.lang.String,com.facebook.GraphRequest$Callback)
-    670:670:public static com.facebook.GraphRequest newCustomAudienceThirdPartyIdRequest(com.facebook.AccessToken,android.content.Context,com.facebook.GraphRequest$Callback)
-    707:708:public final void setGraphPath(java.lang.String)
-    748:749:public final void setVersion(java.lang.String)
-    791:792:public final void setAccessToken(com.facebook.AccessToken)
-    800:800:public final java.lang.String getBatchEntryName()
-    814:815:public final void setBatchEntryName(java.lang.String)
-    824:824:public final java.lang.String getBatchEntryDependsOn()
-    838:839:public final void setBatchEntryDependsOn(java.lang.String)
-    849:849:public final boolean getBatchEntryOmitResultOnSuccess()
-    862:863:public final void setBatchEntryOmitResultOnSuccess(boolean)
-    873:873:public static final java.lang.String getDefaultBatchApplicationId()
-    886:887:public static final void setDefaultBatchApplicationId(java.lang.String)
-    1014:1014:public static varargs java.net.HttpURLConnection toHttpConnection(com.facebook.GraphRequest[])
-    1029:1031:public static java.net.HttpURLConnection toHttpConnection(java.util.Collection)
-    1247:1247:public static java.util.List executeConnectionAndWait(java.net.HttpURLConnection,java.util.Collection)
-    1306:1306:public static com.facebook.GraphRequestAsyncTask executeConnectionAsync(java.net.HttpURLConnection,com.facebook.GraphRequestBatch)
-    1331:1336:public static com.facebook.GraphRequestAsyncTask executeConnectionAsync(android.os.Handler,java.net.HttpURLConnection,com.facebook.GraphRequestBatch)
-    1402:1402:private static java.lang.String getDefaultPhotoPathIfNull(java.lang.String)
+    178:179:public GraphRequest(com.facebook.AccessToken,java.lang.String)
+    202:203:public GraphRequest(com.facebook.AccessToken,java.lang.String,android.os.Bundle,com.facebook.HttpMethod)
+    139:283:GraphRequest(com.facebook.AccessToken,java.net.URL)
+    298:298:public static com.facebook.GraphRequest newDeleteObjectRequest(com.facebook.AccessToken,java.lang.String,com.facebook.GraphRequest$Callback)
+    312:320:public static com.facebook.GraphRequest newMeRequest(com.facebook.AccessToken,com.facebook.GraphRequest$GraphJSONObjectCallback)
+    360:370:public static com.facebook.GraphRequest newMyFriendsRequest(com.facebook.AccessToken,com.facebook.GraphRequest$GraphJSONArrayCallback)
+    412:443:public static com.facebook.GraphRequest newPlacesSearchRequest(com.facebook.AccessToken,android.location.Location,int,int,java.lang.String,com.facebook.GraphRequest$GraphJSONArrayCallback)
+    466:476:public static com.facebook.GraphRequest newUploadPhotoRequest(com.facebook.AccessToken,java.lang.String,android.graphics.Bitmap,java.lang.String,android.os.Bundle,com.facebook.GraphRequest$Callback)
+    501:513:public static com.facebook.GraphRequest newUploadPhotoRequest(com.facebook.AccessToken,java.lang.String,java.io.File,java.lang.String,android.os.Bundle,com.facebook.GraphRequest$Callback)
+    538:561:public static com.facebook.GraphRequest newUploadPhotoRequest(com.facebook.AccessToken,java.lang.String,android.net.Uri,java.lang.String,android.os.Bundle,com.facebook.GraphRequest$Callback)
+    605:646:public static com.facebook.GraphRequest newCustomAudienceThirdPartyIdRequest(com.facebook.AccessToken,android.content.Context,java.lang.String,com.facebook.GraphRequest$Callback)
+    685:685:public static com.facebook.GraphRequest newCustomAudienceThirdPartyIdRequest(com.facebook.AccessToken,android.content.Context,com.facebook.GraphRequest$Callback)
+    722:723:public final void setGraphPath(java.lang.String)
+    763:764:public final void setVersion(java.lang.String)
+    806:807:public final void setAccessToken(com.facebook.AccessToken)
+    815:815:public final java.lang.String getBatchEntryName()
+    829:830:public final void setBatchEntryName(java.lang.String)
+    839:839:public final java.lang.String getBatchEntryDependsOn()
+    853:854:public final void setBatchEntryDependsOn(java.lang.String)
+    864:864:public final boolean getBatchEntryOmitResultOnSuccess()
+    877:878:public final void setBatchEntryOmitResultOnSuccess(boolean)
+    888:888:public static final java.lang.String getDefaultBatchApplicationId()
+    901:902:public static final void setDefaultBatchApplicationId(java.lang.String)
+    1029:1029:public static varargs java.net.HttpURLConnection toHttpConnection(com.facebook.GraphRequest[])
+    1044:1046:public static java.net.HttpURLConnection toHttpConnection(java.util.Collection)
+    1262:1262:public static java.util.List executeConnectionAndWait(java.net.HttpURLConnection,java.util.Collection)
+    1321:1321:public static com.facebook.GraphRequestAsyncTask executeConnectionAsync(java.net.HttpURLConnection,com.facebook.GraphRequestBatch)
+    1346:1351:public static com.facebook.GraphRequestAsyncTask executeConnectionAsync(android.os.Handler,java.net.HttpURLConnection,com.facebook.GraphRequestBatch)
+    1417:1417:private static java.lang.String getDefaultPhotoPathIfNull(java.lang.String)
 com.facebook.GraphRequest$1:
-    297:297:GraphRequest$1(com.facebook.GraphRequest$GraphJSONObjectCallback)
+    312:312:GraphRequest$1(com.facebook.GraphRequest$GraphJSONObjectCallback)
 com.facebook.GraphRequest$2
 com.facebook.GraphRequest$3
 com.facebook.GraphRequest$GraphJSONArrayCallback
@@ -6443,19 +6445,20 @@ com.facebook.appevents.AppEventsLogger:
     1000:1013:public static void augmentWebView(android.webkit.WebView,android.content.Context)
     1024:1025:public static void setUserID(java.lang.String)
     1038:1039:public static void clearUserID()
-    1061:1062:public static void setUserData(android.os.Bundle)
-    1075:1076:public static void clearUserData()
-    1081:1085:public static void updateUserProperties(android.os.Bundle,com.facebook.GraphRequest$Callback)
-    1091:1138:public static void updateUserProperties(android.os.Bundle,java.lang.String,com.facebook.GraphRequest$Callback)
-    1159:1159:public java.lang.String getApplicationId()
-    1362:1364:static void setSourceApplication(java.lang.String,boolean)
+    1062:1063:public static void setUserData(android.os.Bundle)
+    1093:1104:public static void setUserData(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)
+    1117:1118:public static void clearUserData()
+    1123:1127:public static void updateUserProperties(android.os.Bundle,com.facebook.GraphRequest$Callback)
+    1133:1180:public static void updateUserProperties(android.os.Bundle,java.lang.String,com.facebook.GraphRequest$Callback)
+    1201:1201:public java.lang.String getApplicationId()
+    1404:1406:static void setSourceApplication(java.lang.String,boolean)
     148:148:static synthetic void access$100(com.facebook.appevents.AppEventsLogger,long)
 com.facebook.appevents.AppEventsLogger$2
 com.facebook.appevents.AppEventsLogger$4
 com.facebook.appevents.AppEventsLogger$PersistedAppSessionInfo:
     private static final java.lang.String PERSISTED_SESSION_INFO_FILENAME
-    1431:1431:AppEventsLogger$PersistedAppSessionInfo()
-    1537:1542:static void onSuspend(android.content.Context,com.facebook.appevents.AccessTokenAppIdPair,com.facebook.appevents.AppEventsLogger,long)
+    1473:1473:AppEventsLogger$PersistedAppSessionInfo()
+    1579:1584:static void onSuspend(android.content.Context,com.facebook.appevents.AccessTokenAppIdPair,com.facebook.appevents.AppEventsLogger,long)
 com.facebook.appevents.AppEventsLogger$ProductAvailability
 com.facebook.appevents.AppEventsLogger$ProductCondition
 com.facebook.appevents.FacebookSDKJSInterface
@@ -6468,6 +6471,8 @@ com.facebook.appevents.FacebookTimeSpentData:
     205:219:void onSuspend(com.facebook.appevents.AppEventsLogger,long)
     33:33:synthetic FacebookTimeSpentData(long,long,long,int,com.facebook.appevents.FacebookTimeSpentData$1)
 com.facebook.appevents.FacebookTimeSpentData$SerializationProxyV1
+com.facebook.appevents.FacebookUninstallTracker
+com.facebook.appevents.FacebookUninstallTracker$1
 com.facebook.appevents.SessionEventsState:
     130:131:public synchronized void accumulatePersistedEvents(java.util.List)
 com.facebook.appevents.UserDataStore:
@@ -6482,19 +6487,29 @@ com.facebook.appevents.UserDataStore:
     public static final java.lang.String STATE
     public static final java.lang.String ZIP
     public static final java.lang.String COUNTRY
-    75:97:public static void setUserDataAndHash(android.os.Bundle)
-    134:156:private static java.lang.String hashUserData(android.os.Bundle)
-    160:172:private static java.lang.String encryptData(java.lang.String)
-    176:197:private static java.lang.String normalizeData(java.lang.String,java.lang.String)
-    201:201:private static boolean maybeSHA256Hashed(java.lang.String)
-    38:38:static synthetic java.util.concurrent.locks.ReentrantReadWriteLock access$100()
-    38:38:static synthetic java.lang.String access$202(java.lang.String)
-    38:38:static synthetic java.lang.String access$300(android.os.Bundle)
-    38:38:static synthetic java.lang.String access$200()
+    76:98:public static void setUserDataAndHash(android.os.Bundle)
+    111:143:public static void setUserDataAndHash(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)
+    181:203:private static java.lang.String hashUserData(android.os.Bundle)
+    207:219:private static java.lang.String encryptData(java.lang.String)
+    223:244:private static java.lang.String normalizeData(java.lang.String,java.lang.String)
+    248:248:private static boolean maybeSHA256Hashed(java.lang.String)
+    39:39:static synthetic java.util.concurrent.locks.ReentrantReadWriteLock access$100()
+    39:39:static synthetic java.lang.String access$202(java.lang.String)
+    39:39:static synthetic java.lang.String access$300(android.os.Bundle)
+    39:39:static synthetic java.lang.String access$200()
 com.facebook.appevents.UserDataStore$2
 com.facebook.appevents.codeless.CodelessMatcher:
     private static final java.lang.String PARENT_CLASS_NAME
     private static final java.lang.String CURRENT_CLASS_NAME
+com.facebook.appevents.codeless.ViewIndexer:
+    private static final java.lang.String SUCCESS
+    private static final java.lang.String TREE_PARAM
+    private static final java.lang.String APP_VERSION_PARAM
+    private static final java.lang.String PLATFORM_PARAM
+    private static final java.lang.String REQUEST_TYPE
+    178:184:public void sendToServerUnity(java.lang.String)
+com.facebook.appevents.codeless.ViewIndexingTrigger:
+    private static final double SHAKE_THRESHOLD_GRAVITY
 com.facebook.appevents.codeless.internal.Constants
 com.facebook.appevents.codeless.internal.EventBinding:
     135:135:public com.facebook.appevents.codeless.internal.EventBinding$MappingMethod getMethod()
@@ -6516,6 +6531,12 @@ com.facebook.appevents.codeless.internal.PathComponent:
     private static final java.lang.String PATH_MATCH_BITMASK_KEY
 com.facebook.appevents.codeless.internal.SensitiveUserDataUtils:
     30:30:public SensitiveUserDataUtils()
+com.facebook.appevents.codeless.internal.UnityReflection:
+    private static final java.lang.String UNITY_PLAYER_CLASS
+    private static final java.lang.String UNITY_SEND_MESSAGE_METHOD
+    private static final java.lang.String FB_UNITY_GAME_OBJECT
+    private static final java.lang.String CAPTURE_VIEW_HIERARCHY_METHOD
+    private static final java.lang.String EVENT_MAPPING_METHOD
 com.facebook.appevents.codeless.internal.ViewHierarchy:
     private static final java.lang.String GET_ACCESSIBILITY_METHOD
     private static final java.lang.String ID_KEY
@@ -6534,6 +6555,11 @@ com.facebook.appevents.codeless.internal.ViewHierarchy:
     private static final java.lang.String DIMENSION_SCROLL_X_KEY
     private static final java.lang.String DIMENSION_SCROLL_Y_KEY
     private static final java.lang.String DIMENSION_VISIBILITY_KEY
+    private static final java.lang.String TEXT_SIZE
+    private static final java.lang.String TEXT_IS_BOLD
+    private static final java.lang.String TEXT_IS_ITALIC
+    private static final java.lang.String TEXT_STYLE
+    private static final java.lang.String ICON_BITMAP
     private static final int TEXTVIEW_BITMASK
     private static final int IMAGEVIEW_BITMASK
     private static final int BUTTON_BITMASK
@@ -6547,13 +6573,14 @@ com.facebook.appevents.codeless.internal.ViewHierarchy:
     private static final int RADIO_GROUP_BITMASK
     private static final int CHECKBOX_BITMASK
     private static final int RATINGBAR_BITMASK
+    private static final int ICON_MAX_EDGE_LENGTH
 com.facebook.appevents.internal.ActivityLifecycleTracker:
     private static final java.lang.String INCORRECT_IMPL_WARNING
     private static final long INTERRUPTION_THRESHOLD_MILLISECONDS
 com.facebook.appevents.internal.AppEventUtility:
     private static final java.lang.String regex
-    35:35:public AppEventUtility()
-    80:80:private static boolean isMainThread()
+    41:41:public AppEventUtility()
+    97:97:private static boolean isMainThread()
 com.facebook.appevents.internal.AppEventsLoggerUtility:
     42:42:public AppEventsLoggerUtility()
 com.facebook.appevents.internal.Constants:
@@ -6686,6 +6713,7 @@ com.facebook.core.R$style
 com.facebook.core.R$styleable
 com.facebook.devicerequests.internal.DeviceRequestsHelper:
     public static final java.lang.String DEVICE_INFO_PARAM
+    public static final java.lang.String DEVICE_TARGET_USER_ID
     static final java.lang.String DEVICE_INFO_DEVICE
     static final java.lang.String DEVICE_INFO_MODEL
     static final java.lang.String SDK_HEADER
@@ -6776,6 +6804,18 @@ com.facebook.internal.FacebookSignatureValidator:
     37:37:public FacebookSignatureValidator()
 com.facebook.internal.FacebookWebFallbackDialog:
     private static final int OS_BACK_BUTTON_RESPONSE_TIMEOUT_MILLISECONDS
+com.facebook.internal.FetchedAppGateKeepersManager:
+    public static final java.lang.String APP_EVENTS_IF_AUTO_LOG_SUBS
+    private static final java.lang.String APP_GATEKEEPERS_PREFS_STORE
+    private static final java.lang.String APP_GATEKEEPERS_PREFS_KEY_FORMAT
+    private static final java.lang.String APP_PLATFORM
+    private static final java.lang.String APPLICATION_GATEKEEPER_EDGE
+    private static final java.lang.String APPLICATION_GATEKEEPER_FIELD
+    private static final java.lang.String APPLICATION_GRAPH_DATA
+    private static final java.lang.String APPLICATION_DEVICE_ID
+    private static final java.lang.String APPLICATION_FIELDS
+    private static final java.lang.String APPLICATION_PLATFORM
+    private static final java.lang.String APPLICATION_SDK_VERSION
 com.facebook.internal.FetchedAppSettings:
     121:121:public java.util.Map getDialogConfigurations()
     128:128:public java.lang.String getSmartLoginBookmarkIconURL()
@@ -6812,7 +6852,7 @@ com.facebook.internal.FetchedAppSettingsManager:
     private static final java.lang.String SDK_UPDATE_MESSAGE
     private static final java.lang.String APPLICATION_FIELDS
     private static final java.lang.String ADVERTISER_ID_KEY
-    218:220:public static synchronized void getAppSettingsAsync(com.facebook.internal.FetchedAppSettingsManager$FetchedAppSettingsCallback)
+    219:221:public static synchronized void getAppSettingsAsync(com.facebook.internal.FetchedAppSettingsManager$FetchedAppSettingsCallback)
 com.facebook.internal.FileLruCache
 com.facebook.internal.FileLruCache$1
 com.facebook.internal.FileLruCache$2
@@ -6840,8 +6880,9 @@ com.facebook.internal.ImageResponse
 com.facebook.internal.ImageResponseCache
 com.facebook.internal.ImageResponseCache$BufferedHttpInputStream
 com.facebook.internal.InternalSettings:
+    private static final java.lang.String UNITY_PREFIX
     23:23:public InternalSettings()
-    33:34:public static void setCustomUserAgent(java.lang.String)
+    34:35:public static void setCustomUserAgent(java.lang.String)
 com.facebook.internal.LockOnGetVariable:
     33:35:public LockOnGetVariable(java.lang.Object)
     54:55:public java.lang.Object getValue()
@@ -6926,6 +6967,7 @@ com.facebook.internal.NativeProtocol:
     public static final java.lang.String EXTRA_GRAPH_API_VERSION
     public static final java.lang.String EXTRA_ACCESS_TOKEN
     public static final java.lang.String EXTRA_EXPIRES_SECONDS_SINCE_EPOCH
+    public static final java.lang.String EXTRA_DATA_ACCESS_EXPIRATION_TIME
     public static final java.lang.String RESULT_ARGS_ACCESS_TOKEN
     public static final java.lang.String RESULT_ARGS_SIGNED_REQUEST
     public static final java.lang.String RESULT_ARGS_EXPIRES_SECONDS_SINCE_EPOCH
@@ -6968,14 +7010,14 @@ com.facebook.internal.NativeProtocol:
     private static final java.lang.String PLATFORM_PROVIDER
     private static final java.lang.String PLATFORM_PROVIDER_VERSIONS
     private static final java.lang.String PLATFORM_PROVIDER_VERSION_COLUMN
-    558:568:public static android.content.Intent createTokenRefreshIntent(android.content.Context)
-    606:626:public static android.content.Intent createPlatformActivityIntent(android.content.Context,java.lang.String,java.lang.String,com.facebook.internal.NativeProtocol$ProtocolVersionQueryResult,android.os.Bundle)
-    638:663:public static void setupProtocolRequestIntent(android.content.Intent,java.lang.String,java.lang.String,int,android.os.Bundle)
-    739:744:public static android.os.Bundle getBridgeArgumentsFromIntent(android.content.Intent)
-    757:763:public static android.os.Bundle getSuccessResultsFromIntent(android.content.Intent)
-    767:771:public static boolean isErrorResult(android.content.Intent)
-    776:785:public static android.os.Bundle getErrorDataFromResultIntent(android.content.Intent)
-    834:835:public static com.facebook.internal.NativeProtocol$ProtocolVersionQueryResult getLatestAvailableProtocolVersionForAction(java.lang.String,int[])
+    561:571:public static android.content.Intent createTokenRefreshIntent(android.content.Context)
+    609:629:public static android.content.Intent createPlatformActivityIntent(android.content.Context,java.lang.String,java.lang.String,com.facebook.internal.NativeProtocol$ProtocolVersionQueryResult,android.os.Bundle)
+    641:666:public static void setupProtocolRequestIntent(android.content.Intent,java.lang.String,java.lang.String,int,android.os.Bundle)
+    742:747:public static android.os.Bundle getBridgeArgumentsFromIntent(android.content.Intent)
+    760:766:public static android.os.Bundle getSuccessResultsFromIntent(android.content.Intent)
+    770:774:public static boolean isErrorResult(android.content.Intent)
+    779:788:public static android.os.Bundle getErrorDataFromResultIntent(android.content.Intent)
+    837:838:public static com.facebook.internal.NativeProtocol$ProtocolVersionQueryResult getLatestAvailableProtocolVersionForAction(java.lang.String,int[])
 com.facebook.internal.NativeProtocol$EffectTestAppInfo:
     static final java.lang.String EFFECT_TEST_APP_PACKAGE
 com.facebook.internal.NativeProtocol$FBLiteAppInfo:
@@ -6986,9 +7028,9 @@ com.facebook.internal.NativeProtocol$KatanaAppInfo:
 com.facebook.internal.NativeProtocol$MessengerAppInfo:
     static final java.lang.String MESSENGER_PACKAGE
 com.facebook.internal.NativeProtocol$ProtocolVersionQueryResult:
-    1014:1014:public com.facebook.internal.NativeProtocol$NativeAppInfo getAppInfo()
-    989:989:static synthetic com.facebook.internal.NativeProtocol$NativeAppInfo access$700(com.facebook.internal.NativeProtocol$ProtocolVersionQueryResult)
-    989:989:static synthetic int access$800(com.facebook.internal.NativeProtocol$ProtocolVersionQueryResult)
+    1017:1017:public com.facebook.internal.NativeProtocol$NativeAppInfo getAppInfo()
+    992:992:static synthetic com.facebook.internal.NativeProtocol$NativeAppInfo access$700(com.facebook.internal.NativeProtocol$ProtocolVersionQueryResult)
+    992:992:static synthetic int access$800(com.facebook.internal.NativeProtocol$ProtocolVersionQueryResult)
 com.facebook.internal.NativeProtocol$WakizashiAppInfo:
     static final java.lang.String WAKIZASHI_PACKAGE
 com.facebook.internal.PlatformServiceClient:
@@ -7120,11 +7162,12 @@ com.facebook.login.DeviceAuthDialog:
     private static final int LOGIN_ERROR_SUBCODE_CODE_EXPIRED
 com.facebook.login.DeviceLoginManager
 com.facebook.login.LoginClient:
-    307:307:com.facebook.login.LoginClient$OnCompletedListener getOnCompletedListener()
-    315:315:com.facebook.login.LoginClient$BackgroundProcessingListener getBackgroundProcessingListener()
+    306:306:com.facebook.login.LoginClient$OnCompletedListener getOnCompletedListener()
+    314:314:com.facebook.login.LoginClient$BackgroundProcessingListener getBackgroundProcessingListener()
 com.facebook.login.LoginClient$Request:
     486:487:void setDeviceRedirectUriString(java.lang.String)
-    494:495:void setAuthType(java.lang.String)
+    494:495:void setDeviceAuthTargetUserId(java.lang.String)
+    502:503:void setAuthType(java.lang.String)
 com.facebook.login.LoginFragment:
     static final java.lang.String RESULT_KEY
     static final java.lang.String REQUEST_KEY
@@ -7181,15 +7224,19 @@ com.facebook.login.LoginManager:
     291:291:public java.lang.String getAuthType()
     325:326:public void retrieveLoginStatus(android.content.Context,com.facebook.LoginStatusCallback)
     342:343:public void retrieveLoginStatus(android.content.Context,long,com.facebook.LoginStatusCallback)
-    668:761:private void retrieveLoginStatusImpl(android.content.Context,com.facebook.LoginStatusCallback,long)
-    770:770:private boolean isExpressLoginAllowed()
-    775:797:private static com.facebook.Profile getProfileFromBundle(android.os.Bundle)
-    806:809:private static void handleLoginStatusError(java.lang.String,java.lang.String,java.lang.String,com.facebook.login.LoginLogger,com.facebook.LoginStatusCallback)
+    398:400:public void reauthorizeDataAccess(android.app.Activity)
+    407:408:public void reauthorizeDataAccess(android.support.v4.app.Fragment)
+    415:417:private void reauthorizeDataAccess(com.facebook.internal.FragmentWrapper)
+    527:533:protected com.facebook.login.LoginClient$Request createReauthorizeRequest()
+    705:804:private void retrieveLoginStatusImpl(android.content.Context,com.facebook.LoginStatusCallback,long)
+    813:813:private boolean isExpressLoginAllowed()
+    818:840:private static com.facebook.Profile getProfileFromBundle(android.os.Bundle)
+    849:852:private static void handleLoginStatusError(java.lang.String,java.lang.String,java.lang.String,com.facebook.login.LoginLogger,com.facebook.LoginStatusCallback)
     65:65:static synthetic void access$100(java.lang.String,java.lang.String,java.lang.String,com.facebook.login.LoginLogger,com.facebook.LoginStatusCallback)
     65:65:static synthetic com.facebook.Profile access$200(android.os.Bundle)
 com.facebook.login.LoginManager$4
 com.facebook.login.LoginManager$LoginLoggerHolder:
-    849:849:private LoginManager$LoginLoggerHolder()
+    892:892:private LoginManager$LoginLoggerHolder()
 com.facebook.login.LoginResult:
     56:56:public com.facebook.AccessToken getAccessToken()
     72:72:public java.util.Set getRecentlyDeniedPermissions()
@@ -7234,8 +7281,9 @@ com.facebook.login.widget.ProfilePictureView$OnErrorListener
 com.facebook.login.widget.ToolTipPopup:
     public static final long DEFAULT_POPUP_DISPLAY_TIME
 com.facebook.marketing.BuildConfig
-com.facebook.marketing.FacebookUninstallTracker
-com.facebook.marketing.FacebookUninstallTracker$1
+com.facebook.marketing.CodelessActivityLifecycleTracker:
+    72:72:public static boolean getIsAppIndexingEnabled()
+    76:77:public static void updateAppIndexing(java.lang.Boolean)
 com.facebook.marketing.R
 com.facebook.marketing.R$attr
 com.facebook.marketing.R$bool
@@ -7248,16 +7296,8 @@ com.facebook.marketing.R$layout
 com.facebook.marketing.R$string
 com.facebook.marketing.R$style
 com.facebook.marketing.R$styleable
-com.facebook.marketing.ViewIndexer:
-    private static final java.lang.String SUCCESS
-    private static final java.lang.String TREE_PARAM
-    private static final java.lang.String APP_VERSION_PARAM
-    private static final java.lang.String PLATFORM_PARAM
-com.facebook.marketing.ViewIndexingTrigger:
-    private static final double SHAKE_THRESHOLD_GRAVITY
 com.facebook.marketing.internal.ButtonIndexingLogger:
     private static final java.lang.String API_ENDPOINT
-com.facebook.marketing.internal.Constants
 com.facebook.marketing.internal.MarketingLogger:
     static final java.lang.String EVENT_NAME_CODELESS_DEBUG
     static final java.lang.String CODELESS_ACTION_SDK_INITIALIZED
@@ -7268,8 +7308,12 @@ com.facebook.marketing.internal.MarketingLogger:
     static final java.lang.String CODELESS_ACTION_INDEXING_CANCELLED
     static final java.lang.String ACTIVITY_NAME
     static final java.lang.String CODELESS_ACTION_KEY
-com.facebook.marketing.internal.MarketingUtils:
-    63:68:public static double normalizePrice(java.lang.String)
+    60:67:public void logGestureTriggered()
+    70:77:public void logSessionReady()
+    80:88:public void logIndexingStart(java.lang.String)
+    91:99:public void logIndexingComplete(java.lang.String)
+    102:110:public void logIndexingCancelled(java.lang.String)
+com.facebook.marketing.internal.MarketingUtils
 com.facebook.marketing.internal.RemoteConfigManager:
     private static final java.lang.String SAMPLING_ENDPOINT_PATH
     private static final java.lang.String SAMPLING_RESULT_FIELD
@@ -10726,7 +10770,6 @@ com.google.firebase.messaging.RemoteMessage$Notification:
     public java.lang.String getBodyLocalizationKey()
     public java.lang.String[] getBodyLocalizationArgs()
     public java.lang.String getIcon()
-    public java.lang.String getSound()
     public java.lang.String getTag()
     public java.lang.String getColor()
     public java.lang.String getClickAction()

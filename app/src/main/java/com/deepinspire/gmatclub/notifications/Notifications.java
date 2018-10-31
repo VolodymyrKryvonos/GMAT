@@ -81,28 +81,28 @@ public class Notifications {
 
         intent.setData(Uri.parse(data.get("url")));
 
-        Uri defaultSound = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
-
         String title = notification.getTitle();
         String body = notification.getBody();
 
         Bundle extra = new Bundle();
         extra.putString("url", data.get("url"));
 
-        Notification notify = builder
-                .setSmallIcon(R.mipmap.app_icon)
-                .setLargeIcon(bitMap)
-                .setContentTitle(title)
-                .setContentText(body)
-                .setSound(defaultSound)
-                .setExtras(extra)
-                .setStyle((new NotificationCompat.BigTextStyle()).bigText(body))
-                .setContentIntent(PendingIntent.getActivity(ctx, 0, intent, PendingIntent.FLAG_ONE_SHOT))
-                .setAutoCancel(true)
-                .setOngoing(false)
-                .build();
+        builder
+            .setSmallIcon(R.mipmap.app_icon)
+            .setLargeIcon(bitMap)
+            .setContentTitle(title)
+            .setContentText(body)
+            .setExtras(extra)
+            .setStyle((new NotificationCompat.BigTextStyle()).bigText(body))
+            .setContentIntent(PendingIntent.getActivity(ctx, 0, intent, PendingIntent.FLAG_ONE_SHOT))
+            .setAutoCancel(true)
+            .setOngoing(false);
 
-        notificationsManager.notify(sentTime, notify);
+        if(notification.getSound() != null) {
+            builder.setSound(RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION));
+        }
+
+        notificationsManager.notify(sentTime, builder.build());
     }
 
     @TargetApi(Build.VERSION_CODES.M)

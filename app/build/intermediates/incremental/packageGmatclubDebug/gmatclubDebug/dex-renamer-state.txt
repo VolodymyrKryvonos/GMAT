@@ -1,7 +1,7 @@
-#Thu Oct 04 14:43:45 EEST 2018
-base.0=/home/dmytro/projects/gmatclub/android/app/build/intermediates/transforms/dexMerger/gmatclub/debug/5
+#Wed Oct 31 10:46:51 EET 2018
+base.0=/home/dmytro/projects/gmatclub/android/app/build/intermediates/transforms/dexMerger/gmatclub/debug/21
 path.1=classes.dex
 renamed.1=classes2.dex
 path.0=classes.dex
 renamed.0=classes.dex
-base.1=/home/dmytro/projects/gmatclub/android/app/build/intermediates/transforms/dexMerger/gmatclub/debug/4
+base.1=/home/dmytro/projects/gmatclub/android/app/build/intermediates/transforms/dexMerger/gmatclub/debug/20

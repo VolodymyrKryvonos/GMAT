@@ -95,6 +95,8 @@ import org.json.JSONObject;
 
 import java.io.File;
 import java.io.UnsupportedEncodingException;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.net.URLEncoder;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -925,7 +927,12 @@ public class WebActivity extends AppCompatActivity implements
             }
 
             public void onLoadResource(WebView view, String url) {
-                //Toast.makeText(WebActivity.this, "onLoadResource", Toast.LENGTH_SHORT).show();
+                /*if(url.contains("google-analytics.com")) {
+                    Uri uri = Uri.parse(url);
+                    String cd8 = uri.getQueryParameter("cd8");
+
+                    Toast.makeText(WebActivity.this, cd8, Toast.LENGTH_LONG).show();
+                }*/
             }
 
             public void onPageStarted(WebView view, String url, Bitmap favicon) {
@@ -936,7 +943,7 @@ public class WebActivity extends AppCompatActivity implements
                 //https://gmatclub.org/tests-beta/test/welcome.html?id=1121737
                 //https://gmatclub.org/tests-beta/test-1065456.html
                 //https://gmatclub.org/tests-beta/test/endExam.html?id=1065456
-
+                //Toast.makeText(WebActivity.this, url, Toast.LENGTH_LONG).show();
                 //webView.destroyDrawingCache();
                 if(url.equals(Api.FORUM_URL + "?style=12") || url.equals(Api.FORUM_URL + "/?style=12")) {
                     changeTitleColor(R.color.white);

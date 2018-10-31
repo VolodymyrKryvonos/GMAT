@@ -734,6 +734,7 @@ android/support/design/widget/SwipeDismissBehavior$SwipeDirection.class
 com/google/android/gms/internal/firebase_auth/zzci.class
 android/support/v4/app/TaskStackBuilder.class
 okhttp3/CertificatePinner.class
+com/facebook/appevents/FacebookSDKJSInterface.class
 com/google/firebase/auth/ProviderQueryResult.class
 com/facebook/share/widget/LikeView$AuxiliaryViewPosition.class
 okhttp3/HttpUrl$Builder.class

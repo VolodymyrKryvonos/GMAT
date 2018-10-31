@@ -32,7 +32,13 @@ public class SplashActivity extends AppCompatActivity {
         if(repository.logged()) {
             Intent intent = new Intent(SplashActivity.this, WebActivity.class);
 
-            intent.setData(Uri.parse(Api.FORUM_URL));
+            Uri uri = getURI();
+
+            if(uri != null) {
+                intent.setData(uri);
+            } else {
+                intent.setData(Uri.parse(Api.FORUM_URL));
+            }
 
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 
@@ -64,5 +70,19 @@ public class SplashActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    private Uri getURI() {
+        Intent intent = getIntent();
+
+        if(intent != null) {
+            Uri uri = intent.getData();
+
+            if(uri != null) {
+                return uri;
+            }
+        }
+
+        return null;
     }
 }

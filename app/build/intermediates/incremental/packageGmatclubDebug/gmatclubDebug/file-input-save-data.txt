@@ -1,19 +1,19 @@
 #Internal package file, do not edit.
-#Thu Oct 04 14:43:45 EEST 2018
+#Wed Oct 31 10:46:51 EET 2018
 1.base=/home/dmytro/projects/gmatclub/android/app/build/intermediates/assets/gmatclub/debug
-2.path=classes.dex
+2.path=opensans_semibold.ttf
 0.baseType=DIRECTORY
 3.baseType=DIRECTORY
-2.base=/home/dmytro/projects/gmatclub/android/app/build/intermediates/transforms/dexMerger/gmatclub/debug/4
+2.base=/home/dmytro/projects/gmatclub/android/app/build/intermediates/assets/gmatclub/debug
 3.set=DEX
-2.set=DEX
+2.set=ASSET
 1.baseType=DIRECTORY
 3.path=classes.dex
 count=4
 1.set=ASSET
-0.path=notifications.html
-3.base=/home/dmytro/projects/gmatclub/android/app/build/intermediates/transforms/dexMerger/gmatclub/debug/5
-0.set=ASSET
-0.base=/home/dmytro/projects/gmatclub/android/app/build/intermediates/assets/gmatclub/debug
+0.path=classes.dex
+3.base=/home/dmytro/projects/gmatclub/android/app/build/intermediates/transforms/dexMerger/gmatclub/debug/21
+0.set=DEX
+0.base=/home/dmytro/projects/gmatclub/android/app/build/intermediates/transforms/dexMerger/gmatclub/debug/20
 2.baseType=DIRECTORY
-1.path=opensans_semibold.ttf
+1.path=notifications.html
