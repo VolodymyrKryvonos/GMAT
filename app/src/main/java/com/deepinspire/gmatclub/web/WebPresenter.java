@@ -4,6 +4,7 @@ import android.content.Context;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.deepinspire.gmatclub.api.Api;
 import com.deepinspire.gmatclub.api.AuthException;
 import com.deepinspire.gmatclub.storage.IStorage;
 import com.deepinspire.gmatclub.storage.Injection;
@@ -266,5 +267,9 @@ public class WebPresenter implements IWebContract.Presenter {
 
     public int getError() {
         return this.errorCode;
+    }
+
+    public boolean availableAuth() {
+        return (repository.getUser().getCountFailedAuth() <= Api.AUTH_AVAILABLE_COUNT_FAILED_REQUESTS);
     }
 }

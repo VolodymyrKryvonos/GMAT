@@ -17,6 +17,7 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.deepinspire.gmatclub.R;
+import com.deepinspire.gmatclub.api.Api;
 import com.deepinspire.gmatclub.api.AuthException;
 import com.deepinspire.gmatclub.auth.AuthActivity;
 import com.deepinspire.gmatclub.web.WebActivity;
@@ -670,5 +671,4 @@ public class ViewHelper {
             }
         });
     }
-
 }

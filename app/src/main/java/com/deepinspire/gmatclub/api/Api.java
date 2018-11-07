@@ -52,4 +52,6 @@ public class Api {
 
 
     public static final String FORUM_ADD_NEW_SCHOOL = FORUM_URL + "/decision-tracker.html?fl=nav";
+
+    public static final int AUTH_AVAILABLE_COUNT_FAILED_REQUESTS = 3;
 }

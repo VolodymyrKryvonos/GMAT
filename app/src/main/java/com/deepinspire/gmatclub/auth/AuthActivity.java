@@ -152,7 +152,11 @@ public class AuthActivity extends AppCompatActivity implements IAuthContract.Vie
                 signInFacebook();
                 break;
             case R.id.layoutSignIn:
-                ViewHelper.showLoginDialog(AuthActivity.this);
+                if(presenter.availableAuth()) {
+                    ViewHelper.showLoginDialog(AuthActivity.this);
+                } else {
+                    ViewHelper.showForgotPasswordDialog(AuthActivity.this);
+                }
                 break;
             case R.id.layoutViewAsGuest:
                 openWebSite(Api.FORUM_URL);
@@ -245,7 +249,17 @@ public class AuthActivity extends AppCompatActivity implements IAuthContract.Vie
     }
 
     public void showError(AuthException exception) {
-        ViewHelper.showError(exception);
+        switch(exception.getAction()) {
+            case "showForgotPassword":
+                if(ViewHelper.alertDialog != null) {
+                    ViewHelper.alertDialog.dismiss();
+                }
+                ViewHelper.showForgotPasswordDialog(AuthActivity.this);
+                break;
+            default: {
+                ViewHelper.showError(exception);
+            }
+        }
     }
 
     @Override

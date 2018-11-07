@@ -92,4 +92,8 @@ public class AuthPresenter implements IAuthContract.Presenter {
     public boolean isOnline() {
        return repository.isOnline();
     }
+
+    public boolean availableAuth() {
+       return (repository.getUser().getCountFailedAuth() <= Api.AUTH_AVAILABLE_COUNT_FAILED_REQUESTS);
+    }
 }

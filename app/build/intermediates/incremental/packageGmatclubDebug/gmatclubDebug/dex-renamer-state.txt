@@ -1,4 +1,4 @@
-#Wed Oct 31 10:46:51 EET 2018
+#Tue Nov 06 14:31:57 EET 2018
 base.0=/home/dmytro/projects/gmatclub/android/app/build/intermediates/transforms/dexMerger/gmatclub/debug/21
 path.1=classes.dex
 renamed.1=classes2.dex

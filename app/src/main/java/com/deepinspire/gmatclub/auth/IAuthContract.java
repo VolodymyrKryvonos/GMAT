@@ -21,5 +21,6 @@ public interface IAuthContract {
         void forgotPassword(String email);
         void getTokenInfo(String code);
         boolean isOnline();
+        boolean availableAuth();
     }
 }

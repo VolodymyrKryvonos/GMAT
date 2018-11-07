@@ -118,13 +118,27 @@ public class Repository implements IStorage {
                         @Override
                         public void onResponse(Call<String> call, Response<String> response) {
                             if (!response.isSuccessful()) {
+                                user.updateCountFailedAuth(1);
+
                                 AuthException exc = new AuthException(new Exception("Incorrect Login and Password"), "login", "Incorrect Login and Password");
+
+                                if(user.getCountFailedAuth() > Api.AUTH_AVAILABLE_COUNT_FAILED_REQUESTS) {
+                                    exc.setAction("showForgotPassword");
+                                }
+
                                 callback.onError(exc);
                             } else {
                                if(logged()) {
+                                   user.clearCountFailedAuth();
                                    callback.onSuccess();
                                } else {
+                                   user.updateCountFailedAuth(1);
                                    AuthException exc = new AuthException(new Exception("Incorrect Login and Password"), "login", "Incorrect Login and Password");
+
+                                   if(user.getCountFailedAuth() > Api.AUTH_AVAILABLE_COUNT_FAILED_REQUESTS) {
+                                       exc.setAction("showForgotPassword");
+                                   }
+
                                    callback.onError(exc);
                                }
                             }
@@ -191,6 +205,7 @@ public class Repository implements IStorage {
                                 AuthException exc = new AuthException(new Exception("Failed send information for current email"), "forgotPassword");
                                 callback.onError(exc);
                             } else {
+                                user.clearCountFailedAuth();
                                 callback.onSuccess();
                             }
                         }
@@ -467,12 +482,12 @@ public class Repository implements IStorage {
                                 AuthException ex = new AuthException(new Exception(response.errorBody().toString()), "login");
                                 callback.onError(ex);
                             } else {
-                                try {
-                                    String body = response.body().string();
-                                    String body1 = response.body().string();
+                               /* try {
+                                    //String body = response.body().string();
+                                    //String body1 = response.body().string();
                                 } catch (IOException e) {
                                     e.printStackTrace();
-                                }
+                                }*/
 
                                 if(logged()) {
                                    callback.onSuccess();
@@ -716,6 +731,8 @@ public class Repository implements IStorage {
             cookieSyncMngr.stopSync();
             cookieSyncMngr.sync();
         }
+
+        user.clearCountFailedAuth();
 
         user.setLogged(false);
 

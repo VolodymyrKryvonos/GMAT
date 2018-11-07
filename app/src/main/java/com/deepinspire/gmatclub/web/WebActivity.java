@@ -1221,7 +1221,11 @@ public class WebActivity extends AppCompatActivity implements
                 openPage(Api.FORUM_REGISTER_URL);
                 break;
             case "signIn":
-                ViewHelper.showLoginDialog(WebActivity.this);
+                if(presenter.availableAuth()) {
+                    ViewHelper.showLoginDialog(WebActivity.this);
+                } else {
+                    ViewHelper.showForgotPasswordDialog(WebActivity.this);
+                }
                 break;
             case "newPost":
                 openPage(Api.FORUM_SEARCH_NEW_POSTS);

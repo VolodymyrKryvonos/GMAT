@@ -1,16 +1,16 @@
 package com.deepinspire.gmatclub.storage;
 
-/**
- * Created by dmytro mytsko on 26.03.18.
- */
 public class User {
-    boolean logged = false;
+    private boolean logged = false;
 
-    long id = -1;
+    private long id = -1;
 
-    public User() {
+    private int countFailedAuth = 0;
+
+    User() {
         this.logged = false;
         this.id = -1;
+        this.countFailedAuth = 0;
     }
 
     public void setLogged(boolean logged) {
@@ -27,5 +27,21 @@ public class User {
 
     public long getId() {
         return this.id;
+    }
+
+    public void setCountFailedAuth(int countFailedAuth) {
+        this.countFailedAuth = countFailedAuth;
+    }
+
+    public void updateCountFailedAuth(int countFailedAuth) {
+        this.countFailedAuth += countFailedAuth;
+    }
+
+    public int getCountFailedAuth() {
+        return this.countFailedAuth;
+    }
+
+    public void clearCountFailedAuth() {
+        this.countFailedAuth = 0;
     }
 }
