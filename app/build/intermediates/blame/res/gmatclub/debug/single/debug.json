@@ -16,12 +16,12 @@
         "source": "/root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.2.aar/54077ed55b3b45b360f89508a45948d1/res/drawable-mdpi-v4/abc_menu_hardkey_panel_mtrl_mult.9.png"
     },
     {
-        "merged": "/home/dmytro/projects/gmatclub/android/app/build/intermediates/res/merged/gmatclub/debug/drawable-xhdpi-v4_com_facebook_button_icon_white.png.flat",
-        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-common-4.38.0.aar/d5255de2fbf7f5ada9a943f2f88c3aef/res/drawable-xhdpi-v4/com_facebook_button_icon_white.png"
-    },
-    {
         "merged": "/home/dmytro/projects/gmatclub/mobile/android/gmatclub/app/build/intermediates/res/merged/gmatclub/debug/drawable-xxxhdpi-v4_abc_text_select_handle_right_mtrl_dark.png.flat",
         "source": "/root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.2.aar/5e2d1cf2ce96489c0b3900810072c6f4/res/drawable-xxxhdpi-v4/abc_text_select_handle_right_mtrl_dark.png"
+    },
+    {
+        "merged": "/home/dmytro/projects/gmatclub/android/app/build/intermediates/res/merged/gmatclub/debug/drawable-xhdpi-v4_com_facebook_button_icon_white.png.flat",
+        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-common-4.38.1.aar/9b67ab6758ab40815ca861e6694e0b72/res/drawable-xhdpi-v4/com_facebook_button_icon_white.png"
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/android/app/build/intermediates/res/merged/gmatclub/debug/drawable-xxxhdpi_ic_school_white_24dp.png.flat",
@@ -36,12 +36,12 @@
         "source": "/root/.gradle/caches/transforms-1/files-1.1/support-compat-27.0.2.aar/0a94c14d244e85da5893e54e01420bd4/res/drawable-hdpi-v4/notification_bg_low_normal.9.png"
     },
     {
-        "merged": "/home/dmytro/projects/gmatclub/android/app/build/intermediates/res/merged/gmatclub/debug/layout_notification_template_big_media.xml.flat",
-        "source": "/root/.gradle/caches/transforms-1/files-1.1/support-media-compat-27.0.2.aar/c37b12e1f55b6cf72fccfc4ce077cf6a/res/layout/notification_template_big_media.xml"
-    },
-    {
         "merged": "/home/dmytro/projects/gmatclub/mobile/android/gmatclub/app/build/intermediates/res/merged/gmatclub/debug/drawable-xhdpi-v4_notification_bg_low_normal.9.png.flat",
         "source": "/root/.gradle/caches/transforms-1/files-1.1/support-compat-27.0.2.aar/0a94c14d244e85da5893e54e01420bd4/res/drawable-xhdpi-v4/notification_bg_low_normal.9.png"
+    },
+    {
+        "merged": "/home/dmytro/projects/gmatclub/android/app/build/intermediates/res/merged/gmatclub/debug/layout_notification_template_big_media.xml.flat",
+        "source": "/root/.gradle/caches/transforms-1/files-1.1/support-media-compat-27.0.2.aar/c37b12e1f55b6cf72fccfc4ce077cf6a/res/layout/notification_template_big_media.xml"
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/android/app/build/intermediates/res/merged/gmatclub/debug/drawable-xxxhdpi_ic_settings.png.flat",
@@ -57,15 +57,15 @@
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/android/app/build/intermediates/res/merged/gmatclub/debug/drawable-mdpi-v4_messenger_button_send_round_shadow.png.flat",
-        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-messenger-4.38.0.aar/3685b7a587d8cf8a4f89e8e545d16adc/res/drawable-mdpi-v4/messenger_button_send_round_shadow.png"
-    },
-    {
-        "merged": "/home/dmytro/projects/gmatclub/android/app/build/intermediates/res/merged/gmatclub/debug/drawable-mdpi-v4_com_facebook_profile_picture_blank_portrait.png.flat",
-        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-login-4.38.0.aar/530820679ac6ad221c3d91c83c714547/res/drawable-mdpi-v4/com_facebook_profile_picture_blank_portrait.png"
+        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-messenger-4.38.1.aar/70088211ab95699ace90cd73227a626b/res/drawable-mdpi-v4/messenger_button_send_round_shadow.png"
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/mobile/android/gmatclub/app/build/intermediates/res/merged/gmatclub/debug/drawable_tooltip_frame_dark.xml.flat",
         "source": "/root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.2.aar/5e2d1cf2ce96489c0b3900810072c6f4/res/drawable/tooltip_frame_dark.xml"
+    },
+    {
+        "merged": "/home/dmytro/projects/gmatclub/android/app/build/intermediates/res/merged/gmatclub/debug/drawable-mdpi-v4_com_facebook_profile_picture_blank_portrait.png.flat",
+        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-login-4.38.1.aar/3439296c8b1fb9b1c0b5887e299e9089/res/drawable-mdpi-v4/com_facebook_profile_picture_blank_portrait.png"
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/android/app/build/intermediates/res/merged/gmatclub/debug/drawable_abc_seekbar_track_material.xml.flat",
@@ -80,12 +80,12 @@
         "source": "/root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.2.aar/5e2d1cf2ce96489c0b3900810072c6f4/res/drawable-xhdpi-v4/abc_ic_menu_share_mtrl_alpha.png"
     },
     {
-        "merged": "/home/dmytro/projects/gmatclub/mobile/android/gmatclub/app/build/intermediates/res/merged/gmatclub/debug/anim_abc_fade_out.xml.flat",
-        "source": "/root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.2.aar/5e2d1cf2ce96489c0b3900810072c6f4/res/anim/abc_fade_out.xml"
-    },
-    {
         "merged": "/home/dmytro/projects/gmatclub/mobile/android/gmatclub/app/build/intermediates/res/merged/gmatclub/debug/drawable-mdpi-v4_design_ic_visibility_off.png.flat",
         "source": "/root/.gradle/caches/transforms-1/files-1.1/design-27.0.2.aar/2d8b403f0544cadd4078e782e5fbc42f/res/drawable-mdpi-v4/design_ic_visibility_off.png"
+    },
+    {
+        "merged": "/home/dmytro/projects/gmatclub/mobile/android/gmatclub/app/build/intermediates/res/merged/gmatclub/debug/anim_abc_fade_out.xml.flat",
+        "source": "/root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.2.aar/5e2d1cf2ce96489c0b3900810072c6f4/res/anim/abc_fade_out.xml"
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/android/app/build/intermediates/res/merged/gmatclub/debug/drawable-xhdpi-v4_abc_ic_star_half_black_36dp.png.flat",
@@ -112,12 +112,12 @@
         "source": "/home/dmytro/projects/gmatclub/android/app/src/main/res/font/opensans_extrabolditalic.ttf"
     },
     {
-        "merged": "/home/dmytro/projects/gmatclub/mobile/android/gmatclub/app/build/intermediates/res/merged/gmatclub/debug/drawable-xxxhdpi_ic_person_outline_white_24dp.png.flat",
-        "source": "/home/dmytro/projects/gmatclub/mobile/android/gmatclub/app/src/main/res/drawable-xxxhdpi/ic_person_outline_white_24dp.png"
-    },
-    {
         "merged": "/home/dmytro/projects/gmatclub/mobile/android/gmatclub/app/build/intermediates/res/merged/gmatclub/debug/layout_support_simple_spinner_dropdown_item.xml.flat",
         "source": "/root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.2.aar/5e2d1cf2ce96489c0b3900810072c6f4/res/layout/support_simple_spinner_dropdown_item.xml"
+    },
+    {
+        "merged": "/home/dmytro/projects/gmatclub/mobile/android/gmatclub/app/build/intermediates/res/merged/gmatclub/debug/drawable-xxxhdpi_ic_person_outline_white_24dp.png.flat",
+        "source": "/home/dmytro/projects/gmatclub/mobile/android/gmatclub/app/src/main/res/drawable-xxxhdpi/ic_person_outline_white_24dp.png"
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/mobile/android/gmatclub/app/build/intermediates/res/merged/gmatclub/debug/layout_content_feedback.xml.flat",
@@ -133,15 +133,15 @@
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/android/app/build/intermediates/res/merged/gmatclub/debug/drawable-xxhdpi-v4_com_facebook_button_send_icon_white.png.flat",
-        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-share-4.38.0.aar/0940e1e0ee76731532c131f518dca912/res/drawable-xxhdpi-v4/com_facebook_button_send_icon_white.png"
-    },
-    {
-        "merged": "/home/dmytro/projects/gmatclub/android/app/build/intermediates/res/merged/gmatclub/debug/drawable-xhdpi-v4_messenger_bubble_large_white.png.flat",
-        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-messenger-4.38.0.aar/3685b7a587d8cf8a4f89e8e545d16adc/res/drawable-xhdpi-v4/messenger_bubble_large_white.png"
+        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-share-4.38.1.aar/683c45f69b31aa1095a1652d4141286d/res/drawable-xxhdpi-v4/com_facebook_button_send_icon_white.png"
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/mobile/android/gmatclub/app/build/intermediates/res/merged/gmatclub/debug/layout_abc_screen_simple.xml.flat",
         "source": "/root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.2.aar/5e2d1cf2ce96489c0b3900810072c6f4/res/layout/abc_screen_simple.xml"
+    },
+    {
+        "merged": "/home/dmytro/projects/gmatclub/android/app/build/intermediates/res/merged/gmatclub/debug/drawable-xhdpi-v4_messenger_bubble_large_white.png.flat",
+        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-messenger-4.38.1.aar/70088211ab95699ace90cd73227a626b/res/drawable-xhdpi-v4/messenger_bubble_large_white.png"
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/mobile/android/gmatclub/app/build/intermediates/res/merged/gmatclub/debug/layout_activity_facebook.xml.flat",
@@ -269,7 +269,7 @@
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/android/app/build/intermediates/res/merged/gmatclub/debug/drawable-hdpi-v4_messenger_bubble_small_white.png.flat",
-        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-messenger-4.38.0.aar/3685b7a587d8cf8a4f89e8e545d16adc/res/drawable-hdpi-v4/messenger_bubble_small_white.png"
+        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-messenger-4.38.1.aar/70088211ab95699ace90cd73227a626b/res/drawable-hdpi-v4/messenger_bubble_small_white.png"
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/mobile/android/gmatclub/app/build/intermediates/res/merged/gmatclub/debug/layout_content_auth.xml.flat",
@@ -277,7 +277,7 @@
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/android/app/build/intermediates/res/merged/gmatclub/debug/drawable-xxhdpi-v4_messenger_button_send_round_shadow.png.flat",
-        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-messenger-4.38.0.aar/3685b7a587d8cf8a4f89e8e545d16adc/res/drawable-xxhdpi-v4/messenger_button_send_round_shadow.png"
+        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-messenger-4.38.1.aar/70088211ab95699ace90cd73227a626b/res/drawable-xxhdpi-v4/messenger_button_send_round_shadow.png"
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/android/app/build/intermediates/res/merged/gmatclub/debug/drawable-mdpi-v4_googleg_standard_color_18.png.flat",
@@ -309,7 +309,7 @@
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/android/app/build/intermediates/res/merged/gmatclub/debug/drawable-hdpi-v4_com_facebook_button_icon_white.png.flat",
-        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-common-4.38.0.aar/d5255de2fbf7f5ada9a943f2f88c3aef/res/drawable-hdpi-v4/com_facebook_button_icon_white.png"
+        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-common-4.38.1.aar/9b67ab6758ab40815ca861e6694e0b72/res/drawable-hdpi-v4/com_facebook_button_icon_white.png"
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/android/app/build/intermediates/res/merged/gmatclub/debug/drawable-xhdpi-v4_abc_text_select_handle_middle_mtrl_light.png.flat",
@@ -401,7 +401,7 @@
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/android/app/build/intermediates/res/merged/gmatclub/debug/drawable-mdpi-v4_messenger_bubble_large_blue.png.flat",
-        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-messenger-4.38.0.aar/3685b7a587d8cf8a4f89e8e545d16adc/res/drawable-mdpi-v4/messenger_bubble_large_blue.png"
+        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-messenger-4.38.1.aar/70088211ab95699ace90cd73227a626b/res/drawable-mdpi-v4/messenger_bubble_large_blue.png"
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/mobile/android/gmatclub/app/build/intermediates/res/merged/gmatclub/debug/drawable-mdpi-v4_com_facebook_button_send_icon_blue.png.flat",
@@ -485,7 +485,7 @@
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/android/app/build/intermediates/res/merged/gmatclub/debug/drawable_messenger_button_blue_bg_round.xml.flat",
-        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-messenger-4.38.0.aar/3685b7a587d8cf8a4f89e8e545d16adc/res/drawable/messenger_button_blue_bg_round.xml"
+        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-messenger-4.38.1.aar/70088211ab95699ace90cd73227a626b/res/drawable/messenger_button_blue_bg_round.xml"
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/mobile/android/gmatclub/app/build/intermediates/res/merged/gmatclub/debug/drawable-mdpi-v4_com_facebook_tooltip_black_topnub.png.flat",
@@ -529,7 +529,7 @@
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/android/app/build/intermediates/res/merged/gmatclub/debug/color_com_facebook_button_text_color.xml.flat",
-        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-common-4.38.0.aar/d5255de2fbf7f5ada9a943f2f88c3aef/res/color/com_facebook_button_text_color.xml"
+        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-common-4.38.1.aar/9b67ab6758ab40815ca861e6694e0b72/res/color/com_facebook_button_text_color.xml"
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/mobile/android/gmatclub/app/build/intermediates/res/merged/gmatclub/debug/drawable-hdpi-v4_abc_ic_menu_selectall_mtrl_alpha.png.flat",
@@ -541,7 +541,7 @@
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/android/app/build/intermediates/res/merged/gmatclub/debug/drawable-xhdpi-v4_com_facebook_tooltip_black_topnub.png.flat",
-        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-login-4.38.0.aar/530820679ac6ad221c3d91c83c714547/res/drawable-xhdpi-v4/com_facebook_tooltip_black_topnub.png"
+        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-login-4.38.1.aar/3439296c8b1fb9b1c0b5887e299e9089/res/drawable-xhdpi-v4/com_facebook_tooltip_black_topnub.png"
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/mobile/android/gmatclub/app/build/intermediates/res/merged/gmatclub/debug/drawable-mdpi-v4_abc_popup_background_mtrl_mult.9.png.flat",
@@ -625,7 +625,7 @@
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/android/app/build/intermediates/res/merged/gmatclub/debug/drawable-mdpi-v4_com_facebook_button_icon_white.png.flat",
-        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-common-4.38.0.aar/d5255de2fbf7f5ada9a943f2f88c3aef/res/drawable-mdpi-v4/com_facebook_button_icon_white.png"
+        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-common-4.38.1.aar/9b67ab6758ab40815ca861e6694e0b72/res/drawable-mdpi-v4/com_facebook_button_icon_white.png"
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/mobile/android/gmatclub/app/build/intermediates/res/merged/gmatclub/debug/anim_design_bottom_sheet_slide_in.xml.flat",
@@ -657,7 +657,7 @@
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/android/app/build/intermediates/res/merged/gmatclub/debug/drawable-mdpi-v4_com_facebook_tooltip_black_topnub.png.flat",
-        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-login-4.38.0.aar/530820679ac6ad221c3d91c83c714547/res/drawable-mdpi-v4/com_facebook_tooltip_black_topnub.png"
+        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-login-4.38.1.aar/3439296c8b1fb9b1c0b5887e299e9089/res/drawable-mdpi-v4/com_facebook_tooltip_black_topnub.png"
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/android/app/build/intermediates/res/merged/gmatclub/debug/drawable-hdpi-v4_common_google_signin_btn_text_light_normal_background.9.png.flat",
@@ -709,7 +709,7 @@
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/android/app/build/intermediates/res/merged/gmatclub/debug/drawable-mdpi-v4_com_facebook_tooltip_black_bottomnub.png.flat",
-        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-login-4.38.0.aar/530820679ac6ad221c3d91c83c714547/res/drawable-mdpi-v4/com_facebook_tooltip_black_bottomnub.png"
+        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-login-4.38.1.aar/3439296c8b1fb9b1c0b5887e299e9089/res/drawable-mdpi-v4/com_facebook_tooltip_black_bottomnub.png"
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/android/app/build/intermediates/res/merged/gmatclub/debug/color-v23_abc_btn_colored_text_material.xml.flat",
@@ -761,7 +761,7 @@
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/android/app/build/intermediates/res/merged/gmatclub/debug/drawable-xhdpi-v4_com_facebook_tooltip_black_bottomnub.png.flat",
-        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-login-4.38.0.aar/530820679ac6ad221c3d91c83c714547/res/drawable-xhdpi-v4/com_facebook_tooltip_black_bottomnub.png"
+        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-login-4.38.1.aar/3439296c8b1fb9b1c0b5887e299e9089/res/drawable-xhdpi-v4/com_facebook_tooltip_black_bottomnub.png"
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/mobile/android/gmatclub/app/build/intermediates/res/merged/gmatclub/debug/drawable-xhdpi_ic_search_white_24dp.png.flat",
@@ -797,7 +797,7 @@
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/android/app/build/intermediates/res/merged/gmatclub/debug/layout_messenger_button_send_blue_round.xml.flat",
-        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-messenger-4.38.0.aar/3685b7a587d8cf8a4f89e8e545d16adc/res/layout/messenger_button_send_blue_round.xml"
+        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-messenger-4.38.1.aar/70088211ab95699ace90cd73227a626b/res/layout/messenger_button_send_blue_round.xml"
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/mobile/android/gmatclub/app/build/intermediates/res/merged/gmatclub/debug/color_abc_primary_text_material_light.xml.flat",
@@ -869,7 +869,7 @@
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/android/app/build/intermediates/res/merged/gmatclub/debug/drawable-hdpi-v4_com_facebook_button_send_icon_blue.png.flat",
-        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-share-4.38.0.aar/0940e1e0ee76731532c131f518dca912/res/drawable-hdpi-v4/com_facebook_button_send_icon_blue.png"
+        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-share-4.38.1.aar/683c45f69b31aa1095a1652d4141286d/res/drawable-hdpi-v4/com_facebook_button_send_icon_blue.png"
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/android/app/build/intermediates/res/merged/gmatclub/debug/font_opensans_regular_custom.xml.flat",
@@ -953,7 +953,7 @@
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/android/app/build/intermediates/res/merged/gmatclub/debug/drawable-xhdpi-v4_com_facebook_button_send_icon_white.png.flat",
-        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-share-4.38.0.aar/0940e1e0ee76731532c131f518dca912/res/drawable-xhdpi-v4/com_facebook_button_send_icon_white.png"
+        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-share-4.38.1.aar/683c45f69b31aa1095a1652d4141286d/res/drawable-xhdpi-v4/com_facebook_button_send_icon_white.png"
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/android/app/build/intermediates/res/merged/gmatclub/debug/anim_design_snackbar_in.xml.flat",
@@ -985,7 +985,7 @@
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/android/app/build/intermediates/res/merged/gmatclub/debug/drawable-hdpi-v4_com_facebook_tooltip_blue_background.9.png.flat",
-        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-login-4.38.0.aar/530820679ac6ad221c3d91c83c714547/res/drawable-hdpi-v4/com_facebook_tooltip_blue_background.9.png"
+        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-login-4.38.1.aar/3439296c8b1fb9b1c0b5887e299e9089/res/drawable-hdpi-v4/com_facebook_tooltip_blue_background.9.png"
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/android/app/build/intermediates/res/merged/gmatclub/debug/drawable-xhdpi-v4_abc_scrubber_control_to_pressed_mtrl_005.png.flat",
@@ -1073,7 +1073,7 @@
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/android/app/build/intermediates/res/merged/gmatclub/debug/drawable-mdpi-v4_com_facebook_tooltip_blue_xout.png.flat",
-        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-login-4.38.0.aar/530820679ac6ad221c3d91c83c714547/res/drawable-mdpi-v4/com_facebook_tooltip_blue_xout.png"
+        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-login-4.38.1.aar/3439296c8b1fb9b1c0b5887e299e9089/res/drawable-mdpi-v4/com_facebook_tooltip_blue_xout.png"
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/mobile/android/gmatclub/app/build/intermediates/res/merged/gmatclub/debug/drawable-ldrtl-xxhdpi-v17_abc_ic_menu_cut_mtrl_alpha.png.flat",
@@ -1169,7 +1169,7 @@
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/android/app/build/intermediates/res/merged/gmatclub/debug/drawable_messenger_button_blue_bg_selector.xml.flat",
-        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-messenger-4.38.0.aar/3685b7a587d8cf8a4f89e8e545d16adc/res/drawable/messenger_button_blue_bg_selector.xml"
+        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-messenger-4.38.1.aar/70088211ab95699ace90cd73227a626b/res/drawable/messenger_button_blue_bg_selector.xml"
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/mobile/android/gmatclub/app/build/intermediates/res/merged/gmatclub/debug/drawable-xxhdpi-v4_abc_btn_radio_to_on_mtrl_000.png.flat",
@@ -1485,7 +1485,7 @@
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/android/app/build/intermediates/res/merged/gmatclub/debug/drawable-hdpi-v4_com_facebook_button_like_icon_selected.png.flat",
-        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-common-4.38.0.aar/d5255de2fbf7f5ada9a943f2f88c3aef/res/drawable-hdpi-v4/com_facebook_button_like_icon_selected.png"
+        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-common-4.38.1.aar/9b67ab6758ab40815ca861e6694e0b72/res/drawable-hdpi-v4/com_facebook_button_like_icon_selected.png"
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/mobile/android/gmatclub/app/build/intermediates/res/merged/gmatclub/debug/drawable-mdpi-v4_abc_btn_switch_to_on_mtrl_00001.9.png.flat",
@@ -1545,7 +1545,7 @@
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/android/app/build/intermediates/res/merged/gmatclub/debug/drawable-hdpi-v4_com_facebook_button_icon_blue.png.flat",
-        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-common-4.38.0.aar/d5255de2fbf7f5ada9a943f2f88c3aef/res/drawable-hdpi-v4/com_facebook_button_icon_blue.png"
+        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-common-4.38.1.aar/9b67ab6758ab40815ca861e6694e0b72/res/drawable-hdpi-v4/com_facebook_button_icon_blue.png"
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/mobile/android/gmatclub/app/build/intermediates/res/merged/gmatclub/debug/layout_design_menu_item_action_area.xml.flat",
@@ -1605,7 +1605,7 @@
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/android/app/build/intermediates/res/merged/gmatclub/debug/drawable-hdpi-v4_com_facebook_tooltip_black_xout.png.flat",
-        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-login-4.38.0.aar/530820679ac6ad221c3d91c83c714547/res/drawable-hdpi-v4/com_facebook_tooltip_black_xout.png"
+        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-login-4.38.1.aar/3439296c8b1fb9b1c0b5887e299e9089/res/drawable-hdpi-v4/com_facebook_tooltip_black_xout.png"
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/android/app/build/intermediates/res/merged/gmatclub/debug/drawable_abc_dialog_material_background.xml.flat",
@@ -1633,7 +1633,7 @@
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/android/app/build/intermediates/res/merged/gmatclub/debug/drawable-mdpi-v4_com_facebook_tooltip_blue_topnub.png.flat",
-        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-login-4.38.0.aar/530820679ac6ad221c3d91c83c714547/res/drawable-mdpi-v4/com_facebook_tooltip_blue_topnub.png"
+        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-login-4.38.1.aar/3439296c8b1fb9b1c0b5887e299e9089/res/drawable-mdpi-v4/com_facebook_tooltip_blue_topnub.png"
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/mobile/android/gmatclub/app/build/intermediates/res/merged/gmatclub/debug/drawable-hdpi_ic_share_white_24dp.png.flat",
@@ -1709,7 +1709,7 @@
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/android/app/build/intermediates/res/merged/gmatclub/debug/layout_messenger_button_send_blue_large.xml.flat",
-        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-messenger-4.38.0.aar/3685b7a587d8cf8a4f89e8e545d16adc/res/layout/messenger_button_send_blue_large.xml"
+        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-messenger-4.38.1.aar/70088211ab95699ace90cd73227a626b/res/layout/messenger_button_send_blue_large.xml"
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/mobile/android/gmatclub/app/build/intermediates/res/merged/gmatclub/debug/color_abc_tint_seek_thumb.xml.flat",
@@ -1829,7 +1829,7 @@
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/android/app/build/intermediates/res/merged/gmatclub/debug/drawable-mdpi-v4_com_facebook_tooltip_black_xout.png.flat",
-        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-login-4.38.0.aar/530820679ac6ad221c3d91c83c714547/res/drawable-mdpi-v4/com_facebook_tooltip_black_xout.png"
+        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-login-4.38.1.aar/3439296c8b1fb9b1c0b5887e299e9089/res/drawable-mdpi-v4/com_facebook_tooltip_black_xout.png"
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/android/app/build/intermediates/res/merged/gmatclub/debug/drawable-xhdpi-v4_abc_list_selector_disabled_holo_light.9.png.flat",
@@ -1873,7 +1873,7 @@
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/android/app/build/intermediates/res/merged/gmatclub/debug/drawable_com_facebook_auth_dialog_cancel_background.xml.flat",
-        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-common-4.38.0.aar/d5255de2fbf7f5ada9a943f2f88c3aef/res/drawable/com_facebook_auth_dialog_cancel_background.xml"
+        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-common-4.38.1.aar/9b67ab6758ab40815ca861e6694e0b72/res/drawable/com_facebook_auth_dialog_cancel_background.xml"
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/mobile/android/gmatclub/app/build/intermediates/res/merged/gmatclub/debug/drawable_tooltip_frame_light.xml.flat",
@@ -1949,7 +1949,7 @@
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/android/app/build/intermediates/res/merged/gmatclub/debug/drawable_messenger_button_white_bg_round.xml.flat",
-        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-messenger-4.38.0.aar/3685b7a587d8cf8a4f89e8e545d16adc/res/drawable/messenger_button_white_bg_round.xml"
+        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-messenger-4.38.1.aar/70088211ab95699ace90cd73227a626b/res/drawable/messenger_button_white_bg_round.xml"
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/mobile/android/gmatclub/app/build/intermediates/res/merged/gmatclub/debug/drawable_com_facebook_auth_dialog_header_background.xml.flat",
@@ -1969,11 +1969,11 @@
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/android/app/build/intermediates/res/merged/gmatclub/debug/drawable-mdpi-v4_com_facebook_button_send_icon_blue.png.flat",
-        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-share-4.38.0.aar/0940e1e0ee76731532c131f518dca912/res/drawable-mdpi-v4/com_facebook_button_send_icon_blue.png"
+        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-share-4.38.1.aar/683c45f69b31aa1095a1652d4141286d/res/drawable-mdpi-v4/com_facebook_button_send_icon_blue.png"
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/android/app/build/intermediates/res/merged/gmatclub/debug/layout_com_facebook_smart_device_dialog_fragment.xml.flat",
-        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-common-4.38.0.aar/d5255de2fbf7f5ada9a943f2f88c3aef/res/layout/com_facebook_smart_device_dialog_fragment.xml"
+        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-common-4.38.1.aar/9b67ab6758ab40815ca861e6694e0b72/res/layout/com_facebook_smart_device_dialog_fragment.xml"
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/mobile/android/gmatclub/app/build/intermediates/res/merged/gmatclub/debug/drawable_abc_ic_arrow_drop_right_black_24dp.xml.flat",
@@ -2017,7 +2017,7 @@
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/android/app/build/intermediates/res/merged/gmatclub/debug/drawable-xhdpi-v4_messenger_button_send_round_shadow.png.flat",
-        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-messenger-4.38.0.aar/3685b7a587d8cf8a4f89e8e545d16adc/res/drawable-xhdpi-v4/messenger_button_send_round_shadow.png"
+        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-messenger-4.38.1.aar/70088211ab95699ace90cd73227a626b/res/drawable-xhdpi-v4/messenger_button_send_round_shadow.png"
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/mobile/android/gmatclub/app/build/intermediates/res/merged/gmatclub/debug/layout_messenger_button_send_white_large.xml.flat",
@@ -2125,7 +2125,7 @@
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/android/app/build/intermediates/res/merged/gmatclub/debug/drawable-hdpi-v4_com_facebook_button_send_icon_white.png.flat",
-        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-share-4.38.0.aar/0940e1e0ee76731532c131f518dca912/res/drawable-hdpi-v4/com_facebook_button_send_icon_white.png"
+        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-share-4.38.1.aar/683c45f69b31aa1095a1652d4141286d/res/drawable-hdpi-v4/com_facebook_button_send_icon_white.png"
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/android/app/build/intermediates/res/merged/gmatclub/debug/layout_alert_dialog_forgot_password.xml.flat",
@@ -2189,7 +2189,7 @@
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/android/app/build/intermediates/res/merged/gmatclub/debug/drawable-xxhdpi-v4_com_facebook_button_icon_blue.png.flat",
-        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-common-4.38.0.aar/d5255de2fbf7f5ada9a943f2f88c3aef/res/drawable-xxhdpi-v4/com_facebook_button_icon_blue.png"
+        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-common-4.38.1.aar/9b67ab6758ab40815ca861e6694e0b72/res/drawable-xxhdpi-v4/com_facebook_button_icon_blue.png"
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/mobile/android/gmatclub/app/build/intermediates/res/merged/gmatclub/debug/drawable-ldpi_ic_menu.png.flat",
@@ -2201,7 +2201,7 @@
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/android/app/build/intermediates/res/merged/gmatclub/debug/drawable_com_facebook_favicon_blue.xml.flat",
-        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-common-4.38.0.aar/d5255de2fbf7f5ada9a943f2f88c3aef/res/drawable/com_facebook_favicon_blue.xml"
+        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-common-4.38.1.aar/9b67ab6758ab40815ca861e6694e0b72/res/drawable/com_facebook_favicon_blue.xml"
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/android/app/build/intermediates/res/merged/gmatclub/debug/drawable-v23_abc_control_background_material.xml.flat",
@@ -2245,7 +2245,7 @@
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/android/app/build/intermediates/res/merged/gmatclub/debug/layout_com_facebook_activity_layout.xml.flat",
-        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-common-4.38.0.aar/d5255de2fbf7f5ada9a943f2f88c3aef/res/layout/com_facebook_activity_layout.xml"
+        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-common-4.38.1.aar/9b67ab6758ab40815ca861e6694e0b72/res/layout/com_facebook_activity_layout.xml"
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/android/app/build/intermediates/res/merged/gmatclub/debug/drawable-mdpi_ic_share_white_24dp.png.flat",
@@ -2361,7 +2361,7 @@
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/android/app/build/intermediates/res/merged/gmatclub/debug/drawable-xxhdpi-v4_messenger_bubble_small_blue.png.flat",
-        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-messenger-4.38.0.aar/3685b7a587d8cf8a4f89e8e545d16adc/res/drawable-xxhdpi-v4/messenger_bubble_small_blue.png"
+        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-messenger-4.38.1.aar/70088211ab95699ace90cd73227a626b/res/drawable-xxhdpi-v4/messenger_bubble_small_blue.png"
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/mobile/android/gmatclub/app/build/intermediates/res/merged/gmatclub/debug/drawable-mdpi-v4_googleg_standard_color_18.png.flat",
@@ -2385,7 +2385,7 @@
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/android/app/build/intermediates/res/merged/gmatclub/debug/drawable-hdpi-v4_messenger_button_send_round_shadow.png.flat",
-        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-messenger-4.38.0.aar/3685b7a587d8cf8a4f89e8e545d16adc/res/drawable-hdpi-v4/messenger_button_send_round_shadow.png"
+        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-messenger-4.38.1.aar/70088211ab95699ace90cd73227a626b/res/drawable-hdpi-v4/messenger_button_send_round_shadow.png"
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/android/app/build/intermediates/res/merged/gmatclub/debug/drawable-xhdpi-v4_notification_bg_normal_pressed.9.png.flat",
@@ -2445,7 +2445,7 @@
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/android/app/build/intermediates/res/merged/gmatclub/debug/layout_messenger_button_send_white_small.xml.flat",
-        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-messenger-4.38.0.aar/3685b7a587d8cf8a4f89e8e545d16adc/res/layout/messenger_button_send_white_small.xml"
+        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-messenger-4.38.1.aar/70088211ab95699ace90cd73227a626b/res/layout/messenger_button_send_white_small.xml"
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/android/app/build/intermediates/res/merged/gmatclub/debug/drawable_mystyle_for_button_scan_counter.xml.flat",
@@ -2481,7 +2481,7 @@
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/android/app/build/intermediates/res/merged/gmatclub/debug/drawable-xhdpi-v4_com_facebook_tooltip_blue_xout.png.flat",
-        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-login-4.38.0.aar/530820679ac6ad221c3d91c83c714547/res/drawable-xhdpi-v4/com_facebook_tooltip_blue_xout.png"
+        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-login-4.38.1.aar/3439296c8b1fb9b1c0b5887e299e9089/res/drawable-xhdpi-v4/com_facebook_tooltip_blue_xout.png"
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/android/app/build/intermediates/res/merged/gmatclub/debug/layout_design_menu_item_action_area.xml.flat",
@@ -2541,7 +2541,7 @@
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/android/app/build/intermediates/res/merged/gmatclub/debug/layout_com_facebook_tooltip_bubble.xml.flat",
-        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-login-4.38.0.aar/530820679ac6ad221c3d91c83c714547/res/layout/com_facebook_tooltip_bubble.xml"
+        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-login-4.38.1.aar/3439296c8b1fb9b1c0b5887e299e9089/res/layout/com_facebook_tooltip_bubble.xml"
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/mobile/android/gmatclub/app/build/intermediates/res/merged/gmatclub/debug/layout_notification_media_action.xml.flat",
@@ -2569,7 +2569,7 @@
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/android/app/build/intermediates/res/merged/gmatclub/debug/drawable-hdpi-v4_messenger_bubble_large_white.png.flat",
-        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-messenger-4.38.0.aar/3685b7a587d8cf8a4f89e8e545d16adc/res/drawable-hdpi-v4/messenger_bubble_large_white.png"
+        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-messenger-4.38.1.aar/70088211ab95699ace90cd73227a626b/res/drawable-hdpi-v4/messenger_bubble_large_white.png"
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/android/app/build/intermediates/res/merged/gmatclub/debug/drawable-xhdpi-v4_abc_tab_indicator_mtrl_alpha.9.png.flat",
@@ -2641,7 +2641,7 @@
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/android/app/build/intermediates/res/merged/gmatclub/debug/drawable-hdpi-v4_com_facebook_tooltip_blue_topnub.png.flat",
-        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-login-4.38.0.aar/530820679ac6ad221c3d91c83c714547/res/drawable-hdpi-v4/com_facebook_tooltip_blue_topnub.png"
+        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-login-4.38.1.aar/3439296c8b1fb9b1c0b5887e299e9089/res/drawable-hdpi-v4/com_facebook_tooltip_blue_topnub.png"
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/mobile/android/gmatclub/app/build/intermediates/res/merged/gmatclub/debug/drawable-xxxhdpi_ic_menu.png.flat",
@@ -2665,11 +2665,11 @@
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/android/app/build/intermediates/res/merged/gmatclub/debug/layout_messenger_button_send_white_large.xml.flat",
-        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-messenger-4.38.0.aar/3685b7a587d8cf8a4f89e8e545d16adc/res/layout/messenger_button_send_white_large.xml"
+        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-messenger-4.38.1.aar/70088211ab95699ace90cd73227a626b/res/layout/messenger_button_send_white_large.xml"
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/android/app/build/intermediates/res/merged/gmatclub/debug/drawable-xhdpi-v4_com_facebook_tooltip_black_xout.png.flat",
-        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-login-4.38.0.aar/530820679ac6ad221c3d91c83c714547/res/drawable-xhdpi-v4/com_facebook_tooltip_black_xout.png"
+        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-login-4.38.1.aar/3439296c8b1fb9b1c0b5887e299e9089/res/drawable-xhdpi-v4/com_facebook_tooltip_black_xout.png"
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/mobile/android/gmatclub/app/build/intermediates/res/merged/gmatclub/debug/drawable-xhdpi-v4_abc_ic_menu_paste_mtrl_am_alpha.png.flat",
@@ -2681,7 +2681,7 @@
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/android/app/build/intermediates/res/merged/gmatclub/debug/drawable_com_facebook_button_send_background.xml.flat",
-        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-share-4.38.0.aar/0940e1e0ee76731532c131f518dca912/res/drawable/com_facebook_button_send_background.xml"
+        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-share-4.38.1.aar/683c45f69b31aa1095a1652d4141286d/res/drawable/com_facebook_button_send_background.xml"
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/mobile/android/gmatclub/app/build/intermediates/res/merged/gmatclub/debug/layout_abc_search_dropdown_item_icons_2line.xml.flat",
@@ -2797,7 +2797,7 @@
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/android/app/build/intermediates/res/merged/gmatclub/debug/layout_com_facebook_login_fragment.xml.flat",
-        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-common-4.38.0.aar/d5255de2fbf7f5ada9a943f2f88c3aef/res/layout/com_facebook_login_fragment.xml"
+        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-common-4.38.1.aar/9b67ab6758ab40815ca861e6694e0b72/res/layout/com_facebook_login_fragment.xml"
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/android/app/build/intermediates/res/merged/gmatclub/debug/drawable-mdpi-v4_googleg_disabled_color_18.png.flat",
@@ -2845,7 +2845,7 @@
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/android/app/build/intermediates/res/merged/gmatclub/debug/drawable-xxhdpi-v4_com_facebook_button_icon_white.png.flat",
-        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-common-4.38.0.aar/d5255de2fbf7f5ada9a943f2f88c3aef/res/drawable-xxhdpi-v4/com_facebook_button_icon_white.png"
+        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-common-4.38.1.aar/9b67ab6758ab40815ca861e6694e0b72/res/drawable-xxhdpi-v4/com_facebook_button_icon_white.png"
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/mobile/android/gmatclub/app/build/intermediates/res/merged/gmatclub/debug/layout_messenger_button_send_blue_large.xml.flat",
@@ -2921,7 +2921,7 @@
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/android/app/build/intermediates/res/merged/gmatclub/debug/drawable_com_facebook_auth_dialog_background.xml.flat",
-        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-common-4.38.0.aar/d5255de2fbf7f5ada9a943f2f88c3aef/res/drawable/com_facebook_auth_dialog_background.xml"
+        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-common-4.38.1.aar/9b67ab6758ab40815ca861e6694e0b72/res/drawable/com_facebook_auth_dialog_background.xml"
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/mobile/android/gmatclub/app/build/intermediates/res/merged/gmatclub/debug/layout_notification_media_cancel_action.xml.flat",
@@ -3061,7 +3061,7 @@
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/android/app/build/intermediates/res/merged/gmatclub/debug/drawable-xxhdpi-v4_messenger_bubble_small_white.png.flat",
-        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-messenger-4.38.0.aar/3685b7a587d8cf8a4f89e8e545d16adc/res/drawable-xxhdpi-v4/messenger_bubble_small_white.png"
+        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-messenger-4.38.1.aar/70088211ab95699ace90cd73227a626b/res/drawable-xxhdpi-v4/messenger_bubble_small_white.png"
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/android/app/build/intermediates/res/merged/gmatclub/debug/drawable-xhdpi-v4_abc_scrubber_control_off_mtrl_alpha.png.flat",
@@ -3145,7 +3145,7 @@
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/android/app/build/intermediates/res/merged/gmatclub/debug/drawable-hdpi-v4_messenger_bubble_small_blue.png.flat",
-        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-messenger-4.38.0.aar/3685b7a587d8cf8a4f89e8e545d16adc/res/drawable-hdpi-v4/messenger_bubble_small_blue.png"
+        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-messenger-4.38.1.aar/70088211ab95699ace90cd73227a626b/res/drawable-hdpi-v4/messenger_bubble_small_blue.png"
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/mobile/android/gmatclub/app/build/intermediates/res/merged/gmatclub/debug/drawable-hdpi-v4_abc_scrubber_primary_mtrl_alpha.9.png.flat",
@@ -3193,7 +3193,7 @@
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/android/app/build/intermediates/res/merged/gmatclub/debug/drawable-hdpi-v4_com_facebook_tooltip_black_topnub.png.flat",
-        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-login-4.38.0.aar/530820679ac6ad221c3d91c83c714547/res/drawable-hdpi-v4/com_facebook_tooltip_black_topnub.png"
+        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-login-4.38.1.aar/3439296c8b1fb9b1c0b5887e299e9089/res/drawable-hdpi-v4/com_facebook_tooltip_black_topnub.png"
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/android/app/build/intermediates/res/merged/gmatclub/debug/drawable-anydpi-v21_ic_menu.xml.flat",
@@ -3229,7 +3229,7 @@
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/android/app/build/intermediates/res/merged/gmatclub/debug/color_com_facebook_send_button_text_color.xml.flat",
-        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-share-4.38.0.aar/0940e1e0ee76731532c131f518dca912/res/color/com_facebook_send_button_text_color.xml"
+        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-share-4.38.1.aar/683c45f69b31aa1095a1652d4141286d/res/color/com_facebook_send_button_text_color.xml"
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/android/app/build/intermediates/res/merged/gmatclub/debug/drawable-mdpi-v4_common_google_signin_btn_icon_light_normal_background.9.png.flat",
@@ -3253,7 +3253,7 @@
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/android/app/build/intermediates/res/merged/gmatclub/debug/layout_messenger_button_send_blue_small.xml.flat",
-        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-messenger-4.38.0.aar/3685b7a587d8cf8a4f89e8e545d16adc/res/layout/messenger_button_send_blue_small.xml"
+        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-messenger-4.38.1.aar/70088211ab95699ace90cd73227a626b/res/layout/messenger_button_send_blue_small.xml"
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/android/app/build/intermediates/res/merged/gmatclub/debug/drawable-xxhdpi-v4_design_ic_visibility_off.png.flat",
@@ -3285,7 +3285,7 @@
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/android/app/build/intermediates/res/merged/gmatclub/debug/drawable-mdpi-v4_com_facebook_button_send_icon_white.png.flat",
-        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-share-4.38.0.aar/0940e1e0ee76731532c131f518dca912/res/drawable-mdpi-v4/com_facebook_button_send_icon_white.png"
+        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-share-4.38.1.aar/683c45f69b31aa1095a1652d4141286d/res/drawable-mdpi-v4/com_facebook_button_send_icon_white.png"
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/android/app/build/intermediates/res/merged/gmatclub/debug/color-v23_abc_tint_edittext.xml.flat",
@@ -3389,11 +3389,11 @@
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/android/app/build/intermediates/res/merged/gmatclub/debug/drawable_com_facebook_button_background.xml.flat",
-        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-common-4.38.0.aar/d5255de2fbf7f5ada9a943f2f88c3aef/res/drawable/com_facebook_button_background.xml"
+        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-common-4.38.1.aar/9b67ab6758ab40815ca861e6694e0b72/res/drawable/com_facebook_button_background.xml"
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/android/app/build/intermediates/res/merged/gmatclub/debug/drawable_com_facebook_auth_dialog_header_background.xml.flat",
-        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-common-4.38.0.aar/d5255de2fbf7f5ada9a943f2f88c3aef/res/drawable/com_facebook_auth_dialog_header_background.xml"
+        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-common-4.38.1.aar/9b67ab6758ab40815ca861e6694e0b72/res/drawable/com_facebook_auth_dialog_header_background.xml"
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/android/app/build/intermediates/res/merged/gmatclub/debug/drawable-ldpi_ic_menu.png.flat",
@@ -3409,7 +3409,7 @@
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/android/app/build/intermediates/res/merged/gmatclub/debug/drawable-hdpi-v4_com_facebook_tooltip_black_background.9.png.flat",
-        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-login-4.38.0.aar/530820679ac6ad221c3d91c83c714547/res/drawable-hdpi-v4/com_facebook_tooltip_black_background.9.png"
+        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-login-4.38.1.aar/3439296c8b1fb9b1c0b5887e299e9089/res/drawable-hdpi-v4/com_facebook_tooltip_black_background.9.png"
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/android/app/build/intermediates/res/merged/gmatclub/debug/drawable-xhdpi_ic_school_white_24dp.png.flat",
@@ -3429,7 +3429,7 @@
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/android/app/build/intermediates/res/merged/gmatclub/debug/drawable_com_facebook_button_icon.xml.flat",
-        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-common-4.38.0.aar/d5255de2fbf7f5ada9a943f2f88c3aef/res/drawable/com_facebook_button_icon.xml"
+        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-common-4.38.1.aar/9b67ab6758ab40815ca861e6694e0b72/res/drawable/com_facebook_button_icon.xml"
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/mobile/android/gmatclub/app/build/intermediates/res/merged/gmatclub/debug/drawable-xxhdpi-v4_com_facebook_button_icon_white.png.flat",
@@ -3441,7 +3441,7 @@
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/android/app/build/intermediates/res/merged/gmatclub/debug/drawable-hdpi-v4_com_facebook_tooltip_blue_bottomnub.png.flat",
-        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-login-4.38.0.aar/530820679ac6ad221c3d91c83c714547/res/drawable-hdpi-v4/com_facebook_tooltip_blue_bottomnub.png"
+        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-login-4.38.1.aar/3439296c8b1fb9b1c0b5887e299e9089/res/drawable-hdpi-v4/com_facebook_tooltip_blue_bottomnub.png"
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/mobile/android/gmatclub/app/build/intermediates/res/merged/gmatclub/debug/drawable-xhdpi-v4_googleg_disabled_color_18.png.flat",
@@ -3457,7 +3457,7 @@
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/android/app/build/intermediates/res/merged/gmatclub/debug/drawable-xhdpi-v4_com_facebook_button_send_icon_blue.png.flat",
-        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-share-4.38.0.aar/0940e1e0ee76731532c131f518dca912/res/drawable-xhdpi-v4/com_facebook_button_send_icon_blue.png"
+        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-share-4.38.1.aar/683c45f69b31aa1095a1652d4141286d/res/drawable-xhdpi-v4/com_facebook_button_send_icon_blue.png"
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/android/app/build/intermediates/res/merged/gmatclub/debug/drawable-xhdpi-v4_notify_panel_notification_icon_bg.png.flat",
@@ -3601,7 +3601,7 @@
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/android/app/build/intermediates/res/merged/gmatclub/debug/drawable-xxhdpi-v4_messenger_bubble_large_blue.png.flat",
-        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-messenger-4.38.0.aar/3685b7a587d8cf8a4f89e8e545d16adc/res/drawable-xxhdpi-v4/messenger_bubble_large_blue.png"
+        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-messenger-4.38.1.aar/70088211ab95699ace90cd73227a626b/res/drawable-xxhdpi-v4/messenger_bubble_large_blue.png"
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/mobile/android/gmatclub/app/build/intermediates/res/merged/gmatclub/debug/drawable_com_facebook_auth_dialog_background.xml.flat",
@@ -3633,7 +3633,7 @@
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/android/app/build/intermediates/res/merged/gmatclub/debug/drawable-xhdpi-v4_com_facebook_tooltip_blue_topnub.png.flat",
-        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-login-4.38.0.aar/530820679ac6ad221c3d91c83c714547/res/drawable-xhdpi-v4/com_facebook_tooltip_blue_topnub.png"
+        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-login-4.38.1.aar/3439296c8b1fb9b1c0b5887e299e9089/res/drawable-xhdpi-v4/com_facebook_tooltip_blue_topnub.png"
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/mobile/android/gmatclub/app/build/intermediates/res/merged/gmatclub/debug/font_opensans_semibolditalic.ttf.flat",
@@ -3677,7 +3677,7 @@
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/android/app/build/intermediates/res/merged/gmatclub/debug/drawable_com_facebook_send_button_icon.xml.flat",
-        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-share-4.38.0.aar/0940e1e0ee76731532c131f518dca912/res/drawable/com_facebook_send_button_icon.xml"
+        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-share-4.38.1.aar/683c45f69b31aa1095a1652d4141286d/res/drawable/com_facebook_send_button_icon.xml"
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/mobile/android/gmatclub/app/build/intermediates/res/merged/gmatclub/debug/drawable_com_facebook_button_like_background.xml.flat",
@@ -3713,7 +3713,7 @@
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/android/app/build/intermediates/res/merged/gmatclub/debug/drawable_messenger_button_white_bg_selector.xml.flat",
-        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-messenger-4.38.0.aar/3685b7a587d8cf8a4f89e8e545d16adc/res/drawable/messenger_button_white_bg_selector.xml"
+        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-messenger-4.38.1.aar/70088211ab95699ace90cd73227a626b/res/drawable/messenger_button_white_bg_selector.xml"
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/android/app/build/intermediates/res/merged/gmatclub/debug/color-v11_abc_background_cache_hint_selector_material_light.xml.flat",
@@ -3765,7 +3765,7 @@
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/android/app/build/intermediates/res/merged/gmatclub/debug/drawable-mdpi-v4_messenger_bubble_small_blue.png.flat",
-        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-messenger-4.38.0.aar/3685b7a587d8cf8a4f89e8e545d16adc/res/drawable-mdpi-v4/messenger_bubble_small_blue.png"
+        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-messenger-4.38.1.aar/70088211ab95699ace90cd73227a626b/res/drawable-mdpi-v4/messenger_bubble_small_blue.png"
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/android/app/build/intermediates/res/merged/gmatclub/debug/drawable-hdpi_ic_school_white_18dp.png.flat",
@@ -3825,11 +3825,11 @@
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/android/app/build/intermediates/res/merged/gmatclub/debug/drawable-xhdpi-v4_com_facebook_tooltip_black_background.9.png.flat",
-        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-login-4.38.0.aar/530820679ac6ad221c3d91c83c714547/res/drawable-xhdpi-v4/com_facebook_tooltip_black_background.9.png"
+        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-login-4.38.1.aar/3439296c8b1fb9b1c0b5887e299e9089/res/drawable-xhdpi-v4/com_facebook_tooltip_black_background.9.png"
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/android/app/build/intermediates/res/merged/gmatclub/debug/drawable-xhdpi-v4_com_facebook_button_icon_blue.png.flat",
-        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-common-4.38.0.aar/d5255de2fbf7f5ada9a943f2f88c3aef/res/drawable-xhdpi-v4/com_facebook_button_icon_blue.png"
+        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-common-4.38.1.aar/9b67ab6758ab40815ca861e6694e0b72/res/drawable-xhdpi-v4/com_facebook_button_icon_blue.png"
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/android/app/build/intermediates/res/merged/gmatclub/debug/drawable-xhdpi-v4_abc_list_focused_holo.9.png.flat",
@@ -3949,7 +3949,7 @@
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/android/app/build/intermediates/res/merged/gmatclub/debug/drawable_com_facebook_button_login_logo.xml.flat",
-        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-login-4.38.0.aar/530820679ac6ad221c3d91c83c714547/res/drawable/com_facebook_button_login_logo.xml"
+        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-login-4.38.1.aar/3439296c8b1fb9b1c0b5887e299e9089/res/drawable/com_facebook_button_login_logo.xml"
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/mobile/android/gmatclub/app/build/intermediates/res/merged/gmatclub/debug/drawable-hdpi-v4_com_facebook_close.png.flat",
@@ -4065,7 +4065,7 @@
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/android/app/build/intermediates/res/merged/gmatclub/debug/drawable_com_facebook_button_like_background.xml.flat",
-        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-common-4.38.0.aar/d5255de2fbf7f5ada9a943f2f88c3aef/res/drawable/com_facebook_button_like_background.xml"
+        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-common-4.38.1.aar/9b67ab6758ab40815ca861e6694e0b72/res/drawable/com_facebook_button_like_background.xml"
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/android/app/build/intermediates/res/merged/gmatclub/debug/drawable_background_button_facebook.xml.flat",
@@ -4345,7 +4345,7 @@
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/android/app/build/intermediates/res/merged/gmatclub/debug/layout_com_facebook_device_auth_dialog_fragment.xml.flat",
-        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-common-4.38.0.aar/d5255de2fbf7f5ada9a943f2f88c3aef/res/layout/com_facebook_device_auth_dialog_fragment.xml"
+        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-common-4.38.1.aar/9b67ab6758ab40815ca861e6694e0b72/res/layout/com_facebook_device_auth_dialog_fragment.xml"
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/android/app/build/intermediates/res/merged/gmatclub/debug/drawable-mdpi-v4_abc_ic_star_half_black_48dp.png.flat",
@@ -4369,7 +4369,7 @@
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/android/app/build/intermediates/res/merged/gmatclub/debug/drawable_com_facebook_button_login_silver_background.xml.flat",
-        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-login-4.38.0.aar/530820679ac6ad221c3d91c83c714547/res/drawable/com_facebook_button_login_silver_background.xml"
+        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-login-4.38.1.aar/3439296c8b1fb9b1c0b5887e299e9089/res/drawable/com_facebook_button_login_silver_background.xml"
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/mobile/android/gmatclub/app/build/intermediates/res/merged/gmatclub/debug/drawable-mdpi-v4_abc_text_select_handle_left_mtrl_light.png.flat",
@@ -4473,7 +4473,7 @@
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/android/app/build/intermediates/res/merged/gmatclub/debug/drawable-mdpi-v4_com_facebook_button_like_icon_selected.png.flat",
-        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-common-4.38.0.aar/d5255de2fbf7f5ada9a943f2f88c3aef/res/drawable-mdpi-v4/com_facebook_button_like_icon_selected.png"
+        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-common-4.38.1.aar/9b67ab6758ab40815ca861e6694e0b72/res/drawable-mdpi-v4/com_facebook_button_like_icon_selected.png"
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/android/app/build/intermediates/res/merged/gmatclub/debug/anim_fab_scale_down.xml.flat",
@@ -4513,7 +4513,11 @@
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/android/app/build/intermediates/res/merged/gmatclub/debug/drawable-xhdpi-v4_messenger_bubble_large_blue.png.flat",
-        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-messenger-4.38.0.aar/3685b7a587d8cf8a4f89e8e545d16adc/res/drawable-xhdpi-v4/messenger_bubble_large_blue.png"
+        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-messenger-4.38.1.aar/70088211ab95699ace90cd73227a626b/res/drawable-xhdpi-v4/messenger_bubble_large_blue.png"
+    },
+    {
+        "merged": "/home/dmytro/projects/gmatclub/android/app/build/intermediates/res/merged/gmatclub/debug/layout_activity_login.xml.flat",
+        "source": "/home/dmytro/projects/gmatclub/android/app/src/main/res/layout/activity_login.xml"
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/mobile/android/gmatclub/app/build/intermediates/res/merged/gmatclub/debug/drawable_abc_btn_colored_material.xml.flat",
@@ -4521,7 +4525,7 @@
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/android/app/build/intermediates/res/merged/gmatclub/debug/drawable-mdpi-v4_com_facebook_close.png.flat",
-        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-common-4.38.0.aar/d5255de2fbf7f5ada9a943f2f88c3aef/res/drawable-mdpi-v4/com_facebook_close.png"
+        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-common-4.38.1.aar/9b67ab6758ab40815ca861e6694e0b72/res/drawable-mdpi-v4/com_facebook_close.png"
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/mobile/android/gmatclub/app/build/intermediates/res/merged/gmatclub/debug/drawable-xxxhdpi-v4_abc_ic_menu_cut_mtrl_alpha.png.flat",
@@ -4533,7 +4537,7 @@
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/android/app/build/intermediates/res/merged/gmatclub/debug/drawable_com_facebook_button_login_background.xml.flat",
-        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-login-4.38.0.aar/530820679ac6ad221c3d91c83c714547/res/drawable/com_facebook_button_login_background.xml"
+        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-login-4.38.1.aar/3439296c8b1fb9b1c0b5887e299e9089/res/drawable/com_facebook_button_login_background.xml"
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/mobile/android/gmatclub/app/build/intermediates/res/merged/gmatclub/debug/layout_abc_search_view.xml.flat",
@@ -4581,7 +4585,7 @@
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/android/app/build/intermediates/res/merged/gmatclub/debug/drawable-hdpi-v4_com_facebook_tooltip_black_bottomnub.png.flat",
-        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-login-4.38.0.aar/530820679ac6ad221c3d91c83c714547/res/drawable-hdpi-v4/com_facebook_tooltip_black_bottomnub.png"
+        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-login-4.38.1.aar/3439296c8b1fb9b1c0b5887e299e9089/res/drawable-hdpi-v4/com_facebook_tooltip_black_bottomnub.png"
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/mobile/android/gmatclub/app/build/intermediates/res/merged/gmatclub/debug/color_abc_tint_btn_checkable.xml.flat",
@@ -4605,7 +4609,7 @@
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/android/app/build/intermediates/res/merged/gmatclub/debug/layout_messenger_button_send_white_round.xml.flat",
-        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-messenger-4.38.0.aar/3685b7a587d8cf8a4f89e8e545d16adc/res/layout/messenger_button_send_white_round.xml"
+        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-messenger-4.38.1.aar/70088211ab95699ace90cd73227a626b/res/layout/messenger_button_send_white_round.xml"
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/android/app/build/intermediates/res/merged/gmatclub/debug/drawable_abc_seekbar_tick_mark_material.xml.flat",
@@ -4821,7 +4825,7 @@
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/android/app/build/intermediates/res/merged/gmatclub/debug/drawable-xhdpi-v4_com_facebook_tooltip_blue_bottomnub.png.flat",
-        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-login-4.38.0.aar/530820679ac6ad221c3d91c83c714547/res/drawable-xhdpi-v4/com_facebook_tooltip_blue_bottomnub.png"
+        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-login-4.38.1.aar/3439296c8b1fb9b1c0b5887e299e9089/res/drawable-xhdpi-v4/com_facebook_tooltip_blue_bottomnub.png"
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/mobile/android/gmatclub/app/build/intermediates/res/merged/gmatclub/debug/color_abc_tint_switch_track.xml.flat",
@@ -4889,7 +4893,7 @@
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/android/app/build/intermediates/res/merged/gmatclub/debug/drawable-mdpi-v4_messenger_bubble_large_white.png.flat",
-        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-messenger-4.38.0.aar/3685b7a587d8cf8a4f89e8e545d16adc/res/drawable-mdpi-v4/messenger_bubble_large_white.png"
+        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-messenger-4.38.1.aar/70088211ab95699ace90cd73227a626b/res/drawable-mdpi-v4/messenger_bubble_large_white.png"
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/android/app/build/intermediates/res/merged/gmatclub/debug/drawable-xxhdpi-v4_abc_btn_check_to_on_mtrl_000.png.flat",
@@ -4941,7 +4945,7 @@
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/android/app/build/intermediates/res/merged/gmatclub/debug/drawable-xxhdpi-v4_com_facebook_button_like_icon_selected.png.flat",
-        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-common-4.38.0.aar/d5255de2fbf7f5ada9a943f2f88c3aef/res/drawable-xxhdpi-v4/com_facebook_button_like_icon_selected.png"
+        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-common-4.38.1.aar/9b67ab6758ab40815ca861e6694e0b72/res/drawable-xxhdpi-v4/com_facebook_button_like_icon_selected.png"
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/mobile/android/gmatclub/app/build/intermediates/res/merged/gmatclub/debug/drawable-xxhdpi_ic_google.png.flat",
@@ -4953,7 +4957,7 @@
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/android/app/build/intermediates/res/merged/gmatclub/debug/drawable-mdpi-v4_com_facebook_button_icon_blue.png.flat",
-        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-common-4.38.0.aar/d5255de2fbf7f5ada9a943f2f88c3aef/res/drawable-mdpi-v4/com_facebook_button_icon_blue.png"
+        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-common-4.38.1.aar/9b67ab6758ab40815ca861e6694e0b72/res/drawable-mdpi-v4/com_facebook_button_icon_blue.png"
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/mobile/android/gmatclub/app/build/intermediates/res/merged/gmatclub/debug/drawable-xxxhdpi_ic_description_white_18dp.png.flat",
@@ -4961,7 +4965,7 @@
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/android/app/build/intermediates/res/merged/gmatclub/debug/drawable-hdpi-v4_messenger_bubble_large_blue.png.flat",
-        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-messenger-4.38.0.aar/3685b7a587d8cf8a4f89e8e545d16adc/res/drawable-hdpi-v4/messenger_bubble_large_blue.png"
+        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-messenger-4.38.1.aar/70088211ab95699ace90cd73227a626b/res/drawable-hdpi-v4/messenger_bubble_large_blue.png"
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/mobile/android/gmatclub/app/build/intermediates/res/merged/gmatclub/debug/drawable-xxhdpi-v4_abc_ic_menu_selectall_mtrl_alpha.png.flat",
@@ -4973,7 +4977,7 @@
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/android/app/build/intermediates/res/merged/gmatclub/debug/drawable-mdpi-v4_com_facebook_profile_picture_blank_square.png.flat",
-        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-login-4.38.0.aar/530820679ac6ad221c3d91c83c714547/res/drawable-mdpi-v4/com_facebook_profile_picture_blank_square.png"
+        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-login-4.38.1.aar/3439296c8b1fb9b1c0b5887e299e9089/res/drawable-mdpi-v4/com_facebook_profile_picture_blank_square.png"
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/mobile/android/gmatclub/app/build/intermediates/res/merged/gmatclub/debug/drawable-xxhdpi-v4_abc_btn_switch_to_on_mtrl_00001.9.png.flat",
@@ -4985,7 +4989,7 @@
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/android/app/build/intermediates/res/merged/gmatclub/debug/drawable-mdpi-v4_com_facebook_tooltip_blue_bottomnub.png.flat",
-        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-login-4.38.0.aar/530820679ac6ad221c3d91c83c714547/res/drawable-mdpi-v4/com_facebook_tooltip_blue_bottomnub.png"
+        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-login-4.38.1.aar/3439296c8b1fb9b1c0b5887e299e9089/res/drawable-mdpi-v4/com_facebook_tooltip_blue_bottomnub.png"
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/mobile/android/gmatclub/app/build/intermediates/res/merged/gmatclub/debug/layout_notification_template_part_chronometer.xml.flat",
@@ -5033,7 +5037,7 @@
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/android/app/build/intermediates/res/merged/gmatclub/debug/drawable-mdpi-v4_com_facebook_tooltip_blue_background.9.png.flat",
-        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-login-4.38.0.aar/530820679ac6ad221c3d91c83c714547/res/drawable-mdpi-v4/com_facebook_tooltip_blue_background.9.png"
+        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-login-4.38.1.aar/3439296c8b1fb9b1c0b5887e299e9089/res/drawable-mdpi-v4/com_facebook_tooltip_blue_background.9.png"
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/android/app/build/intermediates/res/merged/gmatclub/debug/layout_design_layout_tab_icon.xml.flat",
@@ -5121,7 +5125,7 @@
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/android/app/build/intermediates/res/merged/gmatclub/debug/drawable-hdpi-v4_com_facebook_tooltip_blue_xout.png.flat",
-        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-login-4.38.0.aar/530820679ac6ad221c3d91c83c714547/res/drawable-hdpi-v4/com_facebook_tooltip_blue_xout.png"
+        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-login-4.38.1.aar/3439296c8b1fb9b1c0b5887e299e9089/res/drawable-hdpi-v4/com_facebook_tooltip_blue_xout.png"
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/android/app/build/intermediates/res/merged/gmatclub/debug/drawable-xxhdpi_ic_share_white_24dp.png.flat",
@@ -5209,7 +5213,7 @@
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/android/app/build/intermediates/res/merged/gmatclub/debug/drawable-mdpi-v4_messenger_bubble_small_white.png.flat",
-        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-messenger-4.38.0.aar/3685b7a587d8cf8a4f89e8e545d16adc/res/drawable-mdpi-v4/messenger_bubble_small_white.png"
+        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-messenger-4.38.1.aar/70088211ab95699ace90cd73227a626b/res/drawable-mdpi-v4/messenger_bubble_small_white.png"
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/android/app/build/intermediates/res/merged/gmatclub/debug/layout_select_dialog_item_material.xml.flat",
@@ -5405,7 +5409,7 @@
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/android/app/build/intermediates/res/merged/gmatclub/debug/drawable-xxhdpi-v4_messenger_bubble_large_white.png.flat",
-        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-messenger-4.38.0.aar/3685b7a587d8cf8a4f89e8e545d16adc/res/drawable-xxhdpi-v4/messenger_bubble_large_white.png"
+        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-messenger-4.38.1.aar/70088211ab95699ace90cd73227a626b/res/drawable-xxhdpi-v4/messenger_bubble_large_white.png"
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/mobile/android/gmatclub/app/build/intermediates/res/merged/gmatclub/debug/color_abc_primary_text_disable_only_material_dark.xml.flat",
@@ -5465,7 +5469,7 @@
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/android/app/build/intermediates/res/merged/gmatclub/debug/drawable-xhdpi-v4_com_facebook_close.png.flat",
-        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-common-4.38.0.aar/d5255de2fbf7f5ada9a943f2f88c3aef/res/drawable-xhdpi-v4/com_facebook_close.png"
+        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-common-4.38.1.aar/9b67ab6758ab40815ca861e6694e0b72/res/drawable-xhdpi-v4/com_facebook_close.png"
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/mobile/android/gmatclub/app/build/intermediates/res/merged/gmatclub/debug/drawable-hdpi-v4_com_facebook_tooltip_blue_bottomnub.png.flat",
@@ -5541,11 +5545,11 @@
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/android/app/build/intermediates/res/merged/gmatclub/debug/drawable-mdpi-v4_com_facebook_tooltip_black_background.9.png.flat",
-        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-login-4.38.0.aar/530820679ac6ad221c3d91c83c714547/res/drawable-mdpi-v4/com_facebook_tooltip_black_background.9.png"
+        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-login-4.38.1.aar/3439296c8b1fb9b1c0b5887e299e9089/res/drawable-mdpi-v4/com_facebook_tooltip_black_background.9.png"
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/android/app/build/intermediates/res/merged/gmatclub/debug/drawable-hdpi-v4_com_facebook_close.png.flat",
-        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-common-4.38.0.aar/d5255de2fbf7f5ada9a943f2f88c3aef/res/drawable-hdpi-v4/com_facebook_close.png"
+        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-common-4.38.1.aar/9b67ab6758ab40815ca861e6694e0b72/res/drawable-hdpi-v4/com_facebook_close.png"
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/mobile/android/gmatclub/app/build/intermediates/res/merged/gmatclub/debug/drawable-hdpi-v4_abc_btn_radio_to_on_mtrl_015.png.flat",
@@ -5553,7 +5557,7 @@
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/android/app/build/intermediates/res/merged/gmatclub/debug/drawable-xhdpi-v4_com_facebook_tooltip_blue_background.9.png.flat",
-        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-login-4.38.0.aar/530820679ac6ad221c3d91c83c714547/res/drawable-xhdpi-v4/com_facebook_tooltip_blue_background.9.png"
+        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-login-4.38.1.aar/3439296c8b1fb9b1c0b5887e299e9089/res/drawable-xhdpi-v4/com_facebook_tooltip_blue_background.9.png"
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/android/app/build/intermediates/res/merged/gmatclub/debug/layout-v21_notification_template_icon_group.xml.flat",
@@ -5629,7 +5633,7 @@
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/android/app/build/intermediates/res/merged/gmatclub/debug/drawable-xhdpi-v4_com_facebook_button_like_icon_selected.png.flat",
-        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-common-4.38.0.aar/d5255de2fbf7f5ada9a943f2f88c3aef/res/drawable-xhdpi-v4/com_facebook_button_like_icon_selected.png"
+        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-common-4.38.1.aar/9b67ab6758ab40815ca861e6694e0b72/res/drawable-xhdpi-v4/com_facebook_button_like_icon_selected.png"
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/mobile/android/gmatclub/app/build/intermediates/res/merged/gmatclub/debug/drawable-xhdpi_ic_settings.png.flat",
@@ -5669,7 +5673,7 @@
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/android/app/build/intermediates/res/merged/gmatclub/debug/drawable-xhdpi-v4_messenger_bubble_small_blue.png.flat",
-        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-messenger-4.38.0.aar/3685b7a587d8cf8a4f89e8e545d16adc/res/drawable-xhdpi-v4/messenger_bubble_small_blue.png"
+        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-messenger-4.38.1.aar/70088211ab95699ace90cd73227a626b/res/drawable-xhdpi-v4/messenger_bubble_small_blue.png"
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/mobile/android/gmatclub/app/build/intermediates/res/merged/gmatclub/debug/drawable_abc_ratingbar_indicator_material.xml.flat",
@@ -5729,6 +5733,6 @@
     },
     {
         "merged": "/home/dmytro/projects/gmatclub/android/app/build/intermediates/res/merged/gmatclub/debug/drawable-xhdpi-v4_messenger_bubble_small_white.png.flat",
-        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-messenger-4.38.0.aar/3685b7a587d8cf8a4f89e8e545d16adc/res/drawable-xhdpi-v4/messenger_bubble_small_white.png"
+        "source": "/root/.gradle/caches/transforms-1/files-1.1/facebook-messenger-4.38.1.aar/70088211ab95699ace90cd73227a626b/res/drawable-xhdpi-v4/messenger_bubble_small_white.png"
     }
 ]

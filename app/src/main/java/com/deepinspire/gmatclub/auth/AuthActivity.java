@@ -153,7 +153,8 @@ public class AuthActivity extends AppCompatActivity implements IAuthContract.Vie
                 break;
             case R.id.layoutSignIn:
                 if(presenter.availableAuth()) {
-                    ViewHelper.showLoginDialog(AuthActivity.this);
+                    openLoginPage();
+                    //ViewHelper.showLoginDialog(AuthActivity.this);
                 } else {
                     ViewHelper.showForgotPasswordDialog(AuthActivity.this);
                 }
@@ -179,7 +180,7 @@ public class AuthActivity extends AppCompatActivity implements IAuthContract.Vie
     }
 
     public void signInFacebook() {
-        ViewHelper.showFacebookSignInDialog(AuthActivity.this);
+       /* ViewHelper.showFacebookSignInDialog(AuthActivity.this);
 
         ViewHelper.setLoadingIndicator(true);
 
@@ -222,6 +223,7 @@ public class AuthActivity extends AppCompatActivity implements IAuthContract.Vie
                 });
 
         LoginManager.getInstance().logInWithReadPermissions(AuthActivity.this, Arrays.asList("public_profile"));
+    */
     }
 
     public void forgotPassword(String email) {
@@ -528,5 +530,13 @@ public class AuthActivity extends AppCompatActivity implements IAuthContract.Vie
         }
 
         return mGoogleApiClient;
+    }
+
+    private void openLoginPage() {
+        Intent intent = new Intent(this, LoginActivity.class);
+
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+
+        startActivity(intent);
     }
 }

@@ -75,6 +75,7 @@ import com.deepinspire.gmatclub.R;
 import com.deepinspire.gmatclub.api.Api;
 import com.deepinspire.gmatclub.api.AuthException;
 import com.deepinspire.gmatclub.auth.AuthActivity;
+import com.deepinspire.gmatclub.auth.LoginActivity;
 import com.deepinspire.gmatclub.storage.DeviceInfo;
 import com.deepinspire.gmatclub.utils.GCWebView;
 import com.deepinspire.gmatclub.utils.ViewHelper;
@@ -1015,18 +1016,18 @@ public class WebActivity extends AppCompatActivity implements
                 return handleRequestViaOkHttp(request.getUrl().toString());
             }*/
 
-            /*@Override
+            @Override
             @TargetApi(Build.VERSION_CODES.LOLLIPOP)
             public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
                 //view.loadUrl(request.getUrl().toString(), getRequestExtraHeaders());
-                return true;
+                return analyseUrl(view, request.getUrl().toString());
             }
 
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
                 //view.loadUrl(url, getRequestExtraHeaders());
-                return true;
-            }*/
+               return analyseUrl(view, url);
+            }
 
             public void onReceivedError(WebView view, int errorCode, String description, String failingUrl) {
                 presenter.setError(errorCode);
@@ -1036,8 +1037,19 @@ public class WebActivity extends AppCompatActivity implements
             @TargetApi(android.os.Build.VERSION_CODES.M)
             @Override
             public void onReceivedError(WebView view, WebResourceRequest req, WebResourceError rerr) {
+               
                 // Redirect to deprecated method, so you can use it in all SDK versions
                 onReceivedError(view, rerr.getErrorCode(), rerr.getDescription().toString(), req.getUrl().toString());
+            }
+
+            private boolean analyseUrl(WebView view, String url) {
+                if (url != null && !(url.startsWith("http://gmatclub") || url.startsWith("https://gmatclub"))) {
+                    view.getContext().startActivity(
+                            new Intent(Intent.ACTION_VIEW, Uri.parse(url)));
+                    return true;
+                } else {
+                    return false;
+                }
             }
         });
     }
@@ -1222,7 +1234,7 @@ public class WebActivity extends AppCompatActivity implements
                 break;
             case "signIn":
                 if(presenter.availableAuth()) {
-                    ViewHelper.showLoginDialog(WebActivity.this);
+                    openLoginPage();
                 } else {
                     ViewHelper.showForgotPasswordDialog(WebActivity.this);
                 }
@@ -2088,5 +2100,13 @@ public class WebActivity extends AppCompatActivity implements
         int state = (url.contains(Api.TEST_URL) ? View.GONE : View.VISIBLE);
 
         ((Toolbar) findViewById(R.id.toolbar)).setVisibility(state);
+    }
+
+    private void openLoginPage() {
+        Intent intent = new Intent(this, LoginActivity.class);
+
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+
+        startActivity(intent);
     }
 }

@@ -106,6 +106,13 @@
             android:windowSoftInputMode="stateAlwaysHidden" />
 
         <activity
+            android:name=".auth.LoginActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+            android:label="@string/title_activity_login"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+
+        <activity
             android:name=".auth.FacebookActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
             android:label="@string/title_activity_facebook"

@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,6 +21,7 @@ import com.deepinspire.gmatclub.R;
 import com.deepinspire.gmatclub.api.Api;
 import com.deepinspire.gmatclub.api.AuthException;
 import com.deepinspire.gmatclub.auth.AuthActivity;
+import com.deepinspire.gmatclub.auth.LoginActivity;
 import com.deepinspire.gmatclub.web.WebActivity;
 
 import java.util.HashMap;
@@ -480,7 +482,7 @@ public class ViewHelper {
         });
     }
 
-    public static void showFacebookSignInDialog(final AuthActivity activity) {
+    public static void showFacebookSignInDialog(final LoginActivity activity) {
         LayoutInflater inflaterAlertDialog = LayoutInflater.from(activity);
         View dialogLayout = inflaterAlertDialog.inflate(R.layout.alert_dialog_profile_anon, null);
 
