@@ -33,151 +33,6 @@ import java.util.Map;
 public class ViewHelper {
     public static  AlertDialog alertDialog;
 
-    public static void showLoginDialog(final Activity activity) {
-        LayoutInflater inflaterAlertDialog = LayoutInflater.from(activity);
-        final View dialogLayout = inflaterAlertDialog.inflate(R.layout.alert_dialog_login, null);
-
-        AlertDialog.Builder builder = new AlertDialog.Builder(activity);
-        builder.setView(dialogLayout);
-
-        alertDialog = builder.create();
-        alertDialog.setCancelable(true);
-        alertDialog.setCanceledOnTouchOutside(true);
-
-        alertDialog.setOnCancelListener(new DialogInterface.OnCancelListener(){
-            @Override
-            public void onCancel(DialogInterface dialogInterface) {
-                dialogInterface.dismiss();
-            }
-        });
-
-        alertDialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
-            @Override
-            public void onDismiss(DialogInterface dialog) {
-                ((InputMethodManager)activity.getSystemService(Context.INPUT_METHOD_SERVICE)).
-                        hideSoftInputFromWindow((activity.getWindow().getDecorView().getApplicationWindowToken()), 0);
-            }
-        });
-
-        final ProgressBar progressbar = (ProgressBar) dialogLayout.findViewById(R.id.loading);
-        final ScrollView signInLayout = (ScrollView) dialogLayout.findViewById(R.id.signInLayout);
-
-        final TextView signInInputPasswordForgot = (TextView) dialogLayout.findViewById(R.id.signInInputPasswordForgot);
-
-        signInInputPasswordForgot.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                alertDialog.dismiss();
-                alertDialog = null;
-                showForgotPasswordDialog(activity);
-            }
-        });
-
-        LinearLayout signInButtonLayout = (LinearLayout) dialogLayout.findViewById(R.id.signInButtonLayout);
-
-        signInButtonLayout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                TextView errorMessage = (TextView) dialogLayout.findViewById(R.id.errorMessage);
-
-
-                EditText signInInputUsername = (EditText) dialogLayout.findViewById(R.id.signInInputUsername);
-                EditText signInInputPassword = (EditText) dialogLayout.findViewById(R.id.signInInputPassword);
-
-                signInInputUsername.addTextChangedListener(new FieldWatcher(signInInputUsername, activity, dialogLayout));
-                signInInputPassword.addTextChangedListener(new FieldWatcher(signInInputPassword, activity, dialogLayout));
-
-                String username = signInInputUsername.getText().toString();
-                String password = signInInputPassword.getText().toString();
-
-                boolean validUsername = Validator.validUsername(username);
-                boolean validPassword = Validator.validPassword(password);
-
-                if(validUsername && validPassword) {
-                    errorMessage.setVisibility(View.GONE);
-                    errorMessage.setText("");
-
-                    signInInputUsername.setHintTextColor(ContextCompat.getColor(activity.getApplicationContext(), R.color.grey_A50));
-                    signInInputUsername.setBackgroundResource(R.drawable.border_bottom_1dp);
-
-                    signInInputPassword.setHintTextColor(ContextCompat.getColor(activity.getApplicationContext(), R.color.grey_A50));
-                    signInInputPassword.setBackgroundResource(R.drawable.border_bottom_1dp);
-
-                    signInInputPasswordForgot.setTextColor(ContextCompat.getColor(activity.getApplicationContext(), R.color.grey_A50));
-
-                    alertDialog.setCancelable(false);
-                    alertDialog.setCanceledOnTouchOutside(false);
-
-                    setLoadingIndicator(true, progressbar, signInLayout);
-
-                    if(activity instanceof AuthActivity) {
-                        ((AuthActivity) activity).signIn(username, password);
-                    } else {
-                        ((WebActivity) activity).signIn(username, password);
-                    }
-                } else {
-                    Map<String, String> messages = new HashMap<String, String>(){{
-                        put("login", "Incorrect Login");
-                        put("password", "Incorrect Password");
-                        put("loginpassword", "Incorrect Login and Password");
-                    }};
-
-                    StringBuffer keyMessageError = new StringBuffer("");
-
-                    if(!validUsername) {
-                        keyMessageError.append("login");
-
-                        signInInputUsername.setBackgroundResource(R.drawable.border_bottom_1dp_error);
-
-                        if (signInInputUsername.requestFocus()) {
-                            activity.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
-                        }
-                    }
-
-                    if(!validPassword) {
-                        keyMessageError.append("password");
-
-                        signInInputPassword.setBackgroundResource(R.drawable.border_bottom_1dp_error);
-
-                        signInInputPasswordForgot.setTextColor(ContextCompat.getColor(activity.getApplicationContext(), R.color.red));
-
-                        if (signInInputPassword.requestFocus()) {
-                            activity.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
-                        }
-                    }
-
-                    String message = messages.get(keyMessageError.toString());
-
-                    if(message != null) {
-                        errorMessage.setText(message);
-                        errorMessage.setVisibility(View.VISIBLE);
-                    }
-                }
-
-            }
-        });
-
-        LinearLayout signInButtonFacebookLayout = (LinearLayout) dialogLayout.findViewById(R.id.signInButtonFacebookLayout);
-
-        signInButtonFacebookLayout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(activity instanceof AuthActivity) {
-                    alertDialog.dismiss();
-                    alertDialog = null;
-                    ((AuthActivity) activity).signInFacebook();
-                } else {
-                    ((WebActivity) activity).signInFacebook();
-                }
-            }
-        });
-
-        setLoadingIndicator(false, progressbar, signInLayout);
-
-        alertDialog.show();
-    }
-
     public static void showForgotPasswordDialog(final Activity activity) {
         LayoutInflater inflaterAlertDialog = LayoutInflater.from(activity);
 
@@ -217,7 +72,7 @@ public class ViewHelper {
 
                 EditText forgotPasswordInputEmail = (EditText) dialogLayout.findViewById(R.id.forgotPasswordInputEmail);
 
-                forgotPasswordInputEmail.addTextChangedListener(new FieldWatcher(forgotPasswordInputEmail, activity, dialogLayout));
+                //forgotPasswordInputEmail.addTextChangedListener(new FieldWatcher(forgotPasswordInputEmail, activity, dialogLayout));
 
                 String email = forgotPasswordInputEmail.getText().toString();
 
@@ -236,7 +91,7 @@ public class ViewHelper {
                     if(activity instanceof WebActivity) {
                         ((WebActivity) activity).forgotPassword(email);
                     } else {
-                        ((AuthActivity) activity).forgotPassword(email);
+                        ((LoginActivity) activity).forgotPassword(email);
                     }
 
                     setLoadingIndicator(true, progressbar, signInLayout);
@@ -251,6 +106,41 @@ public class ViewHelper {
                 }
             }
         });
+
+        setLoadingIndicator(false, progressbar, signInLayout);
+
+        alertDialog.show();
+    }
+
+    public static void showResetPasswordDialog(final Activity activity) {
+        LayoutInflater inflaterAlertDialog = LayoutInflater.from(activity);
+
+        final View dialogLayout = inflaterAlertDialog.inflate(R.layout.alert_dialog_reset_password, null);
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(activity);
+        builder.setView(dialogLayout);
+
+        alertDialog = builder.create();
+        alertDialog.setCancelable(true);
+        alertDialog.setCanceledOnTouchOutside(true);
+
+        alertDialog.setOnCancelListener(new DialogInterface.OnCancelListener(){
+            @Override
+            public void onCancel(DialogInterface dialogInterface) {
+                dialogInterface.dismiss();
+            }
+        });
+
+        alertDialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
+            @Override
+            public void onDismiss(DialogInterface dialog) {
+                ((InputMethodManager)activity.getSystemService(Context.INPUT_METHOD_SERVICE)).
+                        hideSoftInputFromWindow((activity.getWindow().getDecorView().getApplicationWindowToken()), 0);
+            }
+        });
+
+        final ProgressBar progressbar = (ProgressBar) dialogLayout.findViewById(R.id.loading);
+        final ScrollView signInLayout = (ScrollView) dialogLayout.findViewById(R.id.signInLayout);
 
         setLoadingIndicator(false, progressbar, signInLayout);
 

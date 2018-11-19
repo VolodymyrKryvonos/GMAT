@@ -152,12 +152,7 @@ public class AuthActivity extends AppCompatActivity implements IAuthContract.Vie
                 signInFacebook();
                 break;
             case R.id.layoutSignIn:
-                if(presenter.availableAuth()) {
-                    openLoginPage();
-                    //ViewHelper.showLoginDialog(AuthActivity.this);
-                } else {
-                    ViewHelper.showForgotPasswordDialog(AuthActivity.this);
-                }
+                openLoginPage();
                 break;
             case R.id.layoutViewAsGuest:
                 openWebSite(Api.FORUM_URL);

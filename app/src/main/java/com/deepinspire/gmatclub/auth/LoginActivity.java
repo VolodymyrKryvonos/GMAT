@@ -25,6 +25,7 @@ import com.deepinspire.gmatclub.GCConfig;
 import com.deepinspire.gmatclub.R;
 import com.deepinspire.gmatclub.api.Api;
 import com.deepinspire.gmatclub.api.AuthException;
+import com.deepinspire.gmatclub.utils.FieldWatcher;
 import com.deepinspire.gmatclub.utils.Validator;
 import com.deepinspire.gmatclub.utils.ViewHelper;
 import com.deepinspire.gmatclub.web.WebActivity;
@@ -92,91 +93,13 @@ public class LoginActivity extends AppCompatActivity implements ILoginContract.V
         signInLayout = (ScrollView) findViewById(R.id.signInLayout);
 
         signInInputPasswordForgot = (TextView) findViewById(R.id.signInInputPasswordForgot);
+        signInInputPasswordForgot.setOnClickListener(this);
 
         LinearLayout signInButtonLayout = (LinearLayout) findViewById(R.id.signInButtonLayout);
-
-        signInButtonLayout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                TextView errorMessage = (TextView) findViewById(R.id.errorMessage);
-
-                EditText signInInputUsername = (EditText) findViewById(R.id.signInInputUsername);
-                EditText signInInputPassword = (EditText) findViewById(R.id.signInInputPassword);
-
-                //signInInputUsername.addTextChangedListener(new FieldWatcher(signInInputUsername, activity, dialogLayout));
-                //signInInputPassword.addTextChangedListener(new FieldWatcher(signInInputPassword, activity, dialogLayout));
-
-                String username = signInInputUsername.getText().toString();
-                String password = signInInputPassword.getText().toString();
-
-                boolean validUsername = Validator.validUsername(username);
-                boolean validPassword = Validator.validPassword(password);
-
-                if(validUsername && validPassword) {
-                    errorMessage.setVisibility(View.GONE);
-                    errorMessage.setText("");
-
-                    signInInputUsername.setHintTextColor(ContextCompat.getColor(getApplicationContext(), R.color.grey_A50));
-                    signInInputUsername.setBackgroundResource(R.drawable.border_bottom_1dp);
-
-                    signInInputPassword.setHintTextColor(ContextCompat.getColor(getApplicationContext(), R.color.grey_A50));
-                    signInInputPassword.setBackgroundResource(R.drawable.border_bottom_1dp);
-
-                    signInInputPasswordForgot.setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.grey_A50));
-
-                    setLoadingIndicator(true);
-
-                    signIn(username, password);
-                } else {
-                    Map<String, String> messages = new HashMap<String, String>(){{
-                        put("login", "Incorrect Login");
-                        put("password", "Incorrect Password");
-                        put("loginpassword", "Incorrect Login and Password");
-                    }};
-
-                    StringBuffer keyMessageError = new StringBuffer("");
-
-                    if(!validUsername) {
-                        keyMessageError.append("login");
-
-                        signInInputUsername.setBackgroundResource(R.drawable.border_bottom_1dp_error);
-
-                        if (signInInputUsername.requestFocus()) {
-                            getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
-                        }
-                    }
-
-                    if(!validPassword) {
-                        keyMessageError.append("password");
-
-                        signInInputPassword.setBackgroundResource(R.drawable.border_bottom_1dp_error);
-
-                        signInInputPasswordForgot.setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.red));
-
-                        if (signInInputPassword.requestFocus()) {
-                            getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
-                        }
-                    }
-
-                    String message = messages.get(keyMessageError.toString());
-
-                    if(message != null) {
-                        errorMessage.setText(message);
-                        errorMessage.setVisibility(View.VISIBLE);
-                    }
-                }
-
-            }
-        });
+        signInButtonLayout.setOnClickListener(this);
 
         signInButtonFacebookLayout = (LinearLayout) findViewById(R.id.signInButtonFacebookLayout);
-
-        signInButtonFacebookLayout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                signInFacebook();
-            }
-        });
+        signInButtonFacebookLayout.setOnClickListener(this);
 
         setLoadingIndicator(false);
     }
@@ -220,15 +143,11 @@ public class LoginActivity extends AppCompatActivity implements ILoginContract.V
 
     @Override
     public void onClick(View view) {
-        Intent intent;
-
         switch(view.getId()) {
             case R.id.layoutSignInGoogle:
                 initGoogleSignIn();
-
                 //Intent signInIntent = Auth.GoogleSignInApi.getSignInIntent(mGoogleApiClient);
                 Intent signInIntent = mGoogleSignInClient.getSignInIntent();
-
                 startActivityForResult(signInIntent, GCConfig.GOOGLE_SIGN_IN);
                 break;
             case R.id.layoutSignInFacebook:
@@ -236,9 +155,9 @@ public class LoginActivity extends AppCompatActivity implements ILoginContract.V
                 break;
             case R.id.layoutSignIn:
                 if(presenter.availableAuth()) {
-                    ViewHelper.showLoginDialog(LoginActivity.this);
+                    openWebSite(Api.FORUM_URL);
                 } else {
-                    ViewHelper.showForgotPasswordDialog(LoginActivity.this);
+                    ViewHelper.showResetPasswordDialog(LoginActivity.this);
                 }
                 break;
             case R.id.layoutViewAsGuest:
@@ -246,6 +165,15 @@ public class LoginActivity extends AppCompatActivity implements ILoginContract.V
                 break;
             case R.id.layoutRegister:
                 openWebSite(Api.FORUM_REGISTER_URL);
+                break;
+            case R.id.signInInputPasswordForgot:
+                ViewHelper.showForgotPasswordDialog(LoginActivity.this);
+                break;
+            case R.id.signInButtonLayout:
+                startProccessAuth();
+                break;
+            case R.id.signInButtonFacebookLayout:
+                signInFacebook();
                 break;
         }
     }
@@ -331,13 +259,10 @@ public class LoginActivity extends AppCompatActivity implements ILoginContract.V
     public void showError(AuthException exception) {
         switch(exception.getAction()) {
             case "showForgotPassword":
-                if(ViewHelper.alertDialog != null) {
-                    ViewHelper.alertDialog.dismiss();
-                }
-                ViewHelper.showForgotPasswordDialog(LoginActivity.this);
+                ViewHelper.showResetPasswordDialog(LoginActivity.this);
                 break;
             default: {
-                ViewHelper.showError(exception);
+                showErrorUI(exception);
             }
         }
     }
@@ -617,6 +542,114 @@ public class LoginActivity extends AppCompatActivity implements ILoginContract.V
         } else {
             progressbar.setVisibility(View.GONE);
             signInLayout.setVisibility(View.VISIBLE);
+        }
+    }
+
+    public void showErrorUI(AuthException exception) {
+        ProgressBar progressbar = (ProgressBar) findViewById(R.id.loading);
+        ScrollView signInLayout = (ScrollView) findViewById(R.id.signInLayout);
+        TextView message;
+
+        switch(exception.getType()) {
+            case "login":
+                message = (TextView) findViewById(R.id.errorMessage);
+
+                message.setText(/*"Incorrect Login and Password"*/exception.getMessage());
+
+                if(!exception.getAction().equals("UNKNOWN_HOST")) {
+                    EditText signInInputUsername = (EditText) findViewById(R.id.signInInputUsername);
+                    EditText signInInputPassword = (EditText) findViewById(R.id.signInInputPassword);
+
+                    TextView signInInputPasswordForgot = (TextView) findViewById(R.id.signInInputPasswordForgot);
+
+                    signInInputUsername.setHintTextColor(ContextCompat.getColor(LoginActivity.this, R.color.red));
+                    signInInputUsername.setBackgroundResource(R.drawable.border_bottom_1dp_error);
+
+                    signInInputPassword.setHintTextColor(ContextCompat.getColor(LoginActivity.this, R.color.red));
+                    signInInputPassword.setBackgroundResource(R.drawable.border_bottom_1dp_error);
+
+                    signInInputPasswordForgot.setTextColor(ContextCompat.getColor(LoginActivity.this, R.color.red));
+                }
+
+                message.setVisibility(View.VISIBLE);
+                progressbar.setVisibility(View.GONE);
+                signInLayout.setVisibility(View.VISIBLE);
+                break;
+            case "signInFacebook":
+                ((ScrollView) findViewById(R.id.signInLayout)).setVisibility(View.GONE);
+                ((ProgressBar) findViewById(R.id.loading)).setVisibility(View.GONE);
+                ((TextView) findViewById(R.id.message)).setVisibility(View.VISIBLE);
+                break;
+        }
+    }
+
+    private void startProccessAuth() {
+        TextView errorMessage = (TextView) findViewById(R.id.errorMessage);
+
+        EditText signInInputUsername = (EditText) findViewById(R.id.signInInputUsername);
+        EditText signInInputPassword = (EditText) findViewById(R.id.signInInputPassword);
+
+        signInInputUsername.addTextChangedListener(new FieldWatcher(signInInputUsername, LoginActivity.this));
+        signInInputPassword.addTextChangedListener(new FieldWatcher(signInInputPassword, LoginActivity.this));
+
+        String username = signInInputUsername.getText().toString();
+        String password = signInInputPassword.getText().toString();
+
+        boolean validUsername = Validator.validUsername(username);
+        boolean validPassword = Validator.validPassword(password);
+
+        if(validUsername && validPassword) {
+            errorMessage.setVisibility(View.GONE);
+            errorMessage.setText("");
+
+            signInInputUsername.setHintTextColor(ContextCompat.getColor(getApplicationContext(), R.color.grey_A50));
+            signInInputUsername.setBackgroundResource(R.drawable.border_bottom_1dp);
+
+            signInInputPassword.setHintTextColor(ContextCompat.getColor(getApplicationContext(), R.color.grey_A50));
+            signInInputPassword.setBackgroundResource(R.drawable.border_bottom_1dp);
+
+            signInInputPasswordForgot.setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.grey_A50));
+
+            setLoadingIndicator(true);
+
+            signIn(username, password);
+        } else {
+            Map<String, String> messages = new HashMap<String, String>(){{
+                put("login", "Incorrect Login");
+                put("password", "Incorrect Password");
+                put("loginpassword", "Incorrect Login and Password");
+            }};
+
+            StringBuffer keyMessageError = new StringBuffer("");
+
+            if(!validUsername) {
+                keyMessageError.append("login");
+
+                signInInputUsername.setBackgroundResource(R.drawable.border_bottom_1dp_error);
+
+                if (signInInputUsername.requestFocus()) {
+                    getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
+                }
+            }
+
+            if(!validPassword) {
+                keyMessageError.append("password");
+
+                signInInputPassword.setBackgroundResource(R.drawable.border_bottom_1dp_error);
+
+                signInInputPasswordForgot.setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.red));
+
+                if (signInInputPassword.requestFocus()) {
+                    getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
+                }
+            }
+
+            String message = messages.get(keyMessageError.toString());
+
+            if(message != null) {
+                errorMessage.setText(message);
+                errorMessage.setVisibility(View.VISIBLE);
+            }
         }
     }
 }

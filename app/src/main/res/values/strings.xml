@@ -65,6 +65,12 @@
     <string name="password">Password</string>
     <string name="message_error_login_password">Incorrect Login or Password</string>
 
+    <!-- Reset password -->
+    <string name="reset_password_description">It looks like you\'re having trouble with your password. Do you want to reset it?</string>
+    <string name="reset_password_title">Incorrect Password</string>
+    <string name="button_reset">Reset</string>
+    <string name="button_not_now">Not now</string>
+
     <!-- 'id'     => '188832947830704',
     'secret' => '25e1ac94899287fbcbab95d769f5ac6f',-->
 </resources>

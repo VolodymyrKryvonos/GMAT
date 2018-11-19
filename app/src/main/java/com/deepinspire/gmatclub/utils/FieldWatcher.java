@@ -16,15 +16,13 @@ import java.util.Map;
 /**
  * Created by dmytro mytsko on 29.03.18.
  */
-class FieldWatcher implements TextWatcher {
+public class FieldWatcher implements TextWatcher {
     private View view;
     private Activity activity;
-    private View dialogLayout;
 
-    FieldWatcher(View view, Activity activity, View dialogLayout) {
+    public FieldWatcher(View view, Activity activity) {
         this.view = view;
         this.activity = activity;
-        this.dialogLayout = dialogLayout;
     }
 
     public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {}
@@ -32,15 +30,15 @@ class FieldWatcher implements TextWatcher {
 
     public void afterTextChanged(Editable editable) {
 
-        TextView errorMessage = (TextView) dialogLayout.findViewById(R.id.errorMessage);
+        TextView errorMessage = (TextView) activity.findViewById(R.id.errorMessage);
 
         switch(view.getId()) {
             case R.id.signInInputUsername:
             case R.id.signInInputPassword:
-                TextView signInInputPasswordForgot = (TextView) dialogLayout.findViewById(R.id.signInInputPasswordForgot);
+                TextView signInInputPasswordForgot = (TextView) activity.findViewById(R.id.signInInputPasswordForgot);
 
-                EditText signInInputUsername = (EditText) dialogLayout.findViewById(R.id.signInInputUsername);
-                EditText signInInputPassword = (EditText) dialogLayout.findViewById(R.id.signInInputPassword);
+                EditText signInInputUsername = (EditText) activity.findViewById(R.id.signInInputUsername);
+                EditText signInInputPassword = (EditText) activity.findViewById(R.id.signInInputPassword);
 
                 Map<String, String> messages = new HashMap<String, String>(){{
                     put("login", "Incorrect Login");
@@ -71,10 +69,10 @@ class FieldWatcher implements TextWatcher {
                 }
                 break;
             case R.id.forgotPasswordInputEmail:
-                EditText forgotPasswordInputEmail = (EditText) dialogLayout.findViewById(R.id.forgotPasswordInputEmail);
+                EditText forgotPasswordInputEmail = (EditText) activity.findViewById(R.id.forgotPasswordInputEmail);
 
                 if(Validator.validEmail(forgotPasswordInputEmail.getText().toString().trim())) {
-                    errorMessage = (TextView) dialogLayout.findViewById(R.id.message);
+                    errorMessage = (TextView) activity.findViewById(R.id.message);
                     errorMessage.setVisibility(View.GONE);
                     errorMessage.setText("");
                     forgotPasswordInputEmail.setBackgroundResource(R.drawable.border_bottom_1dp);

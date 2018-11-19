@@ -38,7 +38,7 @@ public class LoginPresenter implements ILoginContract.Presenter {
 
             @Override
             public void onError(AuthException exception) {
-                //view.showError(exception);
+                view.showError(exception);
             }
         });
     }
@@ -47,12 +47,12 @@ public class LoginPresenter implements ILoginContract.Presenter {
         repository.forgotPassword(email, new IStorage.ICallbackAuth() {
             @Override
             public void onSuccess() {
-                //view.showSuccess("forgotPassword");
+                view.showSuccess("forgotPassword");
             }
 
             @Override
             public void onError(AuthException exception) {
-                //view.showError(exception);
+                view.showError(exception);
             }
         });
     }
@@ -67,7 +67,7 @@ public class LoginPresenter implements ILoginContract.Presenter {
             @Override
             public void onError(AuthException exception) {
               AuthException ex = new AuthException(new Exception("Failed sign in facebook"), "signInFacebook");
-               //view.showError(ex);
+              view.showError(ex);
             }
         });
     }
@@ -82,7 +82,7 @@ public class LoginPresenter implements ILoginContract.Presenter {
             @Override
             public void onError(AuthException exception) {
                 AuthException ex = new AuthException(new Exception("Failed sign in facebook"), "signInFacebook");
-                //view.showError(ex);
+                view.showError(ex);
             }
         });
     }
