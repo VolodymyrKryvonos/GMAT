@@ -236,6 +236,10 @@ public class LoginActivity extends AppCompatActivity implements ILoginContract.V
         presenter.forgotPassword(email);
     }
 
+    public void resetPassword(String email) {
+        presenter.resetPassword(email);
+    }
+
     public void setPresenter(ILoginContract.Presenter presenter) {
         this.presenter = presenter;
     }
@@ -259,6 +263,7 @@ public class LoginActivity extends AppCompatActivity implements ILoginContract.V
     public void showError(AuthException exception) {
         switch(exception.getAction()) {
             case "showForgotPassword":
+                setLoadingIndicator(false);
                 ViewHelper.showResetPasswordDialog(LoginActivity.this);
                 break;
             default: {

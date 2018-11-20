@@ -122,7 +122,7 @@ public class ViewHelper {
 
         alertDialog = builder.create();
         alertDialog.setCancelable(true);
-        alertDialog.setCanceledOnTouchOutside(true);
+        alertDialog.setCanceledOnTouchOutside(false);
 
         alertDialog.setOnCancelListener(new DialogInterface.OnCancelListener(){
             @Override
@@ -141,6 +141,23 @@ public class ViewHelper {
 
         final ProgressBar progressbar = (ProgressBar) dialogLayout.findViewById(R.id.loading);
         final ScrollView signInLayout = (ScrollView) dialogLayout.findViewById(R.id.signInLayout);
+
+        LinearLayout btnResetLayout = (LinearLayout) dialogLayout.findViewById(R.id.btnResetLayout);
+        btnResetLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setLoadingIndicator(true, progressbar, signInLayout);
+                ((LoginActivity) activity).resetPassword(((EditText)dialogLayout.findViewById(R.id.resetPasswordInputEmail)).getText().toString());
+            }
+        });
+
+        LinearLayout btnNotNowLayout = (LinearLayout) dialogLayout.findViewById(R.id.btnNotNowLayout);
+        btnNotNowLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                alertDialog.dismiss();
+            }
+        });
 
         setLoadingIndicator(false, progressbar, signInLayout);
 
@@ -396,7 +413,6 @@ public class ViewHelper {
         setLoadingIndicator(true);
     }
 
-
     public static void setLoadingIndicator(boolean active, ProgressBar progressBar, ScrollView contentLayout) {
         if (active) {
             progressBar.setVisibility(View.VISIBLE);
@@ -475,20 +491,48 @@ public class ViewHelper {
 
     public static void showSuccess(String type) {
         if(alertDialog != null) {
+            ProgressBar progressbar = null;
+            TextView message = null;
+            ScrollView signInLayout = null;
+
             switch(type) {
                 case "forgotPassword":
-                    ProgressBar progressbar = (ProgressBar) alertDialog.findViewById(R.id.loading);
-                    ScrollView signInLayout = (ScrollView) alertDialog.findViewById(R.id.signInLayout);
-
-                    TextView message = (TextView) alertDialog.findViewById(R.id.message);
-                    LinearLayout forgotPasswordForm = (LinearLayout) alertDialog.findViewById(R.id.forgotPasswordForm);
-
-                    message.setText("Your password has been sent successfully to your original e-mail address.");
+                    message = (TextView) alertDialog.findViewById(R.id.message);
+                    message.setText(R.string.email_success_send);
                     message.setTextColor(ContextCompat.getColor(alertDialog.getContext(), R.color.grey_A50));
-
                     message.setVisibility(View.VISIBLE);
+
+                    LinearLayout forgotPasswordForm = (LinearLayout) alertDialog.findViewById(R.id.forgotPasswordForm);
                     forgotPasswordForm.setVisibility(View.GONE);
+
+                    progressbar = (ProgressBar) alertDialog.findViewById(R.id.loading);
                     progressbar.setVisibility(View.GONE);
+
+                    signInLayout = (ScrollView) alertDialog.findViewById(R.id.signInLayout);
+                    signInLayout.setVisibility(View.VISIBLE);
+
+                    alertDialog.setCancelable(true);
+                    alertDialog.setCanceledOnTouchOutside(true);
+                    break;
+                case "resetPassword":
+                    message = (TextView) alertDialog.findViewById(R.id.message);
+                    message.setText(R.string.email_success_send);
+                    message.setTextColor(ContextCompat.getColor(alertDialog.getContext(), R.color.grey_A50));
+                    message.setVisibility(View.VISIBLE);
+
+                    LinearLayout resetPasswordMessageForm = (LinearLayout) alertDialog.findViewById(R.id.resetPasswordMessageForm);
+                    resetPasswordMessageForm.setVisibility(View.GONE);
+
+                    LinearLayout resetPasswordEmailForm = (LinearLayout) alertDialog.findViewById(R.id.resetPasswordEmailForm);
+                    resetPasswordEmailForm.setVisibility(View.GONE);
+
+                    LinearLayout resetPasswordButtonsLayout = (LinearLayout) alertDialog.findViewById(R.id.resetPasswordButtonsLayout);
+                    resetPasswordButtonsLayout.setVisibility(View.GONE);
+
+                    progressbar = (ProgressBar) alertDialog.findViewById(R.id.loading);
+                    progressbar.setVisibility(View.GONE);
+
+                    signInLayout = (ScrollView) alertDialog.findViewById(R.id.signInLayout);
                     signInLayout.setVisibility(View.VISIBLE);
 
                     alertDialog.setCancelable(true);

@@ -57,6 +57,21 @@ public class LoginPresenter implements ILoginContract.Presenter {
         });
     }
 
+
+    public void resetPassword(String email) {
+        repository.forgotPassword(email, new IStorage.ICallbackAuth() {
+            @Override
+            public void onSuccess() {
+                view.showSuccess("resetPassword");
+            }
+
+            @Override
+            public void onError(AuthException exception) {
+                view.showError(exception);
+            }
+        });
+    }
+
     public void signIn(String provider, String idToken, String accessToken, String expiresIn) {
         repository.signInSocial(provider, idToken, accessToken, expiresIn, new IStorage.ICallbackAuth() {
             @Override

@@ -205,6 +205,9 @@ public class Repository implements IStorage {
                                 AuthException exc = new AuthException(new Exception("Failed send information for current email"), "forgotPassword");
                                 callback.onError(exc);
                             } else {
+
+                                Response<String> r = response;
+
                                 user.clearCountFailedAuth();
                                 callback.onSuccess();
                             }

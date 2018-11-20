@@ -71,6 +71,10 @@
     <string name="button_reset">Reset</string>
     <string name="button_not_now">Not now</string>
 
+    <string name="email">E-mail</string>
+    <string name="email_error">This must be E-mail address you registered your account with.</string>
+    <string name="email_success_send">Your password has been sent successfully to your original e-mail address.</string>
+
     <!-- 'id'     => '188832947830704',
     'secret' => '25e1ac94899287fbcbab95d769f5ac6f',-->
 </resources>
