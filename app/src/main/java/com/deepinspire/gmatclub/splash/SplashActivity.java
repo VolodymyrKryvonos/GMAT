@@ -27,18 +27,12 @@ public class SplashActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
 
-        Repository repository = Injection.getRepository(getApplicationContext());
+        Uri uri = getURI();
 
-        if(repository.logged()) {
+        if(uri != null) {
             Intent intent = new Intent(SplashActivity.this, WebActivity.class);
 
-            Uri uri = getURI();
-
-            if(uri != null) {
-                intent.setData(uri);
-            } else {
-                intent.setData(Uri.parse(Api.FORUM_URL));
-            }
+            intent.setData(uri);
 
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 
