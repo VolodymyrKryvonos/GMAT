@@ -28,7 +28,7 @@ public interface ApiInterface {
     @POST("forum/ucp.php?mode=login")
     //Call<String> signIn(@Body UserData data);
     //Call<String> signIn(@FieldMap Map<String, String> params);
-    Call<String> signIn(@Header("Authorization") String header, @PartMap Map<String, RequestBody> params);
+    Call<ResponseBody> signIn(@Header("Authorization") String header, @PartMap Map<String, RequestBody> params);
 
     @Multipart
     //@FormUrlEncoded

@@ -102,25 +102,15 @@ public class Repository implements IStorage {
 
                     ApiInterface apiService = (new ApiClient()).getClient().create(ApiInterface.class);
 
-                    String username = "guest";
-                    String password = "GCTesterNew1";
+                    Call<ResponseBody> call = apiService.signIn(generateAuthHeader(), mp);
 
-                    //String username = "deepdesi";
-                    //String password = "deepcomp";
-
-                    String base = username + ":" + password;
-
-                    String authHeader = "Basic " + Base64.encodeToString(base.getBytes(), Base64.NO_WRAP);
-
-                    Call<String> call = apiService.signIn(authHeader, mp);
-
-                    call.enqueue(new retrofit2.Callback<String>() {
+                    call.enqueue(new retrofit2.Callback<ResponseBody>() {
                         @Override
-                        public void onResponse(Call<String> call, Response<String> response) {
+                        public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
                             if (!response.isSuccessful()) {
                                 user.updateCountFailedAuth(1);
 
-                                AuthException exc = new AuthException(new Exception("Incorrect Login and Password"), "login", "Incorrect Login and Password");
+                                AuthException exc = generateAuthError(response);
 
                                 if(user.getCountFailedAuth() > Api.AUTH_AVAILABLE_COUNT_FAILED_REQUESTS) {
                                     exc.setAction("showForgotPassword");
@@ -133,7 +123,7 @@ public class Repository implements IStorage {
                                    callback.onSuccess();
                                } else {
                                    user.updateCountFailedAuth(1);
-                                   AuthException exc = new AuthException(new Exception("Incorrect Login and Password"), "login", "Incorrect Login and Password");
+                                   AuthException exc = generateAuthError(response);
 
                                    if(user.getCountFailedAuth() > Api.AUTH_AVAILABLE_COUNT_FAILED_REQUESTS) {
                                        exc.setAction("showForgotPassword");
@@ -145,7 +135,7 @@ public class Repository implements IStorage {
                         }
 
                         @Override
-                        public void onFailure(Call<String> call, Throwable t) {
+                        public void onFailure(Call<ResponseBody> call, Throwable t) {
                             String message = t.getMessage();
                             String action = "";
 
@@ -169,6 +159,24 @@ public class Repository implements IStorage {
         });
     }
 
+    private AuthException generateAuthError(Response<ResponseBody> response) {
+        String message = "Incorrect Login and Password";
+
+        try {
+            String body = response.body().string();
+
+            final JSONObject jsonResponse = new JSONObject(body);
+
+            if(!jsonResponse.isNull("message") ) {
+                message = jsonResponse.getString("message");
+            }
+
+            return new AuthException(new Exception(message), "login", message);
+        } catch (IOException | JSONException e) {
+            return new AuthException(new Exception(message), "login", message);
+        }
+    }
+
     public void forgotPassword(@NonNull final String email, @NonNull final ICallbackAuth callback) {
         executorService.submit(new Runnable() {
             @Override
@@ -186,17 +194,7 @@ public class Repository implements IStorage {
 
                     ApiInterface apiService = (new ApiClient()).getClient().create(ApiInterface.class);
 
-                    String username = "guest";
-                    String password = "GCTesterNew1";
-
-                    //String username = "deepdesi";
-                    //String password = "deepcomp";
-
-                    String base = username + ":" + password;
-
-                    String authHeader = "Basic " + Base64.encodeToString(base.getBytes(), Base64.NO_WRAP);
-
-                    Call<String> call = apiService.forgotPassword(authHeader, mp);
+                    Call<String> call = apiService.forgotPassword(generateAuthHeader(), mp);
 
                     call.enqueue(new retrofit2.Callback<String>() {
                         @Override
@@ -274,17 +272,7 @@ public class Repository implements IStorage {
 
                     ApiInterface apiService = (new ApiClient()).getClient().create(ApiInterface.class);
 
-                    String username = "guest";
-                    String password = "GCTesterNew1";
-
-                    //String username = "deepdesi";
-                    //String password = "deepcomp";
-
-                    String base = username + ":" + password;
-
-                    String authHeader = "Basic " + Base64.encodeToString(base.getBytes(), Base64.NO_WRAP);
-
-                    Call<ResponseBody> call = apiService.updateNotify(authHeader, queryMap);
+                    Call<ResponseBody> call = apiService.updateNotify(generateAuthHeader(), queryMap);
 
                     call.enqueue(new retrofit2.Callback<ResponseBody>() {
                         @Override
@@ -348,17 +336,7 @@ public class Repository implements IStorage {
 
                     ApiInterface apiService = (new ApiClient()).getClient().create(ApiInterface.class);
 
-                    String username = "guest";
-                    String password = "GCTesterNew1";
-
-                    //String username = "deepdesi";
-                    //String password = "deepcomp";
-
-                    String base = username + ":" + password;
-
-                    String authHeader = "Basic " + Base64.encodeToString(base.getBytes(), Base64.NO_WRAP);
-
-                    Call<ResponseBody> call = apiService.getNotifications(authHeader, queryMap);
+                    Call<ResponseBody> call = apiService.getNotifications(generateAuthHeader(), queryMap);
 
                     call.enqueue(new retrofit2.Callback<ResponseBody>() {
                         @Override
@@ -449,16 +427,6 @@ public class Repository implements IStorage {
 
                     rb = RequestBody.create(MediaType.parse("text/plain"), provider);
                     mp.put("token_type", rb);
-
-                    String username = "guest";
-                    String password = "GCTesterNew1";
-
-                    //String username = "deepdesi";
-                    //String password = "deepcomp";
-
-                    String base = username + ":" + password;
-
-                    String authHeader = "Basic " + Base64.encodeToString(base.getBytes(), Base64.NO_WRAP);
 
                     Map<String, String> headers = new HashMap<>();
 
@@ -607,17 +575,7 @@ public class Repository implements IStorage {
                         mp.put("signout", rb);
                     }
 
-                    String username = "guest";
-                    String password = "GCTesterNew1";
-
-                    //String username = "deepdesi";
-                    //String password = "deepcomp";
-
-                    String base = username + ":" + password;
-
-                    String authHeader = "Basic " + Base64.encodeToString(base.getBytes(), Base64.NO_WRAP);
-
-                    Call<ResponseBody> call = apiService.register(authHeader, params, mp);
+                    Call<ResponseBody> call = apiService.register(generateAuthHeader(), params, mp);
 
                     call.enqueue(new retrofit2.Callback<ResponseBody>() {
                         @Override
@@ -760,5 +718,17 @@ public class Repository implements IStorage {
         NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
 
         return (activeNetwork != null && activeNetwork.isConnectedOrConnecting());
+    }
+
+    private String generateAuthHeader() {
+        String username = "guest";
+        String password = "GCTesterNew1";
+
+        //String username = "deepdesi";
+        //String password = "deepcomp";
+
+        String base = username + ":" + password;
+
+        return "Basic " + Base64.encodeToString(base.getBytes(), Base64.NO_WRAP);
     }
 }

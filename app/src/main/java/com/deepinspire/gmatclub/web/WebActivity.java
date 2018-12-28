@@ -1065,8 +1065,8 @@ public class WebActivity extends AppCompatActivity implements
             OkHttpClient okHttpClient = new OkHttpClient.Builder()
                     .build();
 
-            String username = "guest";
-            String password = "GCTesterNew1";
+            String username = "";
+            String password = "";
 
             String base = username + ":" + password;
 
@@ -1479,8 +1479,7 @@ public class WebActivity extends AppCompatActivity implements
                 @Override
                 public void run() {
                     if(message != null) {
-                        presenter.saveNotifications(message);
-                        /*try {
+                        try {
                             final JSONObject mNotify = new JSONObject(message);
 
                             if(!mNotify.isNull("action")) {
@@ -1490,11 +1489,8 @@ public class WebActivity extends AppCompatActivity implements
                                     @Override
                                     public void run() {
                                         switch(action) {
-                                            case "showButtonPlus":
-                                                showBtnAdd(true);
-                                                break;
-                                            case "hideButtonPlus":
-                                                showBtnAdd(false);
+                                            case "showLoginPage":
+                                                openLoginPage();
                                                 break;
                                         }
                                     }
@@ -1504,7 +1500,7 @@ public class WebActivity extends AppCompatActivity implements
                             }
                         } catch (JSONException e) {
                             Log.e(mContext.getClass().getName(), e.getMessage());
-                        }*/
+                        }
                     }
                 }
             });
