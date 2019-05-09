@@ -1,7 +1,7 @@
 package com.deepinspire.gmatclub.api;
 
 public class Api {
-    public static String DOMAIN = "gmatclub.com";
+    public static String DOMAIN = "gmatclub.org";
 
     public static String HOME_URL = "https://" + DOMAIN;
 

@@ -42,6 +42,7 @@ public interface IWebContract {
         boolean checkAccessNetwork();
         void setError(int errorCode);
         int getError();
+        void resetError();
         boolean availableAuth();
     }
 }

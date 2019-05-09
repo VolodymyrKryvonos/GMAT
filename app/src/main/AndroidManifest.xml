@@ -74,15 +74,15 @@
 
                 <data
                     android:scheme="https"
-                    android:host="*.gmatclub.com"/>
+                    android:host="*.gmatclub.org"/>
 
                 <data
                     android:scheme="https"
-                    android:host="gmatclub.com"/>
+                    android:host="gmatclub.org"/>
 
                 <data
                     android:scheme="https"
-                    android:host="www.gmatclub.com"/>
+                    android:host="www.gmatclub.org"/>
             </intent-filter>
         </activity>
 

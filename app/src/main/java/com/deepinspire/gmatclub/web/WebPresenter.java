@@ -23,6 +23,8 @@ import java.util.Map;
 public class WebPresenter implements IWebContract.Presenter {
     private static final String TAG = WebPresenter.class.getSimpleName();
 
+    public static final int ERROR_CONNECT = -6;
+
     private IWebContract.View view;
 
     private Repository repository;
@@ -267,6 +269,10 @@ public class WebPresenter implements IWebContract.Presenter {
 
     public int getError() {
         return this.errorCode;
+    }
+
+    public void resetError() {
+        this.errorCode = 0;
     }
 
     public boolean availableAuth() {

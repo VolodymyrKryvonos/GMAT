@@ -7,12 +7,16 @@ import android.app.Activity;
 import android.app.ActivityManager;
 import android.app.SearchManager;
 import android.content.ActivityNotFoundException;
+import android.content.BroadcastReceiver;
 import android.content.ClipData;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -366,8 +370,18 @@ public class WebActivity extends AppCompatActivity implements
     }
 
     @Override
+    protected void onPause() {
+        super.onPause();
+
+        if (mConnectivityChangeReceiver != null) unregisterReceiver(mConnectivityChangeReceiver);
+    }
+
+    @Override
     public void onResume() {
         super.onResume();
+
+        IntentFilter intentFilter = new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE");
+        registerReceiver(mConnectivityChangeReceiver, intentFilter);
     }
 
     @Override
@@ -524,7 +538,15 @@ public class WebActivity extends AppCompatActivity implements
     @Override
     public void onRefresh() {
         //swipe.setRefreshing(false);
-        webView.loadUrl(webView.getUrl(), getRequestExtraHeaders());
+        switch(presenter.getError()) {
+            case WebPresenter.ERROR_CONNECT:
+                ViewHelper.showOfflineDialog(WebActivity.this);
+                swipe.setRefreshing(false);
+                break;
+            default: {
+                webView.loadUrl(webView.getUrl(), getRequestExtraHeaders());
+            }
+        }
         //webView.reload();
     }
 
@@ -704,10 +726,6 @@ public class WebActivity extends AppCompatActivity implements
                     case GCConfig.EMAIL:
                     break;
                 case DEVICE_SETTINGS:
-                    if(ViewHelper.alertDialog != null) {
-                        ViewHelper.alertDialog.dismiss();
-                        ViewHelper.alertDialog = null;
-                    }
                     tryAgain();
                     break;
             }
@@ -937,39 +955,41 @@ public class WebActivity extends AppCompatActivity implements
             }
 
             public void onPageStarted(WebView view, String url, Bitmap favicon) {
-                //getWindow().requestFeature(Window.FEATURE_NO_TITLE);
-                //Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-                //toolbar.setVisibility(View.GONE);
-                //WebActivity.this.getSupportActionBar().set
-                //https://gmatclub.org/tests-beta/test/welcome.html?id=1121737
-                //https://gmatclub.org/tests-beta/test-1065456.html
-                //https://gmatclub.org/tests-beta/test/endExam.html?id=1065456
-                //Toast.makeText(WebActivity.this, url, Toast.LENGTH_LONG).show();
-                //webView.destroyDrawingCache();
-                if(url.equals(Api.FORUM_URL + "?style=12") || url.equals(Api.FORUM_URL + "/?style=12")) {
-                    changeTitleColor(R.color.white);
-                    changeProfileIconColor(R.color.mainOrange);
-                } else if(url.contains(Api.PROFILE)) {
-                    changeTitleColor(R.color.mainOrange);
-                    changeProfileIconColor(R.color.white);
-                } else {
-                    changeTitleColor(R.color.mainOrange);
-                    changeProfileIconColor(R.color.mainOrange);
+                switch(presenter.getError()) {
+                    case WebPresenter.ERROR_CONNECT:
+                        ViewHelper.showOfflineDialog(WebActivity.this);
+                        break;
+                    default: {
+                        //getWindow().requestFeature(Window.FEATURE_NO_TITLE);
+                        //Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+                        //toolbar.setVisibility(View.GONE);
+                        //WebActivity.this.getSupportActionBar().set
+                        //https://gmatclub.org/tests-beta/test/welcome.html?id=1121737
+                        //https://gmatclub.org/tests-beta/test-1065456.html
+                        //https://gmatclub.org/tests-beta/test/endExam.html?id=1065456
+                        //Toast.makeText(WebActivity.this, url, Toast.LENGTH_LONG).show();
+                        //webView.destroyDrawingCache();
+                        if(url.equals(Api.FORUM_URL + "?style=12") || url.equals(Api.FORUM_URL + "/?style=12")) {
+                            changeTitleColor(R.color.white);
+                            changeProfileIconColor(R.color.mainOrange);
+                        } else if(url.contains(Api.PROFILE)) {
+                            changeTitleColor(R.color.mainOrange);
+                            changeProfileIconColor(R.color.white);
+                        } else {
+                            changeTitleColor(R.color.mainOrange);
+                            changeProfileIconColor(R.color.mainOrange);
+                        }
+
+                        swipe.setRefreshing(false);
+                        setLoadingIndicator(true);
+
+                        updateVisibilityToolbar(url);
+                    }
                 }
-
-                swipe.setRefreshing(false);
-                setLoadingIndicator(true);
-
-                updateVisibilityToolbar(url);
             }
 
             public void onPageFinished(WebView view, String url) {
                 switch(presenter.getError()) {
-                    case  WebViewClient.ERROR_HOST_LOOKUP:
-                    case  WebViewClient.ERROR_CONNECT:
-                        presenter.setError(0);
-                        ViewHelper.showOfflineDialog(WebActivity.this);
-                        break;
                     default: {
                         if(activeUrl != null && url.contains(activeUrl)) {
                             activeUrl = null;
@@ -1030,7 +1050,7 @@ public class WebActivity extends AppCompatActivity implements
             }
 
             public void onReceivedError(WebView view, int errorCode, String description, String failingUrl) {
-                presenter.setError(errorCode);
+                //presenter.setError(errorCode);
                 //Toast.makeText(WebActivity.this, "Oh no! " + description, Toast.LENGTH_SHORT).show();
             }
 
@@ -2084,7 +2104,13 @@ public class WebActivity extends AppCompatActivity implements
     }
 
     public void tryAgain() {
-        webView.reload();
+        if(presenter.getError() != WebPresenter.ERROR_CONNECT) {
+            if(ViewHelper.alertDialog != null) {
+                ViewHelper.alertDialog.dismiss();
+                ViewHelper.alertDialog = null;
+            }
+            webView.reload();
+        }
     }
 
     public static float dpToPx(Context context, float valueInDp) {
@@ -2105,4 +2131,25 @@ public class WebActivity extends AppCompatActivity implements
 
         startActivity(intent);
     }
+
+    private final BroadcastReceiver mConnectivityChangeReceiver = new BroadcastReceiver() {
+        public void onReceive(Context context, Intent intent) {
+            ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+            NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
+            boolean isConnected = activeNetwork != null && activeNetwork.isConnectedOrConnecting();
+
+            String state = "connected";
+
+            if(!isConnected) {
+                presenter.setError(WebPresenter.ERROR_CONNECT);
+            } else {
+                if(presenter.getError() == WebPresenter.ERROR_CONNECT) {
+                    presenter.resetError();
+                }
+            }
+
+            webView.setNetworkAvailable(isConnected);
+            Toast.makeText(getApplicationContext(), state, Toast.LENGTH_LONG).show();
+        }
+    };
 }

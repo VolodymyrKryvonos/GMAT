@@ -595,8 +595,6 @@ public class ViewHelper {
             @Override
             public void onClick(View v) {
                 activity.tryAgain();
-                alertDialog.dismiss();
-                alertDialog = null;
             }
         });
 
