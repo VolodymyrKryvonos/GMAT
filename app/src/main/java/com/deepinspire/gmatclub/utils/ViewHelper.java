@@ -569,6 +569,11 @@ public class ViewHelper {
         AlertDialog.Builder builder = new AlertDialog.Builder(activity);
         builder.setView(dialogLayout);
 
+        if(alertDialog != null) {
+            alertDialog.dismiss();
+            alertDialog = null;
+        }
+
         alertDialog = builder.create();
         alertDialog.show();
 

@@ -537,7 +537,7 @@ public class WebActivity extends AppCompatActivity implements
     public void onRefresh() {
         //swipe.setRefreshing(false);
         if(presenter.checkAccessNetwork()) {
-            presenter.resetError();
+            destroyOfflineAlertDialog();
             webView.loadUrl(webView.getUrl(), getRequestExtraHeaders());
         } else {
             ViewHelper.showOfflineDialog(WebActivity.this);
@@ -952,7 +952,7 @@ public class WebActivity extends AppCompatActivity implements
 
             public void onPageStarted(WebView view, String url, Bitmap favicon) {
                 if(presenter.checkAccessNetwork()) {
-                    presenter.resetError();
+                    destroyOfflineAlertDialog();
                     //getWindow().requestFeature(Window.FEATURE_NO_TITLE);
                     //Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
                     //toolbar.setVisibility(View.GONE);
@@ -985,7 +985,8 @@ public class WebActivity extends AppCompatActivity implements
 
             public void onPageFinished(WebView view, String url) {
                 if(presenter.checkAccessNetwork()) {
-                    presenter.resetError();
+                    destroyOfflineAlertDialog();
+
                     if(activeUrl != null && url.contains(activeUrl)) {
                         activeUrl = null;
 
@@ -1008,11 +1009,6 @@ public class WebActivity extends AppCompatActivity implements
                     } else if(url.contains(Api.PM_URL)) {
                         presenter.updatePMs();
                         updateCountMessages();
-                    }
-
-                    if(ViewHelper.alertDialog != null) {
-                        ViewHelper.alertDialog.dismiss();
-                        ViewHelper.alertDialog = null;
                     }
                 } else {
                     ViewHelper.showOfflineDialog(WebActivity.this);
@@ -2111,11 +2107,8 @@ public class WebActivity extends AppCompatActivity implements
     }
 
     public void tryAgain() {
-        if(ViewHelper.alertDialog != null) {
-            ViewHelper.alertDialog.dismiss();
-            ViewHelper.alertDialog = null;
-        }
         presenter.resetError();
+        destroyOfflineAlertDialog();
         webView.reload();
     }
 
@@ -2138,6 +2131,12 @@ public class WebActivity extends AppCompatActivity implements
         startActivity(intent);
     }
 
+    private void destroyOfflineAlertDialog() {
+        if(ViewHelper.alertDialog != null) {
+            ViewHelper.alertDialog.dismiss();
+            ViewHelper.alertDialog = null;
+        }
+    }
     /*private final BroadcastReceiver mConnectivityChangeReceiver = new BroadcastReceiver() {
         public void onReceive(Context context, Intent intent) {
             ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);

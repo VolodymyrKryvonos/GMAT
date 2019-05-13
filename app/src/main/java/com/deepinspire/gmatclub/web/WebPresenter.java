@@ -23,7 +23,7 @@ import java.util.Map;
 public class WebPresenter implements IWebContract.Presenter {
     private static final String TAG = WebPresenter.class.getSimpleName();
 
-    public static final int ERROR_CONNECT = -6;
+    public static final int ERROR_CONNECT = -2;
 
     private IWebContract.View view;
 
