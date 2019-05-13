@@ -260,7 +260,7 @@ public class WebPresenter implements IWebContract.Presenter {
     }
 
     public boolean checkAccessNetwork() {
-        return repository.isOnline();
+        return (repository.isOnline() && (getError() != WebPresenter.ERROR_CONNECT));
     }
 
     public void setError(int errorCode) {

@@ -372,16 +372,14 @@ public class WebActivity extends AppCompatActivity implements
     @Override
     protected void onPause() {
         super.onPause();
-
-        if (mConnectivityChangeReceiver != null) unregisterReceiver(mConnectivityChangeReceiver);
+       // if (mConnectivityChangeReceiver != null) unregisterReceiver(mConnectivityChangeReceiver);
     }
 
     @Override
     public void onResume() {
         super.onResume();
-
-        IntentFilter intentFilter = new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE");
-        registerReceiver(mConnectivityChangeReceiver, intentFilter);
+        /*IntentFilter intentFilter = new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE");
+        registerReceiver(mConnectivityChangeReceiver, intentFilter);*/
     }
 
     @Override
@@ -538,14 +536,12 @@ public class WebActivity extends AppCompatActivity implements
     @Override
     public void onRefresh() {
         //swipe.setRefreshing(false);
-        switch(presenter.getError()) {
-            case WebPresenter.ERROR_CONNECT:
-                ViewHelper.showOfflineDialog(WebActivity.this);
-                swipe.setRefreshing(false);
-                break;
-            default: {
-                webView.loadUrl(webView.getUrl(), getRequestExtraHeaders());
-            }
+        if(presenter.checkAccessNetwork()) {
+            presenter.resetError();
+            webView.loadUrl(webView.getUrl(), getRequestExtraHeaders());
+        } else {
+            ViewHelper.showOfflineDialog(WebActivity.this);
+            swipe.setRefreshing(false);
         }
         //webView.reload();
     }
@@ -955,73 +951,74 @@ public class WebActivity extends AppCompatActivity implements
             }
 
             public void onPageStarted(WebView view, String url, Bitmap favicon) {
-                switch(presenter.getError()) {
-                    case WebPresenter.ERROR_CONNECT:
-                        ViewHelper.showOfflineDialog(WebActivity.this);
-                        break;
-                    default: {
-                        //getWindow().requestFeature(Window.FEATURE_NO_TITLE);
-                        //Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-                        //toolbar.setVisibility(View.GONE);
-                        //WebActivity.this.getSupportActionBar().set
-                        //https://gmatclub.org/tests-beta/test/welcome.html?id=1121737
-                        //https://gmatclub.org/tests-beta/test-1065456.html
-                        //https://gmatclub.org/tests-beta/test/endExam.html?id=1065456
-                        //Toast.makeText(WebActivity.this, url, Toast.LENGTH_LONG).show();
-                        //webView.destroyDrawingCache();
-                        if(url.equals(Api.FORUM_URL + "?style=12") || url.equals(Api.FORUM_URL + "/?style=12")) {
-                            changeTitleColor(R.color.white);
-                            changeProfileIconColor(R.color.mainOrange);
-                        } else if(url.contains(Api.PROFILE)) {
-                            changeTitleColor(R.color.mainOrange);
-                            changeProfileIconColor(R.color.white);
-                        } else {
-                            changeTitleColor(R.color.mainOrange);
-                            changeProfileIconColor(R.color.mainOrange);
-                        }
-
-                        swipe.setRefreshing(false);
-                        setLoadingIndicator(true);
-
-                        updateVisibilityToolbar(url);
+                if(presenter.checkAccessNetwork()) {
+                    presenter.resetError();
+                    //getWindow().requestFeature(Window.FEATURE_NO_TITLE);
+                    //Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+                    //toolbar.setVisibility(View.GONE);
+                    //WebActivity.this.getSupportActionBar().set
+                    //https://gmatclub.org/tests-beta/test/welcome.html?id=1121737
+                    //https://gmatclub.org/tests-beta/test-1065456.html
+                    //https://gmatclub.org/tests-beta/test/endExam.html?id=1065456
+                    //Toast.makeText(WebActivity.this, url, Toast.LENGTH_LONG).show();
+                    //webView.destroyDrawingCache();
+                    if(url.equals(Api.FORUM_URL + "?style=1Федьковича 60А2") || url.equals(Api.FORUM_URL + "/?style=12")) {
+                        changeTitleColor(R.color.white);
+                        changeProfileIconColor(R.color.mainOrange);
+                    } else if(url.contains(Api.PROFILE)) {
+                        changeTitleColor(R.color.mainOrange);
+                        changeProfileIconColor(R.color.white);
+                    } else {
+                        changeTitleColor(R.color.mainOrange);
+                        changeProfileIconColor(R.color.mainOrange);
                     }
+
+                    swipe.setRefreshing(false);
+                    setLoadingIndicator(true);
+
+                    updateVisibilityToolbar(url);
+                } else {
+                    ViewHelper.showOfflineDialog(WebActivity.this);
+                    swipe.setRefreshing(false);
                 }
             }
 
             public void onPageFinished(WebView view, String url) {
-                switch(presenter.getError()) {
-                    default: {
-                        if(activeUrl != null && url.contains(activeUrl)) {
-                            activeUrl = null;
+                if(presenter.checkAccessNetwork()) {
+                    presenter.resetError();
+                    if(activeUrl != null && url.contains(activeUrl)) {
+                        activeUrl = null;
 
-                            webView.evaluateJavascript(
-                                    "(function(){document.querySelector('#statusesDecTracker .addMyInfo.btn').click();})()",
-                                    new ValueCallback<String>() {
-                                        @Override
-                                        public void onReceiveValue(String value) {
-                                            swipe.setRefreshing(false);
-                                            setLoadingIndicator(false);
-                                        }
+                        webView.evaluateJavascript(
+                                "(function(){document.querySelector('#statusesDecTracker .addMyInfo.btn').click();})()",
+                                new ValueCallback<String>() {
+                                    @Override
+                                    public void onReceiveValue(String value) {
+                                        swipe.setRefreshing(false);
+                                        setLoadingIndicator(false);
                                     }
-                            );
+                                }
+                        );
 
-                            webView.stopLoading();
-                        } else if(url.contains(Api.HOME_URL)) {
-                            presenter.logged();
-                            swipe.setRefreshing(false);
-                            setLoadingIndicator(false);
-                        } else if(url.contains(Api.PM_URL)) {
-                            presenter.updatePMs();
-                            updateCountMessages();
-                        }
-
-                        if(ViewHelper.alertDialog != null) {
-                            ViewHelper.alertDialog.dismiss();
-                            ViewHelper.alertDialog = null;
-                        }
+                        webView.stopLoading();
+                    } else if(url.contains(Api.HOME_URL)) {
+                        presenter.logged();
+                        swipe.setRefreshing(false);
+                        setLoadingIndicator(false);
+                    } else if(url.contains(Api.PM_URL)) {
+                        presenter.updatePMs();
+                        updateCountMessages();
                     }
-                }
 
+                    if(ViewHelper.alertDialog != null) {
+                        ViewHelper.alertDialog.dismiss();
+                        ViewHelper.alertDialog = null;
+                    }
+                } else {
+                    ViewHelper.showOfflineDialog(WebActivity.this);
+                    swipe.setRefreshing(false);
+                    setLoadingIndicator(false);
+                }
             }
 
             /*@SuppressWarnings("deprecation") // From API 21 we should use another overload
@@ -1050,6 +1047,9 @@ public class WebActivity extends AppCompatActivity implements
             }
 
             public void onReceivedError(WebView view, int errorCode, String description, String failingUrl) {
+                if(errorCode == -2) {
+                    presenter.setError(WebPresenter.ERROR_CONNECT);
+                }
                 //presenter.setError(errorCode);
                 //Toast.makeText(WebActivity.this, "Oh no! " + description, Toast.LENGTH_SHORT).show();
             }
@@ -1057,7 +1057,14 @@ public class WebActivity extends AppCompatActivity implements
             @TargetApi(android.os.Build.VERSION_CODES.M)
             @Override
             public void onReceivedError(WebView view, WebResourceRequest req, WebResourceError rerr) {
-               
+                int errorCode = rerr.getErrorCode();
+
+                if(errorCode == -2) {
+                    presenter.setError(WebPresenter.ERROR_CONNECT);
+                }
+                //int error = rerr.getErrorCode();
+                //-2
+               //net::ERR_ADDRESS_UNREACHABLE
                 // Redirect to deprecated method, so you can use it in all SDK versions
                 onReceivedError(view, rerr.getErrorCode(), rerr.getDescription().toString(), req.getUrl().toString());
             }
@@ -2104,13 +2111,12 @@ public class WebActivity extends AppCompatActivity implements
     }
 
     public void tryAgain() {
-        if(presenter.getError() != WebPresenter.ERROR_CONNECT) {
-            if(ViewHelper.alertDialog != null) {
-                ViewHelper.alertDialog.dismiss();
-                ViewHelper.alertDialog = null;
-            }
-            webView.reload();
+        if(ViewHelper.alertDialog != null) {
+            ViewHelper.alertDialog.dismiss();
+            ViewHelper.alertDialog = null;
         }
+        presenter.resetError();
+        webView.reload();
     }
 
     public static float dpToPx(Context context, float valueInDp) {
@@ -2132,7 +2138,7 @@ public class WebActivity extends AppCompatActivity implements
         startActivity(intent);
     }
 
-    private final BroadcastReceiver mConnectivityChangeReceiver = new BroadcastReceiver() {
+    /*private final BroadcastReceiver mConnectivityChangeReceiver = new BroadcastReceiver() {
         public void onReceive(Context context, Intent intent) {
             ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
             NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
@@ -2151,5 +2157,5 @@ public class WebActivity extends AppCompatActivity implements
             webView.setNetworkAvailable(isConnected);
             Toast.makeText(getApplicationContext(), state, Toast.LENGTH_LONG).show();
         }
-    };
+    };*/
 }
