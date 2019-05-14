@@ -1,7 +1,7 @@
 package com.deepinspire.gmatclub.api;
 
 public class Api {
-    public static String DOMAIN = "gmatclub.org";
+    public static String DOMAIN = "gmatclub.com";
 
     public static String HOME_URL = "https://" + DOMAIN;
 
@@ -11,7 +11,7 @@ public class Api {
 
     public static final String FORUM_FORGOT_PASSWORD_URL = HOME_URL + "/forum/ucp.php?mode=sendpassword";
 
-    //    public static final String FORUM_LOGOUT_URL = HOME_URL + "/forum/ucp.php?mode=logout";
+    //    public static final String FORUM_LOGOUT_URL = HOME_URL + "/forum/ucp.тphp?mode=logout";
     public static final String FORUM_REGISTER_URL = HOME_URL + "/forum/ucp.php?mode=register";
 
     public static final String FORUM_NOTIFICATIONS = HOME_URL + "/forum/mobileAppNotifications.html";
