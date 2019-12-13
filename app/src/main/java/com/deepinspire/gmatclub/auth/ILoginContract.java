@@ -18,6 +18,7 @@ public interface ILoginContract {
         boolean logged();
         void signIn(String login, String password);
         void signIn(String provider, String idToken, String accessToken, String expiresIn);
+        void signInUseGoogleAccount(String provider, String idToken, String accessToken, String expiresIn);
         void forgotPassword(String email);
         void resetPassword(String email);
         void getTokenInfo(String code);

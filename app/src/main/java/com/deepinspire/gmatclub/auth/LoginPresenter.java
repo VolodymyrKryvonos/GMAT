@@ -23,7 +23,8 @@ public class LoginPresenter implements ILoginContract.Presenter {
         this.view = view;
     }
 
-    public void start() {}
+    public void start() {
+    }
 
     public boolean logged() {
         return this.repository.logged();
@@ -72,7 +73,7 @@ public class LoginPresenter implements ILoginContract.Presenter {
         });
     }
 
-    public void signIn(String provider, String idToken, String accessToken, String expiresIn) {
+    public void signIn(final String provider, String idToken, String accessToken, String expiresIn) {
         repository.signInSocial(provider, idToken, accessToken, expiresIn, new IStorage.ICallbackAuth() {
             @Override
             public void onSuccess() {
@@ -81,8 +82,21 @@ public class LoginPresenter implements ILoginContract.Presenter {
 
             @Override
             public void onError(AuthException exception) {
-              AuthException ex = new AuthException(new Exception("Failed sign in facebook"), "signInFacebook");
-              view.showError(ex);
+                view.openWebSite("https://gmatclub.com/forum/oauthorize.php?provider=" + provider);
+            }
+        });
+    }
+
+    public void signInUseGoogleAccount(final String provider, String idToken, String accessToken, String expiresIn) {
+        repository.signInSocialWithGoogle(provider, idToken, accessToken, expiresIn, new IStorage.ICallbackAuth() {
+            @Override
+            public void onSuccess() {
+                view.openWebSite(Api.FORUM_URL);
+            }
+
+            @Override
+            public void onError(AuthException exception) {
+                view.openWebSite("https://gmatclub.com/forum/oauthorize.php?provider=" + provider);
             }
         });
     }
@@ -103,10 +117,10 @@ public class LoginPresenter implements ILoginContract.Presenter {
     }
 
     public boolean isOnline() {
-       return repository.isOnline();
+        return repository.isOnline();
     }
 
     public boolean availableAuth() {
-       return (repository.getUser().getCountFailedAuth() <= Api.AUTH_AVAILABLE_COUNT_FAILED_REQUESTS);
+        return (repository.getUser().getCountFailedAuth() <= Api.AUTH_AVAILABLE_COUNT_FAILED_REQUESTS);
     }
 }

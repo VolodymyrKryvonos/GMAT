@@ -10,6 +10,7 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
@@ -23,6 +24,7 @@ import com.deepinspire.gmatclub.R;
 import com.deepinspire.gmatclub.api.Api;
 import com.deepinspire.gmatclub.api.AuthException;
 import com.deepinspire.gmatclub.splash.SplashActivity;
+import com.deepinspire.gmatclub.utils.Storage;
 import com.deepinspire.gmatclub.utils.ViewHelper;
 import com.deepinspire.gmatclub.web.WebActivity;
 import com.facebook.AccessToken;
@@ -68,6 +70,8 @@ import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
 
+import static com.deepinspire.gmatclub.GCConfig.GOOGLE;
+
 public class AuthActivity extends AppCompatActivity implements IAuthContract.View, View.OnClickListener, GoogleApiClient.OnConnectionFailedListener {
     private IAuthContract.Presenter presenter;
 
@@ -111,6 +115,23 @@ public class AuthActivity extends AppCompatActivity implements IAuthContract.Vie
 
             startActivity(intent);
         } else {
+
+            if (!TextUtils.isEmpty(Storage.getGoogleIdToken(getApplicationContext())) &&
+                    !TextUtils.isEmpty(Storage.getGoogleAccessToken(getApplicationContext()))){
+                Long expiresIn = (new Date()).getTime() + 432000000;
+                presenter.signIn("google", Storage.getGoogleIdToken(getApplicationContext()), Storage.getGoogleAccessToken(getApplicationContext()), String.valueOf(expiresIn));
+            }
+
+            if (!TextUtils.isEmpty(Storage.getFacebookIdToken(getApplicationContext())) &&
+                    !TextUtils.isEmpty(Storage.getFacebookAccessToken(getApplicationContext()))){
+                Long expiresIn = (new Date()).getTime() + 432000000;
+                presenter.signIn("facebook", Storage.getFacebookIdToken(getApplicationContext()), Storage.getFacebookAccessToken(getApplicationContext()), String.valueOf(expiresIn));
+            }
+
+            if (!TextUtils.isEmpty(Storage.getLoginEmail(getApplicationContext())) &&
+                    !TextUtils.isEmpty(Storage.getLoginPassword(getApplicationContext()))){
+                presenter.signIn(Storage.getLoginEmail(getApplicationContext()),Storage.getLoginPassword(getApplicationContext()));
+            }
             //initGoogleSignIn();
 
             //mGoogleApiClient.disconnect();

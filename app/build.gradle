@@ -10,27 +10,34 @@ android {
         cruncherEnabled = false
     }
 
+    lintOptions {
+        checkReleaseBuilds false
+        // Or, if you prefer, you can continue to check for errors in release builds,
+        // but continue the build even when errors are found:
+        //abortOnError false
+    }
+
     signingConfigs {
         debug {
-            storeFile file('/home/dmytro/projects/gmatclub/mobile/android/gmatclub/keystore/key.jks')
+            storeFile file('/Users/oleh/Desktop/gmat/android_app_gmatclub/keystore/key.jks')
             storePassword '%YAz4qxfuLra-e^U=Z6$'
             keyAlias 'gmatclub'
             keyPassword '@RycS=x84qMACs5Xe$Eb'
         }
         beta {
-            storeFile file('/home/dmytro/projects/gmatclub/mobile/android/gmatclub/keystore/key.jks')
+            storeFile file('/Users/oleh/Desktop/gmat/android_app_gmatclub/keystore/key.jks')
             storePassword '%YAz4qxfuLra-e^U=Z6$'
             keyAlias 'gmatclub'
             keyPassword '@RycS=x84qMACs5Xe$Eb'
         }
         demo {
-            storeFile file('/home/dmytro/projects/gmatclub/mobile/android/gmatclub/keystore/key.jks')
+            storeFile file('/Users/oleh/Desktop/gmat/android_app_gmatclub/keystore/key.jks')
             storePassword '%YAz4qxfuLra-e^U=Z6$'
             keyAlias 'gmatclub'
             keyPassword '@RycS=x84qMACs5Xe$Eb'
         }
         release {
-            storeFile file('/home/dmytro/projects/gmatclub/mobile/android/gmatclub/keystore/key.jks')
+            storeFile file('/Users/oleh/Desktop/gmat/android_app_gmatclub/keystore/key.jks')
             storePassword '%YAz4qxfuLra-e^U=Z6$'
             keyAlias 'gmatclub'
             keyPassword '@RycS=x84qMACs5Xe$Eb'
@@ -114,7 +121,6 @@ android {
         }
     }
 
-    buildToolsVersion rootProject.ext.buildToolsVersion
 }
 
 dependencies {
@@ -135,6 +141,19 @@ dependencies {
     compile 'com.google.firebase:firebase-core:15.0.2'
     implementation 'com.firebase:firebase-jobdispatcher:0.8.5'
     implementation 'com.google.firebase:firebase-auth:16.0.1'
+
+    //Butter Knife
+    implementation 'com.jakewharton:butterknife:8.4.0'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.4.0'
+
+    //Billing Client
+    implementation 'com.android.billingclient:billing:2.0.3'
+
+    //Badger
+    implementation "me.leolin:ShortcutBadger:1.1.4@aar"
+
+    //Badger
+    implementation 'com.android.installreferrer:installreferrer:1.1'
 }
 
 apply plugin: 'com.google.gms.google-services'

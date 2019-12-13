@@ -4,6 +4,7 @@
     <string name="title_activity_web">Web</string>
     <string name="title_activity_auth">Auth</string>
     <string name="title_activity_login">Login</string>
+    <string name="title_activity_google_billing">Upgrade</string>
 
     <!-- Menu profile -->
     <string name="menu_profile_title">Profile</string>
@@ -74,6 +75,38 @@
     <string name="email">E-mail</string>
     <string name="email_error">This must be E-mail address you registered your account with.</string>
     <string name="email_success_send">Your password has been sent successfully to your original e-mail address.</string>
+
+    <string name="hm_decision_tracker">decision tracker</string>
+    <string name="hm__mba_discussions">MBA Discussions</string>
+
+    <string name="leave_feedback_yes_btn_text">Rate</string>
+    <string name="leave_feedback_no_btn_text">No, thanks</string>
+    <string name="leave_feedback_cancel_btn_text">May be, later</string>
+    <string name="leave_feedback_tittle_text">Please Rate us</string>
+    <string name="leave_feedback_message_text">How Would you Rate GMAT Club App?</string>
+    <string name="login_with_google">Login with Google</string>
+
+    <!--Default strings value for dialog-->
+    <string name="dialog_title">Dialog tittle</string>
+    <string name="dialog_message">Dialog message</string>
+    <string name="dialog_ok">Ok</string>
+    <string name="dialog_cancel">Cancel</string>
+    <string name="dialog_no">No</string>
+
+    <!--Google Play Billing activity-->
+    <string name="billing_tittle_quizzes">Quizzes</string>
+    <string name="billing_tittle_android_platform">New future on the Android platform</string>
+    <string name="billing_tittle_phrase_one">+ almost <b>1000</b> GMAT questions from Kaplan,\n Manhattan Prep, and other test prep companies.</string>
+    <string name="billing_tittle_phrase_two">+ <b>15000+</b> GMAT questions from GMAT Club`s\n forum available <b>OFFLINE</b> with a problem -\n oriented interface.</string>
+    <string name="billing_tittle_phrase_three">+ custom Quizzes &amp; tag filter will allow you to\n focus on weak areas to maximize effectiveness.</string>
+    <string name="billing_tittle_subscription">1-Month Subscription</string>
+    <string name="billing_tittle_subscription_price">\u0024 9.99</string>
+    <string name="billing_tittle_subscription_free">Start your 1 week FREE trial\n then \u0024 9.99/month. Cancel anytime</string>
+    <string name="billing_tittle_start_now">Start Now</string>
+    <string name="billing_tittle_subscription_description">The subscriptions automatically renews unless auto-renew is turned off at least 24-hours before the end off the current period. Account will be charged for renewal within 24-hours prior to the end off the current period, and identify the cost of the renewal Subscriptions may be managed by the user and auto-renewal may be turned off by going to the user`s Account Settings after purchase</string>
+    <string name="billing_privacy_policy_tittle">Terms of Use and Privacy Policy</string>
+    <string name="quizzes">Quizzes</string>
+    <string name="learn_more">Learn more</string>
 
     <!-- 'id'     => '188832947830704',
     'secret' => '25e1ac94899287fbcbab95d769f5ac6f',-->

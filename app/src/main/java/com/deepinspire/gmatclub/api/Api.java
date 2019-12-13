@@ -42,11 +42,11 @@ public class Api {
     public static String PM_URL = UCP_URL + "?i=pm&amp;folder=inbox";
     public static String PM_NEW_URL = UCP_URL + "?i=pm&mode=compose";
 
-    public static final String FORUM_SEARCH = HOME_URL + "/forum/advanced-search/";
+    public static final String FORUM_SEARCH = HOME_URL + "/forum/search.php?terms=both&sc=1&sk=re&sd=a&d_s=1&sf=all&sr=posts&t=0&keywords=";
 
     public static final String FORUM_SEARCH_MY_POSTS = FORUM_URL + "/search.php?search_id=egosearch";
-    public static final String FORUM_SEARCH_UNANSWERED = FORUM_URL + "/search.php?search_id=unanswered";
-    public static final String FORUM_SEARCH_NEW_POSTS = FORUM_URL + "/search.php?search_id=newposts";
+    //public static final String FORUM_SEARCH_UNANSWERED = FORUM_URL + "/search.php?search_id=unanswered";
+    //public static final String FORUM_SEARCH_NEW_POSTS = FORUM_URL + "/search.php?search_id=newposts";
     public static final String FORUM_NEW_POSTS = FORUM_URL + "/create_topic.php";
     public static final String FORUM_GOOGLE_SEARCH = FORUM_URL + "/search-results.xhtml";
 
@@ -54,4 +54,8 @@ public class Api {
     public static final String FORUM_ADD_NEW_SCHOOL = FORUM_URL + "/decision-tracker.html?fl=nav";
 
     public static final int AUTH_AVAILABLE_COUNT_FAILED_REQUESTS = 3;
+
+    public static final String DECISION_TRACKER = FORUM_URL + "/decision-tracker.html";
+    public static final String MBA_DISCUSSIONS = FORUM_URL + "/business-school-discussions-183/";
+    public static final String LEAVE_FEEDBACK = "https://docs.google.com/forms/d/e/1FAIpQLSc86Cr25gbazXAriZyYNrcCxXhm_pu8FJznFNCKk8nzaHEn0g/viewform";
 }

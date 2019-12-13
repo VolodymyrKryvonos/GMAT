@@ -342,6 +342,7 @@ public class ViewHelper {
         leaveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                alertDialog.dismiss();
                 activity.goPreviousActivity();
                 //activity.onBackPressed();
                 //alertDialog.hide();
