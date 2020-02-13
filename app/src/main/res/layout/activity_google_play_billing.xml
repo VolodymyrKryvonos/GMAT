@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/alert_dialog_background_shape"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context=".purchase.GooglePlayBillingActivity">
+
+    <ScrollView
+        android:id="@+id/signInLayout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_gravity="center"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/tv_margin_billing"
+                android:text="@string/billing_tittle_quizzes"
+                android:textColor="@color/mainOrange"
+                android:textSize="@dimen/tv_billing_tittle_text_size"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_material_small"
+                android:text="@string/billing_tittle_android_platform"
+                android:textColor="@color/black_85"
+                android:textSize="@dimen/tv_billing_sub_tittle_text_size" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="@dimen/tv_margin_billing"
+                android:layout_marginTop="@dimen/margin_material_small"
+                android:layout_marginEnd="@dimen/tv_margin_billing"
+                android:gravity="start"
+                android:text="@string/billing_tittle_phrase_one"
+                android:textColor="@color/black_alpha"
+                android:textSize="@dimen/tv_billing_small_tittle_text_size" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/tv_margin_billing"
+                android:layout_marginTop="@dimen/margin_material_small"
+                android:layout_marginEnd="@dimen/tv_margin_billing"
+                android:gravity="start"
+                android:text="@string/billing_tittle_phrase_two"
+                android:textColor="@color/black_alpha"
+                android:textSize="@dimen/tv_billing_small_tittle_text_size" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/tv_margin_billing"
+                android:layout_marginTop="@dimen/margin_material_small"
+                android:layout_marginEnd="@dimen/tv_margin_billing"
+                android:gravity="start"
+                android:text="@string/billing_tittle_phrase_three"
+                android:textColor="@color/black_alpha"
+                android:textSize="@dimen/tv_billing_small_tittle_text_size" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_material_small"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/tv_margin_billing"
+                    android:gravity="start"
+                    android:text="@string/billing_tittle_subscription"
+                    android:textColor="@color/black_alpha"
+                    android:textSize="@dimen/tv_billing_sub_tittle_text_size" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/tv_margin_billing"
+                    android:gravity="end"
+                    android:text="@string/billing_tittle_subscription_price"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/tv_billing_sub_tittle_text_size"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/tv_margin_billing"
+                android:layout_marginTop="@dimen/margin_material_small"
+                android:layout_marginEnd="@dimen/tv_margin_billing"
+                android:gravity="center"
+                android:text="@string/billing_tittle_subscription_free"
+                android:textColor="@color/black"
+                android:textSize="@dimen/tv_billing_small_tittle_text_size" />
+
+            <android.support.v7.widget.AppCompatButton
+                android:id="@+id/btnStartSubscription"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_material_small"
+                android:text="@string/billing_tittle_start_now"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/tv_margin_billing"
+                android:layout_marginTop="@dimen/margin_material"
+                android:layout_marginEnd="@dimen/tv_margin_billing"
+                android:textColor="@color/gray"
+                android:gravity="center_horizontal|end|start"
+                android:text="@string/billing_tittle_subscription_description"
+                android:textSize="@dimen/tv_billing_description_text_size" />
+
+            <TextView
+                android:id="@+id/tvPrivacyPolicy"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/tv_margin_billing"
+                android:layout_marginTop="@dimen/margin_material_small"
+                android:layout_marginEnd="@dimen/tv_margin_billing"
+                android:gravity="center"
+                android:text="@string/billing_privacy_policy_tittle"
+                android:textColor="@color/entry_border"
+                android:textSize="@dimen/tv_billing_small_tittle_text_size" />
+        </LinearLayout>
+
+
+    </ScrollView>
+</LinearLayout>

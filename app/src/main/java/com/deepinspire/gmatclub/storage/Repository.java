@@ -378,6 +378,58 @@ public class Repository implements IStorage {
         });
     }
 
+    public void getChatNotifications(final String params, @NonNull final ICallbackNotifications callback) {
+        executorService.submit(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    Map<String, String> queryMap = new HashMap<>();
+
+
+                        queryMap.put("action", "unwatched_notifications_count");
+                        queryMap.put("type", "all");
+
+                    ApiInterface apiService = (new ApiClient()).getClient().create(ApiInterface.class);
+
+                    Call<ResponseBody> call = apiService.getNotifications(generateAuthHeader(), queryMap);
+
+                    call.enqueue(new retrofit2.Callback<ResponseBody>() {
+                        @Override
+                        public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                            if (!response.isSuccessful()) {
+                                AuthException ex = new AuthException(new Exception("Failed updating notify"), "updateNotify");
+                                callback.onError(ex);
+                            } else {
+                                if (logged()) {
+                                    try {
+                                        callback.onSuccess(response.body().string().toString());
+                                    } catch (IOException e) {
+                                        e.printStackTrace();
+                                    } finally {
+                                        callback.onSuccess(null);
+                                    }
+                                } else {
+                                    AuthException ex = new AuthException(new Exception("Login or password failed"), "login");
+                                    callback.onError(ex);
+                                }
+                            }
+                        }
+
+                        @Override
+                        public void onFailure(Call<ResponseBody> call, Throwable t) {
+                            AuthException ex = new AuthException(new Exception("Failed updating notify"), "updateNotify");
+                            callback.onError(ex);
+                        }
+                    });
+
+                } catch (final Exception exception) {
+                    AuthException ex = new AuthException(new Exception("Failed updating notify"), "updateNotify");
+                    callback.onError(ex);
+                }
+            }
+        });
+    }
+
     public void signInSocial(
             @NonNull final String provider,
             @NonNull final String idToken,

@@ -6,7 +6,6 @@ import android.annotation.TargetApi;
 import android.app.Activity;
 import android.app.ActivityManager;
 import android.app.DownloadManager;
-import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.SearchManager;
 import android.content.ActivityNotFoundException;
@@ -32,7 +31,6 @@ import android.provider.Settings;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.ActivityCompat;
-import android.support.v4.app.NotificationCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.content.FileProvider;
 import android.support.v4.graphics.drawable.DrawableCompat;
@@ -117,7 +115,9 @@ import java.util.concurrent.Executors;
 import me.leolin.shortcutbadger.ShortcutBadger;
 
 import static butterknife.internal.Utils.arrayOf;
-import static me.leolin.shortcutbadger.impl.XiaomiHomeBadger.INTENT_ACTION;
+import static com.deepinspire.gmatclub.api.Api.CHAT_URL;
+import static com.deepinspire.gmatclub.api.Api.OLD_CHAT_LINK;
+import static com.deepinspire.gmatclub.notifications.Notifications.INPUT_URL;
 
 public class WebActivity extends AppCompatActivity implements
         IWebContract.View, SwipeRefreshLayout.OnRefreshListener, View.OnClickListener, View.OnTouchListener {
@@ -170,6 +170,7 @@ public class WebActivity extends AppCompatActivity implements
 
     private TextView countNotifications;
     private TextView countPMs;
+    private TextView menuChatCount;
 
     private CookieManager cookieManager;
 
@@ -221,8 +222,8 @@ public class WebActivity extends AppCompatActivity implements
 
         ab = getSupportActionBar();
         if (Storage.getBadgeCount(getApplicationContext()) > 0)
-        ab.setHomeAsUpIndicator(setBadgeCount(this,R.drawable.ic_menu, Storage.getBadgeCount(getApplicationContext())));
-        else ab.setHomeAsUpIndicator(setBadgeCount(this,R.drawable.ic_menu, 0));
+            ab.setHomeAsUpIndicator(setBadgeCount(this, R.drawable.ic_menu, Storage.getBadgeCount(getApplicationContext())));
+        else ab.setHomeAsUpIndicator(setBadgeCount(this, R.drawable.ic_menu, 0));
         ab.setDisplayHomeAsUpEnabled(true);
         ab.setDisplayShowTitleEnabled(false);
 
@@ -381,6 +382,7 @@ public class WebActivity extends AppCompatActivity implements
 
         countNotifications = nv.findViewById(R.id.menu_notifications_count);
         countPMs = nv.findViewById(R.id.menu_pms_count);
+        menuChatCount = nv.findViewById(R.id.menu_chat_count);
 
         countNotifications.setVisibility(View.GONE);
         countPMs.setVisibility(View.GONE);
@@ -402,7 +404,7 @@ public class WebActivity extends AppCompatActivity implements
         initLeaveFeedbackAction();
     }
 
-    private Drawable setBadgeCount(Context context, int res, int badgeCount){
+    private Drawable setBadgeCount(Context context, int res, int badgeCount) {
         LayerDrawable icon = (LayerDrawable) ContextCompat.getDrawable(context, R.drawable.ic_badge_drawable);
         Drawable mainIcon = ContextCompat.getDrawable(context, res);
         BadgeDrawable badge = new BadgeDrawable(context);
@@ -476,15 +478,16 @@ public class WebActivity extends AppCompatActivity implements
         super.onResume();
         if (webView == null)
             initWebView();
+        presenter.getChatNotifications();
         NotificationManager notificationManager =
                 (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
             int count = notificationManager.getActiveNotifications().length;
-            Storage.saveBadgeCount(getApplicationContext(),count);
+            //Storage.saveBadgeCount(getApplicationContext(), count);
         }
         if (Storage.getBadgeCount(getApplicationContext()) > 0)
-            ab.setHomeAsUpIndicator(setBadgeCount(this,R.drawable.ic_menu, Storage.getBadgeCount(getApplicationContext())));
-        else ab.setHomeAsUpIndicator(setBadgeCount(this,R.drawable.ic_menu, 0));
+            ab.setHomeAsUpIndicator(setBadgeCount(this, R.drawable.ic_menu, Storage.getBadgeCount(getApplicationContext())));
+        else ab.setHomeAsUpIndicator(setBadgeCount(this, R.drawable.ic_menu, 0));
         /*IntentFilter intentFilter = new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE");
         registerReceiver(mConnectivityChangeReceiver, intentFilter);*/
     }
@@ -515,13 +518,17 @@ public class WebActivity extends AppCompatActivity implements
             case R.id.menu_pms:
                 nv.findViewById(id).setBackgroundColor(ContextCompat.getColor(getApplicationContext(), backgroundColor));
                 ((TextView) nv.findViewById(R.id.menu_pms_text)).setTextColor(ContextCompat.getColor(getApplicationContext(), textColor));
-                ((TextView) nv.findViewById(R.id.menu_pms_count)).setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.mainOrange));
+                ((TextView) nv.findViewById(R.id.menu_pms_count)).setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.white));
+            break;
+            case R.id.menu_chat_container:
+                nv.findViewById(R.id.menu_chat_container).setBackgroundColor(ContextCompat.getColor(getApplicationContext(), backgroundColor));
+                ((TextView) nv.findViewById(R.id.menu_chat)).setTextColor(ContextCompat.getColor(getApplicationContext(), textColor));
+                ((TextView) nv.findViewById(R.id.menu_chat_count)).setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.white));
                 break;
             case R.id.menu_notifications:
                 nv.findViewById(id).setBackgroundColor(ContextCompat.getColor(getApplicationContext(), backgroundColor));
                 ((TextView) nv.findViewById(R.id.menu_notifications_text)).setTextColor(ContextCompat.getColor(getApplicationContext(), textColor));
-                ((TextView) nv.findViewById(R.id.menu_notifications_count)).setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.mainOrange));
-
+                ((TextView) nv.findViewById(R.id.menu_notifications_count)).setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.white));
                 break;
             default: {
                 nv.findViewById(id).setBackgroundColor(ContextCompat.getColor(getApplicationContext(), backgroundColor));
@@ -597,7 +604,7 @@ public class WebActivity extends AppCompatActivity implements
                 break;
             case R.id.btnAddChat:
                 toogleAddMenu(false);
-                openPage(Api.CHAT_URL);
+                openPage(CHAT_URL);
                 break;
             case R.id.btnAddSchool:
                 toogleAddMenu(false);
@@ -648,7 +655,14 @@ public class WebActivity extends AppCompatActivity implements
         if (presenter.checkAccessNetwork()) {
             destroyOfflineAlertDialog();
             if (webView != null)
-                webView.loadUrl(webView.getUrl(), getRequestExtraHeaders());
+
+                if (webView.getUrl().contains("https://gmatclub.com/forum/mchat.php"))
+                    swipe.setEnabled(false);
+                else {
+                    swipe.setEnabled(true);
+                    webView.loadUrl(webView.getUrl(), getRequestExtraHeaders());
+                }
+
         } else {
             ViewHelper.showOfflineDialog(WebActivity.this);
             swipe.setRefreshing(false);
@@ -754,10 +768,9 @@ public class WebActivity extends AppCompatActivity implements
             webView.restoreState(savedInstanceState);
         } else {
             initWebView();
-            if (LATEST_URL.equals(Api.PRACTICE_URL)){
+            if (LATEST_URL.equals(Api.PRACTICE_URL)) {
                 //initPracticeView();
-                }
-            else
+            } else
                 webView.loadUrl(savedInstanceState.getString(LATEST_URL));
         }
     }
@@ -796,7 +809,7 @@ public class WebActivity extends AppCompatActivity implements
                         case R.id.menu_practice:
                         case R.id.menu_decision_tracker:
                         case R.id.menu_mba_discussions:
-                        case R.id.menu_chat:
+                        case R.id.menu_chat_container:
                         case R.id.menu_reviews:
                         case R.id.menu_deals_discounts:
                         case R.id.menu_advanced_search:
@@ -958,8 +971,23 @@ public class WebActivity extends AppCompatActivity implements
             url = intent.getStringExtra("url");
         }
 
+        if (intent.getStringExtra(INPUT_URL) != null)
+            url = intent.getStringExtra(INPUT_URL);
+
         if (url.equals(Api.FORUM_URL)) {
             highlightMenuItemOnClick(R.id.menu_forum);
+        } else if (url.equals(CHAT_URL)) {
+            highlightMenuItemOnClick(R.id.menu_chat_container);
+        } else if (url.equals(Api.PRACTICE_URL)) {
+            highlightMenuItemOnClick(R.id.menu_practice);
+        }else if (url.equals(Api.PM_NEW_URL)) {
+            highlightMenuItemOnClick(R.id.menu_pms);
+        } else if (url.equals(Api.DECISION_TRACKER)) {
+            highlightMenuItemOnClick(R.id.menu_decision_tracker);
+        }else if (url.equals(Api.MBA_DISCUSSIONS)) {
+            highlightMenuItemOnClick(R.id.menu_mba_discussions);
+        }else if (url.equals(Api.DEALS_URL)) {
+            highlightMenuItemOnClick(R.id.menu_deals_discounts);
         }
 
         openPage(url);
@@ -981,7 +1009,7 @@ public class WebActivity extends AppCompatActivity implements
                 break;
             case R.id.menu_notifications:
                 showQuizzesState = false;
-                Storage.saveBadgeCount(getApplicationContext(), 0);
+                //Storage.saveBadgeCount(getApplicationContext(), 0);
                 openPageFromHamburgerMenu(R.id.menu_notifications, Api.FORUM_NOTIFICATIONS/*"file:///android_asset/notifications.html"*/);
                 break;
             case R.id.menu_practice:
@@ -997,9 +1025,9 @@ public class WebActivity extends AppCompatActivity implements
                 showQuizzesState = false;
                 openPageFromHamburgerMenu(R.id.menu_mba_discussions, Api.MBA_DISCUSSIONS);
                 break;
-            case R.id.menu_chat:
+            case R.id.menu_chat_container:
                 showQuizzesState = false;
-                openPageFromHamburgerMenu(R.id.menu_chat, Api.CHAT_URL);
+                openPageFromHamburgerMenu(R.id.menu_chat_container, CHAT_URL);
                 break;
             case R.id.menu_reviews:
                 showQuizzesState = false;
@@ -1040,14 +1068,14 @@ public class WebActivity extends AppCompatActivity implements
                 v.setVisibility(View.GONE);
         } else {
 
-                new Handler().postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        View v = webView.findViewById(R.id.quizzes_container);
-                        if (v != null)
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    View v = webView.findViewById(R.id.quizzes_container);
+                    if (v != null)
                         v.setVisibility(View.VISIBLE);
-                    }
-                }, 700);
+                }
+            }, 700);
         }
     }
 
@@ -1162,6 +1190,7 @@ public class WebActivity extends AppCompatActivity implements
             webView.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
         }
 
+        presenter.getNotifications();
         webView.addJavascriptInterface(new GCJavascriptInterface(this), "GCAndroid");
 
         webView.setWebChromeClient(new WebChromeClient() {
@@ -1305,8 +1334,13 @@ public class WebActivity extends AppCompatActivity implements
         });
     }
 
-    private void onPageFinishedAction(String url){
+    private void onPageFinishedAction(String url) {
+
         if (presenter.checkAccessNetwork()) {
+            /*if (webView.getUrl().equals(OLD_CHAT_LINK))
+                swipe.setEnabled(false);
+            else swipe.setEnabled(true);*/
+
             destroyOfflineAlertDialog();
             progressView.setVisibility(View.GONE);
 
@@ -1340,7 +1374,7 @@ public class WebActivity extends AppCompatActivity implements
         }
     }
 
-    private void onPageStartedAction(String url){
+    private void onPageStartedAction(String url) {
         if (presenter.checkAccessNetwork()) {
             destroyOfflineAlertDialog();
             progressView.setVisibility(View.VISIBLE);
@@ -1467,6 +1501,12 @@ public class WebActivity extends AppCompatActivity implements
     }
 
     private void openPage(String url) {
+        if (url.equals(CHAT_URL)) {
+            swipe.setEnabled(false);
+        } else {
+            swipe.setEnabled(true);
+        }
+
         if (mDrawerLayout.isDrawerOpen(GravityCompat.START)) {
             mDrawerLayout.closeDrawer(GravityCompat.START);
         }
@@ -1568,7 +1608,7 @@ public class WebActivity extends AppCompatActivity implements
                 openPage(Api.PM_URL);
                 break;
             case "newChat":
-                openPage(Api.CHAT_URL);
+                openPage(CHAT_URL);
                 break;
             case "newSchool":
                 this.activeUrl = Api.FORUM_ADD_NEW_SCHOOL;
@@ -1585,10 +1625,10 @@ public class WebActivity extends AppCompatActivity implements
     }
 
     public void logout() {
-        Storage.saveGoogleIdToken(getApplicationContext(),"");
-        Storage.saveGoogleAccessToken(getApplicationContext(),"");
-        Storage.saveFacebookIdToken(getApplicationContext(),"");
-        Storage.saveFacebookAccessToken(getApplicationContext(),"");
+        Storage.saveGoogleIdToken(getApplicationContext(), "");
+        Storage.saveGoogleAccessToken(getApplicationContext(), "");
+        Storage.saveFacebookIdToken(getApplicationContext(), "");
+        Storage.saveFacebookAccessToken(getApplicationContext(), "");
         startActivity(new Intent(WebActivity.this, AuthActivity.class));
         finish();
     }
@@ -1690,7 +1730,7 @@ public class WebActivity extends AppCompatActivity implements
             nv.findViewById(R.id.menu_pms).setVisibility(View.VISIBLE);
             nv.findViewById(R.id.menu_notifications).setVisibility(View.VISIBLE);
             nv.findViewById(R.id.menu_practice).setVisibility(View.VISIBLE);
-            nv.findViewById(R.id.menu_chat).setVisibility(View.VISIBLE);
+            nv.findViewById(R.id.menu_chat_container).setVisibility(View.VISIBLE);
             nv.findViewById(R.id.menu_reviews).setVisibility(View.VISIBLE);
             nv.findViewById(R.id.menu_deals_discounts).setVisibility(View.VISIBLE);
             nv.findViewById(R.id.menu_advanced_search).setVisibility(View.VISIBLE);
@@ -1707,7 +1747,7 @@ public class WebActivity extends AppCompatActivity implements
             nv.findViewById(R.id.menu_pms).setVisibility(View.GONE);
             nv.findViewById(R.id.menu_notifications).setVisibility(View.GONE);
             nv.findViewById(R.id.menu_practice).setVisibility(View.VISIBLE);
-            nv.findViewById(R.id.menu_chat).setVisibility(View.VISIBLE);
+            nv.findViewById(R.id.menu_chat_container).setVisibility(View.VISIBLE);
             nv.findViewById(R.id.menu_reviews).setVisibility(View.VISIBLE);
             nv.findViewById(R.id.menu_deals_discounts).setVisibility(View.VISIBLE);
             nv.findViewById(R.id.menu_advanced_search).setVisibility(View.VISIBLE);
@@ -1775,7 +1815,7 @@ public class WebActivity extends AppCompatActivity implements
                 int notificationsUnwatchedCount = presenter.getCountUnwatchedNotifications();
                 int pmUnwatchedCount = presenter.getCountUnwatchedPMs();
 
-                if (notificationsUnwatchedCount > 0) {
+                /*if (notificationsUnwatchedCount > 0) {
                     countNotifications.setText(Integer.toString(notificationsUnwatchedCount));
                     countNotifications.setVisibility(View.VISIBLE);
                     ShortcutBadger.applyCount(WebActivity.this, notificationsUnwatchedCount);
@@ -1783,7 +1823,7 @@ public class WebActivity extends AppCompatActivity implements
                     countNotifications.setText("");
                     countNotifications.setVisibility(View.GONE);
                     ShortcutBadger.removeCount(WebActivity.this);
-                }
+                }*/
 
                 if (pmUnwatchedCount > 0) {
                     countPMs.setText(Integer.toString(pmUnwatchedCount));
@@ -2413,6 +2453,31 @@ public class WebActivity extends AppCompatActivity implements
         startActivityForResult(new Intent(android.provider.Settings.ACTION_SETTINGS), DEVICE_SETTINGS);
     }
 
+    @Override
+    public void updateUnreadNotification(int notificationsUnread) {
+        Storage.saveBadgeCount(this, notificationsUnread);
+        if (notificationsUnread > 0){
+            countNotifications.setVisibility(View.VISIBLE);
+            countNotifications.setText(String.valueOf(notificationsUnread));
+            ab.setHomeAsUpIndicator(setBadgeCount(this, R.drawable.ic_menu, notificationsUnread));
+        }else {
+            countNotifications.setVisibility(View.GONE);
+            ab.setHomeAsUpIndicator(setBadgeCount(this, R.drawable.ic_menu, 0));
+        }
+    }
+
+    @Override
+    public void showChatNotificationCount(String count) {
+        Storage.saveBadgeCount(this, Storage.getBadgeCount(this) + Integer.valueOf(count));
+        if (Integer.valueOf(count) > 0) {
+            menuChatCount.setText(count);
+            menuChatCount.setVisibility(View.VISIBLE);
+        } else {
+            menuChatCount.setText("");
+            menuChatCount.setVisibility(View.GONE);
+        }
+    }
+
     public void tryAgain() {
         presenter.resetError();
         destroyOfflineAlertDialog();
@@ -2466,9 +2531,9 @@ public class WebActivity extends AppCompatActivity implements
     };*/
 
     /*Referrer API to securely retrieve referral content from Google Play.
-    * Related to changes Google Play Store's policy March 1, 2020.*/
+     * Related to changes Google Play Store's policy March 1, 2020.*/
 
-    private void installReferrerClientAction(){
+    private void installReferrerClientAction() {
         referrerClient = InstallReferrerClient.newBuilder(this).build();
         referrerClient.startConnection(new InstallReferrerStateListener() {
             @Override
@@ -2493,7 +2558,7 @@ public class WebActivity extends AppCompatActivity implements
         });
     }
 
-    private void getReferrerDetails(){
+    private void getReferrerDetails() {
         ReferrerDetails response = null;
         try {
             //Data for referrer details

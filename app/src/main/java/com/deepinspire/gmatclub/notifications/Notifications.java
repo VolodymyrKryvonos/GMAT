@@ -15,6 +15,7 @@ import android.service.notification.StatusBarNotification;
 import android.support.v4.app.NotificationCompat;
 
 import com.deepinspire.gmatclub.R;
+import com.deepinspire.gmatclub.splash.SplashActivity;
 import com.deepinspire.gmatclub.utils.Storage;
 import com.deepinspire.gmatclub.web.WebActivity;
 import com.google.firebase.messaging.RemoteMessage;
@@ -33,6 +34,7 @@ public class Notifications {
     NotificationManager notificationsManager = null;
 
     NotificationCompat.Builder builder = null;
+    public static final String INPUT_URL = "url";
 
     public Notifications(Context ctx) {
         this.ctx = ctx;
@@ -81,12 +83,15 @@ public class Notifications {
 
         Bitmap bitMap = BitmapFactory.decodeResource(ctx.getResources(), R.mipmap.app_icon);
 
-        Intent intent = new Intent(ctx, WebActivity.class);
+        Intent intent = new Intent(ctx, SplashActivity.class);
 
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);// || Intent.FLAG_ACTIVITY_NEW_TASK);
 
-        if (data.get("url") != null)
+        if (data.get("url") != null){
             intent.setData(Uri.parse(data.get("url")));
+            intent.putExtra(INPUT_URL, data.get("url"));
+            intent.setAction(data.get("url"));
+        }
 
         String title = notification.getTitle();
         String body = notification.getBody();
@@ -97,7 +102,7 @@ public class Notifications {
 
         builder
                 .setSmallIcon(R.mipmap.app_icon)
-                .setNumber(2)
+                .setNumber(Storage.getBadgeCount(ctx))
                 .setBadgeIconType(NotificationCompat.BADGE_ICON_SMALL)
                 .setLargeIcon(bitMap)
                 .setContentTitle(title)

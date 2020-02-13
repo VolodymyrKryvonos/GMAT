@@ -14,12 +14,21 @@ import com.deepinspire.gmatclub.storage.Injection;
 import com.deepinspire.gmatclub.storage.Repository;
 import com.deepinspire.gmatclub.web.WebActivity;
 
+import static com.deepinspire.gmatclub.notifications.Notifications.INPUT_URL;
+
 public class SplashActivity extends AppCompatActivity {
+
+    private String url;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        Intent intent = getIntent();
+
+        if (intent != null) {
+            onNewIntent(intent);
+        }
         setContentView(R.layout.activity_splash);
     }
 
@@ -33,12 +42,15 @@ public class SplashActivity extends AppCompatActivity {
             Intent intent = new Intent(SplashActivity.this, WebActivity.class);
 
             intent.setData(uri);
+            intent.putExtra(INPUT_URL,url);
 
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 
             startActivity(intent);
         } else {
-            startActivity(new Intent(this, AuthActivity.class));
+            Intent intent = new Intent(SplashActivity.this, AuthActivity.class);
+            intent.putExtra(INPUT_URL,url);
+            startActivity(intent);
         }
 
         finish();
@@ -64,6 +76,15 @@ public class SplashActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    protected void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+        Bundle bundle = getIntent().getExtras();
+        if (bundle != null) {
+            url = bundle.getString(INPUT_URL);
+        }
     }
 
     private Uri getURI() {

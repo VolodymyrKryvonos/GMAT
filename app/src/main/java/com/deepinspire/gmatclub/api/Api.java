@@ -31,7 +31,7 @@ public class Api {
     public static final String PRACTICE_URL = HOME_URL + "/practice.php";
     public static final String DEALS_URL = HOME_URL + "/marketplace";
     public static final String REVIEWS_URL = HOME_URL + "/reviews";
-    public static final String CHAT_URL = HOME_URL + "/gchat";
+    public static final String CHAT_URL = HOME_URL + "/forum/mchat.php?menu=true";
     public static final String UCP_URL = HOME_URL + "/forum/ucp.php";
     public static final String UCP_MY_POSTS_URL = UCP_URL + "?i=291";
     public static final String UCP_MY_BOOKMARKS_URL = UCP_URL + "?i=main&mode=bookmarks";
@@ -58,4 +58,5 @@ public class Api {
     public static final String DECISION_TRACKER = FORUM_URL + "/decision-tracker.html";
     public static final String MBA_DISCUSSIONS = FORUM_URL + "/business-school-discussions-183/";
     public static final String LEAVE_FEEDBACK = "https://docs.google.com/forms/d/e/1FAIpQLSc86Cr25gbazXAriZyYNrcCxXhm_pu8FJznFNCKk8nzaHEn0g/viewform";
+    public static final String OLD_CHAT_LINK = "https://gmatclub.com/forum/mchat.php";
 }

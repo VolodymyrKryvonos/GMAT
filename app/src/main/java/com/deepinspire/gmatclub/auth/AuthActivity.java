@@ -71,6 +71,7 @@ import okhttp3.RequestBody;
 import okhttp3.Response;
 
 import static com.deepinspire.gmatclub.GCConfig.GOOGLE;
+import static com.deepinspire.gmatclub.notifications.Notifications.INPUT_URL;
 
 public class AuthActivity extends AppCompatActivity implements IAuthContract.View, View.OnClickListener, GoogleApiClient.OnConnectionFailedListener {
     private IAuthContract.Presenter presenter;
@@ -83,11 +84,15 @@ public class AuthActivity extends AppCompatActivity implements IAuthContract.Vie
 
     private FirebaseAuth mAuth;
 
+    private String url;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        if (getIntent() != null)
+            url = getIntent().getStringExtra(INPUT_URL);
         setPresenter(new AuthPresenter(this.getApplication(), this));
 
         setContentView(R.layout.activity_auth);
@@ -110,6 +115,8 @@ public class AuthActivity extends AppCompatActivity implements IAuthContract.Vie
             Intent intent = new Intent(this, WebActivity.class);
 
             intent.setData(Uri.parse(Api.FORUM_URL));
+
+            intent.putExtra(INPUT_URL,url);
 
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 
@@ -254,6 +261,7 @@ public class AuthActivity extends AppCompatActivity implements IAuthContract.Vie
         Intent intent;
         intent = new Intent(AuthActivity.this, WebActivity.class);
         intent.setData(Uri.parse(url));
+        intent.putExtra(INPUT_URL,url);
         startActivity(intent);
 
         if(ViewHelper.alertDialog != null) {

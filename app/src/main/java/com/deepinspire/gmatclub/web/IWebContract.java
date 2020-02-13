@@ -20,6 +20,8 @@ public interface IWebContract {
         void sendNotificationsForPage(String notifications);
         void tryAgain();
         void openDeviceSettings();
+        void updateUnreadNotification(int notificationsUnread);
+        void showChatNotificationCount(String count);
     }
 
     interface Presenter extends IBasePresenter {
@@ -33,6 +35,7 @@ public interface IWebContract {
         void setNotifications(String notifications);
         void saveNotifications(String notifications);
         void getNotifications();
+        void getChatNotifications();
         int getCountUnwatchedNotifications();
         int getCountUnwatchedPMs();
         void updateNotify();

@@ -19,7 +19,7 @@
 
     <!-- Hamburger menu -->
     <string name="hm_forum">forum</string>
-    <string name="hm_pms">PMs</string>
+    <string name="hm_pms">Private Messages</string>
     <string name="hm_notifications">notifications</string>
     <string name="hm_practice">practice</string>
     <string name="hm_chat">chat</string>

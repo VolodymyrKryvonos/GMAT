@@ -10,6 +10,7 @@ import com.deepinspire.gmatclub.storage.IStorage;
 import com.deepinspire.gmatclub.storage.Injection;
 import com.deepinspire.gmatclub.storage.Repository;
 import com.deepinspire.gmatclub.storage.User;
+import com.deepinspire.gmatclub.utils.Storage;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -22,6 +23,8 @@ import java.util.Map;
  */
 public class WebPresenter implements IWebContract.Presenter {
     private static final String TAG = WebPresenter.class.getSimpleName();
+
+    public Context context;
 
     public static final int ERROR_CONNECT = -2;
 
@@ -39,6 +42,7 @@ public class WebPresenter implements IWebContract.Presenter {
     WebPresenter(Context ctx, IWebContract.View view) {
         this.repository = Injection.getRepository(ctx);
 
+        this.context = ctx;
         this.view = view;
 
         this.countUnwatchedNotifications = 0;
@@ -146,7 +150,7 @@ public class WebPresenter implements IWebContract.Presenter {
             @Override
             public void onSuccess(String notifications) {
                 saveNotifications("{\"group_general\": " + notifications + "}");
-                //updateNotifications(id);
+                updateNotifications(id);
             }
             @Override
             public void onError(AuthException exception) {
@@ -176,6 +180,26 @@ public class WebPresenter implements IWebContract.Presenter {
         } else {
             view.sendNotificationsForPage(notifications);
         }
+    }
+
+    public void getChatNotifications() {
+
+            this.repository.getChatNotifications(null,  new IStorage.ICallbackNotifications() {
+                @Override
+                public void onSuccess(String notifications) {
+
+                    if (notifications != null){
+                        String chatNotificationCount = notifications.split(",")[1].replace("]","");
+                        view.showChatNotificationCount(chatNotificationCount);
+                    }
+                }
+                @Override
+                public void onError(AuthException exception) {
+                    AuthException ex = new AuthException(new Exception(exception.getMessage()), "notification:update");
+                    view.showError(ex);
+                }
+            });
+
     }
 
     public void updatePMs() {
@@ -220,11 +244,13 @@ public class WebPresenter implements IWebContract.Presenter {
     }
 
     public void saveNotifications(String message) {
+
         try {
             final JSONObject mNotify = new JSONObject(message);
 
             if(!mNotify.isNull("group_general")) {
                 int notificationsUnwatched = 0;
+                int notificationsUnread = 0;
 
                 final JSONArray notifications = mNotify.getJSONArray("group_general");
 
@@ -236,9 +262,14 @@ public class WebPresenter implements IWebContract.Presenter {
                     if(notify.getBoolean("unwatched")) {
                         notificationsUnwatched++;
                     }
+                    if(notify.getBoolean("unread")) {
+                        notificationsUnread++;
+                    }
                 }
 
                 setCountUnwatchedNotifications(notificationsUnwatched);
+                Storage.saveBadgeCount(context, notificationsUnread);
+                view.updateUnreadNotification(notificationsUnread);
             }
 
             if(!mNotify.isNull("privateMessages")) {
