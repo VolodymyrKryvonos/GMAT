@@ -51,18 +51,58 @@
                     android:id="@+id/menu_pms_count"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:background="@drawable/rounded_textview"
                     android:layout_margin="5dp"
                     android:paddingBottom="2dp"
                     android:paddingEnd="8dp"
                     android:paddingStart="8dp"
                     android:paddingTop="2dp"
                     android:text=""
-                    android:textColor="@color/mainOrange"
+                    android:textColor="@color/white"
                     android:textSize="15sp"
                     android:fontFamily="@font/opensans_bold"
                     android:layout_centerHorizontal="true"
                     android:layout_centerVertical="true"
                     android:layout_alignParentRight="true"
+                    android:visibility="gone"/>
+
+            </RelativeLayout>
+
+
+
+            <RelativeLayout
+                android:id="@+id/menu_chat_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:onClick="goByMenu">
+
+                <TextView
+                    android:id="@+id/menu_chat"
+                    style="@style/menuButtons"
+                    android:layout_width="wrap_content"
+                    android:layout_margin="0dp"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentLeft="true"
+                    android:text="@string/hm_chat" />
+
+                <TextView
+                    android:id="@+id/menu_chat_count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/rounded_textview"
+                    android:layout_margin="5dp"
+                    android:paddingBottom="2dp"
+                    android:paddingEnd="8dp"
+                    android:paddingStart="8dp"
+                    android:paddingTop="2dp"
+                    android:text=""
+                    android:gravity="center"
+                    android:textColor="@color/white"
+                    android:textSize="15sp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
                     android:visibility="gone"/>
 
             </RelativeLayout>
@@ -87,6 +127,7 @@
                     android:id="@+id/menu_notifications_count"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:background="@drawable/rounded_textview"
                     android:layout_margin="5dp"
                     android:paddingBottom="2dp"
                     android:paddingEnd="8dp"
@@ -94,9 +135,8 @@
                     android:paddingTop="2dp"
                     android:text=""
                     android:gravity="center"
-                    android:textColor="@color/mainOrange"
+                    android:textColor="@color/white"
                     android:textSize="15sp"
-                    android:fontFamily="@font/opensans_bold"
                     android:layout_alignParentRight="true"
                     android:layout_centerHorizontal="true"
                     android:layout_centerVertical="true"
@@ -112,11 +152,18 @@
                 android:text="@string/hm_practice" />
 
             <TextView
-                android:id="@+id/menu_chat"
+                android:id="@+id/menu_decision_tracker"
                 style="@style/menuButtons"
                 android:onClick="goByMenu"
                 android:gravity="left"
-                android:text="@string/hm_chat" />
+                android:text="@string/hm_decision_tracker" />
+
+            <TextView
+                android:id="@+id/menu_mba_discussions"
+                style="@style/menuButtons"
+                android:onClick="goByMenu"
+                android:gravity="left"
+                android:text="@string/hm__mba_discussions" />
 
             <TextView
                 android:id="@+id/menu_reviews"
@@ -140,25 +187,12 @@
                 android:text="@string/hm_advanced_search" />
 
             <TextView
-                android:id="@+id/menu_new_posts"
-                style="@style/menuButtons"
-                android:onClick="goByMenu"
-                android:gravity="left"
-                android:text="@string/hm_new_posts" />
-
-            <TextView
                 android:id="@+id/menu_feedback"
                 style="@style/menuButtons"
                 android:onClick="goByMenu"
                 android:gravity="left"
                 android:text="@string/hm_app_feedback" />
 
-            <TextView
-                android:id="@+id/menu_unanswered"
-                style="@style/menuButtons"
-                android:onClick="goByMenu"
-                android:gravity="left"
-                android:text="@string/hm_unanswered" />
         </LinearLayout>
 
     </ScrollView>
