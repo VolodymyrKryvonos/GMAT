@@ -19,25 +19,25 @@ android {
 
     signingConfigs {
         debug {
-            storeFile file('/Users/oleh/Desktop/gmat/android_app_gmatclub/keystore/key.jks')
+            storeFile file('../keystore/key.jks')
             storePassword '%YAz4qxfuLra-e^U=Z6$'
             keyAlias 'gmatclub'
             keyPassword '@RycS=x84qMACs5Xe$Eb'
         }
         beta {
-            storeFile file('/Users/oleh/Desktop/gmat/android_app_gmatclub/keystore/key.jks')
+            storeFile file('../keystore/key.jks')
             storePassword '%YAz4qxfuLra-e^U=Z6$'
             keyAlias 'gmatclub'
             keyPassword '@RycS=x84qMACs5Xe$Eb'
         }
         demo {
-            storeFile file('/Users/oleh/Desktop/gmat/android_app_gmatclub/keystore/key.jks')
+            storeFile file('../keystore/key.jks')
             storePassword '%YAz4qxfuLra-e^U=Z6$'
             keyAlias 'gmatclub'
             keyPassword '@RycS=x84qMACs5Xe$Eb'
         }
         release {
-            storeFile file('/Users/oleh/Desktop/gmat/android_app_gmatclub/keystore/key.jks')
+            storeFile file('../keystore/key.jks')
             storePassword '%YAz4qxfuLra-e^U=Z6$'
             keyAlias 'gmatclub'
             keyPassword '@RycS=x84qMACs5Xe$Eb'

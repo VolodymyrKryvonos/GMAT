@@ -107,6 +107,7 @@
     <string name="billing_privacy_policy_tittle">Terms of Use and Privacy Policy</string>
     <string name="quizzes">Quizzes</string>
     <string name="learn_more">Learn more</string>
+    <string name="msg_unknown_host">The information submitted could not be found.</string>
 
     <!-- 'id'     => '188832947830704',
     'secret' => '25e1ac94899287fbcbab95d769f5ac6f',-->

@@ -6,7 +6,6 @@ import android.annotation.TargetApi;
 import android.app.Activity;
 import android.app.ActivityManager;
 import android.app.DownloadManager;
-import android.app.NotificationManager;
 import android.app.SearchManager;
 import android.content.ActivityNotFoundException;
 import android.content.BroadcastReceiver;
@@ -32,13 +31,11 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
-import android.support.v4.content.FileProvider;
 import android.support.v4.graphics.drawable.DrawableCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.ActionBar;
-import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
@@ -84,7 +81,6 @@ import com.deepinspire.gmatclub.auth.LoginActivity;
 import com.deepinspire.gmatclub.purchase.GooglePlayBillingActivity;
 import com.deepinspire.gmatclub.storage.DeviceInfo;
 import com.deepinspire.gmatclub.utils.BadgeDrawable;
-import com.deepinspire.gmatclub.utils.BadgeDrawerToggle;
 import com.deepinspire.gmatclub.utils.CustomRatingDialog;
 import com.deepinspire.gmatclub.utils.GCWebView;
 import com.deepinspire.gmatclub.utils.Storage;
@@ -109,14 +105,12 @@ import java.net.URLEncoder;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-import me.leolin.shortcutbadger.ShortcutBadger;
-
 import static butterknife.internal.Utils.arrayOf;
 import static com.deepinspire.gmatclub.api.Api.CHAT_URL;
-import static com.deepinspire.gmatclub.api.Api.OLD_CHAT_LINK;
 import static com.deepinspire.gmatclub.notifications.Notifications.INPUT_URL;
 
 public class WebActivity extends AppCompatActivity implements
@@ -125,7 +119,7 @@ public class WebActivity extends AppCompatActivity implements
     private static final int FILECHOOSER_RESULTCODE = 100;
     InstallReferrerClient referrerClient;
 
-    private static final int PICK_FROM_CAMERA = 101;
+    //  private static final int PICK_FROM_CAMERA = 101;
 
     private static final int DEVICE_SETTINGS = 102;
     public static final int REQUEST_CODE_FOR_DOWNLOAD = 121;
@@ -143,13 +137,13 @@ public class WebActivity extends AppCompatActivity implements
 
     private Map<String, String> requestExtraHeaders = new HashMap<>();
 
-    private LinearLayout feedbackLayout;
+    // private LinearLayout feedbackLayout;
 
     private SwipeRefreshLayout swipe;
 
     private DrawerLayout mDrawerLayout;
 
-    private ProgressBar progressBar;
+    //private ProgressBar progressBar;
 
     private LinearLayout btnAddLayout;
     private FloatingActionMenu btnAdd;
@@ -172,11 +166,11 @@ public class WebActivity extends AppCompatActivity implements
     private TextView countPMs;
     private TextView menuChatCount;
 
-    private CookieManager cookieManager;
+    // private CookieManager cookieManager;
 
-    private ActionBarDrawerToggle toggle;
+    // private ActionBarDrawerToggle toggle;
 
-    private BadgeDrawerToggle badgeToggle;
+    //  private BadgeDrawerToggle badgeToggle;
 
     private String activeUrl = null;
 
@@ -197,8 +191,6 @@ public class WebActivity extends AppCompatActivity implements
     private Uri mCapturedImageURI = null;
 
     private boolean openedKeyboard = false;
-
-    private String downloadFileName = null;
 
     private ActionBar ab = null;
 
@@ -227,26 +219,25 @@ public class WebActivity extends AppCompatActivity implements
         ab.setDisplayHomeAsUpEnabled(true);
         ab.setDisplayShowTitleEnabled(false);
 
-        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        mDrawerLayout = findViewById(R.id.drawer_layout);
         /*badgeToggle = new BadgeDrawerToggle(this, mDrawerLayout,-1,-1);
         badgeToggle.setBadgeText("7");*/
 
-        initNavigationView(toolbar);
+        initNavigationView();
 
-        feedbackLayout = findViewById(R.id.feedbackLayout);
+        // feedbackLayout = findViewById(R.id.feedbackLayout);
 
-        progressView = (ProgressBar) findViewById(R.id.progressbar);
+        progressView = findViewById(R.id.progressbar);
 
         swipe = findViewById(R.id.swipe);
         swipe.setOnRefreshListener(this);
 
-        swipe
-                .getViewTreeObserver()
+        swipe.getViewTreeObserver()
                 .addOnScrollChangedListener(mOnScrollChangedListener =
                         new ViewTreeObserver.OnScrollChangedListener() {
                             @Override
                             public void onScrollChanged() {
-                                if (webView != null)
+                                if (webView != null && swipe != null)
                                     if (webView.getScrollY() == 0)
                                         swipe.setEnabled(true);
                                     else
@@ -255,7 +246,7 @@ public class WebActivity extends AppCompatActivity implements
                             }
                         });
 
-        progressBar = findViewById(R.id.loading);
+        // progressBar = findViewById(R.id.loading);
 
         final View activityRootView = findViewById(R.id.top_parent);
 
@@ -342,8 +333,8 @@ public class WebActivity extends AppCompatActivity implements
         SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
 
         searchView = findViewById(R.id.toolbarSearchView);//.getActionView();
-
-        searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
+        if (searchManager != null)
+            searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
 
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
@@ -409,9 +400,11 @@ public class WebActivity extends AppCompatActivity implements
         Drawable mainIcon = ContextCompat.getDrawable(context, res);
         BadgeDrawable badge = new BadgeDrawable(context);
         badge.setCount(String.valueOf(badgeCount));
-        icon.mutate();
-        icon.setDrawableByLayerId(R.id.ic_badge, badge);
-        icon.setDrawableByLayerId(R.id.ic_main_icon, mainIcon);
+        if (icon != null) {
+            icon.mutate();
+            icon.setDrawableByLayerId(R.id.ic_badge, badge);
+            icon.setDrawableByLayerId(R.id.ic_main_icon, mainIcon);
+        }
 
         return icon;
     }
@@ -479,12 +472,12 @@ public class WebActivity extends AppCompatActivity implements
         if (webView == null)
             initWebView();
         presenter.getChatNotifications();
-        NotificationManager notificationManager =
+        /*NotificationManager notificationManager =
                 (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
             int count = notificationManager.getActiveNotifications().length;
             //Storage.saveBadgeCount(getApplicationContext(), count);
-        }
+        }*/
         if (Storage.getBadgeCount(getApplicationContext()) > 0)
             ab.setHomeAsUpIndicator(setBadgeCount(this, R.drawable.ic_menu, Storage.getBadgeCount(getApplicationContext())));
         else ab.setHomeAsUpIndicator(setBadgeCount(this, R.drawable.ic_menu, 0));
@@ -519,7 +512,7 @@ public class WebActivity extends AppCompatActivity implements
                 nv.findViewById(id).setBackgroundColor(ContextCompat.getColor(getApplicationContext(), backgroundColor));
                 ((TextView) nv.findViewById(R.id.menu_pms_text)).setTextColor(ContextCompat.getColor(getApplicationContext(), textColor));
                 ((TextView) nv.findViewById(R.id.menu_pms_count)).setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.white));
-            break;
+                break;
             case R.id.menu_chat_container:
                 nv.findViewById(R.id.menu_chat_container).setBackgroundColor(ContextCompat.getColor(getApplicationContext(), backgroundColor));
                 ((TextView) nv.findViewById(R.id.menu_chat)).setTextColor(ContextCompat.getColor(getApplicationContext(), textColor));
@@ -537,26 +530,27 @@ public class WebActivity extends AppCompatActivity implements
         }
     }
 
-    private void highlightOnTouchDown(int id) {
-        int backgroundColor = R.color.mainHighlightTouchNavigationView;
-        int textColor = R.color.main;
+    /*
+        private void highlightOnTouchDown(int id) {
+            int backgroundColor = R.color.mainHighlightTouchNavigationView;
+            int textColor = R.color.main;
 
-        switch (id) {
-            case R.id.menu_pms:
-                nv.findViewById(id).setBackgroundColor(ContextCompat.getColor(getApplicationContext(), backgroundColor));
-                ((TextView) nv.findViewById(R.id.menu_pms_count)).setTextColor(ContextCompat.getColor(getApplicationContext(), textColor));
-                break;
-            case R.id.menu_notifications:
-                nv.findViewById(id).setBackgroundColor(ContextCompat.getColor(getApplicationContext(), backgroundColor));
-                ((TextView) nv.findViewById(R.id.menu_notifications_count)).setTextColor(ContextCompat.getColor(getApplicationContext(), textColor));
-                break;
-            default: {
-                nv.findViewById(id).setBackgroundColor(ContextCompat.getColor(getApplicationContext(), backgroundColor));
-                ((TextView) nv.findViewById(id)).setTextColor(ContextCompat.getColor(getApplicationContext(), textColor));
+            switch (id) {
+                case R.id.menu_pms:
+                    nv.findViewById(id).setBackgroundColor(ContextCompat.getColor(getApplicationContext(), backgroundColor));
+                    ((TextView) nv.findViewById(R.id.menu_pms_count)).setTextColor(ContextCompat.getColor(getApplicationContext(), textColor));
+                    break;
+                case R.id.menu_notifications:
+                    nv.findViewById(id).setBackgroundColor(ContextCompat.getColor(getApplicationContext(), backgroundColor));
+                    ((TextView) nv.findViewById(R.id.menu_notifications_count)).setTextColor(ContextCompat.getColor(getApplicationContext(), textColor));
+                    break;
+                default: {
+                    nv.findViewById(id).setBackgroundColor(ContextCompat.getColor(getApplicationContext(), backgroundColor));
+                    ((TextView) nv.findViewById(id)).setTextColor(ContextCompat.getColor(getApplicationContext(), textColor));
+                }
             }
         }
-    }
-
+    */
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
@@ -634,15 +628,13 @@ public class WebActivity extends AppCompatActivity implements
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case android.R.id.home:
-
-                if (mDrawerLayout.isDrawerOpen(GravityCompat.START)) {
-                    mDrawerLayout.closeDrawer(GravityCompat.START);
-                } else {
-                    mDrawerLayout.openDrawer(GravityCompat.START);
-                }
-                return true;
+        if (item.getItemId() == android.R.id.home) {
+            if (mDrawerLayout.isDrawerOpen(GravityCompat.START)) {
+                mDrawerLayout.closeDrawer(GravityCompat.START);
+            } else {
+                mDrawerLayout.openDrawer(GravityCompat.START);
+            }
+            return true;
         }
 
         return super.onOptionsItemSelected(item);
@@ -768,10 +760,11 @@ public class WebActivity extends AppCompatActivity implements
             webView.restoreState(savedInstanceState);
         } else {
             initWebView();
-            if (LATEST_URL.equals(Api.PRACTICE_URL)) {
-                //initPracticeView();
-            } else
+            if (!LATEST_URL.equals(Api.PRACTICE_URL)) {
                 webView.loadUrl(savedInstanceState.getString(LATEST_URL));
+
+            }/* else
+            //initPracticeView();*/
         }
     }
 
@@ -826,6 +819,7 @@ public class WebActivity extends AppCompatActivity implements
         return super.dispatchTouchEvent(ev);
     }
 
+    @SuppressLint("ClickableViewAccessibility")
     @Override
     public boolean onTouch(View v, MotionEvent event) {
         return true;
@@ -852,7 +846,6 @@ public class WebActivity extends AppCompatActivity implements
         } else {
             switch (requestCode) {
                 case GCConfig.GOOGLE_SIGN_IN:
-                    break;
                 case GCConfig.EMAIL:
                     break;
                 case DEVICE_SETTINGS:
@@ -889,7 +882,7 @@ public class WebActivity extends AppCompatActivity implements
     /*Download attachment functionality*/
 
     private void downloadFile(String url, String userAgent, String contentDisposition, String mimeType) {
-        downloadFileName = URLUtil.guessFileName(url, contentDisposition, mimeType);
+        String downloadFileName = URLUtil.guessFileName(url, contentDisposition, mimeType);
         String[] fileNameList = contentDisposition.split("UTF-8''");
         DownloadManager.Request request = new DownloadManager.Request(Uri.parse(url));
         request.allowScanningByMediaScanner();
@@ -944,26 +937,27 @@ public class WebActivity extends AppCompatActivity implements
         }
     };
 
-    protected void openFile(String fileName) {
-        File file = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).getPath() + File.separator +
-                fileName);
-        //Uri path = Uri.fromFile(file);
-        Uri path = FileProvider.getUriForFile(this, getApplicationContext().getPackageName() + ".fileprovider", file);
-        Intent pdfOpenintent = new Intent(Intent.ACTION_VIEW);
-        pdfOpenintent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
-        pdfOpenintent.setDataAndType(path, "application/pdf");
-        try {
-            this.startActivity(pdfOpenintent);
-        } catch (ActivityNotFoundException e) {
+    /*
+        protected void openFile(String fileName) {
+            File file = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).getPath() + File.separator +
+                    fileName);
+            //Uri path = Uri.fromFile(file);
+            Uri path = FileProvider.getUriForFile(this, getApplicationContext().getPackageName() + ".fileprovider", file);
+            Intent pdfOpenintent = new Intent(Intent.ACTION_VIEW);
+            pdfOpenintent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+            pdfOpenintent.setDataAndType(path, "application/pdf");
+            try {
+                this.startActivity(pdfOpenintent);
+            } catch (ActivityNotFoundException e) {
+            }
         }
-    }
-
+    */
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
 
         Uri uri = intent.getData();
 
-        String url = null;
+        String url;
 
         if (uri != null) {
             url = uri.toString();
@@ -980,13 +974,13 @@ public class WebActivity extends AppCompatActivity implements
             highlightMenuItemOnClick(R.id.menu_chat_container);
         } else if (url.equals(Api.PRACTICE_URL)) {
             highlightMenuItemOnClick(R.id.menu_practice);
-        }else if (url.equals(Api.PM_NEW_URL)) {
+        } else if (url.equals(Api.PM_NEW_URL)) {
             highlightMenuItemOnClick(R.id.menu_pms);
         } else if (url.equals(Api.DECISION_TRACKER)) {
             highlightMenuItemOnClick(R.id.menu_decision_tracker);
-        }else if (url.equals(Api.MBA_DISCUSSIONS)) {
+        } else if (url.equals(Api.MBA_DISCUSSIONS)) {
             highlightMenuItemOnClick(R.id.menu_mba_discussions);
-        }else if (url.equals(Api.DEALS_URL)) {
+        } else if (url.equals(Api.DEALS_URL)) {
             highlightMenuItemOnClick(R.id.menu_deals_discounts);
         }
 
@@ -1090,6 +1084,8 @@ public class WebActivity extends AppCompatActivity implements
 
             @Override
             public void onPageFinished(WebView view, String url) {
+                if (WebActivity.this.isFinishing() || WebActivity.this.isDestroyed())
+                    return;
                 View viewQuizzes = getLayoutInflater().inflate(R.layout.item_quizzes, webView, false);
                 DisplayMetrics displaymetrics = new DisplayMetrics();
                 getWindowManager().getDefaultDisplay().getMetrics(displaymetrics);
@@ -1224,7 +1220,7 @@ public class WebActivity extends AppCompatActivity implements
 
             // openFileChooser for Android 3.0+
 
-            public void openFileChooser(ValueCallback<Uri> uploadMsg, String acceptType) {
+            void openFileChooser(ValueCallback<Uri> uploadMsg, String acceptType) {
                 mUploadMessage = uploadMsg;
                 openImageChooser();
             }
@@ -1335,7 +1331,8 @@ public class WebActivity extends AppCompatActivity implements
     }
 
     private void onPageFinishedAction(String url) {
-
+        if (isFinishing() || isDestroyed())
+            return;
         if (presenter.checkAccessNetwork()) {
             /*if (webView.getUrl().equals(OLD_CHAT_LINK))
                 swipe.setEnabled(false);
@@ -1667,7 +1664,7 @@ public class WebActivity extends AppCompatActivity implements
             LoginManager.getInstance().logOut();
         }
 
-        LoginManager.getInstance().registerCallback(callbackManager,
+        Objects.requireNonNull(LoginManager.getInstance()).registerCallback(callbackManager,
                 new FacebookCallback<LoginResult>() {
                     @Override
                     public void onSuccess(LoginResult loginResult) {
@@ -1762,7 +1759,7 @@ public class WebActivity extends AppCompatActivity implements
         }
     }
 
-    private void initNavigationView(final Toolbar toolbar) {
+    private void initNavigationView() {
         mDrawerLayout = findViewById(R.id.drawer_layout);
 
         mDrawerLayout.addDrawerListener(new DrawerLayout.DrawerListener() {
@@ -1812,7 +1809,7 @@ public class WebActivity extends AppCompatActivity implements
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                int notificationsUnwatchedCount = presenter.getCountUnwatchedNotifications();
+              //  int notificationsUnwatchedCount = presenter.getCountUnwatchedNotifications();
                 int pmUnwatchedCount = presenter.getCountUnwatchedPMs();
 
                 /*if (notificationsUnwatchedCount > 0) {
@@ -1826,7 +1823,7 @@ public class WebActivity extends AppCompatActivity implements
                 }*/
 
                 if (pmUnwatchedCount > 0) {
-                    countPMs.setText(Integer.toString(pmUnwatchedCount));
+                    countPMs.setText(String.valueOf(pmUnwatchedCount));
                     countPMs.setVisibility(View.VISIBLE);
                 } else {
                     countPMs.setText("");
@@ -1858,10 +1855,8 @@ public class WebActivity extends AppCompatActivity implements
                                 runOnUiThread(new Runnable() {
                                     @Override
                                     public void run() {
-                                        switch (action) {
-                                            case "showLoginPage":
-                                                openLoginPage();
-                                                break;
+                                        if ("showLoginPage".equals(action)) {
+                                            openLoginPage();
                                         }
                                     }
                                 });
@@ -1945,14 +1940,14 @@ public class WebActivity extends AppCompatActivity implements
         iconColor = ContextCompat.getColor(getApplicationContext(), iconColor);
 
         ActionBar ab = getSupportActionBar();
-
-        Drawable dr = ContextCompat.getDrawable(getApplicationContext(), R.drawable.ic_menu);
-
-        Drawable wrapDrawable = DrawableCompat.wrap(dr);
-
-        DrawableCompat.setTint(wrapDrawable, iconColor);
-
-        ab.setHomeAsUpIndicator(wrapDrawable);
+        if (ab != null) {
+            Drawable dr = ContextCompat.getDrawable(getApplicationContext(), R.drawable.ic_menu);
+            if (dr != null) {
+                Drawable wrapDrawable = DrawableCompat.wrap(dr);
+                DrawableCompat.setTint(wrapDrawable, iconColor);
+                ab.setHomeAsUpIndicator(wrapDrawable);
+            }
+        }
     }
 
     public void changeTitleColor(int color) {
@@ -2126,7 +2121,7 @@ public class WebActivity extends AppCompatActivity implements
         String heightPixels = String.valueOf(metrics.heightPixels);
         String widthPixels = String.valueOf(metrics.widthPixels);
 
-        String heading = "RAM Information";
+        // String heading = "RAM Information";
         long totalRamValue = totalRamMemorySize();
         long freeRamValue = freeRamMemorySize();
         long usedRamValue = totalRamValue - freeRamValue;
@@ -2134,7 +2129,7 @@ public class WebActivity extends AppCompatActivity implements
                 "freeRam=" + formatSize(freeRamValue) + " MB," +
                 "totalRam=" + formatSize(totalRamValue) + " MB";
 
-        String internalMemoryTitle = "Internal Memory Information";
+        // String internalMemoryTitle = "Internal Memory Information";
         long totalInternalValue = getTotalInternalMemorySize();
         long freeInternalValue = getAvailableInternalMemorySize();
         long usedInternalValue = totalInternalValue - freeInternalValue;
@@ -2142,7 +2137,7 @@ public class WebActivity extends AppCompatActivity implements
                 "freeInternal=" + formatSize(freeInternalValue) + " ," +
                 "totalInternal=" + formatSize(totalInternalValue);
 
-        String externalMemoryTitle = "External Memory Information";
+        // String externalMemoryTitle = "External Memory Information";
         long totalExternalValue = getTotalExternalMemorySize();
         long freeExternalValue = getAvailableExternalMemorySize();
         long usedExternalValue = totalExternalValue - freeExternalValue;
@@ -2188,18 +2183,18 @@ public class WebActivity extends AppCompatActivity implements
     private long freeRamMemorySize() {
         ActivityManager.MemoryInfo mi = new ActivityManager.MemoryInfo();
         ActivityManager activityManager = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
-        activityManager.getMemoryInfo(mi);
-        long availableMegs = mi.availMem / 1048576L;
+        if (activityManager != null)
+            activityManager.getMemoryInfo(mi);
 
-        return availableMegs;
+        return mi.availMem / 1048576L;
     }
 
     private long totalRamMemorySize() {
         ActivityManager.MemoryInfo mi = new ActivityManager.MemoryInfo();
         ActivityManager activityManager = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
-        activityManager.getMemoryInfo(mi);
-        long availableMegs = mi.totalMem / 1048576L;
-        return availableMegs;
+        if (activityManager != null)
+            activityManager.getMemoryInfo(mi);
+        return mi.totalMem / 1048576L;
     }
 
     public static boolean externalMemoryAvailable() {
@@ -2209,16 +2204,16 @@ public class WebActivity extends AppCompatActivity implements
     public static long getAvailableInternalMemorySize() {
         File path = Environment.getDataDirectory();
         StatFs stat = new StatFs(path.getPath());
-        long blockSize = stat.getBlockSize();
-        long availableBlocks = stat.getAvailableBlocks();
+        long blockSize = stat.getBlockSizeLong();
+        long availableBlocks = stat.getAvailableBlocksLong();
         return availableBlocks * blockSize;
     }
 
     public static long getTotalInternalMemorySize() {
         File path = Environment.getDataDirectory();
         StatFs stat = new StatFs(path.getPath());
-        long blockSize = stat.getBlockSize();
-        long totalBlocks = stat.getBlockCount();
+        long blockSize = stat.getBlockSizeLong();
+        long totalBlocks = stat.getBlockCountLong();
         return totalBlocks * blockSize;
     }
 
@@ -2226,8 +2221,8 @@ public class WebActivity extends AppCompatActivity implements
         if (externalMemoryAvailable()) {
             File path = Environment.getExternalStorageDirectory();
             StatFs stat = new StatFs(path.getPath());
-            long blockSize = stat.getBlockSize();
-            long availableBlocks = stat.getAvailableBlocks();
+            long blockSize = stat.getBlockSizeLong();
+            long availableBlocks = stat.getAvailableBlocksLong();
             return availableBlocks * blockSize;
         } else {
             return 0;
@@ -2238,8 +2233,8 @@ public class WebActivity extends AppCompatActivity implements
         if (externalMemoryAvailable()) {
             File path = Environment.getExternalStorageDirectory();
             StatFs stat = new StatFs(path.getPath());
-            long blockSize = stat.getBlockSize();
-            long totalBlocks = stat.getBlockCount();
+            long blockSize = stat.getBlockSizeLong();
+            long totalBlocks = stat.getBlockCountLong();
             return totalBlocks * blockSize;
         } else {
             return 0;
@@ -2269,8 +2264,9 @@ public class WebActivity extends AppCompatActivity implements
     }
 
     private void hideKeyboard() {
-        ((InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE)).
-                hideSoftInputFromWindow((getWindow().getDecorView().getApplicationWindowToken()), 0);
+        InputMethodManager manager = ((InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE));
+        if (manager != null)
+            manager.hideSoftInputFromWindow((getWindow().getDecorView().getApplicationWindowToken()), 0);
     }
 
     private void showBtnAdd(boolean show) {
@@ -2353,15 +2349,16 @@ public class WebActivity extends AppCompatActivity implements
         showBtnAddSchool(false);
     }
 
-    private void openFileDialog(ValueCallback<Uri> uploadMsg) {
-        Toast.makeText(getApplicationContext(), "openFile", Toast.LENGTH_LONG).show();
-        mUploadMessage = uploadMsg;
-        Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
-        intent.addCategory(Intent.CATEGORY_OPENABLE);
-        intent.setType("image/*");
-        startActivityForResult(Intent.createChooser(intent, "File Chooser"), FILECHOOSER_RESULTCODE);
-    }
-
+    /*
+        private void openFileDialog(ValueCallback<Uri> uploadMsg) {
+            Toast.makeText(getApplicationContext(), "openFile", Toast.LENGTH_LONG).show();
+            mUploadMessage = uploadMsg;
+            Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
+            intent.addCategory(Intent.CATEGORY_OPENABLE);
+            intent.setType("image/*");
+            startActivityForResult(Intent.createChooser(intent, "File Chooser"), FILECHOOSER_RESULTCODE);
+        }
+    */
     private void openImageChooser() {
         try {
             /*if (ActivityCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.CAMERA)
@@ -2398,9 +2395,7 @@ public class WebActivity extends AppCompatActivity implements
     private void handleUploadMessage(int requestCode, int resultCode, Intent intent) {
         Uri result = null;
         try {
-            if (resultCode != RESULT_OK) {
-                result = null;
-            } else {
+            if (resultCode == RESULT_OK) {
                 // retrieve from the private variable if the intent is null
 
                 result = intent == null ? mCapturedImageURI : intent.getData();
@@ -2418,9 +2413,7 @@ public class WebActivity extends AppCompatActivity implements
         Uri[] results = null;
 
         try {
-            if (resultCode != RESULT_OK) {
-                results = null;
-            } else {
+            if (resultCode == RESULT_OK) {
                 if (intent != null) {
                     String dataString = intent.getDataString();
                     ClipData clipData = intent.getClipData();
@@ -2456,11 +2449,11 @@ public class WebActivity extends AppCompatActivity implements
     @Override
     public void updateUnreadNotification(int notificationsUnread) {
         Storage.saveBadgeCount(this, notificationsUnread);
-        if (notificationsUnread > 0){
+        if (notificationsUnread > 0) {
             countNotifications.setVisibility(View.VISIBLE);
             countNotifications.setText(String.valueOf(notificationsUnread));
             ab.setHomeAsUpIndicator(setBadgeCount(this, R.drawable.ic_menu, notificationsUnread));
-        }else {
+        } else {
             countNotifications.setVisibility(View.GONE);
             ab.setHomeAsUpIndicator(setBadgeCount(this, R.drawable.ic_menu, 0));
         }
@@ -2468,8 +2461,8 @@ public class WebActivity extends AppCompatActivity implements
 
     @Override
     public void showChatNotificationCount(String count) {
-        Storage.saveBadgeCount(this, Storage.getBadgeCount(this) + Integer.valueOf(count));
-        if (Integer.valueOf(count) > 0) {
+        Storage.saveBadgeCount(this, Storage.getBadgeCount(this) + Integer.parseInt(count));
+        if (Integer.parseInt(count) > 0) {
             menuChatCount.setText(count);
             menuChatCount.setVisibility(View.VISIBLE);
         } else {
@@ -2504,7 +2497,7 @@ public class WebActivity extends AppCompatActivity implements
     }
 
     private void destroyOfflineAlertDialog() {
-        if (ViewHelper.alertDialog != null) {
+        if (ViewHelper.alertDialog != null && ViewHelper.alertDialog.isShowing()) {
             ViewHelper.alertDialog.dismiss();
             ViewHelper.alertDialog = null;
         }
