@@ -1,13 +1,11 @@
 package com.deepinspire.gmatclub.auth;
 
-import android.accounts.Account;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
@@ -15,7 +13,6 @@ import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
-import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
@@ -23,17 +20,11 @@ import com.deepinspire.gmatclub.GCConfig;
 import com.deepinspire.gmatclub.R;
 import com.deepinspire.gmatclub.api.Api;
 import com.deepinspire.gmatclub.api.AuthException;
-import com.deepinspire.gmatclub.splash.SplashActivity;
 import com.deepinspire.gmatclub.utils.Storage;
 import com.deepinspire.gmatclub.utils.ViewHelper;
 import com.deepinspire.gmatclub.web.WebActivity;
-import com.facebook.AccessToken;
 import com.facebook.CallbackManager;
-import com.facebook.FacebookCallback;
-import com.facebook.FacebookException;
 import com.facebook.FacebookSdk;
-import com.facebook.login.LoginManager;
-import com.facebook.login.LoginResult;
 import com.google.android.gms.auth.GoogleAuthException;
 import com.google.android.gms.auth.GoogleAuthUtil;
 import com.google.android.gms.auth.api.Auth;
@@ -46,7 +37,6 @@ import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.Scopes;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.common.api.GoogleApiClient;
-import com.google.android.gms.common.api.Scope;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthCredential;
@@ -57,20 +47,8 @@ import com.google.firebase.auth.GetTokenResult;
 import com.google.firebase.auth.GoogleAuthProvider;
 
 import java.io.IOException;
-import java.sql.Time;
-import java.text.SimpleDateFormat;
-import java.util.Arrays;
 import java.util.Date;
-import java.util.Set;
-import java.util.concurrent.TimeUnit;
 
-import okhttp3.Callback;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.RequestBody;
-import okhttp3.Response;
-
-import static com.deepinspire.gmatclub.GCConfig.GOOGLE;
 import static com.deepinspire.gmatclub.notifications.Notifications.INPUT_URL;
 
 public class AuthActivity extends AppCompatActivity implements IAuthContract.View, View.OnClickListener, GoogleApiClient.OnConnectionFailedListener {
@@ -111,7 +89,7 @@ public class AuthActivity extends AppCompatActivity implements IAuthContract.Vie
     protected void onStart() {
         super.onStart();
 
-        if(presenter.logged()) {
+        if(presenter.logged(this)) {
             Intent intent = new Intent(this, WebActivity.class);
 
             intent.setData(Uri.parse(Api.FORUM_URL));
@@ -126,18 +104,18 @@ public class AuthActivity extends AppCompatActivity implements IAuthContract.Vie
             if (!TextUtils.isEmpty(Storage.getGoogleIdToken(getApplicationContext())) &&
                     !TextUtils.isEmpty(Storage.getGoogleAccessToken(getApplicationContext()))){
                 Long expiresIn = (new Date()).getTime() + 432000000;
-                presenter.signIn("google", Storage.getGoogleIdToken(getApplicationContext()), Storage.getGoogleAccessToken(getApplicationContext()), String.valueOf(expiresIn));
+                presenter.signIn(this,"google", Storage.getGoogleIdToken(getApplicationContext()), Storage.getGoogleAccessToken(getApplicationContext()), String.valueOf(expiresIn));
             }
 
             if (!TextUtils.isEmpty(Storage.getFacebookIdToken(getApplicationContext())) &&
                     !TextUtils.isEmpty(Storage.getFacebookAccessToken(getApplicationContext()))){
                 Long expiresIn = (new Date()).getTime() + 432000000;
-                presenter.signIn("facebook", Storage.getFacebookIdToken(getApplicationContext()), Storage.getFacebookAccessToken(getApplicationContext()), String.valueOf(expiresIn));
+                presenter.signIn(this,"facebook", Storage.getFacebookIdToken(getApplicationContext()), Storage.getFacebookAccessToken(getApplicationContext()), String.valueOf(expiresIn));
             }
 
             if (!TextUtils.isEmpty(Storage.getLoginEmail(getApplicationContext())) &&
                     !TextUtils.isEmpty(Storage.getLoginPassword(getApplicationContext()))){
-                presenter.signIn(Storage.getLoginEmail(getApplicationContext()),Storage.getLoginPassword(getApplicationContext()));
+                presenter.signIn(this,Storage.getLoginEmail(getApplicationContext()),Storage.getLoginPassword(getApplicationContext()));
             }
             //initGoogleSignIn();
 
@@ -199,7 +177,7 @@ public class AuthActivity extends AppCompatActivity implements IAuthContract.Vie
     }
 
     public void signIn(String login, String password) {
-        presenter.signIn(login, password);
+        presenter.signIn(this,login, password);
     }
 
     public void signInFacebook() {
@@ -332,10 +310,10 @@ public class AuthActivity extends AppCompatActivity implements IAuthContract.Vie
                         String idToken = account.getIdToken();
                         Long expiresIn  = (new Date()).getTime() + account.getExpirationTimeSecs();
 
-                        presenter.signIn("google", accessToken, accessToken, String.valueOf(expiresIn));
-                        presenter.signIn("google", idToken, idToken, String.valueOf(expiresIn));
-                        presenter.signIn("google", idToken, accessToken, String.valueOf(expiresIn));
-                        presenter.signIn("google", accessToken, accessToken, String.valueOf(expiresIn));
+                        presenter.signIn(AuthActivity.this,"google", accessToken, accessToken, String.valueOf(expiresIn));
+                        presenter.signIn(AuthActivity.this,"google", idToken, idToken, String.valueOf(expiresIn));
+                        presenter.signIn(AuthActivity.this,"google", idToken, accessToken, String.valueOf(expiresIn));
+                        presenter.signIn(AuthActivity.this,"google", accessToken, accessToken, String.valueOf(expiresIn));
 
                         //presenter.getTokenInfo(idToken);
                         //presenter.getTokenInfo(accessToken);
@@ -351,7 +329,6 @@ public class AuthActivity extends AppCompatActivity implements IAuthContract.Vie
             };
             AsyncTask.execute(runnable);
 
-        } else {
         }
     }
 
@@ -417,7 +394,7 @@ public class AuthActivity extends AppCompatActivity implements IAuthContract.Vie
 
                                                 Long expiresIn  = (new Date()).getTime() + task.getResult().getExpirationTimestamp();
 
-                                                presenter.signIn("google", task.getResult().getToken(), task.getResult().getToken(), String.valueOf(expiresIn));
+                                                presenter.signIn(AuthActivity.this,"google", task.getResult().getToken(), task.getResult().getToken(), String.valueOf(expiresIn));
 
                                                 // Send token to your backend via HTTPS
                                                 // ...

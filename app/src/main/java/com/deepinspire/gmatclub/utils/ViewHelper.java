@@ -19,7 +19,6 @@ import android.widget.TextView;
 
 import com.deepinspire.gmatclub.R;
 import com.deepinspire.gmatclub.api.AuthException;
-import com.deepinspire.gmatclub.auth.AuthActivity;
 import com.deepinspire.gmatclub.auth.LoginActivity;
 import com.deepinspire.gmatclub.web.WebActivity;
 
@@ -371,7 +370,7 @@ public class ViewHelper {
             }
         });
     }
-
+/*
     public static void showErrorDialog(final AuthActivity activity) {
         if (activity == null || activity.isFinishing() || activity.isDestroyed())
             return;
@@ -432,7 +431,7 @@ public class ViewHelper {
 
         setLoadingIndicator(true);
     }
-
+*/
     private static void setLoadingIndicator(boolean active, ProgressBar progressBar, ScrollView contentLayout) {
         if (active) {
             progressBar.setVisibility(View.VISIBLE);

@@ -1,8 +1,7 @@
 package com.deepinspire.gmatclub.web;
 
 import android.content.Context;
-import android.util.Log;
-import android.widget.Toast;
+import android.support.annotation.NonNull;
 
 import com.deepinspire.gmatclub.api.Api;
 import com.deepinspire.gmatclub.api.AuthException;
@@ -53,8 +52,8 @@ public class WebPresenter implements IWebContract.Presenter {
 
     public void start() {}
 
-    public void logout() {
-        repository.logout(new IStorage.ICallback() {
+    public void logout(@NonNull Context context) {
+        repository.logout(context,new IStorage.ICallback() {
             @Override
             public void onSuccess(Map<String, Object> cache) {
                 view.logout();
@@ -68,12 +67,12 @@ public class WebPresenter implements IWebContract.Presenter {
         });
     }
 
-    public boolean logged() {
-        return this.repository.logged();
+    public boolean logged(@NonNull Context context) {
+        return this.repository.logged(context);
     }
 
-    public void signIn(String username, String password) {
-        repository.signIn(username, password, new IStorage.ICallbackAuth() {
+    public void signIn(@NonNull Context context,String username, String password) {
+        repository.signIn(username, password,context, new IStorage.ICallbackAuth() {
             @Override
             public void onSuccess() {
                 view.reload();
@@ -86,8 +85,8 @@ public class WebPresenter implements IWebContract.Presenter {
         });
     }
 
-    public void signIn(String provider, String idToken, String accessToken, String expiresIn) {
-        repository.signInSocial(provider, idToken, accessToken, expiresIn, new IStorage.ICallbackAuth() {
+    public void signIn(@NonNull Context context,String provider, String idToken, String accessToken, String expiresIn) {
+        repository.signInSocial(provider, idToken, accessToken, expiresIn,context, new IStorage.ICallbackAuth() {
             @Override
             public void onSuccess() {
                 view.showSuccess("login");
@@ -130,8 +129,8 @@ public class WebPresenter implements IWebContract.Presenter {
         return this.countUnwatchedPMs;
     }
 
-    public void updateNotify() {
-        this.repository.updateNotify(countUnwatchedNotifications, null, new IStorage.ICallbackNotifications() {
+    public void updateNotify(@NonNull Context context) {
+        this.repository.updateNotify(countUnwatchedNotifications, null,context, new IStorage.ICallbackNotifications() {
             @Override
             public void onSuccess(String notifications) {
                 setCountUnwatchedNotifications(0);
@@ -145,8 +144,8 @@ public class WebPresenter implements IWebContract.Presenter {
         });
     }
 
-    public void updateNotify(String params, final String id) {
-        this.repository.updateNotify(countUnwatchedNotifications, params,  new IStorage.ICallbackNotifications() {
+    public void updateNotify(@NonNull Context context,String params, final String id) {
+        this.repository.updateNotify(countUnwatchedNotifications, params, context, new IStorage.ICallbackNotifications() {
             @Override
             public void onSuccess(String notifications) {
                 saveNotifications("{\"group_general\": " + notifications + "}");
@@ -164,9 +163,9 @@ public class WebPresenter implements IWebContract.Presenter {
         this.notifications = notifications;
     }
 
-    public void getNotifications() {
+    public void getNotifications(@NonNull Context context) {
         if(this.notifications == null) {
-            this.repository.getNotifications(null,  new IStorage.ICallbackNotifications() {
+            this.repository.getNotifications(null,context,  new IStorage.ICallbackNotifications() {
                 @Override
                 public void onSuccess(String notifications) {
                     saveNotifications("{\"group_general\": " + notifications + "}");
@@ -182,9 +181,9 @@ public class WebPresenter implements IWebContract.Presenter {
         }
     }
 
-    public void getChatNotifications() {
+    public void getChatNotifications(@NonNull Context context) {
 
-            this.repository.getChatNotifications(null,  new IStorage.ICallbackNotifications() {
+            this.repository.getChatNotifications(null,context,  new IStorage.ICallbackNotifications() {
                 @Override
                 public void onSuccess(String notifications) {
 
@@ -290,8 +289,8 @@ public class WebPresenter implements IWebContract.Presenter {
         }
     }
 
-    public boolean checkAccessNetwork() {
-        return (repository.isOnline() && (getError() != WebPresenter.ERROR_CONNECT));
+    public boolean checkAccessNetwork(@NonNull Context context) {
+        return (repository.isOnline(context) && (getError() != WebPresenter.ERROR_CONNECT));
     }
 
     public void setError(int errorCode) {

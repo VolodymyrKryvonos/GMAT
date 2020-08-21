@@ -471,7 +471,7 @@ public class WebActivity extends AppCompatActivity implements
         super.onResume();
         if (webView == null)
             initWebView();
-        presenter.getChatNotifications();
+        presenter.getChatNotifications(this);
         /*NotificationManager notificationManager =
                 (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
@@ -644,7 +644,7 @@ public class WebActivity extends AppCompatActivity implements
     public void onRefresh() {
         //swipe.setRefreshing(false);
         FirebaseInstanceId.getInstance().getToken();
-        if (presenter.checkAccessNetwork()) {
+        if (presenter.checkAccessNetwork(this)) {
             destroyOfflineAlertDialog();
             if (webView != null)
 
@@ -925,8 +925,10 @@ public class WebActivity extends AppCompatActivity implements
             request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, downloadFileName);
 
         DownloadManager dm = (DownloadManager) getSystemService(DOWNLOAD_SERVICE);
-        dm.enqueue(request);
-        Toast.makeText(getApplicationContext(), "Downloading File", Toast.LENGTH_LONG).show();
+        if (dm != null) {
+            dm.enqueue(request);
+            Toast.makeText(getApplicationContext(), "Downloading File", Toast.LENGTH_LONG).show();
+        }
     }
 
     /*Open file after successful downloading*/
@@ -1186,7 +1188,7 @@ public class WebActivity extends AppCompatActivity implements
             webView.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
         }
 
-        presenter.getNotifications();
+        presenter.getNotifications(this);
         webView.addJavascriptInterface(new GCJavascriptInterface(this), "GCAndroid");
 
         webView.setWebChromeClient(new WebChromeClient() {
@@ -1333,7 +1335,7 @@ public class WebActivity extends AppCompatActivity implements
     private void onPageFinishedAction(String url) {
         if (isFinishing() || isDestroyed())
             return;
-        if (presenter.checkAccessNetwork()) {
+        if (presenter.checkAccessNetwork(this)) {
             /*if (webView.getUrl().equals(OLD_CHAT_LINK))
                 swipe.setEnabled(false);
             else swipe.setEnabled(true);*/
@@ -1357,7 +1359,7 @@ public class WebActivity extends AppCompatActivity implements
 
                 webView.stopLoading();
             } else if (url.contains(Api.HOME_URL)) {
-                presenter.logged();
+                presenter.logged(this);
                 swipe.setRefreshing(false);
                 setLoadingIndicator(false);
             } else if (url.contains(Api.PM_URL)) {
@@ -1372,7 +1374,7 @@ public class WebActivity extends AppCompatActivity implements
     }
 
     private void onPageStartedAction(String url) {
-        if (presenter.checkAccessNetwork()) {
+        if (presenter.checkAccessNetwork(this)) {
             destroyOfflineAlertDialog();
             progressView.setVisibility(View.VISIBLE);
             //getWindow().requestFeature(Window.FEATURE_NO_TITLE);
@@ -1547,7 +1549,7 @@ public class WebActivity extends AppCompatActivity implements
     }
 
     private boolean logged() {
-        return this.presenter.logged();
+        return this.presenter.logged(this);
     }
 
     public void openPageById(String id) {
@@ -1586,7 +1588,7 @@ public class WebActivity extends AppCompatActivity implements
                 startActivity(i);
                 break;
             case "logout":
-                this.presenter.logout();
+                this.presenter.logout(this);
                 break;
             case "register":
                 openPage(Api.FORUM_REGISTER_URL);
@@ -1652,7 +1654,7 @@ public class WebActivity extends AppCompatActivity implements
     }
 
     public void signIn(String username, String password) {
-        this.presenter.signIn(username, password);
+        this.presenter.signIn(this,username, password);
     }
 
     public void signInFacebook() {
@@ -1680,7 +1682,7 @@ public class WebActivity extends AppCompatActivity implements
 
                             callbackManager = null;
 
-                            presenter.signIn("facebook", idToken, accessToken, Long.toString(expiresIn));
+                            presenter.signIn(WebActivity.this,"facebook", idToken, accessToken, Long.toString(expiresIn));
                         } else {
                             AuthException ex = new AuthException(new Exception("Failed sign in facebook"), "signInFacebook");
                             showError(ex);
@@ -1722,7 +1724,7 @@ public class WebActivity extends AppCompatActivity implements
     }
 
     public void showMenu() {
-        if (this.presenter.logged()) {
+        if (this.presenter.logged(this)) {
             nv.findViewById(R.id.menu_forum).setVisibility(View.VISIBLE);
             nv.findViewById(R.id.menu_pms).setVisibility(View.VISIBLE);
             nv.findViewById(R.id.menu_notifications).setVisibility(View.VISIBLE);
@@ -1809,7 +1811,7 @@ public class WebActivity extends AppCompatActivity implements
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
-              //  int notificationsUnwatchedCount = presenter.getCountUnwatchedNotifications();
+                //  int notificationsUnwatchedCount = presenter.getCountUnwatchedNotifications();
                 int pmUnwatchedCount = presenter.getCountUnwatchedPMs();
 
                 /*if (notificationsUnwatchedCount > 0) {
@@ -1881,7 +1883,7 @@ public class WebActivity extends AppCompatActivity implements
 
                         switch (mNotify.getString("action")) {
                             case "pageLoaded":
-                                presenter.getNotifications();
+                                presenter.getNotifications(WebActivity.this);
                                 break;
                             case "renderDone":
                                 runOnUiThread(new Runnable() {
@@ -1891,7 +1893,7 @@ public class WebActivity extends AppCompatActivity implements
                                         setLoadingIndicator(false);
 
                                         if (presenter.getCountUnwatchedNotifications() > 0) {
-                                            presenter.updateNotify();
+                                            presenter.updateNotify(WebActivity.this);
                                         }
                                     }
                                 });
@@ -1900,7 +1902,7 @@ public class WebActivity extends AppCompatActivity implements
                                 String params = (mNotify.isNull("params")) ? null : mNotify.getString("params");
                                 String idNotify = (mNotify.isNull("id")) ? null : mNotify.getString("id");
 
-                                presenter.updateNotify(params, idNotify);
+                                presenter.updateNotify(WebActivity.this,params, idNotify);
                                 break;
                         }
                     } catch (JSONException exception) {
@@ -2552,7 +2554,7 @@ public class WebActivity extends AppCompatActivity implements
     }
 
     private void getReferrerDetails() {
-        ReferrerDetails response = null;
+        ReferrerDetails response;
         try {
             //Data for referrer details
             response = referrerClient.getInstallReferrer();

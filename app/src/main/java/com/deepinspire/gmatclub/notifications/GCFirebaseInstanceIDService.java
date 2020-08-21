@@ -10,6 +10,6 @@ public class GCFirebaseInstanceIDService extends FirebaseMessagingService {
     private static final String TAG = GCFirebaseInstanceIDService.class.getSimpleName();
 
     public void onTokenRefresh() {
-        Injection.getRepository(getApplicationContext()).logged(true);
+        Injection.getRepository(getApplicationContext()).logged(this,true);
     }
 }

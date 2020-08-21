@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.provider.Settings;
 import android.support.annotation.NonNull;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -118,7 +117,7 @@ public class LoginActivity extends AppCompatActivity implements ILoginContract.V
     protected void onStart() {
         super.onStart();
 
-        if (presenter.logged()) {
+        if (presenter.logged(this)) {
             Intent intent = new Intent(this, WebActivity.class);
 
             intent.setData(Uri.parse(Api.FORUM_URL));
@@ -203,9 +202,9 @@ public class LoginActivity extends AppCompatActivity implements ILoginContract.V
     }
 
     public void signIn(String login, String password) {
-        Storage.saveLoginEmail(getApplicationContext(),login);
-        Storage.saveLoginPassword(getApplicationContext(),password);
-        presenter.signIn(login, password);
+        Storage.saveLoginEmail(getApplicationContext(), login);
+        Storage.saveLoginPassword(getApplicationContext(), password);
+        presenter.signIn(this, login, password);
     }
 
     public void signInFacebook() {
@@ -235,7 +234,7 @@ public class LoginActivity extends AppCompatActivity implements ILoginContract.V
 
                             Storage.saveFacebookIdToken(getApplicationContext(), idToken);
                             Storage.saveFacebookAccessToken(getApplicationContext(), accessToken);
-                            presenter.signIn("facebook", idToken, accessToken, Long.toString(expiresIn));
+                            presenter.signIn(LoginActivity.this, "facebook", idToken, accessToken, Long.toString(expiresIn));
                         }
                     }
 
@@ -321,19 +320,17 @@ public class LoginActivity extends AppCompatActivity implements ILoginContract.V
                         String idToken = account.getIdToken();
                         Long expiresIn = (new Date()).getTime() + account.getExpirationTimeSecs();
 
-                        presenter.signIn("google", accessToken, accessToken, String.valueOf(expiresIn));
-                        presenter.signIn("google", idToken, idToken, String.valueOf(expiresIn));
-                        presenter.signIn("google", idToken, accessToken, String.valueOf(expiresIn));
-                        presenter.signIn("google", accessToken, accessToken, String.valueOf(expiresIn));
+                        presenter.signIn(LoginActivity.this, "google", accessToken, accessToken, String.valueOf(expiresIn));
+                        presenter.signIn(LoginActivity.this, "google", idToken, idToken, String.valueOf(expiresIn));
+                        presenter.signIn(LoginActivity.this, "google", idToken, accessToken, String.valueOf(expiresIn));
+                        presenter.signIn(LoginActivity.this, "google", accessToken, accessToken, String.valueOf(expiresIn));
 
                         //presenter.getTokenInfo(idToken);
                         //presenter.getTokenInfo(accessToken);
 
                         Log.d("TOKEN", "accessToken:" + accessToken); //accessToken:ya29.Gl...
 
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    } catch (GoogleAuthException e) {
+                    } catch (IOException | GoogleAuthException e) {
                         e.printStackTrace();
                     }
                 }
@@ -392,11 +389,9 @@ public class LoginActivity extends AppCompatActivity implements ILoginContract.V
                                                             Long expiresIn = (new Date()).getTime() + acct.getExpirationTimeSecs();
                                                             Storage.saveGoogleIdToken(getApplicationContext(), idToken);
                                                             Storage.saveGoogleAccessToken(getApplicationContext(), accessToken);
-                                                            presenter.signInUseGoogleAccount(GOOGLE, idToken, accessToken, String.valueOf(expiresIn));
+                                                            presenter.signInUseGoogleAccount(LoginActivity.this, GOOGLE, idToken, accessToken, String.valueOf(expiresIn));
 
-                                                        } catch (IOException e) {
-                                                            e.printStackTrace();
-                                                        } catch (GoogleAuthException e) {
+                                                        } catch (IOException | GoogleAuthException e) {
                                                             e.printStackTrace();
                                                         }
                                                     }
@@ -451,7 +446,7 @@ public class LoginActivity extends AppCompatActivity implements ILoginContract.V
     }*/
 
     @Override
-    public void onConnectionFailed(ConnectionResult connectionResult) {
+    public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
 
     }
 

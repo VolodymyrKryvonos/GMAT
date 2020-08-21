@@ -13,6 +13,7 @@ import android.util.Log;
 import android.webkit.CookieManager;
 import android.webkit.CookieSyncManager;
 
+import com.deepinspire.gmatclub.Constants;
 import com.deepinspire.gmatclub.GCConfig;
 import com.deepinspire.gmatclub.api.Api;
 import com.deepinspire.gmatclub.api.ApiClient;
@@ -40,8 +41,6 @@ import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Response;
 
-import static com.deepinspire.gmatclub.storage.Repository.RequestParamConstant.LOGIN;
-
 /**
  * Created by dmytro mytsko on 26.03.18.
  */
@@ -51,8 +50,8 @@ public class Repository implements IStorage {
     private static final String APP_PREFERENCES = "settings";
 
     private static Repository INSTANCE = null;
-
-    private Context context = null;
+    private String device;
+    // private Context context = null;
 
     private User user = null;
 
@@ -65,7 +64,14 @@ public class Repository implements IStorage {
     private SharedPreferences sharedPreferences;
 
     private Repository(Context ctx) {
-        context = ctx;
+        device = Build.MODEL + " " + Build.VERSION.RELEASE + " GMAT Club Forum";// + getString(R.string.app_name);
+
+        try {
+            device += "/" + ctx.getPackageManager().getPackageInfo(ctx.getPackageName(), 0).versionName;
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
+
 
         cachedUserLogin = false;
 
@@ -82,7 +88,8 @@ public class Repository implements IStorage {
         return INSTANCE;
     }
 
-    public void signIn(@NonNull final String username, @NonNull final String password, @NonNull final ICallbackAuth callback) {
+    public void signIn(@NonNull final String username, @NonNull final String password,
+                       @NonNull final Context context, @NonNull final ICallbackAuth callback) {
         executorService.submit(new Runnable() {
             @Override
             public void run() {
@@ -121,7 +128,7 @@ public class Repository implements IStorage {
 
                                 callback.onError(exc);
                             } else {
-                                if (logged()) {
+                                if (logged(context)) {
                                     user.clearCountFailedAuth();
                                     callback.onSuccess();
                                 } else {
@@ -166,7 +173,10 @@ public class Repository implements IStorage {
         String message = "Incorrect Login and Password";
 
         try {
-            String body = response.body().string();
+            ResponseBody responseBody = response.body();
+            String body = Constants.EMPTY;
+            if (responseBody != null)
+                body = responseBody.string();
 
             final JSONObject jsonResponse = new JSONObject(body);
 
@@ -239,7 +249,8 @@ public class Repository implements IStorage {
         });
     }
 
-    public void updateNotify(@NonNull final int count, final String params, @NonNull final ICallbackNotifications callback) {
+    public void updateNotify(final int count, final String params,
+                             @NonNull final Context context, @NonNull final ICallbackNotifications callback) {
         executorService.submit(new Runnable() {
             @Override
             public void run() {
@@ -284,9 +295,9 @@ public class Repository implements IStorage {
                                 AuthException ex = new AuthException(new Exception("Failed updating notify"), "updateNotify");
                                 callback.onError(ex);
                             } else {
-                                if (logged()) {
+                                if (logged(context)) {
                                     try {
-                                        callback.onSuccess(response.body().string().toString());
+                                        callback.onSuccess(response.body().string());
                                     } catch (IOException e) {
                                         e.printStackTrace();
                                     } finally {
@@ -314,7 +325,7 @@ public class Repository implements IStorage {
         });
     }
 
-    public void getNotifications(final String params, @NonNull final ICallbackNotifications callback) {
+    public void getNotifications(final String params, @NonNull final Context context, @NonNull final ICallbackNotifications callback) {
         executorService.submit(new Runnable() {
             @Override
             public void run() {
@@ -348,7 +359,7 @@ public class Repository implements IStorage {
                                 AuthException ex = new AuthException(new Exception("Failed updating notify"), "updateNotify");
                                 callback.onError(ex);
                             } else {
-                                if (logged()) {
+                                if (logged(context)) {
                                     try {
                                         callback.onSuccess(response.body().string().toString());
                                     } catch (IOException e) {
@@ -378,7 +389,7 @@ public class Repository implements IStorage {
         });
     }
 
-    public void getChatNotifications(final String params, @NonNull final ICallbackNotifications callback) {
+    public void getChatNotifications(final String params, @NonNull final Context context, @NonNull final ICallbackNotifications callback) {
         executorService.submit(new Runnable() {
             @Override
             public void run() {
@@ -386,8 +397,8 @@ public class Repository implements IStorage {
                     Map<String, String> queryMap = new HashMap<>();
 
 
-                        queryMap.put("action", "unwatched_notifications_count");
-                        queryMap.put("type", "all");
+                    queryMap.put("action", "unwatched_notifications_count");
+                    queryMap.put("type", "all");
 
                     ApiInterface apiService = (new ApiClient()).getClient().create(ApiInterface.class);
 
@@ -400,7 +411,7 @@ public class Repository implements IStorage {
                                 AuthException ex = new AuthException(new Exception("Failed updating notify"), "updateNotify");
                                 callback.onError(ex);
                             } else {
-                                if (logged()) {
+                                if (logged(context)) {
                                     try {
                                         callback.onSuccess(response.body().string().toString());
                                     } catch (IOException e) {
@@ -435,6 +446,7 @@ public class Repository implements IStorage {
             @NonNull final String idToken,
             @NonNull final String accessToken,
             @NonNull final String expiresIn,
+            @NonNull final Context context,
             @NonNull final ICallbackAuth callback) {
         executorService.submit(new Runnable() {
             @Override
@@ -490,11 +502,6 @@ public class Repository implements IStorage {
 
                     String device = Build.MODEL + " " + Build.VERSION.RELEASE + " GMAT Club Forum";// + getString(R.string.app_name);
 
-                    try {
-                        device += "/" + context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionName;
-                    } catch (PackageManager.NameNotFoundException e) {
-                        e.printStackTrace();
-                    }
 
                     headers.put("My-Agent", device);
 
@@ -508,7 +515,7 @@ public class Repository implements IStorage {
                                 AuthException ex = new AuthException(new Exception(response.errorBody().toString()), "login");
                                 callback.onError(ex);
                             } else {
-                                if (logged()) {
+                                if (logged(context)) {
                                     callback.onSuccess();
                                 } else {
                                     //LoginManager.getInstance().logOut();
@@ -552,6 +559,7 @@ public class Repository implements IStorage {
             @NonNull final String idToken,
             @NonNull final String accessToken,
             @NonNull final String expiresIn,
+            @NonNull final Context context,
             @NonNull final ICallbackAuth callback) {
         executorService.submit(new Runnable() {
             @Override
@@ -599,15 +607,6 @@ public class Repository implements IStorage {
 
                     headers.put("Accept", "application/json");
                     headers.put("Accept-Charset", "utf-8");
-
-                    String device = Build.MODEL + " " + Build.VERSION.RELEASE + " GMAT Club Forum";// + getString(R.string.app_name);
-
-                    try {
-                        device += "/" + context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionName;
-                    } catch (PackageManager.NameNotFoundException e) {
-                        e.printStackTrace();
-                    }
-
                     headers.put("My-Agent", device);
 
                     Call<ResponseBody> call = apiService.signInSocial(headers, params, mp);
@@ -620,7 +619,7 @@ public class Repository implements IStorage {
                                 AuthException ex = new AuthException(new Exception(response.errorBody().toString()), "login");
                                 callback.onError(ex);
                             } else {
-                                if (logged()) {
+                                if (logged(context)) {
                                     callback.onSuccess();
                                 } else {
                                     //LoginManager.getInstance().logOut();
@@ -703,7 +702,7 @@ public class Repository implements IStorage {
 
     public void subscribeNotifications(
             @NonNull final String idToken,
-            @NonNull final boolean subscribe,
+            final boolean subscribe,
             @NonNull final ICallbackAuth callback
     ) {
         executorService.submit(new Runnable() {
@@ -764,21 +763,21 @@ public class Repository implements IStorage {
         });
     }
 
-    public boolean logged() {
-        return logged(false);
+    public boolean logged(@NonNull Context context) {
+        return logged(context, false);
     }
 
-    public boolean logged(boolean refreshToken) {
+    public boolean logged(@NonNull Context context, boolean refreshToken) {
         CookieManager webviewCookieManager = CookieManager.getInstance();
 
         String cookiesString = webviewCookieManager.getCookie(Api.HOME_URL);
 
         if (cookiesString != null && !cookiesString.isEmpty()) {
-            SharedPreferences.Editor editor = getSharedPreferences().edit();
+            SharedPreferences.Editor editor = getSharedPreferences(context).edit();
             editor.putString(GCConfig.COOKIES, cookiesString);
             editor.apply();
         } else {
-            cookiesString = getSharedPreferences().getString(GCConfig.COOKIES, "");
+            cookiesString = getSharedPreferences(context).getString(GCConfig.COOKIES, "");
         }
 
         String[] cookieHeaders = cookiesString.split(";");
@@ -815,14 +814,14 @@ public class Repository implements IStorage {
         return user.getLogged();
     }
 
-    @SuppressWarnings("deprecation")
-    public void logout(@NonNull final ICallback callback) {
+
+    public void logout(@NonNull final Context context, @NonNull final ICallback callback) {
         try {
             subscribeNotifications(
                     FirebaseInstanceId.getInstance().getToken(), false, new IStorage.ICallbackAuth() {
                         @Override
                         public void onSuccess() {
-                            clearInformationForUser();
+                            clearInformationForUser(context);
                             callback.onSuccess(cache);
                         }
 
@@ -836,8 +835,8 @@ public class Repository implements IStorage {
         }
     }
 
-    private void clearInformationForUser() {
-        SharedPreferences.Editor editor = getSharedPreferences().edit();
+    private void clearInformationForUser( @NonNull Context context) {
+        SharedPreferences.Editor editor = getSharedPreferences(context).edit();
         editor.remove(GCConfig.COOKIES);
         editor.apply();
 
@@ -865,18 +864,20 @@ public class Repository implements IStorage {
         return user;
     }
 
-    private SharedPreferences getSharedPreferences() {
+    private SharedPreferences getSharedPreferences(Context context) {
         if (sharedPreferences == null) {
             sharedPreferences = context.getSharedPreferences(GCConfig.GMATCLUB, Context.MODE_PRIVATE);
         }
         return sharedPreferences;
     }
 
-    public boolean isOnline() {
+    public boolean isOnline(Context context) {
         ConnectivityManager cm =
                 (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
 
-        NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
+        NetworkInfo activeNetwork = null;
+        if (cm != null)
+            activeNetwork = cm.getActiveNetworkInfo();
 
         return (activeNetwork != null && activeNetwork.isConnectedOrConnecting());
     }

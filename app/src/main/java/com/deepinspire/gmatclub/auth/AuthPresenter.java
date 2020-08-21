@@ -1,6 +1,7 @@
 package com.deepinspire.gmatclub.auth;
 
 import android.content.Context;
+import android.support.annotation.NonNull;
 
 import com.deepinspire.gmatclub.api.Api;
 import com.deepinspire.gmatclub.api.AuthException;
@@ -15,7 +16,7 @@ public class AuthPresenter implements IAuthContract.Presenter {
 
     private IAuthContract.View view;
 
-    private Repository repository = null;
+    private Repository repository;
 
     AuthPresenter(Context ctx, IAuthContract.View view) {
         this.repository = Injection.getRepository(ctx);
@@ -25,12 +26,12 @@ public class AuthPresenter implements IAuthContract.Presenter {
 
     public void start() {}
 
-    public boolean logged() {
-        return this.repository.logged();
+    public boolean logged(@NonNull Context context) {
+        return this.repository.logged(context);
     }
 
-    public void signIn(String username, String password) {
-        repository.signIn(username, password, new IStorage.ICallbackAuth() {
+    public void signIn(@NonNull Context context,String username, String password) {
+        repository.signIn(username, password,context, new IStorage.ICallbackAuth() {
             @Override
             public void onSuccess() {
                 view.openWebSite(Api.FORUM_URL);
@@ -57,8 +58,8 @@ public class AuthPresenter implements IAuthContract.Presenter {
         });
     }
 
-    public void signIn(String provider, String idToken, String accessToken, String expiresIn) {
-        repository.signInSocial(provider, idToken, accessToken, expiresIn, new IStorage.ICallbackAuth() {
+    public void signIn(@NonNull Context context,String provider, String idToken, String accessToken, String expiresIn) {
+        repository.signInSocial(provider, idToken, accessToken, expiresIn,context, new IStorage.ICallbackAuth() {
             @Override
             public void onSuccess() {
                 view.openWebSite(Api.FORUM_URL);
@@ -89,8 +90,8 @@ public class AuthPresenter implements IAuthContract.Presenter {
         });
     }
 
-    public boolean isOnline() {
-       return repository.isOnline();
+    public boolean isOnline(@NonNull Context context) {
+       return repository.isOnline(context);
     }
 
     public boolean availableAuth() {

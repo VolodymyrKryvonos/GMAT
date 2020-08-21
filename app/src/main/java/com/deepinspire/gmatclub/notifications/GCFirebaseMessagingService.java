@@ -1,7 +1,6 @@
 package com.deepinspire.gmatclub.notifications;
 
 import com.deepinspire.gmatclub.storage.Injection;
-import com.deepinspire.gmatclub.utils.Storage;
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
 
@@ -18,10 +17,10 @@ public class GCFirebaseMessagingService extends FirebaseMessagingService {
     public void onMessageReceived(RemoteMessage remoteMessage) {
         //int count = (int) Storage.getBadgeCount(getApplicationContext()) + 1;
         //Storage.saveBadgeCount(getApplicationContext(), count);
-        if (Injection.getRepository(getApplicationContext()).logged() && remoteMessage.getData().size() > 0) {
+        if (Injection.getRepository(getApplicationContext()).logged(this) && remoteMessage.getData().size() > 0) {
             Notifications notifications = new Notifications(getApplicationContext());
             notifications.send(remoteMessage);
-        } else if (Injection.getRepository(getApplicationContext()).logged() && remoteMessage.getNotification() != null) {
+        } else if (Injection.getRepository(getApplicationContext()).logged(this) && remoteMessage.getNotification() != null) {
             Notifications notifications = new Notifications(getApplicationContext());
             notifications.send(remoteMessage);
         }

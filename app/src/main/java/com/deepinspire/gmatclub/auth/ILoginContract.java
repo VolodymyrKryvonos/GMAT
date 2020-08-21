@@ -1,5 +1,8 @@
 package com.deepinspire.gmatclub.auth;
 
+import android.content.Context;
+import android.support.annotation.NonNull;
+
 import com.deepinspire.gmatclub.IBasePresenter;
 import com.deepinspire.gmatclub.IBaseView;
 import com.deepinspire.gmatclub.api.AuthException;
@@ -15,14 +18,14 @@ public interface ILoginContract {
     }
 
     interface Presenter extends IBasePresenter {
-        boolean logged();
-        void signIn(String login, String password);
-        void signIn(String provider, String idToken, String accessToken, String expiresIn);
-        void signInUseGoogleAccount(String provider, String idToken, String accessToken, String expiresIn);
+        boolean logged(@NonNull Context context);
+        void signIn(@NonNull Context context,String login, String password);
+        void signIn(@NonNull Context context,String provider, String idToken, String accessToken, String expiresIn);
+        void signInUseGoogleAccount(@NonNull Context context, String provider, String idToken, String accessToken, String expiresIn);
         void forgotPassword(String email);
         void resetPassword(String email);
         void getTokenInfo(String code);
-        boolean isOnline();
+        boolean isOnline(@NonNull Context context);
         boolean availableAuth();
     }
 }
