@@ -648,7 +648,7 @@ public class WebActivity extends AppCompatActivity implements
             destroyOfflineAlertDialog();
             if (webView != null)
 
-                if (webView.getUrl().contains("https://gmatclub.com/forum/mchat.php"))
+                if (webView.getUrl() != null && webView.getUrl().contains("https://gmatclub.com/forum/mchat.php"))
                     swipe.setEnabled(false);
                 else {
                     swipe.setEnabled(true);
@@ -1654,7 +1654,7 @@ public class WebActivity extends AppCompatActivity implements
     }
 
     public void signIn(String username, String password) {
-        this.presenter.signIn(this,username, password);
+        this.presenter.signIn(this, username, password);
     }
 
     public void signInFacebook() {
@@ -1682,7 +1682,7 @@ public class WebActivity extends AppCompatActivity implements
 
                             callbackManager = null;
 
-                            presenter.signIn(WebActivity.this,"facebook", idToken, accessToken, Long.toString(expiresIn));
+                            presenter.signIn(WebActivity.this, "facebook", idToken, accessToken, Long.toString(expiresIn));
                         } else {
                             AuthException ex = new AuthException(new Exception("Failed sign in facebook"), "signInFacebook");
                             showError(ex);
@@ -1902,7 +1902,7 @@ public class WebActivity extends AppCompatActivity implements
                                 String params = (mNotify.isNull("params")) ? null : mNotify.getString("params");
                                 String idNotify = (mNotify.isNull("id")) ? null : mNotify.getString("id");
 
-                                presenter.updateNotify(WebActivity.this,params, idNotify);
+                                presenter.updateNotify(WebActivity.this, params, idNotify);
                                 break;
                         }
                     } catch (JSONException exception) {
@@ -2463,8 +2463,14 @@ public class WebActivity extends AppCompatActivity implements
 
     @Override
     public void showChatNotificationCount(String count) {
-        Storage.saveBadgeCount(this, Storage.getBadgeCount(this) + Integer.parseInt(count));
-        if (Integer.parseInt(count) > 0) {
+        int cnt;
+        try {
+            cnt = Integer.parseInt(count);
+        } catch (NumberFormatException e) {
+            cnt = 0;
+        }
+        Storage.saveBadgeCount(this, Storage.getBadgeCount(this) + cnt);
+        if (cnt > 0) {
             menuChatCount.setText(count);
             menuChatCount.setVisibility(View.VISIBLE);
         } else {
@@ -2499,6 +2505,8 @@ public class WebActivity extends AppCompatActivity implements
     }
 
     private void destroyOfflineAlertDialog() {
+        if (isDestroyed() || isFinishing())
+            return;
         if (ViewHelper.alertDialog != null && ViewHelper.alertDialog.isShowing()) {
             ViewHelper.alertDialog.dismiss();
             ViewHelper.alertDialog = null;

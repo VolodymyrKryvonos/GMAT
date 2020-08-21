@@ -44,7 +44,6 @@ import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
-import com.google.android.gms.auth.api.signin.GoogleSignInResult;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.Scopes;
 import com.google.android.gms.common.api.ApiException;
@@ -59,7 +58,7 @@ import com.google.firebase.auth.GetTokenResult;
 import com.google.firebase.auth.GoogleAuthProvider;
 
 import java.io.IOException;
-import java.util.Arrays;
+import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -87,8 +86,6 @@ public class LoginActivity extends AppCompatActivity implements ILoginContract.V
 
     private TextView signInInputPasswordForgot;
 
-    private LinearLayout signInButtonFacebookLayout;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -107,7 +104,7 @@ public class LoginActivity extends AppCompatActivity implements ILoginContract.V
         LinearLayout signInButtonLayout = (LinearLayout) findViewById(R.id.signInButtonLayout);
         signInButtonLayout.setOnClickListener(this);
 
-        signInButtonFacebookLayout = (LinearLayout) findViewById(R.id.signInButtonFacebookLayout);
+        LinearLayout signInButtonFacebookLayout = (LinearLayout) findViewById(R.id.signInButtonFacebookLayout);
         signInButtonFacebookLayout.setOnClickListener(this);
 
         setLoadingIndicator(false);
@@ -125,7 +122,7 @@ public class LoginActivity extends AppCompatActivity implements ILoginContract.V
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 
             startActivity(intent);
-        } else {
+        }/* else {
             //initGoogleSignIn();
 
             //mGoogleApiClient.disconnect();
@@ -147,11 +144,11 @@ public class LoginActivity extends AppCompatActivity implements ILoginContract.V
                             // ...
                         }
                     });*/
-        }
+       // }
     }
 
     @OnClick(R.id.btnGoogleLogin)
-    void googleLoginAction(View view) {
+    void googleLoginAction() {
         initGoogleSignIn();
         Intent signInIntent = mGoogleSignInClient.getSignInIntent();
         startActivityForResult(signInIntent, GCConfig.GOOGLE_SIGN_IN);
@@ -167,6 +164,7 @@ public class LoginActivity extends AppCompatActivity implements ILoginContract.V
                 startActivityForResult(signInIntent, GCConfig.GOOGLE_SIGN_IN);
                 break;
             case R.id.layoutSignInFacebook:
+            case R.id.signInButtonFacebookLayout:
                 signInFacebook();
                 break;
             case R.id.layoutSignIn:
@@ -188,15 +186,14 @@ public class LoginActivity extends AppCompatActivity implements ILoginContract.V
             case R.id.signInButtonLayout:
                 startProccessAuth();
                 break;
-            case R.id.signInButtonFacebookLayout:
-                signInFacebook();
-                break;
         }
     }
 
     @Override
     public boolean dispatchTouchEvent(MotionEvent ev) {
-        ((InputMethodManager) this.getSystemService(Context.INPUT_METHOD_SERVICE)).hideSoftInputFromWindow((this.getWindow().getDecorView().getApplicationWindowToken()), 0);
+        InputMethodManager manager = ((InputMethodManager) this.getSystemService(Context.INPUT_METHOD_SERVICE));
+        if (manager != null)
+            manager.hideSoftInputFromWindow((this.getWindow().getDecorView().getApplicationWindowToken()), 0);
 
         return super.dispatchTouchEvent(ev);
     }
@@ -213,43 +210,43 @@ public class LoginActivity extends AppCompatActivity implements ILoginContract.V
         ViewHelper.setLoadingIndicator(true);
 
         callbackManager = CallbackManager.Factory.create();
+        LoginManager manager = LoginManager.getInstance();
+        if (manager != null) {
+            manager.logOut();
 
-        if (LoginManager.getInstance() != null) {
-            LoginManager.getInstance().logOut();
-        }
+            manager.registerCallback(callbackManager,
+                    new FacebookCallback<LoginResult>() {
+                        @Override
+                        public void onSuccess(LoginResult loginResult) {
+                            AccessToken token = AccessToken.getCurrentAccessToken();
 
-        LoginManager.getInstance().registerCallback(callbackManager,
-                new FacebookCallback<LoginResult>() {
-                    @Override
-                    public void onSuccess(LoginResult loginResult) {
-                        AccessToken token = AccessToken.getCurrentAccessToken();
+                            if (token != null) {
+                                String idToken = token.getToken();//token.getUserId();
+                                String accessToken = token.getToken();
 
-                        if (token != null) {
-                            String idToken = token.getToken();//token.getUserId();
-                            String accessToken = token.getToken();
+                                long expiresIn = token.getExpires().getTime();
 
-                            long expiresIn = token.getExpires().getTime();
+                                callbackManager = null;
 
-                            callbackManager = null;
-
-                            Storage.saveFacebookIdToken(getApplicationContext(), idToken);
-                            Storage.saveFacebookAccessToken(getApplicationContext(), accessToken);
-                            presenter.signIn(LoginActivity.this, "facebook", idToken, accessToken, Long.toString(expiresIn));
+                                Storage.saveFacebookIdToken(getApplicationContext(), idToken);
+                                Storage.saveFacebookAccessToken(getApplicationContext(), accessToken);
+                                presenter.signIn(LoginActivity.this, "facebook", idToken, accessToken, Long.toString(expiresIn));
+                            }
                         }
-                    }
 
-                    @Override
-                    public void onCancel() {
-                    }
+                        @Override
+                        public void onCancel() {
+                        }
 
-                    @Override
-                    public void onError(FacebookException exception) {
-                        AuthException ex = new AuthException(new Exception("Failed sign in facebook"), "signInFacebook");
-                        ViewHelper.showError(ex);
-                    }
-                });
+                        @Override
+                        public void onError(FacebookException exception) {
+                            AuthException ex = new AuthException(new Exception("Failed sign in facebook"), "signInFacebook");
+                            ViewHelper.showError(ex);
+                        }
+                    });
 
-        LoginManager.getInstance().logInWithReadPermissions(LoginActivity.this, Arrays.asList("public_profile"));
+            manager.logInWithReadPermissions(LoginActivity.this, Collections.singletonList("public_profile"));
+        }
     }
 
     public void forgotPassword(String email) {
@@ -281,14 +278,11 @@ public class LoginActivity extends AppCompatActivity implements ILoginContract.V
     }
 
     public void showError(AuthException exception) {
-        switch (exception.getAction()) {
-            case "showForgotPassword":
-                setLoadingIndicator(false);
-                ViewHelper.showResetPasswordDialog(LoginActivity.this);
-                break;
-            default: {
-                showErrorUI(exception);
-            }
+        if ("showForgotPassword".equals(exception.getAction())) {
+            setLoadingIndicator(false);
+            ViewHelper.showResetPasswordDialog(LoginActivity.this);
+        } else {
+            showErrorUI(exception);
         }
     }
 
@@ -303,7 +297,7 @@ public class LoginActivity extends AppCompatActivity implements ILoginContract.V
             handleSignInResult(task);
         }
     }
-
+/*
     public void parseToken(Intent data) {
         GoogleSignInResult result = Auth.GoogleSignInApi.getSignInResultFromIntent(data);
 
@@ -337,10 +331,9 @@ public class LoginActivity extends AppCompatActivity implements ILoginContract.V
             };
             AsyncTask.execute(runnable);
 
-        } else {
         }
     }
-
+*/
     private void handleSignInResult(Task<GoogleSignInAccount> completedTask) {
         try {
             GoogleSignInAccount account = completedTask.getResult(ApiException.class);
@@ -357,57 +350,53 @@ public class LoginActivity extends AppCompatActivity implements ILoginContract.V
 
         final AuthCredential credential = GoogleAuthProvider.getCredential(acct.getIdToken(), null);
 
-        final String t = acct.getIdToken();
-
-        if (FirebaseAuth.getInstance() != null) {
-            FirebaseAuth.getInstance().signOut();
-        }
-
+        //final String t = acct.getIdToken();
         mAuth = FirebaseAuth.getInstance();
+        if (mAuth != null) {
+            mAuth.signOut();
 
-        mAuth.signInWithCredential(credential)
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
 
+            mAuth.signInWithCredential(credential)
+                    .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
                             FirebaseUser mUser = mAuth.getCurrentUser();
+                            if (task.isSuccessful() && mUser != null) {
+                                mUser.getIdToken(true)
+                                        .addOnCompleteListener(new OnCompleteListener<GetTokenResult>() {
+                                            public void onComplete(@NonNull Task<GetTokenResult> task) {
+                                                if (task.isSuccessful()) {
+                                                    Runnable runnable = new Runnable() {
+                                                        @Override
+                                                        public void run() {
+                                                            try {
+                                                                String scope = "oauth2:" + Scopes.EMAIL + " " + Scopes.PROFILE;
+                                                                String accessToken = GoogleAuthUtil.getToken(getApplicationContext(), acct.getAccount(), scope, new Bundle());
 
-                            assert mUser != null;
-                            mUser.getIdToken(true)
-                                    .addOnCompleteListener(new OnCompleteListener<GetTokenResult>() {
-                                        public void onComplete(@NonNull Task<GetTokenResult> task) {
-                                            if (task.isSuccessful()) {
-                                                Runnable runnable = new Runnable() {
-                                                    @Override
-                                                    public void run() {
-                                                        try {
-                                                            String scope = "oauth2:" + Scopes.EMAIL + " " + Scopes.PROFILE;
-                                                            String accessToken = GoogleAuthUtil.getToken(getApplicationContext(), acct.getAccount(), scope, new Bundle());
+                                                                String idToken = acct.getIdToken();
+                                                                Long expiresIn = (new Date()).getTime() + acct.getExpirationTimeSecs();
+                                                                Storage.saveGoogleIdToken(getApplicationContext(), idToken);
+                                                                Storage.saveGoogleAccessToken(getApplicationContext(), accessToken);
+                                                                presenter.signInUseGoogleAccount(LoginActivity.this, GOOGLE, idToken, accessToken, String.valueOf(expiresIn));
 
-                                                            String idToken = acct.getIdToken();
-                                                            Long expiresIn = (new Date()).getTime() + acct.getExpirationTimeSecs();
-                                                            Storage.saveGoogleIdToken(getApplicationContext(), idToken);
-                                                            Storage.saveGoogleAccessToken(getApplicationContext(), accessToken);
-                                                            presenter.signInUseGoogleAccount(LoginActivity.this, GOOGLE, idToken, accessToken, String.valueOf(expiresIn));
-
-                                                        } catch (IOException | GoogleAuthException e) {
-                                                            e.printStackTrace();
+                                                            } catch (IOException | GoogleAuthException e) {
+                                                                e.printStackTrace();
+                                                            }
                                                         }
-                                                    }
-                                                };
-                                                AsyncTask.execute(runnable);
+                                                    };
+                                                    AsyncTask.execute(runnable);
 
-                                            } else {
-                                                Log.w(LOGIN_TAG, task.getException());
+                                                } else {
+                                                    Log.w(LOGIN_TAG, task.getException());
+                                                }
                                             }
-                                        }
-                                    });
-                        } else {
-                            Log.w(LOGIN_TAG, task.getException());
+                                        });
+                            } else {
+                                Log.w(LOGIN_TAG, task.getException());
+                            }
                         }
-                    }
-                });
+                    });
+        }
     }
 
     /*public void getTokenInfo() {
@@ -587,7 +576,7 @@ public class LoginActivity extends AppCompatActivity implements ILoginContract.V
                 put("loginpassword", "Incorrect Login and Password");
             }};
 
-            StringBuffer keyMessageError = new StringBuffer("");
+            StringBuilder keyMessageError = new StringBuilder();
 
             if (!validUsername) {
                 keyMessageError.append("login");
