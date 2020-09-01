@@ -6,9 +6,6 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
@@ -20,6 +17,10 @@ import android.widget.ProgressBar;
 import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import com.deepinspire.gmatclub.GCConfig;
 import com.deepinspire.gmatclub.R;
@@ -364,7 +365,7 @@ public class LoginActivity extends AppCompatActivity implements ILoginContract.V
                             if (task.isSuccessful() && mUser != null) {
                                 mUser.getIdToken(true)
                                         .addOnCompleteListener(new OnCompleteListener<GetTokenResult>() {
-                                            public void onComplete(@NonNull Task<GetTokenResult> task) {
+                                            public void onComplete(@NonNull final Task<GetTokenResult> task) {
                                                 if (task.isSuccessful()) {
                                                     Runnable runnable = new Runnable() {
                                                         @Override

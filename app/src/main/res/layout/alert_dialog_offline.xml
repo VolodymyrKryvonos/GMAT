@@ -28,7 +28,8 @@
            <TextView
                android:id="@+id/btnNetworkTitle"
                android:text="@string/alert_dialog_network"
-               android:textAllCaps="true"
+               android:textAllCaps="false"
+               android:gravity="center"
                android:fontFamily="@font/opensans_bold"
                android:layout_marginBottom="15dp"
                android:layout_centerHorizontal="true"
@@ -39,11 +40,15 @@
                android:id="@+id/networkMessage"
                android:layout_below="@id/btnNetworkTitle"
                android:layout_gravity="center"
-               android:gravity="center"
+
+               android:autoLink="web|email"
+               android:textColorLink="@color/Blue"
                android:text="@string/alert_dialog_offline_message"
                android:textColor="#666666"
                android:layout_centerHorizontal="true"
                style="@style/alert_subTitle"
+               android:textSize="15sp"
+               android:textStyle="normal"
                />
 
            <LinearLayout

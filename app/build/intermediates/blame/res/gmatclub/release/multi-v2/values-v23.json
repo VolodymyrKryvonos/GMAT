@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "/home/dmytro/projects/gmatclub/android/app/build/intermediates/incremental/mergeGmatclubReleaseResources/merged.dir/values-v23/values-v23.xml",
+            "outputFile": "D:\\Projects\\gmat\\app\\build\\intermediates\\incremental\\mergeGmatclubReleaseResources\\merged.dir\\values-v23\\values-v23.xml",
             "map": [
                 {
-                    "source": "/root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.2.aar/54077ed55b3b45b360f89508a45948d1/res/values-v23/values-v23.xml",
+                    "source": "D:\\Projects\\.gradle\\caches\\transforms-2\\files-2.1\\83eed02a3d145a560c6e03fd9800f9a7\\appcompat-1.0.0\\res\\values-v23\\values-v23.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,19,32,33,34,35,36",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4",
@@ -15,7 +15,7 @@
                     }
                 },
                 {
-                    "source": "/root/.gradle/caches/transforms-1/files-1.1/cardview-v7-27.0.2.aar/82f887f34f6bb3f529ecac17f68ba916/res/values-v23/values-v23.xml",
+                    "source": "D:\\Projects\\.gradle\\caches\\transforms-2\\files-2.1\\59a2124931a266f2c6678f3713b43386\\cardview-1.0.0\\res\\values-v23\\values-v23.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

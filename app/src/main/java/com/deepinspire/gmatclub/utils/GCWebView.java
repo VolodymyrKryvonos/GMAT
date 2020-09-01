@@ -58,15 +58,15 @@ public class GCWebView extends WebView {
             } else {
                 if (url.contains("?")) {
                     if (url.contains("#")) {
-                        String urlParts[] = url.split("#", 2);
-                        url = urlParts[0] + "&" + mobileStyleParameter + "#" + urlParts[1];
+                        String[] urlParts = url.split("#", 2);
+                        url = urlParts[0] + "&" + mobileStyleParameter +(urlParts.length>1? "#" + urlParts[1]:"");
                     } else {
                         url = url + "&" + mobileStyleParameter;
                     }
                 } else {
                     if (url.contains("#")) {
-                        String urlParts[] = url.split("#", 2);
-                        url = urlParts[0] + "?" + mobileStyleParameter + "#" + urlParts[1];
+                        String[] urlParts = url.split("#", 2);
+                        url = urlParts[0] + "?" + mobileStyleParameter +(urlParts.length>1? "#" + urlParts[1]:"");
                     } else {
                         url = url + "?" + mobileStyleParameter;
                     }

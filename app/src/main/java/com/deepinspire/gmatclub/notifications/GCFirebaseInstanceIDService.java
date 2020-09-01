@@ -12,4 +12,8 @@ public class GCFirebaseInstanceIDService extends FirebaseMessagingService {
     public void onTokenRefresh() {
         Injection.getRepository(getApplicationContext()).logged(this,true);
     }
+    public void onNewToken(String s) {
+      //  super.onNewToken(s);
+        onTokenRefresh();
+    }
 }

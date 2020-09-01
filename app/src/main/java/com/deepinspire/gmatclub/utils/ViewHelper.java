@@ -5,7 +5,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.support.v4.content.ContextCompat;
+import android.text.method.ScrollingMovementMethod;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.WindowManager;
@@ -15,7 +15,10 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.ScrollView;
+import android.widget.Scroller;
 import android.widget.TextView;
+
+import androidx.core.content.ContextCompat;
 
 import com.deepinspire.gmatclub.R;
 import com.deepinspire.gmatclub.api.AuthException;
@@ -43,20 +46,12 @@ public class ViewHelper {
         alertDialog.setCancelable(true);
         alertDialog.setCanceledOnTouchOutside(true);
 
-        alertDialog.setOnCancelListener(new DialogInterface.OnCancelListener() {
-            @Override
-            public void onCancel(DialogInterface dialogInterface) {
-                dialogInterface.dismiss();
-            }
-        });
+        alertDialog.setOnCancelListener(DialogInterface::dismiss);
 
-        alertDialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
-            @Override
-            public void onDismiss(DialogInterface dialog) {
-                InputMethodManager manager = ((InputMethodManager) activity.getSystemService(Context.INPUT_METHOD_SERVICE));
-                if (manager != null)
-                    manager.hideSoftInputFromWindow((activity.getWindow().getDecorView().getApplicationWindowToken()), 0);
-            }
+        alertDialog.setOnDismissListener(dialog -> {
+            InputMethodManager manager = ((InputMethodManager) activity.getSystemService(Context.INPUT_METHOD_SERVICE));
+            if (manager != null)
+                manager.hideSoftInputFromWindow((activity.getWindow().getDecorView().getApplicationWindowToken()), 0);
         });
 
         final ProgressBar progressbar = dialogLayout.findViewById(R.id.loading);
@@ -64,44 +59,41 @@ public class ViewHelper {
 
         TextView signInButton = dialogLayout.findViewById(R.id.submitButton);
 
-        signInButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                TextView errorMessage = dialogLayout.findViewById(R.id.message);
+        signInButton.setOnClickListener(v -> {
+            TextView errorMessage = dialogLayout.findViewById(R.id.message);
 
-                EditText forgotPasswordInputEmail = dialogLayout.findViewById(R.id.forgotPasswordInputEmail);
+            EditText forgotPasswordInputEmail = dialogLayout.findViewById(R.id.forgotPasswordInputEmail);
 
-                //forgotPasswordInputEmail.addTextChangedListener(new FieldWatcher(forgotPasswordInputEmail, activity, dialogLayout));
+            //forgotPasswordInputEmail.addTextChangedListener(new FieldWatcher(forgotPasswordInputEmail, activity, dialogLayout));
 
-                String email = forgotPasswordInputEmail.getText().toString();
+            String email = forgotPasswordInputEmail.getText().toString();
 
-                boolean validEmail = Validator.validEmail(email);
+            boolean validEmail = Validator.validEmail(email);
 
-                if (validEmail) {
-                    errorMessage.setVisibility(View.GONE);
+            if (validEmail) {
+                errorMessage.setVisibility(View.GONE);
 
-                    forgotPasswordInputEmail.setBackgroundResource(R.drawable.border_bottom_1dp);
+                forgotPasswordInputEmail.setBackgroundResource(R.drawable.border_bottom_1dp);
 
-                    alertDialog.setCancelable(false);
-                    alertDialog.setCanceledOnTouchOutside(false);
+                alertDialog.setCancelable(false);
+                alertDialog.setCanceledOnTouchOutside(false);
 
-                    setLoadingIndicator(true, progressbar, signInLayout);
+                setLoadingIndicator(true, progressbar, signInLayout);
 
-                    if (activity instanceof WebActivity) {
-                        ((WebActivity) activity).forgotPassword(email);
-                    } else {
-                        ((LoginActivity) activity).forgotPassword(email);
-                    }
-
-                    setLoadingIndicator(true, progressbar, signInLayout);
+                if (activity instanceof WebActivity) {
+                    ((WebActivity) activity).forgotPassword(email);
                 } else {
-                    errorMessage.setVisibility(View.VISIBLE);
+                    ((LoginActivity) activity).forgotPassword(email);
+                }
 
-                    forgotPasswordInputEmail.setBackgroundResource(R.drawable.border_bottom_1dp_error);
+                setLoadingIndicator(true, progressbar, signInLayout);
+            } else {
+                errorMessage.setVisibility(View.VISIBLE);
 
-                    if (forgotPasswordInputEmail.requestFocus()) {
-                        activity.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
-                    }
+                forgotPasswordInputEmail.setBackgroundResource(R.drawable.border_bottom_1dp_error);
+
+                if (forgotPasswordInputEmail.requestFocus()) {
+                    activity.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
                 }
             }
         });
@@ -126,41 +118,27 @@ public class ViewHelper {
         alertDialog.setCancelable(true);
         alertDialog.setCanceledOnTouchOutside(false);
 
-        alertDialog.setOnCancelListener(new DialogInterface.OnCancelListener() {
-            @Override
-            public void onCancel(DialogInterface dialogInterface) {
-                dialogInterface.dismiss();
-            }
-        });
+        alertDialog.setOnCancelListener(DialogInterface::dismiss);
 
-        alertDialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
-            @Override
-            public void onDismiss(DialogInterface dialog) {
-                InputMethodManager manager = ((InputMethodManager) activity.getSystemService(Context.INPUT_METHOD_SERVICE));
-                if (manager != null)
-                    manager.hideSoftInputFromWindow((activity.getWindow().getDecorView().getApplicationWindowToken()), 0);
-            }
+        alertDialog.setOnDismissListener(dialog -> {
+            InputMethodManager manager = ((InputMethodManager) activity.getSystemService(Context.INPUT_METHOD_SERVICE));
+            if (manager != null)
+                manager.hideSoftInputFromWindow((activity.getWindow().getDecorView().getApplicationWindowToken()), 0);
         });
 
         final ProgressBar progressbar = dialogLayout.findViewById(R.id.loading);
         final ScrollView signInLayout = dialogLayout.findViewById(R.id.signInLayout);
 
         LinearLayout btnResetLayout = dialogLayout.findViewById(R.id.btnResetLayout);
-        btnResetLayout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                setLoadingIndicator(true, progressbar, signInLayout);
-                ((LoginActivity) activity).resetPassword(((EditText) dialogLayout.findViewById(R.id.resetPasswordInputEmail)).getText().toString());
-            }
+        btnResetLayout.setOnClickListener(v -> {
+            setLoadingIndicator(true, progressbar, signInLayout);
+            ((LoginActivity) activity).resetPassword(((EditText) dialogLayout.findViewById(R.id.resetPasswordInputEmail)).getText().toString());
         });
 
         LinearLayout btnNotNowLayout = dialogLayout.findViewById(R.id.btnNotNowLayout);
-        btnNotNowLayout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (alertDialog != null && alertDialog.isShowing())
-                    alertDialog.dismiss();
-            }
+        btnNotNowLayout.setOnClickListener(v -> {
+            if (alertDialog != null && alertDialog.isShowing())
+                alertDialog.dismiss();
         });
 
         setLoadingIndicator(false, progressbar, signInLayout);
@@ -181,19 +159,9 @@ public class ViewHelper {
 
         alertDialog.show();
 
-        alertDialog.setOnCancelListener(new DialogInterface.OnCancelListener() {
-            @Override
-            public void onCancel(DialogInterface dialogInterface) {
-                dialogInterface.dismiss();
-            }
-        });
+        alertDialog.setOnCancelListener(DialogInterface::dismiss);
 
-        alertDialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
-            @Override
-            public void onDismiss(DialogInterface dialog) {
-                activity.changeProfileIconColor(R.color.mainOrange);
-            }
-        });
+        alertDialog.setOnDismissListener(dialog -> activity.changeProfileIconColor(R.color.mainOrange));
 
         TextView btnProfile = dialogLayout.findViewById(R.id.btnProfile);
         TextView btnMyPosts = dialogLayout.findViewById(R.id.btnMyPosts);
@@ -203,61 +171,40 @@ public class ViewHelper {
         LinearLayout btnSettingsNotifications = dialogLayout.findViewById(R.id.btnSettingsNotificationsLayout);
         LinearLayout btnLogout = dialogLayout.findViewById(R.id.btnLogoutLayout);
 
-        btnProfile.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                activity.openPageById("profile");
-                alertDialog.hide();
-            }
+        btnProfile.setOnClickListener(v -> {
+            activity.openPageById("profile");
+            alertDialog.hide();
         });
 
-        btnMyPosts.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                activity.openPageById("myPosts");
-                alertDialog.hide();
-            }
+        btnMyPosts.setOnClickListener(v -> {
+            activity.openPageById("myPosts");
+            alertDialog.hide();
         });
 
-        btnMyBookmarks.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                activity.openPageById("myBookmarks");
-                alertDialog.hide();
-            }
+        btnMyBookmarks.setOnClickListener(v -> {
+            activity.openPageById("myBookmarks");
+            alertDialog.hide();
         });
 
-        btnMyErrorLog.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                activity.openPageById("myErrorLog");
-                alertDialog.hide();
-            }
+        btnMyErrorLog.setOnClickListener(v -> {
+            activity.openPageById("myErrorLog");
+            alertDialog.hide();
         });
 
-        btnSettings.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                activity.openPageById("settings");
-                alertDialog.hide();
-            }
+        btnSettings.setOnClickListener(v -> {
+            activity.openPageById("settings");
+            alertDialog.hide();
         });
 
 
-        btnSettingsNotifications.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                activity.openPageById("settingsNotifications");
-                alertDialog.hide();
-            }
+        btnSettingsNotifications.setOnClickListener(v -> {
+            activity.openPageById("settingsNotifications");
+            alertDialog.hide();
         });
 
-        btnLogout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                activity.openPageById("logout");
-                alertDialog.hide();
-            }
+        btnLogout.setOnClickListener(v -> {
+            activity.openPageById("logout");
+            alertDialog.hide();
         });
     }
 
@@ -273,58 +220,34 @@ public class ViewHelper {
         alertDialog = builder.create();
         alertDialog.show();
 
-        alertDialog.setOnCancelListener(new DialogInterface.OnCancelListener() {
-            @Override
-            public void onCancel(DialogInterface dialogInterface) {
-                dialogInterface.dismiss();
-            }
-        });
+        alertDialog.setOnCancelListener(DialogInterface::dismiss);
 
-        alertDialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
-            @Override
-            public void onDismiss(DialogInterface dialog) {
-                activity.changeProfileIconColor(R.color.mainOrange);
-            }
-        });
+        alertDialog.setOnDismissListener(dialog -> activity.changeProfileIconColor(R.color.mainOrange));
 
         TextView btnRegister = dialogLayout.findViewById(R.id.btnRegister);
         TextView btnSignIn = dialogLayout.findViewById(R.id.btnSignIn);
         LinearLayout btnSignInGoogle = dialogLayout.findViewById(R.id.btnSignInGoogleLayout);
         LinearLayout btnSignInFacebook = dialogLayout.findViewById(R.id.btnSignInGoogleFacebookLayout);
 
-        btnRegister.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                activity.openPageById("register");
-                if (alertDialog != null && alertDialog.isShowing())
-                    alertDialog.dismiss();
-            }
+        btnRegister.setOnClickListener(v -> {
+            activity.openPageById("register");
+            if (alertDialog != null && alertDialog.isShowing())
+                alertDialog.dismiss();
         });
 
-        btnSignIn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (alertDialog != null && alertDialog.isShowing())
-                    alertDialog.dismiss();
-                alertDialog = null;
-                activity.openPageById("signIn");
-            }
+        btnSignIn.setOnClickListener(v -> {
+            if (alertDialog != null && alertDialog.isShowing())
+                alertDialog.dismiss();
+            alertDialog = null;
+            activity.openPageById("signIn");
         });
 
-        btnSignInGoogle.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                activity.openPageById("signInGoogle");
-                //alertDialog.hide();
-            }
+        btnSignInGoogle.setOnClickListener(v -> {
+            activity.openPageById("signInGoogle");
+            //alertDialog.hide();
         });
 
-        btnSignInFacebook.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                activity.openPageById("signInFacebook");
-            }
-        });
+        btnSignInFacebook.setOnClickListener(v -> activity.openPageById("signInFacebook"));
     }
 
     public static void showLeaveAppDialog(final WebActivity activity) {
@@ -342,96 +265,86 @@ public class ViewHelper {
         alertDialog.setCanceledOnTouchOutside(true);
         alertDialog.show();
 
-        alertDialog.setOnCancelListener(new DialogInterface.OnCancelListener() {
-            @Override
-            public void onCancel(DialogInterface dialogInterface) {
-                dialogInterface.dismiss();
-            }
-        });
+        alertDialog.setOnCancelListener(DialogInterface::dismiss);
 
         Button leaveButton = dialogLayout.findViewById(R.id.leaveButton);
         Button cancelButton = dialogLayout.findViewById(R.id.cancelButton);
 
-        leaveButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        leaveButton.setOnClickListener(v -> {
+            alertDialog.dismiss();
+            activity.goPreviousActivity();
+            //activity.onBackPressed();
+            //alertDialog.hide();
+        });
+
+        cancelButton.setOnClickListener(v -> {
+            if (alertDialog.isShowing())
                 alertDialog.dismiss();
-                activity.goPreviousActivity();
-                //activity.onBackPressed();
-                //alertDialog.hide();
-            }
-        });
-
-        cancelButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (alertDialog.isShowing())
-                    alertDialog.dismiss();
-            }
-        });
-    }
-/*
-    public static void showErrorDialog(final AuthActivity activity) {
-        if (activity == null || activity.isFinishing() || activity.isDestroyed())
-            return;
-        LayoutInflater inflaterAlertDialog = LayoutInflater.from(activity);
-        @SuppressLint("InflateParams") final View dialogLayout = inflaterAlertDialog.inflate(R.layout.alert_dialog_error, null);
-
-        //((TextView)dialogLayout.findViewById(R.id.alert_dialog_title)).setText(title);
-        //((TextView)dialogLayout.findViewById(R.id.alert_dialog_message)).setText(message);
-
-
-        AlertDialog.Builder builder = new AlertDialog.Builder(activity);
-        builder.setView(dialogLayout);
-
-        final AlertDialog alertDialog = builder.create();
-        //alertDialog.setCancelable(false);
-        //alertDialog.setCanceledOnTouchOutside(false);
-        alertDialog.show();
-
-        alertDialog.setOnCancelListener(new DialogInterface.OnCancelListener() {
-            @Override
-            public void onCancel(DialogInterface dialogInterface) {
-                dialogInterface.dismiss();
-            }
-        });
-
-        Button buttonAlertDialogConfirm = dialogLayout.findViewById(R.id.btnOk);
-
-        buttonAlertDialogConfirm.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                alertDialog.hide();
-            }
         });
     }
 
-    public static void showFacebookSignInDialog(final LoginActivity activity) {
-        if (activity == null || activity.isFinishing() || activity.isDestroyed())
-            return;
-        LayoutInflater inflaterAlertDialog = LayoutInflater.from(activity);
-        @SuppressLint("InflateParams") View dialogLayout = inflaterAlertDialog.inflate(R.layout.alert_dialog_profile_anon, null);
+    /*
+        public static void showErrorDialog(final AuthActivity activity) {
+            if (activity == null || activity.isFinishing() || activity.isDestroyed())
+                return;
+            LayoutInflater inflaterAlertDialog = LayoutInflater.from(activity);
+            @SuppressLint("InflateParams") final View dialogLayout = inflaterAlertDialog.inflate(R.layout.alert_dialog_error, null);
 
-        AlertDialog.Builder builder = new AlertDialog.Builder(activity);
-        builder.setView(dialogLayout);
+            //((TextView)dialogLayout.findViewById(R.id.alert_dialog_title)).setText(title);
+            //((TextView)dialogLayout.findViewById(R.id.alert_dialog_message)).setText(message);
 
-        alertDialog = builder.create();
 
-        alertDialog.setCancelable(false);
-        alertDialog.setCanceledOnTouchOutside(false);
+            AlertDialog.Builder builder = new AlertDialog.Builder(activity);
+            builder.setView(dialogLayout);
 
-        alertDialog.show();
+            final AlertDialog alertDialog = builder.create();
+            //alertDialog.setCancelable(false);
+            //alertDialog.setCanceledOnTouchOutside(false);
+            alertDialog.show();
 
-        alertDialog.setOnCancelListener(new DialogInterface.OnCancelListener() {
-            @Override
-            public void onCancel(DialogInterface dialogInterface) {
-                dialogInterface.dismiss();
-            }
-        });
+            alertDialog.setOnCancelListener(new DialogInterface.OnCancelListener() {
+                @Override
+                public void onCancel(DialogInterface dialogInterface) {
+                    dialogInterface.dismiss();
+                }
+            });
 
-        setLoadingIndicator(true);
-    }
-*/
+            Button buttonAlertDialogConfirm = dialogLayout.findViewById(R.id.btnOk);
+
+            buttonAlertDialogConfirm.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    alertDialog.hide();
+                }
+            });
+        }
+
+        public static void showFacebookSignInDialog(final LoginActivity activity) {
+            if (activity == null || activity.isFinishing() || activity.isDestroyed())
+                return;
+            LayoutInflater inflaterAlertDialog = LayoutInflater.from(activity);
+            @SuppressLint("InflateParams") View dialogLayout = inflaterAlertDialog.inflate(R.layout.alert_dialog_profile_anon, null);
+
+            AlertDialog.Builder builder = new AlertDialog.Builder(activity);
+            builder.setView(dialogLayout);
+
+            alertDialog = builder.create();
+
+            alertDialog.setCancelable(false);
+            alertDialog.setCanceledOnTouchOutside(false);
+
+            alertDialog.show();
+
+            alertDialog.setOnCancelListener(new DialogInterface.OnCancelListener() {
+                @Override
+                public void onCancel(DialogInterface dialogInterface) {
+                    dialogInterface.dismiss();
+                }
+            });
+
+            setLoadingIndicator(true);
+        }
+    */
     private static void setLoadingIndicator(boolean active, ProgressBar progressBar, ScrollView contentLayout) {
         if (active) {
             progressBar.setVisibility(View.VISIBLE);
@@ -600,35 +513,19 @@ public class ViewHelper {
 
         alertDialog.setCancelable(false);
 
-        alertDialog.setOnCancelListener(new DialogInterface.OnCancelListener() {
-            @Override
-            public void onCancel(DialogInterface dialogInterface) {
-                dialogInterface.dismiss();
-            }
-        });
+        alertDialog.setOnCancelListener(DialogInterface::dismiss);
 
-        alertDialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
-            @Override
-            public void onDismiss(DialogInterface dialog) {
-                dialog.dismiss();
-            }
-        });
+        alertDialog.setOnDismissListener(DialogInterface::dismiss);
+        TextView tvMessage = dialogLayout.findViewById(R.id.networkMessage);
+        tvMessage.setScroller(new Scroller(activity));
+        tvMessage.setVerticalScrollBarEnabled(true);
+        tvMessage.setMovementMethod(new ScrollingMovementMethod());
 
         TextView btnNetworkTryAgain = dialogLayout.findViewById(R.id.btnNetworkTryAgain);
         TextView btnNetworkSettings = dialogLayout.findViewById(R.id.btnNetworkSettings);
 
-        btnNetworkTryAgain.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                activity.tryAgain();
-            }
-        });
+        btnNetworkTryAgain.setOnClickListener(v -> activity.tryAgain());
 
-        btnNetworkSettings.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                activity.openDeviceSettings();
-            }
-        });
+        btnNetworkSettings.setOnClickListener(v -> activity.openDeviceSettings());
     }
 }

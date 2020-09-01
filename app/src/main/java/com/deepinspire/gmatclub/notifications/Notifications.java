@@ -12,12 +12,12 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.service.notification.StatusBarNotification;
-import android.support.v4.app.NotificationCompat;
+
+import androidx.core.app.NotificationCompat;
 
 import com.deepinspire.gmatclub.R;
 import com.deepinspire.gmatclub.splash.SplashActivity;
 import com.deepinspire.gmatclub.utils.Storage;
-import com.deepinspire.gmatclub.web.WebActivity;
 import com.google.firebase.messaging.RemoteMessage;
 
 import java.util.Map;

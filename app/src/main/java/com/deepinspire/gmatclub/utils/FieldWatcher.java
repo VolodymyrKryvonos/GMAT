@@ -1,12 +1,13 @@
 package com.deepinspire.gmatclub.utils;
 
 import android.app.Activity;
-import android.support.v4.content.ContextCompat;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+
+import androidx.core.content.ContextCompat;
 
 import com.deepinspire.gmatclub.R;
 

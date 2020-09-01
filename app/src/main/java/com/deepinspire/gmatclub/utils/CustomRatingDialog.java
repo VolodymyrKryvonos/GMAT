@@ -8,13 +8,14 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Build;
-import android.support.annotation.StringRes;
-import android.support.v7.app.AlertDialog;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.Gravity;
 import android.widget.LinearLayout;
 import android.widget.RatingBar;
+
+import androidx.annotation.StringRes;
+import androidx.appcompat.app.AlertDialog;
 
 import com.deepinspire.gmatclub.R;
 

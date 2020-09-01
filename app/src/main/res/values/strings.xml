@@ -53,9 +53,9 @@
     <string name="default_notification_channel_id">gcNotifications</string>
 
     <string name="alert_dialog_offline_try_again">Try again</string>
-    <string name="alert_dialog_offline_message">You are currently offline</string>
+    <string name="alert_dialog_offline_message">Try opening https://gmatclub.com/forum in your Phone’s browser.\nIf you are not able to connect, please email us your IP address to support@gmatclub.com and we will help with resolving it ASAP.\nYou can also try switching to a different WIFI network or use Cellular – this often resolves connectivity issues.</string>
     <string name="alert_dialog_settings">Settings</string>
-    <string name="alert_dialog_network">Network</string>
+    <string name="alert_dialog_network">Sorry! We seem to be having issues with your connection.</string>
 
 
 

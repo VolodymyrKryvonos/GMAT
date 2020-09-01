@@ -6,7 +6,8 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Rect;
 import android.graphics.Typeface;
-import android.support.v7.graphics.drawable.DrawerArrowDrawable;
+
+import androidx.appcompat.graphics.drawable.DrawerArrowDrawable;
 
 import java.util.Objects;
 

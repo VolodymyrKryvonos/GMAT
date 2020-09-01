@@ -3,15 +3,13 @@ package com.deepinspire.gmatclub.splash;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.deepinspire.gmatclub.R;
-import com.deepinspire.gmatclub.api.Api;
 import com.deepinspire.gmatclub.auth.AuthActivity;
-import com.deepinspire.gmatclub.storage.Injection;
-import com.deepinspire.gmatclub.storage.Repository;
 import com.deepinspire.gmatclub.web.WebActivity;
 
 import static com.deepinspire.gmatclub.notifications.Notifications.INPUT_URL;

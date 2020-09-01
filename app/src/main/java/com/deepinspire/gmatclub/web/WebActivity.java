@@ -27,18 +27,6 @@ import android.os.RemoteException;
 import android.os.StatFs;
 import android.provider.MediaStore;
 import android.provider.Settings;
-import android.support.annotation.NonNull;
-import android.support.design.widget.NavigationView;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
-import android.support.v4.graphics.drawable.DrawableCompat;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.SearchView;
-import android.support.v7.widget.Toolbar;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.util.TypedValue;
@@ -50,7 +38,6 @@ import android.view.ViewTreeObserver;
 import android.view.inputmethod.InputMethodManager;
 import android.webkit.ConsoleMessage;
 import android.webkit.CookieManager;
-import android.webkit.DownloadListener;
 import android.webkit.HttpAuthHandler;
 import android.webkit.JavascriptInterface;
 import android.webkit.MimeTypeMap;
@@ -68,6 +55,18 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+import androidx.core.graphics.drawable.DrawableCompat;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.android.installreferrer.api.InstallReferrerClient;
 import com.android.installreferrer.api.InstallReferrerStateListener;
@@ -94,6 +93,7 @@ import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
 import com.github.clans.fab.FloatingActionButton;
 import com.github.clans.fab.FloatingActionMenu;
+import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.iid.FirebaseInstanceId;
 
 import org.json.JSONException;
@@ -109,7 +109,6 @@ import java.util.Objects;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-import static butterknife.internal.Utils.arrayOf;
 import static com.deepinspire.gmatclub.api.Api.CHAT_URL;
 import static com.deepinspire.gmatclub.notifications.Notifications.INPUT_URL;
 
@@ -646,14 +645,20 @@ public class WebActivity extends AppCompatActivity implements
         FirebaseInstanceId.getInstance().getToken();
         if (presenter.checkAccessNetwork(this)) {
             destroyOfflineAlertDialog();
-            if (webView != null)
-
-                if (webView.getUrl() != null && webView.getUrl().contains("https://gmatclub.com/forum/mchat.php"))
-                    swipe.setEnabled(false);
-                else {
-                    swipe.setEnabled(true);
-                    webView.loadUrl(webView.getUrl(), getRequestExtraHeaders());
+            if (webView != null) {
+                String url = webView.getUrl();
+                if (url != null) {
+                    if (url.contains("https://gmatclub.com/forum/mchat.php"))
+                        swipe.setEnabled(false);
+                    else {
+                        swipe.setEnabled(true);
+                        webView.loadUrl(webView.getUrl(), getRequestExtraHeaders());
+                    }
+                } else {
+                    Intent intent = getIntent();
+                    onNewIntent(intent);
                 }
+            }
 
         } else {
             ViewHelper.showOfflineDialog(WebActivity.this);
@@ -754,7 +759,7 @@ public class WebActivity extends AppCompatActivity implements
     }
 
     @Override
-    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+    protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
         if (webView != null) {
             webView.restoreState(savedInstanceState);
@@ -857,23 +862,20 @@ public class WebActivity extends AppCompatActivity implements
 
     private void downloadFileAction() {
 
-        webView.setDownloadListener(new DownloadListener() {
-            @Override
-            public void onDownloadStart(String url, String userAgent, String contentDisposition, String mimeType, long contentLength) {
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                    if (checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
-                        //Do this, if permission granted
-                        downloadFile(url, userAgent, contentDisposition, mimeType);
-                        registerReceiver(onComplete, new IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE));
+        webView.setDownloadListener((url, userAgent, contentDisposition, mimeType, contentLength) -> {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                if (checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
+                    //Do this, if permission granted
+                    downloadFile(url, userAgent, contentDisposition, mimeType);
+                    registerReceiver(onComplete, new IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE));
 
-                    } else {
-                        //Do this, if there is no permission
-                        ActivityCompat.requestPermissions(WebActivity.this,
-                                arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE),
-                                REQUEST_CODE_FOR_DOWNLOAD
-                        );
+                } else {
+                    //Do this, if there is no permission
+                    ActivityCompat.requestPermissions(WebActivity.this,
+                            new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
+                            REQUEST_CODE_FOR_DOWNLOAD
+                    );
 
-                    }
                 }
             }
         });
@@ -886,39 +888,41 @@ public class WebActivity extends AppCompatActivity implements
         String[] fileNameList = contentDisposition.split("UTF-8''");
         DownloadManager.Request request = new DownloadManager.Request(Uri.parse(url));
         request.allowScanningByMediaScanner();
-        String mimeTypeMap = MimeTypeMap.getSingleton().getMimeTypeFromExtension(MimeTypeMap.getFileExtensionFromUrl(fileNameList[1]));
-        if (mimeTypeMap != null)
-            request.setMimeType(mimeTypeMap);
-        else {
-            if (fileNameList[1].contains(".xls"))
-                request.setMimeType("application/vnd.ms-excel");
-            else if (fileNameList[1].contains(".xlsm"))
-                request.setMimeType("application/vnd.ms-excel.sheet.macroEnabled.12");
-            else if (fileNameList[1].contains(".pptx"))
-                request.setMimeType("application/vnd.openxmlformats-officedocument.presentationml.presentation");
-            else if (fileNameList[1].contains(".xlsx"))
-                request.setMimeType("application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
-            else if (fileNameList[1].contains(".zip"))
-                request.setMimeType("application/zip");
-            else if (fileNameList[1].contains(".rar"))
-                request.setMimeType("application/x-rar-compressed");
-            else if (fileNameList[1].contains(".vsd"))
-                request.setMimeType("application/vnd.visio");
-            else if (fileNameList[1].contains(".exe"))
-                request.setMimeType("application/octet-stream");
+        if(fileNameList.length>1) {
+            String mimeTypeMap = MimeTypeMap.getSingleton().getMimeTypeFromExtension(MimeTypeMap.getFileExtensionFromUrl(fileNameList[1]));
+            if (mimeTypeMap != null)
+                request.setMimeType(mimeTypeMap);
+            else {
+                if (fileNameList[1].contains(".xls"))
+                    request.setMimeType("application/vnd.ms-excel");
+                else if (fileNameList[1].contains(".xlsm"))
+                    request.setMimeType("application/vnd.ms-excel.sheet.macroEnabled.12");
+                else if (fileNameList[1].contains(".pptx"))
+                    request.setMimeType("application/vnd.openxmlformats-officedocument.presentationml.presentation");
+                else if (fileNameList[1].contains(".xlsx"))
+                    request.setMimeType("application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
+                else if (fileNameList[1].contains(".zip"))
+                    request.setMimeType("application/zip");
+                else if (fileNameList[1].contains(".rar"))
+                    request.setMimeType("application/x-rar-compressed");
+                else if (fileNameList[1].contains(".vsd"))
+                    request.setMimeType("application/vnd.visio");
+                else if (fileNameList[1].contains(".exe"))
+                    request.setMimeType("application/octet-stream");
+            }
         }
         String cookies = CookieManager.getInstance().getCookie(url);
         request.addRequestHeader("cookie", cookies);
         request.addRequestHeader("User-Agent", userAgent);
         request.setDescription("Downloading File...");
         Environment.getExternalStorageDirectory();
-        if (fileNameList.length > 0)
+        if (fileNameList.length > 1)
             request.setTitle(fileNameList[1]);
         else
             request.setTitle(URLUtil.guessFileName(url, contentDisposition, mimeType));
         request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
 
-        if (fileNameList.length > 0) {
+        if (fileNameList.length > 1) {
             downloadFileName = fileNameList[1];
             request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, downloadFileName);
         } else
@@ -1064,13 +1068,10 @@ public class WebActivity extends AppCompatActivity implements
                 v.setVisibility(View.GONE);
         } else {
 
-            new Handler().postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    View v = webView.findViewById(R.id.quizzes_container);
-                    if (v != null)
-                        v.setVisibility(View.VISIBLE);
-                }
+            new Handler().postDelayed(() -> {
+                View v = webView.findViewById(R.id.quizzes_container);
+                if (v != null)
+                    v.setVisibility(View.VISIBLE);
             }, 700);
         }
     }
@@ -1854,12 +1855,9 @@ public class WebActivity extends AppCompatActivity implements
                             if (!mNotify.isNull("action")) {
                                 final String action = mNotify.getString("action");
 
-                                runOnUiThread(new Runnable() {
-                                    @Override
-                                    public void run() {
-                                        if ("showLoginPage".equals(action)) {
-                                            openLoginPage();
-                                        }
+                                runOnUiThread(() -> {
+                                    if ("showLoginPage".equals(action)) {
+                                        openLoginPage();
                                     }
                                 });
                             } else {
@@ -1906,13 +1904,10 @@ public class WebActivity extends AppCompatActivity implements
                                 break;
                         }
                     } catch (JSONException exception) {
-                        runOnUiThread(new Runnable() {
-                            @Override
-                            public void run() {
-                                swipe.setRefreshing(false);
-                                setLoadingIndicator(false);
-                                Toast.makeText(WebActivity.this, "List of notifications are corrupt. Please go to the page later...", Toast.LENGTH_LONG).show();
-                            }
+                        runOnUiThread(() -> {
+                            swipe.setRefreshing(false);
+                            setLoadingIndicator(false);
+                            Toast.makeText(WebActivity.this, "List of notifications are corrupt. Please go to the page later...", Toast.LENGTH_LONG).show();
                         });
                     }
                 }

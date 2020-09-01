@@ -7,11 +7,12 @@ import android.content.pm.PackageManager;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Build;
-import android.support.annotation.NonNull;
 import android.util.Base64;
 import android.util.Log;
 import android.webkit.CookieManager;
 import android.webkit.CookieSyncManager;
+
+import androidx.annotation.NonNull;
 
 import com.deepinspire.gmatclub.Constants;
 import com.deepinspire.gmatclub.GCConfig;
@@ -297,7 +298,9 @@ public class Repository implements IStorage {
                             } else {
                                 if (logged(context)) {
                                     try {
-                                        callback.onSuccess(response.body().string());
+                                        ResponseBody responseBody = response.body();
+                                        if (responseBody != null)
+                                            callback.onSuccess(responseBody.string());
                                     } catch (IOException e) {
                                         e.printStackTrace();
                                     } finally {
@@ -361,7 +364,9 @@ public class Repository implements IStorage {
                             } else {
                                 if (logged(context)) {
                                     try {
-                                        callback.onSuccess(response.body().string().toString());
+                                        ResponseBody responseBody = response.body();
+                                        if (responseBody != null)
+                                            callback.onSuccess(responseBody.string());
                                     } catch (IOException e) {
                                         e.printStackTrace();
                                     } finally {
@@ -413,7 +418,9 @@ public class Repository implements IStorage {
                             } else {
                                 if (logged(context)) {
                                     try {
-                                        callback.onSuccess(response.body().string().toString());
+                                        ResponseBody responseBody = response.body();
+                                        if (responseBody != null)
+                                            callback.onSuccess(responseBody.string());
                                     } catch (IOException e) {
                                         e.printStackTrace();
                                     } finally {
@@ -512,7 +519,10 @@ public class Repository implements IStorage {
                         public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
                             if (!response.isSuccessful()) {
                                 LoginManager.getInstance().logOut();
-                                AuthException ex = new AuthException(new Exception(response.errorBody().toString()), "login");
+                                ResponseBody errorBody = response.errorBody();
+                                AuthException ex = new AuthException(new Exception("Login or password failed"), "login");
+                                if (errorBody != null)
+                                    ex = new AuthException(new Exception(errorBody.toString()), "login");
                                 callback.onError(ex);
                             } else {
                                 if (logged(context)) {
@@ -543,7 +553,7 @@ public class Repository implements IStorage {
     }
 
 
-    public class RequestParamConstant {
+    public static class RequestParamConstant {
 
         public static final String TEXT_PLAIN = "text/plain";
         public static final String LOGIN = "login";
@@ -569,7 +579,7 @@ public class Repository implements IStorage {
 
                     final Map<String, String> params = new HashMap<>();
 
-                    Long uTime = Long.parseLong(expiresIn);
+                    long uTime = Long.parseLong(expiresIn);
 
                     Date date = new java.util.Date(uTime);
 
@@ -616,7 +626,10 @@ public class Repository implements IStorage {
                         public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
                             if (!response.isSuccessful()) {
                                 LoginManager.getInstance().logOut();
-                                AuthException ex = new AuthException(new Exception(response.errorBody().toString()), "login");
+                                ResponseBody errorBody = response.errorBody();
+                                AuthException ex = new AuthException(new Exception("Login or password failed"), "login");
+                                if (errorBody != null)
+                                    ex = new AuthException(new Exception(errorBody.toString()), "login");
                                 callback.onError(ex);
                             } else {
                                 if (logged(context)) {
@@ -667,11 +680,17 @@ public class Repository implements IStorage {
                         public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
                             if (!response.isSuccessful()) {
                                 LoginManager.getInstance().logOut();
-                                AuthException ex = new AuthException(new Exception(response.errorBody().toString()), "login");
+                                ResponseBody errorBody = response.errorBody();
+                                AuthException ex = new AuthException(new Exception("getTokenInfo failed"), "login");
+                                if (errorBody != null)
+                                    ex = new AuthException(new Exception(errorBody.toString()), "login");
                                 callback.onError(ex);
                             } else {
                                 try {
-                                    String body = response.body().string();
+                                    String body = "";
+                                    ResponseBody responseBody = response.body();
+                                    if (responseBody != null)
+                                        body = responseBody.string();
                                     JSONObject tokenInfo = new JSONObject(body);
                                     JSONObject tokenInfo1 = new JSONObject(body);
                                 } catch (IOException e) {
@@ -741,7 +760,10 @@ public class Repository implements IStorage {
                         @Override
                         public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
                             if (!response.isSuccessful()) {
-                                AuthException ex = new AuthException(new Exception(response.errorBody().toString()), "register");
+                                AuthException ex = new AuthException(new Exception("subscribeNotifications failed"), "register");
+                                ResponseBody errorBody = response.errorBody();
+                                if (errorBody != null)
+                                    ex = new AuthException(new Exception(errorBody.toString()), "register");
                                 callback.onError(ex);
                             } else {
                                 callback.onSuccess();
@@ -780,7 +802,9 @@ public class Repository implements IStorage {
             cookiesString = getSharedPreferences(context).getString(GCConfig.COOKIES, "");
         }
 
-        String[] cookieHeaders = cookiesString.split(";");
+        String[] cookieHeaders = {};
+        if (cookiesString != null)
+            cookieHeaders = cookiesString.split(";");
 
         for (String cookie : cookieHeaders) {
             String[] c = cookie.split("=", 2);
@@ -835,7 +859,7 @@ public class Repository implements IStorage {
         }
     }
 
-    private void clearInformationForUser( @NonNull Context context) {
+    private void clearInformationForUser(@NonNull Context context) {
         SharedPreferences.Editor editor = getSharedPreferences(context).edit();
         editor.remove(GCConfig.COOKIES);
         editor.apply();

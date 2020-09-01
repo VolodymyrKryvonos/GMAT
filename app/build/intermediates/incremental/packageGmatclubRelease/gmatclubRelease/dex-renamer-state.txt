@@ -1,4 +1,0 @@
-#Wed Oct 31 14:10:15 EET 2018
-base.0=/home/dmytro/projects/gmatclub/android/app/build/intermediates/transforms/dex/gmatclub/release/0
-path.0=classes.dex
-renamed.0=classes.dex

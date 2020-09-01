@@ -21,7 +21,7 @@
     <item
         android:id="@+id/actionSearch"
         app:showAsAction="always"
-        app:actionViewClass="android.support.v7.widget.SearchView"
+        app:actionViewClass="androidx.appcompat.widget.SearchView"
         app:searchHintIcon="@null"
         android:icon="@drawable/ic_search_white_24dp"
         />

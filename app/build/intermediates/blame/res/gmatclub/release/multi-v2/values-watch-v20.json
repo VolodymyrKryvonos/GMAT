@@ -1,10 +1,29 @@
 {
     "logs": [
         {
-            "outputFile": "/home/dmytro/projects/gmatclub/android/app/build/intermediates/incremental/mergeGmatclubReleaseResources/merged.dir/values-watch-v20/values-watch-v20.xml",
+            "outputFile": "D:\\Projects\\gmat\\app\\build\\intermediates\\incremental\\mergeGmatclubReleaseResources\\merged.dir\\values-watch-v20\\values-watch-v20.xml",
             "map": [
                 {
-                    "source": "/root/.gradle/caches/transforms-1/files-1.1/play-services-auth-15.0.0.aar/d8c94724a27a042d62d65c485f0b1861/res/values-watch-v20/values.xml",
+                    "source": "D:\\Projects\\.gradle\\caches\\transforms-2\\files-2.1\\83eed02a3d145a560c6e03fd9800f9a7\\appcompat-1.0.0\\res\\values-watch-v20\\values-watch-v20.xml",
+                    "from": {
+                        "startLines": "2,5,8",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "55,214,385",
+                        "endLines": "4,7,10",
+                        "endColumns": "12,12,12",
+                        "endOffsets": "209,380,553"
+                    },
+                    "to": {
+                        "startLines": "10,13,16",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "715,874,1045",
+                        "endLines": "12,15,18",
+                        "endColumns": "12,12,12",
+                        "endOffsets": "869,1040,1213"
+                    }
+                },
+                {
+                    "source": "D:\\Projects\\.gradle\\caches\\transforms-2\\files-2.1\\1f71002b3c0973a6417ea345621828b1\\jetified-play-services-auth-15.0.0\\res\\values-watch-v20\\values.xml",
                     "from": {
                         "startLines": "4,5,6,7,8,9,10,11",
                         "startColumns": "0,0,0,0,0,0,0,0",

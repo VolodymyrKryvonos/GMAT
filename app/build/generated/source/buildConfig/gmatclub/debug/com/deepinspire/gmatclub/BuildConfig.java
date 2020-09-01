@@ -8,6 +8,6 @@ public final class BuildConfig {
   public static final String APPLICATION_ID = "com.deepinspire.gmatclub";
   public static final String BUILD_TYPE = "debug";
   public static final String FLAVOR = "gmatclub";
-  public static final int VERSION_CODE = 16;
-  public static final String VERSION_NAME = "6.9.0-debug";
+  public static final int VERSION_CODE = 28;
+  public static final String VERSION_NAME = "6.12.9-debug";
 }

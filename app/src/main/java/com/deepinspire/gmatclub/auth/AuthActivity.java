@@ -5,9 +5,6 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.MotionEvent;
@@ -15,6 +12,10 @@ import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.LinearLayout;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import com.deepinspire.gmatclub.GCConfig;
 import com.deepinspire.gmatclub.R;
@@ -89,12 +90,12 @@ public class AuthActivity extends AppCompatActivity implements IAuthContract.Vie
     protected void onStart() {
         super.onStart();
 
-        if(presenter.logged(this)) {
+        if (presenter.logged(this)) {
             Intent intent = new Intent(this, WebActivity.class);
 
             intent.setData(Uri.parse(Api.FORUM_URL));
 
-            intent.putExtra(INPUT_URL,url);
+            intent.putExtra(INPUT_URL, url);
 
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 
@@ -102,20 +103,20 @@ public class AuthActivity extends AppCompatActivity implements IAuthContract.Vie
         } else {
 
             if (!TextUtils.isEmpty(Storage.getGoogleIdToken(getApplicationContext())) &&
-                    !TextUtils.isEmpty(Storage.getGoogleAccessToken(getApplicationContext()))){
+                    !TextUtils.isEmpty(Storage.getGoogleAccessToken(getApplicationContext()))) {
                 Long expiresIn = (new Date()).getTime() + 432000000;
-                presenter.signIn(this,"google", Storage.getGoogleIdToken(getApplicationContext()), Storage.getGoogleAccessToken(getApplicationContext()), String.valueOf(expiresIn));
+                presenter.signIn(this, "google", Storage.getGoogleIdToken(getApplicationContext()), Storage.getGoogleAccessToken(getApplicationContext()), String.valueOf(expiresIn));
             }
 
             if (!TextUtils.isEmpty(Storage.getFacebookIdToken(getApplicationContext())) &&
-                    !TextUtils.isEmpty(Storage.getFacebookAccessToken(getApplicationContext()))){
+                    !TextUtils.isEmpty(Storage.getFacebookAccessToken(getApplicationContext()))) {
                 Long expiresIn = (new Date()).getTime() + 432000000;
-                presenter.signIn(this,"facebook", Storage.getFacebookIdToken(getApplicationContext()), Storage.getFacebookAccessToken(getApplicationContext()), String.valueOf(expiresIn));
+                presenter.signIn(this, "facebook", Storage.getFacebookIdToken(getApplicationContext()), Storage.getFacebookAccessToken(getApplicationContext()), String.valueOf(expiresIn));
             }
 
             if (!TextUtils.isEmpty(Storage.getLoginEmail(getApplicationContext())) &&
-                    !TextUtils.isEmpty(Storage.getLoginPassword(getApplicationContext()))){
-                presenter.signIn(this,Storage.getLoginEmail(getApplicationContext()),Storage.getLoginPassword(getApplicationContext()));
+                    !TextUtils.isEmpty(Storage.getLoginPassword(getApplicationContext()))) {
+                presenter.signIn(this, Storage.getLoginEmail(getApplicationContext()), Storage.getLoginPassword(getApplicationContext()));
             }
             //initGoogleSignIn();
 
@@ -145,7 +146,7 @@ public class AuthActivity extends AppCompatActivity implements IAuthContract.Vie
     public void onClick(View view) {
         Intent intent;
 
-        switch(view.getId()) {
+        switch (view.getId()) {
             case R.id.layoutSignInGoogle:
                 initGoogleSignIn();
 
@@ -171,13 +172,13 @@ public class AuthActivity extends AppCompatActivity implements IAuthContract.Vie
 
     @Override
     public boolean dispatchTouchEvent(MotionEvent ev) {
-        ((InputMethodManager)this.getSystemService(Context.INPUT_METHOD_SERVICE)).hideSoftInputFromWindow((this.getWindow().getDecorView().getApplicationWindowToken()), 0);
+        ((InputMethodManager) this.getSystemService(Context.INPUT_METHOD_SERVICE)).hideSoftInputFromWindow((this.getWindow().getDecorView().getApplicationWindowToken()), 0);
 
         return super.dispatchTouchEvent(ev);
     }
 
     public void signIn(String login, String password) {
-        presenter.signIn(this,login, password);
+        presenter.signIn(this, login, password);
     }
 
     public void signInFacebook() {
@@ -239,10 +240,10 @@ public class AuthActivity extends AppCompatActivity implements IAuthContract.Vie
         Intent intent;
         intent = new Intent(AuthActivity.this, WebActivity.class);
         intent.setData(Uri.parse(url));
-        intent.putExtra(INPUT_URL,url);
+        intent.putExtra(INPUT_URL, url);
         startActivity(intent);
 
-        if(ViewHelper.alertDialog != null) {
+        if (ViewHelper.alertDialog != null) {
             ViewHelper.alertDialog.dismiss();
             ViewHelper.alertDialog = null;
         }
@@ -253,9 +254,9 @@ public class AuthActivity extends AppCompatActivity implements IAuthContract.Vie
     }
 
     public void showError(AuthException exception) {
-        switch(exception.getAction()) {
+        switch (exception.getAction()) {
             case "showForgotPassword":
-                if(ViewHelper.alertDialog != null) {
+                if (ViewHelper.alertDialog != null) {
                     ViewHelper.alertDialog.dismiss();
                 }
                 ViewHelper.showForgotPasswordDialog(AuthActivity.this);
@@ -268,12 +269,12 @@ public class AuthActivity extends AppCompatActivity implements IAuthContract.Vie
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if(requestCode ==  FacebookSdk.getCallbackRequestCodeOffset()) {
-            if(callbackManager != null) {
+        if (requestCode == FacebookSdk.getCallbackRequestCodeOffset()) {
+            if (callbackManager != null) {
                 callbackManager.onActivityResult(requestCode, resultCode, data);
             }
         } else {
-            switch(requestCode) {
+            switch (requestCode) {
                 case GCConfig.GOOGLE_SIGN_IN:
                     //GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(this);
                     //GoogleSignInResult result = Auth.GoogleSignInApi.getSignInResultFromIntent(data);
@@ -285,7 +286,7 @@ public class AuthActivity extends AppCompatActivity implements IAuthContract.Vie
                     //handleSignInResult(task);
                     //GoogleSignInResult result = Auth.GoogleSignInApi.getSignInResultFromIntent(data);
                     //GoogleSignInResult result1 = Auth.GoogleSignInApi.getSignInResultFromIntent(data);
-                   // parseToken(data);
+                    // parseToken(data);
 
                     Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
                     handleSignInResult(task);
@@ -295,30 +296,31 @@ public class AuthActivity extends AppCompatActivity implements IAuthContract.Vie
     }
 
     public void parseToken(Intent data) {
-        GoogleSignInResult result = Auth.GoogleSignInApi.getSignInResultFromIntent(data);
+        final GoogleSignInResult result = Auth.GoogleSignInApi.getSignInResultFromIntent(data);
 
-        if (result.isSuccess()) {
+        if (result != null && result.isSuccess()) {
             final GoogleSignInAccount account = result.getSignInAccount();
 
             Runnable runnable = new Runnable() {
                 @Override
                 public void run() {
                     try {
-                        String scope = "oauth2:"+Scopes.EMAIL+" "+ Scopes.PROFILE;
+                        String scope = "oauth2:" + Scopes.EMAIL + " " + Scopes.PROFILE;
                         String accessToken = GoogleAuthUtil.getToken(getApplicationContext(), account.getAccount(), scope, new Bundle());
 
                         String idToken = account.getIdToken();
-                        Long expiresIn  = (new Date()).getTime() + account.getExpirationTimeSecs();
 
-                        presenter.signIn(AuthActivity.this,"google", accessToken, accessToken, String.valueOf(expiresIn));
-                        presenter.signIn(AuthActivity.this,"google", idToken, idToken, String.valueOf(expiresIn));
-                        presenter.signIn(AuthActivity.this,"google", idToken, accessToken, String.valueOf(expiresIn));
-                        presenter.signIn(AuthActivity.this,"google", accessToken, accessToken, String.valueOf(expiresIn));
+                        Long expiresIn = (new Date()).getTime() + account.getExpirationTimeSecs();
+
+                        presenter.signIn(AuthActivity.this, "google", accessToken, accessToken, String.valueOf(expiresIn));
+                        presenter.signIn(AuthActivity.this, "google", idToken, idToken, String.valueOf(expiresIn));
+                        presenter.signIn(AuthActivity.this, "google", idToken, accessToken, String.valueOf(expiresIn));
+                        presenter.signIn(AuthActivity.this, "google", accessToken, accessToken, String.valueOf(expiresIn));
 
                         //presenter.getTokenInfo(idToken);
                         //presenter.getTokenInfo(accessToken);
 
-                        Log.d("TOKEN", "accessToken:"+accessToken); //accessToken:ya29.Gl...
+                        Log.d("TOKEN", "accessToken:" + accessToken); //accessToken:ya29.Gl...
 
                     } catch (IOException e) {
                         e.printStackTrace();
@@ -336,17 +338,17 @@ public class AuthActivity extends AppCompatActivity implements IAuthContract.Vie
         try {
             GoogleSignInAccount account = completedTask.getResult(ApiException.class);
 
-            if(account != null) {
+            if (account != null) {
                 //String id  = account.getId();
                 //String email = account.getEmail();
                 //Set<Scope> scope = account.getRequestedScopes();
 
-                String idToken = account.getIdToken();
-                Long expiresIn  = (new Date()).getTime() + account.getExpirationTimeSecs();
+                //String idToken = account.getIdToken();
+                //Long expiresIn  = (new Date()).getTime() + account.getExpirationTimeSecs();
 
                 //String credential = GoogleAuthUtil.getToken(getApplicationContext(), (Account) account, null);
 
-               // String accessToken = GoogleAuthUtil.getToken(getApplicationContext(), account.getAccount(), scope, new Bundle());
+                // String accessToken = GoogleAuthUtil.getToken(getApplicationContext(), account.getAccount(), scope, new Bundle());
 
                 //Toast.makeText(getApplicationContext(), idToken, Toast.LENGTH_LONG).show();
 
@@ -378,32 +380,32 @@ public class AuthActivity extends AppCompatActivity implements IAuthContract.Vie
                             // Sign in success, update UI with the signed-in user's information
                             //Log.d(TAG, "signInWithCredential:success");
                             FirebaseUser user = mAuth.getCurrentUser();
+                            if (user != null) {
+                                Task<GetTokenResult> idToken = user.getIdToken(false);
+                                Task<GetTokenResult> idToken1 = user.getIdToken(true);
 
-                            Task<GetTokenResult> idToken = user.getIdToken(false);
-                            Task<GetTokenResult> idToken1 = user.getIdToken(true);
+                               // FirebaseUser user1 = mAuth.getCurrentUser();
 
-                            FirebaseUser user1 = mAuth.getCurrentUser();
+                                FirebaseUser mUser = FirebaseAuth.getInstance().getCurrentUser();
 
-                            FirebaseUser mUser = FirebaseAuth.getInstance().getCurrentUser();
+                                mUser.getIdToken(true)
+                                        .addOnCompleteListener(new OnCompleteListener<GetTokenResult>() {
+                                            public void onComplete(@NonNull Task<GetTokenResult> task) {
+                                                if (task.isSuccessful()) {
+                                                    String idToken = task.getResult().getToken();
 
-                            mUser.getIdToken(true)
-                                    .addOnCompleteListener(new OnCompleteListener<GetTokenResult>() {
-                                        public void onComplete(@NonNull Task<GetTokenResult> task) {
-                                            if (task.isSuccessful()) {
-                                                String idToken = task.getResult().getToken();
+                                                    Long expiresIn = (new Date()).getTime() + task.getResult().getExpirationTimestamp();
 
-                                                Long expiresIn  = (new Date()).getTime() + task.getResult().getExpirationTimestamp();
+                                                    presenter.signIn(AuthActivity.this, "google", task.getResult().getToken(), task.getResult().getToken(), String.valueOf(expiresIn));
 
-                                                presenter.signIn(AuthActivity.this,"google", task.getResult().getToken(), task.getResult().getToken(), String.valueOf(expiresIn));
-
-                                                // Send token to your backend via HTTPS
-                                                // ...
-                                            } else {
-                                                // Handle error -> task.getException();
+                                                    // Send token to your backend via HTTPS
+                                                    // ...
+                                                } else {
+                                                    // Handle error -> task.getException();
+                                                }
                                             }
-                                        }
-                                    });
-
+                                        });
+                            }
                             //updateUI(user);
                         } else {
                             // If sign in fails, display a message to the user.
@@ -492,7 +494,7 @@ public class AuthActivity extends AppCompatActivity implements IAuthContract.Vie
     }*/
 
     private GoogleApiClient initGoogleSignIn() {
-        if(mGoogleApiClient == null) {
+        if (mGoogleApiClient == null) {
             // mGoogleApiClient.connect();
 
             GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
