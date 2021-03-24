@@ -1,4 +1,5 @@
-<resources>
+<resources
+    xmlns:tools="http://schemas.android.com/tools">
 
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
@@ -9,6 +10,7 @@
         <item name="android:windowNoTitle">true</item>
         <item name="android:windowTranslucentStatus">false</item>
         <item name="fontFamily">@font/opensans_semibold_custom</item>
+        <item name="android:forceDarkAllowed" tools:targetApi="Q">false</item>
         <!--<item name="drawerArrowStyle">@style/DrawerArrowStyle</item>-->
     </style>
 
@@ -105,14 +107,14 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:indeterminate">true</item>
         <item name="android:layout_gravity">center</item>
-        <item name="android:indeterminateTintMode">src_atop</item>
-        <item name="android:indeterminateTint">@color/header_background</item>
+        <item name="android:indeterminateTintMode" tools:targetApi="LOLLIPOP">src_atop</item>
+        <item name="android:indeterminateTint" tools:targetApi="LOLLIPOP">@color/header_background</item>
         <item name="android:layout_centerInParent">true</item>
     </style>
 
     <style name="CustomHorizontalProgress" parent="android:Widget.ProgressBar.Horizontal">
-    <item name="android:indeterminateTint">@color/amber_800</item>
-    <item name="android:indeterminateTintMode">src_over</item>
+    <item name="android:indeterminateTint" tools:targetApi="LOLLIPOP">@color/amber_800</item>
+    <item name="android:indeterminateTintMode" tools:targetApi="LOLLIPOP">src_over</item>
     </style>
 
     <!--<style name="DrawerArrowStyle" parent="@style/Widget.AppCompat.DrawerArrowToggle">

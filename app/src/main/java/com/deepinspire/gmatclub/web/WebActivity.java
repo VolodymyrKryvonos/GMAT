@@ -3,7 +3,6 @@ package com.deepinspire.gmatclub.web;
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
-import android.app.Activity;
 import android.app.ActivityManager;
 import android.app.DownloadManager;
 import android.app.SearchManager;
@@ -34,6 +33,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
 import android.view.inputmethod.InputMethodManager;
 import android.webkit.ConsoleMessage;
@@ -53,6 +53,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -71,6 +72,7 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import com.android.installreferrer.api.InstallReferrerClient;
 import com.android.installreferrer.api.InstallReferrerStateListener;
 import com.android.installreferrer.api.ReferrerDetails;
+import com.deepinspire.gmatclub.BuildConfig;
 import com.deepinspire.gmatclub.GCConfig;
 import com.deepinspire.gmatclub.R;
 import com.deepinspire.gmatclub.api.Api;
@@ -78,11 +80,11 @@ import com.deepinspire.gmatclub.api.AuthException;
 import com.deepinspire.gmatclub.auth.AuthActivity;
 import com.deepinspire.gmatclub.auth.LoginActivity;
 import com.deepinspire.gmatclub.purchase.GooglePlayBillingActivity;
-import com.deepinspire.gmatclub.storage.DeviceInfo;
 import com.deepinspire.gmatclub.utils.BadgeDrawable;
 import com.deepinspire.gmatclub.utils.CustomRatingDialog;
 import com.deepinspire.gmatclub.utils.GCWebView;
 import com.deepinspire.gmatclub.utils.Storage;
+import com.deepinspire.gmatclub.utils.StringUtils;
 import com.deepinspire.gmatclub.utils.ViewHelper;
 import com.facebook.AccessToken;
 import com.facebook.CallbackManager;
@@ -91,8 +93,8 @@ import com.facebook.FacebookException;
 import com.facebook.FacebookSdk;
 import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
-import com.github.clans.fab.FloatingActionButton;
-import com.github.clans.fab.FloatingActionMenu;
+import com.github.sealstudios.fab.FloatingActionButton;
+import com.github.sealstudios.fab.FloatingActionMenu;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.iid.FirebaseInstanceId;
 
@@ -134,7 +136,7 @@ public class WebActivity extends AppCompatActivity implements
 
     private ProgressBar progressView;
 
-    private Map<String, String> requestExtraHeaders = new HashMap<>();
+    private final Map<String, String> requestExtraHeaders = new HashMap<>();
 
     // private LinearLayout feedbackLayout;
 
@@ -144,7 +146,7 @@ public class WebActivity extends AppCompatActivity implements
 
     //private ProgressBar progressBar;
 
-    private LinearLayout btnAddLayout;
+    private View btnAddLayout;
     private FloatingActionMenu btnAdd;
 
     private FloatingActionButton btnAddTopic;
@@ -183,7 +185,7 @@ public class WebActivity extends AppCompatActivity implements
 
     private final ExecutorService executor = Executors.newFixedThreadPool(4);
 
-    private Handler mUiHandler = new Handler();
+    private final Handler mUiHandler = new Handler();
 
     private ValueCallback<Uri> mUploadMessage;
     private ValueCallback<Uri[]> mUploadMessages;
@@ -192,14 +194,11 @@ public class WebActivity extends AppCompatActivity implements
     private boolean openedKeyboard = false;
 
     private ActionBar ab = null;
+    View activityRootView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        /*getWindow().setFlags(
-                WindowManager.LayoutParams.FLAG_HARDWARE_ACCELERATED,
-                WindowManager.LayoutParams.FLAG_HARDWARE_ACCELERATED);*/
 
         setPresenter(new WebPresenter(this.getApplicationContext(), this));
 
@@ -233,45 +232,32 @@ public class WebActivity extends AppCompatActivity implements
 
         swipe.getViewTreeObserver()
                 .addOnScrollChangedListener(mOnScrollChangedListener =
-                        new ViewTreeObserver.OnScrollChangedListener() {
-                            @Override
-                            public void onScrollChanged() {
-                                if (webView != null && swipe != null)
-                                    if (webView.getScrollY() == 0)
-                                        swipe.setEnabled(true);
-                                    else
-                                        swipe.setEnabled(false);
+                        () -> {
+                            if (webView != null && swipe != null)
+                                swipe.setEnabled(webView.getScrollY() == 0);
 
-                            }
                         });
 
         // progressBar = findViewById(R.id.loading);
 
-        final View activityRootView = findViewById(R.id.top_parent);
+        activityRootView = findViewById(R.id.top_parent);
 
         activityRootView.getViewTreeObserver()
-                .addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
-                    @Override
-                    public void onGlobalLayout() {
-                        int heightDiff = activityRootView.getRootView().getHeight() - activityRootView.getHeight();
+                .addOnGlobalLayoutListener(() -> {
+                    int heightDiff = activityRootView.getRootView().getHeight() - activityRootView.getHeight();
 
-                        if (heightDiff > dpToPx(WebActivity.this, 200)) {
-                            openedKeyboard = true;
-                            showBtnAdd(false);
-                        } else {
-                            if (openedKeyboard && logged()) {
-                                openedKeyboard = false;
+                    if (heightDiff > dpToPx(WebActivity.this, 200)) {
+                        openedKeyboard = true;
+                        showBtnAdd(false);
+                    } else {
+                        if (openedKeyboard && logged()) {
+                            openedKeyboard = false;
 
-                                String url = webView.getUrl();
+                            String url = webView.getUrl();
 
-                                if (url == null ||
-                                        (url.contains(Api.UCP_URL) && url.contains("mode=compose")) ||
-                                        url.contains(Api.TESTS_URL)) {
-                                    showBtnAdd(false);
-                                } else {
-                                    showBtnAdd(true);
-                                }
-                            }
+                            showBtnAdd(url != null &&
+                                    (!url.contains(Api.UCP_URL) || !url.contains("mode=compose")) &&
+                                    !url.contains(Api.TESTS_URL));
                         }
                     }
                 });
@@ -290,11 +276,7 @@ public class WebActivity extends AppCompatActivity implements
         btnAdd.setOnMenuButtonClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (btnAdd.isOpened()) {
-                    toogleAddMenu(false);
-                } else {
-                    toogleAddMenu(true);
-                }
+                toogleAddMenu(!btnAdd.isOpened());
             }
         });
 
@@ -448,8 +430,8 @@ public class WebActivity extends AppCompatActivity implements
         Intent intent = new Intent(Intent.ACTION_SENDTO);
         intent.setData(Uri.parse("mailto:"));
 
-        intent.putExtra(Intent.EXTRA_EMAIL, new String[]{"support@gmatclub.com"});
-        intent.putExtra(Intent.EXTRA_SUBJECT, "GMAT Club Android Application Feedback");
+        intent.putExtra(Intent.EXTRA_EMAIL, new String[]{getString(R.string.email_support)});
+        intent.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.app_feedback));
         intent.putExtra(Intent.EXTRA_TEXT, "body of email");
 
         try {
@@ -468,6 +450,7 @@ public class WebActivity extends AppCompatActivity implements
     @Override
     public void onResume() {
         super.onResume();
+
         if (webView == null)
             initWebView();
         presenter.getChatNotifications(this);
@@ -570,6 +553,8 @@ public class WebActivity extends AppCompatActivity implements
                 break;
             case R.id.toolbarProfile:
                 changeProfileIconColor(R.color.white);
+                String token = FirebaseInstanceId.getInstance().getToken();
+                StringUtils.copyToClipboard(this, token);
 
                 if (logged()) {
                     ViewHelper.showProfileAuthDialog(WebActivity.this);
@@ -648,7 +633,7 @@ public class WebActivity extends AppCompatActivity implements
             if (webView != null) {
                 String url = webView.getUrl();
                 if (url != null) {
-                    if (url.contains("https://gmatclub.com/forum/mchat.php"))
+                    if (url.contains(Api.FORUM_URL + "/mchat.php"))
                         swipe.setEnabled(false);
                     else {
                         swipe.setEnabled(true);
@@ -750,7 +735,7 @@ public class WebActivity extends AppCompatActivity implements
     }
 
     @Override
-    protected void onSaveInstanceState(Bundle outState) {
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
         if (webView != null) {
             outState.putString(LATEST_URL, webView.getUrl());
@@ -830,6 +815,7 @@ public class WebActivity extends AppCompatActivity implements
         return true;
     }
 
+    @SuppressLint("MissingSuperCall")
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == FacebookSdk.getCallbackRequestCodeOffset()) {
@@ -888,7 +874,7 @@ public class WebActivity extends AppCompatActivity implements
         String[] fileNameList = contentDisposition.split("UTF-8''");
         DownloadManager.Request request = new DownloadManager.Request(Uri.parse(url));
         request.allowScanningByMediaScanner();
-        if(fileNameList.length>1) {
+        if (fileNameList.length > 1) {
             String mimeTypeMap = MimeTypeMap.getSingleton().getMimeTypeFromExtension(MimeTypeMap.getFileExtensionFromUrl(fileNameList[1]));
             if (mimeTypeMap != null)
                 request.setMimeType(mimeTypeMap);
@@ -1042,6 +1028,17 @@ public class WebActivity extends AppCompatActivity implements
                 openPageFromHamburgerMenu(R.id.menu_advanced_search, Api.FORUM_SEARCH);
                 break;
             case R.id.menu_feedback:
+                if ("greprepclub".equals(BuildConfig.FLAVOR)) {
+                    Intent intent = new Intent(Intent.ACTION_VIEW);
+                    Uri data = Uri.parse("mailto:support@greprepclub.com?subject=" + getResources().getString(R.string.app_feedback));
+                    intent.setData(data);
+                    try {
+                        startActivity(intent);
+                    } catch (Exception e) {
+                        Toast.makeText(this, "Email client not found", Toast.LENGTH_LONG).show();
+                    }
+                    break;
+                }
                 showQuizzesState = false;
                 openPageFromHamburgerMenu(R.id.menu_feedback, Api.LEAVE_FEEDBACK);
                 /*mDrawerLayout.closeDrawers();
@@ -1103,13 +1100,10 @@ public class WebActivity extends AppCompatActivity implements
 
                 View buttonLearnMore = webView.findViewById(R.id.learnMore);
 
-                buttonLearnMore.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        LATEST_URL = Api.PRACTICE_URL;
-                        Intent intent = new Intent(v.getContext(), GooglePlayBillingActivity.class);
-                        startActivity(intent);
-                    }
+                buttonLearnMore.setOnClickListener(v -> {
+                    LATEST_URL = Api.PRACTICE_URL;
+                    Intent intent = new Intent(v.getContext(), GooglePlayBillingActivity.class);
+                    startActivity(intent);
                 });
                 onPageFinishedAction(url);
             }
@@ -1139,7 +1133,7 @@ public class WebActivity extends AppCompatActivity implements
         settings.setAllowFileAccessFromFileURLs(true); //Maybe you don't need this rule
         settings.setAllowUniversalAccessFromFileURLs(true);
 
-        String device = "Android" + " " + "GMAT Club Forum";
+        String device = "Android" + " " + getString(R.string.app_name);
 
         try {
             device += "/" + getPackageManager().getPackageInfo(getApplication().getPackageName(), 0).versionName;
@@ -1322,7 +1316,7 @@ public class WebActivity extends AppCompatActivity implements
             }
 
             private boolean analyseUrl(WebView view, String url) {
-                if (url != null && !(url.startsWith("http://gmatclub") || url.startsWith("https://gmatclub"))) {
+                if (url != null && !(url.startsWith(Api.HOME_URL) || url.startsWith(Api.HOME_URL.replace("https", "http")))) {
                     view.getContext().startActivity(
                             new Intent(Intent.ACTION_VIEW, Uri.parse(url)));
                     return true;
@@ -1349,12 +1343,9 @@ public class WebActivity extends AppCompatActivity implements
 
                 webView.evaluateJavascript(
                         "(function(){document.querySelector('#statusesDecTracker .addMyInfo.btn').click();})()",
-                        new ValueCallback<String>() {
-                            @Override
-                            public void onReceiveValue(String value) {
-                                swipe.setRefreshing(false);
-                                setLoadingIndicator(false);
-                            }
+                        value -> {
+                            swipe.setRefreshing(false);
+                            setLoadingIndicator(false);
                         }
                 );
 
@@ -1479,14 +1470,14 @@ public class WebActivity extends AppCompatActivity implements
     }*/
 
     private void initRequestExtraHeaders() {
-        String device = "Android" + " " + Build.MODEL + " " + Build.VERSION.RELEASE + " " + "GMAT Club Forum";// + getString(R.string.app_name);
+        String device = "Android" +  /*+ Build.MODEL + " " + Build.VERSION.RELEASE +*/ " " + getString(R.string.app_name);// + getString(R.string.app_name);
 
-        try {
+       /* try {
             device += "/" + getPackageManager().getPackageInfo(getApplication().getPackageName(), 0).versionName;
         } catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();
         }
-
+*/
         requestExtraHeaders.put("My-Agent", device);
     }
 
@@ -1501,11 +1492,7 @@ public class WebActivity extends AppCompatActivity implements
     }
 
     private void openPage(String url) {
-        if (url.equals(CHAT_URL)) {
-            swipe.setEnabled(false);
-        } else {
-            swipe.setEnabled(true);
-        }
+        swipe.setEnabled(!url.equals(CHAT_URL));
 
         if (mDrawerLayout.isDrawerOpen(GravityCompat.START)) {
             mDrawerLayout.closeDrawer(GravityCompat.START);
@@ -1532,11 +1519,7 @@ public class WebActivity extends AppCompatActivity implements
 
                 String url = webView.getUrl();
 
-                if (url == null || (url.contains(Api.UCP_URL) && url.contains("mode=compose")) || url.contains(Api.TESTS_URL)) {
-                    showBtnAdd(false);
-                } else {
-                    showBtnAdd(true);
-                }
+                showBtnAdd(url != null && (!url.contains(Api.UCP_URL) || !url.contains("mode=compose")) && !url.contains(Api.TESTS_URL));
 
 
             } else {
@@ -1809,29 +1792,26 @@ public class WebActivity extends AppCompatActivity implements
     }
 
     public void updateCountMessages() {
-        runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                //  int notificationsUnwatchedCount = presenter.getCountUnwatchedNotifications();
-                int pmUnwatchedCount = presenter.getCountUnwatchedPMs();
+        runOnUiThread(() -> {
+            //  int notificationsUnwatchedCount = presenter.getCountUnwatchedNotifications();
+            int pmUnwatchedCount = presenter.getCountUnwatchedPMs();
 
-                /*if (notificationsUnwatchedCount > 0) {
-                    countNotifications.setText(Integer.toString(notificationsUnwatchedCount));
-                    countNotifications.setVisibility(View.VISIBLE);
-                    ShortcutBadger.applyCount(WebActivity.this, notificationsUnwatchedCount);
-                } else {
-                    countNotifications.setText("");
-                    countNotifications.setVisibility(View.GONE);
-                    ShortcutBadger.removeCount(WebActivity.this);
-                }*/
+            /*if (notificationsUnwatchedCount > 0) {
+                countNotifications.setText(Integer.toString(notificationsUnwatchedCount));
+                countNotifications.setVisibility(View.VISIBLE);
+                ShortcutBadger.applyCount(WebActivity.this, notificationsUnwatchedCount);
+            } else {
+                countNotifications.setText("");
+                countNotifications.setVisibility(View.GONE);
+                ShortcutBadger.removeCount(WebActivity.this);
+            }*/
 
-                if (pmUnwatchedCount > 0) {
-                    countPMs.setText(String.valueOf(pmUnwatchedCount));
-                    countPMs.setVisibility(View.VISIBLE);
-                } else {
-                    countPMs.setText("");
-                    countPMs.setVisibility(View.GONE);
-                }
+            if (pmUnwatchedCount > 0) {
+                countPMs.setText(String.valueOf(pmUnwatchedCount));
+                countPMs.setVisibility(View.VISIBLE);
+            } else {
+                countPMs.setText("");
+                countPMs.setVisibility(View.GONE);
             }
         });
     }
@@ -1845,27 +1825,24 @@ public class WebActivity extends AppCompatActivity implements
 
         @JavascriptInterface
         public void sendMessage(final String message) {
-            executor.submit(new Runnable() {
-                @Override
-                public void run() {
-                    if (message != null) {
-                        try {
-                            final JSONObject mNotify = new JSONObject(message);
+            executor.submit(() -> {
+                if (message != null) {
+                    try {
+                        final JSONObject mNotify = new JSONObject(message);
 
-                            if (!mNotify.isNull("action")) {
-                                final String action = mNotify.getString("action");
+                        if (!mNotify.isNull("action")) {
+                            final String action = mNotify.getString("action");
 
-                                runOnUiThread(() -> {
-                                    if ("showLoginPage".equals(action)) {
-                                        openLoginPage();
-                                    }
-                                });
-                            } else {
-                                presenter.saveNotifications(message);
-                            }
-                        } catch (JSONException e) {
-                            Log.e(mContext.getClass().getName(), e.getMessage());
+                            runOnUiThread(() -> {
+                                if ("showLoginPage".equals(action)) {
+                                    openLoginPage();
+                                }
+                            });
+                        } else {
+                            presenter.saveNotifications(message);
                         }
+                    } catch (JSONException e) {
+                        Log.e(mContext.getClass().getName(), e.getMessage() == null ? "" : e.getMessage());
                     }
                 }
             });
@@ -1873,43 +1850,37 @@ public class WebActivity extends AppCompatActivity implements
 
         @JavascriptInterface
         public void notifications(final String data) {
-            executor.submit(new Runnable() {
-                @Override
-                public void run() {
-                    try {
-                        final JSONObject mNotify = new JSONObject(data);
+            executor.submit(() -> {
+                try {
+                    final JSONObject mNotify = new JSONObject(data);
 
-                        switch (mNotify.getString("action")) {
-                            case "pageLoaded":
-                                presenter.getNotifications(WebActivity.this);
-                                break;
-                            case "renderDone":
-                                runOnUiThread(new Runnable() {
-                                    @Override
-                                    public void run() {
-                                        swipe.setRefreshing(false);
-                                        setLoadingIndicator(false);
+                    switch (mNotify.getString("action")) {
+                        case "pageLoaded":
+                            presenter.getNotifications(WebActivity.this);
+                            break;
+                        case "renderDone":
+                            runOnUiThread(() -> {
+                                swipe.setRefreshing(false);
+                                setLoadingIndicator(false);
 
-                                        if (presenter.getCountUnwatchedNotifications() > 0) {
-                                            presenter.updateNotify(WebActivity.this);
-                                        }
-                                    }
-                                });
-                                break;
-                            case "request":
-                                String params = (mNotify.isNull("params")) ? null : mNotify.getString("params");
-                                String idNotify = (mNotify.isNull("id")) ? null : mNotify.getString("id");
+                                if (presenter.getCountUnwatchedNotifications() > 0) {
+                                    presenter.updateNotify(WebActivity.this);
+                                }
+                            });
+                            break;
+                        case "request":
+                            String params = (mNotify.isNull("params")) ? null : mNotify.getString("params");
+                            String idNotify = (mNotify.isNull("id")) ? null : mNotify.getString("id");
 
-                                presenter.updateNotify(WebActivity.this, params, idNotify);
-                                break;
-                        }
-                    } catch (JSONException exception) {
-                        runOnUiThread(() -> {
-                            swipe.setRefreshing(false);
-                            setLoadingIndicator(false);
-                            Toast.makeText(WebActivity.this, "List of notifications are corrupt. Please go to the page later...", Toast.LENGTH_LONG).show();
-                        });
+                            presenter.updateNotify(WebActivity.this, params, idNotify);
+                            break;
                     }
+                } catch (JSONException exception) {
+                    runOnUiThread(() -> {
+                        swipe.setRefreshing(false);
+                        setLoadingIndicator(false);
+                        Toast.makeText(WebActivity.this, "List of notifications are corrupt. Please go to the page later...", Toast.LENGTH_LONG).show();
+                    });
                 }
             });
         }
@@ -1917,20 +1888,12 @@ public class WebActivity extends AppCompatActivity implements
     }
 
     public void sendNotificationsForPage(final String notifications) {
-        runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                webView.evaluateJavascript(
-                        "(function(){if(window.notifications && window.notifications.render) {window.notifications.render(" + notifications + ");}})()",
-                        new ValueCallback<String>() {
-                            @Override
-                            public void onReceiveValue(String value) {
-                                //Toast.makeText(WebActivity.this, "Render notifications", Toast.LENGTH_LONG).show();
-                            }
-                        }
-                );
-            }
-        });
+        runOnUiThread(() -> webView.evaluateJavascript(
+                "(function(){if(window.notifications && window.notifications.render) {window.notifications.render(" + notifications + ");}})()",
+                value -> {
+                    //Toast.makeText(WebActivity.this, "Render notifications", Toast.LENGTH_LONG).show();
+                }
+        ));
     }
 
     private void changeIconHomeForNavigationMenu(int iconColor) {
@@ -1988,10 +1951,14 @@ public class WebActivity extends AppCompatActivity implements
             //btnAdd.setAnimated(false);
             //btnAdd.open(false);
             //btnAdd.showMenu(false);
-            btnAddLayout.getLayoutParams().height = mDrawerLayout.getHeight();
-            btnAddLayout.getLayoutParams().width = mDrawerLayout.getWidth();
-            btnAddLayout.requestLayout();
-
+            mUiHandler.postDelayed(() -> {
+                RelativeLayout.LayoutParams lp = (RelativeLayout.LayoutParams) btnAddLayout.getLayoutParams();
+                lp.height = ViewGroup.LayoutParams.MATCH_PARENT;
+                lp.width = ViewGroup.LayoutParams.MATCH_PARENT;
+                Log.d("DIMENS", "DIMENS:h=" + lp.height + " w=" + lp.width);
+                btnAddLayout.setLayoutParams(lp);
+                btnAddLayout.requestLayout();
+            }, 0);
             btnAddLayout.setBackground(ContextCompat.getDrawable(getApplicationContext(), R.drawable.background_gradient_white));
 
             showBtnAddAllItems();
@@ -2013,27 +1980,26 @@ public class WebActivity extends AppCompatActivity implements
 
             btnAdd.close(false);
 
-            mUiHandler.postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    if (!btnAdd.isOpened()) {
-                        //hideBtnAddAllItems();
-                    /*btnAdd.getChildAt(0).setVisibility(View.GONE);
-                    btnAdd.getChildAt(1).setVisibility(View.GONE);
-                    btnAdd.getChildAt(2).setVisibility(View.GONE);
-                    btnAdd.getChildAt(3).setVisibility(View.GONE);*/
+            mUiHandler.postDelayed(() -> {
+                if (!btnAdd.isOpened()) {
+                    //hideBtnAddAllItems();
+                /*btnAdd.getChildAt(0).setVisibility(View.GONE);
+                btnAdd.getChildAt(1).setVisibility(View.GONE);
+                btnAdd.getChildAt(2).setVisibility(View.GONE);
+                btnAdd.getChildAt(3).setVisibility(View.GONE);*/
+                    RelativeLayout.LayoutParams lp = (RelativeLayout.LayoutParams) btnAddLayout.getLayoutParams();
+                    lp.height = 0;
+                    lp.width = 0;
+                    Log.d("DIMENS", "DIMENS:h=" + lp.height + " w=" + lp.width);
+                    btnAddLayout.setLayoutParams(lp);
+                    btnAddLayout.requestLayout();
 
-                        btnAddLayout.getLayoutParams().height = btnAdd.getHeight();
-                        btnAddLayout.getLayoutParams().width = btnAdd.getWidth();
-                        btnAddLayout.requestLayout();
-
-                        btnAddLayout.setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.transparent));
-                        //btnAdd.requestLayout();
-                    }
-
-                    //Toast.makeText(WebActivity.this, "height:" + btnAdd.getHeight(), Toast.LENGTH_SHORT).show();
-                    //Toast.makeText(WebActivity.this, "width:" + btnAdd.getWidth(), Toast.LENGTH_SHORT).show();
+                    btnAddLayout.setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.transparent));
+                    //btnAdd.requestLayout();
                 }
+
+                //Toast.makeText(WebActivity.this, "height:" + btnAdd.getHeight(), Toast.LENGTH_SHORT).show();
+                //Toast.makeText(WebActivity.this, "width:" + btnAdd.getWidth(), Toast.LENGTH_SHORT).show();
             }, 0);
             //hideBtnAddAllItems();
 
@@ -2078,104 +2044,104 @@ public class WebActivity extends AppCompatActivity implements
         }
     }
 
-    public DeviceInfo getDeviceInformation(Activity activity) {
-        //PackageInfo info = callActivity.getPackageManager().getPackageInfo(callActivity.getApplication().getPackageName(), 0);
-        //info.versionName
-        //info.versionCode+
-
-        /* Device:*/
-        String board = android.os.Build.BOARD;
-        String brand = android.os.Build.BRAND;
-        String device = android.os.Build.DEVICE;
-        String model = android.os.Build.MODEL;
-        String product = android.os.Build.PRODUCT;
-        String tags = android.os.Build.TAGS;
-
-        // OS:
-        String buildRelease = android.os.Build.VERSION.RELEASE + ", Inc: '" + android.os.Build.VERSION.INCREMENTAL + "'";
-        String displayBuild = android.os.Build.DISPLAY;
-        String fingerPrint = android.os.Build.FINGERPRINT;
-        String buildID = android.os.Build.ID;
-        String time = String.valueOf(android.os.Build.TIME);
-        String type = android.os.Build.TYPE;
-        String user = android.os.Build.USER;
-
-        //Density:
-        DisplayMetrics metrics = new DisplayMetrics();
-        activity.getWindowManager().getDefaultDisplay().getMetrics(metrics);
-        String density = String.valueOf(metrics.density);
-        String densityDpi = String.valueOf(metrics.densityDpi);
-        String scaledDensity = String.valueOf(metrics.scaledDensity);
-        String xdpi = String.valueOf(metrics.xdpi);
-        String ydpi = String.valueOf(metrics.ydpi);
-        //Density reference:
-        String densityDefault = String.valueOf(DisplayMetrics.DENSITY_DEFAULT);
-        String densityLow = String.valueOf(DisplayMetrics.DENSITY_LOW);
-        String densityMedium = String.valueOf(DisplayMetrics.DENSITY_MEDIUM);
-        String densityHigh = String.valueOf(DisplayMetrics.DENSITY_HIGH);
-
-        //"** Screen:");
-        String heightPixels = String.valueOf(metrics.heightPixels);
-        String widthPixels = String.valueOf(metrics.widthPixels);
-
-        // String heading = "RAM Information";
-        long totalRamValue = totalRamMemorySize();
-        long freeRamValue = freeRamMemorySize();
-        long usedRamValue = totalRamValue - freeRamValue;
-        String ram = "usedRam=" + formatSize(usedRamValue) + " MB, " +
-                "freeRam=" + formatSize(freeRamValue) + " MB," +
-                "totalRam=" + formatSize(totalRamValue) + " MB";
-
-        // String internalMemoryTitle = "Internal Memory Information";
-        long totalInternalValue = getTotalInternalMemorySize();
-        long freeInternalValue = getAvailableInternalMemorySize();
-        long usedInternalValue = totalInternalValue - freeInternalValue;
-        String internalMemory = "usedInternal=" + formatSize(usedInternalValue) + " ," +
-                "freeInternal=" + formatSize(freeInternalValue) + " ," +
-                "totalInternal=" + formatSize(totalInternalValue);
-
-        // String externalMemoryTitle = "External Memory Information";
-        long totalExternalValue = getTotalExternalMemorySize();
-        long freeExternalValue = getAvailableExternalMemorySize();
-        long usedExternalValue = totalExternalValue - freeExternalValue;
-        String externalMemory = "usedExternal=" + formatSize(usedExternalValue) + " , " +
-                "freeExternal=" + formatSize(freeExternalValue) + " ," +
-                "totalExternal=" + formatSize(totalExternalValue);
-
-        DeviceInfo di = new DeviceInfo();
-
-        di.setBoard(board);
-        di.setBrand(brand);
-        di.setDevice(device);
-        di.setModel(model);
-        di.setProduct(product);
-        di.setTags(tags);
-        di.setBuildRelease(buildRelease);
-        di.setDisplayBuild(displayBuild);
-        di.setFingerPrint(fingerPrint);
-        di.setBuildID(buildID);
-
-
-        di.setTime(time);
-        di.setType(type);
-        di.setUser(user);
-        di.setDensity(density);
-        di.setDensityDpi(densityDpi);
-        di.setScaledDensity(scaledDensity);
-        di.setXdpi(xdpi);
-        di.setYdpi(ydpi);
-        di.setDensityDefault(densityDefault);
-        di.setDensityLow(densityLow);
-        di.setDensityMedium(densityMedium);
-        di.setDensityHigh(densityHigh);
-        di.setHeightPixels(heightPixels);
-        di.setWidthPixels(widthPixels);
-        di.setRam(ram);
-        di.setInternalMemory(internalMemory);
-        di.setExternalMemory(externalMemory);
-
-        return di;
-    }
+//    public DeviceInfo getDeviceInformation(Activity activity) {
+//        //PackageInfo info = callActivity.getPackageManager().getPackageInfo(callActivity.getApplication().getPackageName(), 0);
+//        //info.versionName
+//        //info.versionCode+
+//
+//        /* Device:*/
+//        String board = android.os.Build.BOARD;
+//        String brand = android.os.Build.BRAND;
+//        String device = android.os.Build.DEVICE;
+//        String model = android.os.Build.MODEL;
+//        String product = android.os.Build.PRODUCT;
+//        String tags = android.os.Build.TAGS;
+//
+//        // OS:
+//        String buildRelease = android.os.Build.VERSION.RELEASE + ", Inc: '" + android.os.Build.VERSION.INCREMENTAL + "'";
+//        String displayBuild = android.os.Build.DISPLAY;
+//        String fingerPrint = android.os.Build.FINGERPRINT;
+//        String buildID = android.os.Build.ID;
+//        String time = String.valueOf(android.os.Build.TIME);
+//        String type = android.os.Build.TYPE;
+//        String user = android.os.Build.USER;
+//
+//        //Density:
+//        DisplayMetrics metrics = new DisplayMetrics();
+//        activity.getWindowManager().getDefaultDisplay().getMetrics(metrics);
+//        String density = String.valueOf(metrics.density);
+//        String densityDpi = String.valueOf(metrics.densityDpi);
+//        String scaledDensity = String.valueOf(metrics.scaledDensity);
+//        String xdpi = String.valueOf(metrics.xdpi);
+//        String ydpi = String.valueOf(metrics.ydpi);
+//        //Density reference:
+//        String densityDefault = String.valueOf(DisplayMetrics.DENSITY_DEFAULT);
+//        String densityLow = String.valueOf(DisplayMetrics.DENSITY_LOW);
+//        String densityMedium = String.valueOf(DisplayMetrics.DENSITY_MEDIUM);
+//        String densityHigh = String.valueOf(DisplayMetrics.DENSITY_HIGH);
+//
+//        //"** Screen:");
+//        String heightPixels = String.valueOf(metrics.heightPixels);
+//        String widthPixels = String.valueOf(metrics.widthPixels);
+//
+//        // String heading = "RAM Information";
+//        long totalRamValue = totalRamMemorySize();
+//        long freeRamValue = freeRamMemorySize();
+//        long usedRamValue = totalRamValue - freeRamValue;
+//        String ram = "usedRam=" + formatSize(usedRamValue) + " MB, " +
+//                "freeRam=" + formatSize(freeRamValue) + " MB," +
+//                "totalRam=" + formatSize(totalRamValue) + " MB";
+//
+//        // String internalMemoryTitle = "Internal Memory Information";
+//        long totalInternalValue = getTotalInternalMemorySize();
+//        long freeInternalValue = getAvailableInternalMemorySize();
+//        long usedInternalValue = totalInternalValue - freeInternalValue;
+//        String internalMemory = "usedInternal=" + formatSize(usedInternalValue) + " ," +
+//                "freeInternal=" + formatSize(freeInternalValue) + " ," +
+//                "totalInternal=" + formatSize(totalInternalValue);
+//
+//        // String externalMemoryTitle = "External Memory Information";
+//        long totalExternalValue = getTotalExternalMemorySize();
+//        long freeExternalValue = getAvailableExternalMemorySize();
+//        long usedExternalValue = totalExternalValue - freeExternalValue;
+//        String externalMemory = "usedExternal=" + formatSize(usedExternalValue) + " , " +
+//                "freeExternal=" + formatSize(freeExternalValue) + " ," +
+//                "totalExternal=" + formatSize(totalExternalValue);
+//
+//        DeviceInfo di = new DeviceInfo();
+//
+//        di.setBoard(board);
+//        di.setBrand(brand);
+//        di.setDevice(device);
+//        di.setModel(model);
+//        di.setProduct(product);
+//        di.setTags(tags);
+//        di.setBuildRelease(buildRelease);
+//        di.setDisplayBuild(displayBuild);
+//        di.setFingerPrint(fingerPrint);
+//        di.setBuildID(buildID);
+//
+//
+//        di.setTime(time);
+//        di.setType(type);
+//        di.setUser(user);
+//        di.setDensity(density);
+//        di.setDensityDpi(densityDpi);
+//        di.setScaledDensity(scaledDensity);
+//        di.setXdpi(xdpi);
+//        di.setYdpi(ydpi);
+//        di.setDensityDefault(densityDefault);
+//        di.setDensityLow(densityLow);
+//        di.setDensityMedium(densityMedium);
+//        di.setDensityHigh(densityHigh);
+//        di.setHeightPixels(heightPixels);
+//        di.setWidthPixels(widthPixels);
+//        di.setRam(ram);
+//        di.setInternalMemory(internalMemory);
+//        di.setExternalMemory(externalMemory);
+//
+//        return di;
+//    }
 
     private long freeRamMemorySize() {
         ActivityManager.MemoryInfo mi = new ActivityManager.MemoryInfo();
@@ -2186,13 +2152,13 @@ public class WebActivity extends AppCompatActivity implements
         return mi.availMem / 1048576L;
     }
 
-    private long totalRamMemorySize() {
-        ActivityManager.MemoryInfo mi = new ActivityManager.MemoryInfo();
-        ActivityManager activityManager = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
-        if (activityManager != null)
-            activityManager.getMemoryInfo(mi);
-        return mi.totalMem / 1048576L;
-    }
+//    private long totalRamMemorySize() {
+//        ActivityManager.MemoryInfo mi = new ActivityManager.MemoryInfo();
+//        ActivityManager activityManager = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
+//        if (activityManager != null)
+//            activityManager.getMemoryInfo(mi);
+//        return mi.totalMem / 1048576L;
+//    }
 
     public static boolean externalMemoryAvailable() {
         return android.os.Environment.getExternalStorageState().equals(android.os.Environment.MEDIA_MOUNTED);
@@ -2238,27 +2204,27 @@ public class WebActivity extends AppCompatActivity implements
         }
     }
 
-    public static String formatSize(long size) {
-        String suffix = null;
-
-        if (size >= 1024) {
-            suffix = " KB";
-            size /= 1024;
-            if (size >= 1024) {
-                suffix = " MB";
-                size /= 1024;
-            }
-        }
-        StringBuilder resultBuffer = new StringBuilder(Long.toString(size));
-
-        int commaOffset = resultBuffer.length() - 3;
-        while (commaOffset > 0) {
-            resultBuffer.insert(commaOffset, ',');
-            commaOffset -= 3;
-        }
-        if (suffix != null) resultBuffer.append(suffix);
-        return resultBuffer.toString();
-    }
+//    public static String formatSize(long size) {
+//        String suffix = null;
+//
+//        if (size >= 1024) {
+//            suffix = " KB";
+//            size /= 1024;
+//            if (size >= 1024) {
+//                suffix = " MB";
+//                size /= 1024;
+//            }
+//        }
+//        StringBuilder resultBuffer = new StringBuilder(Long.toString(size));
+//
+//        int commaOffset = resultBuffer.length() - 3;
+//        while (commaOffset > 0) {
+//            resultBuffer.insert(commaOffset, ',');
+//            commaOffset -= 3;
+//        }
+//        if (suffix != null) resultBuffer.append(suffix);
+//        return resultBuffer.toString();
+//    }
 
     private void hideKeyboard() {
         InputMethodManager manager = ((InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE));
@@ -2445,15 +2411,17 @@ public class WebActivity extends AppCompatActivity implements
 
     @Override
     public void updateUnreadNotification(int notificationsUnread) {
-        Storage.saveBadgeCount(this, notificationsUnread);
-        if (notificationsUnread > 0) {
-            countNotifications.setVisibility(View.VISIBLE);
-            countNotifications.setText(String.valueOf(notificationsUnread));
-            ab.setHomeAsUpIndicator(setBadgeCount(this, R.drawable.ic_menu, notificationsUnread));
-        } else {
-            countNotifications.setVisibility(View.GONE);
-            ab.setHomeAsUpIndicator(setBadgeCount(this, R.drawable.ic_menu, 0));
-        }
+        runOnUiThread(() -> {
+            Storage.saveBadgeCount(this, notificationsUnread);
+            if (notificationsUnread > 0) {
+                countNotifications.setVisibility(View.VISIBLE);
+                countNotifications.setText(String.valueOf(notificationsUnread));
+                ab.setHomeAsUpIndicator(setBadgeCount(this, R.drawable.ic_menu, notificationsUnread));
+            } else {
+                countNotifications.setVisibility(View.GONE);
+                ab.setHomeAsUpIndicator(setBadgeCount(this, R.drawable.ic_menu, 0));
+            }
+        });
     }
 
     @Override

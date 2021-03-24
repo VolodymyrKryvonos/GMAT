@@ -3,8 +3,10 @@ package com.deepinspire.gmatclub.purchase;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -14,16 +16,13 @@ import com.android.billingclient.api.BillingFlowParams;
 import com.android.billingclient.api.BillingResult;
 import com.android.billingclient.api.Purchase;
 import com.android.billingclient.api.PurchasesUpdatedListener;
-import com.android.billingclient.api.SkuDetails;
 import com.android.billingclient.api.SkuDetailsParams;
-import com.android.billingclient.api.SkuDetailsResponseListener;
 import com.deepinspire.gmatclub.R;
+import com.deepinspire.gmatclub.api.Api;
 
-import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
-import butterknife.ButterKnife;
-import butterknife.OnClick;
 
 /**
  * /**
@@ -37,44 +36,45 @@ public class GooglePlayBillingActivity extends AppCompatActivity implements Purc
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_google_play_billing);
-        ButterKnife.bind(this);
+
+        View tvPrivacyPolicy = findViewById(R.id.tvPrivacyPolicy);
+        View btnStartSubscription = findViewById(R.id.btnStartSubscription);
+        tvPrivacyPolicy.setOnClickListener(v -> openPrivacyPolicy());
+        btnStartSubscription.setOnClickListener(v -> startSubscription());
         setUpBillingClient();
     }
 
     @Override
-    public void onPurchasesUpdated(BillingResult billingResult, @Nullable List<Purchase> purchases) {
+    public void onPurchasesUpdated(@NonNull BillingResult billingResult, @Nullable List<Purchase> purchases) {
 
     }
 
-    @OnClick(R.id.tvPrivacyPolicy)
+
     public void openPrivacyPolicy() {
         Intent browserIntent = new Intent(Intent.ACTION_VIEW,
-                Uri.parse("https://gmatclub.com/static/gmatclub-terms-and-conditions-and-privacy-policy.php"));
+                Uri.parse(Api.POLICY_URL));
         startActivity(browserIntent);
     }
 
-    @OnClick(R.id.btnStartSubscription)
+
     public void startSubscription() {
 
         if (billingClient.isReady()) {
             SkuDetailsParams params = SkuDetailsParams.newBuilder()
-                    .setSkusList(Arrays.asList("id_quizzes"))
+                    .setSkusList(Collections.singletonList("id_quizzes"))
                     .setType(BillingClient.SkuType.INAPP)
                     .build();
 
-            billingClient.querySkuDetailsAsync(params, new SkuDetailsResponseListener() {
-                @Override
-                public void onSkuDetailsResponse(BillingResult billingResult, List<SkuDetails> skuDetailsList) {
-                    if (billingResult.getResponseCode() == BillingClient.BillingResponseCode.OK && skuDetailsList != null) {
-                        BillingFlowParams flowParams = BillingFlowParams.newBuilder()
-                                .setSkuDetails(skuDetailsList.get(0))
-                                .build();
+            billingClient.querySkuDetailsAsync(params, (billingResult, skuDetailsList) -> {
+                if (billingResult.getResponseCode() == BillingClient.BillingResponseCode.OK && skuDetailsList != null) {
+                    BillingFlowParams flowParams = BillingFlowParams.newBuilder()
+                            .setSkuDetails(skuDetailsList.get(0))
+                            .build();
 
-                        billingClient.launchBillingFlow(GooglePlayBillingActivity.this,flowParams);
+                    billingClient.launchBillingFlow(GooglePlayBillingActivity.this, flowParams);
 
-                    } else
-                        Toast.makeText(GooglePlayBillingActivity.this, "Cannot query product", Toast.LENGTH_SHORT).show();
-                }
+                } else
+                    Toast.makeText(GooglePlayBillingActivity.this, "Cannot query product", Toast.LENGTH_SHORT).show();
             });
 
         } else
@@ -89,7 +89,7 @@ public class GooglePlayBillingActivity extends AppCompatActivity implements Purc
                 .build();
         billingClient.startConnection(new BillingClientStateListener() {
             @Override
-            public void onBillingSetupFinished(BillingResult billingResult) {
+            public void onBillingSetupFinished(@NonNull BillingResult billingResult) {
                 if (billingResult.getResponseCode() == BillingClient.BillingResponseCode.OK) {
                     Toast.makeText(GooglePlayBillingActivity.this, "Success to connect Billing", Toast.LENGTH_SHORT).show();
                 } else

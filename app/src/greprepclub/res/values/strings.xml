@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">GRE Prep Club Forum</string>
+    <string name="app_title">GRE Prep Club</string>
+    <string name="app_channel">GRE Prep Default</string>
+    <string name="alert_dialog_offline_message">Try opening https://greprepclub.com/forum in your Phone’s browser.\nIf you are not able to connect, please email us your IP address to support@gmatclub.com and we will help with resolving it ASAP.\nYou can also try switching to a different WIFI network or use Cellular – this often resolves connectivity issues.</string>
+    <string name="app_feedback">GRE Prep Club App Feedback</string>
+    <string name="leave_feedback_message_text">How Would you Rate GRE Prep Club App?</string>
+    <string name="billing_tittle_phrase_one">+ almost <b>1000</b> GRE Prep questions from Kaplan,\n Manhattan Prep, and other test prep companies.</string>
+    <string name="billing_tittle_phrase_two">+ <b>15000+</b> GMAT questions from GRE Prep Club`s\n forum available <b>OFFLINE</b> with a problem -\n oriented interface.</string>
+    <string name="email_support">support@greprepclub.com</string>
+    <string name="hm__mba_discussions">Grad Questions</string>
+</resources>

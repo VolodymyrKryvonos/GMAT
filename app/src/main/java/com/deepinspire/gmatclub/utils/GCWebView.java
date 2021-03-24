@@ -4,6 +4,7 @@ import android.annotation.TargetApi;
 import android.content.Context;
 import android.os.Build;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.webkit.WebView;
 
 import com.deepinspire.gmatclub.api.Api;
@@ -36,16 +37,19 @@ public class GCWebView extends WebView {
 
     @Override
     public void loadUrl(String url, Map<String, String> additionalHttpHeaders) {
-        url = addMobileStyleParameter(url);
 
+        url = addMobileStyleParameter(url);
+        Log.d(GCWebView.class.getSimpleName(), url);
         isLoading = true;
 
         super.loadUrl(url, additionalHttpHeaders);
     }
 
+
     @Override
     public void loadUrl(String url) {
         url = addMobileStyleParameter(url);
+        Log.d(GCWebView.class.getSimpleName(), url);
         super.loadUrl(url);
     }
 
@@ -59,14 +63,14 @@ public class GCWebView extends WebView {
                 if (url.contains("?")) {
                     if (url.contains("#")) {
                         String[] urlParts = url.split("#", 2);
-                        url = urlParts[0] + "&" + mobileStyleParameter +(urlParts.length>1? "#" + urlParts[1]:"");
+                        url = urlParts[0] + "&" + mobileStyleParameter + (urlParts.length > 1 ? "#" + urlParts[1] : "");
                     } else {
                         url = url + "&" + mobileStyleParameter;
                     }
                 } else {
                     if (url.contains("#")) {
                         String[] urlParts = url.split("#", 2);
-                        url = urlParts[0] + "?" + mobileStyleParameter +(urlParts.length>1? "#" + urlParts[1]:"");
+                        url = urlParts[0] + "?" + mobileStyleParameter + (urlParts.length > 1 ? "#" + urlParts[1] : "");
                     } else {
                         url = url + "?" + mobileStyleParameter;
                     }

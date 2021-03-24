@@ -278,8 +278,10 @@ public class ViewHelper {
         });
 
         cancelButton.setOnClickListener(v -> {
-            if (alertDialog.isShowing())
+            if (alertDialog.isShowing()) {
                 alertDialog.dismiss();
+            }
+            // alertDialog=null;
         });
     }
 
@@ -367,8 +369,8 @@ public class ViewHelper {
                     alertDialog.setCanceledOnTouchOutside(true);
 
                     message = alertDialog.findViewById(R.id.errorMessage);
-
-                    message.setText(/*"Incorrect Login and Password"*/exception.getMessage());
+                    if (message != null)
+                        message.setText(/*"Incorrect Login and Password"*/exception.getMessage());
 
                     if (!exception.getAction().equals("UNKNOWN_HOST")) {
                         EditText signInInputUsername = alertDialog.findViewById(R.id.signInInputUsername);

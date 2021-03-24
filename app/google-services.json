@@ -15,7 +15,7 @@
       },
       "oauth_client": [
         {
-          "client_id": "789008364480-fiq9jg9shghqhru7bckiptf3idfhvlhe.apps.googleusercontent.com",
+          "client_id": "789008364480-aqm8t5i3l3fk15h76teessthf37qdnge.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.deepinspire.gmatclub",
@@ -23,7 +23,7 @@
           }
         },
         {
-          "client_id": "789008364480-jr2io8r51h0eegmdvuu0bv1abt6bpppt.apps.googleusercontent.com",
+          "client_id": "789008364480-qn4it7p55url577efguo5usasmrp4aau.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
@@ -33,27 +33,56 @@
         }
       ],
       "services": {
-        "analytics_service": {
-          "status": 1
-        },
         "appinvite_service": {
-          "status": 2,
           "other_platform_oauth_client": [
+            {
+              "client_id": "789008364480-jr2io8r51h0eegmdvuu0bv1abt6bpppt.apps.googleusercontent.com",
+              "client_type": 3
+            },
             {
               "client_id": "789008364480-6rg10c3j50lct00dm9u1g0rne3up4f11.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
                 "bundle_id": "com.nkoventuresllc.gmatclubforum"
               }
-            },
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:789008364480:android:f75230390ad8eb5d1b0e25",
+        "android_client_info": {
+          "package_name": "com.greprepclub"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "789008364480-qn4it7p55url577efguo5usasmrp4aau.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAhzNeSWIAL3nbfkFW0nQHnZKTAbA1yxnc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
             {
               "client_id": "789008364480-jr2io8r51h0eegmdvuu0bv1abt6bpppt.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "789008364480-6rg10c3j50lct00dm9u1g0rne3up4f11.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.nkoventuresllc.gmatclubforum"
+              }
             }
           ]
-        },
-        "ads_service": {
-          "status": 2
         }
       }
     },
@@ -74,7 +103,7 @@
           }
         },
         {
-          "client_id": "789008364480-jr2io8r51h0eegmdvuu0bv1abt6bpppt.apps.googleusercontent.com",
+          "client_id": "789008364480-qn4it7p55url577efguo5usasmrp4aau.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
@@ -84,27 +113,20 @@
         }
       ],
       "services": {
-        "analytics_service": {
-          "status": 1
-        },
         "appinvite_service": {
-          "status": 2,
           "other_platform_oauth_client": [
+            {
+              "client_id": "789008364480-jr2io8r51h0eegmdvuu0bv1abt6bpppt.apps.googleusercontent.com",
+              "client_type": 3
+            },
             {
               "client_id": "789008364480-6rg10c3j50lct00dm9u1g0rne3up4f11.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
                 "bundle_id": "com.nkoventuresllc.gmatclubforum"
               }
-            },
-            {
-              "client_id": "789008364480-jr2io8r51h0eegmdvuu0bv1abt6bpppt.apps.googleusercontent.com",
-              "client_type": 3
             }
           ]
-        },
-        "ads_service": {
-          "status": 2
         }
       }
     }

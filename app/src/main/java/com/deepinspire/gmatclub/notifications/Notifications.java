@@ -1,12 +1,12 @@
 package com.deepinspire.gmatclub.notifications;
 
 import android.annotation.TargetApi;
+import android.app.Notification;
+import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.Build;
@@ -14,6 +14,7 @@ import android.os.Bundle;
 import android.service.notification.StatusBarNotification;
 
 import androidx.core.app.NotificationCompat;
+import androidx.core.content.ContextCompat;
 
 import com.deepinspire.gmatclub.R;
 import com.deepinspire.gmatclub.splash.SplashActivity;
@@ -41,7 +42,7 @@ public class Notifications {
 
         getNotificationsManager();
 
-        getNotificationBuilder();
+        getNotificationBuilder(ctx);
     }
 
     private NotificationManager getNotificationsManager() {
@@ -52,10 +53,10 @@ public class Notifications {
         return notificationsManager;
     }
 
-    private NotificationCompat.Builder getNotificationBuilder() {
+    private NotificationCompat.Builder getNotificationBuilder(Context context) {
         if (builder == null) {
             if (Build.VERSION.SDK_INT > Build.VERSION_CODES.O) {
-                String channelId = "gcNotifications";
+                String channelId = context.getResources().getString(R.string.app_channel);
                 builder = new NotificationCompat.Builder(ctx, channelId);
             } else {
                 builder = new NotificationCompat.Builder(ctx);
@@ -81,7 +82,7 @@ public class Notifications {
             clean();
         }
 
-        Bitmap bitMap = BitmapFactory.decodeResource(ctx.getResources(), R.mipmap.app_icon);
+        //Bitmap bitMap = BitmapFactory.decodeResource(ctx.getResources(), R.mipmap.app_icon);
 
         Intent intent = new Intent(ctx, SplashActivity.class);
 
@@ -101,10 +102,11 @@ public class Notifications {
             extra.putString("url", data.get("url"));
 
         builder
-                .setSmallIcon(R.mipmap.app_icon)
+                .setSmallIcon(R.mipmap.ic_notification)
+                .setColor(ctx.getResources().getColor(R.color.main))
                 .setNumber(Storage.getBadgeCount(ctx))
                 .setBadgeIconType(NotificationCompat.BADGE_ICON_SMALL)
-                .setLargeIcon(bitMap)
+                //.setLargeIcon(bitMap)
                 .setContentTitle(title)
                 .setContentText(body)
                 .setExtras(extra)
@@ -146,4 +148,26 @@ public class Notifications {
             }
         }
     }
+    public static void createNotificationChannel(Context context) {
+        // Create the NotificationChannel, but only on API 26+ because
+        // the NotificationChannel class is new and not in the support library
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            //Uri defaultSoundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
+            String channelId = context.getResources().getString(R.string.app_channel);
+            NotificationChannel notificationChannel = new NotificationChannel(
+                    channelId, channelId, NotificationManager.IMPORTANCE_HIGH);
+            notificationChannel.enableLights(true);
+            notificationChannel.setLightColor(ContextCompat.getColor(context, R.color.blue_100));
+            notificationChannel.enableVibration(true);
+            notificationChannel.setVibrationPattern(new long[]{100, 200, 300, 400, 500, 400, 300, 200, 400});
+            notificationChannel.setLockscreenVisibility(Notification.VISIBILITY_PUBLIC);
+          //  notificationChannel.setSound(defaultSoundUri, null);
+            //           notificationChannel.setDescription(description);
+            // Register the channel with the system; you can't change the importance
+            // or other notification behaviors after this
+            NotificationManager notificationManager = context.getSystemService(NotificationManager.class);
+            notificationManager.createNotificationChannel(notificationChannel);
+        }
+    }
+
 }

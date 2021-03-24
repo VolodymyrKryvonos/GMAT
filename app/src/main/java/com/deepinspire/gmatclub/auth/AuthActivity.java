@@ -3,10 +3,8 @@ package com.deepinspire.gmatclub.auth;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
@@ -26,16 +24,12 @@ import com.deepinspire.gmatclub.utils.ViewHelper;
 import com.deepinspire.gmatclub.web.WebActivity;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookSdk;
-import com.google.android.gms.auth.GoogleAuthException;
-import com.google.android.gms.auth.GoogleAuthUtil;
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
-import com.google.android.gms.auth.api.signin.GoogleSignInResult;
 import com.google.android.gms.common.ConnectionResult;
-import com.google.android.gms.common.Scopes;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -47,7 +41,6 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GetTokenResult;
 import com.google.firebase.auth.GoogleAuthProvider;
 
-import java.io.IOException;
 import java.util.Date;
 
 import static com.deepinspire.gmatclub.notifications.Notifications.INPUT_URL;
@@ -269,6 +262,7 @@ public class AuthActivity extends AppCompatActivity implements IAuthContract.Vie
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode,resultCode,data);
         if (requestCode == FacebookSdk.getCallbackRequestCodeOffset()) {
             if (callbackManager != null) {
                 callbackManager.onActivityResult(requestCode, resultCode, data);
@@ -294,7 +288,7 @@ public class AuthActivity extends AppCompatActivity implements IAuthContract.Vie
             }
         }
     }
-
+/*
     public void parseToken(Intent data) {
         final GoogleSignInResult result = Auth.GoogleSignInApi.getSignInResultFromIntent(data);
 
@@ -333,7 +327,7 @@ public class AuthActivity extends AppCompatActivity implements IAuthContract.Vie
 
         }
     }
-
+*/
     private void handleSignInResult(Task<GoogleSignInAccount> completedTask) {
         try {
             GoogleSignInAccount account = completedTask.getResult(ApiException.class);

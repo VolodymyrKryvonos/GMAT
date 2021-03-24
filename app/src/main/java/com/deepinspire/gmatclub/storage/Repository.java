@@ -16,6 +16,7 @@ import androidx.annotation.NonNull;
 
 import com.deepinspire.gmatclub.Constants;
 import com.deepinspire.gmatclub.GCConfig;
+import com.deepinspire.gmatclub.R;
 import com.deepinspire.gmatclub.api.Api;
 import com.deepinspire.gmatclub.api.ApiClient;
 import com.deepinspire.gmatclub.api.ApiInterface;
@@ -65,7 +66,7 @@ public class Repository implements IStorage {
     private SharedPreferences sharedPreferences;
 
     private Repository(Context ctx) {
-        device = Build.MODEL + " " + Build.VERSION.RELEASE + " GMAT Club Forum";// + getString(R.string.app_name);
+        device = Build.MODEL + " " + Build.VERSION.RELEASE + " " + ctx.getString(R.string.app_name);
 
         try {
             device += "/" + ctx.getPackageManager().getPackageInfo(ctx.getPackageName(), 0).versionName;
@@ -494,7 +495,7 @@ public class Repository implements IStorage {
                     mp.put("access_token", rb);
 
                     rb = RequestBody.create(MediaType.parse("text/plain"), formattedDate);
-                    mp.put("expires_in", rb);
+                   // mp.put("expires_in", rb);
 
                     rb = RequestBody.create(MediaType.parse("text/plain"), provider);
                     mp.put("provider", rb);
@@ -507,7 +508,7 @@ public class Repository implements IStorage {
                     headers.put("Accept", "application/json");
                     headers.put("Accept-Charset", "utf-8");
 
-                    String device = Build.MODEL + " " + Build.VERSION.RELEASE + " GMAT Club Forum";// + getString(R.string.app_name);
+                    String device = Build.MODEL + " " + Build.VERSION.RELEASE + " " +context.getString(R.string.app_name);
 
 
                     headers.put("My-Agent", device);

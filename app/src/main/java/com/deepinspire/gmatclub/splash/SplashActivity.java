@@ -36,20 +36,17 @@ public class SplashActivity extends AppCompatActivity {
 
         Uri uri = getURI();
 
-        if(uri != null) {
-            Intent intent = new Intent(SplashActivity.this, WebActivity.class);
-
+        Intent intent;
+        if (uri != null) {
+            intent = new Intent(SplashActivity.this, WebActivity.class);
             intent.setData(uri);
-            intent.putExtra(INPUT_URL,url);
-
+            intent.putExtra(INPUT_URL, url);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-
-            startActivity(intent);
         } else {
-            Intent intent = new Intent(SplashActivity.this, AuthActivity.class);
-            intent.putExtra(INPUT_URL,url);
-            startActivity(intent);
+            intent = new Intent(SplashActivity.this, AuthActivity.class);
+            intent.putExtra(INPUT_URL, url);
         }
+        startActivity(intent);
 
         finish();
     }
@@ -69,7 +66,7 @@ public class SplashActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
 
-        if(id == R.id.action_settings) {
+        if (id == R.id.action_settings) {
             return true;
         }
 
@@ -88,12 +85,8 @@ public class SplashActivity extends AppCompatActivity {
     private Uri getURI() {
         Intent intent = getIntent();
 
-        if(intent != null) {
-            Uri uri = intent.getData();
-
-            if(uri != null) {
-                return uri;
-            }
+        if (intent != null) {
+            return intent.getData();
         }
 
         return null;

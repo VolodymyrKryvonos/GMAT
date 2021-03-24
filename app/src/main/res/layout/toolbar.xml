@@ -27,6 +27,7 @@
             android:gravity="center">
 
             <ImageView
+                android:padding="10dp"
                 android:id="@+id/toolbarShare"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -50,7 +51,7 @@
                     android:id="@+id/toolbarTitle"
                     style="@style/toolbarTitle"
                     android:gravity="center"
-                    android:text="GMAT Club" />
+                    android:text="@string/app_title" />
             </LinearLayout>
 
             <LinearLayout
@@ -59,10 +60,11 @@
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
                 android:layout_centerVertical="true"
-                android:layout_marginRight="20dp"
-                android:layout_toLeftOf="@+id/toolbarProfileLayout">
+                android:layout_marginRight="2dp"
+                android:layout_toStartOf="@+id/toolbarProfileLayout">
 
                 <ImageView
+                    android:padding="10dp"
                     android:id="@+id/toolbarSearch"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -85,10 +87,11 @@
                 android:layout_alignParentRight="true"
                 android:layout_centerHorizontal="true"
                 android:layout_centerVertical="true"
-                android:layout_marginRight="20dp"
+                android:layout_marginRight="10dp"
                 android:gravity="center">
 
                 <ImageView
+                    android:padding="10dp"
                     android:id="@+id/toolbarProfile"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

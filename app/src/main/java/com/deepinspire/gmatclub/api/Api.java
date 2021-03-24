@@ -1,7 +1,9 @@
 package com.deepinspire.gmatclub.api;
 
+import com.deepinspire.gmatclub.BuildConfig;
+
 public class Api {
-    public static String DOMAIN = "gmatclub.com";
+    public static String DOMAIN = BuildConfig.HOST;//"gmatclub.com";
 
     public static String HOME_URL = "https://" + DOMAIN;
 
@@ -28,7 +30,7 @@ public class Api {
 
     public static final String TESTS_URL = HOME_URL + "/tests-beta";
     public static final String TEST_URL = HOME_URL + "/tests-beta/test";
-    public static final String PRACTICE_URL = HOME_URL + "/practice.php";
+    public static final String PRACTICE_URL = HOME_URL + BuildConfig.PAGE_PRACTICE;
     public static final String DEALS_URL = HOME_URL + "/marketplace";
     public static final String REVIEWS_URL = HOME_URL + "/reviews";
     public static final String CHAT_URL = HOME_URL + "/forum/mchat.php?menu=true";
@@ -56,7 +58,8 @@ public class Api {
     public static final int AUTH_AVAILABLE_COUNT_FAILED_REQUESTS = 3;
 
     public static final String DECISION_TRACKER = FORUM_URL + "/decision-tracker.html";
-    public static final String MBA_DISCUSSIONS = FORUM_URL + "/business-school-discussions-183/";
+    public static final String MBA_DISCUSSIONS = FORUM_URL + BuildConfig.PAGE_MBA;
     public static final String LEAVE_FEEDBACK = "https://docs.google.com/forms/d/e/1FAIpQLSc86Cr25gbazXAriZyYNrcCxXhm_pu8FJznFNCKk8nzaHEn0g/viewform";
-    public static final String OLD_CHAT_LINK = "https://gmatclub.com/forum/mchat.php";
+   // public static final String OLD_CHAT_LINK = "https://gmatclub.com/forum/mchat.php";
+    public  static  final String POLICY_URL= HOME_URL+BuildConfig.PAGE_POLICY;
 }

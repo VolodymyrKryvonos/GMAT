@@ -2,6 +2,7 @@ package com.deepinspire.gmatclub;
 
 import androidx.multidex.MultiDexApplication;
 
+import com.deepinspire.gmatclub.notifications.Notifications;
 import com.facebook.FacebookSdk;
 
 /**
@@ -14,6 +15,7 @@ public class Application extends MultiDexApplication {
         super.onCreate();
 
         initApplication();
+        Notifications.createNotificationChannel(this);
     }
 
     //TODO: first init before start application

@@ -84,7 +84,7 @@ public class LoginPresenter implements ILoginContract.Presenter {
 
             @Override
             public void onError(AuthException exception) {
-                view.openWebSite("https://gmatclub.com/forum/oauthorize.php?provider=" + provider);
+                view.openWebSite(Api.HOME_URL+"/forum/oauthorize.php?provider=" + provider);
             }
         });
     }
@@ -98,7 +98,7 @@ public class LoginPresenter implements ILoginContract.Presenter {
 
             @Override
             public void onError(AuthException exception) {
-                view.openWebSite("https://gmatclub.com/forum/oauthorize.php?provider=" + provider);
+                view.openWebSite(Api.HOME_URL+"/forum/oauthorize.php?provider=" + provider);
             }
         });
     }

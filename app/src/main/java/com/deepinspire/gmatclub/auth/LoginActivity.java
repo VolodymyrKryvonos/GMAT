@@ -1,5 +1,6 @@
 package com.deepinspire.gmatclub.auth;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -49,13 +50,10 @@ import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.Scopes;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.common.api.GoogleApiClient;
-import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthCredential;
-import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.auth.GetTokenResult;
 import com.google.firebase.auth.GoogleAuthProvider;
 
 import java.io.IOException;
@@ -63,9 +61,6 @@ import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
-
-import butterknife.ButterKnife;
-import butterknife.OnClick;
 
 import static com.deepinspire.gmatclub.GCConfig.GOOGLE;
 
@@ -94,14 +89,15 @@ public class LoginActivity extends AppCompatActivity implements ILoginContract.V
         setPresenter(new LoginPresenter(getApplication(), this));
 
         setContentView(R.layout.activity_login);
-        ButterKnife.bind(this);
+
 
         progressbar = (ProgressBar) findViewById(R.id.loading);
         signInLayout = (ScrollView) findViewById(R.id.signInLayout);
 
         signInInputPasswordForgot = (TextView) findViewById(R.id.signInInputPasswordForgot);
         signInInputPasswordForgot.setOnClickListener(this);
-
+        View btnGoogleLogin = findViewById(R.id.btnGoogleLogin);
+        btnGoogleLogin.setOnClickListener(v -> googleLoginAction());
         LinearLayout signInButtonLayout = (LinearLayout) findViewById(R.id.signInButtonLayout);
         signInButtonLayout.setOnClickListener(this);
 
@@ -138,17 +134,16 @@ public class LoginActivity extends AppCompatActivity implements ILoginContract.V
                         }
                     });*/
 
-            //mGoogleSignInClient.revokeAccess();
+        //mGoogleSignInClient.revokeAccess();
                     /*.addOnCompleteListener(this, new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
                             // ...
                         }
                     });*/
-       // }
+        // }
     }
 
-    @OnClick(R.id.btnGoogleLogin)
     void googleLoginAction() {
         initGoogleSignIn();
         Intent signInIntent = mGoogleSignInClient.getSignInIntent();
@@ -287,6 +282,7 @@ public class LoginActivity extends AppCompatActivity implements ILoginContract.V
         }
     }
 
+    @SuppressLint("MissingSuperCall")
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == FacebookSdk.getCallbackRequestCodeOffset()) {
@@ -298,43 +294,44 @@ public class LoginActivity extends AppCompatActivity implements ILoginContract.V
             handleSignInResult(task);
         }
     }
-/*
-    public void parseToken(Intent data) {
-        GoogleSignInResult result = Auth.GoogleSignInApi.getSignInResultFromIntent(data);
 
-        if (result.isSuccess()) {
-            final GoogleSignInAccount account = result.getSignInAccount();
+    /*
+        public void parseToken(Intent data) {
+            GoogleSignInResult result = Auth.GoogleSignInApi.getSignInResultFromIntent(data);
 
-            Runnable runnable = new Runnable() {
-                @Override
-                public void run() {
-                    try {
-                        String scope = "oauth2:" + Scopes.EMAIL + " " + Scopes.PROFILE;
-                        String accessToken = GoogleAuthUtil.getToken(getApplicationContext(), account.getAccount(), scope, new Bundle());
+            if (result.isSuccess()) {
+                final GoogleSignInAccount account = result.getSignInAccount();
 
-                        String idToken = account.getIdToken();
-                        Long expiresIn = (new Date()).getTime() + account.getExpirationTimeSecs();
+                Runnable runnable = new Runnable() {
+                    @Override
+                    public void run() {
+                        try {
+                            String scope = "oauth2:" + Scopes.EMAIL + " " + Scopes.PROFILE;
+                            String accessToken = GoogleAuthUtil.getToken(getApplicationContext(), account.getAccount(), scope, new Bundle());
 
-                        presenter.signIn(LoginActivity.this, "google", accessToken, accessToken, String.valueOf(expiresIn));
-                        presenter.signIn(LoginActivity.this, "google", idToken, idToken, String.valueOf(expiresIn));
-                        presenter.signIn(LoginActivity.this, "google", idToken, accessToken, String.valueOf(expiresIn));
-                        presenter.signIn(LoginActivity.this, "google", accessToken, accessToken, String.valueOf(expiresIn));
+                            String idToken = account.getIdToken();
+                            Long expiresIn = (new Date()).getTime() + account.getExpirationTimeSecs();
 
-                        //presenter.getTokenInfo(idToken);
-                        //presenter.getTokenInfo(accessToken);
+                            presenter.signIn(LoginActivity.this, "google", accessToken, accessToken, String.valueOf(expiresIn));
+                            presenter.signIn(LoginActivity.this, "google", idToken, idToken, String.valueOf(expiresIn));
+                            presenter.signIn(LoginActivity.this, "google", idToken, accessToken, String.valueOf(expiresIn));
+                            presenter.signIn(LoginActivity.this, "google", accessToken, accessToken, String.valueOf(expiresIn));
 
-                        Log.d("TOKEN", "accessToken:" + accessToken); //accessToken:ya29.Gl...
+                            //presenter.getTokenInfo(idToken);
+                            //presenter.getTokenInfo(accessToken);
 
-                    } catch (IOException | GoogleAuthException e) {
-                        e.printStackTrace();
+                            Log.d("TOKEN", "accessToken:" + accessToken); //accessToken:ya29.Gl...
+
+                        } catch (IOException | GoogleAuthException e) {
+                            e.printStackTrace();
+                        }
                     }
-                }
-            };
-            AsyncTask.execute(runnable);
+                };
+                AsyncTask.execute(runnable);
 
+            }
         }
-    }
-*/
+    */
     private void handleSignInResult(Task<GoogleSignInAccount> completedTask) {
         try {
             GoogleSignInAccount account = completedTask.getResult(ApiException.class);
@@ -358,43 +355,35 @@ public class LoginActivity extends AppCompatActivity implements ILoginContract.V
 
 
             mAuth.signInWithCredential(credential)
-                    .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                        @Override
-                        public void onComplete(@NonNull Task<AuthResult> task) {
-                            FirebaseUser mUser = mAuth.getCurrentUser();
-                            if (task.isSuccessful() && mUser != null) {
-                                mUser.getIdToken(true)
-                                        .addOnCompleteListener(new OnCompleteListener<GetTokenResult>() {
-                                            public void onComplete(@NonNull final Task<GetTokenResult> task) {
-                                                if (task.isSuccessful()) {
-                                                    Runnable runnable = new Runnable() {
-                                                        @Override
-                                                        public void run() {
-                                                            try {
-                                                                String scope = "oauth2:" + Scopes.EMAIL + " " + Scopes.PROFILE;
-                                                                String accessToken = GoogleAuthUtil.getToken(getApplicationContext(), acct.getAccount(), scope, new Bundle());
+                    .addOnCompleteListener(this, task -> {
+                        FirebaseUser mUser = mAuth.getCurrentUser();
+                        if (task.isSuccessful() && mUser != null) {
+                            mUser.getIdToken(true)
+                                    .addOnCompleteListener(task1 -> {
+                                        if (task1.isSuccessful()) {
+                                            Runnable runnable = () -> {
+                                                try {
+                                                    String scope = "oauth2:" + Scopes.EMAIL + " " + Scopes.PROFILE;
+                                                    String accessToken = GoogleAuthUtil.getToken(getApplicationContext(), acct.getAccount(), scope, new Bundle());
 
-                                                                String idToken = acct.getIdToken();
-                                                                Long expiresIn = (new Date()).getTime() + acct.getExpirationTimeSecs();
-                                                                Storage.saveGoogleIdToken(getApplicationContext(), idToken);
-                                                                Storage.saveGoogleAccessToken(getApplicationContext(), accessToken);
-                                                                presenter.signInUseGoogleAccount(LoginActivity.this, GOOGLE, idToken, accessToken, String.valueOf(expiresIn));
+                                                    String idToken = acct.getIdToken();
+                                                    Long expiresIn = (new Date()).getTime() ;//+ acct.getExpirationTimeSecs();
+                                                    Storage.saveGoogleIdToken(getApplicationContext(), idToken);
+                                                    Storage.saveGoogleAccessToken(getApplicationContext(), accessToken);
+                                                    presenter.signInUseGoogleAccount(LoginActivity.this, GOOGLE, idToken, accessToken, String.valueOf(expiresIn));
 
-                                                            } catch (IOException | GoogleAuthException e) {
-                                                                e.printStackTrace();
-                                                            }
-                                                        }
-                                                    };
-                                                    AsyncTask.execute(runnable);
-
-                                                } else {
-                                                    Log.w(LOGIN_TAG, task.getException());
+                                                } catch (IOException | GoogleAuthException e) {
+                                                    e.printStackTrace();
                                                 }
-                                            }
-                                        });
-                            } else {
-                                Log.w(LOGIN_TAG, task.getException());
-                            }
+                                            };
+                                            AsyncTask.execute(runnable);
+
+                                        } else {
+                                            Log.w(LOGIN_TAG, task1.getException());
+                                        }
+                                    });
+                        } else {
+                            Log.w(LOGIN_TAG, task.getException());
                         }
                     });
         }
