@@ -5,7 +5,6 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.text.method.ScrollingMovementMethod;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.WindowManager;
@@ -15,7 +14,6 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.ScrollView;
-import android.widget.Scroller;
 import android.widget.TextView;
 
 import androidx.core.content.ContextCompat;
@@ -497,6 +495,7 @@ public class ViewHelper {
     }
 
     public static void showOfflineDialog(final WebActivity activity) {
+        /*
         if (activity == null || activity.isFinishing() || activity.isDestroyed())
             return;
         LayoutInflater inflaterAlertDialog = LayoutInflater.from(activity);
@@ -529,5 +528,7 @@ public class ViewHelper {
         btnNetworkTryAgain.setOnClickListener(v -> activity.tryAgain());
 
         btnNetworkSettings.setOnClickListener(v -> activity.openDeviceSettings());
+
+         */
     }
 }

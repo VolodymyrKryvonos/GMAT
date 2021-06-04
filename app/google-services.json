@@ -59,6 +59,22 @@
       },
       "oauth_client": [
         {
+          "client_id": "789008364480-3e85flql8kooboem1foi1cfjsqehajqf.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.greprepclub",
+            "certificate_hash": "30ab6334f326f0ab28f591c2a0b434e252ceff63"
+          }
+        },
+        {
+          "client_id": "789008364480-gtdfkvcnt9c6oh6n1e6vla5b4hlckt82.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.greprepclub",
+            "certificate_hash": "ff15f7deda6be778bc7c1ed2f0044f64de1ed21b"
+          }
+        },
+        {
           "client_id": "789008364480-qn4it7p55url577efguo5usasmrp4aau.apps.googleusercontent.com",
           "client_type": 3
         }

@@ -46,6 +46,7 @@ import android.webkit.ValueCallback;
 import android.webkit.WebChromeClient;
 import android.webkit.WebResourceError;
 import android.webkit.WebResourceRequest;
+import android.webkit.WebResourceResponse;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -58,6 +59,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
@@ -1106,9 +1109,16 @@ public class WebActivity extends AppCompatActivity implements
                     startActivity(intent);
                 });
                 onPageFinishedAction(url);
+                view.loadUrl("javascript:$(document).ajaxStart(function (event, request, settings) { " +
+                        "ajaxHandler.ajaxBegin(); " + // Event called when an AJAX call begins
+                        "});");
+                view.loadUrl("javascript:$(document).ajaxComplete(function (event, request, settings) { " +
+                        "ajaxHandler.ajaxDone(); " + // Event called when an AJAX call ends
+                        "});");
             }
         });
     }
+
 
     @SuppressLint({"AddJavascriptInterface", "SetJavaScriptEnabled"})
     private void initWebView() {
@@ -1128,19 +1138,22 @@ public class WebActivity extends AppCompatActivity implements
 
         settings.setAppCacheEnabled(false);
         settings.setCacheMode(WebSettings.LOAD_NO_CACHE);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            CookieManager.getInstance().setAcceptThirdPartyCookies(webView, true);
+        }
         downloadFileAction();
 
         settings.setAllowFileAccessFromFileURLs(true); //Maybe you don't need this rule
         settings.setAllowUniversalAccessFromFileURLs(true);
 
-        String device = "Android" + " " + getString(R.string.app_name);
+        String device = "Android" + " " + getString(R.string.app_name)+"/";
 
-        try {
+       /* try {
             device += "/" + getPackageManager().getPackageInfo(getApplication().getPackageName(), 0).versionName;
         } catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();
         }
-
+*/
         settings.setUserAgentString(device);
 
         //settings.setLoadWithOverviewMode(true);
@@ -1185,14 +1198,14 @@ public class WebActivity extends AppCompatActivity implements
 
         presenter.getNotifications(this);
         webView.addJavascriptInterface(new GCJavascriptInterface(this), "GCAndroid");
-
+        webView.addJavascriptInterface(new AjaxHandler(this), "ajaxHandler");
         webView.setWebChromeClient(new WebChromeClient() {
             @Override
             public boolean onConsoleMessage(ConsoleMessage consoleMessage) {
                 //Toast.makeText(getApplicationContext(), consoleMessage.message(), Toast.LENGTH_LONG).show();
-                 /*Log.d("MyApplication", consoleMessage.message() + " -- From line "
+                Log.d("MyApplication", consoleMessage.message() + " -- From line "
                         + consoleMessage.lineNumber() + " of "
-                        + consoleMessage.sourceId());*/
+                        + consoleMessage.sourceId());
                 return super.onConsoleMessage(consoleMessage);
             }
 
@@ -1224,7 +1237,7 @@ public class WebActivity extends AppCompatActivity implements
 
             // For Lollipop 5.0+ Devices
 
-            public boolean onShowFileChooser(WebView mWebView, ValueCallback<Uri[]> filePathCallback, WebChromeClient.FileChooserParams fileChooserParams) {
+            public boolean onShowFileChooser(WebView mWebView, ValueCallback<Uri[]> filePathCallback, FileChooserParams fileChooserParams) {
                 mUploadMessages = filePathCallback;
                 openImageChooser();
                 return true;
@@ -1242,7 +1255,6 @@ public class WebActivity extends AppCompatActivity implements
                 openFileChooser(uploadMsg, acceptType);
             }
         });
-
         webView.setWebViewClient(new WebViewClient() {
             @Override
             public void onReceivedHttpAuthRequest(WebView view, HttpAuthHandler handler, String host, String realm) {
@@ -1279,6 +1291,21 @@ public class WebActivity extends AppCompatActivity implements
                 return handleRequestViaOkHttp(request.getUrl().toString());
             }*/
 
+            @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+            @Nullable
+            @Override
+            public WebResourceResponse shouldInterceptRequest(WebView view, WebResourceRequest request) {
+                Log.d("WEBVIEW","REQ: "+request.getUrl().toString());
+                WebResourceResponse resp=super.shouldInterceptRequest(view, request);
+                if(resp==null)
+                {
+                    Log.d("WEBVIEW","RESP:EMPTY");
+                }
+                else
+                Log.d("WEBVIEW","RESP: "+resp.toString());
+                return resp;
+            }
+
             @Override
             @TargetApi(Build.VERSION_CODES.LOLLIPOP)
             public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
@@ -1300,7 +1327,7 @@ public class WebActivity extends AppCompatActivity implements
                 //Toast.makeText(WebActivity.this, "Oh no! " + description, Toast.LENGTH_SHORT).show();
             }
 
-            @TargetApi(android.os.Build.VERSION_CODES.M)
+            @TargetApi(Build.VERSION_CODES.M)
             @Override
             public void onReceivedError(WebView view, WebResourceRequest req, WebResourceError rerr) {
                 int errorCode = rerr.getErrorCode();
@@ -1470,7 +1497,7 @@ public class WebActivity extends AppCompatActivity implements
     }*/
 
     private void initRequestExtraHeaders() {
-        String device = "Android" +  /*+ Build.MODEL + " " + Build.VERSION.RELEASE +*/ " " + getString(R.string.app_name);// + getString(R.string.app_name);
+        String device = "Android" +  /*+ Build.MODEL + " " + Build.VERSION.RELEASE +*/ " " + getString(R.string.app_name)+"/";// + getString(R.string.app_name);
 
        /* try {
             device += "/" + getPackageManager().getPackageInfo(getApplication().getPackageName(), 0).versionName;
@@ -2537,6 +2564,24 @@ public class WebActivity extends AppCompatActivity implements
             e.printStackTrace();
         }
     }
+    public class AjaxHandler {
 
+        private static final String TAG = "AjaxHandler";
+        private final Context context;
+
+        public AjaxHandler(Context context) {
+            this.context = context;
+        }
+        @JavascriptInterface
+        public void ajaxBegin() {
+            Log.w(TAG, "AJAX Begin");
+            Toast.makeText(context, "AJAX Begin", Toast.LENGTH_SHORT).show();
+        }
+        @JavascriptInterface
+        public void ajaxDone() {
+            Log.w(TAG, "AJAX Done");
+            Toast.makeText(context, "AJAX Done", Toast.LENGTH_SHORT).show();
+        }
+    }
 
 }

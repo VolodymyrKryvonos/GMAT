@@ -145,6 +145,10 @@ public class LoginActivity extends AppCompatActivity implements ILoginContract.V
     }
 
     void googleLoginAction() {
+       /* if(true)
+            throw new RuntimeException("TEST!!!");
+
+        */
         initGoogleSignIn();
         Intent signInIntent = mGoogleSignInClient.getSignInIntent();
         startActivityForResult(signInIntent, GCConfig.GOOGLE_SIGN_IN);
