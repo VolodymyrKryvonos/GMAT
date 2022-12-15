@@ -58,8 +58,8 @@ android {
         applicationId "com.deepinspire.gmatclub"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 31
-        versionName "6.12.12"
+        versionCode 32
+        versionName "6.12.13"
         multiDexEnabled true
         testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
         signingConfig signingConfigs.debug
@@ -84,8 +84,8 @@ android {
             buildConfigField "String" ,"PAGE_POLICY",'"/static/gmatclub-terms-and-conditions-and-privacy-policy.php"'
         }
         greprepclub {
-            buildConfigField "String", "HOST", '"greprepclub.com"'
-            manifestPlaceholders = [hostName:"greprepclub.com"]
+            buildConfigField "String", "HOST", '"gre.myprepclub.com"'
+            manifestPlaceholders = [hostName:"gre.myprepclub.com"]
             buildConfigField "String", "PAGE_MBA", '"/graduate-admissions-questions-26/"'
             buildConfigField "String", "PAGE_PRACTICE", '"/forum/search.php?view=search_tags"'
             buildConfigField "String" ,"PAGE_POLICY",'"/static/terms-and-conditions-and-privacy-policy.php"'

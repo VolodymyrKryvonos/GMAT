@@ -1,5 +1,8 @@
 package com.deepinspire.gmatclub.web;
 
+import static com.deepinspire.gmatclub.api.Api.CHAT_URL;
+import static com.deepinspire.gmatclub.notifications.Notifications.INPUT_URL;
+
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
@@ -113,9 +116,6 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-
-import static com.deepinspire.gmatclub.api.Api.CHAT_URL;
-import static com.deepinspire.gmatclub.notifications.Notifications.INPUT_URL;
 
 public class WebActivity extends AppCompatActivity implements
         IWebContract.View, SwipeRefreshLayout.OnRefreshListener, View.OnClickListener, View.OnTouchListener {
@@ -1639,6 +1639,8 @@ public class WebActivity extends AppCompatActivity implements
         Storage.saveGoogleAccessToken(getApplicationContext(), "");
         Storage.saveFacebookIdToken(getApplicationContext(), "");
         Storage.saveFacebookAccessToken(getApplicationContext(), "");
+        Storage.saveLoginEmail(getApplicationContext(), "");
+        Storage.saveLoginPassword(getApplicationContext(), "");
         startActivity(new Intent(WebActivity.this, AuthActivity.class));
         finish();
     }

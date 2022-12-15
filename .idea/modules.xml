@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" group="gmat/app" />
-      <module fileurl="file://$PROJECT_DIR$/gmat.iml" filepath="$PROJECT_DIR$/gmat.iml" group="gmat" />
+      <module fileurl="file://$PROJECT_DIR$/gmat.iml" filepath="$PROJECT_DIR$/gmat.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/gmat.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/gmat.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/gmat.app.main.iml" filepath="$PROJECT_DIR$/.idea/modules/app/gmat.app.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/gmat.app.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/gmat.app.unitTest.iml" />
     </modules>
   </component>
 </project>
