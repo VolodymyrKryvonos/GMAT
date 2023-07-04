@@ -1273,9 +1273,11 @@ public class WebActivity extends AppCompatActivity implements
 
             public void onPageStarted(WebView view, String url, Bitmap favicon) {
                 onPageStartedAction(url);
+                Log.e("onPageStarted", "onPageStarted() called");
             }
 
             public void onPageFinished(WebView view, String url) {
+                Log.e("onPageFinished", "onPageFinished() called");
                 onPageFinishedAction(url);
             }
 
@@ -1355,6 +1357,7 @@ public class WebActivity extends AppCompatActivity implements
     }
 
     private void onPageFinishedAction(String url) {
+        Log.e("onPageFinishedAction", "onPageFinishedAction() called with: url = [" + url + "]");
         if (isFinishing() || isDestroyed())
             return;
         if (presenter.checkAccessNetwork(this)) {
@@ -1381,6 +1384,11 @@ public class WebActivity extends AppCompatActivity implements
                 presenter.logged(this);
                 swipe.setRefreshing(false);
                 setLoadingIndicator(false);
+
+                if (url.contains(Api.QUIZ) && url.contains("s=")){
+                    swipe.setEnabled(false);
+                }
+
             } else if (url.contains(Api.PM_URL)) {
                 presenter.updatePMs();
                 updateCountMessages();
@@ -1390,6 +1398,7 @@ public class WebActivity extends AppCompatActivity implements
             swipe.setRefreshing(false);
             setLoadingIndicator(false);
         }
+
     }
 
     private void onPageStartedAction(String url) {

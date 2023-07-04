@@ -3,6 +3,7 @@ package com.deepinspire.gmatclub.api;
 import com.deepinspire.gmatclub.BuildConfig;
 
 public class Api {
+    public static final String QUIZ = "quiz";
     public static String DOMAIN = BuildConfig.HOST;//"gmatclub.com";
 
     public static String HOME_URL = "https://" + DOMAIN;
