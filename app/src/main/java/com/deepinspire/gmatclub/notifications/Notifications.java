@@ -111,7 +111,7 @@ public class Notifications {
                 .setContentText(body)
                 .setExtras(extra)
                 .setStyle((new NotificationCompat.BigTextStyle()).bigText(body))
-                .setContentIntent(PendingIntent.getActivity(ctx, 0, intent, PendingIntent.FLAG_ONE_SHOT))
+                .setContentIntent(PendingIntent.getActivity(ctx, 0, intent, PendingIntent.FLAG_ONE_SHOT | PendingIntent.FLAG_IMMUTABLE))
                 .setAutoCancel(true)
                 .setOngoing(false);
 

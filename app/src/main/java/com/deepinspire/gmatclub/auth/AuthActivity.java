@@ -1,8 +1,12 @@
 package com.deepinspire.gmatclub.auth;
 
+import static com.deepinspire.gmatclub.notifications.Notifications.INPUT_URL;
+
+import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.MotionEvent;
@@ -14,6 +18,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.app.ActivityCompat;
 
 import com.deepinspire.gmatclub.GCConfig;
 import com.deepinspire.gmatclub.R;
@@ -42,8 +47,6 @@ import com.google.firebase.auth.GetTokenResult;
 import com.google.firebase.auth.GoogleAuthProvider;
 
 import java.util.Date;
-
-import static com.deepinspire.gmatclub.notifications.Notifications.INPUT_URL;
 
 public class AuthActivity extends AppCompatActivity implements IAuthContract.View, View.OnClickListener, GoogleApiClient.OnConnectionFailedListener {
     private IAuthContract.Presenter presenter;
@@ -132,6 +135,17 @@ public class AuthActivity extends AppCompatActivity implements IAuthContract.Vie
                             // ...
                         }
                     });*/
+        }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            ActivityCompat.requestPermissions(AuthActivity.this,
+                    new String[]{Manifest.permission.POST_NOTIFICATIONS},
+                    200
+            );
         }
     }
 

@@ -22,7 +22,8 @@ import com.deepinspire.gmatclub.api.ApiClient;
 import com.deepinspire.gmatclub.api.ApiInterface;
 import com.deepinspire.gmatclub.api.AuthException;
 import com.facebook.login.LoginManager;
-import com.google.firebase.iid.FirebaseInstanceId;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.messaging.FirebaseMessaging;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -495,7 +496,7 @@ public class Repository implements IStorage {
                     mp.put("access_token", rb);
 
                     rb = RequestBody.create(MediaType.parse("text/plain"), formattedDate);
-                   // mp.put("expires_in", rb);
+                    // mp.put("expires_in", rb);
 
                     rb = RequestBody.create(MediaType.parse("text/plain"), provider);
                     mp.put("provider", rb);
@@ -508,7 +509,7 @@ public class Repository implements IStorage {
                     headers.put("Accept", "application/json");
                     headers.put("Accept-Charset", "utf-8");
 
-                    String device = Build.MODEL + " " + Build.VERSION.RELEASE + " " +context.getString(R.string.app_name);
+                    String device = Build.MODEL + " " + Build.VERSION.RELEASE + " " + context.getString(R.string.app_name);
 
 
                     headers.put("My-Agent", device);
@@ -819,17 +820,20 @@ public class Repository implements IStorage {
                 user.setLogged(currentLogged);
 
                 if ((currentLogged && currentLogged != previouseLogged) || refreshToken) {
-                    String token = FirebaseInstanceId.getInstance().getToken();
-
-                    subscribeNotifications(token, true, new IStorage.ICallbackAuth() {
+                    FirebaseMessaging.getInstance().getToken().addOnSuccessListener(new OnSuccessListener<String>() {
                         @Override
-                        public void onSuccess() {
-                            Log.d(TAG, "Success subscribe notifications");
-                        }
+                        public void onSuccess(String token) {
+                            subscribeNotifications(token, true, new IStorage.ICallbackAuth() {
+                                @Override
+                                public void onSuccess() {
+                                    Log.d(TAG, "Success subscribe notifications");
+                                }
 
-                        @Override
-                        public void onError(AuthException exc) {
-                            Log.d(TAG, "Error subscribe notifications");
+                                @Override
+                                public void onError(AuthException exc) {
+                                    Log.d(TAG, "Error subscribe notifications");
+                                }
+                            });
                         }
                     });
                 }
@@ -842,8 +846,9 @@ public class Repository implements IStorage {
 
     public void logout(@NonNull final Context context, @NonNull final ICallback callback) {
         try {
-            subscribeNotifications(
-                    FirebaseInstanceId.getInstance().getToken(), false, new IStorage.ICallbackAuth() {
+
+            FirebaseMessaging.getInstance().getToken().addOnSuccessListener(token -> subscribeNotifications(
+                    token, false, new ICallbackAuth() {
                         @Override
                         public void onSuccess() {
                             clearInformationForUser(context);
@@ -854,7 +859,8 @@ public class Repository implements IStorage {
                         public void onError(AuthException exc) {
                             callback.onError();
                         }
-                    });
+                    }));
+
         } catch (Exception e) {
             callback.onError();
         }

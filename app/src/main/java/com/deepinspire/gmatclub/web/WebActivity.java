@@ -101,8 +101,9 @@ import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
 import com.github.sealstudios.fab.FloatingActionButton;
 import com.github.sealstudios.fab.FloatingActionMenu;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.navigation.NavigationView;
-import com.google.firebase.iid.FirebaseInstanceId;
+import com.google.firebase.messaging.FirebaseMessaging;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -556,8 +557,12 @@ public class WebActivity extends AppCompatActivity implements
                 break;
             case R.id.toolbarProfile:
                 changeProfileIconColor(R.color.white);
-                String token = FirebaseInstanceId.getInstance().getToken();
-                StringUtils.copyToClipboard(this, token);
+                FirebaseMessaging.getInstance().getToken().addOnSuccessListener(this, new OnSuccessListener<String>() {
+                    @Override
+                    public void onSuccess(String token) {
+                        StringUtils.copyToClipboard(WebActivity.this, token);
+                    }
+                });
 
                 if (logged()) {
                     ViewHelper.showProfileAuthDialog(WebActivity.this);
@@ -630,7 +635,7 @@ public class WebActivity extends AppCompatActivity implements
     @Override
     public void onRefresh() {
         //swipe.setRefreshing(false);
-        FirebaseInstanceId.getInstance().getToken();
+
         if (presenter.checkAccessNetwork(this)) {
             destroyOfflineAlertDialog();
             if (webView != null) {
@@ -949,37 +954,38 @@ public class WebActivity extends AppCompatActivity implements
     */
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
+        try {
+            Uri uri = intent.getData();
 
-        Uri uri = intent.getData();
+            String url;
 
-        String url;
+            if (uri != null) {
+                url = uri.toString();
+            } else {
+                url = intent.getStringExtra("url");
+            }
 
-        if (uri != null) {
-            url = uri.toString();
-        } else {
-            url = intent.getStringExtra("url");
-        }
+            if (intent.getStringExtra(INPUT_URL) != null)
+                url = intent.getStringExtra(INPUT_URL);
 
-        if (intent.getStringExtra(INPUT_URL) != null)
-            url = intent.getStringExtra(INPUT_URL);
+            if (url.equals(Api.FORUM_URL)) {
+                highlightMenuItemOnClick(R.id.menu_forum);
+            } else if (url.equals(CHAT_URL)) {
+                highlightMenuItemOnClick(R.id.menu_chat_container);
+            } else if (url.equals(Api.PRACTICE_URL)) {
+                highlightMenuItemOnClick(R.id.menu_practice);
+            } else if (url.equals(Api.PM_NEW_URL)) {
+                highlightMenuItemOnClick(R.id.menu_pms);
+            } else if (url.equals(Api.DECISION_TRACKER)) {
+                highlightMenuItemOnClick(R.id.menu_decision_tracker);
+            } else if (url.equals(Api.MBA_DISCUSSIONS)) {
+                highlightMenuItemOnClick(R.id.menu_mba_discussions);
+            } else if (url.equals(Api.DEALS_URL)) {
+                highlightMenuItemOnClick(R.id.menu_deals_discounts);
+            }
 
-        if (url.equals(Api.FORUM_URL)) {
-            highlightMenuItemOnClick(R.id.menu_forum);
-        } else if (url.equals(CHAT_URL)) {
-            highlightMenuItemOnClick(R.id.menu_chat_container);
-        } else if (url.equals(Api.PRACTICE_URL)) {
-            highlightMenuItemOnClick(R.id.menu_practice);
-        } else if (url.equals(Api.PM_NEW_URL)) {
-            highlightMenuItemOnClick(R.id.menu_pms);
-        } else if (url.equals(Api.DECISION_TRACKER)) {
-            highlightMenuItemOnClick(R.id.menu_decision_tracker);
-        } else if (url.equals(Api.MBA_DISCUSSIONS)) {
-            highlightMenuItemOnClick(R.id.menu_mba_discussions);
-        } else if (url.equals(Api.DEALS_URL)) {
-            highlightMenuItemOnClick(R.id.menu_deals_discounts);
-        }
-
-        openPage(url);
+            openPage(url);
+        } catch (NullPointerException e){}
     }
 
     public void setPresenter(IWebContract.Presenter presenter) {
@@ -1136,7 +1142,6 @@ public class WebActivity extends AppCompatActivity implements
         settings.setLoadsImagesAutomatically(true);
         settings.setLoadWithOverviewMode(true);
 
-        settings.setAppCacheEnabled(false);
         settings.setCacheMode(WebSettings.LOAD_NO_CACHE);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             CookieManager.getInstance().setAcceptThirdPartyCookies(webView, true);
@@ -1146,7 +1151,7 @@ public class WebActivity extends AppCompatActivity implements
         settings.setAllowFileAccessFromFileURLs(true); //Maybe you don't need this rule
         settings.setAllowUniversalAccessFromFileURLs(true);
 
-        String device = "Android" + " " + getString(R.string.app_name)+"/";
+        String device = "Android" + " " + getString(R.string.app_name) + "/";
 
        /* try {
             device += "/" + getPackageManager().getPackageInfo(getApplication().getPackageName(), 0).versionName;
@@ -1297,14 +1302,12 @@ public class WebActivity extends AppCompatActivity implements
             @Nullable
             @Override
             public WebResourceResponse shouldInterceptRequest(WebView view, WebResourceRequest request) {
-                Log.d("WEBVIEW","REQ: "+request.getUrl().toString());
-                WebResourceResponse resp=super.shouldInterceptRequest(view, request);
-                if(resp==null)
-                {
-                    Log.d("WEBVIEW","RESP:EMPTY");
-                }
-                else
-                Log.d("WEBVIEW","RESP: "+resp.toString());
+                Log.d("WEBVIEW", "REQ: " + request.getUrl().toString());
+                WebResourceResponse resp = super.shouldInterceptRequest(view, request);
+                if (resp == null) {
+                    Log.d("WEBVIEW", "RESP:EMPTY");
+                } else
+                    Log.d("WEBVIEW", "RESP: " + resp.toString());
                 return resp;
             }
 
@@ -1385,7 +1388,7 @@ public class WebActivity extends AppCompatActivity implements
                 swipe.setRefreshing(false);
                 setLoadingIndicator(false);
 
-                if (url.contains(Api.QUIZ) && url.contains("s=")){
+                if (url.contains(Api.QUIZ) && url.contains("s=")) {
                     swipe.setEnabled(false);
                 }
 
@@ -1506,7 +1509,7 @@ public class WebActivity extends AppCompatActivity implements
     }*/
 
     private void initRequestExtraHeaders() {
-        String device = "Android" +  /*+ Build.MODEL + " " + Build.VERSION.RELEASE +*/ " " + getString(R.string.app_name)+"/";// + getString(R.string.app_name);
+        String device = "Android" +  /*+ Build.MODEL + " " + Build.VERSION.RELEASE +*/ " " + getString(R.string.app_name) + "/";// + getString(R.string.app_name);
 
        /* try {
             device += "/" + getPackageManager().getPackageInfo(getApplication().getPackageName(), 0).versionName;
@@ -2575,6 +2578,7 @@ public class WebActivity extends AppCompatActivity implements
             e.printStackTrace();
         }
     }
+
     public class AjaxHandler {
 
         private static final String TAG = "AjaxHandler";
@@ -2583,11 +2587,13 @@ public class WebActivity extends AppCompatActivity implements
         public AjaxHandler(Context context) {
             this.context = context;
         }
+
         @JavascriptInterface
         public void ajaxBegin() {
             Log.w(TAG, "AJAX Begin");
             Toast.makeText(context, "AJAX Begin", Toast.LENGTH_SHORT).show();
         }
+
         @JavascriptInterface
         public void ajaxDone() {
             Log.w(TAG, "AJAX Done");
