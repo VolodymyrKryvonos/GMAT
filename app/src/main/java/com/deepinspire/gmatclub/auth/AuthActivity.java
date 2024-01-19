@@ -97,7 +97,12 @@ public class AuthActivity extends AppCompatActivity implements IAuthContract.Vie
 
             startActivity(intent);
         } else {
-
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                ActivityCompat.requestPermissions(AuthActivity.this,
+                        new String[]{Manifest.permission.POST_NOTIFICATIONS},
+                        200
+                );
+            }
             if (!TextUtils.isEmpty(Storage.getGoogleIdToken(getApplicationContext())) &&
                     !TextUtils.isEmpty(Storage.getGoogleAccessToken(getApplicationContext()))) {
                 Long expiresIn = (new Date()).getTime() + 432000000;
@@ -138,16 +143,6 @@ public class AuthActivity extends AppCompatActivity implements IAuthContract.Vie
         }
     }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-            ActivityCompat.requestPermissions(AuthActivity.this,
-                    new String[]{Manifest.permission.POST_NOTIFICATIONS},
-                    200
-            );
-        }
-    }
 
     @Override
     public void onClick(View view) {

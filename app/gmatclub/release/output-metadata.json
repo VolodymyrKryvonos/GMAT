@@ -10,8 +10,8 @@
     {
       "type": "SINGLE",
       "filters": [],
-      "versionCode": 138,
-      "versionName": "6.12.30",
+      "versionCode": 140,
+      "versionName": "6.12.31",
       "outputFile": "app-gmatclub-release.apk"
     }
   ]
