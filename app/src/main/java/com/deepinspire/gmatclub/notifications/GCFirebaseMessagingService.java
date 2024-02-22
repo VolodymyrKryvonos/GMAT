@@ -15,8 +15,7 @@ public class GCFirebaseMessagingService extends FirebaseMessagingService {
      */
     @Override
     public void onMessageReceived(RemoteMessage remoteMessage) {
-        //int count = (int) Storage.getBadgeCount(getApplicationContext()) + 1;
-        //Storage.saveBadgeCount(getApplicationContext(), count);
+
         if (Injection.getRepository(getApplicationContext()).logged(this) && remoteMessage.getData().size() > 0) {
             Notifications notifications = new Notifications(getApplicationContext());
             notifications.send(remoteMessage);

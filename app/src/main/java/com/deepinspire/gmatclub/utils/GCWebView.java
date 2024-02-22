@@ -39,7 +39,7 @@ public class GCWebView extends WebView {
     public void loadUrl(String url, Map<String, String> additionalHttpHeaders) {
 
         url = addMobileStyleParameter(url);
-        Log.d(GCWebView.class.getSimpleName(), url);
+        Log.d(GCWebView.class.getSimpleName(), "url: " + url);
         isLoading = true;
 
         super.loadUrl(url, additionalHttpHeaders);

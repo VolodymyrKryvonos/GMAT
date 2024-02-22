@@ -1,10 +1,8 @@
 package com.deepinspire.gmatclub.api;
 
-import com.deepinspire.gmatclub.Application;
-import com.deepinspire.gmatclub.storage.Repository;
-
 import java.io.IOException;
 import java.util.HashSet;
+
 import okhttp3.Interceptor;
 import okhttp3.Response;
 /**
@@ -12,6 +10,9 @@ import okhttp3.Response;
  * Your implementation on how to save the Cookies on the Preferences may vary.
  */
 public class ReceivedCookiesInterceptor implements Interceptor {
+
+
+
     @Override
     public Response intercept(Chain chain) throws IOException {
         //Repository repository = Repository.getInstance(null);

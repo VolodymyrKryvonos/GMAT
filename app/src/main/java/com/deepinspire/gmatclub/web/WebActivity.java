@@ -985,7 +985,8 @@ public class WebActivity extends AppCompatActivity implements
             }
 
             openPage(url);
-        } catch (NullPointerException e){}
+        } catch (NullPointerException e) {
+        }
     }
 
     public void setPresenter(IWebContract.Presenter presenter) {
@@ -1348,11 +1349,15 @@ public class WebActivity extends AppCompatActivity implements
             }
 
             private boolean analyseUrl(WebView view, String url) {
-                if (url != null && !(url.startsWith(Api.HOME_URL) || url.startsWith(Api.HOME_URL.replace("https", "http")))) {
-                    view.getContext().startActivity(
-                            new Intent(Intent.ACTION_VIEW, Uri.parse(url)));
-                    return true;
-                } else {
+                try {
+                    if (url != null && !(url.startsWith(Api.HOME_URL) || url.startsWith(Api.HOME_URL.replace("https", "http")))) {
+                        view.getContext().startActivity(
+                                new Intent(Intent.ACTION_VIEW, Uri.parse(url)));
+                        return true;
+                    } else {
+                        return false;
+                    }
+                } catch (Exception e) {
                     return false;
                 }
             }

@@ -356,68 +356,72 @@ public class ViewHelper {
     }
 
     public static void showError(AuthException exception) {
-        if (alertDialog != null) {
-            ProgressBar progressbar = alertDialog.findViewById(R.id.loading);
-            ScrollView signInLayout = alertDialog.findViewById(R.id.signInLayout);
-            TextView message;
+        try {
+            if (alertDialog != null) {
+                ProgressBar progressbar = alertDialog.findViewById(R.id.loading);
+                ScrollView signInLayout = alertDialog.findViewById(R.id.signInLayout);
+                TextView message;
 
-            switch (exception.getType()) {
-                case "login":
-                    alertDialog.setCancelable(true);
-                    alertDialog.setCanceledOnTouchOutside(true);
+                switch (exception.getType()) {
+                    case "login":
+                        alertDialog.setCancelable(true);
+                        alertDialog.setCanceledOnTouchOutside(true);
 
-                    message = alertDialog.findViewById(R.id.errorMessage);
-                    if (message != null)
-                        message.setText(/*"Incorrect Login and Password"*/exception.getMessage());
+                        message = alertDialog.findViewById(R.id.errorMessage);
+                        if (message != null)
+                            message.setText(/*"Incorrect Login and Password"*/exception.getMessage());
 
-                    if (!exception.getAction().equals("UNKNOWN_HOST")) {
-                        EditText signInInputUsername = alertDialog.findViewById(R.id.signInInputUsername);
-                        EditText signInInputPassword = alertDialog.findViewById(R.id.signInInputPassword);
+                        if (!exception.getAction().equals("UNKNOWN_HOST")) {
+                            EditText signInInputUsername = alertDialog.findViewById(R.id.signInInputUsername);
+                            EditText signInInputPassword = alertDialog.findViewById(R.id.signInInputPassword);
 
-                        TextView signInInputPasswordForgot = alertDialog.findViewById(R.id.signInInputPasswordForgot);
+                            TextView signInInputPasswordForgot = alertDialog.findViewById(R.id.signInInputPasswordForgot);
 
-                        signInInputUsername.setHintTextColor(ContextCompat.getColor(alertDialog.getContext(), R.color.red));
-                        signInInputUsername.setBackgroundResource(R.drawable.border_bottom_1dp_error);
+                            signInInputUsername.setHintTextColor(ContextCompat.getColor(alertDialog.getContext(), R.color.red));
+                            signInInputUsername.setBackgroundResource(R.drawable.border_bottom_1dp_error);
 
-                        signInInputPassword.setHintTextColor(ContextCompat.getColor(alertDialog.getContext(), R.color.red));
-                        signInInputPassword.setBackgroundResource(R.drawable.border_bottom_1dp_error);
+                            signInInputPassword.setHintTextColor(ContextCompat.getColor(alertDialog.getContext(), R.color.red));
+                            signInInputPassword.setBackgroundResource(R.drawable.border_bottom_1dp_error);
 
-                        signInInputPasswordForgot.setTextColor(ContextCompat.getColor(alertDialog.getContext(), R.color.red));
-                    }
+                            signInInputPasswordForgot.setTextColor(ContextCompat.getColor(alertDialog.getContext(), R.color.red));
+                        }
 
-                    message.setVisibility(View.VISIBLE);
-                    progressbar.setVisibility(View.GONE);
-                    signInLayout.setVisibility(View.VISIBLE);
-                    break;
-                case "forgotPassword":
-                    alertDialog.setCancelable(true);
-                    alertDialog.setCanceledOnTouchOutside(true);
+                        message.setVisibility(View.VISIBLE);
+                        progressbar.setVisibility(View.GONE);
+                        signInLayout.setVisibility(View.VISIBLE);
+                        break;
+                    case "forgotPassword":
+                        alertDialog.setCancelable(true);
+                        alertDialog.setCanceledOnTouchOutside(true);
 
-                    message = alertDialog.findViewById(R.id.message);
+                        message = alertDialog.findViewById(R.id.message);
 
-                    if (!exception.getAction().equals("UNKNOWN_HOST")) {
-                        EditText forgotPasswordInputEmail = alertDialog.findViewById(R.id.forgotPasswordInputEmail);
+                        if (!exception.getAction().equals("UNKNOWN_HOST")) {
+                            EditText forgotPasswordInputEmail = alertDialog.findViewById(R.id.forgotPasswordInputEmail);
 
-                        forgotPasswordInputEmail.setHintTextColor(ContextCompat.getColor(alertDialog.getContext(), R.color.red));
-                        forgotPasswordInputEmail.setBackgroundResource(R.drawable.border_bottom_1dp_error);
+                            forgotPasswordInputEmail.setHintTextColor(ContextCompat.getColor(alertDialog.getContext(), R.color.red));
+                            forgotPasswordInputEmail.setBackgroundResource(R.drawable.border_bottom_1dp_error);
 
-                        message.setText(R.string.msg_unknown_host);
-                    } else {
-                        message.setText(exception.getMessage());
-                    }
+                            message.setText(R.string.msg_unknown_host);
+                        } else {
+                            message.setText(exception.getMessage());
+                        }
 
-                    message.setVisibility(View.VISIBLE);
-                    progressbar.setVisibility(View.GONE);
-                    signInLayout.setVisibility(View.VISIBLE);
-                    break;
-                case "signInFacebook":
-                    alertDialog.findViewById(R.id.signInLayout).setVisibility(View.GONE);
-                    alertDialog.findViewById(R.id.loading).setVisibility(View.GONE);
-                    alertDialog.findViewById(R.id.message).setVisibility(View.VISIBLE);
-                    alertDialog.setCancelable(true);
-                    alertDialog.setCanceledOnTouchOutside(true);
-                    break;
+                        message.setVisibility(View.VISIBLE);
+                        progressbar.setVisibility(View.GONE);
+                        signInLayout.setVisibility(View.VISIBLE);
+                        break;
+                    case "signInFacebook":
+                        alertDialog.findViewById(R.id.signInLayout).setVisibility(View.GONE);
+                        alertDialog.findViewById(R.id.loading).setVisibility(View.GONE);
+                        alertDialog.findViewById(R.id.message).setVisibility(View.VISIBLE);
+                        alertDialog.setCancelable(true);
+                        alertDialog.setCanceledOnTouchOutside(true);
+                        break;
+                }
             }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 

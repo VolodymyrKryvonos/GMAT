@@ -1,12 +1,9 @@
 package com.deepinspire.gmatclub.api;
 
-import android.content.Context;
-
 import com.deepinspire.gmatclub.utils.WebviewCookieHandler;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
-import java.net.CookieHandler;
 import java.util.concurrent.TimeUnit;
 
 import okhttp3.OkHttpClient;
@@ -24,8 +21,8 @@ public class ApiClient {
                     .connectTimeout(60 * 5, TimeUnit.SECONDS)
                     .readTimeout(60 * 5, TimeUnit.SECONDS)
                     .writeTimeout(60 * 5, TimeUnit.SECONDS);
-            okHttpClient.interceptors().add(new AddCookiesInterceptor());
-            okHttpClient.interceptors().add(new ReceivedCookiesInterceptor());
+//            okHttpClient.interceptors().add(new AddCookiesInterceptor());
+//            okHttpClient.interceptors().add(new ReceivedCookiesInterceptor());
             okHttpClient.cookieJar(new WebviewCookieHandler());
             /*CookieHandler handler = okHttpClient.getCookieHandler();
             CookieManager manager = new CookieManager();
@@ -57,16 +54,16 @@ public class ApiClient {
                     .connectTimeout(60 * 5, TimeUnit.SECONDS)
                     .readTimeout(60 * 5, TimeUnit.SECONDS)
                     .writeTimeout(60 * 5, TimeUnit.SECONDS);
-            okHttpClient.interceptors().add(new AddCookiesInterceptor());
-            okHttpClient.interceptors().add(new ReceivedCookiesInterceptor());
+//            okHttpClient.interceptors().add(new AddCookiesInterceptor());
+//            okHttpClient.interceptors().add(new ReceivedCookiesInterceptor());
 
             retrofit = builder
                     .addConverterFactory(GsonConverterFactory.create())
                     .client(okHttpClient.build())
                     .build();
 
-            okHttpClient.interceptors().add(new AddCookiesInterceptor());
-            okHttpClient.interceptors().add(new ReceivedCookiesInterceptor());
+//            okHttpClient.interceptors().add(new AddCookiesInterceptor());
+//            okHttpClient.interceptors().add(new ReceivedCookiesInterceptor());
 
             return retrofit;
         } catch (final Exception exception) {
