@@ -20,6 +20,7 @@ import androidx.core.content.ContextCompat;
 
 import com.deepinspire.gmatclub.R;
 import com.deepinspire.gmatclub.api.AuthException;
+import com.deepinspire.gmatclub.auth.AuthActivity;
 import com.deepinspire.gmatclub.auth.LoginActivity;
 import com.deepinspire.gmatclub.web.WebActivity;
 
@@ -78,10 +79,14 @@ public class ViewHelper {
 
                 setLoadingIndicator(true, progressbar, signInLayout);
 
+
+
                 if (activity instanceof WebActivity) {
                     ((WebActivity) activity).forgotPassword(email);
-                } else {
+                } else if (activity instanceof LoginActivity){
                     ((LoginActivity) activity).forgotPassword(email);
+                } else if ((activity instanceof AuthActivity)){
+                    ((AuthActivity) activity).forgotPassword(email);
                 }
 
                 setLoadingIndicator(true, progressbar, signInLayout);

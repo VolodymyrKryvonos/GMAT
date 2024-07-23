@@ -1,5 +1,6 @@
 package com.deepinspire.gmatclub.utils;
 
+import android.util.Log;
 import android.webkit.CookieManager;
 
 import java.util.ArrayList;
@@ -18,27 +19,43 @@ public final class WebviewCookieHandler implements CookieJar {
 
     @Override
     public void saveFromResponse(HttpUrl url, List<Cookie> cookies) {
-        String urlString = url.toString();
+        try {
 
-        for (Cookie cookie : cookies) {
-            webviewCookieManager.setCookie(urlString, cookie.toString().trim());
+            String urlString = url.toString();
+            Log.e("saveFromResponse", url.toString());
+            for (Cookie cookie : cookies) {
+                Log.e("saveFromResponse", cookie.toString());
+            }
+            for (Cookie cookie : cookies) {
+                webviewCookieManager.setCookie(urlString, cookie.toString().trim());
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
+    //
     @Override
     public List<Cookie> loadForRequest(HttpUrl url) {
-        String urlString = url.toString();
-        String cookiesString = webviewCookieManager.getCookie(urlString);
+        try {
+            String urlString = url.toString();
+            String cookiesString = webviewCookieManager.getCookie(urlString);
 
-        if (cookiesString != null && !cookiesString.isEmpty()) {
-            String[] cookieHeaders = cookiesString.split(";");
-            List<Cookie> cookies = new ArrayList<>(cookieHeaders.length);
+            Log.e("loadForRequest", url.toString());
+            if (cookiesString != null && !cookiesString.isEmpty()) {
+                String[] cookieHeaders = cookiesString.split(";");
+                List<Cookie> cookies = new ArrayList<>(cookieHeaders.length);
 
-            for (String header : cookieHeaders) {
-                cookies.add(Cookie.parse(url, header));
+                for (String header : cookieHeaders) {
+                    cookies.add(Cookie.parse(url, header));
+                }
+                for (Cookie cookie : cookies) {
+                    Log.e("loadForRequest", cookie.toString());
+                }
+                return cookies;
             }
-
-            return cookies;
+        } catch (Exception e) {
+            e.printStackTrace();
         }
 
         return Collections.emptyList();

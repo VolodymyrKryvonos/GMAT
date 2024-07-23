@@ -49,7 +49,7 @@ public class GCWebView extends WebView {
     @Override
     public void loadUrl(String url) {
         url = addMobileStyleParameter(url);
-        Log.d(GCWebView.class.getSimpleName(), url);
+        Log.d(GCWebView.class.getSimpleName(), "url: " + url);
         super.loadUrl(url);
     }
 

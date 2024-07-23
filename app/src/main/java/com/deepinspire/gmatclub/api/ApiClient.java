@@ -15,18 +15,14 @@ public class ApiClient {
     private static Retrofit retrofit = null;
 
     public Retrofit getClient() {
+        if (retrofit != null) return retrofit;
         try {
             //OkHttpClient.Builder client = new OkHttpClient.Builder();
             OkHttpClient.Builder okHttpClient = new OkHttpClient().newBuilder()
                     .connectTimeout(60 * 5, TimeUnit.SECONDS)
                     .readTimeout(60 * 5, TimeUnit.SECONDS)
                     .writeTimeout(60 * 5, TimeUnit.SECONDS);
-//            okHttpClient.interceptors().add(new AddCookiesInterceptor());
-//            okHttpClient.interceptors().add(new ReceivedCookiesInterceptor());
             okHttpClient.cookieJar(new WebviewCookieHandler());
-            /*CookieHandler handler = okHttpClient.getCookieHandler();
-            CookieManager manager = new CookieManager();
-            handler.setDefault(manager);*/
 
             Retrofit.Builder builder = new Retrofit.Builder().baseUrl(Api.HOME_URL + "/");
 
@@ -45,29 +41,4 @@ public class ApiClient {
         }
     }
 
-    public Retrofit getClient(String BaseUrl) {
-        try {
-            Retrofit.Builder builder = new Retrofit.Builder().baseUrl(BaseUrl);
-
-            //OkHttpClient.Builder client = new OkHttpClient.Builder();
-            OkHttpClient.Builder okHttpClient = new OkHttpClient().newBuilder()
-                    .connectTimeout(60 * 5, TimeUnit.SECONDS)
-                    .readTimeout(60 * 5, TimeUnit.SECONDS)
-                    .writeTimeout(60 * 5, TimeUnit.SECONDS);
-//            okHttpClient.interceptors().add(new AddCookiesInterceptor());
-//            okHttpClient.interceptors().add(new ReceivedCookiesInterceptor());
-
-            retrofit = builder
-                    .addConverterFactory(GsonConverterFactory.create())
-                    .client(okHttpClient.build())
-                    .build();
-
-//            okHttpClient.interceptors().add(new AddCookiesInterceptor());
-//            okHttpClient.interceptors().add(new ReceivedCookiesInterceptor());
-
-            return retrofit;
-        } catch (final Exception exception) {
-            return null;
-        }
-    }
 }

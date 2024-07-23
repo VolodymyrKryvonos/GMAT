@@ -1,18 +1,20 @@
 {
-  "version": 2,
+  "version": 3,
   "artifactType": {
     "type": "APK",
     "kind": "Directory"
   },
   "applicationId": "com.deepinspire.gmatclub",
-  "variantName": "processGmatclubReleaseResources",
+  "variantName": "gmatclubRelease",
   "elements": [
     {
       "type": "SINGLE",
       "filters": [],
-      "versionCode": 140,
-      "versionName": "6.12.31",
+      "attributes": [],
+      "versionCode": 143,
+      "versionName": "6.12.34",
       "outputFile": "app-gmatclub-release.apk"
     }
-  ]
+  ],
+  "elementType": "File"
 }

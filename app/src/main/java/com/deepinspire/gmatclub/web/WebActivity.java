@@ -85,7 +85,6 @@ import com.deepinspire.gmatclub.api.Api;
 import com.deepinspire.gmatclub.api.AuthException;
 import com.deepinspire.gmatclub.auth.AuthActivity;
 import com.deepinspire.gmatclub.auth.LoginActivity;
-import com.deepinspire.gmatclub.purchase.GooglePlayBillingActivity;
 import com.deepinspire.gmatclub.utils.BadgeDrawable;
 import com.deepinspire.gmatclub.utils.CustomRatingDialog;
 import com.deepinspire.gmatclub.utils.GCWebView;
@@ -109,6 +108,10 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.Arrays;
@@ -742,29 +745,64 @@ public class WebActivity extends AppCompatActivity implements
         return true;
     }
 
+
     @Override
     protected void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
         if (webView != null) {
             outState.putString(LATEST_URL, webView.getUrl());
-            webView.saveState(outState);
+            // Save WebView state to a file
+            saveWebViewStateToFile();
         }
     }
+
+    private void saveWebViewStateToFile() {
+        try {
+            FileOutputStream fos = openFileOutput("webviewState.dat", Context.MODE_PRIVATE);
+            Bundle webViewBundle = new Bundle();
+            webView.saveState(webViewBundle);
+            ObjectOutputStream oos = new ObjectOutputStream(fos);
+            oos.writeObject(webViewBundle);
+            oos.close();
+            fos.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
 
     @Override
     protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
         if (webView != null) {
-            webView.restoreState(savedInstanceState);
+            String latestUrl = savedInstanceState.getString(LATEST_URL);
+            if (latestUrl != null) {
+                webView.loadUrl(latestUrl);
+            }
+            // Restore WebView state from a file
+            restoreWebViewStateFromFile();
         } else {
             initWebView();
-            if (!LATEST_URL.equals(Api.PRACTICE_URL)) {
-                webView.loadUrl(savedInstanceState.getString(LATEST_URL));
-
-            }/* else
-            //initPracticeView();*/
+            String latestUrl = savedInstanceState.getString(LATEST_URL);
+            if (latestUrl != null && !LATEST_URL.equals(Api.PRACTICE_URL)) {
+                webView.loadUrl(latestUrl);
+            }
         }
     }
+
+    private void restoreWebViewStateFromFile() {
+        try {
+            FileInputStream fis = openFileInput("webviewState.dat");
+            ObjectInputStream ois = new ObjectInputStream(fis);
+            Bundle webViewBundle = (Bundle) ois.readObject();
+            webView.restoreState(webViewBundle);
+            ois.close();
+            fis.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
 
     @Override
     public boolean dispatchTouchEvent(MotionEvent ev) {
@@ -854,6 +892,7 @@ public class WebActivity extends AppCompatActivity implements
         }
     }
 
+    @SuppressLint("UnspecifiedRegisterReceiverFlag")
     private void downloadFileAction() {
 
         webView.setDownloadListener((url, userAgent, contentDisposition, mimeType, contentLength) -> {
@@ -861,7 +900,11 @@ public class WebActivity extends AppCompatActivity implements
                 if (checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
                     //Do this, if permission granted
                     downloadFile(url, userAgent, contentDisposition, mimeType);
-                    registerReceiver(onComplete, new IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE));
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                        registerReceiver(onComplete, new IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE), Context.RECEIVER_NOT_EXPORTED);
+                    } else {
+                        registerReceiver(onComplete, new IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE));
+                    }
 
                 } else {
                     //Do this, if there is no permission
@@ -1081,49 +1124,6 @@ public class WebActivity extends AppCompatActivity implements
                     v.setVisibility(View.VISIBLE);
             }, 700);
         }
-    }
-
-    // use this method for added to offline part practice view
-    private void initPracticeView() {
-        openPageFromHamburgerMenu(R.id.menu_practice, Api.PRACTICE_URL);
-        webView.setWebViewClient(new WebViewClient() {
-            @Override
-            public void onPageStarted(WebView view, String url, Bitmap favicon) {
-                onPageStartedAction(url);
-            }
-
-            @Override
-            public void onPageFinished(WebView view, String url) {
-                if (WebActivity.this.isFinishing() || WebActivity.this.isDestroyed())
-                    return;
-                View viewQuizzes = getLayoutInflater().inflate(R.layout.item_quizzes, webView, false);
-                DisplayMetrics displaymetrics = new DisplayMetrics();
-                getWindowManager().getDefaultDisplay().getMetrics(displaymetrics);
-                float height = displaymetrics.heightPixels;
-                float width = displaymetrics.widthPixels;
-                viewQuizzes.setX(width / 6);
-                viewQuizzes.setY(height / 1.4f);
-                if (viewAdded < 1) {
-                    webView.addView(viewQuizzes);
-                    viewAdded++;
-                }
-
-                View buttonLearnMore = webView.findViewById(R.id.learnMore);
-
-                buttonLearnMore.setOnClickListener(v -> {
-                    LATEST_URL = Api.PRACTICE_URL;
-                    Intent intent = new Intent(v.getContext(), GooglePlayBillingActivity.class);
-                    startActivity(intent);
-                });
-                onPageFinishedAction(url);
-                view.loadUrl("javascript:$(document).ajaxStart(function (event, request, settings) { " +
-                        "ajaxHandler.ajaxBegin(); " + // Event called when an AJAX call begins
-                        "});");
-                view.loadUrl("javascript:$(document).ajaxComplete(function (event, request, settings) { " +
-                        "ajaxHandler.ajaxDone(); " + // Event called when an AJAX call ends
-                        "});");
-            }
-        });
     }
 
 
@@ -2516,9 +2516,13 @@ public class WebActivity extends AppCompatActivity implements
     private void destroyOfflineAlertDialog() {
         if (isDestroyed() || isFinishing())
             return;
-        if (ViewHelper.alertDialog != null && ViewHelper.alertDialog.isShowing()) {
-            ViewHelper.alertDialog.dismiss();
-            ViewHelper.alertDialog = null;
+        try {
+            if (ViewHelper.alertDialog != null && ViewHelper.alertDialog.isShowing()) {
+                ViewHelper.alertDialog.dismiss();
+                ViewHelper.alertDialog = null;
+            }
+        } catch (Exception ignored) {
+
         }
     }
     /*private final BroadcastReceiver mConnectivityChangeReceiver = new BroadcastReceiver() {
