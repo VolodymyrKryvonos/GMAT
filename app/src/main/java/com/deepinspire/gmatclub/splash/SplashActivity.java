@@ -9,7 +9,7 @@ import android.view.MenuItem;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.deepinspire.gmatclub.R;
-import com.deepinspire.gmatclub.auth.AuthActivity;
+import com.deepinspire.gmatclub.auth.new_ui.AuthActivity;
 import com.deepinspire.gmatclub.web.WebActivity;
 
 import static com.deepinspire.gmatclub.notifications.Notifications.INPUT_URL;
@@ -27,7 +27,6 @@ public class SplashActivity extends AppCompatActivity {
         if (intent != null) {
             onNewIntent(intent);
         }
-        setContentView(R.layout.activity_splash);
     }
 
     @Override

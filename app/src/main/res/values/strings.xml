@@ -74,7 +74,7 @@
     <string name="button_reset">Reset</string>
     <string name="button_not_now">Not now</string>
 
-    <string name="email">E-mail</string>
+    <string name="email">Email</string>
     <string name="email_error">This must be E-mail address you registered your account with.</string>
     <string name="email_success_send">Your password has been sent successfully to your original e-mail address.</string>
 
@@ -112,6 +112,10 @@
     <string name="msg_unknown_host">The information submitted could not be found.</string>
     <string name="app_feedback">GMAT Club Android Application Feedback</string>
     <string name="email_support">support@gmatclub.com</string>
+    <string name="log_in_or_sign_up">Log in or sign up</string>
+    <string name="forgot_password">Forgot password</string>
+    <string name="register">Register</string>
+    <string name="continue_with_google">Continue with Google</string>
 
     <!-- 'id'     => '188832947830704',
     'secret' => '25e1ac94899287fbcbab95d769f5ac6f',-->
