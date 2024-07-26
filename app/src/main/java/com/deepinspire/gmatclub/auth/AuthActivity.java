@@ -363,6 +363,7 @@ public class AuthActivity extends AppCompatActivity implements IAuthContract.Vie
 
             }
         } catch (ApiException e) {
+            e.printStackTrace();
             String message = e.getMessage();
             Toast.makeText(AuthActivity.this, message, Toast.LENGTH_LONG).show();
         }

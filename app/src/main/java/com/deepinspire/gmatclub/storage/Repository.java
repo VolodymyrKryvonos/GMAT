@@ -24,6 +24,7 @@ import com.deepinspire.gmatclub.api.AuthException;
 import com.facebook.login.LoginManager;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.messaging.FirebaseMessaging;
+import com.google.gson.JsonIOException;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -236,7 +237,10 @@ public class Repository implements IStorage {
                                 message = "No Internet connection detected";
                                 action = "UNKNOWN_HOST";
                             }
-
+                            if (t instanceof JsonIOException) {
+                                callback.onSuccess();
+                                return;
+                            }
                             AuthException exc = new AuthException(new Exception(message), "forgotPassword", message);
                             exc.setAction(action);
 

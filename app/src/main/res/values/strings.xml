@@ -116,6 +116,10 @@
     <string name="forgot_password">Forgot password</string>
     <string name="register">Register</string>
     <string name="continue_with_google">Continue with Google</string>
+    <string name="password_too_short">The password you entered is too short</string>
+    <string name="invalid_email">The e-mail address you entered is invalid.</string>
+    <string name="submit">Submit</string>
+    <string name="new_pass_was_sent">New password was sent to provided Email. Please, check your email inbox.</string>
 
     <!-- 'id'     => '188832947830704',
     'secret' => '25e1ac94899287fbcbab95d769f5ac6f',-->
