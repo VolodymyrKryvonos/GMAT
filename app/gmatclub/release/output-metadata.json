@@ -11,27 +11,10 @@
       "type": "SINGLE",
       "filters": [],
       "attributes": [],
-      "versionCode": 145,
-      "versionName": "6.12.36",
+      "versionCode": 143,
+      "versionName": "6.12.34",
       "outputFile": "app-gmatclub-release.apk"
     }
   ],
-  "elementType": "File",
-  "baselineProfiles": [
-    {
-      "minApi": 28,
-      "maxApi": 30,
-      "baselineProfiles": [
-        "baselineProfiles/1/app-gmatclub-release.dm"
-      ]
-    },
-    {
-      "minApi": 31,
-      "maxApi": 2147483647,
-      "baselineProfiles": [
-        "baselineProfiles/0/app-gmatclub-release.dm"
-      ]
-    }
-  ],
-  "minSdkVersionForDexing": 21
+  "elementType": "File"
 }
