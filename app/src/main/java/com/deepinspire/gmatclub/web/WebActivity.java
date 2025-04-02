@@ -1,66 +1,27 @@
 package com.deepinspire.gmatclub.web;
 
-import static com.deepinspire.gmatclub.api.Api.CHAT_URL;
-import static com.deepinspire.gmatclub.notifications.Notifications.INPUT_URL;
-
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.app.ActivityManager;
 import android.app.DownloadManager;
 import android.app.SearchManager;
-import android.content.ActivityNotFoundException;
-import android.content.BroadcastReceiver;
-import android.content.ClipData;
-import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
+import android.content.*;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.LayerDrawable;
 import android.net.Uri;
-import android.os.Build;
-import android.os.Bundle;
-import android.os.Environment;
-import android.os.Handler;
-import android.os.Parcelable;
-import android.os.RemoteException;
-import android.os.StatFs;
+import android.os.*;
 import android.provider.MediaStore;
 import android.provider.Settings;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.util.TypedValue;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.MotionEvent;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.ViewTreeObserver;
+import android.view.*;
 import android.view.inputmethod.InputMethodManager;
-import android.webkit.ConsoleMessage;
-import android.webkit.CookieManager;
-import android.webkit.HttpAuthHandler;
-import android.webkit.JavascriptInterface;
-import android.webkit.MimeTypeMap;
-import android.webkit.URLUtil;
-import android.webkit.ValueCallback;
-import android.webkit.WebChromeClient;
-import android.webkit.WebResourceError;
-import android.webkit.WebResourceRequest;
-import android.webkit.WebResourceResponse;
-import android.webkit.WebSettings;
-import android.webkit.WebView;
-import android.webkit.WebViewClient;
-import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.ProgressBar;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-import android.widget.Toast;
-
+import android.webkit.*;
+import android.widget.*;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
@@ -74,7 +35,6 @@ import androidx.core.graphics.drawable.DrawableCompat;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
-
 import com.android.installreferrer.api.InstallReferrerClient;
 import com.android.installreferrer.api.InstallReferrerStateListener;
 import com.android.installreferrer.api.ReferrerDetails;
@@ -85,17 +45,8 @@ import com.deepinspire.gmatclub.api.Api;
 import com.deepinspire.gmatclub.api.AuthException;
 import com.deepinspire.gmatclub.auth.AuthActivity;
 import com.deepinspire.gmatclub.auth.LoginActivity;
-import com.deepinspire.gmatclub.utils.BadgeDrawable;
-import com.deepinspire.gmatclub.utils.CustomRatingDialog;
-import com.deepinspire.gmatclub.utils.GCWebView;
-import com.deepinspire.gmatclub.utils.Storage;
-import com.deepinspire.gmatclub.utils.StringUtils;
-import com.deepinspire.gmatclub.utils.ViewHelper;
-import com.facebook.AccessToken;
-import com.facebook.CallbackManager;
-import com.facebook.FacebookCallback;
-import com.facebook.FacebookException;
-import com.facebook.FacebookSdk;
+import com.deepinspire.gmatclub.utils.*;
+import com.facebook.*;
 import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
 import com.github.sealstudios.fab.FloatingActionButton;
@@ -103,16 +54,10 @@ import com.github.sealstudios.fab.FloatingActionMenu;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.messaging.FirebaseMessaging;
-
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import java.io.UnsupportedEncodingException;
+import java.io.*;
 import java.net.URLEncoder;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -120,6 +65,9 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+
+import static com.deepinspire.gmatclub.api.Api.CHAT_URL;
+import static com.deepinspire.gmatclub.notifications.Notifications.INPUT_URL;
 
 public class WebActivity extends AppCompatActivity implements
         IWebContract.View, SwipeRefreshLayout.OnRefreshListener, View.OnClickListener, View.OnTouchListener {
@@ -262,9 +210,7 @@ public class WebActivity extends AppCompatActivity implements
 
                             String url = webView.getUrl();
 
-                            showBtnAdd(url != null &&
-                                    (!url.contains(Api.UCP_URL) || !url.contains("mode=compose")) &&
-                                    !url.contains(Api.TESTS_URL));
+                            showBtnAdd(shouldShowAddButton(url));
                         }
                     }
                 });
@@ -837,7 +783,7 @@ public class WebActivity extends AppCompatActivity implements
                         case R.id.menu_notifications:
                         case R.id.menu_practice:
                         case R.id.menu_decision_tracker:
-                        case R.id.menu_mba_discussions:
+                        case R.id.menu_school_hub:
                         case R.id.menu_chat_container:
                         case R.id.menu_reviews:
                         case R.id.menu_deals_discounts:
@@ -1015,16 +961,18 @@ public class WebActivity extends AppCompatActivity implements
                 highlightMenuItemOnClick(R.id.menu_forum);
             } else if (url.equals(CHAT_URL)) {
                 highlightMenuItemOnClick(R.id.menu_chat_container);
-            } else if (url.equals(Api.PRACTICE_URL)) {
+            } else if (url.equals(Api.GMAT_TEST_URL)) {
                 highlightMenuItemOnClick(R.id.menu_practice);
             } else if (url.equals(Api.PM_NEW_URL)) {
                 highlightMenuItemOnClick(R.id.menu_pms);
             } else if (url.equals(Api.DECISION_TRACKER)) {
                 highlightMenuItemOnClick(R.id.menu_decision_tracker);
-            } else if (url.equals(Api.MBA_DISCUSSIONS)) {
-                highlightMenuItemOnClick(R.id.menu_mba_discussions);
             } else if (url.equals(Api.DEALS_URL)) {
                 highlightMenuItemOnClick(R.id.menu_deals_discounts);
+            }else if (url.equals(Api.SCHOOL_HUB)) {
+                highlightMenuItemOnClick(R.id.menu_school_hub);
+            }else if (url.equals(Api.FORUM_QUIZ)) {
+                highlightMenuItemOnClick(R.id.menu_forum_quiz);
             }
 
             openPage(url);
@@ -1054,15 +1002,15 @@ public class WebActivity extends AppCompatActivity implements
             case R.id.menu_practice:
                 showQuizzesState = true;
                 //initPracticeView();
-                openPageFromHamburgerMenu(R.id.menu_practice, Api.PRACTICE_URL);
+                openPageFromHamburgerMenu(R.id.menu_practice, Api.GMAT_TEST_URL);
                 break;
             case R.id.menu_decision_tracker:
                 showQuizzesState = false;
                 openPageFromHamburgerMenu(R.id.menu_decision_tracker, Api.DECISION_TRACKER);
                 break;
-            case R.id.menu_mba_discussions:
+            case R.id.menu_school_hub:
                 showQuizzesState = false;
-                openPageFromHamburgerMenu(R.id.menu_mba_discussions, Api.MBA_DISCUSSIONS);
+                openPageFromHamburgerMenu(R.id.menu_school_hub, Api.SCHOOL_HUB);
                 break;
             case R.id.menu_chat_container:
                 showQuizzesState = false;
@@ -1110,6 +1058,11 @@ public class WebActivity extends AppCompatActivity implements
                     Toast.makeText(getApplicationContext(), "There are no email clients installed.", Toast.LENGTH_LONG).show();
                 }*/
                 break;
+            case R.id.menu_forum_quiz:
+                showQuizzesState = false;
+                openPageFromHamburgerMenu(R.id.menu_forum_quiz, Api.FORUM_QUIZ);
+                break;
+
         }
 
         if (!showQuizzesState) {
@@ -1409,7 +1362,9 @@ public class WebActivity extends AppCompatActivity implements
 
     }
 
+
     private void onPageStartedAction(String url) {
+        showBtnAdd(shouldShowAddButton(url));
         if (presenter.checkAccessNetwork(this)) {
             destroyOfflineAlertDialog();
             progressView.setVisibility(View.VISIBLE);
@@ -1549,6 +1504,14 @@ public class WebActivity extends AppCompatActivity implements
         }
     }
 
+    public boolean shouldShowAddButton(String url) {
+        return url != null
+                && (!url.contains(Api.UCP_URL) || !url.contains("mode=compose"))
+                && !url.contains(Api.TESTS_URL)
+                && url.contains("/forum/")
+                && !url.contains("forum/quiz.php");
+    }
+
     public void setLoadingIndicator(boolean active) {
         if (active) {
             //progressBar.setVisibility(View.VISIBLE);
@@ -1563,7 +1526,7 @@ public class WebActivity extends AppCompatActivity implements
 
                 String url = webView.getUrl();
 
-                showBtnAdd(url != null && (!url.contains(Api.UCP_URL) || !url.contains("mode=compose")) && !url.contains(Api.TESTS_URL));
+                showBtnAdd(shouldShowAddButton(url));
 
 
             } else {
@@ -1765,7 +1728,8 @@ public class WebActivity extends AppCompatActivity implements
             nv.findViewById(R.id.menu_advanced_search).setVisibility(View.VISIBLE);
             nv.findViewById(R.id.menu_decision_tracker).setVisibility(View.VISIBLE);
             nv.findViewById(R.id.menu_feedback).setVisibility(View.VISIBLE);
-            nv.findViewById(R.id.menu_mba_discussions).setVisibility(View.VISIBLE);
+            nv.findViewById(R.id.menu_forum_quiz).setVisibility(View.VISIBLE);
+            nv.findViewById(R.id.menu_school_hub).setVisibility(View.VISIBLE);
 
             toogleAddMenu(false);
 
@@ -1782,7 +1746,8 @@ public class WebActivity extends AppCompatActivity implements
             nv.findViewById(R.id.menu_advanced_search).setVisibility(View.VISIBLE);
             nv.findViewById(R.id.menu_decision_tracker).setVisibility(View.VISIBLE);
             nv.findViewById(R.id.menu_feedback).setVisibility(View.VISIBLE);
-            nv.findViewById(R.id.menu_mba_discussions).setVisibility(View.VISIBLE);
+            nv.findViewById(R.id.menu_forum_quiz).setVisibility(View.VISIBLE);
+            nv.findViewById(R.id.menu_school_hub).setVisibility(View.VISIBLE);
 
             btnAddLayout.setVisibility(View.GONE);
             btnAdd.setVisibility(View.GONE);

@@ -36,12 +36,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5d9e8901-ef33-43d6-bffb-1c758be0eff0" name="Default" comment="Added deep link verification">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
-    </list>
+    <list default="true" id="5d9e8901-ef33-43d6-bffb-1c758be0eff0" name="Default" comment="Added deep link verification" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -50,7 +45,7 @@
   <component name="ClangdSettings">
     <option name="formatViaClangd" value="false" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[DeviceId(pluginId=Default, isTemplate=false, identifier=serial=192.168.31.49:5555;connection=6adee929)]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -525,6 +520,7 @@
       <option name="presentableId" value="Default" />
       <updated>1521636379829</updated>
       <workItem from="1742915786482" duration="35000" />
+      <workItem from="1742915833470" duration="835000" />
     </task>
     <task id="LOCAL-00001" summary="facebook login was blocked; WebActivity and ViewHelper code cleanup an bug fixing">
       <created>1593589647288</created>
@@ -618,7 +614,15 @@
       <option name="project" value="LOCAL" />
       <updated>1708601001788</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Added deep link verification">
+      <option name="closed" value="true" />
+      <created>1742916667376</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1742916667376</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TodoView">
@@ -731,7 +735,8 @@
     <MESSAGE value="Fixed refresh on scrolling in quizes" />
     <MESSAGE value="Fixed issue with notifications" />
     <MESSAGE value="Fixed crashes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed crashes" />
+    <MESSAGE value="Added deep link verification" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added deep link verification" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">

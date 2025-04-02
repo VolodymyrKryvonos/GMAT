@@ -4,6 +4,9 @@ import com.deepinspire.gmatclub.BuildConfig;
 
 public class Api {
     public static final String QUIZ = "quiz";
+    public static final String SCHOOL_HUB = "https://gmatclub.com/business-schools/";
+    public static final String GMAT_TEST_URL = "https://gmatclub.com/gmat-focus-tests/start-test.html";
+    public static final String FORUM_QUIZ = "https://gmatclub.com/forum/quiz.php?menu=1";
     public static String DOMAIN = BuildConfig.HOST;//"gmatclub.com";
 
     public static String HOME_URL = "https://" + DOMAIN;

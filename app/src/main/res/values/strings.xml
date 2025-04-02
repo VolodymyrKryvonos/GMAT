@@ -112,6 +112,9 @@
     <string name="msg_unknown_host">The information submitted could not be found.</string>
     <string name="app_feedback">GMAT Club Android Application Feedback</string>
     <string name="email_support">support@gmatclub.com</string>
+    <string name="hm_gmat_test">GMAT Tests</string>
+    <string name="hm_forum_quiz">Forum Quiz</string>
+    <string name="hm_school_hub">School Hub</string>
 
     <!-- 'id'     => '188832947830704',
     'secret' => '25e1ac94899287fbcbab95d769f5ac6f',-->

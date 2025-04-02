@@ -145,7 +145,14 @@
                 style="@style/menuButtons"
                 android:onClick="goByMenu"
                 android:gravity="left"
-                android:text="@string/hm_practice" />
+                android:text="@string/hm_gmat_test" />
+
+            <TextView
+                    android:id="@+id/menu_forum_quiz"
+                    style="@style/menuButtons"
+                    android:onClick="goByMenu"
+                    android:gravity="left"
+                    android:text="@string/hm_forum_quiz" />
 
             <TextView
                 android:id="@+id/menu_decision_tracker"
@@ -155,11 +162,11 @@
                 android:text="@string/hm_decision_tracker" />
 
             <TextView
-                android:id="@+id/menu_mba_discussions"
+                android:id="@+id/menu_school_hub"
                 style="@style/menuButtons"
                 android:onClick="goByMenu"
                 android:gravity="left"
-                android:text="@string/hm__mba_discussions" />
+                android:text="@string/hm_school_hub" />
 
             <TextView
                 android:id="@+id/menu_reviews"
