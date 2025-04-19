@@ -48,8 +48,8 @@ android {
         applicationId "com.deepinspire.gmatclub"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 147
-        versionName "6.12.36"
+        versionCode 150
+        versionName "6.12.40"
         multiDexEnabled true
         testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
         signingConfig signingConfigs.debug

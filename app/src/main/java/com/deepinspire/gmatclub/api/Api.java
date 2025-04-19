@@ -7,8 +7,9 @@ public class Api {
     public static final String SCHOOL_HUB = "https://gmatclub.com/business-schools/";
     public static final String GMAT_TEST_URL = "https://gmatclub.com/gmat-focus-tests/start-test.html";
     public static final String FORUM_QUIZ = "https://gmatclub.com/forum/quiz.php?menu=1";
+    public static final String QUESTIONS_BANK = "https://gmatclub.com/forum/search.php?view=search_tags";
     public static String DOMAIN = BuildConfig.HOST;//"gmatclub.com";
-
+    public static final String EVENT_DOMAIN = "events.gmatclub.com";
     public static String HOME_URL = "https://" + DOMAIN;
 
     public static final String FORUM_URL = HOME_URL + "/forum";

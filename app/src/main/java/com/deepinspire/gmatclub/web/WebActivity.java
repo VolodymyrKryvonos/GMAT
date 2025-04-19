@@ -973,6 +973,8 @@ public class WebActivity extends AppCompatActivity implements
                 highlightMenuItemOnClick(R.id.menu_school_hub);
             }else if (url.equals(Api.FORUM_QUIZ)) {
                 highlightMenuItemOnClick(R.id.menu_forum_quiz);
+            }else if (url.equals(Api.QUESTIONS_BANK)){
+                highlightMenuItemOnClick(R.id.menu_questions_banks);
             }
 
             openPage(url);
@@ -1042,27 +1044,15 @@ public class WebActivity extends AppCompatActivity implements
                 }
                 showQuizzesState = false;
                 openPageFromHamburgerMenu(R.id.menu_feedback, Api.LEAVE_FEEDBACK);
-                /*mDrawerLayout.closeDrawers();
-
-                Intent intent = new Intent(Intent.ACTION_SEND);
-
-                intent.setType("message/rfc822");
-
-                intent.putExtra(Intent.EXTRA_EMAIL, new String[]{"support@gmatclub.com"});
-                intent.putExtra(Intent.EXTRA_SUBJECT, "GMAT Club Android Application Feedback");
-                intent.putExtra(Intent.EXTRA_TEXT, "body of email");
-
-                try {
-                    startActivityForResult(Intent.createChooser(intent, "Send mail..."), GCConfig.EMAIL);
-                } catch (ActivityNotFoundException exception) {
-                    Toast.makeText(getApplicationContext(), "There are no email clients installed.", Toast.LENGTH_LONG).show();
-                }*/
                 break;
             case R.id.menu_forum_quiz:
                 showQuizzesState = false;
                 openPageFromHamburgerMenu(R.id.menu_forum_quiz, Api.FORUM_QUIZ);
                 break;
-
+            case R.id.menu_questions_banks:
+                showQuizzesState = false;
+                openPageFromHamburgerMenu(R.id.menu_questions_banks, Api.QUESTIONS_BANK);
+                break;
         }
 
         if (!showQuizzesState) {
@@ -1730,6 +1720,7 @@ public class WebActivity extends AppCompatActivity implements
             nv.findViewById(R.id.menu_feedback).setVisibility(View.VISIBLE);
             nv.findViewById(R.id.menu_forum_quiz).setVisibility(View.VISIBLE);
             nv.findViewById(R.id.menu_school_hub).setVisibility(View.VISIBLE);
+            nv.findViewById(R.id.menu_questions_banks).setVisibility(View.VISIBLE);
 
             toogleAddMenu(false);
 
@@ -1748,7 +1739,7 @@ public class WebActivity extends AppCompatActivity implements
             nv.findViewById(R.id.menu_feedback).setVisibility(View.VISIBLE);
             nv.findViewById(R.id.menu_forum_quiz).setVisibility(View.VISIBLE);
             nv.findViewById(R.id.menu_school_hub).setVisibility(View.VISIBLE);
-
+            nv.findViewById(R.id.menu_questions_banks).setVisibility(View.GONE);
             btnAddLayout.setVisibility(View.GONE);
             btnAdd.setVisibility(View.GONE);
 

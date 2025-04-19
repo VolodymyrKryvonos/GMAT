@@ -6,7 +6,6 @@ import android.os.Build;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.webkit.WebView;
-
 import com.deepinspire.gmatclub.api.Api;
 
 import java.util.Map;
@@ -56,26 +55,24 @@ public class GCWebView extends WebView {
     private String addMobileStyleParameter(String url) {
         String mobileStyleParameter = "style=12";
 
-        if (url != null && url.contains(Api.DOMAIN)) {
-            if (url.contains(mobileStyleParameter)) {
-                return url;
-            } else {
-                if (url.contains("?")) {
-                    if (url.contains("#")) {
-                        String[] urlParts = url.split("#", 2);
-                        url = urlParts[0] + "&" + mobileStyleParameter + (urlParts.length > 1 ? "#" + urlParts[1] : "");
-                    } else {
-                        url = url + "&" + mobileStyleParameter;
-                    }
-                } else {
-                    if (url.contains("#")) {
-                        String[] urlParts = url.split("#", 2);
-                        url = urlParts[0] + "?" + mobileStyleParameter + (urlParts.length > 1 ? "#" + urlParts[1] : "");
-                    } else {
-                        url = url + "?" + mobileStyleParameter;
-                    }
-                }
-            }
+        if (url == null || !url.contains(Api.DOMAIN)) {
+            return url;
+        }
+        if (url.contains(mobileStyleParameter)) {
+            return url;
+        }
+        if (url.contains(Api.EVENT_DOMAIN)) {
+            return url;
+        }
+
+        String[] urlParts = url.contains("#") ? url.split("#", 2) : new String[]{url};
+        String baseUrl = urlParts[0];
+        String fragment = (urlParts.length > 1) ? "#" + urlParts[1] : "";
+
+        if (url.contains("?")) {
+            url = baseUrl + "&" + mobileStyleParameter + fragment;
+        } else {
+            url = baseUrl + "?" + mobileStyleParameter + fragment;
         }
 
         return url;

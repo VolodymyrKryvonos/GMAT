@@ -22,7 +22,7 @@
                 android:layout_marginTop="13dp"
                 android:id="@+id/menu_forum"
                 android:text="@string/hm_forum"
-                android:gravity="left"
+                android:gravity="start"
                 android:onClick="goByMenu"
                 style="@style/menuButtons"
                 />
@@ -31,7 +31,7 @@
                 android:id="@+id/menu_pms"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="left"
+                android:gravity="start"
                 android:onClick="goByMenu">
 
                 <TextView
@@ -40,7 +40,7 @@
                     android:layout_width="wrap_content"
                     android:layout_margin="0dp"
                     android:layout_centerVertical="true"
-                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
                     android:text="@string/hm_pms" />
 
                 <TextView
@@ -59,18 +59,16 @@
                     android:fontFamily="@font/opensans_bold"
                     android:layout_centerHorizontal="true"
                     android:layout_centerVertical="true"
-                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true"
                     android:visibility="gone"/>
 
             </RelativeLayout>
-
-
 
             <RelativeLayout
                 android:id="@+id/menu_chat_container"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="left"
+                android:gravity="start"
                 android:onClick="goByMenu">
 
                 <TextView
@@ -79,7 +77,7 @@
                     android:layout_width="wrap_content"
                     android:layout_margin="0dp"
                     android:layout_centerVertical="true"
-                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
                     android:text="@string/hm_chat" />
 
                 <TextView
@@ -96,7 +94,7 @@
                     android:gravity="center"
                     android:textColor="@color/white"
                     android:textSize="15sp"
-                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true"
                     android:layout_centerHorizontal="true"
                     android:layout_centerVertical="true"
                     android:visibility="gone"/>
@@ -107,7 +105,7 @@
                 android:id="@+id/menu_notifications"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="left"
+                android:gravity="start"
                 android:onClick="goByMenu">
 
                 <TextView
@@ -115,7 +113,7 @@
                     style="@style/menuButtons"
                     android:layout_width="wrap_content"
                     android:layout_centerHorizontal="true"
-                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
                     android:layout_margin="0dp"
                     android:text="@string/hm_notifications" />
 
@@ -133,7 +131,7 @@
                     android:gravity="center"
                     android:textColor="@color/white"
                     android:textSize="15sp"
-                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true"
                     android:layout_centerHorizontal="true"
                     android:layout_centerVertical="true"
                     android:visibility="gone"/>
@@ -144,56 +142,63 @@
                 android:id="@+id/menu_practice"
                 style="@style/menuButtons"
                 android:onClick="goByMenu"
-                android:gravity="left"
+                android:gravity="start"
                 android:text="@string/hm_gmat_test" />
 
             <TextView
                     android:id="@+id/menu_forum_quiz"
                     style="@style/menuButtons"
                     android:onClick="goByMenu"
-                    android:gravity="left"
+                    android:gravity="start"
                     android:text="@string/hm_forum_quiz" />
+
+            <TextView
+                    android:id="@+id/menu_questions_banks"
+                    style="@style/menuButtons"
+                    android:onClick="goByMenu"
+                    android:gravity="start"
+                    android:text="@string/hm_questions_banks" />
 
             <TextView
                 android:id="@+id/menu_decision_tracker"
                 style="@style/menuButtons"
                 android:onClick="goByMenu"
-                android:gravity="left"
+                android:gravity="start"
                 android:text="@string/hm_decision_tracker" />
 
             <TextView
                 android:id="@+id/menu_school_hub"
                 style="@style/menuButtons"
                 android:onClick="goByMenu"
-                android:gravity="left"
+                android:gravity="start"
                 android:text="@string/hm_school_hub" />
 
             <TextView
                 android:id="@+id/menu_reviews"
                 style="@style/menuButtons"
                 android:onClick="goByMenu"
-                android:gravity="left"
+                android:gravity="start"
                 android:text="@string/hm_reviews" />
 
             <TextView
                 android:id="@+id/menu_deals_discounts"
                 style="@style/menuButtons"
                 android:onClick="goByMenu"
-                android:gravity="left"
+                android:gravity="start"
                 android:text="@string/hm_deals_discounts" />
 
             <TextView
                 android:id="@+id/menu_advanced_search"
                 style="@style/menuButtons"
                 android:onClick="goByMenu"
-                android:gravity="left"
+                android:gravity="start"
                 android:text="@string/hm_advanced_search" />
 
             <TextView
                 android:id="@+id/menu_feedback"
                 style="@style/menuButtons"
                 android:onClick="goByMenu"
-                android:gravity="left"
+                android:gravity="start"
                 android:text="@string/hm_app_feedback" />
 
         </LinearLayout>
