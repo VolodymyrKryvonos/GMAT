@@ -23,6 +23,18 @@
      public void openFileChooser(...);
      public void onShowFileChooser(...);
 }
+# Retrofit
+-keep interface retrofit2.** { *; }
+-keep class retrofit2.** { *; }
+
+# OkHttp
+-dontwarn okhttp3.**
+
+# Retrofit annotations
+-keepattributes Signature
+-keepattributes RuntimeVisibleAnnotations
+-keepattributes AnnotationDefault
+
 -dontwarn java.awt.**,javax.activation.**,java.beans.**
 -dontwarn okhttp3.**
 -dontwarn okio.**

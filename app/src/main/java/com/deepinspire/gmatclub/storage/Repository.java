@@ -11,9 +11,7 @@ import android.util.Base64;
 import android.util.Log;
 import android.webkit.CookieManager;
 import android.webkit.CookieSyncManager;
-
 import androidx.annotation.NonNull;
-
 import com.deepinspire.gmatclub.Constants;
 import com.deepinspire.gmatclub.GCConfig;
 import com.deepinspire.gmatclub.R;
@@ -24,9 +22,13 @@ import com.deepinspire.gmatclub.api.AuthException;
 import com.facebook.login.LoginManager;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.messaging.FirebaseMessaging;
-
+import okhttp3.MediaType;
+import okhttp3.RequestBody;
+import okhttp3.ResponseBody;
 import org.json.JSONException;
 import org.json.JSONObject;
+import retrofit2.Call;
+import retrofit2.Response;
 
 import java.io.IOException;
 import java.net.UnknownHostException;
@@ -37,12 +39,6 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-
-import okhttp3.MediaType;
-import okhttp3.RequestBody;
-import okhttp3.ResponseBody;
-import retrofit2.Call;
-import retrofit2.Response;
 
 /**
  * Created by dmytro mytsko on 26.03.18.
@@ -93,36 +89,39 @@ public class Repository implements IStorage {
 
     public void signIn(@NonNull final String username, @NonNull final String password,
                        @NonNull final Context context, @NonNull final ICallbackAuth callback) {
-        executorService.submit(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    LinkedHashMap<String, RequestBody> mp = new LinkedHashMap<>();
+        executorService.submit(() -> {
+            try {
+                LinkedHashMap<String, RequestBody> mp = new LinkedHashMap<>();
 
-                    RequestBody rb;
+                MediaType mediaType = MediaType.parse("text/plain");
+                mp.put("username", RequestBody.create(username, mediaType));
+                mp.put("password", RequestBody.create(password, mediaType));
+                mp.put("redirect", RequestBody.create("index.php", mediaType));
+                mp.put("login", RequestBody.create("Login", mediaType));
 
-                    rb = RequestBody.create(MediaType.parse("text/plain"), username);
-                    mp.put("username", rb);
+                ApiInterface apiService = (new ApiClient()).getClient().create(ApiInterface.class);
 
-                    rb = RequestBody.create(MediaType.parse("text/plain"), password);
-                    mp.put("password", rb);
+                Call<ResponseBody> call = apiService.signIn(generateAuthHeader(), mp);
 
-                    rb = RequestBody.create(MediaType.parse("text/plain"), "index.php");
-                    mp.put("redirect", rb);
+                call.enqueue(new retrofit2.Callback<ResponseBody>() {
+                    @Override
+                    public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                        if (!response.isSuccessful()) {
+                            user.updateCountFailedAuth(1);
 
-                    rb = RequestBody.create(MediaType.parse("text/plain"), "Login");
-                    mp.put("login", rb);
+                            AuthException exc = generateAuthError(response);
 
-                    ApiInterface apiService = (new ApiClient()).getClient().create(ApiInterface.class);
+                            if (user.getCountFailedAuth() > Api.AUTH_AVAILABLE_COUNT_FAILED_REQUESTS) {
+                                exc.setAction("showForgotPassword");
+                            }
 
-                    Call<ResponseBody> call = apiService.signIn(generateAuthHeader(), mp);
-
-                    call.enqueue(new retrofit2.Callback<ResponseBody>() {
-                        @Override
-                        public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
-                            if (!response.isSuccessful()) {
+                            callback.onError(exc);
+                        } else {
+                            if (logged(context)) {
+                                user.clearCountFailedAuth();
+                                callback.onSuccess();
+                            } else {
                                 user.updateCountFailedAuth(1);
-
                                 AuthException exc = generateAuthError(response);
 
                                 if (user.getCountFailedAuth() > Api.AUTH_AVAILABLE_COUNT_FAILED_REQUESTS) {
@@ -130,44 +129,30 @@ public class Repository implements IStorage {
                                 }
 
                                 callback.onError(exc);
-                            } else {
-                                if (logged(context)) {
-                                    user.clearCountFailedAuth();
-                                    callback.onSuccess();
-                                } else {
-                                    user.updateCountFailedAuth(1);
-                                    AuthException exc = generateAuthError(response);
-
-                                    if (user.getCountFailedAuth() > Api.AUTH_AVAILABLE_COUNT_FAILED_REQUESTS) {
-                                        exc.setAction("showForgotPassword");
-                                    }
-
-                                    callback.onError(exc);
-                                }
                             }
                         }
+                    }
 
-                        @Override
-                        public void onFailure(Call<ResponseBody> call, Throwable t) {
-                            String message = t.getMessage();
-                            String action = "";
+                    @Override
+                    public void onFailure(Call<ResponseBody> call, Throwable t) {
+                        String message = t.getMessage();
+                        String action = "";
 
-                            if (t instanceof UnknownHostException) {
-                                message = "No Internet connection detected";
-                                action = "UNKNOWN_HOST";
-                            }
-
-                            AuthException exc = new AuthException(new Exception(message), "login", message);
-                            exc.setAction(action);
-
-                            callback.onError(exc);
+                        if (t instanceof UnknownHostException) {
+                            message = "No Internet connection detected";
+                            action = "UNKNOWN_HOST";
                         }
-                    });
 
-                } catch (final Exception exception) {
-                    AuthException exc = new AuthException(new Exception("Incorrect Login and Password"), "login", "Incorrect Login and Password");
-                    callback.onError(exc);
-                }
+                        AuthException exc = new AuthException(new Exception(message), "login", message);
+                        exc.setAction(action);
+
+                        callback.onError(exc);
+                    }
+                });
+
+            } catch (final Exception exception) {
+                AuthException exc = new AuthException(new Exception("Incorrect Login and Password"), "login", "Incorrect Login and Password" + exception.getMessage());
+                callback.onError(exc);
             }
         });
     }

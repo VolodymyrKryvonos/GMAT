@@ -48,15 +48,14 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5d9e8901-ef33-43d6-bffb-1c758be0eff0" name="Default" comment="Add Question Bank menu item and improve URL handling logic">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" afterDir="false" />
+    <list default="true" id="5d9e8901-ef33-43d6-bffb-1c758be0eff0" name="Default" comment="Update build configuration and dependencies; increment version codes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/app/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/gmatclub/release/app-gmatclub-release.apk" beforeDir="false" afterPath="$PROJECT_DIR$/app/gmatclub/release/app-gmatclub-release.apk" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/gmatclub/release/output-metadata.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/gmatclub/release/output-metadata.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/proguard-rules.pro" beforeDir="false" afterPath="$PROJECT_DIR$/app/proguard-rules.pro" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/auth/LoginActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/auth/LoginActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/storage/Repository.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/storage/Repository.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,7 +65,7 @@
   <component name="ClangdSettings">
     <option name="formatViaClangd" value="false" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[DeviceId(pluginId=LocalEmulator, isTemplate=false, identifier=path=C:\Users\kruvo\.android\avd\Pixel_6_Pro.avd)]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[DeviceId(pluginId=Default, isTemplate=false, identifier=serial=192.168.0.49:5555;connection=ce30435d)]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -261,7 +260,8 @@
     </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
       <option name="TEST_OBJECT" value="class" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="VM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -490,8 +490,7 @@
     </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
       <option name="TEST_OBJECT" value="class" />
-      <option name="VM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -557,6 +556,9 @@
       <workItem from="1751530758414" duration="2374000" />
       <workItem from="1752056316047" duration="1833000" />
       <workItem from="1752061574640" duration="16000" />
+      <workItem from="1752176515710" duration="107000" />
+      <workItem from="1752177116327" duration="288000" />
+      <workItem from="1753213021498" duration="3603000" />
     </task>
     <task id="LOCAL-00001" summary="facebook login was blocked; WebActivity and ViewHelper code cleanup an bug fixing">
       <created>1593589647288</created>
@@ -674,7 +676,15 @@
       <option name="project" value="LOCAL" />
       <updated>1745065723586</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Update build configuration and dependencies; increment version codes">
+      <option name="closed" value="true" />
+      <created>1752176596042</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1752176596042</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TodoView">
@@ -790,7 +800,8 @@
     <MESSAGE value="Added deep link verification" />
     <MESSAGE value="Add button visibility&#10;Added new menu items" />
     <MESSAGE value="Add Question Bank menu item and improve URL handling logic" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add Question Bank menu item and improve URL handling logic" />
+    <MESSAGE value="Update build configuration and dependencies; increment version codes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update build configuration and dependencies; increment version codes" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -798,37 +809,37 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/storage/Repository.java</url>
-          <line>459</line>
+          <line>448</line>
           <option name="timeStamp" value="769" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/storage/Repository.java</url>
-          <line>464</line>
+          <line>453</line>
           <option name="timeStamp" value="771" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/storage/Repository.java</url>
-          <line>472</line>
+          <line>461</line>
           <option name="timeStamp" value="772" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/storage/Repository.java</url>
-          <line>474</line>
+          <line>463</line>
           <option name="timeStamp" value="773" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/storage/Repository.java</url>
-          <line>483</line>
+          <line>472</line>
           <option name="timeStamp" value="775" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/storage/Repository.java</url>
-          <line>490</line>
+          <line>479</line>
           <option name="timeStamp" value="776" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/storage/Repository.java</url>
-          <line>455</line>
+          <line>444</line>
           <option name="timeStamp" value="777" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -838,7 +849,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/storage/Repository.java</url>
-          <line>209</line>
+          <line>198</line>
           <option name="timeStamp" value="857" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
@@ -926,12 +937,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/auth/LoginActivity.java</url>
-          <line>281</line>
-          <option name="timeStamp" value="991" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/auth/LoginActivity.java</url>
-          <line>355</line>
+          <line>359</line>
           <option name="timeStamp" value="992" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
@@ -941,7 +947,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/auth/LoginActivity.java</url>
-          <line>296</line>
+          <line>300</line>
           <option name="timeStamp" value="996" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
@@ -951,7 +957,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/auth/LoginActivity.java</url>
-          <line>291</line>
+          <line>295</line>
           <option name="timeStamp" value="1001" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
@@ -968,6 +974,15 @@
           <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/web/WebActivity.java</url>
           <line>2282</line>
           <option name="timeStamp" value="1007" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/deepinspire/gmatclub/auth/ILoginContract.java</url>
+          <line>17</line>
+          <properties class="com.deepinspire.gmatclub.auth.ILoginContract.View" method="showError">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="1008" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

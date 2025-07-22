@@ -12,17 +12,10 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
-import android.widget.EditText;
-import android.widget.LinearLayout;
-import android.widget.ProgressBar;
-import android.widget.ScrollView;
-import android.widget.TextView;
-import android.widget.Toast;
-
+import android.widget.*;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
-
 import com.deepinspire.gmatclub.GCConfig;
 import com.deepinspire.gmatclub.R;
 import com.deepinspire.gmatclub.api.Api;
@@ -32,11 +25,7 @@ import com.deepinspire.gmatclub.utils.Storage;
 import com.deepinspire.gmatclub.utils.Validator;
 import com.deepinspire.gmatclub.utils.ViewHelper;
 import com.deepinspire.gmatclub.web.WebActivity;
-import com.facebook.AccessToken;
-import com.facebook.CallbackManager;
-import com.facebook.FacebookCallback;
-import com.facebook.FacebookException;
-import com.facebook.FacebookSdk;
+import com.facebook.*;
 import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
 import com.google.android.gms.auth.GoogleAuthException;
@@ -262,28 +251,32 @@ public class LoginActivity extends AppCompatActivity implements ILoginContract.V
     }
 
     public void openWebSite(String url) {
-        Intent intent;
-        intent = new Intent(LoginActivity.this, WebActivity.class);
-        intent.setData(Uri.parse(url));
-        startActivity(intent);
+        runOnUiThread(() -> {
+            Intent intent;
+            intent = new Intent(LoginActivity.this, WebActivity.class);
+            intent.setData(Uri.parse(url));
+            startActivity(intent);
 
-        if (ViewHelper.alertDialog != null) {
-            ViewHelper.alertDialog.dismiss();
-            ViewHelper.alertDialog = null;
-        }
+            if (ViewHelper.alertDialog != null) {
+                ViewHelper.alertDialog.dismiss();
+                ViewHelper.alertDialog = null;
+            }
+        });
     }
 
     public void showSuccess(String type) {
-        ViewHelper.showSuccess(type);
+        runOnUiThread(() -> ViewHelper.showSuccess(type));
     }
 
     public void showError(AuthException exception) {
-        if ("showForgotPassword".equals(exception.getAction())) {
-            setLoadingIndicator(false);
-            ViewHelper.showResetPasswordDialog(LoginActivity.this);
-        } else {
-            showErrorUI(exception);
-        }
+        runOnUiThread(() -> {
+            if ("showForgotPassword".equals(exception.getAction())) {
+                setLoadingIndicator(false);
+                ViewHelper.showResetPasswordDialog(LoginActivity.this);
+            } else {
+                showErrorUI(exception);
+            }
+        });
     }
 
     @SuppressLint("MissingSuperCall")
@@ -371,7 +364,7 @@ public class LoginActivity extends AppCompatActivity implements ILoginContract.V
                                                     String accessToken = GoogleAuthUtil.getToken(getApplicationContext(), acct.getAccount(), scope, new Bundle());
 
                                                     String idToken = acct.getIdToken();
-                                                    Long expiresIn = (new Date()).getTime() ;//+ acct.getExpirationTimeSecs();
+                                                    Long expiresIn = (new Date()).getTime();//+ acct.getExpirationTimeSecs();
                                                     Storage.saveGoogleIdToken(getApplicationContext(), idToken);
                                                     Storage.saveGoogleAccessToken(getApplicationContext(), accessToken);
                                                     presenter.signInUseGoogleAccount(LoginActivity.this, GOOGLE, idToken, accessToken, String.valueOf(expiresIn));
