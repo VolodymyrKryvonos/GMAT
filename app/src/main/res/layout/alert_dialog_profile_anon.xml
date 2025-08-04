@@ -18,14 +18,14 @@
         android:layout_marginBottom="10dp"
         android:layout_below="@+id/btnProfileTitle"
         android:visibility="gone"
-        />
+    />
 
     <ProgressBar
         android:id="@+id/loading"
         android:layout_gravity="center"
         style="@style/progressBar_style"
         android:visibility="gone"
-        />
+    />
 
    <ScrollView
        android:id="@+id/signInLayout"
@@ -37,7 +37,7 @@
            android:layout_width="match_parent"
            android:layout_height="wrap_content"
            android:gravity="left"
-           >
+       >
            <TextView
                android:id="@+id/btnProfileTitle"
                style="@style/alert_subTitle"
@@ -45,38 +45,41 @@
                android:textAllCaps="true"
                android:fontFamily="@font/opensans_bold"
                android:layout_marginBottom="15dp"
-               />
+           />
 
            <LinearLayout
                android:layout_width="match_parent"
                android:layout_height="match_parent"
                android:orientation="vertical"
                android:layout_below="@+id/btnProfileTitle"
-               android:layout_marginLeft="5dp"
-               >
+               android:layout_marginLeft="5dp">
 
                <TextView
                    android:id="@+id/btnRegister"
                    style="@style/alert_subTitle"
+                   android:layout_height="50dp"
+                   android:gravity="center|start"
+                   android:layout_width="match_parent"
                    android:text="Register"
-                   android:textColor="#666666"
-                   />
+                   android:textColor="#666666" />
 
                <TextView
                    android:id="@+id/btnSignIn"
                    style="@style/alert_subTitle"
-                   android:layout_marginTop="25dp"
+                   android:gravity="center|start"
+                   android:layout_height="50dp"
+                   android:layout_width="match_parent"
                    android:textColor="#666666"
                    android:text="Log in" />
 
                <View
                    android:id="@+id/splitLine"
                    android:layout_width="match_parent"
-                   android:layout_height= "1dp"
+                   android:layout_height="1dp"
                    android:background="@color/mainBorder"
                    android:layout_marginTop="25dp"
                    android:visibility="gone"
-                   />
+               />
 
                <LinearLayout
                    android:id="@+id/btnSignInGoogleLayout"
@@ -85,7 +88,7 @@
                    android:gravity="center"
                    android:layout_marginTop="25dp"
                    android:visibility="gone"
-                   >
+               >
                    <ImageView
                        android:layout_width="wrap_content"
                        android:layout_height="wrap_content"
@@ -93,7 +96,7 @@
                        android:tint="@color/mainOrange"
                        android:layout_gravity="center"
                        android:layout_margin="0dp"
-                       />
+                   />
                    <TextView
                        style="@style/alert_subTitle"
                        android:text="Sign in with Google"
@@ -101,7 +104,7 @@
                        android:layout_marginBottom="0dp"
                        android:textColor="#666666"
                        android:gravity="center"
-                       />
+                   />
                </LinearLayout>
 
 
@@ -113,13 +116,13 @@
                    android:layout_marginTop="25dp"
                    android:gravity="center"
                    android:visibility="gone"
-                   >
+               >
                    <ImageView
                        android:layout_width="wrap_content"
                        android:layout_height="wrap_content"
                        android:src="@drawable/ic_facebook"
                        android:tint="@color/mainOrange"
-                       />
+                   />
                    <TextView
                        style="@style/alert_subTitle"
                        android:layout_marginLeft="13dp"
